@@ -1,57 +1,46 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Deck", menuName = "Scriptable Objects/CardLogic/Deck")]
+[CreateAssetMenu(fileName = "Deck", menuName = "CardLogic/Deck")]
 public class Deck : ScriptableObject
 {
+    [SerializeField] List<Card> CardPresets = new List<Card>();
     public List<Card> cards = new List<Card>();
     public Stack<Card> BuyingPile, DiscardPile;
-    public void ShuffleDeck()
+    public void Setup()
+    {
+        foreach (Card c in CardPresets)
+        {
+            AddCard(c);
+        }
+    }
+    public void AddCard(Card preset)
+    {
+        Card card = Instantiate(preset);
+        card.deck = this;
+        cards.Add(card);
+    }
+    public void ShuffleDeck() // coloca todas as cartas na pilha de descarte na pilha de compras e as embaralha
+    {
+        while (DiscardPile.Count>0)
+        {
+            BuyingPile.Push(DiscardPile.Pop());
+        }
+        ShufflePile(ref BuyingPile);
+    }
+    public void ShufflePile(ref Stack<Card> pile) // embaralha apenas uma pilha (descarte ou compra)
+    {
+        ListUT.Shuffle(pile);
+    }
+    public void StartShuffle()// embaralha as cartas do deck e bota na pilha de compra (USAR APENAS NO INICIO DO COMBATE)
+    {
+        ResetPiles();
+        BuyingPile = ListUT.ToStack(ListUT.Shuffle(cards));
+    }
+    public void ResetPiles()// limpa pilha de compra e descarte
     {
         BuyingPile.Clear();
         DiscardPile.Clear();
-        BuyingPile = ToStack(Shuffle(cards));
     }
-    public void ShufflePile(ref Stack<Card> pile){
-        Shuffle(pile);
-    }
-    public static List<T> Shuffle<T>(List<T> list)
-    {
-        for (int n = list.Count; n > 1;)
-        {
-            n--;
-            int k = Random.Range(0, n + 1);
-            T value = list[k];
-            list[k] = list[n];
-            list[n] = value;
-        }
-        return list;
-    }
-    public static Stack<T> Shuffle<T>(Stack<T> stack)
-    {
-        List<T> list = stack.ToList();
-        stack.Clear();
-
-        for (int n = stack.Count; n > 1;)
-        {
-            n--;
-            int k = Random.Range(0, n + 1);
-            T value = list[k];
-            list[k] = list[n];
-            list[n] = value;
-        }
-
-        return ToStack(list);
-
-    }
-    public static Stack<T> ToStack<T>(List<T> list)
-    {
-        Stack<T> stack = new Stack<T>();
-        foreach (T v in list)
-        {
-            stack.Push(v);
-        }
-        return stack;
-    }
+    
 }
