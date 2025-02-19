@@ -36,7 +36,6 @@ public class BoardGenerator : MonoBehaviour
                     for(int j = 0; j < board[i-1].nextRoomsProbabilities.Count; j++)
                     {
                         aux += board[i - 1].nextRoomsProbabilities[j];
-                        Debug.Log(rand + ", " + aux);
                         if(rand < aux)
                         {
                             if(!board[i - 1].nextRooms.Contains(board[i - 1].possibleNextRooms[j]))
