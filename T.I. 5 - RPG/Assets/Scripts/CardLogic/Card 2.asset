@@ -13,9 +13,24 @@ MonoBehaviour:
   m_Name: Card 2
   m_EditorClassIdentifier: 
   deck: {fileID: 0}
+  Name: 
+  hidden: 0
   cost: 2
   Type: 1
   Rarity: 1
+  Description: 
   CardEffect:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000}
+        m_TargetAssemblyTypeName: Card, Assembly-CSharp
+        m_MethodName: AddDefense
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

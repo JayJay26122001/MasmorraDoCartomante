@@ -361,10 +361,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6758d649210209649944457b98a25d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentCombat: {fileID: 0}
+  Enemy: {fileID: 0}
   DeckPresets:
   - {fileID: 11400000, guid: 09d6c5b2d83f8a14dabe4d634765683a, type: 2}
   - {fileID: 11400000, guid: 646b18cfdf878424897bdef708cce818, type: 2}
-  hand: []
+  maxHP: 0
+  hp: 0
+  shld: 0
+  Damaged:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayedCard:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1866734917
 Transform:
   m_ObjectHideFlags: 0
