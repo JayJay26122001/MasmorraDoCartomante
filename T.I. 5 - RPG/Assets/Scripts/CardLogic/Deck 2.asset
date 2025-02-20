@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d1a39dfc1f14914194bdd1ce1b68008, type: 3}
   m_Name: Deck 2
   m_EditorClassIdentifier: 
-  cards:
+  CardPresets:
   - {fileID: 11400000, guid: f5df698fa3947074ebb31b07fdb255cd, type: 2}
   - {fileID: 11400000, guid: c41fc99022ecc1e4bb52aa97bde67b79, type: 2}
+  cards: []
