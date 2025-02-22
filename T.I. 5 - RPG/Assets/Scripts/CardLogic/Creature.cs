@@ -90,7 +90,7 @@ public class Creature : MonoBehaviour
         c.CardPlayed();
         PlayedCard.Invoke(c);
     }
-    protected void DiscardCard(Card card)
+    public void DiscardCard(Card card)
     {
         card.deck.DiscardPile.Push(card);
     }

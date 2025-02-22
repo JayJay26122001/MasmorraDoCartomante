@@ -23,11 +23,11 @@ public class Card : ScriptableObject
     public string Description;
     public List<Condition.condition> conditions = new List<Condition.condition>();
     List<Condition> conds = new List<Condition>();
-    public void CardPlayed()
+    public void CardPlayed() // carta foi jogada na mesa
     {
         if (conditions.Count == 0)
         {
-            CardEffect.Invoke();
+            CardHadEffect();
         }
         else
         {
@@ -37,18 +37,46 @@ public class Card : ScriptableObject
             }
         }
     }
-    public void CheckConditions()
+    
+
+    //CONDICIONAIS DA CARTA
+    public void CheckConditions() // Checa se as condições para os efeitos da carta foram resolvidas
     {
         foreach (Condition c in conds)
         {
-            if (!c.ConditionAchieved)
+            if (c.ConditionAchieved == Condition.ConditionState.Failled)
+            {
+                ConditionalCardFailled();
+                return;
+            }
+            else if (c.ConditionAchieved == Condition.ConditionState.Unsolved)
             {
                 return;
             }
         }
-        CardEffect.Invoke();
+        CardHadEffect();
     }
+    public void ConditionalCardFailled()// caso as condições da carta não tenham sido cumpridas
+    {
+        foreach (Condition c in conds)
+        {
+            c.TerminateCondition();
+            c.ResetCondition();
+        }
+        deck.Owner.DiscardCard(this);
+    }
+
+
+    //EFEITOS DA CARTA
     public UnityEvent CardEffect = new UnityEvent();
+    void CardHadEffect() //carta tem efeito
+    {
+        CardEffect.Invoke();
+        foreach (Condition c in conds)
+        {
+            c.ResetCondition();
+        }
+    }
 
     public void DamageEnemy(int damage)
     {
