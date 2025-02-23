@@ -4,6 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Deck", menuName = "CardLogic/Deck")]
 public class Deck : ScriptableObject
 {
+    public Creature Owner;
     [SerializeField] List<Card> CardPresets = new List<Card>();
     public List<Card> cards = new List<Card>();
     public Stack<Card> BuyingPile, DiscardPile;
@@ -17,6 +18,7 @@ public class Deck : ScriptableObject
     public void AddCard(Card preset)
     {
         Card card = Instantiate(preset);
+        card.Setup();
         card.deck = this;
         cards.Add(card);
     }
