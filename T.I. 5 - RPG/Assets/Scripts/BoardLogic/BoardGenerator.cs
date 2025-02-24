@@ -2,58 +2,134 @@ using UnityEngine;
 using System.Collections.Generic;
 public class BoardGenerator : MonoBehaviour
 {
-    public List<BoardRoomSO> board = new List<BoardRoomSO>();
-    public int roomCount;
+    public List<List<BoardRoom>> board = new List<List<BoardRoom>>();
+    public int levelsCount;
     public BoardRoomSO startRoom, bossRoom;
+    int battleProbability, mimicProbability, shopProbability, choiceProbability, nextRoomsCount;
+    float battlePModifier = 1, mimicPModifier = 1, shopPModifier = 1, choicePModifier = 1;
+    List<int> probabilities = new List<int>();
+    BoardRoom newRoom;
     private void Start()
     {
         GenerateBoard();
-        foreach(BoardRoomSO room in board)
+        for(int i = 0; i < board.Count; i++)
         {
-            Debug.Log(room.roomName);
+            foreach(BoardRoom r in board[i])
+            {
+                string s = "Level: " + i + " /// Name: " + r.type.roomName + " /// Nexts: ";
+                foreach(BoardRoom r2 in r.nextRooms)
+                {
+                    s += r2.type.roomName + " / ";
+                }
+                Debug.Log(s);
+            }
         }
     }
 
     public void GenerateBoard()
     {
         board.Clear();
-        BoardRoomSO start = Instantiate(startRoom);
-        board.Insert(0, start);
-        for(int i = 1; i < roomCount - 1; i++)
+        ChangeProbabilities(startRoom.roomName);
+        newRoom = new BoardRoom(startRoom, probabilities, 1);
+        board.Insert(0, new List<BoardRoom>());
+        board[0].Add(newRoom);
+        for(int i = 1; i < levelsCount - 1; i++)
         {
-            while(board[i - 1].nextRooms.Count < board[i - 1].nextRoomsCount)
+            board.Insert(i, new List<BoardRoom>());
+            for (int j = 0; j < board[i - 1].Count; j++)
             {
                 int sum = 0;
-                foreach(int s in board[i - 1].nextRoomsProbabilities)
+                foreach(int s in board[i - 1][j].nextRoomsProbabilities)
                 {
                     sum += s;
                 }
-                bool success = false;
-                while(!success)
+                while (board[i - 1][j].nextRooms.Count < board[i - 1][j].nextRoomsCount)
                 {
-                    int rand = Random.Range(0, sum);
-                    int aux = 0;
-                    for(int j = 0; j < board[i-1].nextRoomsProbabilities.Count; j++)
+                    bool success = false;
+                    while (!success)
                     {
-                        aux += board[i - 1].nextRoomsProbabilities[j];
-                        if(rand < aux)
+                        int rand = Random.Range(0, sum);
+                        int aux = 0;
+                        for (int k = 0; k < board[i - 1][j].nextRoomsProbabilities.Count; k++)
                         {
-                            if(!board[i - 1].nextRooms.Contains(board[i - 1].possibleNextRooms[j]))
+                            aux += board[i - 1][j].nextRoomsProbabilities[k];
+                            if (rand < aux)
                             {
-                                BoardRoomSO auxRoom = Instantiate(board[i - 1].possibleNextRooms[j]);
-                                board[i - 1].nextRooms.Add(auxRoom);
-                                board.Insert(i,auxRoom);
-                                success = true;
+                                if (!board[i - 1][j].CheckNextRooms(board[i - 1][j].type.possibleNextRooms[k]))
+                                {
+                                    ChangeProbabilities(board[i - 1][j].type.possibleNextRooms[k].roomName);
+                                    newRoom = new BoardRoom(board[i - 1][j].type.possibleNextRooms[k], probabilities, nextRoomsCount);
+                                    board[i - 1][j].nextRooms.Add(newRoom);
+                                    board[i].Add(newRoom);
+                                    success = true;
+                                }
+                                break;
                             }
-                            break;
                         }
                     }
                 }
             }
         }
-        BoardRoomSO boss = Instantiate(bossRoom);
-        board[roomCount - 2].nextRoomsCount = 1;
-        board[roomCount - 2].nextRooms.Add(boss);
-        board.Insert(roomCount - 1, boss);
+        board.Insert(levelsCount - 1, new List<BoardRoom>());
+        newRoom = new BoardRoom(bossRoom);
+        foreach(BoardRoom r in board[levelsCount - 2])
+        {
+            r.nextRoomsCount = 1;
+            r.nextRooms.Add(newRoom);
+        }
+        board[levelsCount - 1].Add(newRoom);
+    }
+
+    public void ChangeProbabilities(string s)
+    {
+        if(string.Compare(s, "Start") == 0)
+        {
+            battleProbability = 60;
+            mimicProbability = 40;
+            shopProbability = 0;
+            choiceProbability = 30;
+        }
+        else
+        {
+            if(string.Compare(s, "Battle") == 0)
+            {
+                battleProbability = (int)(10 * battlePModifier);
+                mimicProbability = (int)(40 * mimicPModifier);
+                shopProbability = (int)(50 * shopPModifier);
+                battlePModifier = Mathf.Clamp(battlePModifier - 0.1f, 0.1f, 2f);
+                mimicPModifier = Mathf.Clamp(mimicPModifier + 0.1f, 0.1f, 2f);
+                shopPModifier = Mathf.Clamp(shopPModifier + 0.1f, 0, 1.5f);
+            }
+            else if(string.Compare(s, "Mimic") == 0)
+            {
+                battleProbability = (int)(45 * battlePModifier);
+                mimicProbability = (int)(10 * mimicPModifier);
+                shopProbability = (int)(45 * shopPModifier);
+                battlePModifier = Mathf.Clamp(battlePModifier + 0.1f, 0.1f, 2f);
+                mimicPModifier = Mathf.Clamp(mimicPModifier - 0.1f, 0.1f, 2f);
+                shopPModifier = Mathf.Clamp(shopPModifier + 0.1f, 0, 1.5f);
+            }
+            else if(string.Compare(s, "Shop") == 0)
+            {
+                battleProbability = (int)(55 * battlePModifier);
+                mimicProbability = (int)(45 * mimicPModifier);
+                shopProbability = 0;
+                battlePModifier = Mathf.Clamp(battlePModifier + 0.1f, 0.1f, 2f);
+                mimicPModifier = Mathf.Clamp(mimicPModifier + 0.1f, 0.1f, 2f);
+                shopPModifier = 0;
+            }
+            int rand = Random.Range(0, 100);
+            if(rand < choiceProbability * choicePModifier)
+            {
+                nextRoomsCount = 2;
+                choicePModifier -= 0.2f;
+            }
+            else
+            {
+                nextRoomsCount = 1;
+                choicePModifier += 0.1f;
+            }
+        }
+        probabilities = new List<int> { battleProbability, mimicProbability, shopProbability };
     }
 }

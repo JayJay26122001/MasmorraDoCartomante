@@ -16,6 +16,4 @@ MonoBehaviour:
   possibleNextRooms:
   - {fileID: 11400000, guid: 502a13dcbc6c90a4ebe32af84743f161, type: 2}
   - {fileID: 11400000, guid: bdbffcc7dc32f124589636aa2b21d6dc, type: 2}
-  nextRoomsProbabilities: 3c00000028000000
-  nextRoomsCount: 1
-  nextRooms: []
+  - {fileID: 11400000, guid: e9fb53d20fe3755498b5c6ed648a0b74, type: 2}
