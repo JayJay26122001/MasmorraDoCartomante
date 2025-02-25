@@ -18,7 +18,11 @@ public class Combat : MonoBehaviour
     }
     public void AdvanceCombat()
     {
-        if ((int)ActiveTurn.phase < Enum.GetNames(typeof(Turn.TurnPhase)).Length - 1)
+        /*if ((int)ActiveTurn.phase < Enum.GetNames(typeof(Turn.TurnPhase)).Length - 1)
+        {
+            ActiveTurn.NextPhase();
+        }*/
+        if (ActiveTurn.phaseIndex < ActiveTurn.phases.Length - 1)
         {
             ActiveTurn.NextPhase();
         }
@@ -45,31 +49,45 @@ public class Combat : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log($"Turn {TurnIndex+1} {ActiveTurn.phase}");
+            //Debug.Log($"Turn {TurnIndex+1} {ActiveTurn.phase}");
+            Debug.Log($"Turn {TurnIndex+1} {ActiveTurn.currentPhase}");
             AdvanceCombat();
         }
     }
 }
 public class Turn
 {
-    public enum TurnPhase { TurnStart, ReactionTurn, TurnEnd }
-    public TurnPhase phase { get; private set; }
+    //public enum TurnPhase { TurnStart, ReactionTurn, TurnEnd }
+    //public TurnPhase phase { get; private set; }
+    public TurnPhase[] phases;
+    public TurnPhase currentPhase;
+    public int phaseIndex;
 
     public Creature TurnOwner { get; private set; }
     public Turn(Creature owner)
     {
         TurnOwner = owner;
+        phases = new TurnPhase[] { new TurnStart(), new ReactionTurn(), new TurnEnd() };
+        phaseIndex = 0;
+        currentPhase = phases[phaseIndex];
     }
     public void TurnStart()
     {
-        phase = 0;
+        //phase = 0;
+        phaseIndex = 0;
+        currentPhase = phases[phaseIndex];
         TurnOwner.resetShield();
     }
     public void NextPhase()
     {
-        if ((int)phase < Enum.GetNames(typeof(TurnPhase)).Length - 1)
+        /*if ((int)phase < Enum.GetNames(typeof(TurnPhase)).Length - 1)
         {
             phase++;
+        }*/
+        if (phaseIndex < phases.Length - 1)
+        {
+            phaseIndex++;
+            currentPhase = phases[phaseIndex];
         }
         else
         {
@@ -77,4 +95,20 @@ public class Turn
         }
 
     }
+}
+public abstract class TurnPhase
+{
+
+}
+public class TurnStart :TurnPhase
+{
+
+}
+public class ReactionTurn :TurnPhase
+{
+
+}
+public class TurnEnd :TurnPhase
+{
+    
 }
