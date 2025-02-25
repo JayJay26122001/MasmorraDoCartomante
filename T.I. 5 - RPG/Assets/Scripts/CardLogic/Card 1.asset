@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: Card 1
   m_EditorClassIdentifier: 
   deck: {fileID: 0}
-  Name: 
+  Name: Heheha
   hidden: 0
   cost: 1
   Type: 0
   Rarity: 0
-  Description: 
+  Description: Bla bla dgbhshuvgbhb
+  conditions: 
   CardEffect:
     m_PersistentCalls:
       m_Calls:
