@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Card 1
   m_EditorClassIdentifier: 
   deck: {fileID: 0}
-  Name: Heheha
+  Name: Ataque Impiedoso
   hidden: 0
   cost: 1
   Type: 0
   Rarity: 0
-  Description: Bla bla dgbhshuvgbhb
+  Description: Desfere um golpe devastador que causa 8 pontos de dano ao inimigo.
   conditions: 
   CardEffect:
     m_PersistentCalls:

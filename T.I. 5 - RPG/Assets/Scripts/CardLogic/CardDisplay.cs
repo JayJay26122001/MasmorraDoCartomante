@@ -17,17 +17,9 @@ public class CardDisplay : MonoBehaviour
     public void CardSetup()
     {
         cardCost.text = cardData.cost.ToString();
-        cardName.text = cardData.name;
+        cardName.text = cardData.Name;
         cardDescription.text = cardData.Description;
-        SetSortingLayer(rarity, "CardRarity");
-        SetSortingLayer(type, "CardType");
-    }
-
-    void SetSortingLayer(SpriteRenderer spriteRenderer, string layerName)
-    {
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.sortingLayerName = layerName;
-        }
+        rarity.sprite = cardsUI.cardRarity[(int)cardData.Rarity];
+        type.sprite = cardsUI.cardType[(int)cardData.Type];
     }
 }
