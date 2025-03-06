@@ -1,4 +1,5 @@
-using System;
+using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Combat : MonoBehaviour
@@ -10,11 +11,22 @@ public class Combat : MonoBehaviour
     public int TurnIndex { get{ return turnIndex; } private set { turnIndex = value % Round.Length; } }
     public void StartCombat()
     {
+        creature1.currentCombat = this;
+        creature2.currentCombat = this;
         creature1.Enemy = creature2;
         creature2.Enemy = creature1;
+        foreach (Deck d in creature1.decks)
+        {
+            d.StartShuffle();
+        }
+        foreach (Deck d in creature2.decks)
+        {
+            d.StartShuffle();
+        }
         Round = new Turn[2] { new Turn(creature1), new Turn(creature2) };
         ActiveTurn = Round[turnIndex];
         TurnIndex = 0;
+        ActiveTurn.TurnStart();
     }
     public void AdvanceCombat()
     {
@@ -44,14 +56,40 @@ public class Combat : MonoBehaviour
     void Awake()
     {
         StartCombat();
+        Debug.Log($"Turn {TurnIndex + 1} {ActiveTurn.currentPhase}");
     }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //Debug.Log($"Turn {TurnIndex+1} {ActiveTurn.phase}");
-            Debug.Log($"Turn {TurnIndex+1} {ActiveTurn.currentPhase}");
             AdvanceCombat();
+            Debug.Log($"Turn {TurnIndex + 1} {ActiveTurn.currentPhase}");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            creature1.PlayCard(creature1.decks[0].cards[0]);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            creature1.PlayCard(creature1.decks[0].cards[1]);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            creature1.PlayCard(creature1.decks[0].cards[2]);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            creature2.PlayCard(creature2.decks[0].cards[0]);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            creature2.PlayCard(creature2.decks[0].cards[1]);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            creature2.PlayCard(creature2.decks[0].cards[2]);
         }
     }
 }
@@ -67,7 +105,7 @@ public class Turn
     public Turn(Creature owner)
     {
         TurnOwner = owner;
-        phases = new TurnPhase[] { new TurnStart(), new ReactionTurn(), new TurnEnd() };
+        phases = new TurnPhase[] { new TurnStart(owner), new ReactionTurn(owner), new TurnEnd(owner) };
         phaseIndex = 0;
         currentPhase = phases[phaseIndex];
     }
@@ -76,7 +114,10 @@ public class Turn
         //phase = 0;
         phaseIndex = 0;
         currentPhase = phases[phaseIndex];
+        currentPhase.StartPhase();
+
         TurnOwner.resetShield();
+        TurnOwner.resetEnergy();
     }
     public void NextPhase()
     {
@@ -88,6 +129,7 @@ public class Turn
         {
             phaseIndex++;
             currentPhase = phases[phaseIndex];
+            currentPhase.StartPhase();
         }
         else
         {
@@ -98,17 +140,45 @@ public class Turn
 }
 public abstract class TurnPhase
 {
+    protected Creature owner;
+    public TurnPhase(Creature owner)
+    {
+        this.owner = owner;
+    }
 
+    public virtual void StartPhase()
+    {
+        PhaseEffect();
+    }
+    public abstract void PhaseEffect();
 }
-public class TurnStart :TurnPhase
+public class TurnStart : TurnPhase
 {
-
+    public TurnStart(Creature owner) : base(owner) { }
+    public override void PhaseEffect()
+    {
+        owner.BuyCards(owner.CardBuyMax);
+        owner.canPlayCards = true;
+    }
 }
-public class ReactionTurn :TurnPhase
+public class ReactionTurn : TurnPhase
 {
-
+    public ReactionTurn(Creature owner) : base(owner) { }
+    public override void PhaseEffect()
+    {
+        owner.canPlayCards = false;
+        List<Card> temp = owner.Enemy.playedCards.ToList();
+        foreach (Card c in temp)
+        {
+            c.CheckConditions();
+        }
+    }
 }
-public class TurnEnd :TurnPhase
+public class TurnEnd : TurnPhase
 {
-    
+    public TurnEnd(Creature owner) : base(owner) { }
+    public override void PhaseEffect()
+    {
+        owner.TriggerPlayedCards();
+    }
 }

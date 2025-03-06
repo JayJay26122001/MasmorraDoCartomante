@@ -25,17 +25,7 @@ public class Card : ScriptableObject
     List<Condition> conds = new List<Condition>();
     public void CardPlayed() // carta foi jogada na mesa
     {
-        if (conditions.Count == 0)
-        {
-            CardHadEffect();
-        }
-        else
-        {
-            foreach (Condition c in conds)
-            {
-                c.InitiateCondition();
-            }
-        }
+        
     }
     
 
@@ -69,6 +59,21 @@ public class Card : ScriptableObject
 
     //EFEITOS DA CARTA
     public UnityEvent CardEffect = new UnityEvent();
+
+    public void IniciateCardEffect() //tenta triggar o efeito da carta se ela não tiver condições, se tiver inicializa as condições
+    {
+        if (conditions.Count == 0)
+        {
+            CardHadEffect();
+        }
+        else
+        {
+            foreach (Condition c in conds)
+            {
+                c.InitiateCondition();
+            }
+        }
+    }
     void CardHadEffect() //carta tem efeito
     {
         CardEffect.Invoke();
@@ -76,6 +81,7 @@ public class Card : ScriptableObject
         {
             c.ResetCondition();
         }
+        deck.Owner.DiscardCard(this);
     }
 
     public void DamageEnemy(int damage)

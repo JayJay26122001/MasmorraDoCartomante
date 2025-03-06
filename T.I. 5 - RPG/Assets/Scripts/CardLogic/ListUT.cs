@@ -6,15 +6,16 @@ public static class ListUT
 {
     public static List<T> Shuffle<T>(List<T> list)
     {
-        for (int n = list.Count; n > 1;)
+        List<T> temp = list.ToList();
+        for (int n = temp.Count; n > 1;)
         {
             n--;
             int k = Random.Range(0, n + 1);
-            T value = list[k];
-            list[k] = list[n];
-            list[n] = value;
+            T value = temp[k];
+            temp[k] = temp[n];
+            temp[n] = value;
         }
-        return list;
+        return temp;
     }
     public static Stack<T> Shuffle<T>(Stack<T> stack)
     {

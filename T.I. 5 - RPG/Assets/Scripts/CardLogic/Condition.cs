@@ -35,13 +35,13 @@ public class Condition
     {
         ConditionAchieved = ConditionState.Achieved;
         TerminateCondition();
-        card.CheckConditions();
+        //card.CheckConditions();
     }
     public void NeglectCondition() //confirma a falha da condição
     {
         ConditionAchieved = ConditionState.Failled;
         TerminateCondition();
-        card.CheckConditions();
+        //card.CheckConditions();
     }
     public void TerminateCondition() //remove a condição do observer
     {

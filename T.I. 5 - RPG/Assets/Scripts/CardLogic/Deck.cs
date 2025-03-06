@@ -7,7 +7,7 @@ public class Deck : ScriptableObject
     public Creature Owner;
     [SerializeField] List<Card> CardPresets = new List<Card>();
     public List<Card> cards = new List<Card>();
-    public Stack<Card> BuyingPile, DiscardPile;
+    public Stack<Card> BuyingPile = new Stack<Card>(), DiscardPile = new Stack<Card>();
     public void Setup()
     {
         foreach (Card c in CardPresets)
@@ -32,7 +32,7 @@ public class Deck : ScriptableObject
     }
     public void ShufflePile(ref Stack<Card> pile) // embaralha apenas uma pilha (descarte ou compra)
     {
-        ListUT.Shuffle(pile);
+        pile = ListUT.Shuffle(pile);
     }
     public void StartShuffle()// embaralha as cartas do deck e bota na pilha de compra (USAR APENAS NO INICIO DO COMBATE)
     {

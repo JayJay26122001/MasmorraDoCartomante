@@ -119,6 +119,113 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &509029432
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 509029434}
+  - component: {fileID: 509029433}
+  m_Layer: 0
+  m_Name: Criatura 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &509029433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509029432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6758d649210209649944457b98a25d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCombat: {fileID: 0}
+  Enemy: {fileID: 0}
+  DeckPresets:
+  - {fileID: 11400000, guid: 09d6c5b2d83f8a14dabe4d634765683a, type: 2}
+  decks: []
+  playedCards: []
+  maxHP: 100
+  hp: 0
+  shld: 0
+  energy: 0
+  maxBaseEnergy: 3
+  Damaged:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayedCard:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &509029434
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509029432}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &713266984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 713266986}
+  - component: {fileID: 713266985}
+  m_Layer: 0
+  m_Name: Combat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &713266985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713266984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f44db77825007f408616dffd7e43a1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creature1: {fileID: 1866734916}
+  creature2: {fileID: 509029433}
+--- !u!4 &713266986
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713266984}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.0349827, y: -0.5052408, z: -7.5412135}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &830341645
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,7 +579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1552597131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,9 +620,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1866734917}
   - component: {fileID: 1866734916}
-  - component: {fileID: 1866734918}
   m_Layer: 0
-  m_Name: TestObj
+  m_Name: Criatura 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -537,10 +643,13 @@ MonoBehaviour:
   Enemy: {fileID: 0}
   DeckPresets:
   - {fileID: 11400000, guid: 09d6c5b2d83f8a14dabe4d634765683a, type: 2}
-  - {fileID: 11400000, guid: 646b18cfdf878424897bdef708cce818, type: 2}
-  maxHP: 0
+  decks: []
+  playedCards: []
+  maxHP: 100
   hp: 0
   shld: 0
+  energy: 0
+  maxBaseEnergy: 3
   Damaged:
     m_PersistentCalls:
       m_Calls: []
@@ -562,20 +671,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1866734918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1866734915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f44db77825007f408616dffd7e43a1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  creature1: {fileID: 1866734916}
-  creature2: {fileID: 1866734916}
 --- !u!1 &2027323782
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,6 +726,10 @@ PrefabInstance:
     - target: {fileID: 4571134516105618399, guid: a468dd13253bcef47bbc2cf4ff5ff828, type: 3}
       propertyPath: m_Name
       value: Card
+      objectReference: {fileID: 0}
+    - target: {fileID: 4571134516105618399, guid: a468dd13253bcef47bbc2cf4ff5ff828, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6989787584245265389, guid: a468dd13253bcef47bbc2cf4ff5ff828, type: 3}
       propertyPath: m_LocalPosition.x
@@ -697,7 +796,9 @@ SceneRoots:
   - {fileID: 830341648}
   - {fileID: 1249348949}
   - {fileID: 1866734917}
+  - {fileID: 509029434}
   - {fileID: 2027323784}
   - {fileID: 1552597132}
   - {fileID: 1366510553}
   - {fileID: 859873356496394562}
+  - {fileID: 713266986}
