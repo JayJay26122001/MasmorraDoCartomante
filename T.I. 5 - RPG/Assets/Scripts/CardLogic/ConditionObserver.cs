@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class ConditionObserver : MonoBehaviour
 {
@@ -60,7 +61,8 @@ public class ConditionObserver : MonoBehaviour
 
     public void CreaturePlayedCard(Card card)
     {
-        foreach (Condition c in CardRelatadConditions)
+        List<Condition> temp = CardRelatadConditions.ToList();
+        foreach (Condition c in temp)
         {
             c.CheckCondition(card);
         }

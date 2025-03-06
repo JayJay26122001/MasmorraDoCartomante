@@ -11,8 +11,7 @@ public class Combat : MonoBehaviour
     public int TurnIndex { get{ return turnIndex; } private set { turnIndex = value % Round.Length; } }
     public void StartCombat()
     {
-        creature1.currentCombat = this;
-        creature2.currentCombat = this;
+        ConditionObserver.currentCombat = this;
         creature1.Enemy = creature2;
         creature2.Enemy = creature1;
         foreach (Deck d in creature1.decks)
@@ -171,6 +170,11 @@ public class ReactionTurn : TurnPhase
         foreach (Card c in temp)
         {
             c.CheckConditions();
+        }
+        temp = owner.Enemy.playedCards.ToList();
+        foreach (Card c in temp)
+        {
+            c.ConditionalCardFailled();
         }
     }
 }

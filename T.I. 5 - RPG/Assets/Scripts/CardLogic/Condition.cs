@@ -1,3 +1,4 @@
+using UnityEngine;
 public class Condition
 {
     public enum condition { None, EnemyPlayedAttackFirst, EnemyPlayedDefenseFirst, EnemyPlayedMindFirst }
@@ -5,7 +6,7 @@ public class Condition
     public enum ConditionType { CardRelatedCondition }
     public ConditionType type { get; private set; }
     condition cond;
-    public ConditionState ConditionAchieved { get; private set; }
+    public ConditionState ConditionStatus { get; private set; }
     Card card;
 
     //INICIALIZAÇÃO
@@ -33,13 +34,13 @@ public class Condition
     }
     public void ConfirmCondition() //confirma o sucesso da condição
     {
-        ConditionAchieved = ConditionState.Achieved;
+        ConditionStatus = ConditionState.Achieved;
         TerminateCondition();
         //card.CheckConditions();
     }
     public void NeglectCondition() //confirma a falha da condição
     {
-        ConditionAchieved = ConditionState.Failled;
+        ConditionStatus = ConditionState.Failled;
         TerminateCondition();
         //card.CheckConditions();
     }
@@ -49,7 +50,7 @@ public class Condition
     }
     public void ResetCondition() //reseta o status da condição
     {
-        ConditionAchieved = ConditionState.Unsolved;
+        ConditionStatus = ConditionState.Unsolved;
     }
 
 
@@ -74,15 +75,15 @@ public class Condition
     void PlayedCardTypeFirst(Card c, Card.CardType t, Creature cr)
     {
         if (c.deck.Owner == cr)
-                {
-                    if (c.Type == t)
-                    {
-                        ConfirmCondition();
-                    }
-                    else
-                    {
-                        NeglectCondition();
-                    }
-                }
+        {
+            if (c.Type == t)
+            {
+                ConfirmCondition();
+            }
+            else
+            {
+                NeglectCondition();
+            }
+        }
     }
 }

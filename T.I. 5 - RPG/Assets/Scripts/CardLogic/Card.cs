@@ -8,8 +8,9 @@ public class Card : ScriptableObject
 {
     public void Setup()
     {
-        foreach (Condition.condition c in conditions) {
-            new Condition(c, this);
+        foreach (Condition.condition c in conditions)
+        {
+            conds.Add(new Condition(c, this));
         }
     }
     public Deck deck;
@@ -25,21 +26,21 @@ public class Card : ScriptableObject
     List<Condition> conds = new List<Condition>();
     public void CardPlayed() // carta foi jogada na mesa
     {
-        
+
     }
-    
+
 
     //CONDICIONAIS DA CARTA
     public void CheckConditions() // Checa se as condições para os efeitos da carta foram resolvidas
     {
         foreach (Condition c in conds)
         {
-            if (c.ConditionAchieved == Condition.ConditionState.Failled)
+            if (c.ConditionStatus == Condition.ConditionState.Failled)
             {
                 ConditionalCardFailled();
                 return;
             }
-            else if (c.ConditionAchieved == Condition.ConditionState.Unsolved)
+            else if (c.ConditionStatus == Condition.ConditionState.Unsolved)
             {
                 return;
             }

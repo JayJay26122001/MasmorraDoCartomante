@@ -11,8 +11,6 @@ public class Creature : MonoBehaviour
         Health = maxHP;
         //decks[0].AddCard(decks[1].cards[1]);
     }
-
-    public Combat currentCombat;
     public Creature Enemy;
     [SerializeField] List<Deck> DeckPresets = new List<Deck>();
     [SerializeField]public List<Deck> decks = new List<Deck>();
