@@ -447,6 +447,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6989787584245265389}
   - component: {fileID: 9116686077430768635}
+  - component: {fileID: 5130134605042037181}
+  - component: {fileID: 6768557760364114197}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -491,8 +493,58 @@ MonoBehaviour:
   cardCost: {fileID: 141830695480056064}
   cardName: {fileID: 704895259016238313}
   cardDescription: {fileID: 7150064401150702258}
-  cardData: {fileID: 11400000, guid: b4f1c9213ec94944fbb3140dc70fd316, type: 2}
+  cardData: {fileID: 0}
   cardsUI: {fileID: 11400000, guid: 70d792a66a4e77b4c82d8cc248c95ab8, type: 2}
+--- !u!65 &5130134605042037181
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4571134516105618399}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 12.454132, y: 17.534077, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6768557760364114197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4571134516105618399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9116686077430768635}
+          m_TargetAssemblyTypeName: CardDisplay, Assembly-CSharp
+          m_MethodName: OnCardClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &5569698946324196903
 GameObject:
   m_ObjectHideFlags: 0

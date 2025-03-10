@@ -148,7 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6758d649210209649944457b98a25d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentCombat: {fileID: 0}
   Enemy: {fileID: 0}
   DeckPresets:
   - {fileID: 11400000, guid: 09d6c5b2d83f8a14dabe4d634765683a, type: 2}
@@ -159,12 +158,14 @@ MonoBehaviour:
   shld: 0
   energy: 0
   maxBaseEnergy: 3
+  CardBuyMax: 5
   Damaged:
     m_PersistentCalls:
       m_Calls: []
   PlayedCard:
     m_PersistentCalls:
       m_Calls: []
+  canPlayCards: 0
 --- !u!4 &509029434
 Transform:
   m_ObjectHideFlags: 0
@@ -238,6 +239,7 @@ GameObject:
   - component: {fileID: 830341647}
   - component: {fileID: 830341646}
   - component: {fileID: 830341649}
+  - component: {fileID: 830341650}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -363,6 +365,67 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &830341650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830341645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c49b4cc203aa6414fae5c798d1d0e7d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
+--- !u!1 &1238991466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1238991467}
+  - component: {fileID: 1238991468}
+  m_Layer: 0
+  m_Name: CardInstantiator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1238991467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238991466}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1238991468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238991466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2628483d808c6c443943d2118ae36113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardPrefab: {fileID: 9116686077430768635, guid: a468dd13253bcef47bbc2cf4ff5ff828, type: 3}
 --- !u!1 &1249348947
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,7 +702,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6758d649210209649944457b98a25d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentCombat: {fileID: 0}
   Enemy: {fileID: 0}
   DeckPresets:
   - {fileID: 11400000, guid: 09d6c5b2d83f8a14dabe4d634765683a, type: 2}
@@ -650,12 +712,14 @@ MonoBehaviour:
   shld: 0
   energy: 0
   maxBaseEnergy: 3
+  CardBuyMax: 5
   Damaged:
     m_PersistentCalls:
       m_Calls: []
   PlayedCard:
     m_PersistentCalls:
       m_Calls: []
+  canPlayCards: 0
 --- !u!4 &1866734917
 Transform:
   m_ObjectHideFlags: 0
@@ -802,3 +866,4 @@ SceneRoots:
   - {fileID: 1366510553}
   - {fileID: 859873356496394562}
   - {fileID: 713266986}
+  - {fileID: 1238991467}

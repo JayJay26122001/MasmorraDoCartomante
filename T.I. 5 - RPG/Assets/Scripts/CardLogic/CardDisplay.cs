@@ -11,7 +11,7 @@ public class CardDisplay : MonoBehaviour
 
     void Start()
     {
-        CardSetup();
+        //CardSetup();
     }
 
     public void CardSetup()
@@ -21,5 +21,11 @@ public class CardDisplay : MonoBehaviour
         cardDescription.text = cardData.Description;
         rarity.sprite = cardsUI.cardRarity[(int)cardData.Rarity];
         type.sprite = cardsUI.cardType[(int)cardData.Type];
+    }
+
+    public void OnCardClick()
+    {
+        Debug.Log("Carta clicada: " + gameObject.name);
+        cardData.deck.Owner.PlayCard(cardData);
     }
 }

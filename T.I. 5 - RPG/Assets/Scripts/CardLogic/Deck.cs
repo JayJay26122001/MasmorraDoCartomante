@@ -21,6 +21,7 @@ public class Deck : ScriptableObject
         card.Setup();
         card.deck = this;
         cards.Add(card);
+        CardInstantiator.instance.InstantiateCard(card);
     }
     public void ShuffleDeck() // coloca todas as cartas na pilha de descarte na pilha de compras e as embaralha
     {
