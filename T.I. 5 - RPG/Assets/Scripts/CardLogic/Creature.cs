@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
+using static UnityEngine.Rendering.GPUSort;
 
 public class Creature : MonoBehaviour
 {
@@ -22,6 +24,8 @@ public class Creature : MonoBehaviour
     public UnityEvent Damaged = new UnityEvent();
     public UnityEvent<Card> PlayedCard = new UnityEvent<Card>();
     public bool canPlayCards;
+    public CardCombatSpaces combatSpace;
+
 
 
     public int Health
@@ -60,6 +64,45 @@ public class Creature : MonoBehaviour
         deck.Setup();
     }
 
+    public void CardsOrganizer() //mudança futura
+    {
+        int totalHandCards = hand.Count;
+        float handSpacing = 4f;
+        for (int i = 0; i < totalHandCards; i++)
+        {
+            float positionX = (i - ((totalHandCards - 1) / 2f)) * handSpacing;
+            Transform cardTransform = hand[i].cardDisplay.transform;
+            cardTransform.position = new Vector3(positionX + combatSpace.playerHandSpace.position.x, combatSpace.playerHandSpace.position.y, combatSpace.playerHandSpace.position.z);
+            cardTransform.rotation = Quaternion.Euler(90f, 0f, 0f);
+        }
+        int totalCardsPlayed = playedCards.Count;
+        float playedCardsSpacing = 2.5f;
+        for (int i = 0; i < totalCardsPlayed; i++)
+        {
+            float positionX = (i - ((totalCardsPlayed - 1) / 2f)) * playedCardsSpacing;
+            Transform cardTransform = playedCards[i].cardDisplay.transform;
+            cardTransform.position = new Vector3(positionX + combatSpace.playedCardSpace.position.x, combatSpace.playedCardSpace.position.y, combatSpace.playedCardSpace.position.z);
+            cardTransform.rotation = Quaternion.Euler(90f, 0f, 0f);
+        }
+        int totalDiscardCards = decks[0].DiscardPile.Count;
+        float discardCardsSpacing = 0.1f;
+        for (int i = totalDiscardCards; i > 0; i--)
+        {
+            float positionY = (i * discardCardsSpacing);
+            Transform cardTransform = decks[0].DiscardPile.ToArray()[i-1].cardDisplay.transform;
+            cardTransform.position = new Vector3(combatSpace.discardPileSpace.position.x, positionY + combatSpace.discardPileSpace.position.y, combatSpace.discardPileSpace.position.z);
+            cardTransform.rotation = Quaternion.Euler(-90f, 0f, 0f);
+        }
+        int totalBuyingCards = decks[0].BuyingPile.Count;
+        float buyingCardsSpacing = 0.1f;
+        for (int i = totalBuyingCards; i > 0; i--)
+        {
+            float positionY = (i * buyingCardsSpacing);
+            Transform cardTransform = decks[0].BuyingPile.ToArray()[i - 1].cardDisplay.transform;
+            cardTransform.position = new Vector3(combatSpace.buyingPileSpace.position.x, positionY + combatSpace.buyingPileSpace.position.y, combatSpace.buyingPileSpace.position.z);
+            cardTransform.rotation = Quaternion.Euler(-90f, 0f, 0f);
+        }
+    }
 
     //COMBAT CARD METHODS
     public void BuyCards(int quantity)

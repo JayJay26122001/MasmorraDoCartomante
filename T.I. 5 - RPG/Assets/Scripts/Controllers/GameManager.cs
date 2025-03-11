@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+
     private void Awake()
     {
         if (instance == null)
@@ -26,4 +27,5 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
 }

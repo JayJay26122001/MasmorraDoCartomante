@@ -4,28 +4,31 @@ using UnityEngine;
 
 public class Combat : MonoBehaviour
 {
-    public Creature creature1, creature2;
+    public CardCombatSpaces[] combatSpaces;
+    public Creature[] combatents;
     public Turn[] Round;
     public Turn ActiveTurn;
     int turnIndex = 0;
     public int TurnIndex { get{ return turnIndex; } private set { turnIndex = value % Round.Length; } }
     public void StartCombat()
     {
-        ConditionObserver.currentCombat = this;
-        creature1.Enemy = creature2;
-        creature2.Enemy = creature1;
-        foreach (Deck d in creature1.decks)
+        GameplayManager.currentCombat = this;
+        for(int i = 0; i < 2; i++)
         {
-            d.StartShuffle();
+            combatents[i].Enemy = combatents[(i + 1) % 2];
+            foreach (Deck d in combatents[i].decks)
+            {
+                d.StartShuffle();
+            }
+            combatents[i].combatSpace = combatSpaces[i];
+
         }
-        foreach (Deck d in creature2.decks)
-        {
-            d.StartShuffle();
-        }
-        Round = new Turn[2] { new Turn(creature1), new Turn(creature2) };
+        Round = new Turn[2] { new Turn(combatents[0]), new Turn(combatents[1]) };
         ActiveTurn = Round[turnIndex];
         TurnIndex = 0;
         ActiveTurn.TurnStart();
+        combatents[0].CardsOrganizer(); //mudança futura
+        combatents[1].CardsOrganizer(); //mudança futura
     }
     public void AdvanceCombat()
     {
@@ -41,7 +44,8 @@ public class Combat : MonoBehaviour
         {
             ChangeTurn();
         }
-        
+        combatents[0].CardsOrganizer(); //mudança futura
+        combatents[1].CardsOrganizer(); //mudança futura
     }
     public void ChangeTurn()
     {
@@ -65,7 +69,7 @@ public class Combat : MonoBehaviour
             AdvanceCombat();
             Debug.Log($"Turn {TurnIndex + 1} {ActiveTurn.currentPhase}");
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        /*if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             creature1.PlayCard(creature1.decks[0].cards[0]);
         }
@@ -89,7 +93,7 @@ public class Combat : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             creature2.PlayCard(creature2.decks[0].cards[2]);
-        }
+        }*/
     }
 }
 public class Turn

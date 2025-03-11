@@ -19,17 +19,16 @@ public class ConditionObserver : MonoBehaviour
         }*/
         observer = this;
     }
-    public static Combat currentCombat;
     public void StartObservation()
     {
         observing = true;
-        currentCombat.creature1.PlayedCard.AddListener(CreaturePlayedCard);
-        currentCombat.creature2.PlayedCard.AddListener(CreaturePlayedCard);
+        GameplayManager.currentCombat.combatents[0].PlayedCard.AddListener(CreaturePlayedCard);
+        GameplayManager.currentCombat.combatents[1].PlayedCard.AddListener(CreaturePlayedCard);
     }
     public void StopObservation() {
         observing = false;
-        currentCombat.creature1.PlayedCard.RemoveListener(CreaturePlayedCard);
-        currentCombat.creature2.PlayedCard.RemoveListener(CreaturePlayedCard);
+        GameplayManager.currentCombat.combatents[0].PlayedCard.RemoveListener(CreaturePlayedCard);
+        GameplayManager.currentCombat.combatents[1].PlayedCard.RemoveListener(CreaturePlayedCard);
     }
     public List<Condition> ObservedConditions = new List<Condition>(), CardRelatadConditions = new List<Condition>();
     public void AddCondition(Condition condition)

@@ -14,6 +14,13 @@ public class CardDisplay : MonoBehaviour
         //CardSetup();
     }
 
+    public void SetCard(Card card)
+    {
+        cardData = card;
+        card.cardDisplay = this;
+        CardSetup();
+    }
+
     public void CardSetup()
     {
         cardCost.text = cardData.cost.ToString();
@@ -27,5 +34,6 @@ public class CardDisplay : MonoBehaviour
     {
         Debug.Log("Carta clicada: " + gameObject.name);
         cardData.deck.Owner.PlayCard(cardData);
+        cardData.deck.Owner.CardsOrganizer(); //mudança futura
     }
 }
