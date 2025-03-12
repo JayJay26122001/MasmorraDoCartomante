@@ -8,7 +8,7 @@ public class BoardRoom
     public List<int> nextRoomsProbabilities = new List<int>();
     public int nextRoomsCount;
     public List<BoardRoom> nextRooms = new List<BoardRoom>();
-
+    public GameObject roomObject;
     public BoardRoom (BoardRoomSO type) //Boss room only
     {
         this.type = type;

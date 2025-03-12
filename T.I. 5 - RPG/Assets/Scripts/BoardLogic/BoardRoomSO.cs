@@ -6,4 +6,5 @@ public class BoardRoomSO : ScriptableObject
 {
     public string roomName;
     public List<BoardRoomSO> possibleNextRooms = new List<BoardRoomSO>();
+    public Color32 testColor;
 }

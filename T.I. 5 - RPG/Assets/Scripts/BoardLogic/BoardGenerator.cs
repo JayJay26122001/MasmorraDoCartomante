@@ -9,6 +9,8 @@ public class BoardGenerator : MonoBehaviour
     float battlePModifier = 1, mimicPModifier = 1, shopPModifier = 1, choicePModifier = 1;
     List<int> probabilities = new List<int>();
     BoardRoom newRoom;
+    public GameObject roomTest;
+    float zOffset, xOffset;
     private void Start()
     {
         GenerateBoard();
@@ -24,6 +26,7 @@ public class BoardGenerator : MonoBehaviour
                 Debug.Log(s);
             }
         }
+        InstantiateBoard();
     }
 
     public void GenerateBoard()
@@ -131,5 +134,41 @@ public class BoardGenerator : MonoBehaviour
             }
         }
         probabilities = new List<int> { battleProbability, mimicProbability, shopProbability };
+    }
+
+    public void InstantiateBoard()
+    {
+        zOffset = 0;
+        xOffset = 0;
+        GameObject room = Instantiate(roomTest, Vector3.zero, Quaternion.identity, this.transform);
+        room.GetComponent<MeshRenderer>().material.color = board[0][0].type.testColor;
+        board[0][0].roomObject = room;
+        for(int i = 0; i < board.Count - 1; i++)
+        {
+            zOffset += 10;
+            foreach (BoardRoom r in board[i])
+            {
+                if(r.nextRoomsCount > 1)
+                {
+                    xOffset = -10;
+                    Instantiate(roomTest, new Vector3(r.roomObject.transform.position.x + xOffset, 0, r.roomObject.transform.position.z), Quaternion.identity, this.transform);
+                    room = Instantiate(roomTest, new Vector3(r.roomObject.transform.position.x + xOffset, 0, zOffset), Quaternion.identity, this.transform);
+                    room.GetComponent<MeshRenderer>().material.color = r.nextRooms[0].type.testColor;
+                    r.nextRooms[0].roomObject = room;
+                    xOffset = 10;
+                    Instantiate(roomTest, new Vector3(r.roomObject.transform.position.x + xOffset, 0, r.roomObject.transform.position.z), Quaternion.identity, this.transform);
+                    room = Instantiate(roomTest, new Vector3(r.roomObject.transform.position.x + xOffset, 0, zOffset), Quaternion.identity, this.transform);
+                    room.GetComponent<MeshRenderer>().material.color = r.nextRooms[1].type.testColor;
+                    r.nextRooms[1].roomObject = room;
+                    xOffset = 0;
+                }
+                else
+                {
+                    room = Instantiate(roomTest, new Vector3(r.roomObject.transform.position.x + xOffset, 0, zOffset), Quaternion.identity, this.transform);
+                    room.GetComponent<MeshRenderer>().material.color = r.nextRooms[0].type.testColor;
+                    r.nextRooms[0].roomObject = room;
+                }
+            }
+        }
     }
 }
