@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Card 3
   m_EditorClassIdentifier: 
   deck: {fileID: 0}
-  Name: 
+  Name: Roubo de Alma
   hidden: 0
   cost: 3
   Type: 2
   Rarity: 2
-  Description: 
+  Description: Rouba a alma do inimigo, dando 100 pontos de dano nele
   conditions: 02000000
   CardEffect:
     m_PersistentCalls:

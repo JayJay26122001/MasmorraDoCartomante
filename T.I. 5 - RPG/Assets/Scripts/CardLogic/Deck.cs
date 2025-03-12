@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Deck", menuName = "CardLogic/Deck")]
@@ -15,6 +16,7 @@ public class Deck : ScriptableObject
             AddCard(c);
         }
     }
+
     public void AddCard(Card preset)
     {
         Card card = Instantiate(preset);

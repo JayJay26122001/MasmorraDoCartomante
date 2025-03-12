@@ -13,6 +13,7 @@ public class Card : ScriptableObject
             conds.Add(new Condition(c, this));
         }
     }
+    public CardDisplay cardDisplay;
     public Deck deck;
     public string Name;
     public bool hidden;

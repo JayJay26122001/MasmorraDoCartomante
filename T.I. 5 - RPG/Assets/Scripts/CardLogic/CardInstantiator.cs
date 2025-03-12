@@ -36,7 +36,11 @@ public class CardInstantiator : MonoBehaviour
     public void InstantiateCard(Card card)
     {
         CardDisplay temp = Instantiate(cardPrefab.gameObject).GetComponent<CardDisplay>();
-        temp.cardData = card;
-        temp.CardSetup();
+        temp.SetCard(card);
+        if (card.deck != null && card.deck.Owner != null)
+        {
+            temp.transform.SetParent(card.deck.Owner.transform);
+        }
+
     }
 }
