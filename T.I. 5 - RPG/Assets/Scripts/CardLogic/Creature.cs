@@ -18,8 +18,8 @@ public class Creature : MonoBehaviour
     [SerializeField]public List<Deck> decks = new List<Deck>();
     protected List<Card> hand = new List<Card>();
     public List<Card> playedCards = new List<Card>();
-    [SerializeField] int maxHP;
-    [SerializeField] int hp, shld, energy, maxBaseEnergy = 3;
+    [SerializeField] protected int maxHP;
+    [SerializeField] protected int hp, shld, energy, maxBaseEnergy = 3;
     public int CardBuyMax = 5;
     public UnityEvent Damaged = new UnityEvent();
     public UnityEvent<Card> PlayedCard = new UnityEvent<Card>();
@@ -64,7 +64,7 @@ public class Creature : MonoBehaviour
         deck.Setup();
     }
 
-    public void CardsOrganizer() //mudança futura
+    public void CardsOrganizer() //mudanï¿½a futura
     {
         int totalHandCards = hand.Count;
         float handSpacing = 4f;
@@ -140,7 +140,7 @@ public class Creature : MonoBehaviour
         playedCards.Add(c);
         c.CardPlayed();
         PlayedCard.Invoke(c);
-        Debug.Log("played card");
+        //Debug.Log("played card");
     }
     public void TriggerPlayedCards()
     {
