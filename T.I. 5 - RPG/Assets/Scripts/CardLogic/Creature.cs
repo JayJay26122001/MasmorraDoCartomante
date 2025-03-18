@@ -67,13 +67,19 @@ public class Creature : MonoBehaviour
     public void CardsOrganizer() //mudança futura
     {
         int totalHandCards = hand.Count;
-        float handSpacing = 4f;
+        float minHandSpacing = 1.0f;
+        float maxHandSpacing = 3.0f;
+        float handVerticalSpacing = 0.02f;
+        int cardsSpacingLimit = 6;
+        float multiplierValue = Mathf.Clamp01((totalHandCards - cardsSpacingLimit) / 10f);
+        float handSpacing = Mathf.Lerp(maxHandSpacing, minHandSpacing, multiplierValue);
         for (int i = 0; i < totalHandCards; i++)
         {
             float positionX = (i - ((totalHandCards - 1) / 2f)) * handSpacing;
+            float positionY = (i * handVerticalSpacing);
             Transform cardTransform = hand[i].cardDisplay.transform;
-            cardTransform.position = new Vector3(positionX + combatSpace.playerHandSpace.position.x, combatSpace.playerHandSpace.position.y, combatSpace.playerHandSpace.position.z);
-            cardTransform.rotation = Quaternion.Euler(90f, 0f, 0f);
+            cardTransform.position = (combatSpace.playerHandSpace.right * positionX + combatSpace.playerHandSpace.up * positionY) + combatSpace.playerHandSpace.position;
+            cardTransform.rotation = combatSpace.playerHandSpace.rotation * Quaternion.Euler(90f, 0f, 0f);
         }
         int totalCardsPlayed = playedCards.Count;
         float playedCardsSpacing = 2.5f;
@@ -81,8 +87,8 @@ public class Creature : MonoBehaviour
         {
             float positionX = (i - ((totalCardsPlayed - 1) / 2f)) * playedCardsSpacing;
             Transform cardTransform = playedCards[i].cardDisplay.transform;
-            cardTransform.position = new Vector3(positionX + combatSpace.playedCardSpace.position.x, combatSpace.playedCardSpace.position.y, combatSpace.playedCardSpace.position.z);
-            cardTransform.rotation = Quaternion.Euler(90f, 0f, 0f);
+            cardTransform.position = (combatSpace.playedCardSpace.right * positionX) + combatSpace.playedCardSpace.position;
+            cardTransform.rotation = combatSpace.playedCardSpace.rotation * Quaternion.Euler(90f, 0f, 0f);
         }
         int totalDiscardCards = decks[0].DiscardPile.Count;
         float discardCardsSpacing = 0.1f;
@@ -90,8 +96,8 @@ public class Creature : MonoBehaviour
         {
             float positionY = (i * discardCardsSpacing);
             Transform cardTransform = decks[0].DiscardPile.ToArray()[i-1].cardDisplay.transform;
-            cardTransform.position = new Vector3(combatSpace.discardPileSpace.position.x, positionY + combatSpace.discardPileSpace.position.y, combatSpace.discardPileSpace.position.z);
-            cardTransform.rotation = Quaternion.Euler(-90f, 0f, 0f);
+            cardTransform.position = (combatSpace.discardPileSpace.up * positionY) + combatSpace.discardPileSpace.position;
+            cardTransform.rotation = combatSpace.discardPileSpace.rotation * Quaternion.Euler(-90f, 0f, 0f);
         }
         int totalBuyingCards = decks[0].BuyingPile.Count;
         float buyingCardsSpacing = 0.1f;
@@ -99,8 +105,8 @@ public class Creature : MonoBehaviour
         {
             float positionY = (i * buyingCardsSpacing);
             Transform cardTransform = decks[0].BuyingPile.ToArray()[i - 1].cardDisplay.transform;
-            cardTransform.position = new Vector3(combatSpace.buyingPileSpace.position.x, positionY + combatSpace.buyingPileSpace.position.y, combatSpace.buyingPileSpace.position.z);
-            cardTransform.rotation = Quaternion.Euler(-90f, 0f, 0f);
+            cardTransform.position = (combatSpace.buyingPileSpace.up * positionY) + combatSpace.buyingPileSpace.position;
+            cardTransform.rotation = combatSpace.buyingPileSpace.rotation * Quaternion.Euler(-90f, 0f, 0f);
         }
     }
 
