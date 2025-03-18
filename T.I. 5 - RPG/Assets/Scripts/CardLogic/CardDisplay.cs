@@ -33,7 +33,8 @@ public class CardDisplay : MonoBehaviour
     public void OnCardClick()
     {
         Debug.Log("Carta clicada: " + gameObject.name);
-        cardData.deck.Owner.PlayCard(cardData);
-        cardData.deck.Owner.CardsOrganizer(); //mudança futura
+        cardData.deck.Owner.PlayCard(cardData); //substituir pela linha de baixo mais tarde
+        //cardData.deck.Owner.GetComponent<Player>()?.SelectCard(cardData);
+        cardData.deck.Owner.CardsOrganizer(); //mudanï¿½a futura
     }
 }
