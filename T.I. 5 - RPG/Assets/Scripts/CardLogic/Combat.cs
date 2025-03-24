@@ -27,8 +27,8 @@ public class Combat : MonoBehaviour
         ActiveTurn = Round[turnIndex];
         TurnIndex = 0;
         ActiveTurn.TurnStart();
-        combatents[0].CardsOrganizer(); //mudança futura
-        combatents[1].CardsOrganizer(); //mudança futura
+        combatents[0].CardsOrganizer(); //mudanï¿½a futura
+        combatents[1].CardsOrganizer(); //mudanï¿½a futura
     }
     public void AdvanceCombat()
     {
@@ -44,8 +44,8 @@ public class Combat : MonoBehaviour
         {
             ChangeTurn();
         }
-        combatents[0].CardsOrganizer(); //mudança futura
-        combatents[1].CardsOrganizer(); //mudança futura
+        combatents[0].CardsOrganizer(); //mudanï¿½a futura
+        combatents[1].CardsOrganizer(); //mudanï¿½a futura
     }
     public void ChangeTurn()
     {
@@ -160,8 +160,9 @@ public class TurnStart : TurnPhase
     public TurnStart(Creature owner) : base(owner) { }
     public override void PhaseEffect()
     {
-        owner.BuyCards(owner.CardBuyMax);
+        //owner.BuyCards(owner.CardBuyMax);
         owner.canPlayCards = true;
+        owner.TurnAction();
     }
 }
 public class ReactionTurn : TurnPhase

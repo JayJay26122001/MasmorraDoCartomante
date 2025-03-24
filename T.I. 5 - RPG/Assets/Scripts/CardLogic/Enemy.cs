@@ -2,15 +2,10 @@ using UnityEngine;
 
 public class Enemy : Creature
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void TurnAction()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        BuyCards(1);
+        PlayCard(hand[0]);
+        GameplayManager.currentCombat.AdvanceCombat();
     }
 }

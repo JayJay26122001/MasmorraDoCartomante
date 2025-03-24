@@ -111,13 +111,18 @@ public class Creature : MonoBehaviour
     }
 
     //COMBAT CARD METHODS
+
+    public virtual void TurnAction() //o que essa criatura faz em seu turno
+    {
+        BuyCards(CardBuyMax);
+    }
     public void BuyCards(int quantity)
     {
         for (; quantity > 0; quantity--)
         {
             if (decks[0].BuyingPile.Count == 0)
             {
-                if(decks[0].DiscardPile.Count == 0) { return; }
+                if (decks[0].DiscardPile.Count == 0) { return; }
                 decks[0].ShuffleDeck();
             }
             hand.Add(decks[0].BuyingPile.Pop());
@@ -161,6 +166,20 @@ public class Creature : MonoBehaviour
         card.deck.DiscardPile.Push(card);
         hand.Remove(card);
         playedCards.Remove(card);
+        if (card.exaust)
+        {
+            ExaustCard(card);
+        }
+    }
+    public void ExaustCard(Card card)
+    {
+        hand.Remove(card);
+        List<Card> temp = card.deck.DiscardPile.ToList();
+        temp.Remove(card);
+        card.deck.DiscardPile = ListUT.ToStack(temp);
+        temp = card.deck.BuyingPile.ToList();
+        temp.Remove(card);
+        card.deck.BuyingPile = ListUT.ToStack(temp);
     }
     public void EndCombat()
     {

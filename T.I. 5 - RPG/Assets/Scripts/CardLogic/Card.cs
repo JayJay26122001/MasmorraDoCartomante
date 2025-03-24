@@ -16,7 +16,7 @@ public class Card : ScriptableObject
     public CardDisplay cardDisplay;
     public Deck deck;
     public string Name;
-    public bool hidden;
+    public bool hidden, exaust, instantaneous;
     public int cost;
     public enum CardType { Attack, Defense, Mind }
     public enum CardRarity { Common, Uncommon, Rare, Epic, Legendary }
@@ -27,7 +27,10 @@ public class Card : ScriptableObject
     List<Condition> conds = new List<Condition>();
     public void CardPlayed() // carta foi jogada na mesa
     {
-
+        if (instantaneous)
+        {
+            IniciateCardEffect();
+        }
     }
 
 

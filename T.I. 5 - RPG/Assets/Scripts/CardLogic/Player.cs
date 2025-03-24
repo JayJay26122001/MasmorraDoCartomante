@@ -4,31 +4,27 @@ using Unity.Mathematics;
 
 public class Player : Creature
 {
-    public List<Card> SelectedCards;
-    int totalEnergyCost = 0;
+    public Card SelectedCard;
+
     public void PlaySelectedCards()
     {
-        foreach (Card c in SelectedCards)
+        if (SelectedCard != null)
         {
-            PlayCard(c);
+            PlayCard(SelectedCard);
         }
-        totalEnergyCost = 0;
     }
     public void SelectCard(Card c)
     {
-        if (c.cost + totalEnergyCost <= energy)
+        if (c.cost <= energy)
         {
-            totalEnergyCost += c.cost;
-            SelectedCards.Add(c);
+            SelectedCard = c;
         }
     }
     public void DiselectCard(Card c)
     {
-        if (SelectedCards.Contains(c))
+        if (SelectedCard == c)
         {
-            totalEnergyCost -= c.cost;
-            Mathf.Clamp(totalEnergyCost, 0, math.INFINITY);
-            SelectedCards.Remove(c);
+            SelectedCard = null;
         }
         
     }
