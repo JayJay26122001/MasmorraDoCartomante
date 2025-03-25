@@ -27,8 +27,10 @@ public class Combat : MonoBehaviour
         ActiveTurn = Round[turnIndex];
         TurnIndex = 0;
         ActiveTurn.TurnStart();
-        combatents[0].CardsOrganizer(); //mudan�a futura
-        combatents[1].CardsOrganizer(); //mudan�a futura
+        CardUIController.CardsOrganizer(combatents[0]);
+        CardUIController.CardsOrganizer(combatents[1]);
+        //combatents[0].CardsOrganizer(); //mudan�a futura
+        //combatents[1].CardsOrganizer(); //mudan�a futura
     }
     public void AdvanceCombat()
     {
@@ -44,8 +46,10 @@ public class Combat : MonoBehaviour
         {
             ChangeTurn();
         }
-        combatents[0].CardsOrganizer(); //mudan�a futura
-        combatents[1].CardsOrganizer(); //mudan�a futura
+        CardUIController.CardsOrganizer(combatents[0]);
+        CardUIController.CardsOrganizer(combatents[1]);
+        //combatents[0].CardsOrganizer(); //mudan�a futura
+        //combatents[1].CardsOrganizer(); //mudan�a futura
     }
     public void ChangeTurn()
     {

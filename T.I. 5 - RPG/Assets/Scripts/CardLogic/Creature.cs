@@ -16,7 +16,7 @@ public class Creature : MonoBehaviour
     public Creature Enemy;
     [SerializeField] List<Deck> DeckPresets = new List<Deck>();
     [SerializeField]public List<Deck> decks = new List<Deck>();
-    protected List<Card> hand = new List<Card>();
+    public List<Card> hand = new List<Card>();
     public List<Card> playedCards = new List<Card>();
     [SerializeField] protected int maxHP;
     [SerializeField] protected int hp, shld, energy, maxBaseEnergy = 3;
@@ -64,7 +64,7 @@ public class Creature : MonoBehaviour
         deck.Setup();
     }
 
-    public void CardsOrganizer() //mudan�a futura
+    /*public void CardsOrganizer() //mudan�a futura
     {
         int totalHandCards = hand.Count;
         float minHandSpacing = 1.0f;
@@ -108,7 +108,7 @@ public class Creature : MonoBehaviour
             cardTransform.position = (combatSpace.buyingPileSpace.up * positionY) + combatSpace.buyingPileSpace.position;
             cardTransform.rotation = combatSpace.buyingPileSpace.rotation * Quaternion.Euler(-90f, 0f, 0f);
         }
-    }
+    }*/
 
     //COMBAT CARD METHODS
 
