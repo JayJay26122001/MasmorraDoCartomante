@@ -11,6 +11,8 @@ public class BoardGenerator : MonoBehaviour
     List<int> nrProbabilities = new List<int>();
     BoardRoom newRoom;
     public GameObject roomTest;
+    public LineRenderer lineRenderer;
+    public Material lineMat;
     float zOffset, xOffset;
     private void Start()
     {
@@ -27,7 +29,7 @@ public class BoardGenerator : MonoBehaviour
                 Debug.Log(s);
             }
         }
-        //InstantiateBoard();
+        InstantiateBoard();
     }
 
     public void GenerateBoard()
@@ -249,35 +251,64 @@ public class BoardGenerator : MonoBehaviour
 
     public void InstantiateBoard()
     {
+        int roomCount;
         zOffset = 0;
         xOffset = 0;
         GameObject room = Instantiate(roomTest, Vector3.zero, Quaternion.identity, this.transform);
         room.GetComponent<MeshRenderer>().material.color = board[0][0].type.testColor;
         board[0][0].roomObject = room;
-        for(int i = 0; i < board.Count - 1; i++)
+        for(int i = 1; i < board.Count; i++)
         {
-            zOffset += 10;
-            foreach (BoardRoom r in board[i])
+            zOffset += 20;
+            roomCount = 0;
+            if(board[i].Count % 2 == 1)
             {
-                if(r.nextRoomsCount > 1)
+                xOffset = 0;
+                room = Instantiate(roomTest, new Vector3(0, 0, zOffset), Quaternion.identity, this.transform);
+                room.GetComponent<MeshRenderer>().material.color = board[i][Mathf.FloorToInt(board[i].Count/2)].type.testColor;
+                board[i][Mathf.FloorToInt(board[i].Count / 2)].roomObject = room;
+                roomCount++;
+                while(roomCount < board[i].Count)
                 {
-                    xOffset = -10;
-                    Instantiate(roomTest, new Vector3(r.roomObject.transform.position.x + xOffset, 0, r.roomObject.transform.position.z), Quaternion.identity, this.transform);
-                    room = Instantiate(roomTest, new Vector3(r.roomObject.transform.position.x + xOffset, 0, zOffset), Quaternion.identity, this.transform);
-                    room.GetComponent<MeshRenderer>().material.color = r.nextRooms[0].type.testColor;
-                    r.nextRooms[0].roomObject = room;
-                    xOffset = 10;
-                    Instantiate(roomTest, new Vector3(r.roomObject.transform.position.x + xOffset, 0, r.roomObject.transform.position.z), Quaternion.identity, this.transform);
-                    room = Instantiate(roomTest, new Vector3(r.roomObject.transform.position.x + xOffset, 0, zOffset), Quaternion.identity, this.transform);
-                    room.GetComponent<MeshRenderer>().material.color = r.nextRooms[1].type.testColor;
-                    r.nextRooms[1].roomObject = room;
-                    xOffset = 0;
+                    xOffset += 20;
+                    room = Instantiate(roomTest, new Vector3(xOffset, 0, zOffset), Quaternion.identity, this.transform);
+                    room.GetComponent<MeshRenderer>().material.color = board[i][Mathf.FloorToInt(board[i].Count / 2) + (int)(xOffset / 20)].type.testColor;
+                    board[i][Mathf.FloorToInt(board[i].Count / 2) + (int)(xOffset / 20)].roomObject = room;
+                    room = Instantiate(roomTest, new Vector3(-xOffset, 0, zOffset), Quaternion.identity, this.transform);
+                    room.GetComponent<MeshRenderer>().material.color = board[i][Mathf.FloorToInt(board[i].Count / 2) - (int)(xOffset / 20)].type.testColor;
+                    board[i][Mathf.FloorToInt(board[i].Count / 2) - (int)(xOffset / 20)].roomObject = room;
+                    roomCount += 2;
                 }
-                else
+            }
+            else
+            {
+                xOffset = -10;
+                while (roomCount < board[i].Count)
                 {
-                    room = Instantiate(roomTest, new Vector3(r.roomObject.transform.position.x + xOffset, 0, zOffset), Quaternion.identity, this.transform);
-                    room.GetComponent<MeshRenderer>().material.color = r.nextRooms[0].type.testColor;
-                    r.nextRooms[0].roomObject = room;
+                    xOffset += 20;
+                    room = Instantiate(roomTest, new Vector3(xOffset, 0, zOffset), Quaternion.identity, this.transform);
+                    room.GetComponent<MeshRenderer>().material.color = board[i][Mathf.FloorToInt(board[i].Count / 2) + (int)((xOffset - 10) / 20)].type.testColor;
+                    board[i][Mathf.FloorToInt(board[i].Count / 2) + (int)((xOffset - 10) / 20)].roomObject = room;
+                    room = Instantiate(roomTest, new Vector3(-xOffset, 0, zOffset), Quaternion.identity, this.transform);
+                    room.GetComponent<MeshRenderer>().material.color = board[i][Mathf.FloorToInt(board[i].Count / 2) - 1 - (int)((xOffset - 10) / 20)].type.testColor;
+                    board[i][Mathf.FloorToInt(board[i].Count / 2) - 1 - (int)((xOffset - 10) / 20)].roomObject = room;
+                    roomCount += 2;
+                }
+            }
+
+            foreach(BoardRoom r1 in board[i - 1])
+            {
+                foreach(BoardRoom r2 in r1.nextRooms)
+                {
+                    lineRenderer = new GameObject("Line").AddComponent<LineRenderer>();
+                    lineRenderer.startColor = Color.black;
+                    lineRenderer.endColor = Color.black;
+                    lineRenderer.startWidth = 0.9f;
+                    lineRenderer.endWidth = 0.9f;
+                    lineRenderer.positionCount = 2;
+                    lineRenderer.useWorldSpace = true;
+                    lineRenderer.material = lineMat;
+                    lineRenderer.SetPositions(new Vector3[] { r1.roomObject.transform.position - Vector3.up, r2.roomObject.transform.position - Vector3.up});
                 }
             }
         }
