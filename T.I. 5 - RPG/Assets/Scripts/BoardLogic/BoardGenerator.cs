@@ -12,7 +12,7 @@ public class BoardGenerator : MonoBehaviour
     BoardRoom newRoom;
     public GameObject roomTest;
     public LineRenderer lineRenderer;
-    public Material lineMat;
+    public Material shaderMat;
     float zOffset, xOffset;
     private void Start()
     {
@@ -301,13 +301,14 @@ public class BoardGenerator : MonoBehaviour
                 foreach(BoardRoom r2 in r1.nextRooms)
                 {
                     lineRenderer = new GameObject("Line").AddComponent<LineRenderer>();
+                    lineRenderer.transform.SetParent(this.transform);
                     lineRenderer.startColor = Color.black;
                     lineRenderer.endColor = Color.black;
                     lineRenderer.startWidth = 0.9f;
                     lineRenderer.endWidth = 0.9f;
                     lineRenderer.positionCount = 2;
                     lineRenderer.useWorldSpace = true;
-                    lineRenderer.material = lineMat;
+                    lineRenderer.material = shaderMat;
                     lineRenderer.SetPositions(new Vector3[] { r1.roomObject.transform.position - Vector3.up, r2.roomObject.transform.position - Vector3.up});
                 }
             }
