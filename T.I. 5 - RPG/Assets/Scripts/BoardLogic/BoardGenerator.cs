@@ -310,6 +310,8 @@ public class BoardGenerator : MonoBehaviour
                     lineRenderer.useWorldSpace = true;
                     lineRenderer.material = shaderMat;
                     lineRenderer.SetPositions(new Vector3[] { r1.roomObject.transform.position - Vector3.up, r2.roomObject.transform.position - Vector3.up});
+                    lineRenderer.useWorldSpace = false;
+                    lineRenderer.sortingOrder = -1;
                 }
             }
         }
