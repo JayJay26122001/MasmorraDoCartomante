@@ -2,9 +2,9 @@ using System;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -66,6 +66,7 @@ public class UIController : MonoBehaviour
                 ChangeScene("Menu");
             }
         }
+        
     }
 
     public void ConfigUpdate()

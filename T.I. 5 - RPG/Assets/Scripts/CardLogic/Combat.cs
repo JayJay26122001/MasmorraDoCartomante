@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Combat : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Combat : MonoBehaviour
     public Turn[] Round;
     public Turn ActiveTurn;
     int turnIndex = 0;
+    public TextMeshProUGUI turnText;
     public int TurnIndex { get{ return turnIndex; } private set { turnIndex = value % Round.Length; } }
     public void StartCombat()
     {
@@ -29,6 +31,8 @@ public class Combat : MonoBehaviour
         ActiveTurn.TurnStart();
         CardUIController.CardsOrganizer(combatents[0]);
         CardUIController.CardsOrganizer(combatents[1]);
+        CombatUI();
+        turnText.text = $"Creature {TurnIndex + 1} - Turn {TurnIndex + 1} {ActiveTurn.currentPhase}";
         //combatents[0].CardsOrganizer(); //mudan�a futura
         //combatents[1].CardsOrganizer(); //mudan�a futura
     }
@@ -48,6 +52,7 @@ public class Combat : MonoBehaviour
         }
         CardUIController.CardsOrganizer(combatents[0]);
         CardUIController.CardsOrganizer(combatents[1]);
+        CombatUI();
         //combatents[0].CardsOrganizer(); //mudan�a futura
         //combatents[1].CardsOrganizer(); //mudan�a futura
     }
@@ -56,6 +61,12 @@ public class Combat : MonoBehaviour
         TurnIndex++;
         ActiveTurn = Round[turnIndex];
         ActiveTurn.TurnStart();
+    }
+
+    public void CombatUI()
+    {
+        combatents[0].UpdateCreatureUI(combatents[0]);
+        combatents[1].UpdateCreatureUI(combatents[1]);
     }
 
 
@@ -72,6 +83,7 @@ public class Combat : MonoBehaviour
             //Debug.Log($"Turn {TurnIndex+1} {ActiveTurn.phase}");
             AdvanceCombat();
             Debug.Log($"Turn {TurnIndex + 1} {ActiveTurn.currentPhase}");
+            turnText.text = $"Creature {TurnIndex + 1} - Turn {TurnIndex + 1} {ActiveTurn.currentPhase}";
         }
         /*if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -142,7 +154,6 @@ public class Turn
         {
             TurnStart();
         }
-
     }
 }
 public abstract class TurnPhase

@@ -36,6 +36,7 @@ public class CardDisplay : MonoBehaviour
         cardData.deck.Owner.PlayCard(cardData); //substituir pela linha de baixo mais tarde
         //cardData.deck.Owner.GetComponent<Player>()?.SelectCard(cardData);
         CardUIController.CardsOrganizer(cardData.deck.Owner);
+        GameplayManager.currentCombat.CombatUI();
         //cardData.deck.Owner.CardsOrganizer(); //mudan�a futura
     }
 }

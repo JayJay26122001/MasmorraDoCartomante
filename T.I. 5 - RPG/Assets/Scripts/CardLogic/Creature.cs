@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 using UnityEngine.UIElements;
 using static UnityEngine.Rendering.GPUSort;
 
@@ -26,6 +27,8 @@ public class Creature : MonoBehaviour
     public bool canPlayCards;
     public CardCombatSpaces combatSpace;
 
+    public TextMeshProUGUI hpText, shieldText, energyText;  //Ui das criaturas na batalha
+
 
 
     public int Health
@@ -45,6 +48,22 @@ public class Creature : MonoBehaviour
         {
             if (value < 0) value = 0;
             shld = value;
+        }
+    }
+
+    public void UpdateCreatureUI(Creature c)
+    {
+        if (hpText != null)
+        {
+            hpText.text = $"HP: {c.Health}";
+        }
+        if (shieldText != null)
+        {
+            shieldText.text = $"Shield: {c.Shield}";
+        }
+        if (energyText != null)
+        {
+            energyText.text = $"Energy: {c.energy}";
         }
     }
 
