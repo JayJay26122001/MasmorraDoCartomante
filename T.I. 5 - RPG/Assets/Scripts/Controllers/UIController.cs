@@ -12,7 +12,6 @@ using Unity.VisualScripting.Antlr3.Runtime;
 
 public class UIController : MonoBehaviour
 {
-    public GameObject playButton, quitButton;
     /*bool gameStarted, gamePaused;
     public GameObject playButton, settingsButton, creditsButton, quitButton;
     public GameObject settingsPanel, creditsPanel, quitPanel;
