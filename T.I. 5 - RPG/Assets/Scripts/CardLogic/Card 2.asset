@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
   m_Name: Card 2
   m_EditorClassIdentifier: 
+  cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Escudo Humano
   hidden: 0
+  exaust: 0
+  instantaneous: 0
   cost: 2
   Type: 1
   Rarity: 1
-  Description: "Seu corpo se torna mais resistente, aumentando sua pr\xF3pria defesa
-    em 5."
+  Description: "Concede 5 de defesa ao usu\xE1rio."
   conditions: 
   CardEffect:
     m_PersistentCalls:

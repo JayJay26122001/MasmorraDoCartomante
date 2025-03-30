@@ -12,13 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
   m_Name: Card 3
   m_EditorClassIdentifier: 
+  cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Roubo de Alma
   hidden: 0
+  exaust: 0
+  instantaneous: 0
   cost: 3
   Type: 2
   Rarity: 2
-  Description: Rouba a alma do inimigo, dando 100 pontos de dano nele
+  Description: Se a primeira carta que o oponente jogar for uma carta de defesa,
+    cause 20 de dano ao oponente.
   conditions: 02000000
   CardEffect:
     m_PersistentCalls:
@@ -30,7 +34,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 100
+          m_IntArgument: 20
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
   m_Name: Card 1
   m_EditorClassIdentifier: 
+  cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Ataque Impiedoso
   hidden: 0
+  exaust: 0
+  instantaneous: 0
   cost: 1
   Type: 0
   Rarity: 0
-  Description: Desfere um golpe devastador que causa 8 pontos de dano ao inimigo.
+  Description: Causa 8 pontos de dano ao oponente.
   conditions: 
   CardEffect:
     m_PersistentCalls:
