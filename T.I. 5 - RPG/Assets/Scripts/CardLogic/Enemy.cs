@@ -2,10 +2,15 @@ using UnityEngine;
 
 public class Enemy : Creature
 {
+    public override void CombatStartAction()
+    {
+        base.CombatStartAction();
+        BuyCards(1);
+    }
     public override void TurnAction()
     {
-        BuyCards(1);
         PlayCard(hand[0]);
+        BuyCards(1);
         GameplayManager.currentCombat.AdvanceCombat();
     }
 }

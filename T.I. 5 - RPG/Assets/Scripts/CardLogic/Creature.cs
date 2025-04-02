@@ -8,7 +8,7 @@ using static UnityEngine.Rendering.GPUSort;
 
 public class Creature : MonoBehaviour
 {
-    private void Awake() // Metodo de teste remover depois
+    protected virtual void Awake() // Metodo de teste remover depois
     {
         SetupStartingDecks();
         Health = maxHP;
@@ -134,6 +134,10 @@ public class Creature : MonoBehaviour
     public virtual void TurnAction() //o que essa criatura faz em seu turno
     {
         BuyCards(CardBuyMax);
+    }
+    public virtual void CombatStartAction()
+    {
+        
     }
     public void BuyCards(int quantity)
     {

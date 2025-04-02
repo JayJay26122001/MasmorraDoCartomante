@@ -15,7 +15,8 @@ public class Combat : MonoBehaviour
     public void StartCombat()
     {
         GameplayManager.currentCombat = this;
-        for(int i = 0; i < 2; i++)
+        Round = new Turn[2] { new Turn(combatents[0]), new Turn(combatents[1]) };
+        for (int i = 0; i < 2; i++)
         {
             combatents[i].Enemy = combatents[(i + 1) % 2];
             foreach (Deck d in combatents[i].decks)
@@ -23,9 +24,9 @@ public class Combat : MonoBehaviour
                 d.StartShuffle();
             }
             combatents[i].combatSpace = combatSpaces[i];
+            combatents[i].CombatStartAction();
 
         }
-        Round = new Turn[2] { new Turn(combatents[0]), new Turn(combatents[1]) };
         ActiveTurn = Round[turnIndex];
         TurnIndex = 0;
         ActiveTurn.TurnStart();
@@ -42,6 +43,7 @@ public class Combat : MonoBehaviour
         {
             ActiveTurn.NextPhase();
         }*/
+        ActiveTurn.currentPhase.EndPhase();
         if (ActiveTurn.phaseIndex < ActiveTurn.phases.Length - 1)
         {
             ActiveTurn.NextPhase();
@@ -133,17 +135,12 @@ public class Turn
         //phase = 0;
         phaseIndex = 0;
         currentPhase = phases[phaseIndex];
-        currentPhase.StartPhase();
-
         TurnOwner.resetShield();
         TurnOwner.resetEnergy();
+        currentPhase.StartPhase();
     }
     public void NextPhase()
     {
-        /*if ((int)phase < Enum.GetNames(typeof(TurnPhase)).Length - 1)
-        {
-            phase++;
-        }*/
         if (phaseIndex < phases.Length - 1)
         {
             phaseIndex++;
@@ -169,6 +166,10 @@ public abstract class TurnPhase
         PhaseEffect();
     }
     public abstract void PhaseEffect();
+    public virtual void EndPhase()
+    {
+        
+    }
 }
 public class TurnStart : TurnPhase
 {
@@ -178,6 +179,11 @@ public class TurnStart : TurnPhase
         //owner.BuyCards(owner.CardBuyMax);
         owner.canPlayCards = true;
         owner.TurnAction();
+    }
+    public override void EndPhase()
+    {
+        base.EndPhase();
+        owner.GetComponent<Player>()?.DiselectCard();
     }
 }
 public class ReactionTurn : TurnPhase

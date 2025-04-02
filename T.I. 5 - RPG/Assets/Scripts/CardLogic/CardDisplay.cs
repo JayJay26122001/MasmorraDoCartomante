@@ -33,8 +33,17 @@ public class CardDisplay : MonoBehaviour
     public void OnCardClick()
     {
         Debug.Log("Carta clicada: " + gameObject.name);
-        cardData.deck.Owner.PlayCard(cardData); //substituir pela linha de baixo mais tarde
-        //cardData.deck.Owner.GetComponent<Player>()?.SelectCard(cardData);
+        //cardData.deck.Owner.PlayCard(cardData); //substituir pela linha de baixo mais tarde
+        if (cardData.deck.Owner.GetComponent<Player>()?.SelectedCard == cardData)
+        {
+            //cardData.deck.Owner.GetComponent<Player>().DiselectCard(cardData); PRA DESCELECIONAR A CARTA SE CLICAR DNV NELA
+            cardData.deck.Owner.GetComponent<Player>().PlaySelectedCard();
+        }
+        else
+        {
+            cardData.deck.Owner.GetComponent<Player>()?.SelectCard(cardData);
+        }
+        
         CardUIController.CardsOrganizer(cardData.deck.Owner);
         GameplayManager.currentCombat.CombatUI();
         //cardData.deck.Owner.CardsOrganizer(); //mudan�a futura

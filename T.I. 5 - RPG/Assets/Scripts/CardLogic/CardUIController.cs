@@ -88,5 +88,9 @@ public class CardUIController : MonoBehaviour
             cardTransform.position = (c.combatSpace.buyingPileSpace.up * positionY) + c.combatSpace.buyingPileSpace.position;
             cardTransform.rotation = c.combatSpace.buyingPileSpace.rotation * Quaternion.Euler(-90f, 0f, 0f);
         }
+        if (c.GetComponent<Player>()?.SelectedCard !=null)
+        {
+            c.GetComponent<Player>().SelectedCard.cardDisplay.transform.position += 0.2f * c.combatSpace.transform.forward;
+        }
     }
 }

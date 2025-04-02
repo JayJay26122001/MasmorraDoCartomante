@@ -890,7 +890,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 509029434}
-  - component: {fileID: 509029433}
+  - component: {fileID: 509029435}
   m_Layer: 0
   m_Name: Criatura 2
   m_TagString: Untagged
@@ -898,7 +898,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &509029433
+--- !u!4 &509029434
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509029432}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &509029435
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -907,7 +922,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 509029432}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6758d649210209649944457b98a25d46, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ef8394d76fca764fbbc7af354477e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 0}
@@ -933,21 +948,6 @@ MonoBehaviour:
   hpText: {fileID: 177551275}
   shieldText: {fileID: 1992139180}
   energyText: {fileID: 1957511179}
---- !u!4 &509029434
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 509029432}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &511052325
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1122,8 +1122,8 @@ MonoBehaviour:
   - {fileID: 1699522179}
   - {fileID: 511052327}
   combatents:
-  - {fileID: 1866734916}
-  - {fileID: 509029433}
+  - {fileID: 1866734918}
+  - {fileID: 509029435}
   turnText: {fileID: 75921742}
 --- !u!4 &713266986
 Transform:
@@ -1971,7 +1971,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1866734917}
-  - component: {fileID: 1866734916}
+  - component: {fileID: 1866734918}
   m_Layer: 0
   m_Name: Criatura 1
   m_TagString: Untagged
@@ -1979,7 +1979,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1866734916
+--- !u!4 &1866734917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866734915}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1866734918
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1988,7 +2003,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1866734915}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6758d649210209649944457b98a25d46, type: 3}
+  m_Script: {fileID: 11500000, guid: 95d0f8b3691534b45b54742479ab0706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 0}
@@ -2014,21 +2029,7 @@ MonoBehaviour:
   hpText: {fileID: 1471198174}
   shieldText: {fileID: 492801325}
   energyText: {fileID: 244028022}
---- !u!4 &1866734917
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1866734915}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  SelectedCard: {fileID: 0}
 --- !u!1 &1957511177
 GameObject:
   m_ObjectHideFlags: 0

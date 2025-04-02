@@ -6,16 +6,18 @@ public class Player : Creature
 {
     public Card SelectedCard;
 
-    public void PlaySelectedCards()
+    public void PlaySelectedCard()
     {
         if (SelectedCard != null)
         {
-            PlayCard(SelectedCard);
+            Card temp = SelectedCard;
+            DiselectCard();
+            PlayCard(temp);
         }
     }
     public void SelectCard(Card c)
     {
-        if (c.cost <= energy)
+        if (c.cost <= energy && canPlayCards)
         {
             SelectedCard = c;
         }
@@ -26,7 +28,11 @@ public class Player : Creature
         {
             SelectedCard = null;
         }
-        
+
+    }
+    public void DiselectCard()
+    {
+        SelectedCard = null;
     }
 }
 
