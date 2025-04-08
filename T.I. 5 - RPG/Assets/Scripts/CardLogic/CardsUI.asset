@@ -12,13 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a51793b1b67fec34fbb1cdcc39ca2b86, type: 3}
   m_Name: CardsUI
   m_EditorClassIdentifier: 
-  cardBackground: {fileID: 21300000, guid: 34f6825682b64554d98c63d9b95b2cc9, type: 3}
   cardRarity:
   - {fileID: 21300000, guid: 6531ffb1e6fc9e142aff716bd2eaf6e9, type: 3}
-  - {fileID: 21300000, guid: 872a145b432c1684eaeaad0cb0f15f03, type: 3}
-  - {fileID: 21300000, guid: cf2c68101b3486a40bbdcfe24bbfc79c, type: 3}
-  - {fileID: 21300000, guid: 913a170bbd8ef8f449e8fd84de0b1c18, type: 3}
-  - {fileID: 21300000, guid: f5fd4c860b868614bb59795d28510a70, type: 3}
+  - {fileID: 21300000, guid: 4b44d089271bd7846829e70721273b60, type: 3}
+  - {fileID: 21300000, guid: ac477d5501eb17149b0f99570d40ea01, type: 3}
+  - {fileID: 21300000, guid: 7234bfea2ed7bb746b0f9d0181be3984, type: 3}
+  - {fileID: 21300000, guid: 96396bc85c4e9454387e06b6df61bb7f, type: 3}
+  cardRarityBackground:
+  - {fileID: 21300000, guid: 34f6825682b64554d98c63d9b95b2cc9, type: 3}
+  - {fileID: 21300000, guid: 6a94f79118bb9f04f91b3219895ea16f, type: 3}
+  - {fileID: 21300000, guid: 36991b9da5abe544788f75f56e260790, type: 3}
+  - {fileID: 21300000, guid: b2edd9192ef25b64385dab661041cc09, type: 3}
+  - {fileID: 21300000, guid: 233b04c2bd779ae4185a557e02b4fb67, type: 3}
   cardType:
   - {fileID: 21300000, guid: 563088b2b035bfc458c1a2cd869c78f3, type: 3}
   - {fileID: 21300000, guid: 1988c0116aa0e464ca6c24b7f01913db, type: 3}

@@ -68,7 +68,14 @@ public class CardUIController : MonoBehaviour
             float positionX = (i - ((totalCardsPlayed - 1) / 2f)) * playedCardsSpacing;
             Transform cardTransform = c.playedCards[i].cardDisplay.transform;
             cardTransform.position = (c.combatSpace.playedCardSpace.right * positionX) + c.combatSpace.playedCardSpace.position;
-            cardTransform.rotation = c.combatSpace.playedCardSpace.rotation * Quaternion.Euler(90f, 0f, 0f);
+            if (c.playedCards[i].hidden == false) //Virar a carta caso ela for Hidden na hora que estiver na mesa de cartas jogadas
+            {
+                cardTransform.rotation = c.combatSpace.playedCardSpace.rotation * Quaternion.Euler(90f, 0f, 0f);
+            }
+            else
+            {
+                cardTransform.rotation = c.combatSpace.playedCardSpace.rotation * Quaternion.Euler(-90f, 0f, 180f);
+            }
         }
         int totalDiscardCards = c.decks[0].DiscardPile.Count;
         float discardCardsSpacing = 0.1f;
@@ -77,7 +84,7 @@ public class CardUIController : MonoBehaviour
             float positionY = (i * discardCardsSpacing);
             Transform cardTransform = c.decks[0].DiscardPile.ToArray()[i - 1].cardDisplay.transform;
             cardTransform.position = (c.combatSpace.discardPileSpace.up * positionY) + c.combatSpace.discardPileSpace.position;
-            cardTransform.rotation = c.combatSpace.discardPileSpace.rotation * Quaternion.Euler(-90f, 0f, 0f);
+            cardTransform.rotation = c.combatSpace.discardPileSpace.rotation * Quaternion.Euler(-90f, 0f, 180f);
         }
         int totalBuyingCards = c.decks[0].BuyingPile.Count;
         float buyingCardsSpacing = 0.1f;
@@ -86,7 +93,7 @@ public class CardUIController : MonoBehaviour
             float positionY = (i * buyingCardsSpacing);
             Transform cardTransform = c.decks[0].BuyingPile.ToArray()[i - 1].cardDisplay.transform;
             cardTransform.position = (c.combatSpace.buyingPileSpace.up * positionY) + c.combatSpace.buyingPileSpace.position;
-            cardTransform.rotation = c.combatSpace.buyingPileSpace.rotation * Quaternion.Euler(-90f, 0f, 0f);
+            cardTransform.rotation = c.combatSpace.buyingPileSpace.rotation * Quaternion.Euler(-90f, 0f, 180f);
         }
         if (c.GetComponent<Player>()?.SelectedCard !=null)
         {
