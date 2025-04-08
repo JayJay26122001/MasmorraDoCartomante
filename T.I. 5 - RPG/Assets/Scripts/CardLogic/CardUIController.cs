@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using JetBrains.Annotations;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class CardUIController : MonoBehaviour
 {
@@ -41,12 +43,22 @@ public class CardUIController : MonoBehaviour
         {
             temp.transform.SetParent(card.deck.Owner.transform);
         }
-
     }
 
     public static void CardsOrganizer(Creature c) //mudan�a futura
     {
+        OrganizeHandCards(c);
+        OrganizePlayedCards(c);
+        OrganizeVerticalPile(c.decks[0].DiscardPile, c.combatSpace.discardPileSpace);
+        OrganizeVerticalPile(c.decks[0].BuyingPile, c.combatSpace.buyingPileSpace);
+        HighlightSelectedCard(c);
+    }
+
+    public static void OrganizeHandCards(Creature c) 
+    {
         int totalHandCards = c.hand.Count;
+        float leftLimit = -8.0f;
+        float rightLimit = 8.0f;
         float minHandSpacing = 1.0f;
         float maxHandSpacing = 3.0f;
         float handVerticalSpacing = 0.02f;
@@ -61,14 +73,18 @@ public class CardUIController : MonoBehaviour
             cardTransform.position = (c.combatSpace.playerHandSpace.right * positionX + c.combatSpace.playerHandSpace.up * positionY) + c.combatSpace.playerHandSpace.position;
             cardTransform.rotation = c.combatSpace.playerHandSpace.rotation * Quaternion.Euler(90f, 0f, 0f);
         }
+    }
+
+    public static void OrganizePlayedCards(Creature c)
+    {
         int totalCardsPlayed = c.playedCards.Count;
         float playedCardsSpacing = 2.5f;
         for (int i = 0; i < totalCardsPlayed; i++)
         {
-            float positionX = (i - ((totalCardsPlayed - 1) / 2f)) * playedCardsSpacing;
+            float posX = (i - ((totalCardsPlayed - 1) / 2f)) * playedCardsSpacing;
             Transform cardTransform = c.playedCards[i].cardDisplay.transform;
-            cardTransform.position = (c.combatSpace.playedCardSpace.right * positionX) + c.combatSpace.playedCardSpace.position;
-            if (c.playedCards[i].hidden == false) //Virar a carta caso ela for Hidden na hora que estiver na mesa de cartas jogadas
+            cardTransform.position = (c.combatSpace.playedCardSpace.right * posX) + c.combatSpace.playedCardSpace.position;
+            if (!c.playedCards[i].hidden) //Virar a carta caso ela for Hidden na hora que estiver na mesa de cartas jogadas
             {
                 cardTransform.rotation = c.combatSpace.playedCardSpace.rotation * Quaternion.Euler(90f, 0f, 0f);
             }
@@ -77,27 +93,28 @@ public class CardUIController : MonoBehaviour
                 cardTransform.rotation = c.combatSpace.playedCardSpace.rotation * Quaternion.Euler(-90f, 0f, 180f);
             }
         }
-        int totalDiscardCards = c.decks[0].DiscardPile.Count;
-        float discardCardsSpacing = 0.1f;
-        for (int i = totalDiscardCards; i > 0; i--)
+    }
+
+    public static void OrganizeVerticalPile(Stack<Card> pile, Transform space)
+    {
+        Card[] cards = pile.ToArray();
+        float spacing = 0.1f;
+        int total = pile.Count;
+
+        for (int i = total; i > 0; i--)
         {
-            float positionY = (i * discardCardsSpacing);
-            Transform cardTransform = c.decks[0].DiscardPile.ToArray()[i - 1].cardDisplay.transform;
-            cardTransform.position = (c.combatSpace.discardPileSpace.up * positionY) + c.combatSpace.discardPileSpace.position;
-            cardTransform.rotation = c.combatSpace.discardPileSpace.rotation * Quaternion.Euler(-90f, 0f, 180f);
+            float posY = i * spacing;
+            Transform cardTransform = cards[i-1].cardDisplay.transform;
+            cardTransform.position = (space.up * posY) + space.position;
+            cardTransform.rotation = space.rotation * Quaternion.Euler(-90f, 0f, 180f);
         }
-        int totalBuyingCards = c.decks[0].BuyingPile.Count;
-        float buyingCardsSpacing = 0.1f;
-        for (int i = totalBuyingCards; i > 0; i--)
+    }
+
+    public static void HighlightSelectedCard(Creature c)
+    {
+        if (c.GetComponent<Player>()?.SelectedCard != null)
         {
-            float positionY = (i * buyingCardsSpacing);
-            Transform cardTransform = c.decks[0].BuyingPile.ToArray()[i - 1].cardDisplay.transform;
-            cardTransform.position = (c.combatSpace.buyingPileSpace.up * positionY) + c.combatSpace.buyingPileSpace.position;
-            cardTransform.rotation = c.combatSpace.buyingPileSpace.rotation * Quaternion.Euler(-90f, 0f, 180f);
-        }
-        if (c.GetComponent<Player>()?.SelectedCard !=null)
-        {
-            c.GetComponent<Player>().SelectedCard.cardDisplay.transform.position += 0.2f * c.combatSpace.transform.forward;
+            c.GetComponent<Player>().SelectedCard.cardDisplay.transform.position += 0.2f * c.combatSpace.playerHandSpace.transform.forward;
         }
     }
 }
