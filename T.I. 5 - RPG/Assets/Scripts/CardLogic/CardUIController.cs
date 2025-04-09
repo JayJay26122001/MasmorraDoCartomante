@@ -10,7 +10,8 @@ public class CardUIController : MonoBehaviour
     public float maxTotalWidth = 15.0f;
     private void Awake()
     {
-        if (instance == null)
+        instance = this;
+        /*if (instance == null)
         {
             instance = this;
         }
@@ -18,7 +19,7 @@ public class CardUIController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);*/
     }
 
     void Start()
@@ -59,7 +60,7 @@ public class CardUIController : MonoBehaviour
     {
         int totalHandCards = c.hand.Count;
         float fixedSpacing = 2.0f;
-        float spacing = (totalHandCards - 1 <= 8) ? fixedSpacing : instance.maxTotalWidth / (totalHandCards - 1);
+        float spacing = (totalHandCards  <= 6) ? fixedSpacing : instance.maxTotalWidth / (totalHandCards - 1);
         float index = (totalHandCards - 1) / 2f;
         float handVerticalSpacing = 0.02f;
         float rotationPerCard = 0.1f;
@@ -117,6 +118,7 @@ public class CardUIController : MonoBehaviour
 
     public static void HighlightSelectedCard(Creature c)
     {
+        OrganizeHandCards(c);
         if (c.GetComponent<Player>()?.SelectedCard != null)
         {
             c.GetComponent<Player>().SelectedCard.cardDisplay.transform.position += 0.2f * c.combatSpace.playerHandSpace.transform.up;

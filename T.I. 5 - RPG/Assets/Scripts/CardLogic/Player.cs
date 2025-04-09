@@ -17,7 +17,7 @@ public class Player : Creature
     }
     public void SelectCard(Card c)
     {
-        if (c.cost <= energy && canPlayCards)
+        if (hand.Contains(c) && c.cost <= energy && canPlayCards)
         {
             SelectedCard = c;
         }
