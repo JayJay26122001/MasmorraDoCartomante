@@ -1,12 +1,13 @@
 ﻿using JetBrains.Annotations;
 using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class CardUIController : MonoBehaviour
 {
     public static CardUIController instance;
     public CardDisplay cardPrefab;
-
+    public float maxTotalWidth = 15.0f;
     private void Awake()
     {
         if (instance == null)
@@ -57,21 +58,25 @@ public class CardUIController : MonoBehaviour
     public static void OrganizeHandCards(Creature c) 
     {
         int totalHandCards = c.hand.Count;
-        float leftLimit = -8.0f;
-        float rightLimit = 8.0f;
-        float minHandSpacing = 1.0f;
-        float maxHandSpacing = 3.0f;
+        float fixedSpacing = 2.0f;
+        float spacing = (totalHandCards - 1 <= 8) ? fixedSpacing : instance.maxTotalWidth / (totalHandCards - 1);
+        float index = (totalHandCards - 1) / 2f;
         float handVerticalSpacing = 0.02f;
-        int cardsSpacingLimit = 6;
-        float multiplierValue = Mathf.Clamp01((totalHandCards - cardsSpacingLimit) / 10f);
-        float handSpacing = Mathf.Lerp(maxHandSpacing, minHandSpacing, multiplierValue);
+        float rotationPerCard = 0.1f;
+        float yRotation = -rotationPerCard * totalHandCards;
+        //c.combatSpace.playerHandSpace.localRotation = Quaternion.Euler(c.combatSpace.playerHandSpace.localRotation.eulerAngles.x, c.combatSpace.playerHandSpace.localRotation.eulerAngles.y, zRotation);
+        if(c.GetComponent<Player>() != null)
+        {
+            //c.combatSpace.playerHandSpace.transform.LookAt(Camera.main.transform.position);
+            c.combatSpace.playerHandSpace.transform.rotation = Camera.main.transform.rotation * Quaternion.Euler(0f, 180f + yRotation, 0f);
+        }
         for (int i = 0; i < totalHandCards; i++)
         {
-            float positionX = (i - ((totalHandCards - 1) / 2f)) * handSpacing;
-            float positionY = (i * handVerticalSpacing);
+            float posX = (i - index) * spacing;
+            float posY = (i * handVerticalSpacing);
             Transform cardTransform = c.hand[i].cardDisplay.transform;
-            cardTransform.position = (c.combatSpace.playerHandSpace.right * positionX + c.combatSpace.playerHandSpace.up * positionY) + c.combatSpace.playerHandSpace.position;
-            cardTransform.rotation = c.combatSpace.playerHandSpace.rotation * Quaternion.Euler(90f, 0f, 0f);
+            cardTransform.position = (c.combatSpace.playerHandSpace.right * posX + (-c.combatSpace.playerHandSpace.forward) * posY) + c.combatSpace.playerHandSpace.position;
+            cardTransform.rotation = c.combatSpace.playerHandSpace.rotation * Quaternion.Euler(0f, 180f, 0f);
         }
     }
 
@@ -114,7 +119,7 @@ public class CardUIController : MonoBehaviour
     {
         if (c.GetComponent<Player>()?.SelectedCard != null)
         {
-            c.GetComponent<Player>().SelectedCard.cardDisplay.transform.position += 0.2f * c.combatSpace.playerHandSpace.transform.forward;
+            c.GetComponent<Player>().SelectedCard.cardDisplay.transform.position += 0.2f * c.combatSpace.playerHandSpace.transform.up;
         }
     }
 }
