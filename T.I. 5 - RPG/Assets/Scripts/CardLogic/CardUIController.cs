@@ -78,6 +78,7 @@ public class CardUIController : MonoBehaviour
             Transform cardTransform = c.hand[i].cardDisplay.transform;
             cardTransform.position = (c.combatSpace.playerHandSpace.right * posX + (-c.combatSpace.playerHandSpace.forward) * posY) + c.combatSpace.playerHandSpace.position;
             cardTransform.rotation = c.combatSpace.playerHandSpace.rotation * Quaternion.Euler(0f, 180f, 0f);
+            cardTransform.SetParent(c.combatSpace.playerHandSpace);
         }
     }
 
@@ -98,6 +99,7 @@ public class CardUIController : MonoBehaviour
             {
                 cardTransform.rotation = c.combatSpace.playedCardSpace.rotation * Quaternion.Euler(-90f, 0f, 180f);
             }
+            cardTransform.SetParent(c.combatSpace.playedCardSpace);
         }
     }
 
@@ -110,9 +112,10 @@ public class CardUIController : MonoBehaviour
         for (int i = total; i > 0; i--)
         {
             float posY = i * spacing;
-            Transform cardTransform = cards[i-1].cardDisplay.transform;
+            Transform cardTransform = cards[i - 1].cardDisplay.transform;
             cardTransform.position = (space.up * posY) + space.position;
             cardTransform.rotation = space.rotation * Quaternion.Euler(-90f, 0f, 180f);
+            cardTransform.SetParent(space);
         }
     }
 
