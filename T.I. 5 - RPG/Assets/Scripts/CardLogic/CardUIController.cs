@@ -63,10 +63,15 @@ public class CardUIController : MonoBehaviour
         float spacing = (totalHandCards  <= 6) ? fixedSpacing : instance.maxTotalWidth / (totalHandCards - 1);
         float index = (totalHandCards - 1) / 2f;
         float handVerticalSpacing = 0.02f;
+        float maxHeight = 0.5f;
         float rotationPerCard = 0.1f;
         float yRotation = -rotationPerCard * totalHandCards;
+
+        float arcAngle = 25f;
+        float angleStep = (totalHandCards > 1) ? arcAngle / (totalHandCards - 1) : 0f;
+        float startAngle = -arcAngle / 2f;
         //c.combatSpace.playerHandSpace.localRotation = Quaternion.Euler(c.combatSpace.playerHandSpace.localRotation.eulerAngles.x, c.combatSpace.playerHandSpace.localRotation.eulerAngles.y, zRotation);
-        if(c.GetComponent<Player>() != null)
+        if (c.GetComponent<Player>() != null)
         {
             //c.combatSpace.playerHandSpace.transform.LookAt(Camera.main.transform.position);
             c.combatSpace.playerHandSpace.transform.rotation = Camera.main.transform.rotation * Quaternion.Euler(0f, 180f + yRotation, 0f);
@@ -74,10 +79,15 @@ public class CardUIController : MonoBehaviour
         for (int i = 0; i < totalHandCards; i++)
         {
             float posX = (i - index) * spacing;
-            float posY = (i * handVerticalSpacing);
+            //se for fazer as cartas retas, só tirar a posY
+            float distanceFromCenter = Mathf.Abs(i - index);
+            float maxDistance = Mathf.Floor(totalHandCards / 2f);
+            float posY = maxHeight * (1 - (distanceFromCenter / maxDistance));
+            float posZ = i * handVerticalSpacing;
+            float zRotation = startAngle + angleStep * i;
             Transform cardTransform = c.hand[i].cardDisplay.transform;
-            cardTransform.position = (c.combatSpace.playerHandSpace.right * posX + (-c.combatSpace.playerHandSpace.forward) * posY) + c.combatSpace.playerHandSpace.position;
-            cardTransform.rotation = c.combatSpace.playerHandSpace.rotation * Quaternion.Euler(0f, 180f, 0f);
+            cardTransform.position = (c.combatSpace.playerHandSpace.right * posX) + (c.combatSpace.playerHandSpace.up) * posY + (-c.combatSpace.playerHandSpace.forward) * posZ + c.combatSpace.playerHandSpace.position;
+            cardTransform.rotation = c.combatSpace.playerHandSpace.rotation * Quaternion.Euler(0f, 180f, zRotation); //remover zRotation se for fazer reto
             cardTransform.SetParent(c.combatSpace.playerHandSpace);
         }
     }
