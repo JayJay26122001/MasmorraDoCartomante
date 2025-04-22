@@ -17,7 +17,7 @@ public static class ListUT
         }
         return temp;
     }
-    public static Stack<T> Shuffle<T>(Stack<T> stack)
+    public static SerializableStack<T> Shuffle<T>(SerializableStack<T> stack)
     {
         List<T> list = stack.ToList();
         stack.Clear();
@@ -34,12 +34,12 @@ public static class ListUT
         return ToStack(list);
 
     }
-    public static Stack<T> ToStack<T>(List<T> list)
+    public static SerializableStack<T> ToStack<T>(List<T> list)
     {
-        Stack<T> stack = new Stack<T>();
+        SerializableStack<T> stack = new SerializableStack<T>();
         foreach (T v in list)
         {
-            stack.Push(v);
+            stack.Add(v);
         }
         return stack;
     }

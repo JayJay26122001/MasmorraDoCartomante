@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Deck", menuName = "CardLogic/Deck")]
@@ -8,7 +7,7 @@ public class Deck : ScriptableObject
     public Creature Owner;
     [SerializeField] List<Card> CardPresets = new List<Card>();
     public List<Card> cards = new List<Card>();
-    public Stack<Card> BuyingPile = new Stack<Card>(), DiscardPile = new Stack<Card>();
+    public SerializableStack<Card> BuyingPile = new SerializableStack<Card>(), DiscardPile = new SerializableStack<Card>();
     public void Setup()
     {
         foreach (Card c in CardPresets)
@@ -29,11 +28,11 @@ public class Deck : ScriptableObject
     {
         while (DiscardPile.Count>0)
         {
-            BuyingPile.Push(DiscardPile.Pop());
+            BuyingPile.Add(DiscardPile.GetTop());
         }
         ShufflePile(ref BuyingPile);
     }
-    public void ShufflePile(ref Stack<Card> pile) // embaralha apenas uma pilha (descarte ou compra)
+    public void ShufflePile(ref SerializableStack<Card> pile) // embaralha apenas uma pilha (descarte ou compra)
     {
         pile = ListUT.Shuffle(pile);
     }

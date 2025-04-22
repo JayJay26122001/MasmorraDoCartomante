@@ -3,8 +3,6 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
-using UnityEngine.UIElements;
-using static UnityEngine.Rendering.GPUSort;
 
 public class Creature : MonoBehaviour
 {
@@ -148,7 +146,7 @@ public class Creature : MonoBehaviour
                 if (decks[0].DiscardPile.Count == 0) { return; }
                 decks[0].ShuffleDeck();
             }
-            hand.Add(decks[0].BuyingPile.Pop());
+            hand.Add(decks[0].BuyingPile.GetTop());
         }
     }
     public void BuyCards(int quantity, int deck)
@@ -160,7 +158,7 @@ public class Creature : MonoBehaviour
                 if(decks[deck].DiscardPile.Count == 0) { return; }
                 decks[deck].ShuffleDeck();
             }
-            hand.Add(decks[deck].BuyingPile.Pop());
+            hand.Add(decks[deck].BuyingPile.GetTop());
         }
     }
     public virtual void PlayCard(Card c)
@@ -186,7 +184,7 @@ public class Creature : MonoBehaviour
     }
     public void DiscardCard(Card card)
     {
-        card.deck.DiscardPile.Push(card);
+        card.deck.DiscardPile.Add(card);
         hand.Remove(card);
         playedCards.Remove(card);
         if (card.exaust)
@@ -197,12 +195,8 @@ public class Creature : MonoBehaviour
     public void ExaustCard(Card card)
     {
         hand.Remove(card);
-        List<Card> temp = card.deck.DiscardPile.ToList();
-        temp.Remove(card);
-        card.deck.DiscardPile = ListUT.ToStack(temp);
-        temp = card.deck.BuyingPile.ToList();
-        temp.Remove(card);
-        card.deck.BuyingPile = ListUT.ToStack(temp);
+        card.deck.DiscardPile.Remove(card);
+        card.deck.BuyingPile.Remove(card);
     }
     public void EndCombat()
     {

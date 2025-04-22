@@ -1,4 +1,4 @@
-using UnityEngine;
+
 public class Condition
 {
     public enum condition { None, EnemyPlayedAttackFirst, EnemyPlayedDefenseFirst, EnemyPlayedMindFirst }

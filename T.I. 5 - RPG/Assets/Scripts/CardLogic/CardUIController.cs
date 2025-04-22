@@ -1,7 +1,4 @@
-﻿using JetBrains.Annotations;
-using System.Collections.Generic;
-using Unity.Cinemachine;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CardUIController : MonoBehaviour
 {
@@ -21,21 +18,6 @@ public class CardUIController : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);*/
     }
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
-    /*public void InstantiateDeck(Deck deck)
-    {
-
-    }*/
 
     public void InstantiateCard(Card card)
     {
@@ -59,7 +41,7 @@ public class CardUIController : MonoBehaviour
     public static void OrganizeHandCards(Creature c) 
     {
         int totalHandCards = c.hand.Count;
-        float fixedSpacing = 2.0f;
+        float fixedSpacing = 2.3f;
         float spacing = (totalHandCards  <= 6) ? fixedSpacing : instance.maxTotalWidth / (totalHandCards - 1);
         float index = (totalHandCards - 1) / 2f;
         float handVerticalSpacing = 0.02f;
@@ -113,16 +95,15 @@ public class CardUIController : MonoBehaviour
         }
     }
 
-    public static void OrganizeVerticalPile(Stack<Card> pile, Transform space)
+    public static void OrganizeVerticalPile(SerializableStack<Card> pile, Transform space)
     {
-        Card[] cards = pile.ToArray();
         float spacing = 0.1f;
         int total = pile.Count;
 
         for (int i = total; i > 0; i--)
         {
             float posY = i * spacing;
-            Transform cardTransform = cards[i - 1].cardDisplay.transform;
+            Transform cardTransform = pile.GetVar(i - 1).cardDisplay.transform;
             cardTransform.position = (space.up * posY) + space.position;
             cardTransform.rotation = space.rotation * Quaternion.Euler(-90f, 0f, 180f);
             cardTransform.SetParent(space);
