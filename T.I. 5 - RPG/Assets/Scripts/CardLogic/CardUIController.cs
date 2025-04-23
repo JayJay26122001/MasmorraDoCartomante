@@ -70,8 +70,8 @@ public class CardUIController : MonoBehaviour
             GameObject cardObject = c.hand[i].cardDisplay.gameObject;
             Vector3 pos = (c.combatSpace.playerHandSpace.right * posX) /*+ (c.combatSpace.playerHandSpace.up) * posY*/ + (-c.combatSpace.playerHandSpace.forward) * posZ + c.combatSpace.playerHandSpace.position;
             Vector3 rot = c.combatSpace.playerHandSpace.rotation.eulerAngles; //+ new Vector3(0f, 180f, /*zRotation*/0f);
-            LeanTween.move(cardObject, pos, 0.15f + i*0.02f);
-            LeanTween.rotate(cardObject, rot, 0.1f + i*0.02f);
+            LeanTween.move(cardObject, pos, 0.15f + i * 0.02f).setEaseInOutSine();
+            LeanTween.rotate(cardObject, rot, 0.15f + i * 0.02f).setEaseInOutSine();
             cardObject.transform.SetParent(c.combatSpace.playerHandSpace);
         }
     }
@@ -96,13 +96,13 @@ public class CardUIController : MonoBehaviour
                 //rot = c.combatSpace.playedCardSpace.rotation * Quaternion.Euler(-90f, 0f, 180f);
                 rot = c.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(-90f, 180f, 0);
             }
-            LeanTween.move(cardObject, pos, 0.15f);
-            LeanTween.rotate(cardObject, rot, 0.15f);
+            LeanTween.move(cardObject, pos, 0.15f).setEaseInOutSine();
+            LeanTween.rotate(cardObject, rot, 0.15f).setEaseInOutSine();
             cardObject.transform.SetParent(c.combatSpace.playedCardSpace);
         }
     }
 
-    public static void OrganizeVerticalPile(SerializableStack<Card> pile, Transform space)
+    /*public static void OrganizeVerticalPile(SerializableStack<Card> pile, Transform space)
     {
         float spacing = 0.1f;
         int total = pile.Count;
@@ -114,9 +114,10 @@ public class CardUIController : MonoBehaviour
             cardTransform.position = (space.up * posY) + space.position;
             cardTransform.rotation = space.rotation * Quaternion.Euler(-90f, 0f, 180f);
             cardTransform.SetParent(space);
+            if()
         }
-    }
-    /*public static void OrganizeVerticalPile(SerializableStack<Card> pile, Transform space)
+    }*/
+    public static void OrganizeVerticalPile(SerializableStack<Card> pile, Transform space)
     {
         float spacing = 0.1f;
         int total = pile.Count;
@@ -125,13 +126,31 @@ public class CardUIController : MonoBehaviour
         {
             float posY = i * spacing;
             GameObject cardObject = pile.GetVar(i - 1).cardDisplay.gameObject;
-            Vector3 pos = (space.up * posY) + space.position;
-            Vector3 rot = space.rotation.eulerAngles + new Vector3(-90f, 0f, 180f);
-            LeanTween.move(cardObject, pos, 0.15f);
-            LeanTween.rotate(cardObject, rot, 0.15f);
-            cardObject.transform.SetParent(space);
+
+            Vector3 finalPos = space.position + (space.up * posY);
+            Vector3 finalRot = space.rotation.eulerAngles + new Vector3(-90f, 0f, 180f);
+
+            if (cardObject.transform.parent != space)
+            {
+                Vector3 upPos = cardObject.transform.position + Vector3.up * 20f;
+                Vector3 horizontalPos = new Vector3(finalPos.x, upPos.y, finalPos.z);
+
+                LeanTween.move(cardObject, upPos, 0.15f).setEaseInOutSine().setOnComplete(() =>
+                {
+                    cardObject.transform.position = upPos;
+                    LeanTween.rotate(cardObject, finalRot, 0.15f).setEaseInOutSine();
+                    LeanTween.move(cardObject, horizontalPos, 0.15f).setEaseInOutSine().setOnComplete(() =>
+                    {
+                        cardObject.transform.position = horizontalPos;
+
+                        LeanTween.move(cardObject, finalPos, 0.15f).setEaseInOutSine();
+                        cardObject.transform.SetParent(space);
+                    });
+                });
+            }
         }
-    }*/
+    }
+
 
     public static void HighlightSelectedCard(Creature c)
     {
