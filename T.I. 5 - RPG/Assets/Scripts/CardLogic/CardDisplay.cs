@@ -38,12 +38,10 @@ public class CardDisplay : MonoBehaviour
         {
             //cardData.deck.Owner.GetComponent<Player>().DiselectCard(cardData); PRA DESCELECIONAR A CARTA SE CLICAR DNV NELA
             cardData.deck.Owner.GetComponent<Player>().PlaySelectedCard();
-            CardUIController.CardsOrganizer(cardData.deck.Owner);
         }
         else
         {
             cardData.deck.Owner.GetComponent<Player>()?.SelectCard(cardData);
-            CardUIController.HighlightSelectedCard(cardData.deck.Owner);
         }
         GameplayManager.currentCombat.CombatUI();
     }

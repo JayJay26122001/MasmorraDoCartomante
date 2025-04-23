@@ -48,6 +48,7 @@ public class Card : ScriptableObject
                 return;
             }
         }
+        hidden = false;
         CardHadEffect();
     }
     public void ConditionalCardFailled()// caso as condições da carta não tenham sido cumpridas

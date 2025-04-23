@@ -18,6 +18,7 @@ public class Player : Creature
         if (hand.Contains(c) && c.cost <= energy && canPlayCards)
         {
             SelectedCard = c;
+            CardUIController.HighlightSelectedCard(this);
         }
     }
     public void DiselectCard(Card c)

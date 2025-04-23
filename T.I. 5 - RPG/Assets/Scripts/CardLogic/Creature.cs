@@ -170,6 +170,7 @@ public class Creature : MonoBehaviour
         energy -= c.cost;
         hand.Remove(c);
         playedCards.Add(c);
+        CardUIController.CardsOrganizer(this);
         c.CardPlayed();
         PlayedCard.Invoke(c);
         //Debug.Log("played card");

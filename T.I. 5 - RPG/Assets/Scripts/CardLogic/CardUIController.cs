@@ -38,11 +38,11 @@ public class CardUIController : MonoBehaviour
         HighlightSelectedCard(c);
     }
 
-    public static void OrganizeHandCards(Creature c) 
+    public static void OrganizeHandCards(Creature c)
     {
         int totalHandCards = c.hand.Count;
         float fixedSpacing = 2.3f;
-        float spacing = (totalHandCards  <= 6) ? fixedSpacing : instance.maxTotalWidth / (totalHandCards - 1);
+        float spacing = (totalHandCards <= 6) ? fixedSpacing : instance.maxTotalWidth / (totalHandCards - 1);
         float index = (totalHandCards - 1) / 2f;
         float handVerticalSpacing = 0.02f;
         //float maxHeight = 0.5f;
@@ -57,7 +57,7 @@ public class CardUIController : MonoBehaviour
         if (c.GetComponent<Player>() != null)
         {
             //c.combatSpace.playerHandSpace.transform.LookAt(Camera.main.transform.position);
-            c.combatSpace.playerHandSpace.transform.rotation = Camera.main.transform.rotation * Quaternion.Euler(0f, 180f + yRotation, 0f);
+            c.combatSpace.playerHandSpace.transform.rotation = Camera.main.transform.rotation * Quaternion.Euler(0f, yRotation, 0f);
         }
         for (int i = 0; i < totalHandCards; i++)
         {
@@ -67,10 +67,12 @@ public class CardUIController : MonoBehaviour
             float posY = maxHeight * (1 - (distanceFromCenter / maxDistance));*/
             float posZ = i * handVerticalSpacing;
             //float zRotation = startAngle + angleStep * i;
-            Transform cardTransform = c.hand[i].cardDisplay.transform;
-            cardTransform.position = (c.combatSpace.playerHandSpace.right * posX) /*+ (c.combatSpace.playerHandSpace.up) * posY*/ + (-c.combatSpace.playerHandSpace.forward) * posZ + c.combatSpace.playerHandSpace.position;
-            cardTransform.rotation = c.combatSpace.playerHandSpace.rotation * Quaternion.Euler(0f, 180f, /*zRotation*/0f);
-            cardTransform.SetParent(c.combatSpace.playerHandSpace);
+            GameObject cardObject = c.hand[i].cardDisplay.gameObject;
+            Vector3 pos = (c.combatSpace.playerHandSpace.right * posX) /*+ (c.combatSpace.playerHandSpace.up) * posY*/ + (-c.combatSpace.playerHandSpace.forward) * posZ + c.combatSpace.playerHandSpace.position;
+            Vector3 rot = c.combatSpace.playerHandSpace.rotation.eulerAngles; //+ new Vector3(0f, 180f, /*zRotation*/0f);
+            LeanTween.move(cardObject, pos, 0.15f + i*0.02f);
+            LeanTween.rotate(cardObject, rot, 0.1f + i*0.02f);
+            cardObject.transform.SetParent(c.combatSpace.playerHandSpace);
         }
     }
 
@@ -81,17 +83,22 @@ public class CardUIController : MonoBehaviour
         for (int i = 0; i < totalCardsPlayed; i++)
         {
             float posX = (i - ((totalCardsPlayed - 1) / 2f)) * playedCardsSpacing;
-            Transform cardTransform = c.playedCards[i].cardDisplay.transform;
-            cardTransform.position = (c.combatSpace.playedCardSpace.right * posX) + c.combatSpace.playedCardSpace.position;
+            GameObject cardObject = c.playedCards[i].cardDisplay.gameObject;
+            Vector3 pos = (c.combatSpace.playedCardSpace.right * posX) + c.combatSpace.playedCardSpace.position;
+            Vector3 rot;
             if (!c.playedCards[i].hidden) //Virar a carta caso ela for Hidden na hora que estiver na mesa de cartas jogadas
             {
-                cardTransform.rotation = c.combatSpace.playedCardSpace.rotation * Quaternion.Euler(90f, 0f, 0f);
+                //rot = c.combatSpace.playedCardSpace.rotation * Quaternion.Euler(90f, 0f, 0f);
+                rot = c.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(90f, 0f, 0f);
             }
             else
             {
-                cardTransform.rotation = c.combatSpace.playedCardSpace.rotation * Quaternion.Euler(-90f, 0f, 180f);
+                //rot = c.combatSpace.playedCardSpace.rotation * Quaternion.Euler(-90f, 0f, 180f);
+                rot = c.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(-90f, 180f, 0);
             }
-            cardTransform.SetParent(c.combatSpace.playedCardSpace);
+            LeanTween.move(cardObject, pos, 0.15f);
+            LeanTween.rotate(cardObject, rot, 0.15f);
+            cardObject.transform.SetParent(c.combatSpace.playedCardSpace);
         }
     }
 
@@ -109,13 +116,31 @@ public class CardUIController : MonoBehaviour
             cardTransform.SetParent(space);
         }
     }
+    /*public static void OrganizeVerticalPile(SerializableStack<Card> pile, Transform space)
+    {
+        float spacing = 0.1f;
+        int total = pile.Count;
+
+        for (int i = total; i > 0; i--)
+        {
+            float posY = i * spacing;
+            GameObject cardObject = pile.GetVar(i - 1).cardDisplay.gameObject;
+            Vector3 pos = (space.up * posY) + space.position;
+            Vector3 rot = space.rotation.eulerAngles + new Vector3(-90f, 0f, 180f);
+            LeanTween.move(cardObject, pos, 0.15f);
+            LeanTween.rotate(cardObject, rot, 0.15f);
+            cardObject.transform.SetParent(space);
+        }
+    }*/
 
     public static void HighlightSelectedCard(Creature c)
     {
         OrganizeHandCards(c);
         if (c.GetComponent<Player>()?.SelectedCard != null)
         {
-            c.GetComponent<Player>().SelectedCard.cardDisplay.transform.position += 0.2f * c.combatSpace.playerHandSpace.transform.up;
+            LeanTween.cancel(c.GetComponent<Player>().SelectedCard.cardDisplay.gameObject);
+            LeanTween.move(c.GetComponent<Player>().SelectedCard.cardDisplay.gameObject, c.GetComponent<Player>().SelectedCard.cardDisplay.transform.position + 0.2f * c.combatSpace.playerHandSpace.transform.up, 0.15f);
+            
         }
     }
 }
