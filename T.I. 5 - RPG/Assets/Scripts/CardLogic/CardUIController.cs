@@ -74,7 +74,6 @@ public class CardUIController : MonoBehaviour
             Vector3 rot = c.combatSpace.playerHandSpace.rotation.eulerAngles; //+ new Vector3(0f, 180f, /*zRotation*/0f);
             LeanTween.move(cardObject, pos, 0.15f).setEaseInOutSine();
             LeanTween.rotate(cardObject, rot, 0.1f).setEaseInOutSine();
-            Debug.Log(i);
             cardObject.transform.SetParent(c.combatSpace.playerHandSpace);
         }
     }
@@ -108,12 +107,11 @@ public class CardUIController : MonoBehaviour
     public static void OrganizeStackFlat(SerializableStack<Card> pile, Transform space)
     {
         float spacing = 0.1f;
-        int total = pile.Count;
 
-        for (int i = total; i > 0; i--)
+        for (int i = 0; i < pile.Count; i++)
         {
             float posY = i * spacing;
-            GameObject cardObject = pile.GetVar(i - 1).cardDisplay.gameObject;
+            GameObject cardObject = pile.GetVar(pile.Count - i - 1).cardDisplay.gameObject;
             Vector3 pos = (space.up * posY) + space.position;
             Vector3 rot = space.rotation.eulerAngles + new Vector3(-90f, 0f, 180f);
             LeanTween.move(cardObject, pos, 0.15f);
@@ -123,13 +121,12 @@ public class CardUIController : MonoBehaviour
     }
     public static void OrganizeStack(SerializableStack<Card> pile, Transform space)
     {
-        float spacing = 0.1f;
-        int total = pile.Count;
+        float spacing = 0.03f;
 
-        for (int i = total; i > 0; i--)
+        for (int i = 0; i < pile.Count; i++)
         {
             float posY = i * spacing;
-            GameObject cardObject = pile.GetVar(i - 1).cardDisplay.gameObject;
+            GameObject cardObject = pile.GetVar(pile.Count - i - 1).cardDisplay.gameObject;
 
             Vector3 finalPos = space.position + (space.up * posY);
             Vector3 finalRot = space.rotation.eulerAngles + new Vector3(-90f, 0f, 180f);
@@ -139,7 +136,7 @@ public class CardUIController : MonoBehaviour
                 Vector3 upPos = cardObject.transform.position + Vector3.up * 20f;
                 Vector3 horizontalPos = new Vector3(finalPos.x, upPos.y, finalPos.z);
 
-                LeanTween.move(cardObject, upPos, 0.15f).setEaseInOutSine().setOnComplete(() =>
+                LeanTween.move(cardObject, upPos, 0.15f + i*0.02f).setEaseInOutSine().setOnComplete(() =>
                 {
                     cardObject.transform.position = upPos;
                     LeanTween.rotate(cardObject, finalRot, 0.15f).setEaseInOutSine();
