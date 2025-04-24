@@ -32,7 +32,6 @@ public class CardDisplay : MonoBehaviour
 
     public void OnCardClick()
     {
-        Debug.Log("Carta clicada: " + gameObject.name);
         //cardData.deck.Owner.PlayCard(cardData); //substituir pela linha de baixo mais tarde
         if (cardData.deck.Owner.GetComponent<Player>()?.SelectedCard == cardData)
         {

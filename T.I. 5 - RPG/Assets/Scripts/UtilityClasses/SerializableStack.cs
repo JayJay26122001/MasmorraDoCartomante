@@ -23,6 +23,10 @@ public class SerializableStack<T>
     }
     public T GetTop()
     {
+        if (Count <= 0)
+        {
+            return default(T);
+        }
         T temp = Stack[0];
         Remove(Stack[0]);
         return temp;

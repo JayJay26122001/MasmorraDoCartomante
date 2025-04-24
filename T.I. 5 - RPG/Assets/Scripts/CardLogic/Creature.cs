@@ -137,7 +137,7 @@ public class Creature : MonoBehaviour
     {
         
     }
-    public void BuyCards(int quantity)
+    public virtual void BuyCards(int quantity)
     {
         for (; quantity > 0; quantity--)
         {
@@ -148,6 +148,8 @@ public class Creature : MonoBehaviour
             }
             hand.Add(decks[0].BuyingPile.GetTop());
         }
+        CardUIController.OrganizeHandCards(this);
+        CardUIController.OrganizeStack(decks[0].BuyingPile, combatSpace.buyingPileSpace);
     }
     public void BuyCards(int quantity, int deck)
     {
@@ -155,11 +157,13 @@ public class Creature : MonoBehaviour
         {
             if (decks[deck].BuyingPile.Count == 0)
             {
-                if(decks[deck].DiscardPile.Count == 0) { return; }
+                if (decks[deck].DiscardPile.Count == 0) { return; }
                 decks[deck].ShuffleDeck();
             }
             hand.Add(decks[deck].BuyingPile.GetTop());
         }
+        CardUIController.OrganizeHandCards(this);
+        CardUIController.OrganizeStack(decks[deck].BuyingPile, combatSpace.buyingPileSpace);
     }
     public virtual void PlayCard(Card c)
     {
@@ -170,7 +174,8 @@ public class Creature : MonoBehaviour
         energy -= c.cost;
         hand.Remove(c);
         playedCards.Add(c);
-        CardUIController.CardsOrganizer(this);
+        CardUIController.OrganizeHandCards(this);
+        CardUIController.OrganizePlayedCards(this);
         c.CardPlayed();
         PlayedCard.Invoke(c);
         //Debug.Log("played card");
@@ -192,6 +197,8 @@ public class Creature : MonoBehaviour
         {
             ExaustCard(card);
         }
+        CardUIController.OrganizePlayedCards(this);
+        CardUIController.OrganizeStackFlat(card.deck.DiscardPile, combatSpace.discardPileSpace);
     }
     public void ExaustCard(Card card)
     {

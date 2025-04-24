@@ -26,11 +26,12 @@ public class Deck : ScriptableObject
     }
     public void ShuffleDeck() // coloca todas as cartas na pilha de descarte na pilha de compras e as embaralha
     {
-        while (DiscardPile.Count>0)
+        while (DiscardPile.Count > 0)
         {
             BuyingPile.Add(DiscardPile.GetTop());
         }
         ShufflePile(ref BuyingPile);
+        CardUIController.OrganizeStack(BuyingPile, Owner.combatSpace.buyingPileSpace);
     }
     public void ShufflePile(ref SerializableStack<Card> pile) // embaralha apenas uma pilha (descarte ou compra)
     {

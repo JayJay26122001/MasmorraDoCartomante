@@ -29,7 +29,7 @@ public class Combat : MonoBehaviour
         }
         ActiveTurn = Round[turnIndex];
         TurnIndex = 0;
-        ActiveTurn.TurnStart();
+        SceneAnimationController.AnimController.InvokeTimer(ActiveTurn.TurnStart,1);
         CardUIController.CardsOrganizer(combatents[0]);
         CardUIController.CardsOrganizer(combatents[1]);
         CombatUI();
@@ -52,8 +52,8 @@ public class Combat : MonoBehaviour
         {
             ChangeTurn();
         }
-        CardUIController.CardsOrganizer(combatents[0]);
-        CardUIController.CardsOrganizer(combatents[1]);
+        //CardUIController.CardsOrganizer(combatents[0]);
+        //CardUIController.CardsOrganizer(combatents[1]);
         CombatUI();
         //combatents[0].CardsOrganizer(); //mudan�a futura
         //combatents[1].CardsOrganizer(); //mudan�a futura
@@ -76,7 +76,7 @@ public class Combat : MonoBehaviour
     void Awake()
     {
         StartCombat();
-        Debug.Log($"Turn {TurnIndex + 1} {ActiveTurn.currentPhase}");
+        //Debug.Log($"Turn {TurnIndex + 1} {ActiveTurn.currentPhase}");
     }
     void Update()
     {
@@ -84,7 +84,7 @@ public class Combat : MonoBehaviour
         {
             //Debug.Log($"Turn {TurnIndex+1} {ActiveTurn.phase}");
             AdvanceCombat();
-            Debug.Log($"Turn {TurnIndex + 1} {ActiveTurn.currentPhase}");
+            //Debug.Log($"Turn {TurnIndex + 1} {ActiveTurn.currentPhase}");
             turnText.text = $"Creature {TurnIndex + 1} - Turn {TurnIndex + 1} {ActiveTurn.currentPhase}";
         }
         /*if (Input.GetKeyDown(KeyCode.Alpha1))
