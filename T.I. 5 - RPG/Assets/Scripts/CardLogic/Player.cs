@@ -21,7 +21,7 @@ public class Player : Creature
         if (hand.Contains(c) && c.cost <= energy && canPlayCards)
         {
             SelectedCard = c;
-            CardUIController.HighlightSelectedCard(this);
+            //CardUIController.HighlightSelectedCard(this);
         }
     }
     public override void PlayCard(Card c)

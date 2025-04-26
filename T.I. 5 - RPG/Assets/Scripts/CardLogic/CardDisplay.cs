@@ -63,7 +63,7 @@ public class CardDisplay : MonoBehaviour
         originalPosition = transform.localPosition;
     }
 
-    public void OnPointerEnterCard()
+    /*public void OnPointerEnterCard()
     {
         if (cardData != null && cardData.deck != null && cardData.deck.Owner != null)
         {
@@ -73,13 +73,13 @@ public class CardDisplay : MonoBehaviour
                 if (isReadyToMove)
                 {
                     LeanTween.scale(gameObject, originalScale * 1.25f, 0.15f).setEaseOutQuad();
-                    LeanTween.moveLocal(gameObject, new Vector3(gameObject.transform.localPosition.x, originalPosition.y + 1f, originalPosition.z + -0.5f), 0.15f).setEaseOutQuad();
+                    LeanTween.moveLocal(gameObject, new Vector3(gameObject.transform.localPosition.x, originalPosition.y + 1f, originalPosition.z + -0.5f), 0.15f).setEaseOutSine();
                 }
             }
         }
-    }
+    }*/
     
-    public void OnPointerExitCard()
+    /*public void OnPointerExitCard()
     {
         if (cardData != null && cardData.deck != null && cardData.deck.Owner != null)
         {
@@ -87,7 +87,39 @@ public class CardDisplay : MonoBehaviour
             if (c.hand.Contains(cardData) && c.GetComponent<Player>() != null)
             {
                 LeanTween.scale(gameObject, originalScale, 0.15f).setEaseOutQuad();
-                LeanTween.moveLocal(gameObject, new Vector3(gameObject.transform.localPosition.x, originalPosition.y, originalPosition.z), 0.15f).setEaseOutQuad();
+                LeanTween.moveLocal(gameObject, new Vector3(gameObject.transform.localPosition.x, originalPosition.y, originalPosition.z), 0.15f).setEaseOutSine();
+            }
+        }
+    }*/
+
+    public void OnMouseOver()
+    {
+        if(gameObject.transform.localScale == originalScale)
+        {
+            if (cardData != null && cardData.deck != null && cardData.deck.Owner != null)
+            {
+                Creature c = cardData.deck.Owner;
+                if (c.hand.Contains(cardData) && c.GetComponent<Player>() != null && GameplayManager.currentCombat.TurnIndex == 0)
+                {
+                    if (isReadyToMove)
+                    {
+                        LeanTween.scale(gameObject, originalScale * 1.25f, 0.15f).setEaseOutQuad();
+                        LeanTween.moveLocal(gameObject, new Vector3(gameObject.transform.localPosition.x, originalPosition.y + 1f, originalPosition.z + -0.5f), 0.15f).setEaseOutSine();
+                    }
+                }
+            }
+        }
+    }
+
+    public void OnMouseExit()
+    {
+        if (cardData != null && cardData.deck != null && cardData.deck.Owner != null)
+        {
+            Creature c = cardData.deck.Owner;
+            if (c.hand.Contains(cardData) && c.GetComponent<Player>() != null)
+            {
+                LeanTween.scale(gameObject, originalScale, 0.15f).setEaseOutQuad();
+                LeanTween.moveLocal(gameObject, new Vector3(gameObject.transform.localPosition.x, originalPosition.y, originalPosition.z), 0.15f).setEaseOutSine();
             }
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Unity.Cinemachine;
 using UnityEngine;
+using System.Collections;
 
 public class CardUIController : MonoBehaviour
 {
@@ -38,7 +39,7 @@ public class CardUIController : MonoBehaviour
         OrganizePlayedCards(c);
         OrganizeStackFlat(c.decks[0].DiscardPile, c.combatSpace.discardPileSpace);
         OrganizeStack(c.decks[0].BuyingPile, c.combatSpace.buyingPileSpace);
-        HighlightSelectedCard(c);
+        //HighlightSelectedCard(c);
     }
 
     public static void OrganizeHandCards(Creature c)
@@ -56,7 +57,7 @@ public class CardUIController : MonoBehaviour
         //float maxHeight = 0.5f;
         float rotationPerCard = 0.1f;
         float yRotation = -rotationPerCard * totalHandCards;
-        int totalIterations = 0;
+        int totalIterations = 1;
 
         foreach (var card in c.hand)
         {
@@ -84,7 +85,6 @@ public class CardUIController : MonoBehaviour
             Card currentCard = c.hand[i];
             GameObject cardObject = currentCard.cardDisplay.gameObject;
             cardObject.transform.SetParent(c.combatSpace.playerHandSpace);
-            //c.hand[i].cardDisplay.UpdatePosition();
             Vector3 pos = (c.combatSpace.playerHandSpace.right * posX) /*+ (c.combatSpace.playerHandSpace.up) * posY*/ + (-c.combatSpace.playerHandSpace.forward) * posZ + c.combatSpace.playerHandSpace.position;
             Vector3 rot = c.combatSpace.playerHandSpace.rotation.eulerAngles; //+ new Vector3(0f, 180f, /*zRotation*/0f);
             LeanTween.rotate(cardObject, rot, 0.1f).setEaseInOutSine();
@@ -93,7 +93,7 @@ public class CardUIController : MonoBehaviour
             {
                 currentCard.cardDisplay.UpdatePosition();
                 totalIterations++;
-                if (/*currentCard == c.hand.Last()*/totalIterations >= totalHandCards)
+                if (totalIterations >= totalHandCards)
                 {
                     foreach (var card in c.hand)
                     {
@@ -183,7 +183,7 @@ public class CardUIController : MonoBehaviour
     }
 
 
-    public static void HighlightSelectedCard(Creature c)
+    /*public static void HighlightSelectedCard(Creature c)
     {
         OrganizeHandCards(c);
         if (c.GetComponent<Player>()?.SelectedCard != null)
@@ -192,5 +192,5 @@ public class CardUIController : MonoBehaviour
             LeanTween.move(c.GetComponent<Player>().SelectedCard.cardDisplay.gameObject, c.GetComponent<Player>().SelectedCard.cardDisplay.transform.position + 0.1f * c.combatSpace.playerHandSpace.transform.up, 0.15f);
             
         }
-    }
+    }*/
 }
