@@ -94,14 +94,14 @@ public class CardDisplay : MonoBehaviour
 
     public void OnMouseOver()
     {
-        if(gameObject.transform.localScale == originalScale)
+        if (isReadyToMove)
         {
-            if (cardData != null && cardData.deck != null && cardData.deck.Owner != null)
+            if (gameObject.transform.localScale == originalScale)
             {
-                Creature c = cardData.deck.Owner;
-                if (c.hand.Contains(cardData) && c.GetComponent<Player>() != null && GameplayManager.currentCombat.TurnIndex == 0)
+                if (cardData != null && cardData.deck != null && cardData.deck.Owner != null)
                 {
-                    if (isReadyToMove)
+                    Creature c = cardData.deck.Owner;
+                    if (c.hand.Contains(cardData) && c.GetComponent<Player>() != null && GameplayManager.currentCombat.TurnIndex == 0)
                     {
                         LeanTween.scale(gameObject, originalScale * 1.25f, 0.15f).setEaseOutQuad();
                         LeanTween.moveLocal(gameObject, new Vector3(gameObject.transform.localPosition.x, originalPosition.y + 1f, originalPosition.z + -0.5f), 0.15f).setEaseOutSine();
@@ -113,13 +113,16 @@ public class CardDisplay : MonoBehaviour
 
     public void OnMouseExit()
     {
-        if (cardData != null && cardData.deck != null && cardData.deck.Owner != null)
+        if (isReadyToMove)
         {
-            Creature c = cardData.deck.Owner;
-            if (c.hand.Contains(cardData) && c.GetComponent<Player>() != null)
+            if (cardData != null && cardData.deck != null && cardData.deck.Owner != null)
             {
-                LeanTween.scale(gameObject, originalScale, 0.15f).setEaseOutQuad();
-                LeanTween.moveLocal(gameObject, new Vector3(gameObject.transform.localPosition.x, originalPosition.y, originalPosition.z), 0.15f).setEaseOutSine();
+                Creature c = cardData.deck.Owner;
+                if (c.hand.Contains(cardData) && c.GetComponent<Player>() != null)
+                {
+                    LeanTween.scale(gameObject, originalScale, 0.15f).setEaseOutQuad();
+                    LeanTween.moveLocal(gameObject, new Vector3(gameObject.transform.localPosition.x, originalPosition.y, originalPosition.z), 0.15f).setEaseOutSine();
+                }
             }
         }
     }
