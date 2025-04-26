@@ -1,5 +1,6 @@
 
 
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : Creature
@@ -8,7 +9,7 @@ public class Player : Creature
 
     public void PlaySelectedCard()
     {
-        if (SelectedCard != null)
+        if(SelectedCard != null)
         {
             Card temp = SelectedCard;
             DiselectCard();
@@ -37,6 +38,7 @@ public class Player : Creature
         SceneAnimationController.AnimController.InvokeTimer(c.CardPlayed, 0.2f);
         SceneAnimationController.AnimController.InvokeTimer(PlayedCard.Invoke, c, 0.2f);
     }
+
     public override void BuyCards(int quantity)
     {
         bool shuffled = false;

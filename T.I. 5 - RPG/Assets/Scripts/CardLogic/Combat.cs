@@ -2,6 +2,7 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class Combat : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Combat : MonoBehaviour
     int turnIndex = 0;
     public TextMeshProUGUI turnText;
     public int TurnIndex { get{ return turnIndex; } private set { turnIndex = value % Round.Length; } }
+
     public void StartCombat()
     {
         GameplayManager.currentCombat = this;
@@ -52,8 +54,8 @@ public class Combat : MonoBehaviour
         {
             ChangeTurn();
         }
-        //CardUIController.CardsOrganizer(combatents[0]);
-        //CardUIController.CardsOrganizer(combatents[1]);
+        CardUIController.CardsOrganizer(combatents[0]);
+        CardUIController.CardsOrganizer(combatents[1]);
         CombatUI();
         //combatents[0].CardsOrganizer(); //mudan�a futura
         //combatents[1].CardsOrganizer(); //mudan�a futura

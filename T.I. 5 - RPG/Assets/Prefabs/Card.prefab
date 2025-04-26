@@ -617,6 +617,7 @@ MonoBehaviour:
   cardDescription: {fileID: 7150064401150702258}
   cardData: {fileID: 0}
   cardsUI: {fileID: 11400000, guid: 70d792a66a4e77b4c82d8cc248c95ab8, type: 2}
+  isReadyToMove: 0
 --- !u!65 &5130134605042037181
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -658,6 +659,38 @@ MonoBehaviour:
         - m_Target: {fileID: 9116686077430768635}
           m_TargetAssemblyTypeName: CardDisplay, Assembly-CSharp
           m_MethodName: OnCardClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9116686077430768635}
+          m_TargetAssemblyTypeName: CardDisplay, Assembly-CSharp
+          m_MethodName: OnPointerEnterCard
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9116686077430768635}
+          m_TargetAssemblyTypeName: CardDisplay, Assembly-CSharp
+          m_MethodName: OnPointerExitCard
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

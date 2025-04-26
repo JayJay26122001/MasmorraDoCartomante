@@ -1,4 +1,5 @@
-﻿using Unity.Cinemachine;
+﻿using System.Linq;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class CardUIController : MonoBehaviour
@@ -6,7 +7,7 @@ public class CardUIController : MonoBehaviour
     public static CardUIController instance;
     public CardDisplay cardPrefab;
     public CinemachineCamera cardsCamera;
-    public float maxTotalWidth = 15.0f;
+    public float maxTotalWidth = 12.0f;
     private void Awake()
     {
         instance = this;
@@ -43,13 +44,24 @@ public class CardUIController : MonoBehaviour
     public static void OrganizeHandCards(Creature c)
     {
         int totalHandCards = c.hand.Count;
-        float fixedSpacing = 2.3f;
-        float spacing = (totalHandCards <= 6) ? fixedSpacing : instance.maxTotalWidth / (totalHandCards - 1);
+        float fixedSpacing = 2f;
+        float spacing = instance.maxTotalWidth / (totalHandCards - 1);
+        if(spacing > fixedSpacing)
+        {
+            spacing = fixedSpacing;
+        }
+        //spacing = (spacing > 2f) ? fixedSpacing : instance.maxTotalWidth / (totalHandCards - 1);
         float index = (totalHandCards - 1) / 2f;
         float handVerticalSpacing = 0.02f;
         //float maxHeight = 0.5f;
         float rotationPerCard = 0.1f;
         float yRotation = -rotationPerCard * totalHandCards;
+        int totalIterations = 0;
+
+        foreach (var card in c.hand)
+        {
+            card.cardDisplay.isReadyToMove = false;
+        }
 
         /*float arcAngle = 25f;
         float angleStep = (totalHandCards > 1) ? arcAngle / (totalHandCards - 1) : 0f;
@@ -69,12 +81,26 @@ public class CardUIController : MonoBehaviour
             float posY = maxHeight * (1 - (distanceFromCenter / maxDistance));*/
             float posZ = i * handVerticalSpacing;
             //float zRotation = startAngle + angleStep * i;
-            GameObject cardObject = c.hand[i].cardDisplay.gameObject;
+            Card currentCard = c.hand[i];
+            GameObject cardObject = currentCard.cardDisplay.gameObject;
+            cardObject.transform.SetParent(c.combatSpace.playerHandSpace);
+            //c.hand[i].cardDisplay.UpdatePosition();
             Vector3 pos = (c.combatSpace.playerHandSpace.right * posX) /*+ (c.combatSpace.playerHandSpace.up) * posY*/ + (-c.combatSpace.playerHandSpace.forward) * posZ + c.combatSpace.playerHandSpace.position;
             Vector3 rot = c.combatSpace.playerHandSpace.rotation.eulerAngles; //+ new Vector3(0f, 180f, /*zRotation*/0f);
-            LeanTween.move(cardObject, pos, 0.15f).setEaseInOutSine();
             LeanTween.rotate(cardObject, rot, 0.1f).setEaseInOutSine();
-            cardObject.transform.SetParent(c.combatSpace.playerHandSpace);
+            var moveTween = LeanTween.move(cardObject, pos, 0.15f).setEaseInOutSine();
+            moveTween.setOnComplete(() =>
+            {
+                currentCard.cardDisplay.UpdatePosition();
+                totalIterations++;
+                if (/*currentCard == c.hand.Last()*/totalIterations >= totalHandCards)
+                {
+                    foreach (var card in c.hand)
+                    {
+                        card.cardDisplay.isReadyToMove = true;
+                    }
+                }
+            });
         }
     }
 
@@ -82,6 +108,10 @@ public class CardUIController : MonoBehaviour
     {
         int totalCardsPlayed = c.playedCards.Count;
         float playedCardsSpacing = 2.5f;
+        foreach (var card in c.playedCards)
+        {
+            card.cardDisplay.isReadyToMove = false;
+        }
         for (int i = 0; i < totalCardsPlayed; i++)
         {
             float posX = (i - ((totalCardsPlayed - 1) / 2f)) * playedCardsSpacing;
@@ -101,6 +131,7 @@ public class CardUIController : MonoBehaviour
             LeanTween.move(cardObject, pos, 0.15f).setEaseInOutSine();
             LeanTween.rotate(cardObject, rot, 0.15f).setEaseInOutSine();
             cardObject.transform.SetParent(c.combatSpace.playedCardSpace);
+            CardDisplay cardDisplay = cardObject.GetComponent<CardDisplay>();
         }
     }
 
@@ -122,7 +153,6 @@ public class CardUIController : MonoBehaviour
     public static void OrganizeStack(SerializableStack<Card> pile, Transform space)
     {
         float spacing = 0.03f;
-
         for (int i = 0; i < pile.Count; i++)
         {
             float posY = i * spacing;
@@ -159,7 +189,7 @@ public class CardUIController : MonoBehaviour
         if (c.GetComponent<Player>()?.SelectedCard != null)
         {
             LeanTween.cancel(c.GetComponent<Player>().SelectedCard.cardDisplay.gameObject);
-            LeanTween.move(c.GetComponent<Player>().SelectedCard.cardDisplay.gameObject, c.GetComponent<Player>().SelectedCard.cardDisplay.transform.position + 0.2f * c.combatSpace.playerHandSpace.transform.up, 0.15f);
+            LeanTween.move(c.GetComponent<Player>().SelectedCard.cardDisplay.gameObject, c.GetComponent<Player>().SelectedCard.cardDisplay.transform.position + 0.1f * c.combatSpace.playerHandSpace.transform.up, 0.15f);
             
         }
     }

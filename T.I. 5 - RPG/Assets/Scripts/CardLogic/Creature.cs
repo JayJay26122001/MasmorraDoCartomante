@@ -48,7 +48,16 @@ public class Creature : MonoBehaviour
             shld = value;
         }
     }
-
+    public int Energy
+    {
+        get { return energy; }
+        private set
+        {
+            if (value < 0) value = 0;
+            if (value > maxBaseEnergy) value = maxBaseEnergy;
+            energy = value;
+        }
+    }
     public void UpdateCreatureUI(Creature c)
     {
         if (hpText != null)
