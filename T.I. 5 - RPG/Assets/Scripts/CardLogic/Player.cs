@@ -70,10 +70,11 @@ public class Player : Creature
                 basetime = 0;
             }
             Card arg = decks[0].BuyingPile.GetTop();
-            SceneAnimationController.AnimController.InvokeTimer(hand.Add, arg, basetime + i*0.2f);
-            SceneAnimationController.AnimController.InvokeTimer(CardUIController.OrganizeHandCards, this, basetime + i*0.2f);
-            SceneAnimationController.AnimController.InvokeTimer(CardUIController.OrganizeStack, decks[0].BuyingPile, combatSpace.buyingPileSpace, basetime + i*0.2f);
+            SceneAnimationController.AnimController.InvokeTimer(hand.Add, arg, basetime + i * 0.2f);
+            SceneAnimationController.AnimController.InvokeTimer(CardUIController.OrganizeHandCards, this, basetime + i * 0.2f);
+            SceneAnimationController.AnimController.InvokeTimer(CardUIController.OrganizeStack, decks[0].BuyingPile, combatSpace.buyingPileSpace, basetime + i * 0.2f);
         }
+        GameplayManager.instance.PauseInput(basetime + quantity * 0.2f);
     }
     public void DiselectCard(Card c)
     {

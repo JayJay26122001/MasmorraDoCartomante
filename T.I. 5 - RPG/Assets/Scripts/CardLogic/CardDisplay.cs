@@ -13,6 +13,7 @@ public class CardDisplay : MonoBehaviour
     private Vector3 originalPosition;
     public bool isReadyToMove = false;
     private bool hasSetOriginalTransform = false;
+    bool highlighted;
 
     void Start()
     {
@@ -43,6 +44,7 @@ public class CardDisplay : MonoBehaviour
 
     public void OnCardClick()
     {
+        //if (!GameplayManager.instance.InputActive) return;
         //cardData.deck.Owner.PlayCard(cardData); //substituir pela linha de baixo mais tarde
         /*if (cardData.deck.Owner.GetComponent<Player>()?.SelectedCard == cardData)
         {
@@ -78,7 +80,7 @@ public class CardDisplay : MonoBehaviour
             }
         }
     }*/
-    
+
     /*public void OnPointerExitCard()
     {
         if (cardData != null && cardData.deck != null && cardData.deck.Owner != null)
@@ -94,6 +96,29 @@ public class CardDisplay : MonoBehaviour
 
     public void OnMouseOver()
     {
+        if (GameplayManager.instance.InputActive)
+        {
+            HighlightCard();
+        }
+        else if (highlighted)
+        {
+            UnhilightCard();
+        }
+    }
+
+    public void OnMouseExit()
+    {
+        if (GameplayManager.instance.InputActive)
+        {
+            UnhilightCard();
+        }
+        else if (highlighted)
+        {
+            UnhilightCard();
+        }
+    }
+    public void HighlightCard()
+    {
         if (isReadyToMove)
         {
             if (gameObject.transform.localScale == originalScale)
@@ -105,13 +130,13 @@ public class CardDisplay : MonoBehaviour
                     {
                         LeanTween.scale(gameObject, originalScale * 1.25f, 0.15f).setEaseOutQuad();
                         LeanTween.moveLocal(gameObject, new Vector3(gameObject.transform.localPosition.x, originalPosition.y + 1f, originalPosition.z + -0.5f), 0.15f).setEaseOutSine();
+                        highlighted = true;
                     }
                 }
             }
         }
     }
-
-    public void OnMouseExit()
+    public void UnhilightCard()
     {
         if (isReadyToMove)
         {
@@ -122,6 +147,7 @@ public class CardDisplay : MonoBehaviour
                 {
                     LeanTween.scale(gameObject, originalScale, 0.15f).setEaseOutQuad();
                     LeanTween.moveLocal(gameObject, new Vector3(gameObject.transform.localPosition.x, originalPosition.y, originalPosition.z), 0.15f).setEaseOutSine();
+                    highlighted = false;
                 }
             }
         }
