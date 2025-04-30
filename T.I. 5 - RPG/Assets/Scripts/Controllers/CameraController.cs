@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine.InputSystem;
+using Unity.Mathematics;
 public class CameraController : MonoBehaviour
 {
     //CinemachineBrain controller;
@@ -15,6 +16,12 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
+        ChangeActiveCamera();
+    }
+    public void ChangeCamera(int Index)
+    {
+        Index = math.clamp(Index, 0, cameras.Count - 1);
+        activeCamIndex = Index;
         ChangeActiveCamera();
     }
 

@@ -311,6 +311,7 @@ GameObject:
   - component: {fileID: 30614215}
   - component: {fileID: 30614217}
   - component: {fileID: 30614216}
+  - component: {fileID: 30614218}
   m_Layer: 0
   m_Name: CameraBrain
   m_TagString: MainCamera
@@ -640,6 +641,81 @@ MonoBehaviour:
   m_DefaultActionMap: Camera
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &30614218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30614208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 89e694bde60d70b46a0031b881553052, type: 2}
+    - {fileID: 11400000, guid: 2302b944c82508d4bb0a174baa565334, type: 2}
+    - {fileID: 11400000, guid: 23cd91f8aa6d1ee458b0659f03d615b9, type: 2}
+    - {fileID: 11400000, guid: a4c52feae5f14c84b80c11c309008beb, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 30614216}
+          m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+          m_MethodName: ChangeCamera
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 30614216}
+          m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+          m_MethodName: ChangeCamera
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 30614216}
+          m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+          m_MethodName: ChangeCamera
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 30614216}
+          m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+          m_MethodName: ChangeCamera
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &75921740
 GameObject:
   m_ObjectHideFlags: 0
@@ -3032,12 +3108,16 @@ PlayableDirector:
   m_GameObject: {fileID: 921170255}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: e0c94d1ef8b1de54a8b75897a382ee16, type: 2}
-  m_InitialState: 1
+  m_PlayableAsset: {fileID: 11400000, guid: 4ca207430fe484f409b28785ddd00c0d, type: 2}
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
-  m_SceneBindings: []
+  m_SceneBindings:
+  - key: {fileID: 22329316302290211, guid: 4ca207430fe484f409b28785ddd00c0d, type: 2}
+    value: {fileID: 30614218}
+  - key: {fileID: -5835925006245940711, guid: 4ca207430fe484f409b28785ddd00c0d, type: 2}
+    value: {fileID: 1432303491}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &921170258
@@ -4493,6 +4573,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1432303489}
   - component: {fileID: 1432303490}
+  - component: {fileID: 1432303491}
   m_Layer: 0
   m_Name: GameplayManager
   m_TagString: Untagged
@@ -4528,6 +4609,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InputBlocker: {fileID: 1259980598}
+--- !u!114 &1432303491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432303488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 03ea63e53fa8ab446aefb0b5f46a56e9, type: 2}
+    - {fileID: 11400000, guid: c24c3a436f493d94fb95d846ae5c05b3, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1432303490}
+          m_TargetAssemblyTypeName: GameplayManager, Assembly-CSharp
+          m_MethodName: PauseInput
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1432303490}
+          m_TargetAssemblyTypeName: GameplayManager, Assembly-CSharp
+          m_MethodName: ResumeInput
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1471198172
 GameObject:
   m_ObjectHideFlags: 0

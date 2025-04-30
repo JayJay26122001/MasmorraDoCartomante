@@ -9,6 +9,7 @@ public class GameplayManager : MonoBehaviour
     public GameObject InputBlocker;
     int PauseInstances = 0;
     public bool InputActive { get; private set; } = true;
+    bool ManualPause = false;
 
 
     private void Awake()
@@ -28,6 +29,7 @@ public class GameplayManager : MonoBehaviour
         InputBlocker.SetActive(true);
         Camera.main.GetComponent<PlayerInput>().actions.Disable();
         InputActive = false;
+        ManualPause = true;
     }
     public void ResumeInput()
     {
@@ -35,6 +37,7 @@ public class GameplayManager : MonoBehaviour
         InputBlocker.SetActive(false);
         Camera.main.GetComponent<PlayerInput>().actions.Enable();
         InputActive = true;
+        ManualPause = false;
     }
     void IPauseInput()
     {
@@ -53,6 +56,10 @@ public class GameplayManager : MonoBehaviour
         else
         {
             PauseInstances = 0;
+            if (ManualPause)
+            {
+                return;
+            }
         }
         InputBlocker.SetActive(false);
         Camera.main.GetComponent<PlayerInput>().actions.Enable();

@@ -17,4 +17,8 @@ public class Enemy : Creature
         BuyCards(1);
         GameplayManager.currentCombat.AdvanceCombat();
     }
+    public override void PlayCard(Card c)
+    {
+        base.PlayCard(c);
+    }
 }
