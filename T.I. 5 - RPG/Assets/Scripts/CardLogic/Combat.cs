@@ -45,6 +45,7 @@ public class Combat : MonoBehaviour
         {
             ActiveTurn.NextPhase();
         }*/
+        GameplayManager.instance.PauseInput(0.5f);
         ActiveTurn.currentPhase.EndPhase();
         if (ActiveTurn.phaseIndex < ActiveTurn.phases.Length - 1)
         {
@@ -54,8 +55,9 @@ public class Combat : MonoBehaviour
         {
             ChangeTurn();
         }
-        CardUIController.CardsOrganizer(combatents[0]);
-        CardUIController.CardsOrganizer(combatents[1]);
+        //CardUIController.CardsOrganizer(combatents[0]);
+        //CardUIController.CardsOrganizer(combatents[1]);
+        turnText.text = $"Creature {TurnIndex + 1} - Turn {TurnIndex + 1} {ActiveTurn.currentPhase}";
         CombatUI();
         //combatents[0].CardsOrganizer(); //mudan�a futura
         //combatents[1].CardsOrganizer(); //mudan�a futura
@@ -80,41 +82,14 @@ public class Combat : MonoBehaviour
         StartCombat();
         //Debug.Log($"Turn {TurnIndex + 1} {ActiveTurn.currentPhase}");
     }
-    void Update()
+    /*void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //Debug.Log($"Turn {TurnIndex+1} {ActiveTurn.phase}");
             AdvanceCombat();
-            //Debug.Log($"Turn {TurnIndex + 1} {ActiveTurn.currentPhase}");
             turnText.text = $"Creature {TurnIndex + 1} - Turn {TurnIndex + 1} {ActiveTurn.currentPhase}";
         }
-        /*if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            creature1.PlayCard(creature1.decks[0].cards[0]);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            creature1.PlayCard(creature1.decks[0].cards[1]);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            creature1.PlayCard(creature1.decks[0].cards[2]);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha8))
-        {
-            creature2.PlayCard(creature2.decks[0].cards[0]);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha9))
-        {
-            creature2.PlayCard(creature2.decks[0].cards[1]);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            creature2.PlayCard(creature2.decks[0].cards[2]);
-        }*/
-    }
+    }*/
 }
 public class Turn
 {

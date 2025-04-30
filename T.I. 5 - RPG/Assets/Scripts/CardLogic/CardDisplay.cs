@@ -128,7 +128,7 @@ public class CardDisplay : MonoBehaviour
                     Creature c = cardData.deck.Owner;
                     if (c.hand.Contains(cardData) && c.GetComponent<Player>() != null && GameplayManager.currentCombat.TurnIndex == 0)
                     {
-                        CardUIController.OrganizeHandCardsWhenHighlighted(c, cardData);
+                        //CardUIController.OrganizeHandCardsWhenHighlighted(c, cardData);
                         LeanTween.scale(gameObject, originalScale * 1.25f, 0.15f).setEaseOutQuad();
                         LeanTween.moveLocal(gameObject, new Vector3(gameObject.transform.localPosition.x, originalPosition.y + 1f, originalPosition.z + -0.5f), 0.15f).setEaseOutSine();
                         highlighted = true;
@@ -148,7 +148,7 @@ public class CardDisplay : MonoBehaviour
                 {
                     LeanTween.scale(gameObject, originalScale, 0.15f).setEaseOutQuad();
                     LeanTween.moveLocal(gameObject, new Vector3(gameObject.transform.localPosition.x, originalPosition.y, originalPosition.z), 0.15f).setEaseOutSine();
-                    CardUIController.OrganizeHandCards(c);
+                    //CardUIController.OrganizeHandCards(c);
                     highlighted = false;
                 }
             }

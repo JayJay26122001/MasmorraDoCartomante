@@ -43,36 +43,33 @@ public class Player : Creature
     {
         bool shuffled = false;
         float basetime = 0;
+        bool boughtAll = false;
         for (int i = 0; i < quantity; i++)
         {
-            if (decks[0].BuyingPile.Count == 0 || shuffled)
+            if (decks[0].BuyingPile.Count == 0)
             {
                 if (decks[0].DiscardPile.Count != 0)
                 {
                     decks[0].ShuffleDeck();
                     shuffled = true;
                 }
-                else if (decks[0].BuyingPile.Count == 0)
+                else
                 {
-                    return;
+                    boughtAll = true;
                 }
-                /*Card arg = decks[0].BuyingPile.GetTop();
-                SceneAnimationController.AnimController.InvokeTimer(hand.Add, arg, 1);
-                SceneAnimationController.AnimController.InvokeTimer(CardUIController.OrganizeHandCards, this, 1);
-                SceneAnimationController.AnimController.InvokeTimer(CardUIController.OrganizeStack, decks[0].BuyingPile, combatSpace.buyingPileSpace, 1);*/
                 basetime = 1;
             }
-            else
+            else if (!shuffled)
             {
-                /*hand.Add(decks[0].BuyingPile.GetTop());
-                CardUIController.OrganizeHandCards(this);
-                CardUIController.OrganizeStack(decks[0].BuyingPile, combatSpace.buyingPileSpace);*/
                 basetime = 0;
             }
-            Card arg = decks[0].BuyingPile.GetTop();
-            SceneAnimationController.AnimController.InvokeTimer(hand.Add, arg, basetime + i * 0.2f);
-            SceneAnimationController.AnimController.InvokeTimer(CardUIController.OrganizeHandCards, this, basetime + i * 0.2f);
-            SceneAnimationController.AnimController.InvokeTimer(CardUIController.OrganizeStack, decks[0].BuyingPile, combatSpace.buyingPileSpace, basetime + i * 0.2f);
+            if (!boughtAll)
+            {
+                Card arg = decks[0].BuyingPile.GetTop();
+                SceneAnimationController.AnimController.InvokeTimer(hand.Add, arg, basetime + i * 0.2f);
+                SceneAnimationController.AnimController.InvokeTimer(CardUIController.OrganizeHandCards, this, basetime + i * 0.2f);
+                SceneAnimationController.AnimController.InvokeTimer(CardUIController.OrganizeStack, decks[0].BuyingPile, combatSpace.buyingPileSpace, basetime + i * 0.2f);
+            }
         }
         GameplayManager.instance.PauseInput(basetime + quantity * 0.2f);
     }

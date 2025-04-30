@@ -104,7 +104,7 @@ public class CardUIController : MonoBehaviour
         }
     }
 
-    public static void OrganizeHandCardsWhenHighlighted(Creature c, Card highlightedCard)
+    /*public static void OrganizeHandCardsWhenHighlighted(Creature c, Card highlightedCard)
     {
         int totalHandCards = c.hand.Count;
         float fixedSpacing = 2f;
@@ -173,7 +173,7 @@ public class CardUIController : MonoBehaviour
                 }
             });
         }
-    }
+    }*/
 
     public static void OrganizePlayedCards(Creature c)
     {
