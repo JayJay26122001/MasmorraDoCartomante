@@ -104,6 +104,77 @@ public class CardUIController : MonoBehaviour
         }
     }
 
+    public static void OrganizeHandCardsWhenHighlighted(Creature c, Card highlightedCard)
+    {
+        int totalHandCards = c.hand.Count;
+        float fixedSpacing = 2f;
+        float spacing = instance.maxTotalWidth / (totalHandCards - 1);
+        if (spacing > fixedSpacing)
+        {
+            spacing = fixedSpacing;
+        }
+        float index = (totalHandCards - 1) / 2f;
+        float handVerticalSpacing = 0.02f;
+        float rotationPerCard = 0.1f;
+        float yRotation = -rotationPerCard * totalHandCards;
+        int totalIterations = 1;
+        int highlightedIndex = c.hand.IndexOf(highlightedCard);
+        float separation = 2f;
+        if (totalHandCards <= 5)
+        {
+            separation = 1f;
+        }
+        else
+        {
+            float minSeparation = 1f;
+            float maxSeparation = 2.5f;
+            int minCards = 6;
+            int maxCards = 15;
+            float t = Mathf.InverseLerp(minCards, maxCards, totalHandCards);
+            separation = Mathf.Lerp(minSeparation, maxSeparation, t);
+        }
+        foreach (var card in c.hand)
+        {
+            card.cardDisplay.isReadyToMove = false;
+        }   
+        if (c.GetComponent<Player>() != null)
+        {
+            c.combatSpace.playerHandSpace.transform.rotation = instance.cardsCamera.transform.rotation * Quaternion.Euler(0f, yRotation, 0f);
+        }
+        for (int i = 0; i < totalHandCards; i++)
+        {
+            float posX = (i - index) * spacing;
+            if (i < highlightedIndex)
+            {
+                posX -= separation;
+            }
+            else if (i > highlightedIndex) 
+            { 
+                posX += separation;
+            }
+            float posZ = i * handVerticalSpacing;
+            Card currentCard = c.hand[i];
+            GameObject cardObject = currentCard.cardDisplay.gameObject;
+            cardObject.transform.SetParent(c.combatSpace.playerHandSpace);
+            Vector3 pos = (c.combatSpace.playerHandSpace.right * posX) + (-c.combatSpace.playerHandSpace.forward) * posZ + c.combatSpace.playerHandSpace.position;
+            Vector3 rot = c.combatSpace.playerHandSpace.rotation.eulerAngles;
+            LeanTween.rotate(cardObject, rot, 0.1f).setEaseInOutSine();
+            var moveTween = LeanTween.move(cardObject, pos, 0.15f).setEaseInOutSine();
+            moveTween.setOnComplete(() =>
+            {
+                currentCard.cardDisplay.UpdatePosition();
+                totalIterations++;
+                if (totalIterations >= totalHandCards)
+                {
+                    foreach (var card in c.hand)
+                    {
+                        card.cardDisplay.isReadyToMove = true;
+                    }
+                }
+            });
+        }
+    }
+
     public static void OrganizePlayedCards(Creature c)
     {
         int totalCardsPlayed = c.playedCards.Count;
