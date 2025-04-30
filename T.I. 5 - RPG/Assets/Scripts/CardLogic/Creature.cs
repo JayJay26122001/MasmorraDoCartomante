@@ -259,7 +259,7 @@ public class Creature : MonoBehaviour
         energy = maxBaseEnergy;
     }
 
-    public void Die()
+    public virtual void Die()
     {
 
     }

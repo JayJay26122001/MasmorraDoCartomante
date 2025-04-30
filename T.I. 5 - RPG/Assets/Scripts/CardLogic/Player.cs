@@ -88,5 +88,10 @@ public class Player : Creature
     {
         SelectedCard = null;
     }
+
+    public override void Die()
+    {
+        GameManager.instance.uiController.ChangeScene("GameOver");
+    }
 }
 

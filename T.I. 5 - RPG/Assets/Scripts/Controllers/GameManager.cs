@@ -3,7 +3,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
+    public UIController uiController;
 
     private void Awake()
     {
@@ -13,19 +13,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(this.gameObject);
     }
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
 }

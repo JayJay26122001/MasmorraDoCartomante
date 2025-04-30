@@ -34,12 +34,12 @@ public class UIController : MonoBehaviour
     private void Awake()
     {
         UiSetup();
-    }
+    }*/
 
     private void Start()
     {
         GameManager.instance.uiController = this;
-        ResolutionDropdown();
+        /*ResolutionDropdown();
         ScreenModeDropdown();
         if (File.Exists(Application.dataPath + "/configSave.json"))
         {
@@ -52,10 +52,10 @@ public class UIController : MonoBehaviour
         }
         EventSystem.current.SetSelectedGameObject(playButton);
         SetDefaultVol();
-        AudioController.controller.SwitchMusic(SceneManager.GetActiveScene().name);
+        AudioController.controller.SwitchMusic(SceneManager.GetActiveScene().name);*/
     }
 
-    private void Update()
+    /*private void Update()
     {
         if (SceneManager.GetActiveScene().name == "PressToStartScene")
         {
