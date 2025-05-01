@@ -58,6 +58,7 @@ public class CardUIController : MonoBehaviour
         float rotationPerCard = 0.1f;
         float yRotation = -rotationPerCard * totalHandCards;
         int totalIterations = 1;
+        float curvatureHeight = 0.15f;
 
         foreach (var card in c.hand)
         {
@@ -80,12 +81,14 @@ public class CardUIController : MonoBehaviour
             /*float distanceFromCenter = Mathf.Abs(i - index);
             float maxDistance = Mathf.Floor(totalHandCards / 2f);
             float posY = maxHeight * (1 - (distanceFromCenter / maxDistance));*/
+            float normalized = (index != 0f) ? (i - index) / index : 0f;
+            float posY = (-Mathf.Pow(normalized, 2) + 1) * curvatureHeight;
             float posZ = i * handVerticalSpacing;
             //float zRotation = startAngle + angleStep * i;
             Card currentCard = c.hand[i];
             GameObject cardObject = currentCard.cardDisplay.gameObject;
             cardObject.transform.SetParent(c.combatSpace.playerHandSpace);
-            Vector3 pos = (c.combatSpace.playerHandSpace.right * posX) /*+ (c.combatSpace.playerHandSpace.up) * posY*/ + (-c.combatSpace.playerHandSpace.forward) * posZ + c.combatSpace.playerHandSpace.position;
+            Vector3 pos = (c.combatSpace.playerHandSpace.right * posX) + (c.combatSpace.playerHandSpace.up) * posY + (-c.combatSpace.playerHandSpace.forward) * posZ + c.combatSpace.playerHandSpace.position;
             Vector3 rot = c.combatSpace.playerHandSpace.rotation.eulerAngles; //+ new Vector3(0f, 180f, /*zRotation*/0f);
             LeanTween.rotate(cardObject, rot, 0.1f).setEaseInOutSine();
             var moveTween = LeanTween.move(cardObject, pos, 0.15f).setEaseInOutSine();
