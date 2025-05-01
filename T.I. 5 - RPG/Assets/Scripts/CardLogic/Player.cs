@@ -35,8 +35,8 @@ public class Player : Creature
         playedCards.Add(c);
         CardUIController.OrganizeHandCards(this);
         CardUIController.OrganizePlayedCards(this);
-        SceneAnimationController.AnimController.InvokeTimer(c.CardPlayed, 0.2f);
-        SceneAnimationController.AnimController.InvokeTimer(PlayedCard.Invoke, c, 0.2f);
+        SceneAnimationController.instance.InvokeTimer(c.CardPlayed, 0.2f);
+        SceneAnimationController.instance.InvokeTimer(PlayedCard.Invoke, c, 0.2f);
     }
 
     public override void BuyCards(int quantity)
@@ -66,9 +66,9 @@ public class Player : Creature
             if (!boughtAll)
             {
                 Card arg = decks[0].BuyingPile.GetTop();
-                SceneAnimationController.AnimController.InvokeTimer(hand.Add, arg, basetime + i * 0.2f);
-                SceneAnimationController.AnimController.InvokeTimer(CardUIController.OrganizeHandCards, this, basetime + i * 0.2f);
-                SceneAnimationController.AnimController.InvokeTimer(CardUIController.OrganizeStack, decks[0].BuyingPile, combatSpace.buyingPileSpace, basetime + i * 0.2f);
+                SceneAnimationController.instance.InvokeTimer(hand.Add, arg, basetime + i * 0.2f);
+                SceneAnimationController.instance.InvokeTimer(CardUIController.OrganizeHandCards, this, basetime + i * 0.2f);
+                SceneAnimationController.instance.InvokeTimer(CardUIController.OrganizeStack, decks[0].BuyingPile, combatSpace.buyingPileSpace, basetime + i * 0.2f);
             }
         }
         GameplayManager.instance.PauseInput(basetime + quantity * 0.2f);

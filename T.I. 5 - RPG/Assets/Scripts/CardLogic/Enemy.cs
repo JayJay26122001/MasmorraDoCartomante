@@ -1,7 +1,10 @@
 
 
+using UnityEngine;
+
 public class Enemy : Creature
 {
+    public Animator anim;
     public override void CombatStartAction()
     {
         base.CombatStartAction();
@@ -13,6 +16,29 @@ public class Enemy : Creature
         {
             hand[0].hidden = true;
         }
+        EnemyPlayCard anim = new EnemyPlayCard(this);
+        anim.AnimEnded.AddListener(TurnActionsDelayed);
+        SceneAnimationController.instance.AddToQueue(anim);
+    }
+    public override void TakeDamage(int damage)
+    {
+        if (damage < 0) damage = 0;
+        int trueDamage = (int)Mathf.Clamp(damage - Shield, 0, Mathf.Infinity);
+        Shield -= damage;
+        Health -= trueDamage;
+        Damaged.Invoke();
+        if (Health <= 0)
+        {
+            Die();
+        }
+        else
+        {
+            EnemyTakeDamage anim = new EnemyTakeDamage(this);
+            SceneAnimationController.instance.AddToQueue(anim);
+        }
+    }
+    void TurnActionsDelayed()
+    {
         PlayCard(hand[0]);
         BuyCards(1);
         GameplayManager.currentCombat.AdvanceCombat();

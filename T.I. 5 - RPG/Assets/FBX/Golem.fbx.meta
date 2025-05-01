@@ -31,7 +31,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: GolemArmature|ENTREGADefeat
+      name: Defeat
       takeName: GolemArmature|ENTREGADefeat
       internalID: -714402764886382053
       firstFrame: 0
@@ -60,7 +60,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: GolemArmature|ENTREGAHitReaction
+      name: TakeDamage
       takeName: GolemArmature|ENTREGAHitReaction
       internalID: 1204924550571401119
       firstFrame: 0
@@ -89,7 +89,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: GolemArmature|ENTREGAIdleFirstPhase
+      name: Idle
       takeName: GolemArmature|ENTREGAIdleFirstPhase
       internalID: 6367849008567398891
       firstFrame: 0
@@ -118,7 +118,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: GolemArmature|ENTREGAPlayingCard
+      name: PlayCard
       takeName: GolemArmature|ENTREGAPlayingCard
       internalID: 1990121947946346049
       firstFrame: 0
@@ -205,7 +205,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: GolemArmature|Intro
+      name: Intro
       takeName: GolemArmature|Intro
       internalID: 3107897954958081418
       firstFrame: 0

@@ -20,7 +20,7 @@ public class GameplayManager : MonoBehaviour
     public void PauseInput(float time)
     {
         IPauseInput();
-        SceneAnimationController.AnimController.InvokeTimer(IResumeInput, time);
+        SceneAnimationController.instance.InvokeTimer(IResumeInput, time);
     }
 
     public void PauseInput()

@@ -8,10 +8,12 @@ public class CameraController : MonoBehaviour
     //CinemachineBrain controller;
     public List<CinemachineCamera> cameras = new List<CinemachineCamera>();
     [SerializeField]int activeCamIndex;
+    public static CameraController instance;
 
     private void Awake()
     {
         //controller = this.GetComponent<CinemachineBrain>();
+        instance = this;
     }
 
     private void Start()

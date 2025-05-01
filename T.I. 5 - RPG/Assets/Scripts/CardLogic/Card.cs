@@ -48,7 +48,11 @@ public class Card : ScriptableObject
                 return;
             }
         }
-        hidden = false;
+        if (hidden)
+        {
+            hidden = false;
+            CardUIController.OrganizeHandCards(deck.Owner);
+        }
         CardHadEffect();
     }
     public void ConditionalCardFailled()// caso as condições da carta não tenham sido cumpridas

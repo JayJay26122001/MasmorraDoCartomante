@@ -31,7 +31,7 @@ public class Combat : MonoBehaviour
         }
         ActiveTurn = Round[turnIndex];
         TurnIndex = 0;
-        SceneAnimationController.AnimController.InvokeTimer(ActiveTurn.TurnStart,1);
+        SceneAnimationController.instance.InvokeTimer(ActiveTurn.TurnStart,1);
         CardUIController.CardsOrganizer(combatents[0]);
         CardUIController.CardsOrganizer(combatents[1]);
         CombatUI();

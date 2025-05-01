@@ -32,7 +32,7 @@ public class Creature : MonoBehaviour
     public int Health
     {
         get { return hp; }
-        private set
+        protected set
         {
             if (value < 0) value = 0;
             if (value > maxHP) value = maxHP;
@@ -42,7 +42,7 @@ public class Creature : MonoBehaviour
     public int Shield
     {
         get { return shld; }
-        private set
+        protected set
         {
             if (value < 0) value = 0;
             shld = value;
@@ -51,7 +51,7 @@ public class Creature : MonoBehaviour
     public int Energy
     {
         get { return energy; }
-        private set
+        protected set
         {
             if (value < 0) value = 0;
             if (value > maxBaseEnergy) value = maxBaseEnergy;
@@ -227,7 +227,7 @@ public class Creature : MonoBehaviour
 
 
     //COMBAT METHODS
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         if (damage < 0) damage = 0;
         int trueDamage = (int)Mathf.Clamp(damage - Shield, 0, Mathf.Infinity);
