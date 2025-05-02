@@ -11,7 +11,7 @@ public class CardDisplay : MonoBehaviour
 
     private Vector3 originalScale;
     private Vector3 originalPosition;
-    public bool isReadyToMove = false;
+    //public bool isReadyToMove = true;
     private bool hasSetOriginalTransform = false;
     bool highlighted;
 
@@ -98,59 +98,57 @@ public class CardDisplay : MonoBehaviour
     {
         if (GameplayManager.instance.InputActive)
         {
-            HighlightCard();
+            CardUIController.instance.SetHighlightedCard(cardData);
         }
         else if (highlighted)
         {
-            UnhilightCard();
+            CardUIController.instance.SetHighlightedCard(null);
         }
     }
 
     public void OnMouseExit()
     {
-        if (GameplayManager.instance.InputActive)
+        /*if (GameplayManager.instance.InputActive)
         {
-            UnhilightCard();
-        }
-        else if (highlighted)
+            CardUIController.instance.SetHighlightedCard(null);
+        }*/
+        if (highlighted)
         {
-            UnhilightCard();
+            CardUIController.instance.SetHighlightedCard(null);
         }
     }
+    
     public void HighlightCard()
     {
-        if (isReadyToMove)
-        {
-            if (gameObject.transform.localScale == originalScale)
-            {
-                if (cardData != null && cardData.deck != null && cardData.deck.Owner != null)
-                {
-                    Creature c = cardData.deck.Owner;
-                    if (c.hand.Contains(cardData) && c.GetComponent<Player>() != null && GameplayManager.currentCombat.TurnIndex == 0)
-                    {
-                        //CardUIController.OrganizeHandCardsWhenHighlighted(c, cardData);
-                        LeanTween.scale(gameObject, originalScale * 1.25f, 0.15f).setEaseOutQuad();
-                        LeanTween.moveLocal(gameObject, new Vector3(gameObject.transform.localPosition.x, originalPosition.y + 1f, originalPosition.z + -0.5f), 0.15f).setEaseOutSine();
-                        highlighted = true;
-                    }
-                }
-            }
-        }
-    }
-    public void UnhilightCard()
-    {
-        if (isReadyToMove)
+        if (gameObject.transform.localScale == originalScale)
         {
             if (cardData != null && cardData.deck != null && cardData.deck.Owner != null)
             {
                 Creature c = cardData.deck.Owner;
-                if (c.hand.Contains(cardData) && c.GetComponent<Player>() != null)
+                if (c.hand.Contains(cardData) && c.GetComponent<Player>() != null && GameplayManager.currentCombat.TurnIndex == 0)
                 {
-                    LeanTween.scale(gameObject, originalScale, 0.15f).setEaseOutQuad();
-                    LeanTween.moveLocal(gameObject, new Vector3(gameObject.transform.localPosition.x, originalPosition.y, originalPosition.z), 0.15f).setEaseOutSine();
-                    //CardUIController.OrganizeHandCards(c);
-                    highlighted = false;
+                    //LeanTween.cancel(gameObject);
+                    LeanTween.scale(gameObject, originalScale * 1.25f, 0.1f).setEaseOutQuad();
+                    //LeanTween.moveLocal(gameObject, new Vector3(gameObject.transform.localPosition.x, originalPosition.y + 1f, originalPosition.z + -0.5f), 0.15f).setEaseOutSine();
+                    highlighted = true;
+                    CardUIController.OrganizeHandCardsWhenHighlighted(c);
                 }
+            }
+        }
+    }
+
+    public void UnhighlightCard()
+    {
+        if (cardData != null && cardData.deck != null && cardData.deck.Owner != null)
+        {
+            Creature c = cardData.deck.Owner;
+            if (c.hand.Contains(cardData) && c.GetComponent<Player>() != null)
+            {
+                //LeanTween.cancel(gameObject);
+                LeanTween.scale(gameObject, originalScale, 0.1f).setEaseOutQuad();
+                //LeanTween.moveLocal(gameObject, new Vector3(gameObject.transform.localPosition.x, originalPosition.y, originalPosition.z), 0.15f).setEaseOutSine();
+                highlighted = false;
+                //CardUIController.OrganizeHandCards(c);
             }
         }
     }
