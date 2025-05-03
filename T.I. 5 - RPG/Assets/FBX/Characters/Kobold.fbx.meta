@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 235aa34e1edcd7940908071b2f440028
+guid: 3e6408557a678184699bd3e65e16848a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -22,7 +22,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -32,10 +32,10 @@ ModelImporter:
     clipAnimations:
     - serializedVersion: 16
       name: PlayCard
-      takeName: ImaculatusRig|Cycle_Attack
-      internalID: -4256642220646521224
+      takeName: KoboldRig|Kobold_Attack
+      internalID: -8241991457687269591
       firstFrame: 0
-      lastFrame: 65
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -60,11 +60,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Damage
-      takeName: ImaculatusRig|Cycle_Damage
-      internalID: 6204639139645257638
+      name: Defeat
+      takeName: KoboldRig|Kobold_Defeat
+      internalID: -1603188994043527054
       firstFrame: 0
-      lastFrame: 70
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -90,17 +90,17 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Idle
-      takeName: ImaculatusRig|Cycle_Idle
-      internalID: 848531841790367536
+      takeName: KoboldRig|Kobold_Idle
+      internalID: -7701502981665667762
       firstFrame: 0
-      lastFrame: 249
+      lastFrame: 400
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -118,11 +118,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Shunt
-      takeName: ImaculatusRig|Cycle_Shunt
-      internalID: -8199317834814067824
+      name: Taunt
+      takeName: KoboldRig|Kobold_Taunt
+      internalID: 7596332733477865068
       firstFrame: 0
-      lastFrame: 97
+      lastFrame: 90
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

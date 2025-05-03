@@ -33,7 +33,7 @@ public class Player : Creature
         energy -= c.cost;
         hand.Remove(c);
         playedCards.Add(c);
-        CardUIController.OrganizeHandCards(this);
+        CardUIController.OrganizeHandCardsWhenHighlighted(this);
         CardUIController.OrganizePlayedCards(this);
         SceneAnimationController.instance.InvokeTimer(c.CardPlayed, 0.2f);
         SceneAnimationController.instance.InvokeTimer(PlayedCard.Invoke, c, 0.2f);

@@ -47,4 +47,9 @@ public class Enemy : Creature
     {
         base.PlayCard(c);
     }
+    public override void Die()
+    {
+        base.Die();
+        SceneAnimationController.instance.AddToQueue(new EnemyDefeat(this));
+    }
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3e6408557a678184699bd3e65e16848a
+guid: 23a20f140633c4c48bb1d53098bfaf3f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -22,7 +22,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -31,11 +31,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: PlayCard
-      takeName: KoboldRig|Kobold_Attack
-      internalID: -8241991457687269591
+      name: CartomancerRig|CartomancerPhase1TakeDamage
+      takeName: CartomancerRig|CartomancerPhase1TakeDamage
+      internalID: -3777875433551557699
       firstFrame: 0
-      lastFrame: 20
+      lastFrame: 35
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -60,11 +60,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Defeat
-      takeName: KoboldRig|Kobold_Defeat
-      internalID: -1603188994043527054
+      name: CartomancerRig|ENTREGA_CartomancerPhase1Attack
+      takeName: CartomancerRig|ENTREGA_CartomancerPhase1Attack
+      internalID: -987375644808548065
       firstFrame: 0
-      lastFrame: 20
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -89,11 +89,40 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Idle
-      takeName: KoboldRig|Kobold_Idle
-      internalID: -7701502981665667762
+      name: CartomancerRig|ENTREGA_CartomancerPhase1Idle
+      takeName: CartomancerRig|ENTREGA_CartomancerPhase1Idle
+      internalID: -3166197355220067571
       firstFrame: 0
-      lastFrame: 400
+      lastFrame: 750
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CartomancerRig|ENTREGA_CartomancerPhase1TakeDamageAlt
+      takeName: CartomancerRig|ENTREGA_CartomancerPhase1TakeDamageAlt
+      internalID: 1573665063245932803
+      firstFrame: 0
+      lastFrame: 35
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -118,11 +147,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Taunt
-      takeName: KoboldRig|Kobold_Taunt
-      internalID: 7596332733477865068
+      name: CartomancerRig|ENTREGA_CartomancerPhase1Taunt
+      takeName: CartomancerRig|ENTREGA_CartomancerPhase1Taunt
+      internalID: 5395524589721265140
       firstFrame: 0
-      lastFrame: 90
+      lastFrame: 60
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

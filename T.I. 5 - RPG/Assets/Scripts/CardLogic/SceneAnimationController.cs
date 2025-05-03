@@ -92,8 +92,9 @@ public class EnemyPlayCard : AnimationAction
         c.anim.SetTrigger("PlayCard");
         GameplayManager.instance.PauseInput(time);
         AnimStarted.Invoke();
-        SceneAnimationController.instance.InvokeTimer(AnimEnded.Invoke, time);
         CameraController.instance.ChangeCamera(1);
+        SceneAnimationController.instance.InvokeTimer(CameraController.instance.ChangeCamera,0, time);
+        SceneAnimationController.instance.InvokeTimer(AnimEnded.Invoke, time);
     }
 }
 public class EnemyTakeDamage : AnimationAction
@@ -117,7 +118,33 @@ public class EnemyTakeDamage : AnimationAction
         c.anim.SetTrigger("TakeDamage");
         GameplayManager.instance.PauseInput(time);
         AnimStarted.Invoke();
-        SceneAnimationController.instance.InvokeTimer(AnimEnded.Invoke, time);
         CameraController.instance.ChangeCamera(1);
+        SceneAnimationController.instance.InvokeTimer(CameraController.instance.ChangeCamera,0, time);
+        SceneAnimationController.instance.InvokeTimer(AnimEnded.Invoke, time);
+    }
+}
+public class EnemyDefeat : AnimationAction
+{
+    Enemy c;
+    //AnimationClip playCard;
+    public EnemyDefeat(Enemy e)
+    {
+        c = e;
+        foreach (AnimationClip a in c.anim.runtimeAnimatorController.animationClips)
+        {
+            if (a.name == "Defeat")
+            {
+                //playCard = a;
+                time = a.length;
+            }
+        }
+    }
+    public override void StartAction()
+    {
+        c.anim.SetTrigger("Defeat");
+        GameplayManager.instance.PauseInput(time);
+        AnimStarted.Invoke();
+        CameraController.instance.ChangeCamera(1);
+        SceneAnimationController.instance.InvokeTimer(AnimEnded.Invoke, time);
     }
 }
