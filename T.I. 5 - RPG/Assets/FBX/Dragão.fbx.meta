@@ -31,7 +31,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Atack
+      name: PlayCard
       takeName: DragonSkeleton|Atack
       internalID: 726272132641719938
       firstFrame: 0

@@ -60,7 +60,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ataque
+      name: PlayCard
       takeName: MiniGolemRig|MiniGolem_ATK
       internalID: 6159888722755452233
       firstFrame: 0

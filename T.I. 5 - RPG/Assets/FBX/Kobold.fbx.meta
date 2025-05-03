@@ -31,7 +31,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Attack
+      name: PlayCard
       takeName: KoboldRig|Kobold_Attack
       internalID: -8241991457687269591
       firstFrame: 0
