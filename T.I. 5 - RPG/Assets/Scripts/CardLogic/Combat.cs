@@ -13,6 +13,14 @@ public class Combat : MonoBehaviour
     int turnIndex = 0;
     public TextMeshProUGUI turnText;
     public int TurnIndex { get{ return turnIndex; } private set { turnIndex = value % Round.Length; } }
+    public EnemyPool enemyPool;
+
+    public void SetEnemy()
+    {
+        int aux = enemyPool.SelectIndex();
+        combatents[1] = GameplayManager.instance.enemies[aux];
+        GameplayManager.instance.ShowEnemy(aux);
+    }
 
     public void StartCombat()
     {
@@ -77,8 +85,9 @@ public class Combat : MonoBehaviour
 
 
     //TESTE RETIRAR DEPOIS
-    void Awake()
+    void Start()
     {
+        SetEnemy();
         StartCombat();
         //Debug.Log($"Turn {TurnIndex + 1} {ActiveTurn.currentPhase}");
     }

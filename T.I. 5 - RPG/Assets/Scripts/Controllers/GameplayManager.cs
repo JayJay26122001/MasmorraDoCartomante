@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-
+using System.Collections.Generic;
 public class GameplayManager : MonoBehaviour
 {
     public static Combat currentCombat;
@@ -11,6 +11,7 @@ public class GameplayManager : MonoBehaviour
     public bool InputActive { get; private set; } = true;
     bool ManualPause = false;
 
+    public List<Enemy> enemies = new List<Enemy>();
 
     private void Awake()
     {
@@ -78,5 +79,13 @@ public class GameplayManager : MonoBehaviour
                 ResumeInput();
             }
         }*/
+    }
+
+    public void ShowEnemy(int index)
+    {
+        for(int i = 0; i < enemies.Count; i++)
+        {
+            enemies[i].gameObject.SetActive(i == index);
+        }
     }
 }

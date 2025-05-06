@@ -2990,6 +2990,7 @@ MonoBehaviour:
   - {fileID: 1866734918}
   - {fileID: 509029435}
   turnText: {fileID: 75921742}
+  enemyPool: {fileID: 11400000, guid: 9f71a1fdb7ccd7d4db16a2595f34a95c, type: 2}
 --- !u!4 &713266986
 Transform:
   m_ObjectHideFlags: 0
@@ -3039,6 +3040,91 @@ Transform:
   - {fileID: 955819055}
   m_Father: {fileID: 707346587}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1 &734278663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 734278666}
+  - component: {fileID: 734278664}
+  - component: {fileID: 734278665}
+  m_Layer: 0
+  m_Name: Criatura 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &734278664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734278663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef8394d76fca764fbbc7af354477e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy: {fileID: 0}
+  DeckPresets:
+  - {fileID: 11400000, guid: 09d6c5b2d83f8a14dabe4d634765683a, type: 2}
+  decks: []
+  hand: []
+  playedCards: []
+  maxHP: 40
+  hp: 0
+  shld: 0
+  energy: 0
+  maxBaseEnergy: 3
+  CardBuyMax: 5
+  Damaged:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayedCard:
+    m_PersistentCalls:
+      m_Calls: []
+  canPlayCards: 0
+  combatSpace: {fileID: 0}
+  hpText: {fileID: 177551275}
+  shieldText: {fileID: 1992139180}
+  energyText: {fileID: 1957511179}
+  anim: {fileID: 2004773217}
+--- !u!114 &734278665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734278663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09e4422246f64b8439fab98eeafdc5c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyAssets:
+  - {fileID: 726201785}
+  - {fileID: 1551659756}
+  - {fileID: 1429280706}
+--- !u!4 &734278666
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734278663}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &741689271 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8713014046441253018, guid: f514aff81ef252d479262f9c86df7b3e, type: 3}
@@ -4817,6 +4903,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InputBlocker: {fileID: 1259980598}
+  enemies:
+  - {fileID: 509029435}
+  - {fileID: 734278664}
 --- !u!114 &1432303491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7469,6 +7558,7 @@ SceneRoots:
   - {fileID: 1249348949}
   - {fileID: 1866734917}
   - {fileID: 509029434}
+  - {fileID: 734278666}
   - {fileID: 713266986}
   - {fileID: 150813617}
   - {fileID: 1366510553}
