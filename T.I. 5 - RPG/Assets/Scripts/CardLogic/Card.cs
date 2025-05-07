@@ -1,10 +1,17 @@
-using System.Collections.Generic;
+#if UNITY_EDITOR
+using UnityEditor;
 using UnityEngine;
+using System;
+using System.Linq;
+using System.Collections.Generic;
 using UnityEngine.Events;
+using Unity.VisualScripting;
 
 [CreateAssetMenu(fileName = "Card", menuName = "CardLogic/Card")]
 public class Card : ScriptableObject
 {
+    [SerializeReference]
+    public List<Effect> Effects = new List<Effect>();
     public void Setup()
     {
         foreach (Condition.condition c in conditions)
@@ -67,7 +74,7 @@ public class Card : ScriptableObject
 
 
     //EFEITOS DA CARTA
-    public UnityEvent CardEffect = new UnityEvent();
+    //public UnityEvent CardEffect = new UnityEvent();
 
     public void IniciateCardEffect() //tenta triggar o efeito da carta se ela não tiver condições, se tiver inicializa as condições
     {
@@ -85,7 +92,11 @@ public class Card : ScriptableObject
     }
     void CardHadEffect() //carta tem efeito
     {
-        CardEffect.Invoke();
+        //CardEffect.Invoke();
+        foreach (Effect e in Effects)
+        {
+            e.Apply();
+        }
         foreach (Condition c in conds)
         {
             c.ResetCondition();
@@ -93,12 +104,91 @@ public class Card : ScriptableObject
         deck.Owner.DiscardCard(this);
     }
 
-    public void DamageEnemy(int damage)
+    /*public void DamageEnemy(int damage)
     {
         deck.Owner.Enemy.TakeDamage(damage);
     }
     public void AddDefense(int def)
     {
         deck.Owner.AddShield(def);
+    }*/
+}
+
+[CustomEditor(typeof(Card))]
+public class CardEditor : Editor
+{
+    SerializedProperty effects;
+
+    void OnEnable()
+    {
+        effects = serializedObject.FindProperty("Effects");
+    }
+
+    public override void OnInspectorGUI()
+    {
+        serializedObject.Update();
+        // Draw the rest of the fields except 'Effects'
+        DrawPropertiesExcluding(serializedObject, "Effects");
+
+        EditorGUILayout.Space();
+        EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
+
+        // Draw Effect list
+        EditorGUILayout.LabelField("Effects", EditorStyles.boldLabel);
+        for (int i = 0; i < effects.arraySize; i++)
+        {
+            var element = effects.GetArrayElementAtIndex(i);
+            EditorGUILayout.PropertyField(element, new GUIContent($"Effect {i}"), true);
+
+            if (GUILayout.Button("Remove Effect"))
+            {
+                effects.DeleteArrayElementAtIndex(i);
+            }
+
+            EditorGUILayout.Space();
+        }
+
+        // Button to add a new effect
+        if (GUILayout.Button("Add Effect"))
+        {
+            ShowTypeSelector();
+        }
+
+        
+
+        serializedObject.ApplyModifiedProperties();
+    }
+
+    private void ShowTypeSelector()
+    {
+        var effectTypes = GetAllDerivedTypes<Effect>();
+        GenericMenu menu = new GenericMenu();
+
+        foreach (var type in effectTypes)
+        {
+            menu.AddItem(new GUIContent(type.Name), false, () =>
+            {
+                var newEffect = Activator.CreateInstance(type);
+                if (newEffect is Effect e)
+                {
+                    e.card = (Card)target;
+                }
+                effects.arraySize++;
+                var effectElement = effects.GetArrayElementAtIndex(effects.arraySize - 1);
+                effectElement.managedReferenceValue = newEffect;
+                serializedObject.ApplyModifiedProperties();
+            });
+        }
+
+        menu.ShowAsContext();
+    }
+
+    private static List<Type> GetAllDerivedTypes<T>()
+    {
+        return AppDomain.CurrentDomain.GetAssemblies()
+            .SelectMany(assembly => assembly.GetTypes())
+            .Where(type => typeof(T).IsAssignableFrom(type) && !type.IsAbstract && !type.IsInterface)
+            .ToList();
     }
 }
+#endif

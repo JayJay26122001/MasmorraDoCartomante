@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
   m_Name: Card 1
   m_EditorClassIdentifier: 
+  Effects:
+  - rid: 7391437407230361702
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Ataque Impiedoso
@@ -23,18 +25,10 @@ MonoBehaviour:
   Rarity: 0
   Description: Causa 8 pontos de dano ao oponente.
   conditions: 
-  CardEffect:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000}
-        m_TargetAssemblyTypeName: Card, Assembly-CSharp
-        m_MethodName: DamageEnemy
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 8
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  references:
+    version: 2
+    RefIds:
+    - rid: 7391437407230361702
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        Damage: 8

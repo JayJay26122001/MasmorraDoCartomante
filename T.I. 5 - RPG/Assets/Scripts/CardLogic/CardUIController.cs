@@ -47,6 +47,10 @@ public class CardUIController : MonoBehaviour
         if (card.deck != null && card.deck.Owner != null)
         {
             temp.transform.SetParent(card.deck.Owner.transform);
+            foreach (Effect e in temp.cardData.Effects)
+            {
+                e.card = temp.cardData;
+            }
         }
     }
 
