@@ -185,6 +185,7 @@ public class Creature : MonoBehaviour
         playedCards.Add(c);
         CardUIController.OrganizeHandCards(this);
         CardUIController.OrganizePlayedCards(this);
+        CardUIController.OrganizeEnemyPlayedCards(this);
         c.CardPlayed();
         PlayedCard.Invoke(c);
         //Debug.Log("played card");

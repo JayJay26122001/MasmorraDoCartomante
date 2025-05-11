@@ -85,9 +85,9 @@ public class Combat : MonoBehaviour
 
 
     //TESTE RETIRAR DEPOIS
-    void Start()
+    void Awake()
     {
-        SetEnemy();
+        //SetEnemy();
         StartCombat();
         //Debug.Log($"Turn {TurnIndex + 1} {ActiveTurn.currentPhase}");
     }

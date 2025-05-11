@@ -1,8 +1,9 @@
 using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEngine.EventSystems;
 
-public class CardDisplay : MonoBehaviour
+public class CardDisplay : MonoBehaviour, IPointerClickHandler
 {
     public SpriteRenderer rarity, background, type;
     public TextMeshPro cardCost, cardName, cardDescription;
@@ -42,7 +43,7 @@ public class CardDisplay : MonoBehaviour
         type.sprite = cardsUI.cardType[(int)cardData.Type];
     }
 
-    public void OnCardClick()
+    public void OnPointerClick(PointerEventData eventData)
     {
         //if (!GameplayManager.instance.InputActive) return;
         //cardData.deck.Owner.PlayCard(cardData); //substituir pela linha de baixo mais tarde
@@ -55,10 +56,18 @@ public class CardDisplay : MonoBehaviour
         {
             cardData.deck.Owner.GetComponent<Player>()?.SelectCard(cardData);
         }*/
-        LeanTween.scale(gameObject, originalScale, 0.15f).setEaseOutQuad();
-        cardData.deck.Owner.PlayCard(cardData);
-        GameplayManager.currentCombat.CombatUI();
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            LeanTween.scale(gameObject, originalScale, 0.15f).setEaseOutQuad();
+            cardData.deck.Owner.PlayCard(cardData);
+            GameplayManager.currentCombat.CombatUI();
+        }
+        else
+        {
+            CameraController.instance.HighlightCard(this.transform.position);
+        }
     }
+
 
     public void UpdatePosition()
     {

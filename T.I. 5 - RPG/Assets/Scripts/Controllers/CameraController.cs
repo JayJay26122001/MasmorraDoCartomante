@@ -9,6 +9,7 @@ public class CameraController : MonoBehaviour
     public List<CinemachineCamera> cameras = new List<CinemachineCamera>();
     [SerializeField]int activeCamIndex;
     public static CameraController instance;
+    public CinemachineCamera highlightCardCamera;
 
     private void Awake()
     {
@@ -56,6 +57,19 @@ public class CameraController : MonoBehaviour
         {
             activeCamIndex--;
             ChangeActiveCamera();
+        }
+    }
+
+    public void HighlightCard(Vector3 pos)
+    {
+        if(highlightCardCamera.Priority == 0)
+        {
+            highlightCardCamera.transform.position = new Vector3(pos.x, highlightCardCamera.transform.position.y, pos.z);
+            highlightCardCamera.Priority = 2;
+        }
+        else
+        {
+            highlightCardCamera.Priority = 0;
         }
     }
 }

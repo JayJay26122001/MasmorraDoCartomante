@@ -163,8 +163,8 @@ public class CardUIController : MonoBehaviour
             float posX = (i - ((totalCardsPlayed - 1) / 2f)) * playedCardsSpacing;
             GameObject cardObject = c.playedCards[i].cardDisplay.gameObject;
             Vector3 pos = (c.combatSpace.playedCardSpace.right * posX) + c.combatSpace.playedCardSpace.position;
-            Vector3 rot;
-            if (!c.playedCards[i].hidden) //Virar a carta caso ela for Hidden na hora que estiver na mesa de cartas jogadas
+            Vector3 rot = c.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(90f, 0f, 0f);
+            /*if (!c.playedCards[i].hidden) //Virar a carta caso ela for Hidden na hora que estiver na mesa de cartas jogadas
             {
                 //rot = c.combatSpace.playedCardSpace.rotation * Quaternion.Euler(90f, 0f, 0f);
                 rot = c.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(90f, 0f, 0f);
@@ -173,11 +173,36 @@ public class CardUIController : MonoBehaviour
             {
                 //rot = c.combatSpace.playedCardSpace.rotation * Quaternion.Euler(-90f, 0f, 180f);
                 rot = c.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(-90f, 180f, 0);
+            }*/
+            if(c.GetComponent<Player>() != null)
+            {
+                LeanTween.move(cardObject, pos, 0.15f).setEaseInOutSine();
+                LeanTween.rotate(cardObject, rot, 0.15f).setEaseInOutSine();
+                cardObject.transform.SetParent(c.combatSpace.playedCardSpace);
+                CardDisplay cardDisplay = cardObject.GetComponent<CardDisplay>();
             }
-            LeanTween.move(cardObject, pos, 0.15f).setEaseInOutSine();
+        }
+    }
+
+    public static void OrganizeEnemyPlayedCards(Creature c)
+    {
+        int totalCardsPlayed = c.playedCards.Count;
+        for (int i = 0; i < totalCardsPlayed; i++)
+        {
+            GameObject cardObject = c.playedCards[i].cardDisplay.gameObject;
+            Vector3 pos = c.combatSpace.playedCardSpace.position;
+            Vector3 rot;
+            if (!c.playedCards[i].hidden)
+            {
+                rot = c.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(90f, 0f, 0f);
+            }
+            else
+            {
+                rot = c.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(-90f, 180f, 0);
+            }
+            LeanTween.move(cardObject, pos, 0.75f).setEaseInCubic();
             LeanTween.rotate(cardObject, rot, 0.15f).setEaseInOutSine();
             cardObject.transform.SetParent(c.combatSpace.playedCardSpace);
-            CardDisplay cardDisplay = cardObject.GetComponent<CardDisplay>();
         }
     }
 
