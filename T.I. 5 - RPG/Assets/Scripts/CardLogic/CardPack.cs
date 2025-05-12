@@ -29,14 +29,23 @@ public class CardPack : MonoBehaviour
             Debug.Log("Pack bought.");
             foreach(Card c in cards)
             {
-                Card aux = CardUIController.instance.InstantiateCard(c).cardData;
-                cardsInstances.Add(aux);
+                CardDisplay aux = CardUIController.instance.InstantiateCard(c);
+                aux.pack = this;
+                cardsInstances.Add(aux.cardData);
                 CardUIController.OrganizeBoughtPackCards(this);
             }
         }
         else
         {
             Debug.Log("You don't have enough money.");
+        }
+    }
+
+    public void DestroyBoughtCards()
+    {
+        foreach(Card c in cardsInstances)
+        {
+            Destroy(c.cardDisplay.gameObject);
         }
     }
 }

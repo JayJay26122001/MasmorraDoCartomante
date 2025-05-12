@@ -15,7 +15,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
     //public bool isReadyToMove = true;
     private bool hasSetOriginalTransform = false;
     bool highlighted;
-
+    public CardPack pack;
     void Start()
     {
         if (!hasSetOriginalTransform)
@@ -58,9 +58,18 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         }*/
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            LeanTween.scale(gameObject, originalScale, 0.15f).setEaseOutQuad();
-            cardData.deck.Owner.PlayCard(cardData);
-            GameplayManager.currentCombat.CombatUI();
+            if(pack == null)
+            {
+                LeanTween.scale(gameObject, originalScale, 0.15f).setEaseOutQuad();
+                cardData.deck.Owner.PlayCard(cardData);
+                GameplayManager.currentCombat.CombatUI();
+            }
+            else
+            {
+                GameplayManager.instance.player.decks[0].AddCard(cardData);
+                pack.DestroyBoughtCards();
+                pack = null;
+            }
         }
         else
         {
