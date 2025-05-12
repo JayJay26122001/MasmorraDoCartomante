@@ -11,7 +11,10 @@ public class GameplayManager : MonoBehaviour
     public bool InputActive { get; private set; } = true;
     bool ManualPause = false;
 
+    [SerializeField]int money;
+
     public List<Enemy> enemies = new List<Enemy>();
+    public Player player;
 
     private void Awake()
     {
@@ -86,6 +89,19 @@ public class GameplayManager : MonoBehaviour
         for(int i = 0; i < enemies.Count; i++)
         {
             enemies[i].gameObject.SetActive(i == index);
+        }
+    }
+
+    public bool ChangeMoney(int quantity)
+    {
+        if(quantity < 0 && Mathf.Abs(quantity) > money)
+        {
+            return false;
+        }
+        else
+        {
+            money += quantity;
+            return true;
         }
     }
 }
