@@ -4799,8 +4799,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InputBlocker: {fileID: 1259980598}
+  money: 0
   enemies:
   - {fileID: 509029435}
+  player: {fileID: 1866734918}
 --- !u!114 &1432303491
 MonoBehaviour:
   m_ObjectHideFlags: 0
