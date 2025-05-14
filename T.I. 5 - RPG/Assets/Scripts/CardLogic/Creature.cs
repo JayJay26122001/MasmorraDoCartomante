@@ -19,7 +19,7 @@ public class Creature : MonoBehaviour
     public List<Card> playedCards = new List<Card>();
     [SerializeField] protected int maxHP;
     [SerializeField] protected int hp, shld, energy, maxBaseEnergy = 3;
-    public int CardBuyMax = 5;
+    public int BaseDamage =6, BaseDefense = 5,CardBuyMax = 5;
     public UnityEvent Damaged = new UnityEvent();
     public UnityEvent<Card> PlayedCard = new UnityEvent<Card>();
     public bool canPlayCards;

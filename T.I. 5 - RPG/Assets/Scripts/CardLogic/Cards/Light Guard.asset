@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Card 1
+  m_Name: Light Guard
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 7391437407230361702
+  - rid: 7391437407230361703
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Ataque Impiedoso
+  Name: Light Guard
   hidden: 0
   exaust: 0
   instantaneous: 0
   cost: 1
-  Type: 0
+  Type: 1
   Rarity: 0
-  Description: Causa 8 pontos de dano ao oponente.
+  Description: Gains 5 defense.
   conditions: 
   references:
     version: 2
     RefIds:
-    - rid: 7391437407230361702
-      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+    - rid: 7391437407230361703
+      type: {class: GainDefense, ns: , asm: Assembly-CSharp}
       data:
-        Damage: 8
+        DefenseMultiplier: 1
