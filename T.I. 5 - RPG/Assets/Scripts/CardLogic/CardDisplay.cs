@@ -64,7 +64,11 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            CameraController.instance.HighlightCard(this.transform.position);
+            Creature c = cardData.deck.Owner;
+            if (c.playedCards.Contains(cardData))
+            {
+                CameraController.instance.HighlightCard(this.transform.position);
+            }
         }
     }
 
