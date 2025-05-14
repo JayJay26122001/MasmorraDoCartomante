@@ -14,19 +14,27 @@ public abstract class Effect
 public class DealDamage : Effect
 {
     //public DamageEffect(Card c) : base(c){}
-    public int Damage;
+    public float DamageMultiplier;
     public override void Apply()
     {
-        card.deck.Owner.Enemy.TakeDamage(Damage);
+        card.deck.Owner.Enemy.TakeDamage(GetDamage());
+    }
+    public int GetDamage()
+    {
+        return (int)Math.Round(card.deck.Owner.BaseDamage * DamageMultiplier);
     }
 }
 [Serializable]
 public class GainDefense : Effect
 {
     //public DamageEffect(Card c) : base(c){}
-    public int Defense;
+    public float DefenseMultiplier;
     public override void Apply()
     {
-        card.deck.Owner.AddShield(Defense);
+        card.deck.Owner.AddShield(GetDefense());
+    }
+    public int GetDefense()
+    {
+        return (int)Math.Round(card.deck.Owner.BaseDefense * DefenseMultiplier);
     }
 }

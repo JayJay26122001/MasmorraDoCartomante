@@ -10,26 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Card 3
+  m_Name: Counterattack
   m_EditorClassIdentifier: 
   Effects:
   - rid: 7391437407230361704
+  - rid: 7391437567606390851
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Roubo de Alma
+  Name: Counterattack
   hidden: 0
   exaust: 0
   instantaneous: 0
-  cost: 3
+  cost: 1
   Type: 2
-  Rarity: 2
-  Description: Se a primeira carta que o oponente jogar for uma carta de defesa,
-    cause 20 de dano ao oponente.
-  conditions: 02000000
+  Rarity: 1
+  Description: If the opponent's next card is an attack card, deals 8 Damage and
+    gains 6 Defense
+  conditions: 01000000
   references:
     version: 2
     RefIds:
     - rid: 7391437407230361704
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
-        Damage: 20
+        DamageMultiplier: 1.2
+    - rid: 7391437567606390851
+      type: {class: GainDefense, ns: , asm: Assembly-CSharp}
+      data:
+        DefenseMultiplier: 1.2

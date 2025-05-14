@@ -2453,6 +2453,8 @@ MonoBehaviour:
   shld: 0
   energy: 0
   maxBaseEnergy: 3
+  BaseDamage: 6
+  BaseDefense: 5
   CardBuyMax: 5
   Damaged:
     m_PersistentCalls:
@@ -5712,6 +5714,8 @@ MonoBehaviour:
   shld: 0
   energy: 0
   maxBaseEnergy: 3
+  BaseDamage: 6
+  BaseDefense: 5
   CardBuyMax: 5
   Damaged:
     m_PersistentCalls:
