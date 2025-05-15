@@ -22,19 +22,22 @@ public class Enemy : Creature
     }
     public override void TakeDamage(int damage)
     {
-        if (damage < 0) damage = 0;
-        int trueDamage = (int)Mathf.Clamp(damage - Shield, 0, Mathf.Infinity);
-        Shield -= damage;
-        Health -= trueDamage;
-        Damaged.Invoke();
-        if (Health <= 0)
+        if (Health > 0)
         {
-            Die();
-        }
-        else
-        {
-            EnemyTakeDamage anim = new EnemyTakeDamage(this);
-            SceneAnimationController.instance.AddToQueue(anim);
+            if (damage < 0) damage = 0;
+            int trueDamage = (int)Mathf.Clamp(damage - Shield, 0, Mathf.Infinity);
+            Shield -= damage;
+            Health -= trueDamage;
+            Damaged.Invoke();
+            if (Health <= 0)
+            {
+                Die();
+            }
+            else
+            {
+                EnemyTakeDamage anim = new EnemyTakeDamage(this);
+                SceneAnimationController.instance.AddToQueue(anim);
+            }
         }
     }
     void TurnActionsDelayed()
@@ -50,6 +53,7 @@ public class Enemy : Creature
     public override void Die()
     {
         base.Die();
+        GameplayManager.instance.player.ChangeMoney(money);
         SceneAnimationController.instance.AddToQueue(new EnemyDefeat(this));
     }
 }

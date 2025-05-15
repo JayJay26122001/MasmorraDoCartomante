@@ -90,5 +90,17 @@ public class Player : Creature
     {
         GameManager.instance.uiController.ChangeScene("GameOver");
     }
+    public bool ChangeMoney(int quantity)
+    {
+        if (quantity < 0 && Mathf.Abs(quantity) > money)
+        {
+            return false;
+        }
+        else
+        {
+            money += quantity;
+            return true;
+        }
+    }
 }
 

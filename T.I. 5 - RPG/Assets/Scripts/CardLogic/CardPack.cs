@@ -24,7 +24,7 @@ public class CardPack : MonoBehaviour
 
     public void OnMouseDown()
     {
-        if (GameplayManager.instance.ChangeMoney(-price))
+        if (GameplayManager.instance.player.ChangeMoney(-price))
         {
             Debug.Log("Pack bought.");
             foreach(Card c in cards)

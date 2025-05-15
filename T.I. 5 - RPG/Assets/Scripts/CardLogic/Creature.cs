@@ -18,7 +18,7 @@ public class Creature : MonoBehaviour
     public List<Card> hand = new List<Card>();
     public List<Card> playedCards = new List<Card>();
     [SerializeField] protected int maxHP;
-    [SerializeField] protected int hp, shld, energy, maxBaseEnergy = 3;
+    [SerializeField] protected int hp, shld, energy, maxBaseEnergy = 3, money;
     public int BaseDamage =6, BaseDefense = 5,CardBuyMax = 5;
     public UnityEvent Damaged = new UnityEvent();
     public UnityEvent<Card> PlayedCard = new UnityEvent<Card>();
@@ -27,7 +27,10 @@ public class Creature : MonoBehaviour
 
     public TextMeshProUGUI hpText, shieldText, energyText;  //Ui das criaturas na batalha
 
-
+    public int Money
+    {
+        get { return hp; }
+    }
 
     public int Health
     {

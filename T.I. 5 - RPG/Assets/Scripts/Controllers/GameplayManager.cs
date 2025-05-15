@@ -11,7 +11,7 @@ public class GameplayManager : MonoBehaviour
     public bool InputActive { get; private set; } = true;
     bool ManualPause = false;
 
-    [SerializeField]int money;
+    //[SerializeField]int money;
 
     public List<Enemy> enemies = new List<Enemy>();
     public Player player;
@@ -92,7 +92,7 @@ public class GameplayManager : MonoBehaviour
         }
     }
 
-    public bool ChangeMoney(int quantity)
+    /*public bool ChangeMoney(int quantity)
     {
         if(quantity < 0 && Mathf.Abs(quantity) > money)
         {
@@ -103,5 +103,5 @@ public class GameplayManager : MonoBehaviour
             money += quantity;
             return true;
         }
-    }
+    }*/
 }
