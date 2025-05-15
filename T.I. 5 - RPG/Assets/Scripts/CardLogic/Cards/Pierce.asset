@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Razor Dagger
+  m_Name: Pierce
   m_EditorClassIdentifier: 
   Effects:
   - rid: 7391437407230361702
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Razor Dagger
+  Name: Pierce
   hidden: 0
   exaust: 0
   instantaneous: 0
   cost: 1
   Type: 0
   Rarity: 0
-  Description: Deals 6 damage
+  Description: Deals 5 damage, ignores defense.
   conditions: 
   references:
     version: 2
@@ -31,6 +31,6 @@ MonoBehaviour:
     - rid: 7391437407230361702
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
-        DamageMultiplier: 1
-        IgnoreDefense: 0
+        DamageMultiplier: 0.8
+        IgnoreDefense: 1
         target: 0

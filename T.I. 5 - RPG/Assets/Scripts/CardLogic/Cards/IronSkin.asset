@@ -10,27 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Razor Dagger
+  m_Name: IronSkin
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 7391437407230361702
+  - rid: 7391437586234343513
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Razor Dagger
+  Name: Iron Skin
   hidden: 0
   exaust: 0
-  instantaneous: 0
+  instantaneous: 1
   cost: 1
-  Type: 0
-  Rarity: 0
-  Description: Deals 6 damage
+  Type: 1
+  Rarity: 3
+  Description: Doubles the user's defense gain until the end of its turn.
   conditions: 
   references:
     version: 2
     RefIds:
-    - rid: 7391437407230361702
-      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+    - rid: 7391437586234343513
+      type: {class: BuffStatMultiplier, ns: , asm: Assembly-CSharp}
       data:
-        DamageMultiplier: 1
-        IgnoreDefense: 0
-        target: 0
+        StatToBuff: 1
+        MultiplicativeAmount: 2
+        TurnsFromNow: 0
+        TurnPhaseToStop: 2
+        StopAtPhase: 1

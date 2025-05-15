@@ -40,6 +40,34 @@ public class Enemy : Creature
             }
         }
     }
+    public override void TakeDamage(int damage, bool IgnoreDefense)
+    {
+        if (Health > 0)
+        {
+            if (damage < 0) damage = 0;
+            int trueDamage;
+            if (IgnoreDefense)
+            {
+                trueDamage = damage;
+            }
+            else
+            {
+                trueDamage = (int)Mathf.Clamp(damage - Shield, 0, Mathf.Infinity);
+                Shield -= damage;
+            }
+            Health -= trueDamage;
+            Damaged.Invoke();
+            if (Health <= 0)
+            {
+                Die();
+            }
+            else
+            {
+                EnemyTakeDamage anim = new EnemyTakeDamage(this);
+                SceneAnimationController.instance.AddToQueue(anim);
+            }
+        }
+    }
     void TurnActionsDelayed()
     {
         PlayCard(hand[0]);

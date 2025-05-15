@@ -2,17 +2,20 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 using Unity.VisualScripting;
+using UnityEngine.Events;
 
 public class Combat : MonoBehaviour
 {
+    public enum TurnPhaseTypes {PlayerStart, PlayerReaction, PlayerEnd, EnemyStart, EnemyReaction, EnemyEnd}
     public CardCombatSpaces[] combatSpaces;
     public Creature[] combatents;
     public Turn[] Round;
     public Turn ActiveTurn;
     int turnIndex = 0;
     public TextMeshProUGUI turnText;
-    public int TurnIndex { get{ return turnIndex; } private set { turnIndex = value % Round.Length; } }
+    public int TurnIndex { get { return turnIndex; } private set { turnIndex = value % Round.Length; } }
     public EnemyPool enemyPool;
 
     public void SetEnemy()
@@ -20,6 +23,26 @@ public class Combat : MonoBehaviour
         int aux = enemyPool.SelectIndex();
         combatents[1] = GameplayManager.instance.enemies[aux];
         GameplayManager.instance.ShowEnemy(aux);
+    }
+    public TurnPhase GetTurnPhase(TurnPhaseTypes phaseType)
+    {
+        switch (phaseType)
+        {
+            case TurnPhaseTypes.PlayerStart:
+                return Round[0].phases[0];
+            case TurnPhaseTypes.PlayerReaction:
+                return Round[0].phases[1];
+            case TurnPhaseTypes.PlayerEnd:
+                return Round[0].phases[2];
+            case TurnPhaseTypes.EnemyStart:
+                return Round[1].phases[0];
+            case TurnPhaseTypes.EnemyReaction:
+                return Round[1].phases[1];
+            case TurnPhaseTypes.EnemyEnd:
+                return Round[1].phases[2];
+            default:
+                return null;
+        }
     }
 
     public void StartCombat()
@@ -39,7 +62,7 @@ public class Combat : MonoBehaviour
         }
         ActiveTurn = Round[turnIndex];
         TurnIndex = 0;
-        SceneAnimationController.instance.InvokeTimer(ActiveTurn.TurnStart,1);
+        SceneAnimationController.instance.InvokeTimer(ActiveTurn.TurnStart, 1);
         CardUIController.CardsOrganizer(combatents[0]);
         CardUIController.CardsOrganizer(combatents[1]);
         CombatUI();
@@ -82,6 +105,24 @@ public class Combat : MonoBehaviour
         combatents[0].UpdateCreatureUI(combatents[0]);
         combatents[1].UpdateCreatureUI(combatents[1]);
     }
+    public void EndCombat()
+    {
+        foreach (Creature c in combatents)
+        {
+            c.resetEnergy();
+            c.resetShield();
+            c.ResetDamageMultiplier();
+            c.ResetDefenseMultiplier();
+        }
+        foreach (Turn t in Round)
+        {
+            foreach (TurnPhase p in t.phases)
+            {
+                p.PhaseStarted.RemoveAllListeners();
+                p.PhaseEnded.RemoveAllListeners();
+            }
+        }
+    }
 
 
     //TESTE RETIRAR DEPOIS
@@ -99,6 +140,72 @@ public class Combat : MonoBehaviour
             turnText.text = $"Creature {TurnIndex + 1} - Turn {TurnIndex + 1} {ActiveTurn.currentPhase}";
         }
     }*/
+    public static void WaitForTurn(int TurnFromNow, TurnPhase phase, TurnPhase.PhaseTime phaseTime , UnityAction action)
+    {
+        UnityAction tymedAction = action;
+        int turnsLeft = TurnFromNow;
+        UnityAction onPhaseStarted = null;
+        UnityEvent selectedEvent;
+        switch (phaseTime)
+        {
+            case TurnPhase.PhaseTime.Start:
+                selectedEvent = phase.PhaseStarted;
+                break;
+            case TurnPhase.PhaseTime.End:
+                selectedEvent = phase.PhaseEnded;
+                break;
+
+            default:
+                selectedEvent = phase.PhaseStarted;
+                break;
+        }
+        onPhaseStarted = () =>
+        {
+            if (turnsLeft <= 0)
+            {
+                action.Invoke();
+                selectedEvent.RemoveListener(onPhaseStarted); // Remove o listener após execução
+            }
+            else
+            {
+                turnsLeft--;
+            }
+        };
+        selectedEvent.AddListener(onPhaseStarted);
+    }
+    public static void WaitForTurn<T>(int TurnFromNow, TurnPhase phase, TurnPhase.PhaseTime phaseTime, UnityAction<T> action, T arg)
+    {
+        UnityAction tymedAction = () => action(arg);
+        int turnsLeft = TurnFromNow;
+        UnityAction onPhaseStarted = null;
+        UnityEvent selectedEvent;
+        switch (phaseTime)
+        {
+            case TurnPhase.PhaseTime.Start:
+                selectedEvent = phase.PhaseStarted;
+                break;
+            case TurnPhase.PhaseTime.End:
+                selectedEvent = phase.PhaseEnded;
+                break;
+
+            default:
+                selectedEvent = phase.PhaseStarted;
+                break;
+        }
+        onPhaseStarted = () =>
+        {
+            if (turnsLeft <= 0)
+            {
+                tymedAction.Invoke();
+                selectedEvent.RemoveListener(onPhaseStarted); // Remove o listener após execução
+            }
+            else
+            {
+                turnsLeft--;
+            }
+        };
+        selectedEvent.AddListener(onPhaseStarted);
+    }
 }
 public class Turn
 {
@@ -141,20 +248,24 @@ public class Turn
 }
 public abstract class TurnPhase
 {
+    public enum PhaseTime {Start, End}
     protected Creature owner;
     public TurnPhase(Creature owner)
     {
         this.owner = owner;
     }
+    public UnityEvent PhaseStarted = new UnityEvent();
+    public UnityEvent PhaseEnded = new UnityEvent();
 
     public virtual void StartPhase()
     {
+        PhaseStarted.Invoke();
         PhaseEffect();
     }
     public abstract void PhaseEffect();
     public virtual void EndPhase()
     {
-        
+        PhaseEnded.Invoke();
     }
 }
 public class TurnStart : TurnPhase

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
@@ -19,7 +20,9 @@ public class Creature : MonoBehaviour
     public List<Card> playedCards = new List<Card>();
     [SerializeField] protected int maxHP;
     [SerializeField] protected int hp, shld, energy, maxBaseEnergy = 3, money;
-    public int BaseDamage =6, BaseDefense = 5,CardBuyMax = 5;
+    public int CardBuyMax = 5;
+    [SerializeField] int baseDamage = 6, baseDefense = 5;
+    public float BaseDamageMultiplier = 1, BaseDefenseMultiplier = 1;
     public UnityEvent Damaged = new UnityEvent();
     public UnityEvent<Card> PlayedCard = new UnityEvent<Card>();
     public bool canPlayCards;
@@ -61,6 +64,22 @@ public class Creature : MonoBehaviour
             energy = value;
         }
     }
+    public int BaseDamage
+    {
+        get{return (int)Math.Ceiling(baseDamage * BaseDamageMultiplier);}
+    }
+    public int BaseDefense
+    {
+        get{return (int)Math.Ceiling(baseDefense * BaseDefenseMultiplier);}
+    }
+    public void ResetDamageMultiplier()
+    {
+        BaseDamageMultiplier = 1;
+    }
+    public void ResetDefenseMultiplier()
+    {
+        BaseDamageMultiplier = 1;
+    }
     public void UpdateCreatureUI(Creature c)
     {
         if (hpText != null)
@@ -92,52 +111,6 @@ public class Creature : MonoBehaviour
         deck.Owner = this;
         deck.Setup();
     }
-
-    /*public void CardsOrganizer() //mudan�a futura
-    {
-        int totalHandCards = hand.Count;
-        float minHandSpacing = 1.0f;
-        float maxHandSpacing = 3.0f;
-        float handVerticalSpacing = 0.02f;
-        int cardsSpacingLimit = 6;
-        float multiplierValue = Mathf.Clamp01((totalHandCards - cardsSpacingLimit) / 10f);
-        float handSpacing = Mathf.Lerp(maxHandSpacing, minHandSpacing, multiplierValue);
-        for (int i = 0; i < totalHandCards; i++)
-        {
-            float positionX = (i - ((totalHandCards - 1) / 2f)) * handSpacing;
-            float positionY = (i * handVerticalSpacing);
-            Transform cardTransform = hand[i].cardDisplay.transform;
-            cardTransform.position = (combatSpace.playerHandSpace.right * positionX + combatSpace.playerHandSpace.up * positionY) + combatSpace.playerHandSpace.position;
-            cardTransform.rotation = combatSpace.playerHandSpace.rotation * Quaternion.Euler(90f, 0f, 0f);
-        }
-        int totalCardsPlayed = playedCards.Count;
-        float playedCardsSpacing = 2.5f;
-        for (int i = 0; i < totalCardsPlayed; i++)
-        {
-            float positionX = (i - ((totalCardsPlayed - 1) / 2f)) * playedCardsSpacing;
-            Transform cardTransform = playedCards[i].cardDisplay.transform;
-            cardTransform.position = (combatSpace.playedCardSpace.right * positionX) + combatSpace.playedCardSpace.position;
-            cardTransform.rotation = combatSpace.playedCardSpace.rotation * Quaternion.Euler(90f, 0f, 0f);
-        }
-        int totalDiscardCards = decks[0].DiscardPile.Count;
-        float discardCardsSpacing = 0.1f;
-        for (int i = totalDiscardCards; i > 0; i--)
-        {
-            float positionY = (i * discardCardsSpacing);
-            Transform cardTransform = decks[0].DiscardPile.ToArray()[i-1].cardDisplay.transform;
-            cardTransform.position = (combatSpace.discardPileSpace.up * positionY) + combatSpace.discardPileSpace.position;
-            cardTransform.rotation = combatSpace.discardPileSpace.rotation * Quaternion.Euler(-90f, 0f, 0f);
-        }
-        int totalBuyingCards = decks[0].BuyingPile.Count;
-        float buyingCardsSpacing = 0.1f;
-        for (int i = totalBuyingCards; i > 0; i--)
-        {
-            float positionY = (i * buyingCardsSpacing);
-            Transform cardTransform = decks[0].BuyingPile.ToArray()[i - 1].cardDisplay.transform;
-            cardTransform.position = (combatSpace.buyingPileSpace.up * positionY) + combatSpace.buyingPileSpace.position;
-            cardTransform.rotation = combatSpace.buyingPileSpace.rotation * Quaternion.Euler(-90f, 0f, 0f);
-        }
-    }*/
 
     //COMBAT CARD METHODS
 
@@ -231,6 +204,26 @@ public class Creature : MonoBehaviour
 
 
     //COMBAT METHODS
+    public virtual void TakeDamage(int damage, bool IgnoreDefense)
+    {
+        if (damage < 0) damage = 0;
+        int trueDamage;
+        if (IgnoreDefense)
+        {
+            trueDamage = damage;
+        }
+        else
+        {
+            trueDamage = (int)Mathf.Clamp(damage - Shield, 0, Mathf.Infinity);
+            Shield -= damage;
+        }
+        Health -= trueDamage;
+        Damaged.Invoke();
+        if (Health <= 0)
+        {
+            Die();
+        }
+    }
     public virtual void TakeDamage(int damage)
     {
         if (damage < 0) damage = 0;

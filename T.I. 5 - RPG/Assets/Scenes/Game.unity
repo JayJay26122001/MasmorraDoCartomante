@@ -2454,9 +2454,11 @@ MonoBehaviour:
   energy: 0
   maxBaseEnergy: 3
   money: 3
-  BaseDamage: 6
-  BaseDefense: 5
   CardBuyMax: 5
+  baseDamage: 6
+  baseDefense: 5
+  BaseDamageMultiplier: 1
+  BaseDefenseMultiplier: 1
   Damaged:
     m_PersistentCalls:
       m_Calls: []
@@ -5466,10 +5468,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 70fb5a2920719d740ac2786ffa359168, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2004773216}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70fb5a2920719d740ac2786ffa359168, type: 3}
 --- !u!1 &1708348149
 GameObject:
@@ -5715,9 +5714,11 @@ MonoBehaviour:
   energy: 0
   maxBaseEnergy: 3
   money: 5
-  BaseDamage: 6
-  BaseDefense: 5
   CardBuyMax: 5
+  baseDamage: 6
+  baseDefense: 5
+  BaseDamageMultiplier: 1
+  BaseDefenseMultiplier: 1
   Damaged:
     m_PersistentCalls:
       m_Calls: []
@@ -6069,40 +6070,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992139178}
   m_CullTransparentMesh: 1
---- !u!1 &2004773215 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 70fb5a2920719d740ac2786ffa359168, type: 3}
-  m_PrefabInstance: {fileID: 1703953823}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2004773216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2004773215}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2004773217}
-          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-          m_MethodName: SetTrigger
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!95 &2004773217 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 70fb5a2920719d740ac2786ffa359168, type: 3}

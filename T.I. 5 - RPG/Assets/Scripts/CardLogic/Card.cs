@@ -36,6 +36,8 @@ public class Card : ScriptableObject
         if (instantaneous)
         {
             IniciateCardEffect();
+            CardUIController.CardsOrganizer(deck.Owner);
+            GameplayManager.currentCombat.CombatUI();
         }
     }
 
@@ -138,7 +140,8 @@ public class CardEditor : Editor
         for (int i = 0; i < effects.arraySize; i++)
         {
             var element = effects.GetArrayElementAtIndex(i);
-            EditorGUILayout.PropertyField(element, new GUIContent($"Effect {i}"), true);
+            string className = element.managedReferenceFullTypename.Split(' ').Last().Split('.').Last();
+            EditorGUILayout.PropertyField(element, new GUIContent($"=== {className} ==="), true);
 
             if (GUILayout.Button("Remove Effect"))
             {

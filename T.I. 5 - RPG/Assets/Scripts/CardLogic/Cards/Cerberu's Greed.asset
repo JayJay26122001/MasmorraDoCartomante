@@ -10,27 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Razor Dagger
+  m_Name: Cerberu's Greed
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 7391437407230361702
+  - rid: 7391437586234343424
+  - rid: 7391437586234343492
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Razor Dagger
+  Name: Cerberu's Greed
   hidden: 0
   exaust: 0
-  instantaneous: 0
+  instantaneous: 1
   cost: 1
   Type: 0
-  Rarity: 0
-  Description: Deals 6 damage
+  Rarity: 3
+  Description: Deal 4 damage and buy 3 cards
   conditions: 
   references:
     version: 2
     RefIds:
-    - rid: 7391437407230361702
+    - rid: 7391437586234343424
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
-        DamageMultiplier: 1
+        DamageMultiplier: 0.6
         IgnoreDefense: 0
         target: 0
+    - rid: 7391437586234343492
+      type: {class: BuyCards, ns: , asm: Assembly-CSharp}
+      data:
+        BuyCardNumber: 3
