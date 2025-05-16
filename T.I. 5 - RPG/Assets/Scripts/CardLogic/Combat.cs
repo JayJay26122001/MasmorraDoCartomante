@@ -8,7 +8,7 @@ using UnityEngine.Events;
 
 public class Combat : MonoBehaviour
 {
-    public enum TurnPhaseTypes {PlayerStart, PlayerReaction, PlayerEnd, EnemyStart, EnemyReaction, EnemyEnd}
+    public enum TurnPhaseTypes {Start, Reaction, End}
     public CardCombatSpaces[] combatSpaces;
     public Creature[] combatents;
     public Turn[] Round;
@@ -24,22 +24,24 @@ public class Combat : MonoBehaviour
         combatents[1] = GameplayManager.instance.enemies[aux];
         GameplayManager.instance.ShowEnemy(aux);
     }
-    public TurnPhase GetTurnPhase(TurnPhaseTypes phaseType)
+    public TurnPhase GetTurnPhase(Creature C, TurnPhaseTypes phaseType)
     {
+        Turn turn = null;
+        foreach (Turn t in Round)
+        {
+            if (t.TurnOwner == C)
+            {
+                turn = t;
+            }
+        }
         switch (phaseType)
         {
-            case TurnPhaseTypes.PlayerStart:
-                return Round[0].phases[0];
-            case TurnPhaseTypes.PlayerReaction:
-                return Round[0].phases[1];
-            case TurnPhaseTypes.PlayerEnd:
-                return Round[0].phases[2];
-            case TurnPhaseTypes.EnemyStart:
-                return Round[1].phases[0];
-            case TurnPhaseTypes.EnemyReaction:
-                return Round[1].phases[1];
-            case TurnPhaseTypes.EnemyEnd:
-                return Round[1].phases[2];
+            case TurnPhaseTypes.Start:
+                return turn.phases[0];
+            case TurnPhaseTypes.Reaction:
+                return turn.phases[1];
+            case TurnPhaseTypes.End:
+                return turn.phases[2];
             default:
                 return null;
         }

@@ -6,10 +6,14 @@ using UnityEngine;
 public class Player : Creature
 {
     public Card SelectedCard;
+    public override void TurnAction()
+    {
+        BuyCards(5 - hand.Count);
+    }
 
     public void PlaySelectedCard()
     {
-        if(SelectedCard != null)
+        if (SelectedCard != null)
         {
             Card temp = SelectedCard;
             DiselectCard();
@@ -41,6 +45,7 @@ public class Player : Creature
 
     public override void BuyCards(int quantity)
     {
+        if (quantity <= 0) return;
         bool shuffled = false;
         float basetime = 0;
         bool boughtAll = false;

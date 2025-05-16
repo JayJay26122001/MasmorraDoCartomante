@@ -97,13 +97,16 @@ public class Card : ScriptableObject
         //CardEffect.Invoke();
         foreach (Effect e in Effects)
         {
-            e.Apply();
+            if (!e.EffectAcomplished && !e.effectStarted)
+            {
+                e.Apply();
+            }
         }
         foreach (Condition c in conds)
         {
             c.ResetCondition();
         }
-        deck.Owner.DiscardCard(this);
+        //deck.Owner.DiscardCard(this);
     }
 
     /*public void DamageEnemy(int damage)

@@ -3,12 +3,33 @@ using UnityEngine;
 [Serializable]
 public abstract class Effect
 {
-    [System.NonSerialized]public Card card;
+    [System.NonSerialized] public Card card;
+    [System.NonSerialized]public bool EffectAcomplished = false, effectStarted = false;
     /*public Effect(Card c)
     {
         card = c;
     }*/
-    public abstract void Apply();
+    public virtual void Apply()
+    {
+        effectStarted = true;
+    }
+    public void resetEffect()
+    {
+        EffectAcomplished = false;
+        effectStarted = false;
+    }
+    public void EffectEnded()
+    {
+        EffectAcomplished = true;
+        foreach (Effect e in card.Effects)
+        {
+            if (!e.EffectAcomplished)
+            {
+                return;
+            }
+        }
+        card.deck.Owner.DiscardCard(card);
+    }
 }
 [Serializable]
 public class DealDamage : Effect
@@ -20,16 +41,17 @@ public class DealDamage : Effect
     [SerializeField]Target target;
     public override void Apply()
     {
+        base.Apply();
         switch (target)
         {
             case Target.Oponent:
-                card.deck.Owner.Enemy.TakeDamage(GetDamage(),IgnoreDefense);
+                card.deck.Owner.Enemy.TakeDamage(GetDamage(), IgnoreDefense);
                 break;
             case Target.User:
-                card.deck.Owner.TakeDamage(GetDamage(),IgnoreDefense);
+                card.deck.Owner.TakeDamage(GetDamage(), IgnoreDefense);
                 break;
         }
-        
+        EffectEnded();
     }
     public int GetDamage()
     {
@@ -43,7 +65,9 @@ public class GainDefense : Effect
     public float DefenseMultiplier;
     public override void Apply()
     {
+        base.Apply();
         card.deck.Owner.AddShield(GetDefense());
+        EffectEnded();
     }
     public int GetDefense()
     {
@@ -57,7 +81,9 @@ public class BuyCards : Effect
     public int BuyCardNumber;
     public override void Apply()
     {
+        base.Apply();
         card.deck.Owner.BuyCards(BuyCardNumber);
+        Combat.WaitForTurn(0, GameplayManager.currentCombat.GetTurnPhase(card.deck.Owner, Combat.TurnPhaseTypes.Reaction), TurnPhase.PhaseTime.End, EffectEnded);
     }
 }
 public class GainEnergy : Effect
@@ -67,13 +93,16 @@ public class GainEnergy : Effect
     [SerializeField] GainTime time;
     public override void Apply()
     {
+        base.Apply();
         switch (time)
         {
             case GainTime.WhenPlayed:
                 card.deck.Owner.GainEnergy(Amount);
+                Combat.WaitForTurn(0, GameplayManager.currentCombat.GetTurnPhase(card.deck.Owner, Combat.TurnPhaseTypes.Reaction), TurnPhase.PhaseTime.End, EffectEnded);
                 break;
             case GainTime.NextTurn:
-                Combat.WaitForTurn(0, GameplayManager.currentCombat.GetTurnPhase(Combat.TurnPhaseTypes.PlayerStart), TurnPhase.PhaseTime.Start, card.deck.Owner.GainEnergy, Amount);
+                Combat.WaitForTurn(0, GameplayManager.currentCombat.GetTurnPhase(card.deck.Owner, Combat.TurnPhaseTypes.Start), TurnPhase.PhaseTime.Start, card.deck.Owner.GainEnergy, Amount);
+                Combat.WaitForTurn(0, GameplayManager.currentCombat.GetTurnPhase(card.deck.Owner, Combat.TurnPhaseTypes.Start), TurnPhase.PhaseTime.Start, EffectEnded);
                 break;
         }
         
@@ -94,8 +123,10 @@ public class BuffStatMultiplier : Effect
     [SerializeField]TurnPhase.PhaseTime StopAtPhase;
     public override void Apply()
     {
+        base.Apply();
         GetStatReference() *= MultiplicativeAmount;
-        Combat.WaitForTurn(TurnsFromNow, GameplayManager.currentCombat.GetTurnPhase(TurnPhaseToStop), StopAtPhase, () => GetStatReference() /= MultiplicativeAmount);
+        Combat.WaitForTurn(TurnsFromNow, GameplayManager.currentCombat.GetTurnPhase(card.deck.Owner,TurnPhaseToStop), StopAtPhase, () => GetStatReference() /= MultiplicativeAmount);
+        Combat.WaitForTurn(TurnsFromNow, GameplayManager.currentCombat.GetTurnPhase(card.deck.Owner,TurnPhaseToStop), StopAtPhase, EffectEnded);
         /*switch (BuffMethod)
         {
             case BuffableMethod.Multiply:

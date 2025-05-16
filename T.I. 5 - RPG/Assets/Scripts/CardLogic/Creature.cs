@@ -179,6 +179,10 @@ public class Creature : MonoBehaviour
         card.deck.DiscardPile.Add(card);
         hand.Remove(card);
         playedCards.Remove(card);
+        foreach (Effect e in card.Effects)
+        {
+            e.resetEffect();
+        }
         if (card.exaust)
         {
             ExaustCard(card);
