@@ -60,6 +60,25 @@ public class BuyCards : Effect
         card.deck.Owner.BuyCards(BuyCardNumber);
     }
 }
+public class GainEnergy : Effect
+{
+    public int Amount;
+    enum GainTime {WhenPlayed, NextTurn};
+    [SerializeField] GainTime time;
+    public override void Apply()
+    {
+        switch (time)
+        {
+            case GainTime.WhenPlayed:
+                card.deck.Owner.GainEnergy(Amount);
+                break;
+            case GainTime.NextTurn:
+                Combat.WaitForTurn(0, GameplayManager.currentCombat.GetTurnPhase(Combat.TurnPhaseTypes.PlayerStart), TurnPhase.PhaseTime.Start, card.deck.Owner.GainEnergy, Amount);
+                break;
+        }
+        
+    }
+}
 [Serializable]
 public class BuffStatMultiplier : Effect
 {

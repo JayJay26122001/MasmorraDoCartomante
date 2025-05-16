@@ -255,6 +255,10 @@ public class Creature : MonoBehaviour
     {
         energy = maxBaseEnergy;
     }
+    public void GainEnergy(int energy)
+    {
+        this.energy += energy;
+    }
 
     public virtual void Die()
     {
