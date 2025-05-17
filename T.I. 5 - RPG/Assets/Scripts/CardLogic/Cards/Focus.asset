@@ -31,5 +31,6 @@ MonoBehaviour:
     - rid: 4002061059687186508
       type: {class: GainEnergy, ns: , asm: Assembly-CSharp}
       data:
+        Conditions: []
         Amount: 1
         time: 0

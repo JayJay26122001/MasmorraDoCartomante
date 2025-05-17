@@ -1,4 +1,3 @@
-#if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
 using System;
@@ -16,7 +15,7 @@ public class Card : ScriptableObject
     {
         foreach (Condition.condition c in conditions)
         {
-            conds.Add(new Condition(c, this));
+            //conds.Add(new Condition(c, this));
         }
     }
     public CardDisplay cardDisplay;
@@ -119,6 +118,7 @@ public class Card : ScriptableObject
     }*/
 }
 
+/*#if UNITY_EDITOR
 [CustomEditor(typeof(Card))]
 public class CardEditor : Editor
 {
@@ -197,4 +197,4 @@ public class CardEditor : Editor
             .ToList();
     }
 }
-#endif
+#endif*/

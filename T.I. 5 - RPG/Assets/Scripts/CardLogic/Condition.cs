@@ -1,5 +1,8 @@
+using System;
+using UnityEngine;
 
-public class Condition
+[Serializable]
+public abstract class Condition
 {
     public enum condition { None, EnemyPlayedAttackFirst, EnemyPlayedDefenseFirst, EnemyPlayedMindFirst }
     public enum ConditionState { Unsolved, Achieved, Failled }
@@ -10,12 +13,12 @@ public class Condition
     Card card;
 
     //INICIALIZAÇÃO
-    public Condition(condition condition, Card card)
+    /*public Condition(condition condition, Card card)
     {
         cond = condition;
         this.card = card;
         SetConditionType();
-    }
+    }*/
     void SetConditionType()
     {
         switch (cond)
@@ -86,4 +89,10 @@ public class Condition
             }
         }
     }
+}
+[Serializable]
+public class CreaturePlayedCardType : Condition
+{
+    [SerializeField] private Card.CardType expectedType;
+    [SerializeField] private bool mustBeFirst;
 }

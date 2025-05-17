@@ -33,8 +33,12 @@ MonoBehaviour:
     - rid: 7391437407230361704
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
+        Conditions: []
         DamageMultiplier: 1.2
+        IgnoreDefense: 0
+        target: 0
     - rid: 7391437567606390851
       type: {class: GainDefense, ns: , asm: Assembly-CSharp}
       data:
+        Conditions: []
         DefenseMultiplier: 1.2

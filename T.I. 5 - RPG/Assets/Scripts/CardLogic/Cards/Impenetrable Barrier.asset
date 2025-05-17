@@ -31,4 +31,5 @@ MonoBehaviour:
     - rid: 7391437407230361703
       type: {class: GainDefense, ns: , asm: Assembly-CSharp}
       data:
+        Conditions: []
         DefenseMultiplier: 2.5

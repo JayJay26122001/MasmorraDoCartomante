@@ -1,10 +1,15 @@
-using System;
+
+using UnityEditor;
 using UnityEngine;
+using System;
+using System.Linq;
+using System.Collections.Generic;
 [Serializable]
 public abstract class Effect
 {
     [System.NonSerialized] public Card card;
-    [System.NonSerialized]public bool EffectAcomplished = false, effectStarted = false;
+    [System.NonSerialized] public bool EffectAcomplished = false, effectStarted = false;
+    [SerializeReference]public List<Condition> Conditions;
     /*public Effect(Card c)
     {
         card = c;
@@ -31,6 +36,79 @@ public abstract class Effect
         card.deck.Owner.DiscardCard(card);
     }
 }
+/*[CustomEditor(typeof(Effect), true)]
+public class EffectEditor : Editor
+{
+    SerializedProperty conditions;
+
+    void OnEnable()
+    {
+        conditions = serializedObject.FindProperty("Conditions");
+    }
+
+    public override void OnInspectorGUI()
+    {
+        serializedObject.Update();
+
+        // Draw everything except Conditions
+        DrawPropertiesExcluding(serializedObject, "Conditions");
+
+        EditorGUILayout.Space();
+        EditorGUILayout.LabelField("Conditions", EditorStyles.boldLabel);
+
+        for (int i = 0; i < conditions.arraySize; i++)
+        {
+            var element = conditions.GetArrayElementAtIndex(i);
+            string className = element.managedReferenceFullTypename.Split('.').Last();
+            EditorGUILayout.PropertyField(element, new GUIContent($"  • {className}"), true);
+
+            if (GUILayout.Button("Remove Condition"))
+            {
+                conditions.DeleteArrayElementAtIndex(i);
+            }
+
+            EditorGUILayout.Space();
+        }
+
+        if (GUILayout.Button("Add Condition"))
+        {
+            ShowConditionTypeSelector();
+        }
+
+        serializedObject.ApplyModifiedProperties();
+    }
+
+    private void ShowConditionTypeSelector()
+    {
+        var conditionTypes = GetAllDerivedTypes<Condition>();
+        GenericMenu menu = new GenericMenu();
+
+        foreach (var type in conditionTypes)
+        {
+            menu.AddItem(new GUIContent(type.Name), false, () =>
+            {
+                var newCondition = Activator.CreateInstance(type);
+                conditions.arraySize++;
+                serializedObject.ApplyModifiedProperties(); // refresh serialized data
+                
+                var conditionElement = conditions.GetArrayElementAtIndex(conditions.arraySize - 1);
+                conditionElement.managedReferenceValue = newCondition;
+                serializedObject.ApplyModifiedProperties(); // ensure Unity sees changes
+            });
+        }
+
+        menu.ShowAsContext();
+    }
+
+    private static List<Type> GetAllDerivedTypes<T>()
+{
+    return AppDomain.CurrentDomain.GetAssemblies()
+        .SelectMany(assembly => assembly.GetTypes())
+        .Where(type => typeof(T).IsAssignableFrom(type) && !type.IsAbstract && !type.IsInterface)
+        .ToList();
+}
+}
+*/
 [Serializable]
 public class DealDamage : Effect
 {
