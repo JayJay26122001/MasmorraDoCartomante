@@ -41,12 +41,14 @@ public class CardEditor : Editor
             {
                 var cond = conditionsProp.GetArrayElementAtIndex(j);
                 string conName = cond.managedReferenceFullTypename.Split('.').Last().Split(' ').Last();
-                EditorGUILayout.PropertyField(cond, new GUIContent($"Condition {j+1} - {conName}"), true);
+                EditorGUILayout.BeginVertical("box");
+                EditorGUILayout.PropertyField(cond, new GUIContent($"Condition {j + 1} - {conName}"), true);
 
                 if (GUILayout.Button("Remove Condition"))
                 {
                     conditionsProp.DeleteArrayElementAtIndex(j);
                 }
+                EditorGUILayout.EndVertical();
             }
 
             if (GUILayout.Button("Add Condition"))
