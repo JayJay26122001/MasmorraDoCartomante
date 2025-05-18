@@ -158,7 +158,7 @@ public class CardUIController : MonoBehaviour
     public static void OrganizePlayedCards(Creature c)
     {
         int totalCardsPlayed = c.playedCards.Count;
-        float playedCardsSpacing = 2.5f;
+        float playedCardsSpacing = 3f;
         for (int i = 0; i < totalCardsPlayed; i++)
         {
             float posX = (i - ((totalCardsPlayed - 1) / 2f)) * playedCardsSpacing;
@@ -217,10 +217,13 @@ public class CardUIController : MonoBehaviour
     public static void OrganizeEnemyPlayedCards(Creature c)
     {
         int totalCardsPlayed = c.playedCards.Count;
+        float playedEnemyCardsSpacing = 3f;
         for (int i = 0; i < totalCardsPlayed; i++)
         {
+            float posX = (i - ((totalCardsPlayed - 1) / 2f)) * playedEnemyCardsSpacing;
             GameObject cardObject = c.playedCards[i].cardDisplay.gameObject;
-            Vector3 pos = c.combatSpace.playedCardSpace.position;
+            Vector3 pos = (c.combatSpace.playedCardSpace.right * posX) + c.combatSpace.playedCardSpace.position;
+            //Vector3 pos = c.combatSpace.playedCardSpace.position;
             Vector3 rot;
             if (!c.playedCards[i].hidden)
             {
