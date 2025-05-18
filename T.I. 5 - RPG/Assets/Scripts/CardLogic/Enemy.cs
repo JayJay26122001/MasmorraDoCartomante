@@ -17,9 +17,13 @@ public class Enemy : Creature
             hand[0].hidden = true;
         }
         EnemyPlayCard anim = new EnemyPlayCard(this);
+        EnemyCardAnimation playCardAnim = new EnemyCardAnimation(this);
         anim.AnimEnded.AddListener(TurnActionsDelayed);
+        //anim.AnimEnded.AddListener(TurnActionsDelayed);
         SceneAnimationController.instance.AddToQueue(anim);
+        SceneAnimationController.instance.AddToQueue(playCardAnim);
     }
+
     public override void TakeDamage(int damage)
     {
         if (Health > 0)
