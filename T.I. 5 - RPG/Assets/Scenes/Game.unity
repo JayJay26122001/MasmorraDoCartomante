@@ -2586,6 +2586,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardCombatSpace (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 449903650842590320, guid: 722a7e77cecf9e14bad9ae2e93d95038, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1597854807809717226, guid: 722a7e77cecf9e14bad9ae2e93d95038, type: 3}
       propertyPath: m_LocalPosition.z
       value: 3
@@ -2852,6 +2856,18 @@ PlayableDirector:
     value: {fileID: 21797562}
   - key: {fileID: -7076598865690480638, guid: fbef68baeb48bff439b5d4200d5387fa, type: 2}
     value: {fileID: 712950611}
+  - key: {fileID: 2674567066539725818, guid: c6d5144740e9b284aa29af9da6b7909e, type: 2}
+    value: {fileID: 167226750}
+  - key: {fileID: -5041685021361029846, guid: c6d5144740e9b284aa29af9da6b7909e, type: 2}
+    value: {fileID: 21797562}
+  - key: {fileID: -7643831119381771767, guid: c6d5144740e9b284aa29af9da6b7909e, type: 2}
+    value: {fileID: 712950611}
+  - key: {fileID: 4809783269538409226, guid: c6d5144740e9b284aa29af9da6b7909e, type: 2}
+    value: {fileID: 192592347}
+  - key: {fileID: -391723854727954733, guid: c6d5144740e9b284aa29af9da6b7909e, type: 2}
+    value: {fileID: 2100974891241921840}
+  - key: {fileID: 8351471150852000611, guid: c6d5144740e9b284aa29af9da6b7909e, type: 2}
+    value: {fileID: 3419473715425861286}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &627229112 stripped
@@ -6619,6 +6635,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VasoDePlanta
       objectReference: {fileID: 0}
+    - target: {fileID: 1013578273532102479, guid: 95c5796e80d83424d942710aff6f3d78, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6763,6 +6783,10 @@ PrefabInstance:
     - target: {fileID: 6658485986305882312, guid: fc31ca6be1250c64bb3a81df3f94047b, type: 3}
       propertyPath: m_Name
       value: VelaComSuporte
+      objectReference: {fileID: 0}
+    - target: {fileID: 6658485986305882312, guid: fc31ca6be1250c64bb3a81df3f94047b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9159233394326573070, guid: fc31ca6be1250c64bb3a81df3f94047b, type: 3}
       propertyPath: m_LocalScale.x
@@ -7240,6 +7264,10 @@ PrefabInstance:
     - target: {fileID: 449903650842590320, guid: 722a7e77cecf9e14bad9ae2e93d95038, type: 3}
       propertyPath: m_Name
       value: CardCombatSpace
+      objectReference: {fileID: 0}
+    - target: {fileID: 449903650842590320, guid: 722a7e77cecf9e14bad9ae2e93d95038, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1597854807809717226, guid: 722a7e77cecf9e14bad9ae2e93d95038, type: 3}
       propertyPath: m_LocalPosition.z
