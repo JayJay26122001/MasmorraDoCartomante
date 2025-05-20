@@ -1,15 +1,23 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using UnityEngine.Playables;
+using UnityEngine.Timeline;
 public class GameplayManager : MonoBehaviour
 {
     public static Combat currentCombat;
     public static GameplayManager instance;
+    public PlayableDirector timeline;
+    public List<TimelineAsset> cutscenes = new List<TimelineAsset>();
+    public BoardGenerator bg;
     public GameObject InputBlocker;
     int PauseInstances = 0;
     public bool InputActive { get; private set; } = true;
     bool ManualPause = false;
+
+    [HideInInspector]public BoardRoom currentRoom;
 
     //[SerializeField]int money;
 
@@ -92,16 +100,15 @@ public class GameplayManager : MonoBehaviour
         }
     }
 
-    /*public bool ChangeMoney(int quantity)
+    public void PlayCutscene(int index)
     {
-        if(quantity < 0 && Mathf.Abs(quantity) > money)
-        {
-            return false;
-        }
-        else
-        {
-            money += quantity;
-            return true;
-        }
-    }*/
+        timeline.playableAsset = cutscenes[index];
+        timeline.Play();
+        PauseInput((float)cutscenes[index].duration);
+    }
+
+    public void MoveBoard(Action act)
+    {
+        LeanTween.move(bg.gameObject, bg.gameObject.transform.position - (Vector3.forward * 20 * bg.gameObject.transform.localScale.z), 2).setOnComplete(act);
+    }
 }

@@ -1,7 +1,4 @@
-
-
 using UnityEngine;
-
 public class Enemy : Creature
 {
     public Animator anim;
@@ -19,7 +16,6 @@ public class Enemy : Creature
         EnemyPlayCard anim = new EnemyPlayCard(this);
         EnemyCardAnimation playCardAnim = new EnemyCardAnimation(this);
         anim.AnimEnded.AddListener(TurnActionsDelayed);
-        //anim.AnimEnded.AddListener(TurnActionsDelayed);
         SceneAnimationController.instance.AddToQueue(anim);
         SceneAnimationController.instance.AddToQueue(playCardAnim);
     }
@@ -86,6 +82,13 @@ public class Enemy : Creature
     {
         base.Die();
         GameplayManager.instance.player.ChangeMoney(money);
-        SceneAnimationController.instance.AddToQueue(new EnemyDefeat(this));
+        EnemyDefeat anim = new EnemyDefeat(this);
+        anim.AnimEnded.AddListener(SwitchToMap);
+        SceneAnimationController.instance.AddToQueue(anim);
+    }
+
+    public void SwitchToMap()
+    {
+        GameplayManager.instance.PlayCutscene(0);
     }
 }
