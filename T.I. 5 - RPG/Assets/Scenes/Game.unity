@@ -338,7 +338,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1817279770}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
 --- !u!114 &30614211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -665,7 +665,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 2302b944c82508d4bb0a174baa565334, type: 2}
     - {fileID: 11400000, guid: 23cd91f8aa6d1ee458b0659f03d615b9, type: 2}
     - {fileID: 11400000, guid: a4c52feae5f14c84b80c11c309008beb, type: 2}
-    - {fileID: 0}
+    - {fileID: 11400000, guid: 4781322ea897e814d84aa0520323a832, type: 2}
+    - {fileID: 11400000, guid: 11eb735877c3adf4785e31c0ea74a509, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -724,7 +725,33 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     - m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 30614216}
+          m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+          m_MethodName: DisableCameraInputs
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 30614216}
+          m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+          m_MethodName: EnableCameraInputs
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &75921740
 GameObject:
   m_ObjectHideFlags: 0
@@ -2976,10 +3003,23 @@ PlayableDirector:
     value: {fileID: 552164676}
   - key: {fileID: -5041685021361029846, guid: 3b957b7ff9a6fa248994e3624e08a010, type: 2}
     value: {fileID: 21797562}
-  - key: {fileID: -7643831119381771767, guid: 3b957b7ff9a6fa248994e3624e08a010, type: 2}
-    value: {fileID: 712950611}
+  - key: {fileID: 1635982033620408470, guid: fbef68baeb48bff439b5d4200d5387fa, type: 2}
+    value: {fileID: 30614218}
+  - key: {fileID: 2031957898409191873, guid: c6d5144740e9b284aa29af9da6b7909e, type: 2}
+    value: {fileID: 30614218}
+  - key: {fileID: -6381601612315574311, guid: 3b957b7ff9a6fa248994e3624e08a010, type: 2}
+    value: {fileID: 30614218}
   m_ExposedReferences:
-    m_References: []
+    m_References:
+    - 8d55506c3722da14a847503b3a17bb7b: {fileID: 1240816932}
+    - 7782eef26fd0e154785d3913e11c5708: {fileID: 1033830383}
+    - 711ec7c2d0a7a174997eec99c5a399c1: {fileID: 1033830383}
+    - d4c5eeb54ce76a741af8baccc0ffcd4a: {fileID: 1033830383}
+    - ab4e918d92e5ba042982f8559d2df1b3: {fileID: 687350699}
+    - 9a355226c2560754e8dd4192b69c9757: {fileID: 1463999614}
+    - 53f198293ef93734eaf72842b3650ca4: {fileID: 1487703419}
+    - f46e675a5b678d6489038a0dd2d9a6a7: {fileID: 1487703419}
+    - 1f261a66d3d42ee4a8eb2ce174e90cf0: {fileID: 1487703419}
 --- !u!4 &627229112 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: edc1b0e902e653344a83337943decdd6, type: 3}
@@ -5365,6 +5405,18 @@ PrefabInstance:
     - target: {fileID: 8735439391639882844, guid: 4a0b3dda025c1d549bffbad4345d8a11, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8925149681261779525, guid: 4a0b3dda025c1d549bffbad4345d8a11, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.3965608
+      objectReference: {fileID: 0}
+    - target: {fileID: 8925149681261779525, guid: 4a0b3dda025c1d549bffbad4345d8a11, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.587452
+      objectReference: {fileID: 0}
+    - target: {fileID: 8925149681261779525, guid: 4a0b3dda025c1d549bffbad4345d8a11, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.6180658
       objectReference: {fileID: 0}
     - target: {fileID: 9031338032071094502, guid: 4a0b3dda025c1d549bffbad4345d8a11, type: 3}
       propertyPath: m_LocalPosition.x

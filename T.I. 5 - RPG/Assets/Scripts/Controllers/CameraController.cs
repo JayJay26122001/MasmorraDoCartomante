@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour
     [SerializeField]int activeCamIndex;
     public static CameraController instance;
     public CinemachineCamera highlightCardCamera;
+    bool inputActive;
 
     private void Awake()
     {
@@ -20,6 +21,7 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         ChangeActiveCamera();
+        inputActive = true;
     }
     public void ChangeCamera(int Index)
     {
@@ -45,7 +47,7 @@ public class CameraController : MonoBehaviour
 
     public void SwitchUpInput(InputAction.CallbackContext context)
     {
-        if(context.phase == InputActionPhase.Started && activeCamIndex < cameras.Count - 1)
+        if(inputActive && context.phase == InputActionPhase.Started && activeCamIndex < cameras.Count - 1)
         {
             activeCamIndex++;
             ChangeActiveCamera();
@@ -53,7 +55,7 @@ public class CameraController : MonoBehaviour
     }
     public void SwitchDownInput(InputAction.CallbackContext context)
     {
-        if(context.phase == InputActionPhase.Started && activeCamIndex > 0)
+        if(inputActive && context.phase == InputActionPhase.Started && activeCamIndex > 0)
         {
             activeCamIndex--;
             ChangeActiveCamera();
@@ -71,5 +73,14 @@ public class CameraController : MonoBehaviour
         {
             highlightCardCamera.Priority = 0;
         }
+    }
+
+    public void DisableCameraInputs()
+    {
+        inputActive = false;
+    }
+    public void EnableCameraInputs()
+    {
+        inputActive = true;
     }
 }

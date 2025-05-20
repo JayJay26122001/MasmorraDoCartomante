@@ -65,9 +65,10 @@ public class Combat : MonoBehaviour
         ActiveTurn = Round[turnIndex];
         TurnIndex = 0;
         SceneAnimationController.instance.InvokeTimer(ActiveTurn.TurnStart, 1);
+        SceneAnimationController.instance.InvokeTimer(CombatUI, 1);
         CardUIController.CardsOrganizer(combatents[0]);
         CardUIController.CardsOrganizer(combatents[1]);
-        CombatUI();
+        //CombatUI();
         turnText.text = $"Creature {TurnIndex + 1} - Turn {TurnIndex + 1} {ActiveTurn.currentPhase}";
         //combatents[0].CardsOrganizer(); //mudan�a futura
         //combatents[1].CardsOrganizer(); //mudan�a futura
