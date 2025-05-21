@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df63f8d404d0a464ba76aae892ae72a4, type: 3}
-  m_Name: TestEnemyPool
+  m_Name: TestEnemyPool 2
   m_EditorClassIdentifier: 
-  pool: 0000000001000000
-  probabilities: 3c00000028000000
+  pool: 0000000002000000
+  probabilities: 1e00000046000000

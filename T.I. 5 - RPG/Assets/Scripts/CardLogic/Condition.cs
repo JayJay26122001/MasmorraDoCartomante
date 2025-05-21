@@ -60,15 +60,15 @@ public class Condition
         switch (cond)
         {
             case condition.EnemyPlayedAttackFirst:
-                PlayedCardTypeFirst(c, Card.CardType.Attack, card.deck.Owner.Enemy);
+                PlayedCardTypeFirst(c, Card.CardType.Attack, card.deck.Owner.enemy);
                 break;
 
             case condition.EnemyPlayedDefenseFirst:
-                PlayedCardTypeFirst(c, Card.CardType.Defense, card.deck.Owner.Enemy);
+                PlayedCardTypeFirst(c, Card.CardType.Defense, card.deck.Owner.enemy);
                 break;
 
             case condition.EnemyPlayedMindFirst:
-                PlayedCardTypeFirst(c, Card.CardType.Mind, card.deck.Owner.Enemy);
+                PlayedCardTypeFirst(c, Card.CardType.Mind, card.deck.Owner.enemy);
                 break;
         }
     }

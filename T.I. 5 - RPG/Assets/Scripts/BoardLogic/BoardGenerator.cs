@@ -17,7 +17,7 @@ public class BoardGenerator : MonoBehaviour
     private void Start()
     {
         GenerateBoard();
-        for(int i = 0; i < board.Count; i++)
+        /*for(int i = 0; i < board.Count; i++)
         {
             foreach(BoardRoom r in board[i])
             {
@@ -28,7 +28,7 @@ public class BoardGenerator : MonoBehaviour
                 }
                 Debug.Log(s);
             }
-        }
+        }*/
         InstantiateBoard();
     }
 

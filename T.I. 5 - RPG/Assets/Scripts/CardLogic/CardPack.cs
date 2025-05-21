@@ -11,10 +11,10 @@ public class CardPack : MonoBehaviour
     private void Start()
     {
         DefineCards();
-        foreach (Card c in cards)
+        /*foreach (Card c in cards)
         {
             Debug.Log(c.Name);
-        }
+        }*/
     }
 
     public void DefineCards()

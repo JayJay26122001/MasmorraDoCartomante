@@ -21,7 +21,7 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         ChangeActiveCamera();
-        inputActive = true;
+        inputActive = false;
     }
     public void ChangeCamera(int Index)
     {
