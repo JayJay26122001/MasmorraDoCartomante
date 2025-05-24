@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df63f8d404d0a464ba76aae892ae72a4, type: 3}
-  m_Name: TestEnemyPool
+  m_Script: {fileID: 11500000, guid: d6fa2d92fc1b3f34da284357edf89c3b, type: 3}
+  m_Name: DisableCameraInput
   m_EditorClassIdentifier: 
-  pool: 0000000001000000
-  probabilities: 3c00000028000000

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1941285785175622150}
   - component: {fileID: 6840738269944834477}
   - component: {fileID: 7583775786950376566}
+  - component: {fileID: 4399457288304033537}
   m_Layer: 0
   m_Name: TestRoom
   m_TagString: Untagged
@@ -109,3 +110,15 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &4399457288304033537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7463732538441254492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c52e46c963190946956c98c650251b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

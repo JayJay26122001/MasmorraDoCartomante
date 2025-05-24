@@ -18,7 +18,7 @@ public class SceneAnimationController : MonoBehaviour
     }
     public void AddToQueue(AnimationAction action)
     {
-        action.AnimEnded.AddListener(AdvanceQueue);
+        //action.AnimEnded.AddListener(AdvanceQueue);
         AnimQueue.Add(action);
         if (AnimQueue.Count == 1)
         {
@@ -69,7 +69,13 @@ public class SceneAnimationController : MonoBehaviour
 public abstract class AnimationAction
 {
     public float time;
-    public abstract void StartAction();
+    public void StartAction()
+    {
+        PerformAction();
+        SceneAnimationController.instance.InvokeTimer(SceneAnimationController.instance.AdvanceQueue, time);
+    }
+
+    public abstract void PerformAction();
     public UnityEvent AnimStarted = new UnityEvent(), AnimEnded = new UnityEvent();
 }
 public class EnemyPlayCard : AnimationAction
@@ -88,7 +94,7 @@ public class EnemyPlayCard : AnimationAction
             }
         }
     }
-    public override void StartAction()
+    public override void PerformAction()
     {
         c.anim.SetTrigger("PlayCard");
         GameplayManager.instance.PauseInput(time);
@@ -114,7 +120,7 @@ public class EnemyTakeDamage : AnimationAction
             }
         }
     }
-    public override void StartAction()
+    public override void PerformAction()
     {
         c.anim.SetTrigger("TakeDamage");
         GameplayManager.instance.PauseInput(time);
@@ -140,12 +146,30 @@ public class EnemyDefeat : AnimationAction
             }
         }
     }
-    public override void StartAction()
+    public override void PerformAction()
     {
         c.anim.SetTrigger("Defeat");
         GameplayManager.instance.PauseInput(time);
         AnimStarted.Invoke();
         CameraController.instance.ChangeCamera(1);
+        SceneAnimationController.instance.InvokeTimer(AnimEnded.Invoke, time);
+    }
+}
+
+public class EnemyCardAnimation : AnimationAction
+{
+    Enemy c;
+    public EnemyCardAnimation(Enemy e)
+    {
+        c = e;
+        time = 0.75f;
+    }
+
+    public override void PerformAction()
+    {
+        GameplayManager.instance.PauseInput(time);
+        AnimStarted.Invoke();
+        CardUIController.OrganizeEnemyPlayedCards(c);
         SceneAnimationController.instance.InvokeTimer(AnimEnded.Invoke, time);
     }
 }

@@ -13,7 +13,7 @@ public class Creature : MonoBehaviour
         Health = maxHP;
         //decks[0].AddCard(decks[1].cards[1]);
     }
-    public Creature Enemy;
+    public Creature enemy;
     [SerializeField] List<Deck> DeckPresets = new List<Deck>();
     [SerializeField]public List<Deck> decks = new List<Deck>();
     public List<Card> hand = new List<Card>();
@@ -161,7 +161,7 @@ public class Creature : MonoBehaviour
         playedCards.Add(c);
         CardUIController.OrganizeHandCards(this);
         CardUIController.OrganizePlayedCards(this);
-        CardUIController.OrganizeEnemyPlayedCards(this);
+        //CardUIController.OrganizeEnemyPlayedCards(this);
         c.CardPlayed();
         PlayedCard.Invoke(c);
         //Debug.Log("played card");
@@ -196,12 +196,18 @@ public class Creature : MonoBehaviour
         card.deck.DiscardPile.Remove(card);
         card.deck.BuyingPile.Remove(card);
     }
-    public void EndCombat()
+    public virtual void EndCombat()
     {
+        DiscardAllPlayedCards();
+        ResetEnergy();
+        ResetShield();
+        ResetHP();
+        ResetDamageMultiplier();
+        ResetDefenseMultiplier();
         foreach (Deck deck in decks)
         {
             hand.Clear();
-            playedCards.Clear();
+            //playedCards.Clear();
             deck.ResetPiles();
         }
     }
@@ -251,13 +257,17 @@ public class Creature : MonoBehaviour
     {
         Shield += shield;
     }
-    public void resetShield()
+    public void ResetShield()
     {
         Shield = 0;
     }
-    public void resetEnergy()
+    public void ResetEnergy()
     {
         energy = maxBaseEnergy;
+    }
+    public void ResetHP()
+    {
+        hp = maxHP;
     }
     public void GainEnergy(int energy)
     {
@@ -267,5 +277,18 @@ public class Creature : MonoBehaviour
     public virtual void Die()
     {
 
+    }
+
+    public void DiscardAllPlayedCards()
+    {
+        List<Card> auxList = new List<Card>();
+        foreach (Card c in playedCards)
+        {
+            auxList.Add(c);
+        }
+        foreach (Card c in auxList)
+        {
+            DiscardCard(c);
+        }
     }
 }

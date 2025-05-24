@@ -16,13 +16,10 @@ public class Combat : MonoBehaviour
     int turnIndex = 0;
     public TextMeshProUGUI turnText;
     public int TurnIndex { get { return turnIndex; } private set { turnIndex = value % Round.Length; } }
-    public EnemyPool enemyPool;
 
-    public void SetEnemy()
+    public void SetEnemy(int index)
     {
-        int aux = enemyPool.SelectIndex();
-        combatents[1] = GameplayManager.instance.enemies[aux];
-        GameplayManager.instance.ShowEnemy(aux);
+        combatents[1] = GameplayManager.instance.enemies[index];
     }
     public TurnPhase GetTurnPhase(Creature C, TurnPhaseTypes phaseType)
     {
@@ -50,10 +47,11 @@ public class Combat : MonoBehaviour
     public void StartCombat()
     {
         GameplayManager.currentCombat = this;
+        GameplayManager.instance.SelectEnemy();
         Round = new Turn[2] { new Turn(combatents[0]), new Turn(combatents[1]) };
         for (int i = 0; i < 2; i++)
         {
-            combatents[i].Enemy = combatents[(i + 1) % 2];
+            combatents[i].enemy = combatents[(i + 1) % 2];
             foreach (Deck d in combatents[i].decks)
             {
                 d.StartShuffle();
@@ -62,12 +60,13 @@ public class Combat : MonoBehaviour
             combatents[i].CombatStartAction();
 
         }
-        ActiveTurn = Round[turnIndex];
         TurnIndex = 0;
+        ActiveTurn = Round[turnIndex];
         SceneAnimationController.instance.InvokeTimer(ActiveTurn.TurnStart, 1);
+        SceneAnimationController.instance.InvokeTimer(CombatUI, 1);
         CardUIController.CardsOrganizer(combatents[0]);
         CardUIController.CardsOrganizer(combatents[1]);
-        CombatUI();
+        //CombatUI();
         turnText.text = $"Creature {TurnIndex + 1} - Turn {TurnIndex + 1} {ActiveTurn.currentPhase}";
         //combatents[0].CardsOrganizer(); //mudan�a futura
         //combatents[1].CardsOrganizer(); //mudan�a futura
@@ -111,10 +110,7 @@ public class Combat : MonoBehaviour
     {
         foreach (Creature c in combatents)
         {
-            c.resetEnergy();
-            c.resetShield();
-            c.ResetDamageMultiplier();
-            c.ResetDefenseMultiplier();
+            c.EndCombat();
         }
         foreach (Turn t in Round)
         {
@@ -124,6 +120,8 @@ public class Combat : MonoBehaviour
                 p.PhaseEnded.RemoveAllListeners();
             }
         }
+        GameplayManager.instance.ChangeBattleCount();
+        GameplayManager.instance.HideAllEnemies();
     }
 
 
@@ -131,7 +129,7 @@ public class Combat : MonoBehaviour
     void Awake()
     {
         //SetEnemy();
-        StartCombat();
+        //StartCombat();
         //Debug.Log($"Turn {TurnIndex + 1} {ActiveTurn.currentPhase}");
     }
     /*void Update()
@@ -230,8 +228,8 @@ public class Turn
         //phase = 0;
         phaseIndex = 0;
         currentPhase = phases[phaseIndex];
-        TurnOwner.resetShield();
-        TurnOwner.resetEnergy();
+        TurnOwner.ResetShield();
+        TurnOwner.ResetEnergy();
         currentPhase.StartPhase();
     }
     public void NextPhase()
@@ -291,12 +289,12 @@ public class ReactionTurn : TurnPhase
     public override void PhaseEffect()
     {
         owner.canPlayCards = false;
-        List<Card> temp = owner.Enemy.playedCards.ToList();
+        List<Card> temp = owner.enemy.playedCards.ToList();
         foreach (Card c in temp)
         {
             c.CheckConditions();
         }
-        temp = owner.Enemy.playedCards.ToList();
+        temp = owner.enemy.playedCards.ToList();
         foreach (Card c in temp)
         {
             c.ConditionalCardFailled();

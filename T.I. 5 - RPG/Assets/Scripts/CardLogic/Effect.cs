@@ -123,7 +123,7 @@ public class DealDamage : Effect
         switch (target)
         {
             case Target.Oponent:
-                card.deck.Owner.Enemy.TakeDamage(GetDamage(), IgnoreDefense);
+                card.deck.Owner.enemy.TakeDamage(GetDamage(), IgnoreDefense);
                 break;
             case Target.User:
                 card.deck.Owner.TakeDamage(GetDamage(), IgnoreDefense);

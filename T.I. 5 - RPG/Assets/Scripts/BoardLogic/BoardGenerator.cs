@@ -17,7 +17,7 @@ public class BoardGenerator : MonoBehaviour
     private void Start()
     {
         GenerateBoard();
-        for(int i = 0; i < board.Count; i++)
+        /*for(int i = 0; i < board.Count; i++)
         {
             foreach(BoardRoom r in board[i])
             {
@@ -28,7 +28,7 @@ public class BoardGenerator : MonoBehaviour
                 }
                 Debug.Log(s);
             }
-        }
+        }*/
         InstantiateBoard();
     }
 
@@ -40,6 +40,7 @@ public class BoardGenerator : MonoBehaviour
         newRoom = new BoardRoom(startRoom, nrProbabilities, 1, 1, false);
         board.Insert(0, new List<BoardRoom>());
         board[0].Add(newRoom);
+        GameplayManager.instance.currentRoom = newRoom;
         for(int i = 1; i < levelsCount - 1; i++)
         {
             board.Insert(i, new List<BoardRoom>());
@@ -254,29 +255,33 @@ public class BoardGenerator : MonoBehaviour
         int roomCount;
         zOffset = 0;
         xOffset = 0;
-        GameObject room = Instantiate(roomTest, Vector3.zero, Quaternion.identity, this.transform);
+        GameObject room = Instantiate(roomTest, transform.position, Quaternion.identity, this.transform);
         room.GetComponent<MeshRenderer>().material.color = board[0][0].type.testColor;
         board[0][0].roomObject = room;
-        for(int i = 1; i < board.Count; i++)
+        room.GetComponent<RoomObject>().roomRef = board[0][0];
+        for (int i = 1; i < board.Count; i++)
         {
             zOffset += 20;
             roomCount = 0;
             if(board[i].Count % 2 == 1)
             {
                 xOffset = 0;
-                room = Instantiate(roomTest, new Vector3(0, 0, zOffset), Quaternion.identity, this.transform);
+                room = Instantiate(roomTest, new Vector3(0, 0, zOffset * transform.localScale.z) + transform.position, Quaternion.identity, this.transform);
                 room.GetComponent<MeshRenderer>().material.color = board[i][Mathf.FloorToInt(board[i].Count/2)].type.testColor;
                 board[i][Mathf.FloorToInt(board[i].Count / 2)].roomObject = room;
+                room.GetComponent<RoomObject>().roomRef = board[i][Mathf.FloorToInt(board[i].Count / 2)];
                 roomCount++;
                 while(roomCount < board[i].Count)
                 {
                     xOffset += 20;
-                    room = Instantiate(roomTest, new Vector3(xOffset, 0, zOffset), Quaternion.identity, this.transform);
-                    room.GetComponent<MeshRenderer>().material.color = board[i][Mathf.FloorToInt(board[i].Count / 2) + (int)(xOffset / 20)].type.testColor;
-                    board[i][Mathf.FloorToInt(board[i].Count / 2) + (int)(xOffset / 20)].roomObject = room;
-                    room = Instantiate(roomTest, new Vector3(-xOffset, 0, zOffset), Quaternion.identity, this.transform);
-                    room.GetComponent<MeshRenderer>().material.color = board[i][Mathf.FloorToInt(board[i].Count / 2) - (int)(xOffset / 20)].type.testColor;
-                    board[i][Mathf.FloorToInt(board[i].Count / 2) - (int)(xOffset / 20)].roomObject = room;
+                    room = Instantiate(roomTest, new Vector3(xOffset * transform.localScale.x, 0, zOffset * transform.localScale.z) + transform.position, Quaternion.identity, this.transform);
+                    room.GetComponent<MeshRenderer>().material.color = board[i][Mathf.FloorToInt(board[i].Count / 2) + (int)(xOffset * transform.localScale.x / (20 * transform.localScale.x))].type.testColor;
+                    board[i][Mathf.FloorToInt(board[i].Count / 2) + (int)(xOffset * transform.localScale.x / (20 * transform.localScale.x))].roomObject = room;
+                    room.GetComponent<RoomObject>().roomRef = board[i][Mathf.FloorToInt(board[i].Count / 2) + (int)(xOffset * transform.localScale.x / (20 * transform.localScale.x))];
+                    room = Instantiate(roomTest, new Vector3(-xOffset * transform.localScale.x, 0, zOffset * transform.localScale.z) + transform.position, Quaternion.identity, this.transform);
+                    room.GetComponent<MeshRenderer>().material.color = board[i][Mathf.FloorToInt(board[i].Count / 2) - (int)(xOffset * transform.localScale.x / (20 * transform.localScale.x))].type.testColor;
+                    board[i][Mathf.FloorToInt(board[i].Count / 2) - (int)(xOffset * transform.localScale.x / (20 * transform.localScale.x))].roomObject = room;
+                    room.GetComponent<RoomObject>().roomRef = board[i][Mathf.FloorToInt(board[i].Count / 2) - (int)(xOffset * transform.localScale.x / (20 * transform.localScale.x))];
                     roomCount += 2;
                 }
             }
@@ -286,12 +291,14 @@ public class BoardGenerator : MonoBehaviour
                 while (roomCount < board[i].Count)
                 {
                     xOffset += 20;
-                    room = Instantiate(roomTest, new Vector3(xOffset, 0, zOffset), Quaternion.identity, this.transform);
-                    room.GetComponent<MeshRenderer>().material.color = board[i][Mathf.FloorToInt(board[i].Count / 2) + (int)((xOffset - 10) / 20)].type.testColor;
-                    board[i][Mathf.FloorToInt(board[i].Count / 2) + (int)((xOffset - 10) / 20)].roomObject = room;
-                    room = Instantiate(roomTest, new Vector3(-xOffset, 0, zOffset), Quaternion.identity, this.transform);
-                    room.GetComponent<MeshRenderer>().material.color = board[i][Mathf.FloorToInt(board[i].Count / 2) - 1 - (int)((xOffset - 10) / 20)].type.testColor;
-                    board[i][Mathf.FloorToInt(board[i].Count / 2) - 1 - (int)((xOffset - 10) / 20)].roomObject = room;
+                    room = Instantiate(roomTest, new Vector3(xOffset * transform.localScale.x, 0, zOffset * transform.localScale.z) + transform.position, Quaternion.identity, this.transform);
+                    room.GetComponent<MeshRenderer>().material.color = board[i][Mathf.FloorToInt(board[i].Count / 2) + (int)((xOffset - 10) * transform.localScale.x / (20 * transform.localScale.x))].type.testColor;
+                    board[i][Mathf.FloorToInt(board[i].Count / 2) + (int)((xOffset - 10) * transform.localScale.x / (20 * transform.localScale.x))].roomObject = room;
+                    room.GetComponent<RoomObject>().roomRef = board[i][Mathf.FloorToInt(board[i].Count / 2) + (int)((xOffset - 10) * transform.localScale.x / (20 * transform.localScale.x))];
+                    room = Instantiate(roomTest, new Vector3(-xOffset * transform.localScale.x, 0, zOffset * transform.localScale.z) + transform.position, Quaternion.identity, this.transform);
+                    room.GetComponent<MeshRenderer>().material.color = board[i][Mathf.FloorToInt(board[i].Count / 2) - 1 - (int)((xOffset - 10) * transform.localScale.x / (20 * transform.localScale.x))].type.testColor;
+                    board[i][Mathf.FloorToInt(board[i].Count / 2) - 1 - (int)((xOffset - 10) * transform.localScale.x / (20 * transform.localScale.x))].roomObject = room;
+                    room.GetComponent<RoomObject>().roomRef = board[i][Mathf.FloorToInt(board[i].Count / 2) - 1 - (int)((xOffset - 10) * transform.localScale.x / (20 * transform.localScale.x))];
                     roomCount += 2;
                 }
             }
@@ -304,12 +311,12 @@ public class BoardGenerator : MonoBehaviour
                     lineRenderer.transform.SetParent(this.transform);
                     lineRenderer.startColor = Color.black;
                     lineRenderer.endColor = Color.black;
-                    lineRenderer.startWidth = 0.9f;
-                    lineRenderer.endWidth = 0.9f;
+                    lineRenderer.startWidth = 0.9f * transform.localScale.x;
+                    lineRenderer.endWidth = 0.9f * transform.localScale.x;
                     lineRenderer.positionCount = 2;
                     lineRenderer.useWorldSpace = true;
                     lineRenderer.material = shaderMat;
-                    lineRenderer.SetPositions(new Vector3[] { r1.roomObject.transform.position - Vector3.up, r2.roomObject.transform.position - Vector3.up});
+                    lineRenderer.SetPositions(new Vector3[] { r1.roomObject.transform.position - Vector3.up * transform.localScale.x, r2.roomObject.transform.position - Vector3.up * transform.localScale.x });
                     lineRenderer.useWorldSpace = false;
                     lineRenderer.sortingOrder = -1;
                 }
