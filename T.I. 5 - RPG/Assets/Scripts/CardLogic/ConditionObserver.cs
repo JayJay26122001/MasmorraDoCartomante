@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+/*using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
@@ -8,15 +8,15 @@ public class ConditionObserver : MonoBehaviour
     bool observing;
     void Awake()
     {
-        /*if (observer == null)
-        {
-            observer = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }*/
+        //if (observer == null)
+        //{
+        //    observer = this;
+        //    DontDestroyOnLoad(gameObject);
+        //}
+        //else
+        //{
+        //    Destroy(gameObject);
+        //}
         observer = this;
     }
     public void StartObservation()
@@ -66,4 +66,4 @@ public class ConditionObserver : MonoBehaviour
             c.CheckCondition(card);
         }
     }
-}
+}*/

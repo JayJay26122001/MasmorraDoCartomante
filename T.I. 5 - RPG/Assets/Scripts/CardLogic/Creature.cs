@@ -171,7 +171,7 @@ public class Creature : MonoBehaviour
         List<Card> temp = playedCards.ToList();
         foreach (Card c in temp)
         {
-            c.IniciateCardEffect();
+            c.ApplyUnconditionalEffects();
         }
     }
     public void DiscardCard(Card card)

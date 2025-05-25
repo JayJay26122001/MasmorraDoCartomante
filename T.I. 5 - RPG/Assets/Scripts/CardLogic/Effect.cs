@@ -9,11 +9,20 @@ public abstract class Effect
 {
     [System.NonSerialized] public Card card;
     [System.NonSerialized] public bool EffectAcomplished = false, effectStarted = false;
-    [SerializeReference]public List<Condition> Conditions;
-    /*public Effect(Card c)
+    [SerializeReference] public List<Condition> Conditions;
+    protected bool Repeatable = false;
+
+    public void InitiateEffect()
     {
-        card = c;
-    }*/
+        foreach (Condition c in Conditions)
+        {
+            c.ActivateCondition();
+            if (c.Repeatable)
+            {
+                Repeatable = true;
+            }
+        }
+    }
     public virtual void Apply()
     {
         effectStarted = true;
@@ -22,9 +31,14 @@ public abstract class Effect
     {
         EffectAcomplished = false;
         effectStarted = false;
+        foreach (Condition c in Conditions)
+        {
+            c.ResetCondition();
+        }
     }
     public void EffectEnded()
     {
+        if (Repeatable) return;
         EffectAcomplished = true;
         foreach (Effect e in card.Effects)
         {
@@ -35,80 +49,38 @@ public abstract class Effect
         }
         card.deck.Owner.DiscardCard(card);
     }
-}
-/*[CustomEditor(typeof(Effect), true)]
-public class EffectEditor : Editor
-{
-    SerializedProperty conditions;
-
-    void OnEnable()
+    public void CheckConditions() // Checa se as condições para este efeito foram resolvidas e aplica efeito se sim
     {
-        conditions = serializedObject.FindProperty("Conditions");
-    }
-
-    public override void OnInspectorGUI()
-    {
-        serializedObject.Update();
-
-        // Draw everything except Conditions
-        DrawPropertiesExcluding(serializedObject, "Conditions");
-
-        EditorGUILayout.Space();
-        EditorGUILayout.LabelField("Conditions", EditorStyles.boldLabel);
-
-        for (int i = 0; i < conditions.arraySize; i++)
+        if (EffectAcomplished) return;
+        foreach (Condition c in Conditions)
         {
-            var element = conditions.GetArrayElementAtIndex(i);
-            string className = element.managedReferenceFullTypename.Split('.').Last();
-            EditorGUILayout.PropertyField(element, new GUIContent($"  • {className}"), true);
-
-            if (GUILayout.Button("Remove Condition"))
+            if (c.ConditionStatus == Condition.ConditionState.Failled)
             {
-                conditions.DeleteArrayElementAtIndex(i);
+                EffectEnded();
+                return;
             }
-
-            EditorGUILayout.Space();
-        }
-
-        if (GUILayout.Button("Add Condition"))
-        {
-            ShowConditionTypeSelector();
-        }
-
-        serializedObject.ApplyModifiedProperties();
-    }
-
-    private void ShowConditionTypeSelector()
-    {
-        var conditionTypes = GetAllDerivedTypes<Condition>();
-        GenericMenu menu = new GenericMenu();
-
-        foreach (var type in conditionTypes)
-        {
-            menu.AddItem(new GUIContent(type.Name), false, () =>
+            else if (c.ConditionStatus == Condition.ConditionState.Unsolved)
             {
-                var newCondition = Activator.CreateInstance(type);
-                conditions.arraySize++;
-                serializedObject.ApplyModifiedProperties(); // refresh serialized data
-                
-                var conditionElement = conditions.GetArrayElementAtIndex(conditions.arraySize - 1);
-                conditionElement.managedReferenceValue = newCondition;
-                serializedObject.ApplyModifiedProperties(); // ensure Unity sees changes
-            });
+                return;
+            }
         }
-
-        menu.ShowAsContext();
+        /*if (hidden)
+        {
+            hidden = false;
+            CardUIController.OrganizeHandCards(deck.Owner);
+        }
+        CardHadEffect();*/
+        Apply();
     }
+    public void ApplyIfNoCondition()
+    {
+        if (Conditions.Count <= 0 && !effectStarted && !EffectAcomplished)
+        {
+            Apply();
+        }
+    }
+}
 
-    private static List<Type> GetAllDerivedTypes<T>()
-{
-    return AppDomain.CurrentDomain.GetAssemblies()
-        .SelectMany(assembly => assembly.GetTypes())
-        .Where(type => typeof(T).IsAssignableFrom(type) && !type.IsAbstract && !type.IsInterface)
-        .ToList();
-}
-}
-*/
 [Serializable]
 public class DealDamage : Effect
 {
@@ -167,7 +139,7 @@ public class BuyCards : Effect
 public class GainEnergy : Effect
 {
     public int Amount;
-    enum GainTime {WhenPlayed, NextTurn};
+    enum GainTime { WhenPlayed, NextTurn };
     [SerializeField] GainTime time;
     public override void Apply()
     {
@@ -183,7 +155,16 @@ public class GainEnergy : Effect
                 Combat.WaitForTurn(0, GameplayManager.currentCombat.GetTurnPhase(card.deck.Owner, Combat.TurnPhaseTypes.Start), TurnPhase.PhaseTime.Start, EffectEnded);
                 break;
         }
-        
+
+    }
+}
+[Serializable]
+public class DiscardThisCard : Effect
+{
+    public override void Apply()
+    {
+        base.Apply();
+        card.deck.Owner.DiscardCard(card);
     }
 }
 [Serializable]
@@ -196,15 +177,28 @@ public class BuffStatMultiplier : Effect
     public float MultiplicativeAmount;
 
     [Header("Duration")]
+    [SerializeField]Target TurnOwner;
+    enum Target { User, Oponent }
     public int TurnsFromNow;
     public Combat.TurnPhaseTypes TurnPhaseToStop;
     [SerializeField]TurnPhase.PhaseTime StopAtPhase;
+    Creature owner;
     public override void Apply()
     {
         base.Apply();
+        switch (TurnOwner)
+        {
+            case Target.Oponent:
+                owner = card.deck.Owner.enemy;
+                break;
+            case Target.User:
+                owner = card.deck.Owner;
+                break;
+        }
+        TurnPhase phase = GameplayManager.currentCombat.GetTurnPhase(owner, TurnPhaseToStop);
         GetStatReference() *= MultiplicativeAmount;
-        Combat.WaitForTurn(TurnsFromNow, GameplayManager.currentCombat.GetTurnPhase(card.deck.Owner,TurnPhaseToStop), StopAtPhase, () => GetStatReference() /= MultiplicativeAmount);
-        Combat.WaitForTurn(TurnsFromNow, GameplayManager.currentCombat.GetTurnPhase(card.deck.Owner,TurnPhaseToStop), StopAtPhase, EffectEnded);
+        Combat.WaitForTurn(TurnsFromNow, phase, StopAtPhase, () => GetStatReference() /= MultiplicativeAmount);
+        Combat.WaitForTurn(TurnsFromNow, phase, StopAtPhase, EffectEnded);
         /*switch (BuffMethod)
         {
             case BuffableMethod.Multiply:

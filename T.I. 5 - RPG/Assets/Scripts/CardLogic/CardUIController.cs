@@ -50,6 +50,10 @@ public class CardUIController : MonoBehaviour
             foreach (Effect e in temp.cardData.Effects)
             {
                 e.card = temp.cardData;
+                foreach (Condition c in e.Conditions)
+                {
+                    c.effect = e;
+                }
             }
         }
         return temp;

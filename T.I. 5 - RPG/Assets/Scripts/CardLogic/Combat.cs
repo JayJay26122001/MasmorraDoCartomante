@@ -8,7 +8,7 @@ using UnityEngine.Events;
 
 public class Combat : MonoBehaviour
 {
-    public enum TurnPhaseTypes {Start, Reaction, End}
+    public enum TurnPhaseTypes { Start, Reaction, End }
     public CardCombatSpaces[] combatSpaces;
     public Creature[] combatents;
     public Turn[] Round;
@@ -140,7 +140,7 @@ public class Combat : MonoBehaviour
             turnText.text = $"Creature {TurnIndex + 1} - Turn {TurnIndex + 1} {ActiveTurn.currentPhase}";
         }
     }*/
-    public static void WaitForTurn(int TurnFromNow, TurnPhase phase, TurnPhase.PhaseTime phaseTime , UnityAction action)
+    public static UnityAction WaitForTurn(int TurnFromNow, TurnPhase phase, TurnPhase.PhaseTime phaseTime, UnityAction action)
     {
         UnityAction tymedAction = action;
         int turnsLeft = TurnFromNow;
@@ -172,8 +172,10 @@ public class Combat : MonoBehaviour
             }
         };
         selectedEvent.AddListener(onPhaseStarted);
+        return onPhaseStarted;
     }
-    public static void WaitForTurn<T>(int TurnFromNow, TurnPhase phase, TurnPhase.PhaseTime phaseTime, UnityAction<T> action, T arg)
+
+    public static UnityAction WaitForTurn<T>(int TurnFromNow, TurnPhase phase, TurnPhase.PhaseTime phaseTime, UnityAction<T> action, T arg)
     {
         UnityAction tymedAction = () => action(arg);
         int turnsLeft = TurnFromNow;
@@ -205,6 +207,91 @@ public class Combat : MonoBehaviour
             }
         };
         selectedEvent.AddListener(onPhaseStarted);
+        return onPhaseStarted;
+    }
+    public static UnityAction RepeatOnTurn(int TurnFromNow, TurnPhase phase, TurnPhase.PhaseTime phaseTime, UnityAction action)
+    {
+        UnityAction tymedAction = action;
+        int turnsLeft = TurnFromNow;
+        UnityAction onPhaseStarted = null;
+        UnityEvent selectedEvent;
+        switch (phaseTime)
+        {
+            case TurnPhase.PhaseTime.Start:
+                selectedEvent = phase.PhaseStarted;
+                break;
+            case TurnPhase.PhaseTime.End:
+                selectedEvent = phase.PhaseEnded;
+                break;
+
+            default:
+                selectedEvent = phase.PhaseStarted;
+                break;
+        }
+        onPhaseStarted = () =>
+        {
+            if (turnsLeft <= 0)
+            {
+                action.Invoke();
+            }
+            else
+            {
+                turnsLeft--;
+            }
+        };
+        selectedEvent.AddListener(onPhaseStarted);
+        return onPhaseStarted;
+    }
+    public static UnityAction RepeatOnTurn<T>(int TurnFromNow, TurnPhase phase, TurnPhase.PhaseTime phaseTime, UnityAction<T> action, T arg)
+    {
+        UnityAction tymedAction = () => action(arg);
+        int turnsLeft = TurnFromNow;
+        UnityAction onPhaseStarted = null;
+        UnityEvent selectedEvent;
+        switch (phaseTime)
+        {
+            case TurnPhase.PhaseTime.Start:
+                selectedEvent = phase.PhaseStarted;
+                break;
+            case TurnPhase.PhaseTime.End:
+                selectedEvent = phase.PhaseEnded;
+                break;
+
+            default:
+                selectedEvent = phase.PhaseStarted;
+                break;
+        }
+        onPhaseStarted = () =>
+        {
+            if (turnsLeft <= 0)
+            {
+                tymedAction.Invoke();
+            }
+            else
+            {
+                turnsLeft--;
+            }
+        };
+        selectedEvent.AddListener(onPhaseStarted);
+        return onPhaseStarted;
+    }
+    public static void CancelWait(TurnPhase phase, TurnPhase.PhaseTime phaseTime, UnityAction action)
+    {
+        UnityEvent selectedEvent;
+        switch (phaseTime)
+        {
+            case TurnPhase.PhaseTime.Start:
+                selectedEvent = phase.PhaseStarted;
+                break;
+            case TurnPhase.PhaseTime.End:
+                selectedEvent = phase.PhaseEnded;
+                break;
+
+            default:
+                selectedEvent = phase.PhaseStarted;
+                break;
+        }
+        selectedEvent.RemoveListener(action);
     }
 }
 public class Turn
@@ -288,17 +375,18 @@ public class ReactionTurn : TurnPhase
     public ReactionTurn(Creature owner) : base(owner) { }
     public override void PhaseEffect()
     {
-        owner.canPlayCards = false;
-        List<Card> temp = owner.enemy.playedCards.ToList();
-        foreach (Card c in temp)
+        /*owner.canPlayCards = false;
+        foreach (Card c in owner.enemy.playedCards)
         {
-            c.CheckConditions();
-        }
-        temp = owner.enemy.playedCards.ToList();
-        foreach (Card c in temp)
+            foreach (Effect e in c.Effects)
+            {
+                e.CheckConditions();
+            }
+        }*/
+        /*foreach (Card c in owner.enemy.playedCards)
         {
             c.ConditionalCardFailled();
-        }
+        }*/
     }
 }
 public class TurnEnd : TurnPhase
