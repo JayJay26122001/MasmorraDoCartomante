@@ -156,4 +156,12 @@ public class GameplayManager : MonoBehaviour
         }
         canBuy = true;
     }
+
+    public void DiscardBoughtCards(Transform bell)
+    {
+        if(bell.parent != null)
+        {
+            bell.parent.GetComponent<CardPack>().DestroyBoughtCards();
+        }
+    }
 }
