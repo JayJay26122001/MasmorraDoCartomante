@@ -1,7 +1,8 @@
 ﻿using System.Linq;
 using Unity.Cinemachine;
 using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class CardUIController : MonoBehaviour
 {
@@ -192,11 +193,40 @@ public class CardUIController : MonoBehaviour
     public static void OrganizeBoughtPackCards(CardPack pack)
     {
         int totalCardsPlayed = pack.cardsInstances.Count;
-        float playedCardsSpacing = 2.5f;
+        float playedCardsSpacing = 3f;
         for (int i = 0; i < totalCardsPlayed; i++)
         {
             float posX = (i - ((totalCardsPlayed - 1) / 2f)) * playedCardsSpacing;
             GameObject cardObject = pack.cardsInstances[i].cardDisplay.gameObject;
+            Vector3 pos = (GameplayManager.instance.player.combatSpace.playedCardSpace.right * posX) + GameplayManager.instance.player.combatSpace.playedCardSpace.position;
+            Vector3 rot = GameplayManager.instance.player.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(90f, 0f, 0f);
+            /*if (!c.playedCards[i].hidden) //Virar a carta caso ela for Hidden na hora que estiver na mesa de cartas jogadas
+            {
+                //rot = c.combatSpace.playedCardSpace.rotation * Quaternion.Euler(90f, 0f, 0f);
+                rot = c.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(90f, 0f, 0f);
+            }
+            else
+            {
+                //rot = c.combatSpace.playedCardSpace.rotation * Quaternion.Euler(-90f, 0f, 180f);
+                rot = c.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(-90f, 180f, 0);
+            }*/
+            if (GameplayManager.instance.player.GetComponent<Player>() != null)
+            {
+                LeanTween.move(cardObject, pos, 0.15f).setEaseInOutSine();
+                LeanTween.rotate(cardObject, rot, 0.15f).setEaseInOutSine();
+                cardObject.transform.SetParent(GameplayManager.instance.player.combatSpace.playedCardSpace);
+                CardDisplay cardDisplay = cardObject.GetComponent<CardDisplay>();
+            }
+        }
+    }
+    public static void OrganizeRemovingCards(List<CardDisplay> cards)
+    {
+        int totalCardsPlayed = cards.Count();
+        float playedCardsSpacing = 3f;
+        for (int i = 0; i < totalCardsPlayed; i++)
+        {
+            float posX = (i - ((totalCardsPlayed - 1) / 2f)) * playedCardsSpacing;
+            GameObject cardObject = cards[i].gameObject;
             Vector3 pos = (GameplayManager.instance.player.combatSpace.playedCardSpace.right * posX) + GameplayManager.instance.player.combatSpace.playedCardSpace.position;
             Vector3 rot = GameplayManager.instance.player.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(90f, 0f, 0f);
             /*if (!c.playedCards[i].hidden) //Virar a carta caso ela for Hidden na hora que estiver na mesa de cartas jogadas

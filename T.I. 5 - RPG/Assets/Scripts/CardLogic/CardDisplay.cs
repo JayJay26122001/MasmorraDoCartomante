@@ -60,9 +60,17 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         {
             if(pack == null)
             {
-                LeanTween.scale(gameObject, originalScale, 0.15f).setEaseOutQuad();
-                cardData.deck.Owner.PlayCard(cardData);
-                GameplayManager.currentCombat.CombatUI();
+                if(!GameplayManager.instance.removingCards)
+                {
+                    LeanTween.scale(gameObject, originalScale, 0.15f).setEaseOutQuad();
+                    cardData.deck.Owner.PlayCard(cardData);
+                    GameplayManager.currentCombat.CombatUI();
+                }
+                else
+                {
+                    cardData.deck.RemoveCard(this);
+                    GameplayManager.instance.DestroyRemovingCards();
+                }
             }
             else
             {
@@ -73,7 +81,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            if (pack != null || cardData.deck.Owner.playedCards.Contains(cardData))
+            if (pack != null || GameplayManager.instance.removingCards || cardData.deck.Owner.playedCards.Contains(cardData))
             {
                 CameraController.instance.HighlightCard(this.transform.position);
             }

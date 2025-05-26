@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Deck", menuName = "CardLogic/Deck")]
@@ -23,6 +24,18 @@ public class Deck : ScriptableObject
         card.deck = this;
         cards.Add(card);
         CardUIController.instance.InstantiateCard(card);
+    }
+
+    public void RemoveCard(CardDisplay c)
+    {
+        for(int i = 0; i < cards.Count; i++)
+        {
+            if (cards[i] == c.cardData) 
+            {
+                cards.RemoveAt(i);
+                i = cards.Count;
+            }
+        }
     }
     public void ShuffleDeck() // coloca todas as cartas na pilha de descarte na pilha de compras e as embaralha
     {

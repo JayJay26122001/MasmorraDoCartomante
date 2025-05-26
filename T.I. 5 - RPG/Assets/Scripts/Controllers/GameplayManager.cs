@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
+using System.Collections;
 public class GameplayManager : MonoBehaviour
 {
     public static Combat currentCombat;
@@ -28,7 +29,7 @@ public class GameplayManager : MonoBehaviour
 
     public List<CardPack> packs = new List<CardPack>();
     public List<PackPool> packPools = new List<PackPool>();
-    public bool canBuy;
+    public bool canBuy, removingCards = false;
 
     private void Awake()
     {
@@ -163,5 +164,38 @@ public class GameplayManager : MonoBehaviour
         {
             bell.parent.GetComponent<CardPack>().DestroyBoughtCards();
         }
+    }
+
+    public void RemovingCards()
+    {
+        if(canBuy)
+        {
+            if(player.ChangeMoney(-3))
+            {
+                canBuy = false;
+                removingCards = true;
+                List<CardDisplay> cds = new List<CardDisplay>();
+                foreach (Card c in player.decks[0].cards)
+                {
+                    CardDisplay cd = CardUIController.instance.InstantiateCard(c);
+                    cds.Add(cd);
+                    CardUIController.OrganizeRemovingCards(cds);
+                }
+            }
+            else
+            {
+                Debug.Log("You don't have enough money.");
+            }
+        }
+    }
+
+    public void DestroyRemovingCards()
+    {
+        for(int i = player.combatSpace.playedCardSpace.transform.childCount - 1; i >= 0; i--)
+        {
+            Destroy(player.combatSpace.playedCardSpace.transform.GetChild(i).gameObject);
+        }
+        removingCards = false;
+        canBuy = true;
     }
 }
