@@ -67,6 +67,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
             else
             {
                 GameplayManager.instance.player.decks[0].AddCard(cardData);
+                GameplayManager.instance.canBuy = true;
                 pack.DestroyBoughtCards();
                 pack = null;
             }

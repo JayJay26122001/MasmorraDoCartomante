@@ -22,9 +22,13 @@ public class GameplayManager : MonoBehaviour
     //[SerializeField]int money;
 
     public List<Enemy> enemies = new List<Enemy>();
-    public SerializedMatrix<EnemyPool> pools = new SerializedMatrix<EnemyPool>(5, 5);
+    public SerializedMatrix<EnemyPool> enemyPools = new SerializedMatrix<EnemyPool>(5, 5);
     public Player player;
     int areaIndex = 0, battlePerArea = 0;
+
+    public List<CardPack> packs = new List<CardPack>();
+    public List<PackPool> packPools = new List<PackPool>();
+    public bool canBuy;
 
     private void Awake()
     {
@@ -96,7 +100,7 @@ public class GameplayManager : MonoBehaviour
 
     public void SelectEnemy()
     {
-        int aux = pools.GetValue(battlePerArea, areaIndex).value.SelectIndex();
+        int aux = enemyPools.GetValue(battlePerArea, areaIndex).value.SelectIndex();
         ShowEnemy(aux);
         currentCombat.SetEnemy(aux);
     }
@@ -118,6 +122,10 @@ public class GameplayManager : MonoBehaviour
 
     public void PlayCutscene(int index)
     {
+        if(index == 3 && !canBuy)
+        {
+            return;
+        }
         timeline.playableAsset = cutscenes[index];
         timeline.Play();
         PauseInput((float)cutscenes[index].duration);
@@ -130,11 +138,22 @@ public class GameplayManager : MonoBehaviour
 
     public void ChangeArea()
     {
-        areaIndex = Mathf.Clamp(areaIndex + 1, 0, pools.YLength);
+        areaIndex = Mathf.Clamp(areaIndex + 1, 0, enemyPools.YLength);
         battlePerArea = 0;
     }
     public void ChangeBattleCount()
     {
-        battlePerArea = Mathf.Clamp(battlePerArea + 1, 0, pools.XLength);
+        battlePerArea = Mathf.Clamp(battlePerArea + 1, 0, enemyPools.XLength);
+    }
+
+    public void DefineShop()
+    {
+        List<CardPackSO> aux = packPools[areaIndex].SelectPacks(packs.Count);
+        for(int i = 0; i < packs.Count; i++)
+        {
+            packs[i].data = aux[i];
+            packs[i].DefineCards();
+        }
+        canBuy = true;
     }
 }
