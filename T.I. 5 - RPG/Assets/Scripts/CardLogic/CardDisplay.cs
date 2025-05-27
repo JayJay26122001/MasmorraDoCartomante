@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine.EventSystems;
+using static UnityEditor.PlayerSettings;
 
 public class CardDisplay : MonoBehaviour, IPointerClickHandler
 {
@@ -156,6 +157,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
                 Creature c = cardData.deck.Owner;
                 if (c.hand.Contains(cardData) && c.GetComponent<Player>() != null && GameplayManager.currentCombat.TurnIndex == 0)
                 {
+                    //LeanTween.moveLocal(gameObject, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.1f, gameObject.transform.position.z), 0.1f);
                     //LeanTween.cancel(gameObject);
                     LeanTween.scale(gameObject, originalScale * 1.25f, 0.1f).setEaseOutQuad();
                     //LeanTween.moveLocal(gameObject, new Vector3(gameObject.transform.localPosition.x, originalPosition.y + 1f, originalPosition.z + -0.5f), 0.15f).setEaseOutSine();
@@ -173,8 +175,11 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
             Creature c = cardData.deck.Owner;
             if (c.hand.Contains(cardData) && c.GetComponent<Player>() != null)
             {
+                //LeanTween.moveLocal(gameObject, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 0.1f, gameObject.transform.position.z), 0.1f);
                 //LeanTween.cancel(gameObject);
                 LeanTween.scale(gameObject, originalScale, 0.1f).setEaseOutQuad();
+                Vector3 pos = c.combatSpace.playerHandSpace.up * -0.4f;
+                LeanTween.move(gameObject, transform.position + pos, 0.1f);
                 //LeanTween.moveLocal(gameObject, new Vector3(gameObject.transform.localPosition.x, originalPosition.y, originalPosition.z), 0.15f).setEaseOutSine();
                 highlighted = false;
                 //CardUIController.OrganizeHandCards(c);
