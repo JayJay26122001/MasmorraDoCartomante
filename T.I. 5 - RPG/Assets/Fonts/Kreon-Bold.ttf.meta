@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f90e3073a91b50e409ab8c04f6ab33d9
+guid: 4c0e45ede655e274686958dfc6c577ef
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -10,7 +10,9 @@ TrueTypeFontImporter:
   includeFontData: 1
   fontNames:
   - Kreon
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: f90e3073a91b50e409ab8c04f6ab33d9, type: 3}
+  - {fileID: 12800000, guid: bf7059986068b0149b9c0ac5f4c05d14, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
