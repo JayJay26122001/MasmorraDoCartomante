@@ -7,7 +7,7 @@ public class CardPack : MonoBehaviour
     public List<Card> cards;
     public List<Card> cardsInstances;
     public TextMeshPro priceText;
-    public GameObject discardBell;
+    public DiscardBell discardBell;
     private void Start()
     {
         //DefineCards();
@@ -31,7 +31,8 @@ public class CardPack : MonoBehaviour
             if (GameplayManager.instance.player.ChangeMoney(-data.price))
             {
                 GameplayManager.instance.canBuy = false;
-                discardBell.transform.SetParent(this.transform);
+                GameplayManager.instance.PlayCutscene(4);
+                discardBell.pack = this;
                 foreach(Card c in cards)
                 {
                     CardDisplay aux = CardUIController.instance.InstantiateCard(c);
@@ -49,11 +50,16 @@ public class CardPack : MonoBehaviour
 
     public void DestroyBoughtCards()
     {
-        discardBell.transform.SetParent(null);
+        GameplayManager.instance.PlayCutscene(5);
+        discardBell.pack = null;
         GameplayManager.instance.canBuy = true;
         foreach (Card c in cardsInstances)
         {
-            Destroy(c.cardDisplay.gameObject);
+            var moveTween = LeanTween.move(c.cardDisplay.gameObject, c.cardDisplay.gameObject.transform.position + Vector3.up * 25, 0.05f);
+            moveTween.setOnComplete(() =>
+            {
+                Destroy(c.cardDisplay.gameObject);
+            });
         }
         cardsInstances.Clear();
     }

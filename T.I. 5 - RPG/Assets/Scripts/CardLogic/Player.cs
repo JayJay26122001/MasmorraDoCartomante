@@ -104,6 +104,7 @@ public class Player : Creature
         else
         {
             money += quantity;
+            GameManager.instance.uiController.UpdateMoney(money);
             return true;
         }
     }

@@ -12,6 +12,7 @@ using Unity.VisualScripting.Antlr3.Runtime;
 
 public class UIController : MonoBehaviour
 {
+    public TextMeshPro money;
     /*bool gameStarted, gamePaused;
     public GameObject playButton, settingsButton, creditsButton, quitButton;
     public GameObject settingsPanel, creditsPanel, quitPanel;
@@ -115,6 +116,11 @@ public class UIController : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("Quitting!");
+    }
+
+    public void UpdateMoney(int m)
+    {
+        money.text = m + "$";
     }
 
     /*public void OpenPanel(GameObject panel)

@@ -158,11 +158,11 @@ public class GameplayManager : MonoBehaviour
         canBuy = true;
     }
 
-    public void DiscardBoughtCards(Transform bell)
+    public void DiscardBoughtCards(DiscardBell bell)
     {
-        if(bell.parent != null)
+        if(bell.pack != null)
         {
-            bell.parent.GetComponent<CardPack>().DestroyBoughtCards();
+            bell.pack.DestroyBoughtCards();
         }
     }
 
@@ -191,9 +191,13 @@ public class GameplayManager : MonoBehaviour
 
     public void DestroyRemovingCards()
     {
-        for(int i = player.combatSpace.playedCardSpace.transform.childCount - 1; i >= 0; i--)
+        foreach(Transform t in player.combatSpace.playedCardSpace.transform)
         {
-            Destroy(player.combatSpace.playedCardSpace.transform.GetChild(i).gameObject);
+            var moveTween = LeanTween.move(t.gameObject, t.position + Vector3.up * 25, 0.05f);
+            moveTween.setOnComplete(() =>
+            {
+                Destroy(t.gameObject);
+            });
         }
         removingCards = false;
         canBuy = true;
