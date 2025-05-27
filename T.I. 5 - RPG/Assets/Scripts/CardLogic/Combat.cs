@@ -122,6 +122,7 @@ public class Combat : MonoBehaviour
         }
         GameplayManager.instance.ChangeBattleCount();
         GameplayManager.instance.HideAllEnemies();
+        StartCoroutine(combatents[1].GetComponent<Enemy>().DisableModel());
     }
 
 

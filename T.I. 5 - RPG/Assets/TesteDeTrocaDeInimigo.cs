@@ -10,13 +10,13 @@ public class TesteDeTrocaDeInimigo : MonoBehaviour
     {
         SetActiveEnemy(0);
     }
-    void Update()
+    /*void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q) && GameplayManager.instance.InputActive)
         {
             SetActiveEnemy((activeIndex + 1) % enemyAssets.Count);
         }
-    }
+    }*/
     public void SetActiveEnemy(int index)
     {
         activeEnemy?.SetActive(false);

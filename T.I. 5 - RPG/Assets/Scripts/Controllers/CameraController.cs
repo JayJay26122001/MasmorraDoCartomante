@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
     public List<CinemachineCamera> cameras = new List<CinemachineCamera>();
     [SerializeField]int activeCamIndex;
     public static CameraController instance;
-    public CinemachineCamera highlightCardCamera;
+    public CinemachineCamera highlightCardCamera, angledTopCamera;
     bool inputActive;
 
     private void Awake()
@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
-        ChangeActiveCamera();
+        AngledTop();
         inputActive = false;
     }
     public void ChangeCamera(int Index)
@@ -82,5 +82,17 @@ public class CameraController : MonoBehaviour
     public void EnableCameraInputs()
     {
         inputActive = true;
+    }
+
+    public void AngledTop()
+    {
+        if (angledTopCamera.Priority == 0)
+        {
+            angledTopCamera.Priority = 2;
+        }
+        else
+        {
+            angledTopCamera.Priority = 0;
+        }
     }
 }

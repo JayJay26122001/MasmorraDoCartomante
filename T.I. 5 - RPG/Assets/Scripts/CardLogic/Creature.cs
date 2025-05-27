@@ -198,7 +198,7 @@ public class Creature : MonoBehaviour
     }
     public virtual void EndCombat()
     {
-        DiscardAllPlayedCards();
+        ResetDeckPiles();
         ResetEnergy();
         ResetShield();
         ResetHP();
@@ -279,10 +279,14 @@ public class Creature : MonoBehaviour
 
     }
 
-    public void DiscardAllPlayedCards()
+    public void ResetDeckPiles()
     {
         List<Card> auxList = new List<Card>();
         foreach (Card c in playedCards)
+        {
+            auxList.Add(c);
+        }
+        foreach (Card c in hand)
         {
             auxList.Add(c);
         }
@@ -290,5 +294,6 @@ public class Creature : MonoBehaviour
         {
             DiscardCard(c);
         }
+        decks[0].ShuffleDeck();
     }
 }

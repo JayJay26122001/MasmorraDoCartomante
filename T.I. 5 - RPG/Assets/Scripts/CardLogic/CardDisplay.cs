@@ -13,7 +13,6 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
 
     private Vector3 originalScale;
     private Vector3 originalPosition;
-    //public bool isReadyToMove = true;
     private bool hasSetOriginalTransform = false;
     bool highlighted;
     public CardPack pack;
@@ -22,7 +21,6 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         if (!hasSetOriginalTransform)
         {
             originalScale = transform.localScale;
-            //originalPosition = transform.localPosition;
             hasSetOriginalTransform = true;
         }
     }
@@ -30,7 +28,10 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
     public void SetCard(Card card)
     {
         cardData = card;
-        card.cardDisplay = this;
+        if(!GameplayManager.instance.removingCards)
+        {
+            card.cardDisplay = this;
+        }
         CardSetup();
     }
 
@@ -46,17 +47,6 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        //if (!GameplayManager.instance.InputActive) return;
-        //cardData.deck.Owner.PlayCard(cardData); //substituir pela linha de baixo mais tarde
-        /*if (cardData.deck.Owner.GetComponent<Player>()?.SelectedCard == cardData)
-        {
-            //cardData.deck.Owner.GetComponent<Player>().DiselectCard(cardData); PRA DESCELECIONAR A CARTA SE CLICAR DNV NELA
-            cardData.deck.Owner.GetComponent<Player>().PlaySelectedCard();
-        }
-        else
-        {
-            cardData.deck.Owner.GetComponent<Player>()?.SelectCard(cardData);
-        }*/
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             if(pack == null)
@@ -89,41 +79,10 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         }
     }
 
-
     public void UpdatePosition()
     {
         originalPosition = transform.localPosition;
     }
-
-    /*public void OnPointerEnterCard()
-    {
-        if (cardData != null && cardData.deck != null && cardData.deck.Owner != null)
-        {
-            Creature c = cardData.deck.Owner;
-            if (c.hand.Contains(cardData) && c.GetComponent<Player>() != null && GameplayManager.currentCombat.TurnIndex == 0)
-            {
-                if (isReadyToMove)
-                {
-                    LeanTween.scale(gameObject, originalScale * 1.25f, 0.15f).setEaseOutQuad();
-                    LeanTween.moveLocal(gameObject, new Vector3(gameObject.transform.localPosition.x, originalPosition.y + 1f, originalPosition.z + -0.5f), 0.15f).setEaseOutSine();
-                }
-            }
-        }
-    }*/
-
-    /*public void OnPointerExitCard()
-    {
-        if (cardData != null && cardData.deck != null && cardData.deck.Owner != null)
-        {
-            Creature c = cardData.deck.Owner;
-            if (c.hand.Contains(cardData) && c.GetComponent<Player>() != null)
-            {
-                LeanTween.scale(gameObject, originalScale, 0.15f).setEaseOutQuad();
-                LeanTween.moveLocal(gameObject, new Vector3(gameObject.transform.localPosition.x, originalPosition.y, originalPosition.z), 0.15f).setEaseOutSine();
-            }
-        }
-    }*/
-
     public void OnMouseOver()
     {
         if (GameplayManager.instance.InputActive)
@@ -138,10 +97,6 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
 
     public void OnMouseExit()
     {
-        /*if (GameplayManager.instance.InputActive)
-        {
-            CardUIController.instance.SetHighlightedCard(null);
-        }*/
         if (highlighted)
         {
             CardUIController.instance.SetHighlightedCard(null);
@@ -157,10 +112,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
                 Creature c = cardData.deck.Owner;
                 if (c.hand.Contains(cardData) && c.GetComponent<Player>() != null && GameplayManager.currentCombat.TurnIndex == 0)
                 {
-                    //LeanTween.moveLocal(gameObject, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.1f, gameObject.transform.position.z), 0.1f);
-                    //LeanTween.cancel(gameObject);
                     LeanTween.scale(gameObject, originalScale * 1.25f, 0.1f).setEaseOutQuad();
-                    //LeanTween.moveLocal(gameObject, new Vector3(gameObject.transform.localPosition.x, originalPosition.y + 1f, originalPosition.z + -0.5f), 0.15f).setEaseOutSine();
                     highlighted = true;
                     CardUIController.OrganizeHandCardsWhenHighlighted(c);
                 }
@@ -175,14 +127,10 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
             Creature c = cardData.deck.Owner;
             if (c.hand.Contains(cardData) && c.GetComponent<Player>() != null)
             {
-                //LeanTween.moveLocal(gameObject, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 0.1f, gameObject.transform.position.z), 0.1f);
-                //LeanTween.cancel(gameObject);
                 LeanTween.scale(gameObject, originalScale, 0.1f).setEaseOutQuad();
-                Vector3 pos = c.combatSpace.playerHandSpace.up * -0.4f;
-                LeanTween.move(gameObject, transform.position + pos, 0.1f);
-                //LeanTween.moveLocal(gameObject, new Vector3(gameObject.transform.localPosition.x, originalPosition.y, originalPosition.z), 0.15f).setEaseOutSine();
+                LeanTween.moveLocal(gameObject, originalPosition, 0.05f).setEaseInOutSine();
+                CardUIController.OrganizeHandCardsWhenUnhighlighted(c);
                 highlighted = false;
-                //CardUIController.OrganizeHandCards(c);
             }
         }
     }

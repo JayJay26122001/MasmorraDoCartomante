@@ -139,12 +139,12 @@ public class GameplayManager : MonoBehaviour
 
     public void ChangeArea()
     {
-        areaIndex = Mathf.Clamp(areaIndex + 1, 0, enemyPools.YLength);
+        areaIndex = Mathf.Clamp(areaIndex + 1, 0, enemyPools.YLength - 1);
         battlePerArea = 0;
     }
     public void ChangeBattleCount()
     {
-        battlePerArea = Mathf.Clamp(battlePerArea + 1, 0, enemyPools.XLength);
+        battlePerArea = Mathf.Clamp(battlePerArea + 1, 0, enemyPools.XLength - 1);
     }
 
     public void DefineShop()

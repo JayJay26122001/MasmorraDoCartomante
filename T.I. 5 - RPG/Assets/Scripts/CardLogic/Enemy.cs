@@ -1,11 +1,15 @@
 using UnityEngine;
+using System.Collections;
 public class Enemy : Creature
 {
     public Animator anim;
+    public GameObject model;
+
     public override void CombatStartAction()
     {
         base.CombatStartAction();
         BuyCards(1);
+        SetModel();
     }
     public override void TurnAction()
     {
@@ -90,5 +94,17 @@ public class Enemy : Creature
     public void SwitchToMap()
     {
         GameplayManager.instance.PlayCutscene(0);
+    }
+
+    public void SetModel()
+    {
+        model.SetActive(true);
+        anim = model.GetComponentInChildren<Animator>();
+    }
+
+    public IEnumerator DisableModel()
+    {
+        yield return new WaitForSeconds(1);
+        model.SetActive(false);
     }
 }

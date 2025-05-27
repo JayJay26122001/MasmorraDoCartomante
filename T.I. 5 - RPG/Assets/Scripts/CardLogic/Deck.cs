@@ -32,6 +32,7 @@ public class Deck : ScriptableObject
         {
             if (cards[i] == c.cardData) 
             {
+                Destroy(cards[i].cardDisplay.gameObject);
                 cards.RemoveAt(i);
                 i = cards.Count;
             }
