@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d1a39dfc1f14914194bdd1ce1b68008, type: 3}
+  m_Name: LasquitaDeck
+  m_EditorClassIdentifier: 
+  Owner: {fileID: 0}
+  CardPresets:
+  - {fileID: 11400000, guid: 9b4e031e6f8cab54a83bddb6fa9cf491, type: 2}
+  - {fileID: 11400000, guid: f5df698fa3947074ebb31b07fdb255cd, type: 2}
+  - {fileID: 11400000, guid: b4f1c9213ec94944fbb3140dc70fd316, type: 2}
+  - {fileID: 0}
+  cards: []
+  BuyingPile:
+    Stack: []
+  DiscardPile:
+    Stack: []

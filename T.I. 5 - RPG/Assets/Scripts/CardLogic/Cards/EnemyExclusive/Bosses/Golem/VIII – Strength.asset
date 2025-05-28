@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
+  m_Name: "VIII \u2013 Strength"
+  m_EditorClassIdentifier: 
+  Effects:
+  - rid: 8409414130953617409
+  - rid: 8409414130953617410
+  cardDisplay: {fileID: 0}
+  deck: {fileID: 0}
+  Name: "Card: VIII \u2013 Strength"
+  hidden: 0
+  exaust: 0
+  instantaneous: 0
+  cost: 3
+  Type: 0
+  Rarity: 4
+  Description: "Deals 23 damage, but deplets the user\u2019s Energy next round."
+  references:
+    version: 2
+    RefIds:
+    - rid: 8409414130953617409
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        Conditions: []
+        DamageMultiplier: 3.8
+        IgnoreDefense: 0
+        target: 0
+    - rid: 8409414130953617410
+      type: {class: GainEnergy, ns: , asm: Assembly-CSharp}
+      data:
+        Conditions: []
+        Amount: -3
+        time: 1

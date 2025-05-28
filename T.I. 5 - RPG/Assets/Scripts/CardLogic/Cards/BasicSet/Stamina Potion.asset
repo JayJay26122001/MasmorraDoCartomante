@@ -24,12 +24,12 @@ MonoBehaviour:
   Type: 0
   Rarity: 2
   Description: Gain 2 extra energy next turn
-  conditions: 
   references:
     version: 2
     RefIds:
     - rid: 4002061059687186508
       type: {class: GainEnergy, ns: , asm: Assembly-CSharp}
       data:
+        Conditions: []
         Amount: 2
-        time: 0
+        time: 1
