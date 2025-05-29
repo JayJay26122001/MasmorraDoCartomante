@@ -35,7 +35,7 @@ MonoBehaviour:
       data:
         Conditions:
         - rid: 7391437793716076615
-        DamageMultiplier: 1.2
+        DamageMultiplier: 1.33
         IgnoreDefense: 0
         target: 0
     - rid: 7391437567606390851

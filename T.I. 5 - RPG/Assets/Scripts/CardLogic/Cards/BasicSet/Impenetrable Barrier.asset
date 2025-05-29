@@ -24,7 +24,6 @@ MonoBehaviour:
   Type: 1
   Rarity: 0
   Description: Gains 13 defense.
-  conditions: 
   references:
     version: 2
     RefIds:
@@ -32,4 +31,4 @@ MonoBehaviour:
       type: {class: GainDefense, ns: , asm: Assembly-CSharp}
       data:
         Conditions: []
-        DefenseMultiplier: 2.5
+        DefenseMultiplier: 2.6

@@ -30,6 +30,14 @@ MonoBehaviour:
     - rid: 4002061059687186508
       type: {class: GainEnergy, ns: , asm: Assembly-CSharp}
       data:
-        Conditions: []
+        Conditions:
+        - rid: 7391437906615730246
         Amount: 2
-        time: 1
+    - rid: 7391437906615730246
+      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        TurnOwner: 0
+        TurnsFromNow: 0
+        TurnPhase: 0
+        PhaseTime: 0

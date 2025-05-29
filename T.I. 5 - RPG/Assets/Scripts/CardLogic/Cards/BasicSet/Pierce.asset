@@ -24,13 +24,13 @@ MonoBehaviour:
   Type: 0
   Rarity: 0
   Description: Deals 5 damage, ignores defense.
-  conditions: 
   references:
     version: 2
     RefIds:
     - rid: 7391437407230361702
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
-        DamageMultiplier: 0.8
+        Conditions: []
+        DamageMultiplier: 0.83
         IgnoreDefense: 1
         target: 0

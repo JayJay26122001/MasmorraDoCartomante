@@ -5,52 +5,11 @@ using UnityEngine.Events;
 [Serializable]
 public abstract class Condition
 {
-    //public enum condition { None, EnemyPlayedAttackFirst, EnemyPlayedDefenseFirst, EnemyPlayedMindFirst }
     protected bool ConditionActive = false;
     public enum ConditionState { Unsolved, Achieved, Failled }
-    //public enum ConditionType { CardRelatedCondition }
-    //public ConditionType type { get; private set; }
-    //condition cond;
     public ConditionState ConditionStatus { get; private set; }
-    //protected Card card;
     [System.NonSerialized] public Effect effect;
     public bool Repeatable = false; // if true the condition will repeat the efect every time it is acomplished
-
-    //INICIALIZAÇÃO
-    /*public Condition(condition condition, Card card)
-    {
-        cond = condition;
-        this.card = card;
-        SetConditionType();
-    }
-    void SetConditionType()
-    {
-        switch (cond)
-        {
-            case condition.EnemyPlayedAttackFirst | condition.EnemyPlayedDefenseFirst | condition.EnemyPlayedMindFirst:
-                type = ConditionType.CardRelatedCondition;
-                break;
-        }
-    }*/
-
-    //OPÇÕES DE CONDIÇÃO
-
-    /*public void ConfirmCondition() //confirma o sucesso da condição
-    {
-        ConditionStatus = ConditionState.Achieved;
-        //TerminateCondition();
-        //card.CheckConditions();
-    }
-    public void NeglectCondition() //confirma a falha da condição
-    {
-        ConditionStatus = ConditionState.Failled;
-        //TerminateCondition();
-        //card.CheckConditions();
-    }*/
-    /*public void TerminateCondition() //remove a condição do observer
-    {
-        ConditionObserver.observer.RemoveCondition(this);
-    }*/
     public void ActivateCondition() //começa a observar a condição
     {
         if (!ConditionActive)
@@ -63,7 +22,6 @@ public abstract class Condition
     public virtual void InitiateCondition()
     {
         ResetCondition();
-        //ConditionObserver.observer.AddCondition(this);
     }
     public void ConcludeCondition(bool Achieved)
     {
@@ -102,38 +60,6 @@ public abstract class Condition
         }
     }
     protected abstract void Unsubscribe();
-    //CHECAGEM DA CONDIÇÃO
-    /*public void CheckCondition(Card c)
-    {
-        switch (cond)
-        {
-            case condition.EnemyPlayedAttackFirst:
-                PlayedCardTypeFirst(c, Card.CardType.Attack, card.deck.Owner.enemy);
-                break;
-
-            case condition.EnemyPlayedDefenseFirst:
-                PlayedCardTypeFirst(c, Card.CardType.Defense, card.deck.Owner.enemy);
-                break;
-
-            case condition.EnemyPlayedMindFirst:
-                PlayedCardTypeFirst(c, Card.CardType.Mind, card.deck.Owner.enemy);
-                break;
-        }
-    }
-    void PlayedCardTypeFirst(Card c, Card.CardType t, Creature cr)
-    {
-        if (c.deck.Owner == cr)
-        {
-            if (c.Type == t)
-            {
-                ConfirmCondition();
-            }
-            else
-            {
-                NeglectCondition();
-            }
-        }
-    }*/
 }
 [Serializable]
 public class CreaturePlayedCardType : Condition
@@ -182,7 +108,7 @@ public class WaitUntilTurn : Condition
     enum Target { User, Oponent }
     public int TurnsFromNow;
     public Combat.TurnPhaseTypes TurnPhase;
-    [SerializeField] TurnPhase.PhaseTime PhaseTime;
+    public TurnPhase.PhaseTime PhaseTime;
     UnityAction ConditionCheck = null, ListenerAction;
     Creature owner;
     TurnPhase phase;

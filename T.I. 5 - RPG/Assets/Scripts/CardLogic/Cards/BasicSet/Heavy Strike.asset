@@ -24,7 +24,6 @@ MonoBehaviour:
   Type: 0
   Rarity: 0
   Description: Deals 14 damage
-  conditions: 
   references:
     version: 2
     RefIds:
@@ -32,6 +31,6 @@ MonoBehaviour:
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
         Conditions: []
-        DamageMultiplier: 2.3
+        DamageMultiplier: 2.33
         IgnoreDefense: 0
         target: 0
