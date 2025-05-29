@@ -128,7 +128,10 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
             if (c.hand.Contains(cardData) && c.GetComponent<Player>() != null)
             {
                 LeanTween.scale(gameObject, originalScale, 0.1f).setEaseOutQuad();
-                LeanTween.moveLocal(gameObject, originalPosition, 0.05f).setEaseInOutSine();
+                /*if (CardUIController.instance.highlightedCard == cardData)
+                {
+                    LeanTween.moveLocal(gameObject, originalPosition, 0.03f).setEaseInOutSine();
+                }*/
                 CardUIController.OrganizeHandCardsWhenUnhighlighted(c);
                 highlighted = false;
             }

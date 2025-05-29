@@ -4,12 +4,13 @@ using UnityEngine;
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using UnityEngine.Events;
 [Serializable]
 public abstract class Effect
 {
     [System.NonSerialized] public Card card;
     [System.NonSerialized] public bool EffectAcomplished = false, effectStarted = false;
-    [SerializeReference] public List<Condition> Conditions;
+    [SerializeReference] public List<Condition> Conditions = new List<Condition>();
     protected bool Repeatable = false;
 
     public void InitiateEffect()
@@ -36,7 +37,7 @@ public abstract class Effect
             c.ResetCondition();
         }
     }
-    public void EffectEnded()
+    public virtual void EffectEnded()
     {
         if (Repeatable) return;
         EffectAcomplished = true;
@@ -84,7 +85,6 @@ public abstract class Effect
 [Serializable]
 public class DealDamage : Effect
 {
-    //public DamageEffect(Card c) : base(c){}
     public float DamageMultiplier;
     [SerializeField] bool IgnoreDefense;
     enum Target { Oponent, User }
@@ -121,7 +121,7 @@ public class GainDefense : Effect
     }
     public int GetDefense()
     {
-        return (int)Math.Ceiling(card.deck.Owner.BaseDefense * DefenseMultiplier);
+        return (int)Math.Ceiling(card.deck.Owner.BaseShieldGain * DefenseMultiplier);
     }
 }
 [Serializable]
@@ -133,17 +133,21 @@ public class BuyCards : Effect
     {
         base.Apply();
         card.deck.Owner.BuyCards(BuyCardNumber);
-        Combat.WaitForTurn(0, GameplayManager.currentCombat.GetTurnPhase(card.deck.Owner, Combat.TurnPhaseTypes.Reaction), TurnPhase.PhaseTime.End, EffectEnded);
+        EffectEnded();
+        //Combat.WaitForTurn(0, GameplayManager.currentCombat.GetTurnPhase(card.deck.Owner, Combat.TurnPhaseTypes.Reaction), TurnPhase.PhaseTime.End, EffectEnded);
     }
 }
 public class GainEnergy : Effect
 {
     public int Amount;
-    enum GainTime { WhenPlayed, NextTurn };
-    [SerializeField] GainTime time;
+    //enum GainTime { WhenPlayed, NextTurn };
+    //[SerializeField] GainTime time;
     public override void Apply()
     {
         base.Apply();
+        card.deck.Owner.GainEnergy(Amount);
+        EffectEnded();
+        /*Combat.WaitForTurn(0, GameplayManager.currentCombat.GetTurnPhase(card.deck.Owner, Combat.TurnPhaseTypes.Reaction), TurnPhase.PhaseTime.End, EffectEnded);
         switch (time)
         {
             case GainTime.WhenPlayed:
@@ -154,7 +158,7 @@ public class GainEnergy : Effect
                 Combat.WaitForTurn(0, GameplayManager.currentCombat.GetTurnPhase(card.deck.Owner, Combat.TurnPhaseTypes.Start), TurnPhase.PhaseTime.Start, card.deck.Owner.GainEnergy, Amount);
                 Combat.WaitForTurn(0, GameplayManager.currentCombat.GetTurnPhase(card.deck.Owner, Combat.TurnPhaseTypes.Start), TurnPhase.PhaseTime.Start, EffectEnded);
                 break;
-        }
+        }*/
 
     }
 }
@@ -167,22 +171,30 @@ public class DiscardThisCard : Effect
         card.deck.Owner.DiscardCard(card);
     }
 }
-[Serializable]
-public class BuffStatMultiplier : Effect
+public interface IProlongedEffect
 {
-    enum BuffableStats { Attack, Defense }
+    
+}
+[Serializable]
+public class BuffStat : Effect, IProlongedEffect
+{
+    enum BuffableStats { Attack, ShieldGain }
     [SerializeField] BuffableStats StatToBuff;
     //enum BuffableMethod { Multiply, Add }
     //[SerializeField] BuffableMethod BuffMethod;
-    public float MultiplicativeAmount;
+    //public float MultiplicativeAmount;
+    public StatModifier Modifier = new StatModifier();
 
     [Header("Duration")]
-    [SerializeField]Target TurnOwner;
+    [SerializeField] Target TurnOwner;
     enum Target { User, Oponent }
     public int TurnsFromNow;
     public Combat.TurnPhaseTypes TurnPhaseToStop;
-    [SerializeField]TurnPhase.PhaseTime StopAtPhase;
+    [SerializeField] TurnPhase.PhaseTime StopAtPhase;
     Creature owner;
+    List<StatModifier> StatBuffMod;
+    TurnPhase phase;
+    UnityAction Action;
     public override void Apply()
     {
         base.Apply();
@@ -195,10 +207,15 @@ public class BuffStatMultiplier : Effect
                 owner = card.deck.Owner;
                 break;
         }
-        TurnPhase phase = GameplayManager.currentCombat.GetTurnPhase(owner, TurnPhaseToStop);
-        GetStatReference() *= MultiplicativeAmount;
-        Combat.WaitForTurn(TurnsFromNow, phase, StopAtPhase, () => GetStatReference() /= MultiplicativeAmount);
-        Combat.WaitForTurn(TurnsFromNow, phase, StopAtPhase, EffectEnded);
+        phase = GameplayManager.currentCombat.GetTurnPhase(owner, TurnPhaseToStop);
+        //GetStatReference() *= MultiplicativeAmount;
+        //Combat.WaitForTurn(TurnsFromNow, phase, StopAtPhase, () => GetStatReference() /= MultiplicativeAmount);
+        if (StatBuffMod == null)
+        {
+            StatBuffMod = GetStatReference();
+        }
+        StatBuffMod.Add(Modifier);
+        Action = Combat.WaitForTurn(TurnsFromNow, phase, StopAtPhase, EffectEnded);
         /*switch (BuffMethod)
         {
             case BuffableMethod.Multiply:
@@ -210,14 +227,21 @@ public class BuffStatMultiplier : Effect
                 break;
         }*/
     }
-    private ref float GetStatReference()
+    public override void EffectEnded()
+    {
+        Combat.CancelWait(phase, StopAtPhase, Action);
+        StatBuffMod.Remove(Modifier);
+        StatBuffMod = null;
+        base.EffectEnded();
+    }
+    private ref List<StatModifier> GetStatReference()
     {
         switch (StatToBuff)
         {
             case BuffableStats.Attack:
-                return ref card.deck.Owner.BaseDamageMultiplier;
-            case BuffableStats.Defense:
-                return ref card.deck.Owner.BaseDefenseMultiplier;
+                return ref owner.DamageModifiers;
+            case BuffableStats.ShieldGain:
+                return ref owner.ShieldModifiers;
             default:
                 throw new System.Exception("Unsupported stat type.");
         }

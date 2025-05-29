@@ -10,26 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Stamina Potion
+  m_Name: Heavy Strike
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 4002061059687186508
+  - rid: 7391437407230361702
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Stamina Potion
+  Name: Heavy Strike
   hidden: 0
   exaust: 0
-  instantaneous: 1
-  cost: 1
+  instantaneous: 0
+  cost: 2
   Type: 0
-  Rarity: 2
-  Description: Gain 2 extra energy next turn
-  conditions: 
+  Rarity: 0
+  Description: Deals 14 damage
   references:
     version: 2
     RefIds:
-    - rid: 4002061059687186508
-      type: {class: GainEnergy, ns: , asm: Assembly-CSharp}
+    - rid: 7391437407230361702
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
-        Amount: 2
-        time: 0
+        Conditions: []
+        DamageMultiplier: 2.33
+        IgnoreDefense: 0
+        target: 0

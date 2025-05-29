@@ -21,8 +21,9 @@ public class Creature : MonoBehaviour
     [SerializeField] protected int maxHP;
     [SerializeField] protected int hp, shld, energy, maxBaseEnergy = 3, money;
     public int CardBuyMax = 5;
-    [SerializeField] int baseDamage = 6, baseDefense = 5;
-    public float BaseDamageMultiplier = 1, BaseDefenseMultiplier = 1;
+    [SerializeField] int baseDamage = 6, baseShieldGain = 5;
+    public List<StatModifier> DamageModifiers, ShieldModifiers;
+    //public float BaseDamageMultiplier = 1, BaseDefenseMultiplier = 1;
     public UnityEvent Damaged = new UnityEvent();
     public UnityEvent<Card> PlayedCard = new UnityEvent<Card>();
     public bool canPlayCards;
@@ -66,19 +67,37 @@ public class Creature : MonoBehaviour
     }
     public int BaseDamage
     {
-        get{return (int)Math.Ceiling(baseDamage * BaseDamageMultiplier);}
+        get
+        {
+            int res = baseDamage;
+            foreach (StatModifier m in ShieldModifiers)
+            {
+                res = m.ApplyModfier(res);
+            }
+            return res;
+            //return (int)Math.Ceiling(baseDamage * BaseDamageMultiplier);
+        }
     }
-    public int BaseDefense
+    public int BaseShieldGain
     {
-        get{return (int)Math.Ceiling(baseDefense * BaseDefenseMultiplier);}
+        get
+        {
+            int res = baseShieldGain;
+            foreach (StatModifier m in ShieldModifiers)
+            {
+                res = m.ApplyModfier(res);
+            }
+            return res;
+            //return (int)Math.Ceiling(baseShieldGain * BaseDefenseMultiplier);
+        }
     }
-    public void ResetDamageMultiplier()
+    public void ResetDamageModifiers()
     {
-        BaseDamageMultiplier = 1;
+        DamageModifiers.Clear();
     }
-    public void ResetDefenseMultiplier()
+    public void ResetShieldModifiers()
     {
-        BaseDamageMultiplier = 1;
+        ShieldModifiers.Clear();
     }
     public void UpdateCreatureUI(Creature c)
     {
@@ -176,11 +195,19 @@ public class Creature : MonoBehaviour
     }
     public void DiscardCard(Card card)
     {
+        if (card.deck.DiscardPile.Contains(card))
+        {
+            return;
+        }
         card.deck.DiscardPile.Add(card);
         hand.Remove(card);
         playedCards.Remove(card);
         foreach (Effect e in card.Effects)
         {
+            if (!e.EffectAcomplished)
+            {
+                e.EffectEnded();
+            }
             e.resetEffect();
         }
         if (card.exaust)
@@ -202,8 +229,8 @@ public class Creature : MonoBehaviour
         ResetEnergy();
         ResetShield();
         ResetHP();
-        ResetDamageMultiplier();
-        ResetDefenseMultiplier();
+        ResetDamageModifiers();
+        ResetShieldModifiers();
         foreach (Deck deck in decks)
         {
             hand.Clear();

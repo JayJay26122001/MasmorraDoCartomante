@@ -47,4 +47,8 @@ public class SerializableStack<T>
     {
         return Stack.ToList();
     }
+    public bool Contains(T value)
+    {
+        return Stack.Contains(value);
+    }
 }

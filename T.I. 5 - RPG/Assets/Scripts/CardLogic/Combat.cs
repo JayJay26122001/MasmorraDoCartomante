@@ -278,6 +278,7 @@ public class Combat : MonoBehaviour
     }
     public static void CancelWait(TurnPhase phase, TurnPhase.PhaseTime phaseTime, UnityAction action)
     {
+        if (GameplayManager.currentCombat == null) return;
         UnityEvent selectedEvent;
         switch (phaseTime)
         {

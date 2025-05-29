@@ -123,10 +123,10 @@ public class CardUIController : MonoBehaviour
             GameObject cardObject = currentCard.cardDisplay.gameObject;
             cardObject.transform.SetParent(c.combatSpace.playerHandSpace);
             Vector3 pos = (c.combatSpace.playerHandSpace.right * posX) + (c.combatSpace.playerHandSpace.up) * posY + (-c.combatSpace.playerHandSpace.forward) * posZ + c.combatSpace.playerHandSpace.position;
-            if (i == highlightIndex)
+            /*if (i == highlightIndex)
             {
                 pos += c.combatSpace.playerHandSpace.up * 0.4f;
-            }
+            }*/
             LeanTween.move(cardObject, pos, 0.05f).setEaseInOutSine();
         }
     }

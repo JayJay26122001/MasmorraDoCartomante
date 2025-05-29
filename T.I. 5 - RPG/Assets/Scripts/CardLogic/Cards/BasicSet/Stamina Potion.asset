@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
+  m_Name: Stamina Potion
+  m_EditorClassIdentifier: 
+  Effects:
+  - rid: 4002061059687186508
+  cardDisplay: {fileID: 0}
+  deck: {fileID: 0}
+  Name: Stamina Potion
+  hidden: 0
+  exaust: 0
+  instantaneous: 1
+  cost: 1
+  Type: 0
+  Rarity: 2
+  Description: Gain 2 extra energy next turn
+  references:
+    version: 2
+    RefIds:
+    - rid: 4002061059687186508
+      type: {class: GainEnergy, ns: , asm: Assembly-CSharp}
+      data:
+        Conditions:
+        - rid: 7391437906615730246
+        Amount: 2
+    - rid: 7391437906615730246
+      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        TurnOwner: 0
+        TurnsFromNow: 0
+        TurnPhase: 0
+        PhaseTime: 0
