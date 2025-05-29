@@ -9,13 +9,30 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using Unity.VisualScripting.Antlr3.Runtime;
+using NUnit.Framework.Interfaces;
 
 public class UIController : MonoBehaviour
 {
+    [Header("Player Money Text")]
     public TextMeshPro money;
+    [Header("Game Logo")]
+    public GameObject gameLogo;
+    [Header("Menu Buttons")]
+    public GameObject playButton;
+    public GameObject settingsButton;
+    public GameObject creditsButton;
+    public GameObject quitButton;
+    [Header("Menu Panels")]
+    public GameObject settingsPanel;
+    public GameObject creditsPanel;
+    public GameObject quitPanel;
+    [Header("Panel Buttons")]
+    public GameObject leaveSettingsPanelButton;
+    public GameObject leaveCreditsPanelButton;
+    public GameObject leaveQuitPanelButton;
+    public GameObject confirmQuitButton;
+
     /*bool gameStarted, gamePaused;
-    public GameObject playButton, settingsButton, creditsButton, quitButton;
-    public GameObject settingsPanel, creditsPanel, quitPanel;
     public GameObject leaveSettingsPanelButton, leaveCreditsPanelButton, confirmQuitButton;
     public GameObject itemWheel;
     public GameObject lanternButton, remoteButton, mirrorButton;
@@ -32,10 +49,12 @@ public class UIController : MonoBehaviour
     Resolution[] allRes;
     List<Resolution> selectedResList = new List<Resolution>();
     public ConfigData data;
+    */
+
     private void Awake()
     {
         UiSetup();
-    }*/
+    }
 
     private void Start()
     {
@@ -123,6 +142,141 @@ public class UIController : MonoBehaviour
         money.text = m + "$";
     }
 
+    public void OpenPanel(GameObject panel)
+    {
+        panel.SetActive(true);
+        SetMenuButtonsInteractable(false);
+        if(panel == quitPanel)
+        {
+            HideMenuObjects();
+        }
+    }
+
+    public void ClosePanel(GameObject panel)
+    {
+        panel.SetActive(false);
+        SetMenuButtonsInteractable(true);
+        if(panel == quitPanel)
+        {
+            ShowMenuObjects();
+        }
+    }
+
+    public void HideMenuObjects()
+    {
+        gameLogo.SetActive(false);
+        playButton.SetActive(false);
+        settingsButton.SetActive(false); 
+        creditsButton.SetActive(false);
+        quitButton.SetActive(false);
+    }
+
+    public void ShowMenuObjects()
+    {
+        gameLogo.SetActive(true);
+        playButton.SetActive(true);
+        settingsButton.SetActive(true);
+        creditsButton.SetActive(true);
+        quitButton.SetActive(true);
+    }
+
+    public void SetMenuButtonsInteractable(bool interactable)
+    {
+        playButton.GetComponent<Button>().interactable = interactable;
+        settingsButton.GetComponent<Button>().interactable = interactable;
+        creditsButton.GetComponent<Button>().interactable = interactable;
+        quitButton.GetComponent<Button>().interactable = interactable;
+    }
+
+    public void UiSetup()
+    {
+        if (playButton != null)
+        {
+            playButton.SetActive(true);
+        }
+        if (settingsButton != null)
+        {
+            settingsButton.SetActive(true);
+        }
+        if (creditsButton != null)
+        {
+            creditsButton.SetActive(true);
+        }
+        if (quitButton != null)
+        {
+            quitButton.SetActive(true);
+        }
+        if (settingsPanel != null)
+        {
+            settingsPanel.SetActive(false);
+        }
+        if (creditsPanel != null)
+        {
+            creditsPanel.SetActive(false);
+        }
+        if (quitPanel != null)
+        {
+            quitPanel.SetActive(false);
+        }
+        if (leaveSettingsPanelButton != null)
+        {
+            leaveSettingsPanelButton.SetActive(true);
+        }
+        if (leaveCreditsPanelButton != null)
+        {
+            leaveCreditsPanelButton.SetActive(true);
+        }
+        if(leaveQuitPanelButton != null)
+        {
+            leaveQuitPanelButton.SetActive(true);
+        }
+        if (confirmQuitButton != null)
+        {
+            confirmQuitButton.SetActive(true);
+        }
+        /*
+        if (resDropdown != null)
+        {
+            resDropdown.gameObject.SetActive(true);
+        }
+        if (screenModeDropdown != null)
+        {
+            screenModeDropdown.gameObject.SetActive(true);
+        }
+        if (itemWheel != null)
+        {
+            itemWheel.SetActive(false);
+            Invoke("SetupItemWheelIcons", 0.1f);
+        }
+        if (pausePanel != null)
+        {
+            pausePanel.SetActive(false);
+        }
+        if (collectablesPanel != null)
+        {
+            collectablesPanel.SetActive(false);
+        }
+        if (confirmReturnRoomPanel != null)
+        {
+            confirmReturnRoomPanel.SetActive(false);
+        }
+        if (confirmReturnMenuPanel != null)
+        {
+            confirmReturnMenuPanel.SetActive(false);
+        }
+        if (lanternHudImage != null)
+        {
+            lanternHudImage.SetActive(false);
+        }
+        if (remoteHudImage != null)
+        {
+            remoteHudImage.SetActive(false);
+        }
+        if (mirrorHudImage != null)
+        {
+            mirrorHudImage.SetActive(false);
+        }*/
+    }
     /*public void OpenPanel(GameObject panel)
     {
         panel.SetActive(true);
@@ -210,92 +364,7 @@ public class UIController : MonoBehaviour
         itemWheel.SetActive(false);
     }*/
 
-    /*public void UiSetup()
-    {
-        if (playButton != null)
-        {
-            playButton.SetActive(true);
-        }
-        if (settingsButton != null)
-        {
-            settingsButton.SetActive(true);
-        }
-        if (creditsButton != null)
-        {
-            creditsButton.SetActive(true);
-        }
-        if (quitButton != null)
-        {
-            quitButton.SetActive(true);
-        }
-        if (settingsPanel != null)
-        {
-            settingsPanel.SetActive(false);
-        }
-        if (creditsPanel != null)
-        {
-            creditsPanel.SetActive(false);
-        }
-        if (quitPanel != null)
-        {
-            quitPanel.SetActive(false);
-        }
-        if (leaveSettingsPanelButton != null)
-        {
-            leaveSettingsPanelButton.SetActive(true);
-        }
-        if (leaveCreditsPanelButton != null)
-        {
-            leaveCreditsPanelButton.SetActive(true);
-        }
-        if (confirmQuitButton != null)
-        {
-            confirmQuitButton.SetActive(true);
-        }
-        if (resDropdown != null)
-        {
-            resDropdown.gameObject.SetActive(true);
-        }
-        if (screenModeDropdown != null)
-        {
-            screenModeDropdown.gameObject.SetActive(true);
-        }
-        if (itemWheel != null)
-        {
-            itemWheel.SetActive(false);
-            Invoke("SetupItemWheelIcons", 0.1f);
-        }
-        if (pausePanel != null)
-        {
-            pausePanel.SetActive(false);
-        }
-        if (collectablesPanel != null)
-        {
-            collectablesPanel.SetActive(false);
-        }
-        if (confirmReturnRoomPanel != null)
-        {
-            confirmReturnRoomPanel.SetActive(false);
-        }
-        if (confirmReturnMenuPanel != null)
-        {
-            confirmReturnMenuPanel.SetActive(false);
-        }
-        if (lanternHudImage != null)
-        {
-            lanternHudImage.SetActive(false);
-        }
-        if (remoteHudImage != null)
-        {
-            remoteHudImage.SetActive(false);
-        }
-        if (mirrorHudImage != null)
-        {
-            mirrorHudImage.SetActive(false);
-        }
-    }
-
-    public void ChangeMasterVolume()
+    /*public void ChangeMasterVolume()
     {
         data.master = _masterVolumeSlider.value;
         AudioController.controller.ChangeMasterVol(_masterVolumeSlider.value);
@@ -327,16 +396,9 @@ public class UIController : MonoBehaviour
         {
             _sfxSlider.value = aux3;
         }
-    }
-    public void SetButtonsInteractable(bool interactable)
-    {
-        playButton.GetComponent<Button>().interactable = interactable;
-        settingsButton.GetComponent<Button>().interactable = interactable;
-        creditsButton.GetComponent<Button>().interactable = interactable;
-        quitButton.GetComponent<Button>().interactable = interactable;
-    }
+    }*/
 
-    public void ResolutionDropdown()
+    /*public void ResolutionDropdown()
     {
         allRes = Screen.resolutions;
         Array.Sort(allRes, (a, b) =>
@@ -601,5 +663,4 @@ public class UIController : MonoBehaviour
         RectTransform rectTransform = obj.GetComponent<RectTransform>();
         LeanTween.scale(obj, new Vector3(1f, 1f, 1f), 0.25f).setEase(LeanTweenType.easeOutQuad);
     }*/
-
 }

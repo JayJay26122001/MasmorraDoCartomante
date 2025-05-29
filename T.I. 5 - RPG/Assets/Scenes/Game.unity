@@ -4044,6 +4044,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   money: {fileID: 2023532461}
+  gameLogo: {fileID: 0}
+  playButton: {fileID: 0}
+  settingsButton: {fileID: 0}
+  creditsButton: {fileID: 0}
+  quitButton: {fileID: 0}
+  settingsPanel: {fileID: 0}
+  creditsPanel: {fileID: 0}
+  quitPanel: {fileID: 0}
+  leaveSettingsPanelButton: {fileID: 0}
+  leaveCreditsPanelButton: {fileID: 0}
+  leaveQuitPanelButton: {fileID: 0}
+  confirmQuitButton: {fileID: 0}
 --- !u!4 &672682254 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 961325641466372147, guid: 95c5796e80d83424d942710aff6f3d78, type: 3}
@@ -4414,7 +4426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &786645940
 Transform:
   m_ObjectHideFlags: 0
