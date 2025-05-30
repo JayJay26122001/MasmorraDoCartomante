@@ -114,6 +114,7 @@ public class Enemy : Creature
         base.Die();
         GameplayManager.instance.player.ChangeMoney(money);
         EnemyDefeat anim = new EnemyDefeat(this);
+        Debug.Log(anim.time);
         anim.AnimEnded.AddListener(SwitchToMap);
         SceneAnimationController.instance.AddToQueue(anim);
     }

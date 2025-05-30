@@ -131,6 +131,10 @@ public class Combat : MonoBehaviour
         GameplayManager.instance.HideAllEnemies();
         GameplayManager.instance.HideAllBosses();
         StartCoroutine(combatents[1].GetComponent<Enemy>().DisableModel());
+        if(GameplayManager.instance.figtingBoss)
+        {
+            GameManager.instance.uiController.ChangeScene("Victory"); //TEMPORÁRIO
+        }
     }
 
 

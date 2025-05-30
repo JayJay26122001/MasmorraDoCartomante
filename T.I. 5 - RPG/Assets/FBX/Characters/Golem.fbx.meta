@@ -31,7 +31,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: NewDefeat
+      name: Defeat
       takeName: GolemArmature|NewDefeat
       internalID: -714402764886382053
       firstFrame: 0
