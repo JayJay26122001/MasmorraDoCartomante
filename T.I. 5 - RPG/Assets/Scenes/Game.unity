@@ -1916,6 +1916,7 @@ GameObject:
   - component: {fileID: 284883755}
   - component: {fileID: 284883754}
   - component: {fileID: 284883756}
+  - component: {fileID: 284883757}
   m_Layer: 0
   m_Name: BoardGenerator
   m_TagString: Untagged
@@ -1940,8 +1941,10 @@ MonoBehaviour:
   startRoom: {fileID: 11400000, guid: 360091fc7cea3ed4d8292376c8805d53, type: 2}
   bossRoom: {fileID: 11400000, guid: 6a701e2991ee8754b8cddb158e431ad2, type: 2}
   roomTest: {fileID: 7463732538441254492, guid: 99a261ab24e2cec4e8e734aff19bfda6, type: 3}
+  boardBase: {fileID: 902547673}
   lineRenderer: {fileID: 0}
   shaderMat: {fileID: 2100000, guid: e25fe3b2a4aec1e49b27feaadc9e7347, type: 2}
+  animSpeed: 3
 --- !u!4 &284883755
 Transform:
   m_ObjectHideFlags: 0
@@ -1951,7 +1954,7 @@ Transform:
   m_GameObject: {fileID: 284883753}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2, z: -8}
+  m_LocalPosition: {x: 0, y: 0.2, z: -7.5}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1979,6 +1982,51 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &284883757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284883753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 958d4aa6e2478f249aca07ca77b20e6a, type: 2}
+    - {fileID: 11400000, guid: d13b20052627f6947a70d1f653649249, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 284883754}
+          m_TargetAssemblyTypeName: BoardGenerator, Assembly-CSharp
+          m_MethodName: AnimateBoard
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 284883754}
+          m_TargetAssemblyTypeName: BoardGenerator, Assembly-CSharp
+          m_MethodName: AnimateBoard
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!1 &320683348
 GameObject:
   m_ObjectHideFlags: 0
@@ -3782,7 +3830,7 @@ PlayableDirector:
   m_GameObject: {fileID: 626271299}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 98527c94a53592043a030db29e352ede, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 229bd1c6a57556f45ac1911797a033bb, type: 2}
   m_InitialState: 0
   m_WrapMode: 0
   m_DirectorUpdateMode: 1
@@ -3890,20 +3938,14 @@ PlayableDirector:
     value: {fileID: 2100974891241921841}
   - key: {fileID: -1157453414343253976, guid: c6d5144740e9b284aa29af9da6b7909e, type: 2}
     value: {fileID: 3419473715425861287}
-  - key: {fileID: -6382682933422181706, guid: c6d5144740e9b284aa29af9da6b7909e, type: 2}
-    value: {fileID: 1516939212}
   - key: {fileID: 4769114251459030012, guid: fbef68baeb48bff439b5d4200d5387fa, type: 2}
     value: {fileID: 167226756}
   - key: {fileID: 8517048376945164855, guid: fbef68baeb48bff439b5d4200d5387fa, type: 2}
     value: {fileID: 2100974891241921841}
-  - key: {fileID: -6378879327131115640, guid: fbef68baeb48bff439b5d4200d5387fa, type: 2}
-    value: {fileID: 1516939212}
   - key: {fileID: -7334774782641401522, guid: 3b957b7ff9a6fa248994e3624e08a010, type: 2}
     value: {fileID: 2100974891241921841}
   - key: {fileID: -3272643620972266516, guid: 3b957b7ff9a6fa248994e3624e08a010, type: 2}
     value: {fileID: 3419473715425861287}
-  - key: {fileID: 4176158204743281094, guid: 3b957b7ff9a6fa248994e3624e08a010, type: 2}
-    value: {fileID: 1516939212}
   - key: {fileID: 705800390524544057, guid: 3b957b7ff9a6fa248994e3624e08a010, type: 2}
     value: {fileID: 1196482000}
   - key: {fileID: 7543419055634751239, guid: 3b957b7ff9a6fa248994e3624e08a010, type: 2}
@@ -3924,8 +3966,6 @@ PlayableDirector:
     value: {fileID: 1196482000}
   - key: {fileID: -5910935174065208885, guid: 229bd1c6a57556f45ac1911797a033bb, type: 2}
     value: {fileID: 3419473715425861287}
-  - key: {fileID: 8146397307737373239, guid: 229bd1c6a57556f45ac1911797a033bb, type: 2}
-    value: {fileID: 1516939212}
   - key: {fileID: -2446657547634861056, guid: 3b957b7ff9a6fa248994e3624e08a010, type: 2}
     value: {fileID: 1928266331}
   - key: {fileID: 1536477529606655976, guid: 3b957b7ff9a6fa248994e3624e08a010, type: 2}
@@ -3946,6 +3986,14 @@ PlayableDirector:
     value: {fileID: 566439125}
   - key: {fileID: 5209784713849997534, guid: fbbffbd32dc74b145a8779e8e8e20925, type: 2}
     value: {fileID: 566439119}
+  - key: {fileID: 6377408551732134339, guid: c6d5144740e9b284aa29af9da6b7909e, type: 2}
+    value: {fileID: 284883757}
+  - key: {fileID: 2877443080534083383, guid: 3b957b7ff9a6fa248994e3624e08a010, type: 2}
+    value: {fileID: 284883757}
+  - key: {fileID: 2708498202358528601, guid: fbef68baeb48bff439b5d4200d5387fa, type: 2}
+    value: {fileID: 284883757}
+  - key: {fileID: -214430666218131924, guid: 229bd1c6a57556f45ac1911797a033bb, type: 2}
+    value: {fileID: 284883757}
   m_ExposedReferences:
     m_References:
     - 8d55506c3722da14a847503b3a17bb7b: {fileID: 1240816932}
@@ -4563,7 +4611,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1278316017692015133, guid: f429a0a4cf2fddb45895f8012aeb3fec, type: 3}
+  - {fileID: 2100000, guid: e25fe3b2a4aec1e49b27feaadc9e7347, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -134,7 +134,7 @@ public class GameplayManager : MonoBehaviour
 
     public void MoveBoard(Action act)
     {
-        LeanTween.move(bg.gameObject, bg.gameObject.transform.position - (Vector3.forward * 20 * bg.gameObject.transform.localScale.z), 2).setOnComplete(act);
+        LeanTween.move(bg.gameObject, bg.gameObject.transform.position - (Vector3.forward * 20 * bg.gameObject.transform.localScale.z), 1).setOnComplete(act);
     }
 
     public void ChangeArea()
