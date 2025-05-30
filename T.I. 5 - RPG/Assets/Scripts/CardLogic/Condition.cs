@@ -9,7 +9,7 @@ public abstract class Condition
     public enum ConditionState { Unsolved, Achieved, Failled }
     public ConditionState ConditionStatus { get; private set; }
     [System.NonSerialized] public Effect effect;
-    public bool Repeatable = false; // if true the condition will repeat the efect every time it is acomplished
+    public bool Repeatable = false, DiscardIfAcomplished = false; // if true the condition will repeat the efect every time it is acomplished
     public void ActivateCondition() //começa a observar a condição
     {
         if (!ConditionActive)
@@ -45,6 +45,10 @@ public abstract class Condition
         }
         effect.CheckConditions();
         DeactivateCondition();
+        if (DiscardIfAcomplished)
+        {
+            effect.card.deck.Owner.DiscardCard(effect.card);
+        }
     }
     public void ResetCondition() //reseta o status da condição
     {
@@ -143,5 +147,45 @@ public class WaitUntilTurn : Condition
     protected override void Unsubscribe()
     {
         Combat.CancelWait(phase, PhaseTime, ListenerAction);
+    }
+}
+[Serializable]
+public class DamageBlocked : Condition
+{
+    [SerializeField] Target BlockedBy;
+    enum Target { User, Oponent }
+
+    UnityAction ConditionToSuceed = null, ConditionToFail = null;
+    Creature owner;
+    public override void InitiateCondition()
+    {
+        base.InitiateCondition();
+        switch (BlockedBy)
+        {
+            case Target.Oponent:
+                owner = effect.card.deck.Owner.enemy;
+                break;
+            case Target.User:
+                owner = effect.card.deck.Owner;
+                break;
+        }
+
+        ConditionToSuceed = () =>
+        {
+            ConcludeCondition(true);
+        };
+        owner.DamageBlocked.AddListener(ConditionToSuceed);
+        if (Repeatable) return;
+        ConditionToFail = () =>
+        {
+            ConcludeCondition(false);
+        };
+        owner.Wounded.AddListener(ConditionToFail);
+
+    }
+    protected override void Unsubscribe()
+    {
+        owner.DamageBlocked.RemoveListener(ConditionToSuceed);
+        owner.Wounded.RemoveListener(ConditionToFail);
     }
 }

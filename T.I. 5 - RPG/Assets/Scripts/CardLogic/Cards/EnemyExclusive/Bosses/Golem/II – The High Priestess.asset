@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
+  m_Name: "II \u2013 The High Priestess"
+  m_EditorClassIdentifier: 
+  Effects:
+  - rid: 7391437929559097478
+  - rid: 7391437929559097479
+  - rid: 7391437929559097483
+  cardDisplay: {fileID: 0}
+  deck: {fileID: 0}
+  Name: "II \u2013 The High Priestess"
+  hidden: 0
+  exaust: 1
+  instantaneous: 0
+  cost: 0
+  Type: 1
+  Rarity: 4
+  Description: Gain 9 defense. Until the user's next turn, if an incoming damage
+    is fully blocked, heal 10 health. LIMITED
+  references:
+    version: 2
+    RefIds:
+    - rid: 7391437929559097478
+      type: {class: GainDefense, ns: , asm: Assembly-CSharp}
+      data:
+        Conditions: []
+        DefenseMultiplier: 1.8
+    - rid: 7391437929559097479
+      type: {class: Heal, ns: , asm: Assembly-CSharp}
+      data:
+        Conditions:
+        - rid: 7391437929559097481
+        AmountHealled: 10
+        target: 0
+    - rid: 7391437929559097481
+      type: {class: DamageBlocked, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        DiscardIfAcomplished: 1
+        BlockedBy: 0
+    - rid: 7391437929559097483
+      type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
+      data:
+        Conditions:
+        - rid: 7391437929559097484
+        SetAsDiscardTime: 0
+    - rid: 7391437929559097484
+      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        DiscardIfAcomplished: 0
+        TurnOwner: 0
+        TurnsFromNow: 0
+        TurnPhase: 0
+        PhaseTime: 0
