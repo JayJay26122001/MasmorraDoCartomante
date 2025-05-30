@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour
     public static CameraController instance;
     public CinemachineCamera highlightCardCamera, angledTopCamera;
     bool inputActive;
-
+    bool blockHighlight;
     private void Awake()
     {
         //controller = this.GetComponent<CinemachineBrain>();
@@ -22,6 +22,7 @@ public class CameraController : MonoBehaviour
     {
         AngledTop();
         inputActive = false;
+        blockHighlight = false;
     }
     public void ChangeCamera(int Index)
     {
@@ -64,14 +65,17 @@ public class CameraController : MonoBehaviour
 
     public void HighlightCard(Vector3 pos)
     {
-        if(highlightCardCamera.Priority == 0)
+        if(!blockHighlight)
         {
-            highlightCardCamera.transform.position = new Vector3(pos.x, highlightCardCamera.transform.position.y, pos.z);
-            highlightCardCamera.Priority = 2;
-        }
-        else
-        {
-            highlightCardCamera.Priority = 0;
+            if(highlightCardCamera.Priority == 0 )
+            {
+                highlightCardCamera.transform.position = new Vector3(pos.x, highlightCardCamera.transform.position.y, pos.z);
+                highlightCardCamera.Priority = 2;
+            }
+            else
+            {
+                highlightCardCamera.Priority = 0;
+            }
         }
     }
 
@@ -94,5 +98,23 @@ public class CameraController : MonoBehaviour
         {
             angledTopCamera.Priority = 0;
         }
+    }
+
+    public void RemoveHighlight(InputAction.CallbackContext context)
+    {
+        if(context.phase == InputActionPhase.Canceled)
+        {
+            if(highlightCardCamera.Priority == 2)
+            {
+                blockHighlight = true;
+                highlightCardCamera.Priority = 0;
+                Invoke("UnblockHighlight", 0.1f);
+            }
+        }
+    }
+
+    public void UnblockHighlight()
+    {
+        blockHighlight = false;
     }
 }

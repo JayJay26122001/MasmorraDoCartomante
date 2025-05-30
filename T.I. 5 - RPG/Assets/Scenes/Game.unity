@@ -659,6 +659,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: bdf16f4b-86de-4ad9-95c0-b70e9daf39c8
     m_ActionName: 'UI/PauseGame[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 30614216}
+        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+        m_MethodName: RemoveHighlight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8af2f461-6b71-446c-8a52-c624f4f91563
+    m_ActionName: 'Player/MouseClick[/Mouse/rightButton,/Mouse/leftButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -2342,6 +2358,7 @@ MonoBehaviour:
   cardsInstances: []
   priceText: {fileID: 533183485}
   discardBell: {fileID: 566439126}
+  mat: {fileID: 0}
 --- !u!23 &320683351
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2365,7 +2382,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4493147853540630816, guid: 75fec51eb8464014d942876d25edfe56, type: 3}
+  - {fileID: 2100000, guid: e25fe3b2a4aec1e49b27feaadc9e7347, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3618,7 +3635,7 @@ MonoBehaviour:
   decks: []
   hand: []
   playedCards: []
-  maxHP: 40
+  maxHP: 30
   hp: 0
   shld: 0
   energy: 0
@@ -4971,6 +4988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c7e1c2d614f6a4593c864072d4e2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gamePaused: 0
   money: {fileID: 2023532461}
   gameLogo: {fileID: 0}
   playButton: {fileID: 0}
@@ -8388,6 +8406,7 @@ MonoBehaviour:
   cardsInstances: []
   priceText: {fileID: 1249252529}
   discardBell: {fileID: 566439126}
+  mat: {fileID: 0}
 --- !u!23 &1452082920
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8411,7 +8430,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4493147853540630816, guid: 75fec51eb8464014d942876d25edfe56, type: 3}
+  - {fileID: 2100000, guid: e25fe3b2a4aec1e49b27feaadc9e7347, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9669,7 +9688,7 @@ MonoBehaviour:
   decks: []
   hand: []
   playedCards: []
-  maxHP: 35
+  maxHP: 50
   hp: 0
   shld: 0
   energy: 0

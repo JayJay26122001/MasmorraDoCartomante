@@ -8,8 +8,12 @@ public class CardPack : MonoBehaviour
     public List<Card> cardsInstances;
     public TextMeshPro priceText;
     public DiscardBell discardBell;
+    public Material mat;
+    bool bought;
     private void Start()
     {
+        mat = GetComponent<MeshRenderer>().material;
+        mat.color = new Color32(150, 50, 0, 255);
         //DefineCards();
         /*foreach (Card c in cards)
         {
@@ -19,6 +23,9 @@ public class CardPack : MonoBehaviour
 
     public void DefineCards()
     {
+        bought = false;
+        mat = GetComponent<MeshRenderer>().material;
+        mat.SetFloat("_DisappearTime", 0);
         cardsInstances.Clear();
         cards = data.possibleCards.SelectCards(data.cardQuantity);
         priceText.text = data.price + "$";
@@ -26,13 +33,15 @@ public class CardPack : MonoBehaviour
 
     public void OnMouseDown()
     {
-        if(GameplayManager.instance.canBuy)
+        if(GameplayManager.instance.canBuy && !bought)
         {
             if (GameplayManager.instance.player.ChangeMoney(-data.price))
             {
                 GameplayManager.instance.canBuy = false;
                 GameplayManager.instance.PlayCutscene(4);
                 discardBell.pack = this;
+                AnimatePack();
+                bought = true;
                 foreach(Card c in cards)
                 {
                     CardDisplay aux = CardUIController.instance.InstantiateCard(c);
@@ -62,5 +71,28 @@ public class CardPack : MonoBehaviour
             });
         }
         cardsInstances.Clear();
+    }
+
+    float animTimeStart;
+    bool inAnimation;
+    float t;
+    public void AnimatePack()
+    {
+        priceText.text = "";
+        animTimeStart = Time.time;
+        inAnimation = true;
+    }
+
+    private void Update()
+    {
+        if (inAnimation)
+        {
+            t = Mathf.Clamp((Time.time - animTimeStart) * 3, 0, 1);
+            mat.SetFloat("_DisappearTime", t);
+            if (t >= 1)
+            {
+                inAnimation = false;
+            }
+        }
     }
 }
