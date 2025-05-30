@@ -1936,7 +1936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76732fbb8eaa6f84ca59334d1b8f69b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelsCount: 20
+  levelsCount: 10
   maxBranches: 3
   startRoom: {fileID: 11400000, guid: 360091fc7cea3ed4d8292376c8805d53, type: 2}
   bossRoom: {fileID: 11400000, guid: 6a701e2991ee8754b8cddb158e431ad2, type: 2}
@@ -3020,7 +3020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   DeckPresets:
-  - {fileID: 11400000, guid: 09d6c5b2d83f8a14dabe4d634765683a, type: 2}
+  - {fileID: 11400000, guid: 2581a83c402b97a49b23592a6af0fb79, type: 2}
   decks: []
   hand: []
   playedCards: []
@@ -3830,7 +3830,7 @@ PlayableDirector:
   m_GameObject: {fileID: 626271299}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 229bd1c6a57556f45ac1911797a033bb, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: c6d5144740e9b284aa29af9da6b7909e, type: 2}
   m_InitialState: 0
   m_WrapMode: 0
   m_DirectorUpdateMode: 1
@@ -6363,7 +6363,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1264320103
 Transform:
   m_ObjectHideFlags: 0
@@ -6743,7 +6743,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1426449209
 Transform:
   m_ObjectHideFlags: 0
@@ -6855,14 +6855,15 @@ MonoBehaviour:
   enemies:
   - {fileID: 509029435}
   - {fileID: 1848926784}
+  bosses:
   - {fileID: 1648378708}
   enemyPools:
     matrix:
     - value: {fileID: 11400000, guid: 9f71a1fdb7ccd7d4db16a2595f34a95c, type: 2}
-    - value: {fileID: 11400000, guid: 7578ccb1628e95349aad4b079a053e43, type: 2}
-    - value: {fileID: 11400000, guid: 79fb4402e94135843b52dfc2dae0f42e, type: 2}
-    - value: {fileID: 11400000, guid: 79fb4402e94135843b52dfc2dae0f42e, type: 2}
-    - value: {fileID: 11400000, guid: 79fb4402e94135843b52dfc2dae0f42e, type: 2}
+    - value: {fileID: 11400000, guid: 9f71a1fdb7ccd7d4db16a2595f34a95c, type: 2}
+    - value: {fileID: 11400000, guid: 9f71a1fdb7ccd7d4db16a2595f34a95c, type: 2}
+    - value: {fileID: 11400000, guid: 9f71a1fdb7ccd7d4db16a2595f34a95c, type: 2}
+    - value: {fileID: 11400000, guid: 9f71a1fdb7ccd7d4db16a2595f34a95c, type: 2}
     - value: {fileID: 0}
     - value: {fileID: 0}
     - value: {fileID: 0}
@@ -6893,6 +6894,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0bedbf24d8f763346b6fb9c003b536bc, type: 2}
   canBuy: 0
   removingCards: 0
+  figtingBoss: 0
 --- !u!114 &1432303491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7610,7 +7612,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1551659757
 Transform:
   m_ObjectHideFlags: 0
@@ -7715,7 +7717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   DeckPresets:
-  - {fileID: 11400000, guid: 09d6c5b2d83f8a14dabe4d634765683a, type: 2}
+  - {fileID: 11400000, guid: 646b18cfdf878424897bdef708cce818, type: 2}
   decks: []
   hand: []
   playedCards: []
@@ -8134,7 +8136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   DeckPresets:
-  - {fileID: 11400000, guid: 09d6c5b2d83f8a14dabe4d634765683a, type: 2}
+  - {fileID: 11400000, guid: 8b745a042663de24bbcab1c3e0eda02c, type: 2}
   decks: []
   hand: []
   playedCards: []
@@ -8161,7 +8163,7 @@ MonoBehaviour:
   shieldText: {fileID: 1992139180}
   energyText: {fileID: 1957511179}
   anim: {fileID: 0}
-  model: {fileID: 1429280706}
+  model: {fileID: 1426449208}
 --- !u!4 &1848926785
 Transform:
   m_ObjectHideFlags: 0
@@ -9971,7 +9973,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7505595791081684007, guid: f514aff81ef252d479262f9c86df7b3e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8713014046441253018, guid: f514aff81ef252d479262f9c86df7b3e, type: 3}
       propertyPath: m_LocalPosition.x

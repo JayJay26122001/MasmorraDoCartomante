@@ -253,7 +253,7 @@ public class BuffStat : Effect, IProlongedEffect
     public override void EffectEnded()
     {
         Combat.CancelWait(phase, StopAtPhase, Action);
-        StatBuffMod.Remove(Modifier);
+        StatBuffMod?.Remove(Modifier);
         StatBuffMod = null;
         base.EffectEnded();
     }

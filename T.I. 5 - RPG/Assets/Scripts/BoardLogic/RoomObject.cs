@@ -12,9 +12,13 @@ public class RoomObject : MonoBehaviour
             Action act = new Action(() => { return; });
             switch(roomRef.type.roomName)
             {
+                case "Boss":
+                    GameplayManager.instance.figtingBoss = true;
+                    act = new Action(() => { SwitchToBattle(); });
+                    break;
                 case "Battle":
                 case "Mimic":
-                case "Boss":
+                    GameplayManager.instance.figtingBoss = false;
                     act = new Action(() => { SwitchToBattle(); });
                     break;
                 case "Shop":

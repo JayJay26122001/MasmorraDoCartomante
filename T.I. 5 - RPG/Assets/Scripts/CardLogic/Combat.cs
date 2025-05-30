@@ -19,7 +19,14 @@ public class Combat : MonoBehaviour
 
     public void SetEnemy(int index)
     {
-        combatents[1] = GameplayManager.instance.enemies[index];
+        if(GameplayManager.instance.figtingBoss)
+        {
+            combatents[1] = GameplayManager.instance.bosses[index];
+        }
+        else
+        {
+            combatents[1] = GameplayManager.instance.enemies[index];
+        }
     }
     public TurnPhase GetTurnPhase(Creature C, TurnPhaseTypes phaseType)
     {
@@ -122,6 +129,7 @@ public class Combat : MonoBehaviour
         }
         GameplayManager.instance.ChangeBattleCount();
         GameplayManager.instance.HideAllEnemies();
+        GameplayManager.instance.HideAllBosses();
         StartCoroutine(combatents[1].GetComponent<Enemy>().DisableModel());
     }
 
@@ -278,7 +286,7 @@ public class Combat : MonoBehaviour
     }
     public static void CancelWait(TurnPhase phase, TurnPhase.PhaseTime phaseTime, UnityAction action)
     {
-        if (GameplayManager.currentCombat == null) return;
+        if (phase == null) return;
         UnityEvent selectedEvent;
         switch (phaseTime)
         {

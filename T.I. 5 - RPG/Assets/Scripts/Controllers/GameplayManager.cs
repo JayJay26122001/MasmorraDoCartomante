@@ -23,13 +23,14 @@ public class GameplayManager : MonoBehaviour
     //[SerializeField]int money;
 
     public List<Enemy> enemies = new List<Enemy>();
+    public List<Enemy> bosses = new List<Enemy>();
     public SerializedMatrix<EnemyPool> enemyPools = new SerializedMatrix<EnemyPool>(5, 5);
     public Player player;
     int areaIndex = 0, battlePerArea = 0;
 
     public List<CardPack> packs = new List<CardPack>();
     public List<PackPool> packPools = new List<PackPool>();
-    public bool canBuy, removingCards = false;
+    public bool canBuy, removingCards = false, figtingBoss;
 
     private void Awake()
     {
@@ -101,9 +102,17 @@ public class GameplayManager : MonoBehaviour
 
     public void SelectEnemy()
     {
-        int aux = enemyPools.GetValue(battlePerArea, areaIndex).value.SelectIndex();
-        ShowEnemy(aux);
-        currentCombat.SetEnemy(aux);
+        if(!figtingBoss)
+        {
+            int aux = enemyPools.GetValue(battlePerArea, areaIndex).value.SelectIndex();
+            ShowEnemy(aux);
+            currentCombat.SetEnemy(aux);
+        }
+        else
+        {
+            ShowBoss();
+            currentCombat.SetEnemy(areaIndex);
+        }
     }
 
     public void ShowEnemy(int index)
@@ -113,11 +122,25 @@ public class GameplayManager : MonoBehaviour
             enemies[i].gameObject.SetActive(i == index);
         }
     }
+    public void ShowBoss()
+    {
+        for(int i = 0; i < bosses.Count; i++)
+        {
+            bosses[i].gameObject.SetActive(i == areaIndex);
+        }
+    }
     public void HideAllEnemies()
     {
         for(int i = 0; i < enemies.Count; i++)
         {
             enemies[i].gameObject.SetActive(false);
+        }
+    }
+    public void HideAllBosses()
+    {
+        for(int i = 0; i < bosses.Count; i++)
+        {
+            bosses[i].gameObject.SetActive(false);
         }
     }
 
