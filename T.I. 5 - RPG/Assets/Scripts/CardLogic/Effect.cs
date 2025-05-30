@@ -165,10 +165,33 @@ public class GainEnergy : Effect
 [Serializable]
 public class DiscardThisCard : Effect
 {
+    public enum DiscardType { Maximum, Minimum }
+    public DiscardType SetAsDiscardTime;
     public override void Apply()
     {
         base.Apply();
-        card.deck.Owner.DiscardCard(card);
+        switch (SetAsDiscardTime)
+        {
+            case DiscardType.Maximum:
+                card.deck.Owner.DiscardCard(card);
+                break;
+            case DiscardType.Minimum:
+                if (CheckCompletion()) card.deck.Owner.DiscardCard(card);
+                else { EffectEnded(); }
+                break;
+        }
+
+    }
+    bool CheckCompletion()
+    {
+        foreach (Effect e in card.Effects)
+        {
+            if (!e.EffectAcomplished && e != this)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
 public interface IProlongedEffect

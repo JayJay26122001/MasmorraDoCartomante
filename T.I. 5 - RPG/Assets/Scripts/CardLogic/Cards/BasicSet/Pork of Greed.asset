@@ -21,14 +21,14 @@ MonoBehaviour:
   exaust: 0
   instantaneous: 1
   cost: 0
-  Type: 0
+  Type: 2
   Rarity: 2
   Description: Buy 2 Cards
-  conditions: 
   references:
     version: 2
     RefIds:
     - rid: 4002061059687186509
       type: {class: BuyCards, ns: , asm: Assembly-CSharp}
       data:
+        Conditions: []
         BuyCardNumber: 2

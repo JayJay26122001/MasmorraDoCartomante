@@ -368,6 +368,7 @@ public class TurnStart : TurnPhase
     }
     public override void EndPhase()
     {
+        owner.canPlayCards = false;
         base.EndPhase();
         owner.GetComponent<Player>()?.DiselectCard();
     }

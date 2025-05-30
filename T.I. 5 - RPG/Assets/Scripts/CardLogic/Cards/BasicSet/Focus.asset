@@ -21,10 +21,9 @@ MonoBehaviour:
   exaust: 0
   instantaneous: 1
   cost: 0
-  Type: 0
+  Type: 2
   Rarity: 1
   Description: Gain 1 extra energy for this turn.
-  conditions: 
   references:
     version: 2
     RefIds:
@@ -33,4 +32,3 @@ MonoBehaviour:
       data:
         Conditions: []
         Amount: 1
-        time: 0

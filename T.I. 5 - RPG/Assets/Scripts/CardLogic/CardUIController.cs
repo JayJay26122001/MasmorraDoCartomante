@@ -109,6 +109,8 @@ public class CardUIController : MonoBehaviour
         float handVerticalSpacing = 0.003f;
         float curvatureHeight = 0.15f;
         int highlightIndex = c.hand.IndexOf(instance.highlightedCard);
+        if (highlightIndex < 0) highlightIndex = totalHandCards - 1;
+        int[] offsets = GetOffsetMultipliers(totalHandCards, highlightIndex);
         if (c.GetComponent<Player>() != null)
         {
             c.combatSpace.playerHandSpace.transform.rotation = instance.cardsCamera.transform.rotation;
@@ -118,19 +120,55 @@ public class CardUIController : MonoBehaviour
             float posX = (i - index) * spacing;
             float normalized = (index != 0f) ? (i - index) / index : 0f;
             float posY = (-Mathf.Pow(normalized, 2) + 1) * curvatureHeight;
-            float posZ = handVerticalSpacing * -(Mathf.Abs(highlightIndex - i) - highlightIndex);
+            float posZ = handVerticalSpacing * offsets[i];
             Card currentCard = c.hand[i];
             GameObject cardObject = currentCard.cardDisplay.gameObject;
             cardObject.transform.SetParent(c.combatSpace.playerHandSpace);
             Vector3 pos = (c.combatSpace.playerHandSpace.right * posX) + (c.combatSpace.playerHandSpace.up) * posY + (-c.combatSpace.playerHandSpace.forward) * posZ + c.combatSpace.playerHandSpace.position;
-            /*if (i == highlightIndex)
-            {
-                pos += c.combatSpace.playerHandSpace.up * 0.4f;
-            }*/
             LeanTween.move(cardObject, pos, 0.05f).setEaseInOutSine();
         }
+        
     }
-    public static void OrganizeHandCardsWhenUnhighlighted(Creature c)
+    public static int[] GetOffsetMultipliers(int cardCount, int selectedIndex)
+    {
+        int[] result = new int[cardCount];
+        int maxValue = cardCount - 1;
+        List<int> lower = new List<int>(), higher = new List<int>();
+    
+        for (int i = 0; i < cardCount; i++)
+        {
+            if (i < selectedIndex)
+            {
+                result[i] = i;
+                lower.Add(result[i]);
+            }
+            else if (i > selectedIndex)
+            {
+                result[i] =  Mathf.Abs(i - maxValue);
+                higher.Add(result[i]);
+            }
+        }
+        int greatest = lower.Count;
+        if (higher.Count > greatest) greatest = higher.Count;
+
+        result[selectedIndex] = greatest;
+    
+        return result;
+    }
+    /*public static int[] GetOffsetMultipliers(int cardCount, int selectedIndex)
+    {
+        int[] result = new int[cardCount];
+        int maxValue = cardCount - 1;
+    
+        for (int i = 0; i < cardCount; i++)
+        {
+            result[i] = Mathf.Max(0, maxValue - Mathf.Abs(i - selectedIndex));
+        }
+    
+        return result;
+    }*/
+
+    /*public static void OrganizeHandCardsWhenUnhighlighted(Creature c)
     {
         int totalHandCards = c.hand.Count;
         float fixedSpacing = 2f;
@@ -159,7 +197,7 @@ public class CardUIController : MonoBehaviour
             Vector3 pos = (c.combatSpace.playerHandSpace.right * posX) + (c.combatSpace.playerHandSpace.up) * posY + (-c.combatSpace.playerHandSpace.forward) * posZ + c.combatSpace.playerHandSpace.position;
             LeanTween.move(cardObject, pos, 0.05f).setEaseInOutSine();
         }
-    }
+    }*/
 
     public static void OrganizePlayedCards(Creature c)
     {

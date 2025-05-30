@@ -74,7 +74,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         {
             if (pack != null || GameplayManager.instance.removingCards || cardData.deck.Owner.playedCards.Contains(cardData))
             {
-                CameraController.instance.HighlightCard(this.transform.position);
+                CameraController.instance.HighlightCard(gameObject.GetComponentsInChildren<Transform>()[1].position);
             }
         }
     }
@@ -110,7 +110,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
             if (cardData != null && cardData.deck != null && cardData.deck.Owner != null)
             {
                 Creature c = cardData.deck.Owner;
-                if (c.hand.Contains(cardData) && c.GetComponent<Player>() != null && GameplayManager.currentCombat.TurnIndex == 0)
+                if (c.hand.Contains(cardData) && c.GetComponent<Player>() != null /*&& GameplayManager.currentCombat.TurnIndex == 0*/)
                 {
                     LeanTween.scale(gameObject, originalScale * 1.25f, 0.1f).setEaseOutQuad();
                     highlighted = true;
@@ -132,7 +132,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
                 {
                     LeanTween.moveLocal(gameObject, originalPosition, 0.03f).setEaseInOutSine();
                 }*/
-                CardUIController.OrganizeHandCardsWhenUnhighlighted(c);
+                CardUIController.OrganizeHandCardsWhenHighlighted(c);
                 highlighted = false;
             }
         }

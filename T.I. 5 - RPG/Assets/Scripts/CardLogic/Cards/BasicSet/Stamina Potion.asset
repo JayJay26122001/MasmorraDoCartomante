@@ -21,7 +21,7 @@ MonoBehaviour:
   exaust: 0
   instantaneous: 1
   cost: 1
-  Type: 0
+  Type: 2
   Rarity: 2
   Description: Gain 2 extra energy next turn
   references:

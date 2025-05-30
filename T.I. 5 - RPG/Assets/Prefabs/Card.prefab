@@ -659,7 +659,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 9116686077430768635}
           m_TargetAssemblyTypeName: CardDisplay, Assembly-CSharp
-          m_MethodName: OnCardClick
+          m_MethodName: 
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

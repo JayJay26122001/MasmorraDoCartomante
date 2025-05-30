@@ -20,6 +20,7 @@ public class Card : ScriptableObject
         if (instantaneous && !Effects.OfType<IProlongedEffect>().Any()) // seta quando cartas instantaneas serão descartadas
         {
             DiscardThisCard discard = new DiscardThisCard();
+            discard.SetAsDiscardTime = DiscardThisCard.DiscardType.Minimum;
             WaitUntilTurn time = new WaitUntilTurn();
             time.TurnsFromNow = 0;
             time.TurnPhase = Combat.TurnPhaseTypes.Reaction;
