@@ -15,16 +15,17 @@ public class Creature : MonoBehaviour
     }
     public Creature enemy;
     [SerializeField] List<Deck> DeckPresets = new List<Deck>();
-    [SerializeField]public List<Deck> decks = new List<Deck>();
+    [SerializeField] public List<Deck> decks = new List<Deck>();
     public List<Card> hand = new List<Card>();
     public List<Card> playedCards = new List<Card>();
     [SerializeField] protected int maxHP;
     [SerializeField] protected int hp, shld, energy, maxBaseEnergy = 3, money;
     public int CardBuyMax = 5;
     [SerializeField] int baseDamage = 6, baseShieldGain = 5;
-    public List<StatModifier> DamageModifiers, ShieldModifiers;
+    [Range(0, 1)][SerializeField] int baseDamageReduction = 0;
+    public List<StatModifier> DamageModifiers, ShieldModifiers, DamageReductionModifiers;
     //public float BaseDamageMultiplier = 1, BaseDefenseMultiplier = 1;
-    public UnityEvent Damaged = new UnityEvent();
+    public UnityEvent Damaged = new UnityEvent(), Wounded = new UnityEvent(), DamageBlocked = new UnityEvent();
     public UnityEvent<Card> PlayedCard = new UnityEvent<Card>();
     public bool canPlayCards;
     public CardCombatSpaces combatSpace;
@@ -70,7 +71,7 @@ public class Creature : MonoBehaviour
         get
         {
             int res = baseDamage;
-            foreach (StatModifier m in ShieldModifiers)
+            foreach (StatModifier m in DamageModifiers)
             {
                 res = m.ApplyModfier(res);
             }
@@ -89,6 +90,19 @@ public class Creature : MonoBehaviour
             }
             return res;
             //return (int)Math.Ceiling(baseShieldGain * BaseDefenseMultiplier);
+        }
+    }
+    [Range(0, 1)]
+    public int BaseDamageReduction
+    {
+        get
+        {
+            int res = baseDamageReduction;
+            foreach (StatModifier m in DamageReductionModifiers)
+            {
+                res = m.ApplyModfier(res);
+            }
+            return res;
         }
     }
     public void ResetDamageModifiers()
@@ -139,7 +153,7 @@ public class Creature : MonoBehaviour
     }
     public virtual void CombatStartAction()
     {
-        
+
     }
     public virtual void BuyCards(int quantity)
     {
@@ -243,16 +257,26 @@ public class Creature : MonoBehaviour
     //COMBAT METHODS
     public virtual void TakeDamage(int damage, bool IgnoreDefense)
     {
-        if (damage < 0) damage = 0;
+        damage -= BaseDamageReduction * damage;
+        if (damage <= 0) { return; }
         int trueDamage;
         if (IgnoreDefense)
         {
             trueDamage = damage;
+            Wounded.Invoke();
         }
         else
         {
             trueDamage = (int)Mathf.Clamp(damage - Shield, 0, Mathf.Infinity);
             Shield -= damage;
+            if (trueDamage == 0)
+            {
+                DamageBlocked.Invoke();
+            }
+            else
+            {
+                Wounded.Invoke();
+            }
         }
         Health -= trueDamage;
         Damaged.Invoke();
@@ -263,9 +287,18 @@ public class Creature : MonoBehaviour
     }
     public virtual void TakeDamage(int damage)
     {
-        if (damage < 0) damage = 0;
+        damage -= BaseDamageReduction * damage;
+        if (damage <= 0) { return; }
         int trueDamage = (int)Mathf.Clamp(damage - Shield, 0, Mathf.Infinity);
         Shield -= damage;
+        if (trueDamage == 0)
+        {
+            DamageBlocked.Invoke();
+        }
+        else
+        {
+            Wounded.Invoke();
+        }
         Health -= trueDamage;
         Damaged.Invoke();
         if (Health <= 0)

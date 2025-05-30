@@ -28,9 +28,18 @@ public class Enemy : Creature
     {
         if (Health > 0)
         {
-            if (damage < 0) damage = 0;
+            damage -= BaseDamageReduction * damage;
+            if (damage <= 0) { return; }
             int trueDamage = (int)Mathf.Clamp(damage - Shield, 0, Mathf.Infinity);
             Shield -= damage;
+            if (trueDamage == 0)
+            {
+                DamageBlocked.Invoke();
+            }
+            else
+            {
+                Wounded.Invoke();
+            }
             Health -= trueDamage;
             Damaged.Invoke();
             if (Health <= 0)
@@ -43,21 +52,35 @@ public class Enemy : Creature
                 SceneAnimationController.instance.AddToQueue(anim);
             }
         }
+        else
+        {
+            Die();
+        }
     }
     public override void TakeDamage(int damage, bool IgnoreDefense)
     {
         if (Health > 0)
         {
-            if (damage < 0) damage = 0;
+            damage -= BaseDamageReduction * damage;
+            if (damage <= 0) { return; }
             int trueDamage;
             if (IgnoreDefense)
             {
                 trueDamage = damage;
+                Wounded.Invoke();
             }
             else
             {
                 trueDamage = (int)Mathf.Clamp(damage - Shield, 0, Mathf.Infinity);
                 Shield -= damage;
+                if (trueDamage == 0)
+                {
+                    DamageBlocked.Invoke();
+                }
+                else
+                {
+                    Wounded.Invoke();
+                }
             }
             Health -= trueDamage;
             Damaged.Invoke();
@@ -70,6 +93,10 @@ public class Enemy : Creature
                 EnemyTakeDamage anim = new EnemyTakeDamage(this);
                 SceneAnimationController.instance.AddToQueue(anim);
             }
+        }
+        else
+        {
+            Die();
         }
     }
     void TurnActionsDelayed()

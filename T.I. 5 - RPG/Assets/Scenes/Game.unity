@@ -3627,9 +3627,17 @@ MonoBehaviour:
   CardBuyMax: 5
   baseDamage: 6
   baseShieldGain: 5
+  baseDamageReduction: 0
   DamageModifiers: []
   ShieldModifiers: []
+  DamageReductionModifiers: []
   Damaged:
+    m_PersistentCalls:
+      m_Calls: []
+  Wounded:
+    m_PersistentCalls:
+      m_Calls: []
+  DamageBlocked:
     m_PersistentCalls:
       m_Calls: []
   PlayedCard:
@@ -9678,9 +9686,17 @@ MonoBehaviour:
   CardBuyMax: 5
   baseDamage: 6
   baseShieldGain: 5
+  baseDamageReduction: 0
   DamageModifiers: []
   ShieldModifiers: []
+  DamageReductionModifiers: []
   Damaged:
+    m_PersistentCalls:
+      m_Calls: []
+  Wounded:
+    m_PersistentCalls:
+      m_Calls: []
+  DamageBlocked:
     m_PersistentCalls:
       m_Calls: []
   PlayedCard:
@@ -10251,9 +10267,17 @@ MonoBehaviour:
   CardBuyMax: 5
   baseDamage: 6
   baseShieldGain: 5
+  baseDamageReduction: 0
   DamageModifiers: []
   ShieldModifiers: []
+  DamageReductionModifiers: []
   Damaged:
+    m_PersistentCalls:
+      m_Calls: []
+  Wounded:
+    m_PersistentCalls:
+      m_Calls: []
+  DamageBlocked:
     m_PersistentCalls:
       m_Calls: []
   PlayedCard:
@@ -10340,9 +10364,17 @@ MonoBehaviour:
   CardBuyMax: 5
   baseDamage: 6
   baseShieldGain: 5
+  baseDamageReduction: 0
   DamageModifiers: []
   ShieldModifiers: []
+  DamageReductionModifiers: []
   Damaged:
+    m_PersistentCalls:
+      m_Calls: []
+  Wounded:
+    m_PersistentCalls:
+      m_Calls: []
+  DamageBlocked:
     m_PersistentCalls:
       m_Calls: []
   PlayedCard:
