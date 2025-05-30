@@ -10,12 +10,17 @@ public class BoardGenerator : MonoBehaviour
     bool willMerge;
     List<int> nrProbabilities = new List<int>();
     BoardRoom newRoom;
-    public GameObject roomTest;
+    public GameObject roomTest, boardBase;
     public LineRenderer lineRenderer;
     public Material shaderMat;
     float zOffset, xOffset;
+    List<GameObject> lineObjects = new List<GameObject>();
+    float animTimeStart;
+    bool inAnimation, disappearing;
+    public float animSpeed;
     private void Start()
     {
+        inAnimation = false;
         GenerateBoard();
         /*for(int i = 0; i < board.Count; i++)
         {
@@ -252,6 +257,7 @@ public class BoardGenerator : MonoBehaviour
 
     public void InstantiateBoard()
     {
+        boardBase.GetComponent<MeshRenderer>().material.color = new Color32(50, 100, 150, 255);
         int roomCount;
         zOffset = 0;
         xOffset = 0;
@@ -319,7 +325,47 @@ public class BoardGenerator : MonoBehaviour
                     lineRenderer.SetPositions(new Vector3[] { r1.roomObject.transform.position - Vector3.up * transform.localScale.x, r2.roomObject.transform.position - Vector3.up * transform.localScale.x });
                     lineRenderer.useWorldSpace = false;
                     lineRenderer.sortingOrder = -1;
+                    lineObjects.Add(lineRenderer.gameObject);
                 }
+            }
+        }
+    }
+
+    public void AnimateBoard(bool disappear)
+    {
+        disappearing = disappear;
+        animTimeStart = Time.time;
+        inAnimation = true;
+    }
+
+    float t;
+    private void Update()
+    {
+        if(inAnimation)
+        {
+            if(disappearing)
+            {
+                t = Mathf.Clamp((Time.time - animTimeStart) * animSpeed, 0, 1);
+            }
+            else
+            {
+                t = Mathf.Clamp(1 - ((Time.time - animTimeStart) * animSpeed), 0, 1);
+            }
+            boardBase.GetComponent<MeshRenderer>().material.SetFloat("_DisappearTime", t);
+            for (int i = 0; i < levelsCount; i++)
+            {
+                foreach (BoardRoom r in board[i])
+                {
+                    r.roomObject.GetComponent<MeshRenderer>().material.SetFloat("_DisappearTime", t);
+                }
+            }
+            foreach (GameObject go in lineObjects)
+            {
+                go.GetComponent<LineRenderer>().material.SetFloat("_DisappearTime", t);
+            }
+            if(t >= 1 || t <= 0)
+            {
+                inAnimation = false;
             }
         }
     }
