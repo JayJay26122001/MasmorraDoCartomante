@@ -31,11 +31,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Defeat
-      takeName: GolemArmature|ENTREGADefeat
+      name: NewDefeat
+      takeName: GolemArmature|NewDefeat
       internalID: -714402764886382053
       firstFrame: 0
-      lastFrame: 89
+      lastFrame: 79
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -60,11 +60,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: TakeDamage
-      takeName: GolemArmature|ENTREGAHitReaction
+      name: PlayCard
+      takeName: GolemArmature|NewAttack
       internalID: 1204924550571401119
       firstFrame: 0
-      lastFrame: 29
+      lastFrame: 39
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -90,7 +90,7 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Idle
-      takeName: GolemArmature|ENTREGAIdleFirstPhase
+      takeName: GolemArmature|IdleFirstPhase
       internalID: 6367849008567398891
       firstFrame: 0
       lastFrame: 599
@@ -118,69 +118,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: PlayCard
-      takeName: GolemArmature|ENTREGAPlayingCard
+      name: TakeDamage
+      takeName: GolemArmature|HitReact
       internalID: 1990121947946346049
       firstFrame: 0
-      lastFrame: 29
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: GolemArmature|GolemModelSheetSideAction
-      takeName: GolemArmature|GolemModelSheetSideAction
-      internalID: -544107693394076096
-      firstFrame: 0
-      lastFrame: 0
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: GolemArmature|GolemModelSheetUpsideAction
-      takeName: GolemArmature|GolemModelSheetUpsideAction
-      internalID: 8886554672082243618
-      firstFrame: 0
-      lastFrame: 0
+      lastFrame: 34
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -206,10 +148,10 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Intro
-      takeName: GolemArmature|Intro
-      internalID: 3107897954958081418
+      takeName: GolemArmature|IntroRunning
+      internalID: 4441059078909917624
       firstFrame: 0
-      lastFrame: 119
+      lastFrame: 129
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
