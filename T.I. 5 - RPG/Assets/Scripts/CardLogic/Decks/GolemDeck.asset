@@ -16,8 +16,8 @@ MonoBehaviour:
   CardPresets:
   - {fileID: 11400000, guid: 0fc6ecbb59c06ce46a8fa2350ae10dd7, type: 2}
   - {fileID: 11400000, guid: cade3ec654f09ec43a19515a58b66ea4, type: 2}
-  - {fileID: 11400000, guid: c1f47245640c3104b8533113e96b066d, type: 2}
-  - {fileID: 11400000, guid: c1f47245640c3104b8533113e96b066d, type: 2}
+  - {fileID: 11400000, guid: 3b87e8bedf87e0048a85c6cc2d4c14bb, type: 2}
+  - {fileID: 11400000, guid: 507f85fc01d737c4ea0dd6897259ab69, type: 2}
   - {fileID: 11400000, guid: c1f47245640c3104b8533113e96b066d, type: 2}
   cards: []
   BuyingPile:
