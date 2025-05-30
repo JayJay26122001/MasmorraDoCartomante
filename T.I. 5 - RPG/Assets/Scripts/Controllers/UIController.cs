@@ -10,22 +10,25 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using Unity.VisualScripting.Antlr3.Runtime;
 using NUnit.Framework.Interfaces;
+using UnityEditor;
 
 public class UIController : MonoBehaviour
 {
+    bool gamePaused;
     [Header("Player Money Text")]
     public TextMeshPro money;
     [Header("Game Logo")]
     public GameObject gameLogo;
-    [Header("Menu Buttons")]
+    [Header("Buttons")]
     public GameObject playButton;
     public GameObject settingsButton;
     public GameObject creditsButton;
     public GameObject quitButton;
-    [Header("Menu Panels")]
+    [Header("Panels")]
     public GameObject settingsPanel;
     public GameObject creditsPanel;
     public GameObject quitPanel;
+    public GameObject pausePanel;
     [Header("Panel Buttons")]
     public GameObject leaveSettingsPanelButton;
     public GameObject leaveCreditsPanelButton;
@@ -33,19 +36,10 @@ public class UIController : MonoBehaviour
     public GameObject confirmQuitButton;
 
     /*bool gameStarted, gamePaused;
-    public GameObject leaveSettingsPanelButton, leaveCreditsPanelButton, confirmQuitButton;
-    public GameObject itemWheel;
-    public GameObject lanternButton, remoteButton, mirrorButton;
-    public GameObject lanternHudImage, remoteHudImage, mirrorHudImage;
     public GameObject pausePanel, confirmReturnRoomPanel, confirmReturnMenuPanel, collectablesPanel;
     public GameObject collectablesButton, returnRoomButton, returnMenuButton, confirmReturnRoomButton, confirmReturnMenuButton;
     public Slider _masterVolumeSlider, _musicSlider, _sfxSlider, _brightnessSlider;
-    public Slider _fuelSlider;
-    public Toggle firstHeart, secondHeart, thirdHeart;
-    public TMP_Dropdown resDropdown, screenModeDropdown; //Settings Dropdowns
-    public GameObject changeLevelConfirmation;
-    public Sprite lanternOn, lanternOff, remoteOn, remoteOff, mirrorOn, mirrorOff;
-    public GameObject lanternUnlock, mirrorUnlock;
+    public TMP_Dropdown resDropdown, screenModeDropdown;
     Resolution[] allRes;
     List<Resolution> selectedResList = new List<Resolution>();
     public ConfigData data;
@@ -59,6 +53,7 @@ public class UIController : MonoBehaviour
     private void Start()
     {
         GameManager.instance.uiController = this;
+        gamePaused = false;
         /*ResolutionDropdown();
         ScreenModeDropdown();
         if (File.Exists(Application.dataPath + "/configSave.json"))
@@ -128,6 +123,11 @@ public class UIController : MonoBehaviour
 
     public void ChangeScene(string scene)
     {
+        if(gamePaused)
+        {
+            Time.timeScale = 1.0f;
+            gamePaused = false;
+        }
         SceneManager.LoadScene(scene);
     }
 
@@ -145,7 +145,10 @@ public class UIController : MonoBehaviour
     public void OpenPanel(GameObject panel)
     {
         panel.SetActive(true);
-        SetMenuButtonsInteractable(false);
+        if(SceneManager.GetActiveScene().name == "Menu")
+        {
+            SetMenuButtonsInteractable(false);
+        }
         if(panel == quitPanel)
         {
             HideMenuObjects();
@@ -155,10 +158,19 @@ public class UIController : MonoBehaviour
     public void ClosePanel(GameObject panel)
     {
         panel.SetActive(false);
-        SetMenuButtonsInteractable(true);
+        if(SceneManager.GetActiveScene().name == "Menu")
+        {
+            SetMenuButtonsInteractable(true);
+        }
         if(panel == quitPanel)
         {
             ShowMenuObjects();
+        }
+        if (panel == pausePanel)
+        {
+            //GameManager.instance.player.movePaused = false;
+            Time.timeScale = 1.0f;
+            gamePaused = false;
         }
     }
 
@@ -263,18 +275,6 @@ public class UIController : MonoBehaviour
         if (confirmReturnMenuPanel != null)
         {
             confirmReturnMenuPanel.SetActive(false);
-        }
-        if (lanternHudImage != null)
-        {
-            lanternHudImage.SetActive(false);
-        }
-        if (remoteHudImage != null)
-        {
-            remoteHudImage.SetActive(false);
-        }
-        if (mirrorHudImage != null)
-        {
-            mirrorHudImage.SetActive(false);
         }*/
     }
     /*public void OpenPanel(GameObject panel)
@@ -489,11 +489,11 @@ public class UIController : MonoBehaviour
             remoteButton.GetComponent<Image>().color = Color.white;
             lanternButton.GetComponent<Image>().color = Color.white;
         }
-    }
+    }*/
 
     public void PauseInput(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started)
+        if (context.phase == InputActionPhase.Started && SceneManager.GetActiveScene().name == "Game")
         {
             if (settingsPanel.activeSelf)
             {
@@ -503,13 +503,15 @@ public class UIController : MonoBehaviour
             {
                 if (gamePaused)
                 {
-                    GameManager.instance.player.movePaused = false;
+                    // GameManager.instance.player.movePaused = false;
+                    Time.timeScale = 1.0f;
                     ClosePanel(pausePanel);
                     gamePaused = false;
                 }
                 else
                 {
-                    GameManager.instance.player.movePaused = true;
+                    //GameManager.instance.player.movePaused = true;
+                    Time.timeScale = 0f;
                     OpenPanel(pausePanel);
                     gamePaused = true;
                 }
@@ -517,7 +519,7 @@ public class UIController : MonoBehaviour
         }
     }
 
-    public void ShowPowerUpSelected(string selected)
+    /*public void ShowPowerUpSelected(string selected)
     {
         if (selected == "lantern")
         {
