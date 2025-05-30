@@ -62,6 +62,7 @@ public class CardUIController : MonoBehaviour
     public static void OrganizeHandCards(Creature c)
     {
         int totalHandCards = c.hand.Count;
+        if (totalHandCards == 0) return;
         float fixedSpacing = 2f;
         float spacing = instance.maxTotalWidth / (totalHandCards - 1);
         if(spacing > fixedSpacing)
@@ -99,6 +100,7 @@ public class CardUIController : MonoBehaviour
     public static void OrganizeHandCardsWhenHighlighted(Creature c)
     {
         int totalHandCards = c.hand.Count;
+        if (totalHandCards == 0) return;
         float fixedSpacing = 2f;
         float spacing = instance.maxTotalWidth / (totalHandCards - 1);
         if (spacing > fixedSpacing)

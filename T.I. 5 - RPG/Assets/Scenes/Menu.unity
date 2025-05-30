@@ -828,6 +828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c7e1c2d614f6a4593c864072d4e2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gamePaused: 0
   money: {fileID: 0}
   gameLogo: {fileID: 819847372}
   playButton: {fileID: 1846596253}
@@ -837,6 +838,7 @@ MonoBehaviour:
   settingsPanel: {fileID: 284080736}
   creditsPanel: {fileID: 1181815353}
   quitPanel: {fileID: 1942118695}
+  pausePanel: {fileID: 0}
   leaveSettingsPanelButton: {fileID: 82744553}
   leaveCreditsPanelButton: {fileID: 1536999254}
   leaveQuitPanelButton: {fileID: 1979200822}
@@ -1892,7 +1894,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -4032,7 +4034,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -4793,7 +4795,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -4929,7 +4931,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535

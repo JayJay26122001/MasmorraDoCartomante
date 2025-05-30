@@ -105,7 +105,7 @@ public class DealDamage : Effect
     }
     public int GetDamage()
     {
-        return (int)Math.Ceiling(card.deck.Owner.BaseDamage * DamageMultiplier);
+        return (int)Math.Round(card.deck.Owner.BaseDamage * DamageMultiplier);
     }
 }
 [Serializable]
@@ -121,13 +121,12 @@ public class GainDefense : Effect
     }
     public int GetDefense()
     {
-        return (int)Math.Ceiling(card.deck.Owner.BaseShieldGain * DefenseMultiplier);
+        return (int)Math.Round(card.deck.Owner.BaseShieldGain * DefenseMultiplier);
     }
 }
 [Serializable]
 public class BuyCards : Effect
 {
-    //public DamageEffect(Card c) : base(c){}
     public int BuyCardNumber;
     public override void Apply()
     {
@@ -194,14 +193,34 @@ public class DiscardThisCard : Effect
         return true;
     }
 }
+public class Heal : Effect
+{
+    public int AmountHealled;
+    enum Target { User, Oponent }
+    [SerializeField]Target target;
+    public override void Apply()
+    {
+        base.Apply();
+        switch (target)
+        {
+            case Target.Oponent:
+                card.deck.Owner.enemy.Heal(AmountHealled);
+                break;
+            case Target.User:
+                card.deck.Owner.Heal(AmountHealled);
+                break;
+        }
+        EffectEnded();
+    }
+}
 public interface IProlongedEffect
 {
-    
+
 }
 [Serializable]
 public class BuffStat : Effect, IProlongedEffect
 {
-    enum BuffableStats { Attack, ShieldGain }
+    enum BuffableStats { Attack, ShieldGain, DamageReduction }
     [SerializeField] BuffableStats StatToBuff;
     //enum BuffableMethod { Multiply, Add }
     //[SerializeField] BuffableMethod BuffMethod;
@@ -231,24 +250,12 @@ public class BuffStat : Effect, IProlongedEffect
                 break;
         }
         phase = GameplayManager.currentCombat.GetTurnPhase(owner, TurnPhaseToStop);
-        //GetStatReference() *= MultiplicativeAmount;
-        //Combat.WaitForTurn(TurnsFromNow, phase, StopAtPhase, () => GetStatReference() /= MultiplicativeAmount);
         if (StatBuffMod == null)
         {
             StatBuffMod = GetStatReference();
         }
         StatBuffMod.Add(Modifier);
         Action = Combat.WaitForTurn(TurnsFromNow, phase, StopAtPhase, EffectEnded);
-        /*switch (BuffMethod)
-        {
-            case BuffableMethod.Multiply:
-                GetStatReference() *= MultiplicativeAmount;
-                Combat.WaitForTurn(TurnsFromNow, GameplayManager.currentCombat.GetTurnPhase(TurnPhaseToStop), StopAtPhase, () => GetStatReference() /= MultiplicativeAmount);
-                break;
-            case BuffableMethod.Add:
-                GetStatReference() += MultiplicativeAmount;
-                break;
-        }*/
     }
     public override void EffectEnded()
     {
@@ -265,6 +272,8 @@ public class BuffStat : Effect, IProlongedEffect
                 return ref owner.DamageModifiers;
             case BuffableStats.ShieldGain:
                 return ref owner.ShieldModifiers;
+            case BuffableStats.DamageReduction:
+                return ref owner.DamageReductionModifiers;
             default:
                 throw new System.Exception("Unsupported stat type.");
         }
