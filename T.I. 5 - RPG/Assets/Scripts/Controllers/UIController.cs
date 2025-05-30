@@ -14,7 +14,7 @@ using UnityEditor;
 
 public class UIController : MonoBehaviour
 {
-    bool gamePaused;
+    [HideInInspector] public bool gamePaused;
     [Header("Player Money Text")]
     public TextMeshPro money;
     [Header("Game Logo")]
@@ -491,7 +491,7 @@ public class UIController : MonoBehaviour
         }
     }*/
 
-    public void PauseInput(InputAction.CallbackContext context)
+    public void PauseGameInput(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started && SceneManager.GetActiveScene().name == "Game")
         {

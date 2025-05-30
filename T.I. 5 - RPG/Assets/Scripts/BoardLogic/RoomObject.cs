@@ -6,7 +6,7 @@ public class RoomObject : MonoBehaviour
 
     public void OnMouseDown()
     {
-        if(GameplayManager.instance.currentRoom.nextRooms.Contains(roomRef) && GameplayManager.instance.InputActive)
+        if(GameplayManager.instance.currentRoom.nextRooms.Contains(roomRef) && GameplayManager.instance.InputActive && !GameManager.instance.uiController.gamePaused)
         {
             GameplayManager.instance.PauseInput(2);
             Action act = new Action(() => { return; });
