@@ -13,10 +13,10 @@ public class Enemy : Creature
     }
     public override void TurnAction()
     {
-        if (hand[0].Type == Card.CardType.Mind)
+        /*if (hand[0].Type == Card.CardType.Mind)
         {
             hand[0].hidden = true;
-        }
+        }*/
         EnemyPlayCard anim = new EnemyPlayCard(this);
         EnemyCardAnimation playCardAnim = new EnemyCardAnimation(this);
         anim.AnimEnded.AddListener(TurnActionsDelayed);
