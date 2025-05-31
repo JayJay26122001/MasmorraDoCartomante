@@ -145,14 +145,15 @@ public class Combat : MonoBehaviour
         //StartCombat();
         //Debug.Log($"Turn {TurnIndex + 1} {ActiveTurn.currentPhase}");
     }
-    /*void Update()
+    void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        CombatUI();
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             AdvanceCombat();
             turnText.text = $"Creature {TurnIndex + 1} - Turn {TurnIndex + 1} {ActiveTurn.currentPhase}";
-        }
-    }*/
+        }*/
+    }
     public static UnityAction WaitForTurn(int TurnFromNow, TurnPhase phase, TurnPhase.PhaseTime phaseTime, UnityAction action)
     {
         UnityAction tymedAction = action;
