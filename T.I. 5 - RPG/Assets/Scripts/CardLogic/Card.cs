@@ -32,7 +32,7 @@ public class Card : ScriptableObject
     public CardDisplay cardDisplay;
     public Deck deck;
     public string Name;
-    public bool hidden, exaust, instantaneous;
+    public bool hidden, limited, instantaneous;
     public int cost;
     public enum CardType { Attack, Defense, Mind }
     public enum CardRarity { Common, Uncommon, Rare, Epic, Legendary }

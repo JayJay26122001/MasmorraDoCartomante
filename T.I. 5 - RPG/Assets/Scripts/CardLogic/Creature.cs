@@ -22,7 +22,7 @@ public class Creature : MonoBehaviour
     [SerializeField] protected int hp, shld, energy, maxBaseEnergy = 3, money;
     public int CardBuyMax = 5;
     [SerializeField] int baseDamage = 6, baseShieldGain = 5;
-    [Range(0, 1)][SerializeField] int baseDamageReduction = 0;
+    [Range(0, 1)][SerializeField] float baseDamageReduction = 0;
     public List<StatModifier> DamageModifiers, ShieldModifiers, DamageReductionModifiers;
     //public float BaseDamageMultiplier = 1, BaseDefenseMultiplier = 1;
     public UnityEvent Damaged = new UnityEvent(), Wounded = new UnityEvent(), DamageBlocked = new UnityEvent();
@@ -31,6 +31,7 @@ public class Creature : MonoBehaviour
     public CardCombatSpaces combatSpace;
 
     public TextMeshProUGUI hpText, shieldText, energyText;  //Ui das criaturas na batalha
+    List<Card> exausted = new List<Card>();
 
     public int Money
     {
@@ -93,11 +94,11 @@ public class Creature : MonoBehaviour
         }
     }
     [Range(0, 1)]
-    public int BaseDamageReduction
+    public float BaseDamageReduction
     {
         get
         {
-            int res = baseDamageReduction;
+            float res = baseDamageReduction;
             foreach (StatModifier m in DamageReductionModifiers)
             {
                 res = m.ApplyModfier(res);
@@ -125,7 +126,7 @@ public class Creature : MonoBehaviour
         }
         if (energyText != null)
         {
-            energyText.text = $"Energy: {c.energy}";
+            energyText.text = $"Energy: {c.Energy}";
         }
     }
 
@@ -185,11 +186,11 @@ public class Creature : MonoBehaviour
     }
     public virtual void PlayCard(Card c)
     {
-        if (energy < c.cost || !hand.Contains(c) || !canPlayCards)
+        if (Energy < c.cost || !hand.Contains(c) || !canPlayCards)
         {
             return;
         }
-        energy -= c.cost;
+        Energy -= c.cost;
         hand.Remove(c);
         playedCards.Add(c);
         CardUIController.OrganizeHandCards(this);
@@ -224,7 +225,7 @@ public class Creature : MonoBehaviour
             }
             e.resetEffect();
         }
-        if (card.exaust)
+        if (card.limited)
         {
             ExaustCard(card);
         }
@@ -233,31 +234,43 @@ public class Creature : MonoBehaviour
     }
     public void ExaustCard(Card card)
     {
+        card.cardDisplay.gameObject.SetActive(false);
         hand.Remove(card);
         card.deck.DiscardPile.Remove(card);
         card.deck.BuyingPile.Remove(card);
+        playedCards.Remove(card);
+        exausted.Add(card);
+    }
+    public void RevertExaust(Card card)
+    {
+        if (!card.cardDisplay.gameObject.activeSelf)
+        {
+            card.cardDisplay.gameObject.SetActive(true);
+            card.deck.DiscardPile.Add(card);
+            exausted.Remove(card);
+        }
     }
     public virtual void EndCombat()
     {
         ResetDeckPiles();
-        ResetEnergy();
-        ResetShield();
-        ResetHP();
-        ResetDamageModifiers();
-        ResetShieldModifiers();
         foreach (Deck deck in decks)
         {
             hand.Clear();
             //playedCards.Clear();
             deck.ResetPiles();
         }
+        ResetEnergy();
+        ResetShield();
+        ResetHP();
+        ResetDamageModifiers();
+        ResetShieldModifiers();
     }
 
 
     //COMBAT METHODS
     public virtual void TakeDamage(int damage, bool IgnoreDefense)
     {
-        damage -= BaseDamageReduction * damage;
+        damage -= (int)(BaseDamageReduction * damage);
         if (damage <= 0) { return; }
         int trueDamage;
         if (IgnoreDefense)
@@ -287,7 +300,7 @@ public class Creature : MonoBehaviour
     }
     public virtual void TakeDamage(int damage)
     {
-        damage -= BaseDamageReduction * damage;
+        damage -= (int)(BaseDamageReduction * damage);
         if (damage <= 0) { return; }
         int trueDamage = (int)Mathf.Clamp(damage - Shield, 0, Mathf.Infinity);
         Shield -= damage;
@@ -323,7 +336,7 @@ public class Creature : MonoBehaviour
     }
     public void ResetEnergy()
     {
-        energy = maxBaseEnergy;
+        Energy = maxBaseEnergy;
     }
     public void ResetHP()
     {
@@ -331,7 +344,7 @@ public class Creature : MonoBehaviour
     }
     public void GainEnergy(int energy)
     {
-        this.energy += energy;
+        Energy += energy;
     }
 
     public virtual void Die()
@@ -353,6 +366,12 @@ public class Creature : MonoBehaviour
         foreach (Card c in auxList)
         {
             DiscardCard(c);
+        }
+        List<Card> auxExaust = exausted.ToList();
+        foreach (Card c in auxExaust)
+        {
+            DiscardCard(c);
+            RevertExaust(c);
         }
         decks[0].ShuffleDeck();
     }
