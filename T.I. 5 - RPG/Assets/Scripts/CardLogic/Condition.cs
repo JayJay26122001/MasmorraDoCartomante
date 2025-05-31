@@ -43,8 +43,8 @@ public abstract class Condition
         {
             ConditionStatus = ConditionState.Failled;
         }
-        effect.CheckConditions();
         DeactivateCondition();
+        effect.CheckConditions();
         if (DiscardIfAcomplished)
         {
             effect.card.deck.Owner.DiscardCard(effect.card);
