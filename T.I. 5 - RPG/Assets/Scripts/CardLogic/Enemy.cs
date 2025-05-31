@@ -28,7 +28,7 @@ public class Enemy : Creature
     {
         if (Health > 0)
         {
-            damage -= BaseDamageReduction * damage;
+            damage -= (int)(BaseDamageReduction * damage);
             if (damage <= 0) { return; }
             int trueDamage = (int)Mathf.Clamp(damage - Shield, 0, Mathf.Infinity);
             Shield -= damage;
@@ -61,7 +61,7 @@ public class Enemy : Creature
     {
         if (Health > 0)
         {
-            damage -= BaseDamageReduction * damage;
+            damage -= (int)(BaseDamageReduction * damage);
             if (damage <= 0) { return; }
             int trueDamage;
             if (IgnoreDefense)

@@ -20,7 +20,7 @@ MonoBehaviour:
   deck: {fileID: 0}
   Name: "II \u2013 The High Priestess"
   hidden: 0
-  exaust: 1
+  limited: 1
   instantaneous: 0
   cost: 0
   Type: 1

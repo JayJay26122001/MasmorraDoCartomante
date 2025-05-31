@@ -19,7 +19,7 @@ MonoBehaviour:
   deck: {fileID: 0}
   Name: "Card: VIII \u2013 Strength"
   hidden: 0
-  exaust: 0
+  limited: 0
   instantaneous: 0
   cost: 3
   Type: 0
@@ -32,6 +32,7 @@ MonoBehaviour:
       type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
       data:
         Repeatable: 0
+        DiscardIfAcomplished: 0
         TurnOwner: 0
         TurnsFromNow: 0
         TurnPhase: 0
@@ -48,4 +49,4 @@ MonoBehaviour:
       data:
         Conditions:
         - rid: 7391437914212401152
-        Amount: -3
+        Amount: -1000
