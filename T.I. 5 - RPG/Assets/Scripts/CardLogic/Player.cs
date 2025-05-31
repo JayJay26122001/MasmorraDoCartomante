@@ -22,7 +22,7 @@ public class Player : Creature
     }
     public void SelectCard(Card c)
     {
-        if (hand.Contains(c) && c.cost <= energy && canPlayCards)
+        if (hand.Contains(c) && c.cost <= Energy && canPlayCards)
         {
             SelectedCard = c;
             //CardUIController.HighlightSelectedCard(this);
@@ -30,11 +30,11 @@ public class Player : Creature
     }
     public override void PlayCard(Card c)
     {
-        if (energy < c.cost || !hand.Contains(c) || !canPlayCards)
+        if (Energy < c.cost || !hand.Contains(c) || !canPlayCards)
         {
             return;
         }
-        energy -= c.cost;
+        Energy -= c.cost;
         hand.Remove(c);
         playedCards.Add(c);
         CardUIController.OrganizeHandCardsWhenHighlighted(this);
