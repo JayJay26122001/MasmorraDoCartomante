@@ -102,7 +102,10 @@ public class Enemy : Creature
     void TurnActionsDelayed()
     {
         PlayCard(hand[0]);
-        BuyCards(1);
+        if (hand.Count == 0)
+        {
+            BuyCards(1);
+        }
         GameplayManager.currentCombat.AdvanceCombat();
     }
     public override void PlayCard(Card c)

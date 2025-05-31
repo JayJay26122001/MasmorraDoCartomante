@@ -63,7 +63,7 @@ public class Creature : MonoBehaviour
         protected set
         {
             if (value < 0) value = 0;
-            if (value > maxBaseEnergy) value = maxBaseEnergy;
+            //if (value > maxBaseEnergy) value = maxBaseEnergy;
             energy = value;
         }
     }
