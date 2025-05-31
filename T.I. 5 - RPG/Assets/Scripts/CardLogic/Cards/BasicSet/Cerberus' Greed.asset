@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Cerberus' Greed
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 7391437586234343424
   - rid: 7391437586234343492
+  - rid: 8509657751477026882
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Cerberus' Greed
   hidden: 0
-  exaust: 0
+  limited: 0
   instantaneous: 1
   cost: 1
   Type: 0
@@ -28,15 +28,15 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 7391437586234343424
+    - rid: 7391437586234343492
+      type: {class: BuyCards, ns: , asm: Assembly-CSharp}
+      data:
+        Conditions: []
+        BuyCardNumber: 3
+    - rid: 8509657751477026882
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
         Conditions: []
         DamageMultiplier: 0.6
         IgnoreDefense: 0
         target: 0
-    - rid: 7391437586234343492
-      type: {class: BuyCards, ns: , asm: Assembly-CSharp}
-      data:
-        Conditions: []
-        BuyCardNumber: 3
