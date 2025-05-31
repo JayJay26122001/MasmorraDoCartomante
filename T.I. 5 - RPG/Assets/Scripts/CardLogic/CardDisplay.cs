@@ -2,7 +2,9 @@ using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine.EventSystems;
+#if UNITY_EDITOR
 using static UnityEditor.PlayerSettings;
+#endif
 
 public class CardDisplay : MonoBehaviour, IPointerClickHandler
 {

@@ -3,6 +3,7 @@ using UnityEditor;
 using System;
 using System.Linq;
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(Card))]
 public class CardEditor : Editor
 {
@@ -138,3 +139,4 @@ public class CardEditor : Editor
             .ToList();
     }
 }
+#endif
