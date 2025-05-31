@@ -17,4 +17,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7c66cdac4dc851f4187bfad5a213ecb9, type: 2}
   - {fileID: 11400000, guid: 9b4e031e6f8cab54a83bddb6fa9cf491, type: 2}
   - {fileID: 11400000, guid: 86df2bc4e2f5b8b40a967184fcd08235, type: 2}
-  probabilities: 140000001e0000001e00000014000000
+  - {fileID: 11400000, guid: 53daf724fea624347ba25f2db9eba285, type: 2}
+  probabilities: 140000001e0000001e000000140000001e000000

@@ -9,18 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d1a39dfc1f14914194bdd1ce1b68008, type: 3}
-  m_Name: GolemDeck
+  m_Script: {fileID: 11500000, guid: 995504db228d6014d9164719d5738eda, type: 3}
+  m_Name: GolemPool
   m_EditorClassIdentifier: 
-  Owner: {fileID: 0}
-  CardPresets:
+  pool:
+  - {fileID: 11400000, guid: 507f85fc01d737c4ea0dd6897259ab69, type: 2}
   - {fileID: 11400000, guid: 0fc6ecbb59c06ce46a8fa2350ae10dd7, type: 2}
   - {fileID: 11400000, guid: cade3ec654f09ec43a19515a58b66ea4, type: 2}
   - {fileID: 11400000, guid: 3b87e8bedf87e0048a85c6cc2d4c14bb, type: 2}
-  - {fileID: 11400000, guid: 507f85fc01d737c4ea0dd6897259ab69, type: 2}
-  - {fileID: 11400000, guid: 9b4e031e6f8cab54a83bddb6fa9cf491, type: 2}
-  cards: []
-  BuyingPile:
-    Stack: []
-  DiscardPile:
-    Stack: []
+  probabilities: 19000000190000001900000019000000
