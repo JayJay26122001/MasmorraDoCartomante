@@ -701,6 +701,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 4781322ea897e814d84aa0520323a832, type: 2}
     - {fileID: 11400000, guid: 11eb735877c3adf4785e31c0ea74a509, type: 2}
     - {fileID: 11400000, guid: 5f24f05d904980e4b963194f69acc526, type: 2}
+    - {fileID: 11400000, guid: 6967b97a70e93474ab08ecbd2ba4a42c, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -790,7 +791,21 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 30614216}
           m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
-          m_MethodName: AngledTop
+          m_MethodName: ActivateAngledTopCamera
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 30614216}
+          m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+          m_MethodName: DeActivateAngledTopCamera
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -4735,7 +4750,7 @@ PlayableDirector:
   m_GameObject: {fileID: 626271299}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: c6d5144740e9b284aa29af9da6b7909e, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: fbef68baeb48bff439b5d4200d5387fa, type: 2}
   m_InitialState: 0
   m_WrapMode: 0
   m_DirectorUpdateMode: 1

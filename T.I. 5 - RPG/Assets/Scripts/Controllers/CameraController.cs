@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
-        AngledTop();
+        ActivateAngledTopCamera();
         inputActive = false;
         blockHighlight = false;
     }
@@ -88,16 +88,14 @@ public class CameraController : MonoBehaviour
         inputActive = true;
     }
 
-    public void AngledTop()
+    public void ActivateAngledTopCamera()
     {
-        if (angledTopCamera.Priority == 0)
-        {
-            angledTopCamera.Priority = 2;
-        }
-        else
-        {
-            angledTopCamera.Priority = 0;
-        }
+        angledTopCamera.Priority = 2;
+    }
+
+    public void DeActivateAngledTopCamera()
+    {
+        angledTopCamera.Priority = 0;
     }
 
     public void RemoveHighlight(InputAction.CallbackContext context)

@@ -94,10 +94,12 @@ public class Enemy : Creature
                 SceneAnimationController.instance.AddToQueue(anim);
             }
         }
-        else
+
+        //NÃO PODE TER ESSE ELSE AQUI, ESSE IF É PRA EVITAR DAR DANO DEPOIS DO INIMIGO MORRER E CHAMAR AS FUNÇÃO DENOVO
+        /*else
         {
             Die();
-        }
+        }*/
     }
     void TurnActionsDelayed()
     {
