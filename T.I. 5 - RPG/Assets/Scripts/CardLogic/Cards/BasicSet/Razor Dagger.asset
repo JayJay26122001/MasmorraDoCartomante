@@ -18,19 +18,19 @@ MonoBehaviour:
   deck: {fileID: 0}
   Name: Razor Dagger
   hidden: 0
-  exaust: 0
+  limited: 0
   instantaneous: 0
   cost: 1
   Type: 0
   Rarity: 0
   Description: Deals 6 damage
-  conditions: 
   references:
     version: 2
     RefIds:
     - rid: 7391437407230361702
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
+        Conditions: []
         DamageMultiplier: 1
         IgnoreDefense: 0
         target: 0

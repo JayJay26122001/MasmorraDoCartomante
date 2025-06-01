@@ -9,4 +9,6 @@ public class CardsUI : ScriptableObject
     public Sprite[] cardRarityBackground = new Sprite[5];
     [Header("Sprite do Tipo da Carta")]
     public Sprite[] cardType = new Sprite[3];
+    [Header("Sprite do Tipo da Carta Especial de Diamante")]
+    public Sprite[] cardDiamondType = new Sprite[3];
 }
