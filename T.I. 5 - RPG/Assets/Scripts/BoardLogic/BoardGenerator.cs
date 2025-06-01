@@ -210,8 +210,8 @@ public class BoardGenerator : MonoBehaviour
             if(branchLevel == 1)
             {
                 mergeProbability = 0;
-                proceedProbability = (int)(70 * proceedPModifier);
-                branchProbability = (int)(30 * branchPModifier);
+                proceedProbability = (int)(25 * proceedPModifier);
+                branchProbability = (int)(75 * branchPModifier);
             }
             else if(branchLevel == maxBranches)
             {
@@ -221,9 +221,9 @@ public class BoardGenerator : MonoBehaviour
             }
             else
             {
-                mergeProbability = (int)(30 * proceedPModifier);
+                mergeProbability = (int)(20 * proceedPModifier);
                 proceedProbability = (int)(40 * proceedPModifier);
-                branchProbability = (int)(30 * branchPModifier);
+                branchProbability = (int)(40 * branchPModifier);
             }
             int sum = mergeProbability + proceedProbability + branchProbability;
             int rand = Random.Range(0, sum);
@@ -232,7 +232,7 @@ public class BoardGenerator : MonoBehaviour
                 nextRoomsCount = 1;
                 willMerge = true;
                 mergePModifier = Mathf.Clamp(mergePModifier - 0.2f, 0, 1.5f);
-                branchPModifier += Mathf.Clamp(branchPModifier + 0.1f, 0, 1.5f);
+                branchPModifier += Mathf.Clamp(branchPModifier + 0.3f, 0, 1.5f);
                 proceedPModifier += Mathf.Clamp(proceedPModifier + 0.1f, 0.1f, 2f);
             }
             else if(rand <= mergeProbability + proceedProbability)
@@ -240,7 +240,7 @@ public class BoardGenerator : MonoBehaviour
                 nextRoomsCount = 1;
                 willMerge = false;
                 mergePModifier = Mathf.Clamp(mergePModifier + 0.1f, 0, 1.5f);
-                branchPModifier += Mathf.Clamp(branchPModifier + 0.1f, 0, 1.5f);
+                branchPModifier += Mathf.Clamp(branchPModifier + 0.2f, 0, 1.5f);
                 proceedPModifier += Mathf.Clamp(proceedPModifier - 0.1f, 0.1f, 2f);
             }
             else
@@ -248,7 +248,7 @@ public class BoardGenerator : MonoBehaviour
                 nextRoomsCount = 2;
                 willMerge = false;
                 mergePModifier = Mathf.Clamp(mergePModifier + 0.2f, 0, 1.5f);
-                branchPModifier += Mathf.Clamp(branchPModifier - 0.3f, 0, 1.5f);
+                branchPModifier += Mathf.Clamp(branchPModifier - 0.2f, 0, 1.5f);
                 proceedPModifier += Mathf.Clamp(proceedPModifier + 0.1f, 0.1f, 2f);
             }
         }
