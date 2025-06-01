@@ -23,8 +23,8 @@ public class Card : ScriptableObject
             discard.SetAsDiscardTime = DiscardThisCard.DiscardType.Minimum;
             WaitUntilTurn time = new WaitUntilTurn();
             time.TurnsFromNow = 0;
-            time.TurnPhase = Combat.TurnPhaseTypes.Reaction;
-            time.PhaseTime = TurnPhase.PhaseTime.End;
+            time.TurnPhase = Combat.TurnPhaseTypes.End;
+            time.PhaseTime = TurnPhase.PhaseTime.Start;
             discard.Conditions.Add(time);
             Effects.Add(discard);
         }

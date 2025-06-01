@@ -17,8 +17,9 @@ public class GameplayManager : MonoBehaviour
     int PauseInstances = 0;
     public bool InputActive { get; private set; } = true;
     bool ManualPause = false;
+    [System.NonSerialized] public bool CombatActive = false;
 
-    [HideInInspector]public BoardRoom currentRoom;
+    [HideInInspector] public BoardRoom currentRoom;
 
     //[SerializeField]int money;
 

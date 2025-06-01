@@ -8,18 +8,19 @@ using UnityEngine.Events;
 
 public class Combat : MonoBehaviour
 {
-    public enum TurnPhaseTypes { Start, Reaction, End }
+    public enum TurnPhaseTypes { Start, /*Reaction,*/ End }
     public CardCombatSpaces[] combatSpaces;
     public Creature[] combatents;
     public Turn[] Round;
     public Turn ActiveTurn;
     int turnIndex = 0;
     public TextMeshProUGUI turnText;
+    public Collider BellColider;
     public int TurnIndex { get { return turnIndex; } private set { turnIndex = value % Round.Length; } }
 
     public void SetEnemy(int index)
     {
-        if(GameplayManager.instance.figtingBoss)
+        if (GameplayManager.instance.figtingBoss)
         {
             combatents[1] = GameplayManager.instance.bosses[index];
         }
@@ -42,10 +43,10 @@ public class Combat : MonoBehaviour
         {
             case TurnPhaseTypes.Start:
                 return turn.phases[0];
-            case TurnPhaseTypes.Reaction:
-                return turn.phases[1];
+            /*case TurnPhaseTypes.Reaction:
+                return turn.phases[1];*/
             case TurnPhaseTypes.End:
-                return turn.phases[2];
+                return turn.phases[1];
             default:
                 return null;
         }
@@ -54,6 +55,7 @@ public class Combat : MonoBehaviour
     public void StartCombat()
     {
         GameplayManager.currentCombat = this;
+        GameplayManager.instance.CombatActive = true;
         GameplayManager.instance.SelectEnemy();
         Round = new Turn[2] { new Turn(combatents[0]), new Turn(combatents[1]) };
         for (int i = 0; i < 2; i++)
@@ -84,7 +86,7 @@ public class Combat : MonoBehaviour
         {
             ActiveTurn.NextPhase();
         }*/
-        GameplayManager.instance.PauseInput(0.5f);
+        //GameplayManager.instance.PauseInput(0.5f);
         ActiveTurn.currentPhase.EndPhase();
         if (ActiveTurn.phaseIndex < ActiveTurn.phases.Length - 1)
         {
@@ -100,6 +102,18 @@ public class Combat : MonoBehaviour
         CombatUI();
         //combatents[0].CardsOrganizer(); //mudan�a futura
         //combatents[1].CardsOrganizer(); //mudan�a futura
+    }
+    public void SetBellActive(bool active)
+    {
+        BellColider.enabled = active;
+        if (active)
+        {
+            BellColider.gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
+        }
+        else
+        {
+            BellColider.gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
+        }
     }
     public void ChangeTurn()
     {
@@ -131,10 +145,11 @@ public class Combat : MonoBehaviour
         GameplayManager.instance.HideAllEnemies();
         GameplayManager.instance.HideAllBosses();
         StartCoroutine(combatents[1].GetComponent<Enemy>().DisableModel());
-        if(GameplayManager.instance.figtingBoss)
+        if (GameplayManager.instance.figtingBoss)
         {
             GameManager.instance.uiController.ChangeScene("Victory"); //TEMPORÁRIO
         }
+        GameplayManager.instance.CombatActive = false;
     }
 
 
@@ -321,7 +336,7 @@ public class Turn
     public Turn(Creature owner)
     {
         TurnOwner = owner;
-        phases = new TurnPhase[] { new TurnStart(owner), new ReactionTurn(owner), new TurnEnd(owner) };
+        phases = new TurnPhase[] { new TurnStart(owner)/*, new ReactionTurn(owner)*/, new TurnEnd(owner) };
         phaseIndex = 0;
         currentPhase = phases[phaseIndex];
     }
@@ -350,7 +365,7 @@ public class Turn
 }
 public abstract class TurnPhase
 {
-    public enum PhaseTime {Start, End}
+    public enum PhaseTime { Start, End }
     protected Creature owner;
     public TurnPhase(Creature owner)
     {
@@ -373,6 +388,12 @@ public abstract class TurnPhase
 public class TurnStart : TurnPhase
 {
     public TurnStart(Creature owner) : base(owner) { }
+    public override void StartPhase()
+    {
+        base.StartPhase();
+        SceneAnimationController.instance.InvokeTimer(GameplayManager.currentCombat.SetBellActive, true, 1f);
+    }
+
     public override void PhaseEffect()
     {
         //owner.BuyCards(owner.CardBuyMax);
@@ -384,32 +405,41 @@ public class TurnStart : TurnPhase
         owner.canPlayCards = false;
         base.EndPhase();
         owner.GetComponent<Player>()?.DiselectCard();
+        GameplayManager.currentCombat.SetBellActive(false);
     }
 }
-public class ReactionTurn : TurnPhase
+/*public class ReactionTurn : TurnPhase
 {
     public ReactionTurn(Creature owner) : base(owner) { }
     public override void PhaseEffect()
     {
-        /*owner.canPlayCards = false;
+        owner.canPlayCards = false;
         foreach (Card c in owner.enemy.playedCards)
         {
             foreach (Effect e in c.Effects)
             {
                 e.CheckConditions();
             }
-        }*/
-        /*foreach (Card c in owner.enemy.playedCards)
+        }
+        foreach (Card c in owner.enemy.playedCards)
         {
             c.ConditionalCardFailled();
-        }*/
+        }
     }
-}
+}*/
 public class TurnEnd : TurnPhase
 {
     public TurnEnd(Creature owner) : base(owner) { }
     public override void PhaseEffect()
     {
         owner.TriggerPlayedCards();
+        if (GameplayManager.instance.CombatActive)
+        {
+            //GameplayManager.instance.PauseInput();
+            AdvanceCombatAction advance = new AdvanceCombatAction(1);
+            //advance.AnimEnded.AddListener(GameplayManager.instance.ResumeInput);
+            SceneAnimationController.instance.AddToQueue(advance);
+        }
+
     }
 }

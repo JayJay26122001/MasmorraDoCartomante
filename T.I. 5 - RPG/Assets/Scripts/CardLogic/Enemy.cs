@@ -24,6 +24,20 @@ public class Enemy : Creature
         SceneAnimationController.instance.AddToQueue(playCardAnim);
     }
 
+    void TurnActionsDelayed()
+    {
+        if (!GameplayManager.instance.CombatActive) return;
+        if (hand.Count == 0)
+        {
+            BuyCards(1);
+        }
+        PlayCard(hand[0]);
+        if (hand.Count == 0)
+        {
+            BuyCards(1);
+        }
+        //GameplayManager.currentCombat.AdvanceCombat();
+    }
     public override void TakeDamage(int damage)
     {
         if (Health > 0)
@@ -95,20 +109,11 @@ public class Enemy : Creature
             }
         }
 
-        //NÃO PODE TER ESSE ELSE AQUI, ESSE IF É PRA EVITAR DAR DANO DEPOIS DO INIMIGO MORRER E CHAMAR AS FUNÇÃO DENOVO
+        //Nï¿½O PODE TER ESSE ELSE AQUI, ESSE IF ï¿½ PRA EVITAR DAR DANO DEPOIS DO INIMIGO MORRER E CHAMAR AS FUNï¿½ï¿½O DENOVO
         /*else
         {
             Die();
         }*/
-    }
-    void TurnActionsDelayed()
-    {
-        PlayCard(hand[0]);
-        if (hand.Count == 0)
-        {
-            BuyCards(1);
-        }
-        GameplayManager.currentCombat.AdvanceCombat();
     }
     public override void PlayCard(Card c)
     {

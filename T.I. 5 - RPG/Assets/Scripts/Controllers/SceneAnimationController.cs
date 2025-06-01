@@ -173,3 +173,40 @@ public class EnemyCardAnimation : AnimationAction
         SceneAnimationController.instance.InvokeTimer(AnimEnded.Invoke, time);
     }
 }
+public class AdvanceCombatAction : AnimationAction
+{
+    public AdvanceCombatAction(float WaitBeforeAdvance)
+    {
+        time = WaitBeforeAdvance;
+    }
+    public override void PerformAction()
+    {
+        GameplayManager.instance.PauseInput();
+        AnimStarted.Invoke();
+        UnityAction action = () =>
+        {
+            GameplayManager.currentCombat.AdvanceCombat();
+            AnimEnded.Invoke();
+            GameplayManager.instance.ResumeInput();
+        };
+        SceneAnimationController.instance.InvokeTimer(action, time);
+    }
+}
+public class WaitAction : AnimationAction
+{
+    public WaitAction(float Time)
+    {
+        time = Time;
+    }
+    public override void PerformAction()
+    {
+        GameplayManager.instance.PauseInput();
+        AnimStarted.Invoke();
+        UnityAction action = () =>
+        {
+            AnimEnded.Invoke();
+            GameplayManager.instance.ResumeInput();
+        };
+        SceneAnimationController.instance.InvokeTimer(action, time);
+    }
+}

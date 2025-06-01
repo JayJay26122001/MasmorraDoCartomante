@@ -1487,7 +1487,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 0d68e78cb7baa894cbf68052aea95768, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3700,7 +3700,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1597854807809717226, guid: 722a7e77cecf9e14bad9ae2e93d95038, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.75
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3466576250834833393, guid: 722a7e77cecf9e14bad9ae2e93d95038, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3708,7 +3708,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3466576250834833393, guid: 722a7e77cecf9e14bad9ae2e93d95038, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.75
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3466576250834833393, guid: 722a7e77cecf9e14bad9ae2e93d95038, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3784,7 +3784,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4705142515383396444, guid: 722a7e77cecf9e14bad9ae2e93d95038, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.75
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4705142515383396444, guid: 722a7e77cecf9e14bad9ae2e93d95038, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3808,7 +3808,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5220100797070737258, guid: 722a7e77cecf9e14bad9ae2e93d95038, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.75
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5220100797070737258, guid: 722a7e77cecf9e14bad9ae2e93d95038, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5282,6 +5282,7 @@ MonoBehaviour:
   - {fileID: 1866734918}
   - {fileID: 509029435}
   turnText: {fileID: 75921742}
+  BellColider: {fileID: 167226752}
 --- !u!4 &713266986
 Transform:
   m_ObjectHideFlags: 0
@@ -10389,7 +10390,7 @@ MonoBehaviour:
   decks: []
   hand: []
   playedCards: []
-  maxHP: 100
+  maxHP: 50
   hp: 0
   shld: 0
   energy: 0

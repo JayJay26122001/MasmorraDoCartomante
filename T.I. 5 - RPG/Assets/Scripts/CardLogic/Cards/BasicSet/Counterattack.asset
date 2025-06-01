@@ -20,7 +20,7 @@ MonoBehaviour:
   deck: {fileID: 0}
   Name: Counterattack
   hidden: 0
-  exaust: 0
+  limited: 0
   instantaneous: 0
   cost: 1
   Type: 2
@@ -48,6 +48,7 @@ MonoBehaviour:
       type: {class: CreaturePlayedCardType, ns: , asm: Assembly-CSharp}
       data:
         Repeatable: 0
+        DiscardIfAcomplished: 0
         target: 0
         expectedType: 0
         mustBeFirst: 1
@@ -55,6 +56,7 @@ MonoBehaviour:
       type: {class: CreaturePlayedCardType, ns: , asm: Assembly-CSharp}
       data:
         Repeatable: 0
+        DiscardIfAcomplished: 0
         target: 0
         expectedType: 0
         mustBeFirst: 1
@@ -63,11 +65,13 @@ MonoBehaviour:
       data:
         Conditions:
         - rid: 7391437793716076659
+        SetAsDiscardTime: 0
     - rid: 7391437793716076659
       type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
       data:
         Repeatable: 0
+        DiscardIfAcomplished: 0
         TurnOwner: 1
         TurnsFromNow: 0
-        TurnPhase: 2
+        TurnPhase: 1
         PhaseTime: 0

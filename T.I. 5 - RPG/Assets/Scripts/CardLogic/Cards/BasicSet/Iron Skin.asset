@@ -18,7 +18,7 @@ MonoBehaviour:
   deck: {fileID: 0}
   Name: Iron Skin
   hidden: 0
-  exaust: 0
+  limited: 0
   instantaneous: 1
   cost: 1
   Type: 1
@@ -37,5 +37,5 @@ MonoBehaviour:
           value: 2
         TurnOwner: 0
         TurnsFromNow: 0
-        TurnPhaseToStop: 2
+        TurnPhaseToStop: 1
         StopAtPhase: 1
