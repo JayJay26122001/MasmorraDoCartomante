@@ -44,15 +44,15 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         cardDescription.text = cardData.Description;
         rarity.sprite = cardsUI.cardRarity[(int)cardData.Rarity];
         background.sprite = cardsUI.cardRarityBackground[(int)cardData.Rarity];
-        /*if (cardData.Rarity == Card.CardRarity.Legendary)
+        if (cardData.Rarity == Card.CardRarity.Legendary)
         {
             type.sprite = cardsUI.cardDiamondType[(int)cardData.Type];
         }
         else
         {
             type.sprite = cardsUI.cardType[(int)cardData.Type];
-        }*/
-        type.sprite = cardsUI.cardType[(int)cardData.Type];
+        }
+        //type.sprite = cardsUI.cardType[(int)cardData.Type];
     }
 
     public void OnPointerClick(PointerEventData eventData)
