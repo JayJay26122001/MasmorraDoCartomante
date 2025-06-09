@@ -29,6 +29,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1988c0116aa0e464ca6c24b7f01913db, type: 3}
   - {fileID: 21300000, guid: 35964313397024740853e138e1baac2d, type: 3}
   cardDiamondType:
-  - {fileID: 21300000, guid: f374cb6d3bdfc2c4aba521a5b95c9263, type: 3}
-  - {fileID: 21300000, guid: 4bb7fc715077d604f9806777bb1a17e2, type: 3}
-  - {fileID: 21300000, guid: 539c7405ec572b744a224da423707449, type: 3}
+  - {fileID: 21300000, guid: 51e15464f863c0648966df699b61ffee, type: 3}
+  - {fileID: 21300000, guid: 4543583cc4000c146b50e5993f5a5b68, type: 3}
+  - {fileID: 21300000, guid: 113389585b7683743b8574c3797f9837, type: 3}
