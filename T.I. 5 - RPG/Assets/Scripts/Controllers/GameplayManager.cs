@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 using System.Collections;
+using TMPro;
 public class GameplayManager : MonoBehaviour
 {
     public static Combat currentCombat;
@@ -32,7 +33,8 @@ public class GameplayManager : MonoBehaviour
     public List<CardPack> packs = new List<CardPack>();
     public List<PackPool> packPools = new List<PackPool>();
     public bool canBuy, removingCards = false, figtingBoss;
-
+    public int rerollPrice, rerollBasePrice;
+    public TextMeshPro rerollText;
     private void Awake()
     {
         instance = this;
@@ -173,15 +175,21 @@ public class GameplayManager : MonoBehaviour
 
     public void DefineShop()
     {
+        rerollPrice = rerollBasePrice;
+        rerollText.text = "$" + rerollPrice;
+        DefinePacks();
+    }
+
+    public void DefinePacks()
+    {
         List<CardPackSO> aux = packPools[areaIndex].SelectPacks(packs.Count);
-        for(int i = 0; i < packs.Count; i++)
+        for (int i = 0; i < packs.Count; i++)
         {
             packs[i].data = aux[i];
             packs[i].DefineCards();
         }
         canBuy = true;
     }
-
     public void DiscardBoughtCards(DiscardBell bell)
     {
         if(bell.pack != null)
@@ -225,5 +233,70 @@ public class GameplayManager : MonoBehaviour
         }
         removingCards = false;
         canBuy = true;
+    }
+
+    public void RerollPacks()
+    {
+        if(canBuy)
+        {
+            if(player.ChangeMoney(-rerollPrice))
+            {
+                bool disappear = false;
+                canBuy = false;
+                rerollPrice++;
+                rerollText.text = "$" + rerollPrice;
+                foreach(CardPack pack in packs)
+                {
+                    if(!pack.bought)
+                    {
+                        pack.AnimatePack(true);
+                        disappear = true;
+                    }
+                }
+                StartCoroutine(RerollAnimations(disappear));
+            }
+        }
+    }
+
+    IEnumerator RerollAnimations(bool disappear)
+    {
+        if(disappear)
+        {
+            yield return new WaitUntil(() => CheckPacks(true));
+        }
+        yield return new WaitForSeconds(0.5f);
+        DefinePacks();
+        foreach (CardPack pack in packs)
+        {
+            pack.AnimatePack(false);
+        }
+        yield return new WaitUntil(() => CheckPacks(false));
+        canBuy = true;
+    }
+
+    bool CheckPacks(bool disappear)
+    {
+        bool aux = true;
+        if(disappear)
+        {
+            foreach (CardPack pack in packs)
+            {
+                if (pack.mat.GetFloat("_DisappearTime") < 1)
+                {
+                    aux = false;
+                }
+            }
+        }
+        else
+        {
+            foreach (CardPack pack in packs)
+            {
+                if (pack.mat.GetFloat("_DisappearTime") > 0)
+                {
+                    aux = false;
+                }
+            }
+        }
+        return aux;
     }
 }

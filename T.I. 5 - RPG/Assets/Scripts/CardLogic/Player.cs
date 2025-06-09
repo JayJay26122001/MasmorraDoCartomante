@@ -111,9 +111,12 @@ public class Player : Creature
 
     public void BuyHeal(int price)
     {
-        if(ChangeMoney(-price))
+        if(GameplayManager.instance.canBuy)
         {
-            ResetHP();
+            if(ChangeMoney(-price))
+            {
+                ResetHP();
+            }
         }
     }
 }

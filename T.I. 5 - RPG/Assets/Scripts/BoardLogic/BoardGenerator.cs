@@ -363,7 +363,7 @@ public class BoardGenerator : MonoBehaviour
             {
                 go.GetComponent<LineRenderer>().material.SetFloat("_DisappearTime", t);
             }
-            if(t >= 1 || t <= 0)
+            if((t >= 1 && disappearing) || (t <= 0 && !disappearing))
             {
                 inAnimation = false;
             }

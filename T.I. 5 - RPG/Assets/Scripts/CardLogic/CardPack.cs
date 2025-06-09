@@ -9,7 +9,7 @@ public class CardPack : MonoBehaviour
     public TextMeshPro priceText;
     public DiscardBell discardBell;
     public Material mat;
-    bool bought;
+    [HideInInspector]public bool bought;
     private void Start()
     {
         mat = GetComponent<MeshRenderer>().material;
@@ -40,7 +40,7 @@ public class CardPack : MonoBehaviour
                 GameplayManager.instance.canBuy = false;
                 GameplayManager.instance.PlayCutscene(4);
                 discardBell.pack = this;
-                AnimatePack();
+                AnimatePack(true);
                 bought = true;
                 foreach(Card c in cards)
                 {
@@ -74,10 +74,11 @@ public class CardPack : MonoBehaviour
     }
 
     float animTimeStart;
-    bool inAnimation;
+    bool inAnimation, disappearing;
     float t;
-    public void AnimatePack()
+    public void AnimatePack(bool disappear)
     {
+        disappearing = disappear;
         priceText.text = "";
         animTimeStart = Time.time;
         inAnimation = true;
@@ -87,11 +88,23 @@ public class CardPack : MonoBehaviour
     {
         if (inAnimation)
         {
-            t = Mathf.Clamp((Time.time - animTimeStart) * 3, 0, 1);
+            if(disappearing)
+            {
+                t = Mathf.Clamp((Time.time - animTimeStart) * 3, 0, 1);
+            }
+            else
+            {
+                t = Mathf.Clamp(1 - ((Time.time - animTimeStart) * 3), 0, 1);
+            }
             mat.SetFloat("_DisappearTime", t);
-            if (t >= 1)
+            if ((t >= 1 && disappearing)|| (t <= 0 && !disappearing))
             {
                 inAnimation = false;
+                if(!disappearing)
+                {
+                    priceText.text = "$" + data.price;
+                    bought = false;
+                }
             }
         }
     }
