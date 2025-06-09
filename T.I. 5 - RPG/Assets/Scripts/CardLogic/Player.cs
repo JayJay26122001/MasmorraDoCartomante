@@ -108,5 +108,13 @@ public class Player : Creature
             return true;
         }
     }
+
+    public void BuyHeal(int price)
+    {
+        if(ChangeMoney(-price))
+        {
+            ResetHP();
+        }
+    }
 }
 

@@ -144,4 +144,10 @@ public class Enemy : Creature
         yield return new WaitForSeconds(1);
         model.SetActive(false);
     }
+
+    public override void EndCombat()
+    {
+        base.EndCombat();
+        ResetHP();
+    }
 }

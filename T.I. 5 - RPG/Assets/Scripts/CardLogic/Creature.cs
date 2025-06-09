@@ -261,7 +261,7 @@ public class Creature : MonoBehaviour
         }
         ResetEnergy();
         ResetShield();
-        ResetHP();
+        //ResetHP();
         ResetDamageModifiers();
         ResetShieldModifiers();
     }

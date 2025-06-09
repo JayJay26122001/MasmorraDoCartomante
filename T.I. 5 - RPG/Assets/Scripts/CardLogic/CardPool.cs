@@ -9,6 +9,31 @@ public class CardPool : ScriptableObject
 
     public List<Card> SelectCards(int quantity)
     {
+        for(int i = 0; i < pool.Count; i++)
+        {
+            switch(pool[i].Rarity)
+            {
+                case Card.CardRarity.Common:
+                    probabilities[i] = 30;
+                    break;
+                    
+                case Card.CardRarity.Uncommon:
+                    probabilities[i] = 20;
+                    break;
+                    
+                case Card.CardRarity.Rare:
+                    probabilities[i] = 10;
+                    break;
+                    
+                case Card.CardRarity.Epic:
+                    probabilities[i] = 5;
+                    break;
+                    
+                case Card.CardRarity.Legendary:
+                    probabilities[i] = 1;
+                    break;
+            }
+        }
         List<Card> auxList = new List<Card>();
         int sum = 0;
         foreach(int s in probabilities)
