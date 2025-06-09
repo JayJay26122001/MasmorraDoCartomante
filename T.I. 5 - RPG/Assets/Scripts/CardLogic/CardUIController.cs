@@ -10,6 +10,7 @@ public class CardUIController : MonoBehaviour
     public CardDisplay cardPrefab;
     public CinemachineCamera cardsCamera;
     public float maxTotalWidth = 12.0f;
+    public GameObject enemyCardAppearVfx, puffVfx;
     public Card highlightedCard { get; protected set; }
 
     public void SetHighlightedCard(Card card)
@@ -267,7 +268,9 @@ public class CardUIController : MonoBehaviour
         {
             float posX = (i - ((totalCardsPlayed - 1) / 2f)) * playedEnemyCardsSpacing;
             GameObject cardObject = c.playedCards[i].cardDisplay.gameObject;
-            Vector3 pos = (c.combatSpace.playedCardSpace.right * posX) + c.combatSpace.playedCardSpace.position;
+            Vector3 finalPos = (c.combatSpace.playedCardSpace.right * posX) + c.combatSpace.playedCardSpace.position;
+            Vector3 spawnPos = finalPos + Vector3.up * 5f;
+            Vector3 upPos = spawnPos + Vector3.up * 1.5f;
             Vector3 rot;
             if (!c.playedCards[i].hidden)
             {
@@ -277,11 +280,34 @@ public class CardUIController : MonoBehaviour
             {
                 rot = c.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(-90f, 180f, 0);
             }
-            LeanTween.move(cardObject, pos, 0.75f).setEaseInCubic();
-            LeanTween.rotate(cardObject, rot, 0.15f).setEaseInOutSine();
+            //cardObject.SetActive(false);
+            cardObject.transform.position = spawnPos;
+            //PlayCardVFX();
+            LeanTween.rotate(cardObject, rot, 0.01f).setEaseInOutSine();
+            LeanTween.delayedCall(cardObject, 0.25f, () =>
+            {
+                LeanTween.move(cardObject, upPos, 0.5f).setEaseOutCubic().setOnComplete(() =>
+                {
+                    LeanTween.move(cardObject, finalPos, 0.25f).setEaseInCubic().setOnComplete(() =>
+                    {
+                        PlayCardVFX(instance.puffVfx, finalPos, rot, 0.5f);
+                    });
+                });
+            });
             cardObject.transform.SetParent(c.combatSpace.playedCardSpace);
         }
     }
+
+    public static void PlayCardVFX(GameObject cardVfx, Vector3 pos, Vector3 rot, float time)
+    {
+        if (cardVfx != null)
+        {
+            Quaternion rotation = Quaternion.Euler(rot);
+            GameObject vfx = Instantiate(cardVfx, pos + Vector3.forward*1f +Vector3.up*0.15f, rotation);
+            Destroy(vfx, time);
+        }
+    }
+
 
     public static void OrganizeStackFlat(SerializableStack<Card> pile, Transform space)
     {

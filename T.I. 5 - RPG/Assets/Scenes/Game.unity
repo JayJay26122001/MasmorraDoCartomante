@@ -5079,7 +5079,7 @@ PlayableDirector:
   m_GameObject: {fileID: 626271299}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 3b957b7ff9a6fa248994e3624e08a010, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: fbef68baeb48bff439b5d4200d5387fa, type: 2}
   m_InitialState: 0
   m_WrapMode: 0
   m_DirectorUpdateMode: 1
@@ -7425,6 +7425,8 @@ MonoBehaviour:
   cardPrefab: {fileID: 9116686077430768635, guid: a468dd13253bcef47bbc2cf4ff5ff828, type: 3}
   cardsCamera: {fileID: 1487703419}
   maxTotalWidth: 10.5
+  enemyCardAppearVfx: {fileID: 1986994750891469448, guid: db22c482f805eb840b17f4e40ef5d09f, type: 3}
+  puffVfx: {fileID: 6860547894352093613, guid: 464f5d84aa1d36d47a607a26298c18ee, type: 3}
 --- !u!1001 &1240816930
 PrefabInstance:
   m_ObjectHideFlags: 0
