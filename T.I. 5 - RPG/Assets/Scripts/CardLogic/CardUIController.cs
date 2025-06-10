@@ -3,6 +3,7 @@ using Unity.Cinemachine;
 using UnityEngine;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using static UnityEditor.PlayerSettings;
 
 public class CardUIController : MonoBehaviour
 {
@@ -214,8 +215,22 @@ public class CardUIController : MonoBehaviour
             Vector3 rot = c.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(90f, 0f, 0f);
             if(c.GetComponent<Player>() != null)
             {
-                LeanTween.move(cardObject, pos, 0.15f).setEaseInOutSine();
                 LeanTween.rotate(cardObject, rot, 0.15f).setEaseInOutSine();
+                if (i == totalCardsPlayed - 1)
+                {
+                    LeanTween.move(cardObject, pos, 0.15f).setEaseInOutSine().setOnComplete(() =>
+                    {
+                        PlayCardVFX(instance.puffVfx, pos, rot, 0.5f);
+                    });
+                }
+                else
+                {
+                    LeanTween.move(cardObject, pos, 0.15f).setEaseInOutSine();
+                }
+                /*LeanTween.move(cardObject, pos, 0.15f).setEaseInOutSine().setOnComplete(() =>
+                {
+                    PlayCardVFX(instance.puffVfx, pos, rot, 0.5f);
+                });*/
                 cardObject.transform.SetParent(c.combatSpace.playedCardSpace);
                 CardDisplay cardDisplay = cardObject.GetComponent<CardDisplay>();
             }
@@ -287,7 +302,7 @@ public class CardUIController : MonoBehaviour
             LeanTween.delayedCall(cardObject, 0.25f, () =>
             {
                 LeanTween.move(cardObject, upPos, 0.5f).setEaseOutCubic().setOnComplete(() =>
-                {
+                { 
                     LeanTween.move(cardObject, finalPos, 0.25f).setEaseInCubic().setOnComplete(() =>
                     {
                         PlayCardVFX(instance.puffVfx, finalPos, rot, 0.5f);
@@ -303,7 +318,7 @@ public class CardUIController : MonoBehaviour
         if (cardVfx != null)
         {
             Quaternion rotation = Quaternion.Euler(rot);
-            GameObject vfx = Instantiate(cardVfx, pos + Vector3.forward*1f +Vector3.up*0.15f, rotation);
+            GameObject vfx = Instantiate(cardVfx, pos + Vector3.forward*1f +Vector3.up*0.5f, rotation);
             Destroy(vfx, time);
         }
     }
