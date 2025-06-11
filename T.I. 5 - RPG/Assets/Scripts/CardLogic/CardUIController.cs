@@ -295,9 +295,8 @@ public class CardUIController : MonoBehaviour
             {
                 rot = c.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(-90f, 180f, 0);
             }
-            //cardObject.SetActive(false);
             cardObject.transform.position = spawnPos;
-            //PlayCardVFX();
+            //cardObject.GetComponent<CardDisplay>().AnimateEnemyCard(false);
             LeanTween.rotate(cardObject, rot, 0.01f).setEaseInOutSine();
             LeanTween.delayedCall(cardObject, 0.25f, () =>
             {

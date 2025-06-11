@@ -8,7 +8,9 @@ using static UnityEditor.PlayerSettings;
 
 public class CardDisplay : MonoBehaviour, IPointerClickHandler
 {
-    public SpriteRenderer rarity, background, type;
+    public SpriteRenderer cardBack, image, rarity, background, type;
+    public MeshRenderer cardBase;
+    public Material dissolveShader;
     public TextMeshPro cardCost, cardName, cardDescription;
     public Card cardData;
     public CardsUI cardsUI;
@@ -18,6 +20,10 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
     private bool hasSetOriginalTransform = false;
     bool highlighted;
     public CardPack pack;
+    bool inAnimation = false, disappearing;
+    float animTimeStart;
+    public float animSpeed;
+
     void Start()
     {
         if (!hasSetOriginalTransform)
@@ -25,6 +31,32 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
             originalScale = transform.localScale;
             hasSetOriginalTransform = true;
         }
+        /*if(cardData.deck.Owner != GameplayManager.instance.player)
+        {
+            SetupShader();
+        }*/
+    }
+
+    void SetupShader()
+    {
+        dissolveShader.SetTexture("_MainTex", cardBack.material.mainTexture);
+        cardBack.material = dissolveShader;
+        dissolveShader.SetTexture("_MainTex", image.material.mainTexture);
+        image.material = dissolveShader;
+        dissolveShader.SetTexture("_MainTex", rarity.material.mainTexture);
+        rarity.material = dissolveShader;
+        dissolveShader.SetTexture("_MainTex", background.material.mainTexture);
+        background.material = dissolveShader;
+        dissolveShader.SetTexture("_MainTex", type.material.mainTexture);
+        type.material = dissolveShader;
+        dissolveShader.SetTexture("_MainTex", cardBase.material.mainTexture);
+        cardBase.material = dissolveShader;
+        dissolveShader.SetTexture("_MainTex", cardCost.material.mainTexture);
+        cardCost.material = dissolveShader;
+        dissolveShader.SetTexture("_MainTex", cardName.material.mainTexture);
+        cardName.material = dissolveShader;
+        dissolveShader.SetTexture("_MainTex", cardDescription.material.mainTexture);
+        cardDescription.material = dissolveShader;
     }
 
     public void SetCard(Card card)
@@ -144,6 +176,42 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
                 }*/
                 CardUIController.OrganizeHandCardsWhenHighlighted(c);
                 highlighted = false;
+            }
+        }
+    }
+
+    public void AnimateEnemyCard(bool disappear)
+    {
+        disappearing = disappear;
+        animTimeStart = Time.time;
+        inAnimation = true;
+    }
+
+    float t = 0;
+    private void Update()
+    {
+        if (inAnimation)
+        {
+            if (disappearing)
+            {
+                t = Mathf.Clamp((Time.time - animTimeStart) * animSpeed, 0, 1);
+            }
+            else
+            {
+                t = Mathf.Clamp(1 - ((Time.time - animTimeStart) * animSpeed), 0, 1);
+            }
+            cardBack.material.SetFloat("_DissolveAmount", t);
+            image.material.SetFloat("_DissolveAmount", t);
+            rarity.material.SetFloat("_DissolveAmount", t);
+            background.material.SetFloat("_DissolveAmount", t);
+            type.material.SetFloat("_DissolveAmount", t);
+            cardBase.material.SetFloat("_DissolveAmount", t);
+            cardCost.GetComponent<MeshRenderer>().material.SetFloat("_DissolveAmount", t);
+            cardName.GetComponent<MeshRenderer>().material.SetFloat("_DissolveAmount", t);
+            cardDescription.GetComponent<MeshRenderer>().material.SetFloat("_DissolveAmount", t);
+            if ((t >= 1 && disappearing) || (t <= 0 && !disappearing))
+            {
+                inAnimation = false;
             }
         }
     }
