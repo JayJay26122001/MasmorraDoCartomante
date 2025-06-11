@@ -162,7 +162,7 @@ public class EnemyCardAnimation : AnimationAction
     public EnemyCardAnimation(Enemy e)
     {
         c = e;
-        time = 0.75f;
+        time = 1f;
     }
 
     public override void PerformAction()
