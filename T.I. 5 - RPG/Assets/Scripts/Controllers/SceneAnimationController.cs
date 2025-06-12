@@ -20,14 +20,33 @@ public class SceneAnimationController : MonoBehaviour
     {
         //action.AnimEnded.AddListener(AdvanceQueue);
         AnimQueue.Add(action);
+        UpdateQueueIndexes();
         if (AnimQueue.Count == 1)
         {
             AnimQueue[0].StartAction();
         }
     }
+    public void AddToQueue(AnimationAction action, int index)
+    {
+        //action.AnimEnded.AddListener(AdvanceQueue);
+        AnimQueue.Insert(index,action);
+        UpdateQueueIndexes();
+        if (AnimQueue.Count == 1)
+        {
+            AnimQueue[0].StartAction();
+        }
+    }
+    public void UpdateQueueIndexes()
+    {
+        for (int i = 0; i < AnimQueue.Count; i++) 
+        {
+            AnimQueue[i].QueueIndex = i;
+        }
+    }
     public void AdvanceQueue()
     {
         AnimQueue.Remove(AnimQueue[0]);
+        UpdateQueueIndexes();
         if (AnimQueue.Count > 0)
         {
             AnimQueue[0].StartAction();
@@ -69,6 +88,7 @@ public class SceneAnimationController : MonoBehaviour
 public abstract class AnimationAction
 {
     public float time;
+    public int QueueIndex = 0;
     public void StartAction()
     {
         PerformAction();
@@ -80,12 +100,12 @@ public abstract class AnimationAction
 }
 public class EnemyPlayCard : AnimationAction
 {
-    Enemy c;
+    Enemy enemy;
     //AnimationClip playCard;
-    public EnemyPlayCard(Enemy e)
+    public EnemyPlayCard(Enemy e, Card c)
     {
-        c = e;
-        foreach (AnimationClip a in c.anim.runtimeAnimatorController.animationClips)
+        enemy = e;
+        foreach (AnimationClip a in enemy.anim.runtimeAnimatorController.animationClips)
         {
             if (a.name == "PlayCard")
             {
@@ -93,17 +113,39 @@ public class EnemyPlayCard : AnimationAction
                 time = a.length;
             }
         }
+        AnimEnded.AddListener(() => e.PlayCard(c));
     }
     public override void PerformAction()
     {
-        c.anim.SetTrigger("PlayCard");
+        enemy.anim.SetTrigger("PlayCard");
         GameplayManager.instance.PauseInput(time);
         AnimStarted.Invoke();
         CameraController.instance.ChangeCamera(1);
         SceneAnimationController.instance.InvokeTimer(CameraController.instance.ChangeCamera,0, time);
         SceneAnimationController.instance.InvokeTimer(AnimEnded.Invoke, time);
+
+        WaitAction enemyCardAnim = new WaitAction(1f);
+        enemyCardAnim.AnimStarted.AddListener(() => CardUIController.OrganizeEnemyPlayedCards(enemy));
+        SceneAnimationController.instance.AddToQueue(enemyCardAnim, QueueIndex+1);
     }
 }
+/*public class EnemyCardAnimation : AnimationAction
+{
+    Enemy c;
+    public EnemyCardAnimation(Enemy e)
+    {
+        c = e;
+        time = 1f;
+    }
+
+    public override void PerformAction()
+    {
+        GameplayManager.instance.PauseInput(time);
+        AnimStarted.Invoke();
+        CardUIController.OrganizeEnemyPlayedCards(c);
+        SceneAnimationController.instance.InvokeTimer(AnimEnded.Invoke, time);
+    }
+}*/
 public class EnemyTakeDamage : AnimationAction
 {
     Enemy c;
@@ -156,23 +198,6 @@ public class EnemyDefeat : AnimationAction
     }
 }
 
-public class EnemyCardAnimation : AnimationAction
-{
-    Enemy c;
-    public EnemyCardAnimation(Enemy e)
-    {
-        c = e;
-        time = 0.75f;
-    }
-
-    public override void PerformAction()
-    {
-        GameplayManager.instance.PauseInput(time);
-        AnimStarted.Invoke();
-        CardUIController.OrganizeEnemyPlayedCards(c);
-        SceneAnimationController.instance.InvokeTimer(AnimEnded.Invoke, time);
-    }
-}
 public class AdvanceCombatAction : AnimationAction
 {
     public AdvanceCombatAction(float WaitBeforeAdvance)

@@ -17,25 +17,22 @@ public class Enemy : Creature
         {
             hand[0].hidden = true;
         }*/
-        EnemyPlayCard anim = new EnemyPlayCard(this);
-        EnemyCardAnimation playCardAnim = new EnemyCardAnimation(this);
-        anim.AnimEnded.AddListener(TurnActionsDelayed);
+        EnemyPlayCard anim = new EnemyPlayCard(this, hand[0]);
+        //EnemyCardAnimation playCardAnim = new EnemyCardAnimation(this);
+        //anim.AnimEnded.AddListener(TurnActionsDelayed);
         SceneAnimationController.instance.AddToQueue(anim);
-        SceneAnimationController.instance.AddToQueue(playCardAnim);
+        //SceneAnimationController.instance.AddToQueue(playCardAnim);
     }
 
     void TurnActionsDelayed()
     {
         if (!GameplayManager.instance.CombatActive) return;
-        if (hand.Count == 0)
+        /*if (hand.Count == 0)
         {
             BuyCards(1);
-        }
+        }*/
         PlayCard(hand[0]);
-        if (hand.Count == 0)
-        {
-            BuyCards(1);
-        }
+        
         //GameplayManager.currentCombat.AdvanceCombat();
     }
     public override void TakeDamage(int damage)
@@ -117,7 +114,12 @@ public class Enemy : Creature
     }
     public override void PlayCard(Card c)
     {
+        if (!GameplayManager.instance.CombatActive) return;
         base.PlayCard(c);
+        if (hand.Count == 0)
+        {
+            BuyCards(1);
+        }
     }
     public override void Die()
     {
