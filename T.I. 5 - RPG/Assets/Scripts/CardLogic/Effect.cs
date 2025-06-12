@@ -95,10 +95,12 @@ public class DealDamage : Effect
         switch (target)
         {
             case Target.Oponent:
-                card.deck.Owner.enemy.TakeDamage(GetDamage(), IgnoreDefense);
+                //card.deck.Owner.enemy.TakeDamage(GetDamage(), IgnoreDefense);
+                ActionController.instance.AddToQueue(new DamageAction(card.deck.Owner.enemy, GetDamage(), IgnoreDefense));
                 break;
             case Target.User:
-                card.deck.Owner.TakeDamage(GetDamage(), IgnoreDefense);
+                //card.deck.Owner.TakeDamage(GetDamage(), IgnoreDefense);
+                ActionController.instance.AddToQueue(new DamageAction(card.deck.Owner, GetDamage(), IgnoreDefense));
                 break;
         }
         EffectEnded();

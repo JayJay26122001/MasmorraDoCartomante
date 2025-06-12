@@ -71,8 +71,8 @@ public class Combat : MonoBehaviour
         }
         TurnIndex = 0;
         ActiveTurn = Round[turnIndex];
-        SceneAnimationController.instance.InvokeTimer(ActiveTurn.TurnStart, 1);
-        SceneAnimationController.instance.InvokeTimer(CombatUI, 1);
+        ActionController.instance.InvokeTimer(ActiveTurn.TurnStart, 1);
+        ActionController.instance.InvokeTimer(CombatUI, 1);
         CardUIController.CardsOrganizer(combatents[0]);
         CardUIController.CardsOrganizer(combatents[1]);
         //CombatUI();
@@ -391,7 +391,7 @@ public class TurnStart : TurnPhase
     public override void StartPhase()
     {
         base.StartPhase();
-        SceneAnimationController.instance.InvokeTimer(GameplayManager.currentCombat.SetBellActive, true, 1f);
+        ActionController.instance.InvokeTimer(GameplayManager.currentCombat.SetBellActive, true, 1f);
     }
 
     public override void PhaseEffect()
@@ -438,7 +438,7 @@ public class TurnEnd : TurnPhase
             //GameplayManager.instance.PauseInput();
             AdvanceCombatAction advance = new AdvanceCombatAction(1);
             //advance.AnimEnded.AddListener(GameplayManager.instance.ResumeInput);
-            SceneAnimationController.instance.AddToQueue(advance);
+            ActionController.instance.AddToQueue(advance);
         }
 
     }

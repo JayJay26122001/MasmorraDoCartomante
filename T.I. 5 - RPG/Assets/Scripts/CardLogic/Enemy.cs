@@ -21,7 +21,7 @@ public class Enemy : Creature
         EnemyPlayCard anim = new EnemyPlayCard(this, hand[0]);
         //EnemyCardAnimation playCardAnim = new EnemyCardAnimation(this);
         //anim.AnimEnded.AddListener(TurnActionsDelayed);
-        SceneAnimationController.instance.AddToQueue(anim);
+        ActionController.instance.AddToQueue(anim);
         //SceneAnimationController.instance.AddToQueue(playCardAnim);
     }
 
@@ -56,13 +56,13 @@ public class Enemy : Creature
             Damaged.Invoke();
             if (Health <= 0)
             {
-                SceneAnimationController.instance.AddToQueue(new EnemyDefeat(this));
+                ActionController.instance.AddToQueue(new EnemyDefeat(this));
             }
-            else
+            /*else
             {
                 EnemyTakeDamage anim = new EnemyTakeDamage(this);
-                SceneAnimationController.instance.AddToQueue(anim);
-            }
+                ActionController.instance.AddToQueue(anim);
+            }*/
         }
     }
     public override void TakeDamage(int damage, bool IgnoreDefense)
@@ -94,13 +94,13 @@ public class Enemy : Creature
             Damaged.Invoke();
             if (Health <= 0)
             {
-                SceneAnimationController.instance.AddToQueue(new EnemyDefeat(this));
+                ActionController.instance.AddToQueue(new EnemyDefeat(this));
             }
-            else
+            /*else
             {
                 EnemyTakeDamage anim = new EnemyTakeDamage(this);
-                SceneAnimationController.instance.AddToQueue(anim);
-            }
+                ActionController.instance.AddToQueue(anim);
+            }*/
         }
 
         //N�O PODE TER ESSE ELSE AQUI, ESSE IF � PRA EVITAR DAR DANO DEPOIS DO INIMIGO MORRER E CHAMAR AS FUN��O DENOVO

@@ -1,63 +1,61 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Playables;
 
-public class SceneAnimationController : MonoBehaviour
+public class ActionController : MonoBehaviour
 {
-    public PlayableDirector director;
-    public static SceneAnimationController instance;
-    List<AnimationAction> AnimQueue = new List<AnimationAction>();
-    public PlayableAsset EnterCombatScene, ExitCombatSecene, EnterShopScene, ExitShopScene;
+    //public PlayableDirector director;
+    public static ActionController instance;
+    List<SceneAction> ActionQueue = new List<SceneAction>();
+    //public PlayableAsset EnterCombatScene, ExitCombatSecene, EnterShopScene, ExitShopScene;
     void Awake()
     {
-        director = GetComponent<PlayableDirector>();
+        //director = GetComponent<PlayableDirector>();
         instance = this;
     }
-    public void AddToQueue(AnimationAction action)
+    public void AddToQueue(SceneAction action)
     {
         //action.AnimEnded.AddListener(AdvanceQueue);
-        AnimQueue.Add(action);
+        ActionQueue.Add(action);
         UpdateQueueIndexes();
-        if (AnimQueue.Count == 1)
+        if (ActionQueue.Count == 1)
         {
-            AnimQueue[0].StartAction();
+            ActionQueue[0].StartAction();
         }
     }
-    public void AddToQueue(AnimationAction action, int index)
+    public void AddToQueue(SceneAction action, int index)
     {
         //action.AnimEnded.AddListener(AdvanceQueue);
-        AnimQueue.Insert(index,action);
+        ActionQueue.Insert(index, action);
         UpdateQueueIndexes();
-        if (AnimQueue.Count == 1)
+        if (ActionQueue.Count == 1)
         {
-            AnimQueue[0].StartAction();
+            ActionQueue[0].StartAction();
         }
     }
     public void UpdateQueueIndexes()
     {
-        for (int i = 0; i < AnimQueue.Count; i++) 
+        for (int i = 0; i < ActionQueue.Count; i++)
         {
-            AnimQueue[i].QueueIndex = i;
+            ActionQueue[i].QueueIndex = i;
         }
     }
     public void AdvanceQueue()
     {
-        AnimQueue.Remove(AnimQueue[0]);
+        ActionQueue.Remove(ActionQueue[0]);
         UpdateQueueIndexes();
-        if (AnimQueue.Count > 0)
+        if (ActionQueue.Count > 0)
         {
-            AnimQueue[0].StartAction();
+            ActionQueue[0].StartAction();
         }
     }
 
-    public void PlayAnimation(PlayableAsset animation)
+    /*public void PlayAnimation(PlayableAsset animation)
     {
         director.playableAsset = animation;
         director.Play();
-    }
+    }*/
     public void InvokeTimer(UnityAction action, float time)
     {
         StartCoroutine(CallEvent(time, action));
@@ -85,23 +83,22 @@ public class SceneAnimationController : MonoBehaviour
         action.Invoke();
     }
 }
-public abstract class AnimationAction
+public abstract class SceneAction
 {
     public float time;
     public int QueueIndex = 0;
     public void StartAction()
     {
         PerformAction();
-        SceneAnimationController.instance.InvokeTimer(SceneAnimationController.instance.AdvanceQueue, time);
+        ActionController.instance.InvokeTimer(ActionController.instance.AdvanceQueue, time);
     }
 
     public abstract void PerformAction();
     public UnityEvent AnimStarted = new UnityEvent(), AnimEnded = new UnityEvent();
 }
-public class EnemyPlayCard : AnimationAction
+public class EnemyPlayCard : SceneAction
 {
     Enemy enemy;
-    //AnimationClip playCard;
     public EnemyPlayCard(Enemy e, Card c)
     {
         enemy = e;
@@ -109,7 +106,6 @@ public class EnemyPlayCard : AnimationAction
         {
             if (a.name == "PlayCard")
             {
-                //playCard = a;
                 time = a.length;
             }
         }
@@ -121,61 +117,53 @@ public class EnemyPlayCard : AnimationAction
         GameplayManager.instance.PauseInput(time);
         AnimStarted.Invoke();
         CameraController.instance.ChangeCamera(1);
-        SceneAnimationController.instance.InvokeTimer(CameraController.instance.ChangeCamera,0, time);
-        SceneAnimationController.instance.InvokeTimer(AnimEnded.Invoke, time);
+        ActionController.instance.InvokeTimer(CameraController.instance.ChangeCamera, 0, time);
+        ActionController.instance.InvokeTimer(AnimEnded.Invoke, time);
 
         WaitAction enemyCardAnim = new WaitAction(1f);
         enemyCardAnim.AnimStarted.AddListener(() => CardUIController.OrganizeEnemyPlayedCards(enemy));
-        SceneAnimationController.instance.AddToQueue(enemyCardAnim, QueueIndex+1);
+        ActionController.instance.AddToQueue(enemyCardAnim, QueueIndex + 1);
     }
 }
-/*public class EnemyCardAnimation : AnimationAction
+public class DamageAction : SceneAction
 {
-    Enemy c;
-    public EnemyCardAnimation(Enemy e)
+    Creature c;
+    int dmg;
+    bool ignoreDfns;
+    public DamageAction(Creature creature, int damage, bool IgnoreDefense)
     {
-        c = e;
-        time = 1f;
-    }
-
-    public override void PerformAction()
-    {
-        GameplayManager.instance.PauseInput(time);
-        AnimStarted.Invoke();
-        CardUIController.OrganizeEnemyPlayedCards(c);
-        SceneAnimationController.instance.InvokeTimer(AnimEnded.Invoke, time);
-    }
-}*/
-public class EnemyTakeDamage : AnimationAction
-{
-    Enemy c;
-    //AnimationClip playCard;
-    public EnemyTakeDamage(Enemy e)
-    {
-        c = e;
-        foreach (AnimationClip a in c.anim.runtimeAnimatorController.animationClips)
+        c = creature;
+        dmg = damage;
+        ignoreDfns = IgnoreDefense;
+        if (c.GetType() == typeof(Enemy))
         {
-            if (a.name == "TakeDamage")
+            foreach (AnimationClip a in c.GetComponent<Enemy>().anim.runtimeAnimatorController.animationClips)
             {
-                //playCard = a;
-                time = a.length;
+                if (a.name == "TakeDamage")
+                {
+                    time = a.length;
+                }
             }
         }
     }
     public override void PerformAction()
     {
-        c.anim.SetTrigger("TakeDamage");
-        GameplayManager.instance.PauseInput(time);
-        AnimStarted.Invoke();
-        CameraController.instance.ChangeCamera(1);
-        SceneAnimationController.instance.InvokeTimer(CameraController.instance.ChangeCamera,0, time);
-        SceneAnimationController.instance.InvokeTimer(AnimEnded.Invoke, time);
+        c.TakeDamage(dmg, ignoreDfns);
+        if (c.GetType() == typeof(Enemy))
+        {
+            c.GetComponent<Enemy>().anim.SetTrigger("TakeDamage");
+            GameplayManager.instance.PauseInput(time);
+            AnimStarted.Invoke();
+            CameraController.instance.ChangeCamera(1);
+            ActionController.instance.InvokeTimer(CameraController.instance.ChangeCamera, 0, time);
+            ActionController.instance.InvokeTimer(AnimEnded.Invoke, time);
+        }
+
     }
 }
-public class EnemyDefeat : AnimationAction
+public class EnemyDefeat : SceneAction
 {
     Enemy c;
-    //AnimationClip playCard;
     public EnemyDefeat(Enemy e)
     {
         c = e;
@@ -183,7 +171,6 @@ public class EnemyDefeat : AnimationAction
         {
             if (a.name == "Defeat")
             {
-                //playCard = a;
                 time = a.length;
             }
         }
@@ -196,11 +183,11 @@ public class EnemyDefeat : AnimationAction
         GameplayManager.instance.PauseInput(time);
         AnimStarted.Invoke();
         CameraController.instance.ChangeCamera(1);
-        SceneAnimationController.instance.InvokeTimer(AnimEnded.Invoke, time);
+        ActionController.instance.InvokeTimer(AnimEnded.Invoke, time);
     }
 }
 
-public class AdvanceCombatAction : AnimationAction
+public class AdvanceCombatAction : SceneAction
 {
     public AdvanceCombatAction(float WaitBeforeAdvance)
     {
@@ -216,10 +203,10 @@ public class AdvanceCombatAction : AnimationAction
             AnimEnded.Invoke();
             GameplayManager.instance.ResumeInput();
         };
-        SceneAnimationController.instance.InvokeTimer(action, time);
+        ActionController.instance.InvokeTimer(action, time);
     }
 }
-public class WaitAction : AnimationAction
+public class WaitAction : SceneAction
 {
     public WaitAction(float Time)
     {
@@ -234,6 +221,6 @@ public class WaitAction : AnimationAction
             AnimEnded.Invoke();
             GameplayManager.instance.ResumeInput();
         };
-        SceneAnimationController.instance.InvokeTimer(action, time);
+        ActionController.instance.InvokeTimer(action, time);
     }
 }
