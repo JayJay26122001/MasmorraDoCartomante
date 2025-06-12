@@ -187,9 +187,11 @@ public class EnemyDefeat : AnimationAction
                 time = a.length;
             }
         }
+        AnimEnded.AddListener(() => GameplayManager.instance.PlayCutscene(0));
     }
     public override void PerformAction()
     {
+        c.Die();
         c.anim.SetTrigger("Defeat");
         GameplayManager.instance.PauseInput(time);
         AnimStarted.Invoke();

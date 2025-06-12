@@ -13,6 +13,7 @@ public class Enemy : Creature
     }
     public override void TurnAction()
     {
+        if (!GameplayManager.instance.CombatActive) return;
         /*if (hand[0].Type == Card.CardType.Mind)
         {
             hand[0].hidden = true;
@@ -32,7 +33,7 @@ public class Enemy : Creature
             BuyCards(1);
         }*/
         PlayCard(hand[0]);
-        
+
         //GameplayManager.currentCombat.AdvanceCombat();
     }
     public override void TakeDamage(int damage)
@@ -55,17 +56,13 @@ public class Enemy : Creature
             Damaged.Invoke();
             if (Health <= 0)
             {
-                Die();
+                SceneAnimationController.instance.AddToQueue(new EnemyDefeat(this));
             }
             else
             {
                 EnemyTakeDamage anim = new EnemyTakeDamage(this);
                 SceneAnimationController.instance.AddToQueue(anim);
             }
-        }
-        else
-        {
-            Die();
         }
     }
     public override void TakeDamage(int damage, bool IgnoreDefense)
@@ -97,7 +94,7 @@ public class Enemy : Creature
             Damaged.Invoke();
             if (Health <= 0)
             {
-                Die();
+                SceneAnimationController.instance.AddToQueue(new EnemyDefeat(this));
             }
             else
             {
@@ -125,15 +122,15 @@ public class Enemy : Creature
     {
         base.Die();
         GameplayManager.instance.player.ChangeMoney(money);
-        EnemyDefeat anim = new EnemyDefeat(this);
-        anim.AnimEnded.AddListener(SwitchToMap);
-        SceneAnimationController.instance.AddToQueue(anim);
+        //EnemyDefeat anim = new EnemyDefeat(this);
+        //anim.AnimEnded.AddListener(SwitchToMap);
+        //SceneAnimationController.instance.AddToQueue(anim);
     }
 
-    public void SwitchToMap()
+    /*public void SwitchToMap()
     {
         GameplayManager.instance.PlayCutscene(0);
-    }
+    }*/
 
     public void SetModel()
     {

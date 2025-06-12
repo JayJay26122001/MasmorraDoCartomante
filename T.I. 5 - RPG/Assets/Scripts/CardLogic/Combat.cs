@@ -129,10 +129,6 @@ public class Combat : MonoBehaviour
     }
     public void EndCombat()
     {
-        foreach (Creature c in combatents)
-        {
-            c.EndCombat();
-        }
         foreach (Turn t in Round)
         {
             foreach (TurnPhase p in t.phases)
@@ -140,6 +136,10 @@ public class Combat : MonoBehaviour
                 p.PhaseStarted.RemoveAllListeners();
                 p.PhaseEnded.RemoveAllListeners();
             }
+        }
+        foreach (Creature c in combatents)
+        {
+            c.EndCombat();
         }
         GameplayManager.instance.ChangeBattleCount();
         GameplayManager.instance.HideAllEnemies();
