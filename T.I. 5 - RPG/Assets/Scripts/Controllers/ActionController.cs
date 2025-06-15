@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,7 +24,7 @@ public class ActionController : MonoBehaviour
         UpdateQueueIndexes();
         if (ActionQueue.Count == 1)
         {
-            ActionQueue[0].StartAction();
+            action.StartAction();
         }
     }
     public void AddToQueue(SceneAction action, int index)
@@ -34,7 +35,7 @@ public class ActionController : MonoBehaviour
         UpdateQueueIndexes();
         if (ActionQueue.Count == 1)
         {
-            ActionQueue[0].StartAction();
+            action.StartAction();
         }
     }
     public void UpdateQueueIndexes()
@@ -105,7 +106,12 @@ public abstract class SceneAction
     public virtual void StartAction()
     {
         PerformAction();
-        ActionController.instance.InvokeTimer(ActionController.instance.AdvanceQueue, time);
+        UnityAction finishAction = () =>
+        {
+            AnimEnded.Invoke();
+            ActionController.instance.AdvanceQueue();
+        };
+        ActionController.instance.InvokeTimer(finishAction, time);
         //ActionController.instance.InvokeTimer(() => Debug.Log(Time.time), time);
     }
 
@@ -135,7 +141,7 @@ public class EnemyPlayCard : SceneAction
         AnimStarted.Invoke();
         CameraController.instance.ChangeCamera(1);
         ActionController.instance.InvokeTimer(CameraController.instance.ChangeCamera, 0, time);
-        ActionController.instance.InvokeTimer(AnimEnded.Invoke, time);
+        //ActionController.instance.InvokeTimer(AnimEnded.Invoke, time);
         //AnimEnded.AddListener(() => Debug.Log(Time.time));
 
         WaitAction enemyCardAnim = new WaitAction(1f);
@@ -175,11 +181,11 @@ public class DamageAction : SceneAction
             AnimStarted.Invoke();
             CameraController.instance.ChangeCamera(1);
             ActionController.instance.InvokeTimer(CameraController.instance.ChangeCamera, 0, time - 0.3f);
-            ActionController.instance.InvokeTimer(AnimEnded.Invoke, time);
+            //ActionController.instance.InvokeTimer(AnimEnded.Invoke, time);
         }
         else
         {
-            AnimEnded.Invoke();
+            //AnimEnded.Invoke();
         }
 
     }
@@ -206,7 +212,7 @@ public class EnemyDefeat : SceneAction
         GameplayManager.instance.PauseInput(time);
         AnimStarted.Invoke();
         CameraController.instance.ChangeCamera(1);
-        ActionController.instance.InvokeTimer(AnimEnded.Invoke, time);
+        //ActionController.instance.InvokeTimer(AnimEnded.Invoke, time);
     }
 }
 
@@ -223,10 +229,11 @@ public class AdvanceCombatAction : SceneAction
         UnityAction action = () =>
         {
             GameplayManager.currentCombat.AdvanceCombat();
-            AnimEnded.Invoke();
+            //AnimEnded.Invoke();
             GameplayManager.instance.ResumeInput();
         };
-        ActionController.instance.InvokeTimer(action, time);
+        //ActionController.instance.InvokeTimer(action, time);
+        AnimEnded.AddListener(action);
     }
 }
 public class WaitAction : SceneAction
@@ -239,12 +246,13 @@ public class WaitAction : SceneAction
     {
         GameplayManager.instance.PauseInput();
         AnimStarted.Invoke();
-        UnityAction action = () =>
+        /*UnityAction action = () =>
         {
             AnimEnded.Invoke();
             GameplayManager.instance.ResumeInput();
         };
-        ActionController.instance.InvokeTimer(action, time);
+        ActionController.instance.InvokeTimer(action, time);*/
+        AnimEnded.AddListener(GameplayManager.instance.ResumeInput);
     }
 }
 public class ApplyEffectAction : SceneAction
