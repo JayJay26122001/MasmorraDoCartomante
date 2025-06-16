@@ -5961,10 +5961,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 921170258}
-  - component: {fileID: 921170257}
   - component: {fileID: 921170256}
   m_Layer: 0
-  m_Name: AnimController
+  m_Name: ActionController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5982,32 +5981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6f8332da168ab478b6d5b9a3790f1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  director: {fileID: 921170257}
-  EnterCombatScene: {fileID: 0}
-  ExitCombatSecene: {fileID: 0}
-  EnterShopScene: {fileID: 0}
-  ExitShopScene: {fileID: 0}
---- !u!320 &921170257
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 921170255}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 4ca207430fe484f409b28785ddd00c0d, type: 2}
-  m_InitialState: 0
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: 22329316302290211, guid: 4ca207430fe484f409b28785ddd00c0d, type: 2}
-    value: {fileID: 30614218}
-  - key: {fileID: -5835925006245940711, guid: 4ca207430fe484f409b28785ddd00c0d, type: 2}
-    value: {fileID: 1432303491}
-  m_ExposedReferences:
-    m_References: []
+  TimeBetweenActions: 1
 --- !u!4 &921170258
 Transform:
   m_ObjectHideFlags: 0

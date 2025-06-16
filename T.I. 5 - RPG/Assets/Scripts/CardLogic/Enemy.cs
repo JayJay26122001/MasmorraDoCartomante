@@ -13,29 +13,27 @@ public class Enemy : Creature
     }
     public override void TurnAction()
     {
+        if (!GameplayManager.instance.CombatActive) return;
         /*if (hand[0].Type == Card.CardType.Mind)
         {
             hand[0].hidden = true;
         }*/
-        EnemyPlayCard anim = new EnemyPlayCard(this);
-        EnemyCardAnimation playCardAnim = new EnemyCardAnimation(this);
-        anim.AnimEnded.AddListener(TurnActionsDelayed);
-        SceneAnimationController.instance.AddToQueue(anim);
-        SceneAnimationController.instance.AddToQueue(playCardAnim);
+        EnemyPlayCard anim = new EnemyPlayCard(this, hand[0]);
+        //EnemyCardAnimation playCardAnim = new EnemyCardAnimation(this);
+        //anim.AnimEnded.AddListener(TurnActionsDelayed);
+        ActionController.instance.AddToQueue(anim);
+        //SceneAnimationController.instance.AddToQueue(playCardAnim);
     }
 
     void TurnActionsDelayed()
     {
         if (!GameplayManager.instance.CombatActive) return;
-        if (hand.Count == 0)
+        /*if (hand.Count == 0)
         {
             BuyCards(1);
-        }
+        }*/
         PlayCard(hand[0]);
-        if (hand.Count == 0)
-        {
-            BuyCards(1);
-        }
+
         //GameplayManager.currentCombat.AdvanceCombat();
     }
     public override void TakeDamage(int damage)
@@ -58,17 +56,13 @@ public class Enemy : Creature
             Damaged.Invoke();
             if (Health <= 0)
             {
-                Die();
+                ActionController.instance.AddToQueue(new EnemyDefeat(this));
             }
-            else
+            /*else
             {
                 EnemyTakeDamage anim = new EnemyTakeDamage(this);
-                SceneAnimationController.instance.AddToQueue(anim);
-            }
-        }
-        else
-        {
-            Die();
+                ActionController.instance.AddToQueue(anim);
+            }*/
         }
     }
     public override void TakeDamage(int damage, bool IgnoreDefense)
@@ -100,13 +94,13 @@ public class Enemy : Creature
             Damaged.Invoke();
             if (Health <= 0)
             {
-                Die();
+                ActionController.instance.AddToQueue(new EnemyDefeat(this));
             }
-            else
+            /*else
             {
                 EnemyTakeDamage anim = new EnemyTakeDamage(this);
-                SceneAnimationController.instance.AddToQueue(anim);
-            }
+                ActionController.instance.AddToQueue(anim);
+            }*/
         }
 
         //N�O PODE TER ESSE ELSE AQUI, ESSE IF � PRA EVITAR DAR DANO DEPOIS DO INIMIGO MORRER E CHAMAR AS FUN��O DENOVO
@@ -117,21 +111,26 @@ public class Enemy : Creature
     }
     public override void PlayCard(Card c)
     {
+        if (!GameplayManager.instance.CombatActive) return;
         base.PlayCard(c);
+        if (hand.Count == 0)
+        {
+            BuyCards(1);
+        }
     }
     public override void Die()
     {
         base.Die();
         GameplayManager.instance.player.ChangeMoney(money);
-        EnemyDefeat anim = new EnemyDefeat(this);
-        anim.AnimEnded.AddListener(SwitchToMap);
-        SceneAnimationController.instance.AddToQueue(anim);
+        //EnemyDefeat anim = new EnemyDefeat(this);
+        //anim.AnimEnded.AddListener(SwitchToMap);
+        //SceneAnimationController.instance.AddToQueue(anim);
     }
 
-    public void SwitchToMap()
+    /*public void SwitchToMap()
     {
         GameplayManager.instance.PlayCutscene(0);
-    }
+    }*/
 
     public void SetModel()
     {

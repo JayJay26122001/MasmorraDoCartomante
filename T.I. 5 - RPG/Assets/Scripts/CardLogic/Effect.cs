@@ -11,6 +11,7 @@ public abstract class Effect
     [System.NonSerialized] public Card card;
     [System.NonSerialized] public bool EffectAcomplished = false, effectStarted = false;
     [SerializeReference] public List<Condition> Conditions = new List<Condition>();
+    public UnityEvent EffectStart = new UnityEvent(), EffectEnd = new UnityEvent();
     protected bool Repeatable = false;
 
     public void InitiateEffect()
@@ -27,6 +28,7 @@ public abstract class Effect
     public virtual void Apply()
     {
         effectStarted = true;
+        EffectStart.Invoke();
     }
     public void resetEffect()
     {
@@ -41,6 +43,7 @@ public abstract class Effect
     {
         if (Repeatable) return;
         EffectAcomplished = true;
+        EffectEnd.Invoke();
         foreach (Effect e in card.Effects)
         {
             if (!e.EffectAcomplished)
@@ -71,19 +74,25 @@ public abstract class Effect
             CardUIController.OrganizeHandCards(deck.Owner);
         }
         CardHadEffect();*/
-        Apply();
+        //Apply();
+        ActionController.instance.AddToQueue(new ApplyEffectAction(this));
     }
     public void ApplyIfNoCondition()
     {
         if (Conditions.Count <= 0 && !effectStarted && !EffectAcomplished)
         {
-            Apply();
+            //Apply();
+            ActionController.instance.AddToQueue(new ApplyEffectAction(this));
         }
     }
 }
+public interface ActionEffect
+{
+    
+}
 
 [Serializable]
-public class DealDamage : Effect
+public class DealDamage : Effect, ActionEffect
 {
     public float DamageMultiplier;
     [SerializeField] bool IgnoreDefense;
@@ -92,16 +101,22 @@ public class DealDamage : Effect
     public override void Apply()
     {
         base.Apply();
+        DamageAction action = null;
         switch (target)
         {
             case Target.Oponent:
-                card.deck.Owner.enemy.TakeDamage(GetDamage(), IgnoreDefense);
+                //card.deck.Owner.enemy.TakeDamage(GetDamage(), IgnoreDefense);
+                action = new DamageAction(card.deck.Owner.enemy, GetDamage(), IgnoreDefense);
                 break;
             case Target.User:
-                card.deck.Owner.TakeDamage(GetDamage(), IgnoreDefense);
+                //card.deck.Owner.TakeDamage(GetDamage(), IgnoreDefense);
+                action = new DamageAction(card.deck.Owner, GetDamage(), IgnoreDefense);
                 break;
         }
-        EffectEnded();
+        action.AnimEnded.AddListener(EffectEnded);
+        //ActionController.instance.AddToQueue(action);
+        action.StartAction();
+        //EffectEnded();
     }
     public int GetDamage()
     {

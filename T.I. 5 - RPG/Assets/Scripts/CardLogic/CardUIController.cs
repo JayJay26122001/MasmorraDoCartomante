@@ -301,7 +301,7 @@ public class CardUIController : MonoBehaviour
             LeanTween.delayedCall(cardObject, 0.25f, () =>
             {
                 LeanTween.move(cardObject, upPos, 0.5f).setEaseOutCubic().setOnComplete(() =>
-                { 
+                {
                     LeanTween.move(cardObject, finalPos, 0.25f).setEaseInCubic().setOnComplete(() =>
                     {
                         PlayCardVFX(instance.puffVfx, finalPos, rot, 0.5f);
