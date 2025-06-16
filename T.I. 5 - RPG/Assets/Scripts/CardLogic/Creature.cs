@@ -230,6 +230,7 @@ public class Creature : MonoBehaviour
             ExaustCard(card);
         }
         CardUIController.OrganizePlayedCards(this);
+        //if(card.deck.Owner != Player)
         CardUIController.OrganizeStackFlat(card.deck.DiscardPile, combatSpace.discardPileSpace);
     }
     public void ExaustCard(Card card)

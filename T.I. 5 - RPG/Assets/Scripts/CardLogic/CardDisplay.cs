@@ -10,7 +10,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
 {
     public SpriteRenderer cardBack, image, rarity, background, type;
     public MeshRenderer cardBase;
-    public Material dissolveShader;
+    public Material dissolveShader, cardBaseMat;
     public TextMeshPro cardCost, cardName, cardDescription;
     public Card cardData;
     public CardsUI cardsUI;
@@ -22,7 +22,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
     public CardPack pack;
     bool inAnimation = false, disappearing;
     float animTimeStart;
-    public float animSpeed;
+    public float shaderAnimSpeed;
 
     void Start()
     {
@@ -31,10 +31,10 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
             originalScale = transform.localScale;
             hasSetOriginalTransform = true;
         }
-        /*if(cardData.deck.Owner != GameplayManager.instance.player)
+        if(cardData.deck.Owner != GameplayManager.instance.player)
         {
             SetupShader();
-        }*/
+        }
     }
 
     void SetupShader()
@@ -185,6 +185,14 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         disappearing = disappear;
         animTimeStart = Time.time;
         inAnimation = true;
+        if(!disappear)
+        {
+            cardBase.material = cardBaseMat;
+        }
+        else
+        {
+            cardBase.material = dissolveShader;
+        }
     }
 
     float t = 0;
@@ -194,11 +202,11 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         {
             if (disappearing)
             {
-                t = Mathf.Clamp((Time.time - animTimeStart) * animSpeed, 0, 1);
+                t = Mathf.Clamp((Time.time - animTimeStart) * shaderAnimSpeed, 0, 1);
             }
             else
             {
-                t = Mathf.Clamp(1 - ((Time.time - animTimeStart) * animSpeed), 0, 1);
+                t = Mathf.Clamp(1 - ((Time.time - animTimeStart) * shaderAnimSpeed), 0, 1);
             }
             cardBack.material.SetFloat("_DissolveAmount", t);
             image.material.SetFloat("_DissolveAmount", t);
@@ -206,12 +214,22 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
             background.material.SetFloat("_DissolveAmount", t);
             type.material.SetFloat("_DissolveAmount", t);
             cardBase.material.SetFloat("_DissolveAmount", t);
-            cardCost.GetComponent<MeshRenderer>().material.SetFloat("_DissolveAmount", t);
-            cardName.GetComponent<MeshRenderer>().material.SetFloat("_DissolveAmount", t);
-            cardDescription.GetComponent<MeshRenderer>().material.SetFloat("_DissolveAmount", t);
             if ((t >= 1 && disappearing) || (t <= 0 && !disappearing))
             {
                 inAnimation = false;
+            }
+            if (t >= 0.8 && disappearing)
+            {
+                cardCost.gameObject.SetActive(false);
+                cardName.gameObject.SetActive(false);
+                cardDescription.gameObject.SetActive(false);
+            }
+            if (t <= 0.2 && !disappearing)
+            {
+                cardCost.gameObject.SetActive(true);
+                cardName.gameObject.SetActive(true);
+                cardDescription.gameObject.SetActive(true);
+                //cardBase.material = cardBaseMat;
             }
         }
     }

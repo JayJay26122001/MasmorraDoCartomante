@@ -362,7 +362,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -7399,6 +7399,7 @@ MonoBehaviour:
   cardPrefab: {fileID: 9116686077430768635, guid: a468dd13253bcef47bbc2cf4ff5ff828, type: 3}
   cardsCamera: {fileID: 1487703419}
   maxTotalWidth: 10.5
+  rotTime: 0.15
   enemyCardAppearVfx: {fileID: 1986994750891469448, guid: db22c482f805eb840b17f4e40ef5d09f, type: 3}
   puffVfx: {fileID: 6860547894352093613, guid: 464f5d84aa1d36d47a607a26298c18ee, type: 3}
 --- !u!1001 &1240816930

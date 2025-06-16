@@ -296,7 +296,7 @@ public class CardUIController : MonoBehaviour
                 rot = c.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(-90f, 180f, 0);
             }
             cardObject.transform.position = spawnPos;
-            //cardObject.GetComponent<CardDisplay>().AnimateEnemyCard(false);
+            cardObject.GetComponent<CardDisplay>().AnimateEnemyCard(false);
             LeanTween.rotate(cardObject, rot, 0.01f).setEaseInOutSine();
             LeanTween.delayedCall(cardObject, 0.25f, () =>
             {
@@ -326,15 +326,22 @@ public class CardUIController : MonoBehaviour
     public static void OrganizeStackFlat(SerializableStack<Card> pile, Transform space)
     {
         float spacing = 0.1f;
-
         for (int i = 0; i < pile.Count; i++)
         {
             float posY = i * spacing;
-            GameObject cardObject = pile.GetVar(pile.Count - i - 1).cardDisplay.gameObject;
+            Card card = pile.GetVar(pile.Count - i - 1);
+            GameObject cardObject = card.cardDisplay.gameObject;
             Vector3 pos = (space.up * posY) + space.position;
             Vector3 rot = space.rotation.eulerAngles + new Vector3(-90f, 0f, 180f);
-            LeanTween.move(cardObject, pos, 0.15f);
-            LeanTween.rotate(cardObject, rot, 0.15f);
+            if(card.deck.Owner != GameplayManager.instance.player)
+            {
+                cardObject.GetComponent<CardDisplay>().AnimateEnemyCard(true);
+            }
+            else
+            {
+                LeanTween.move(cardObject, pos, 0.15f);
+                LeanTween.rotate(cardObject, rot, 0.15f);
+            }
             cardObject.transform.SetParent(space);
         }
     }
