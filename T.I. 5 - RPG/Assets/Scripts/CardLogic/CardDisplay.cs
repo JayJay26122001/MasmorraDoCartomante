@@ -51,12 +51,6 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         type.material = dissolveShader;
         dissolveShader.SetTexture("_MainTex", cardBase.material.mainTexture);
         cardBase.material = dissolveShader;
-        dissolveShader.SetTexture("_MainTex", cardCost.material.mainTexture);
-        cardCost.material = dissolveShader;
-        dissolveShader.SetTexture("_MainTex", cardName.material.mainTexture);
-        cardName.material = dissolveShader;
-        dissolveShader.SetTexture("_MainTex", cardDescription.material.mainTexture);
-        cardDescription.material = dissolveShader;
     }
 
     public void SetCard(Card card)
@@ -185,14 +179,14 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         disappearing = disappear;
         animTimeStart = Time.time;
         inAnimation = true;
-        if(!disappear)
+        /*if(!disappear)
         {
             cardBase.material = cardBaseMat;
         }
         else
         {
             cardBase.material = dissolveShader;
-        }
+        }*/
     }
 
     float t = 0;
@@ -229,7 +223,6 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
                 cardCost.gameObject.SetActive(true);
                 cardName.gameObject.SetActive(true);
                 cardDescription.gameObject.SetActive(true);
-                //cardBase.material = cardBaseMat;
             }
         }
     }

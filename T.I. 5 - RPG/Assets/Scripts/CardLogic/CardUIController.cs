@@ -336,6 +336,8 @@ public class CardUIController : MonoBehaviour
             if(card.deck.Owner != GameplayManager.instance.player)
             {
                 cardObject.GetComponent<CardDisplay>().AnimateEnemyCard(true);
+                LeanTween.move(cardObject, pos, 0.15f).setDelay(0.5f);
+                LeanTween.rotate(cardObject, rot, 0.15f).setDelay(0.5f);
             }
             else
             {
