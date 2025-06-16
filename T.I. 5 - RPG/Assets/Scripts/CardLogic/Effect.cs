@@ -11,7 +11,7 @@ public abstract class Effect
     [System.NonSerialized] public Card card;
     [System.NonSerialized] public bool EffectAcomplished = false, effectStarted = false;
     [SerializeReference] public List<Condition> Conditions = new List<Condition>();
-    public UnityEvent EffectStart = new UnityEvent(), EffectEnd = new UnityEvent();
+    [System.NonSerialized] public UnityEvent EffectStart = new UnityEvent(), EffectEnd = new UnityEvent();
     protected bool Repeatable = false;
 
     public void InitiateEffect()
@@ -86,13 +86,13 @@ public abstract class Effect
         }
     }
 }
-public interface ActionEffect
+public interface IActionEffect
 {
     
 }
 
 [Serializable]
-public class DealDamage : Effect, ActionEffect
+public class DealDamage : Effect, IActionEffect
 {
     public float DamageMultiplier;
     [SerializeField] bool IgnoreDefense;
@@ -230,17 +230,19 @@ public class Heal : Effect
 }
 public interface IProlongedEffect
 {
-
+    public UnityEvent EffectApplied{ get; set; }
 }
 [Serializable]
 public class BuffStat : Effect, IProlongedEffect
 {
     enum BuffableStats { Attack, ShieldGain, DamageReduction }
     [SerializeField] BuffableStats StatToBuff;
-    //enum BuffableMethod { Multiply, Add }
-    //[SerializeField] BuffableMethod BuffMethod;
-    //public float MultiplicativeAmount;
+    public UnityEvent EffectApplied{ get; set; }
     public StatModifier Modifier = new StatModifier();
+    public BuffStat()
+    {
+        EffectApplied = new UnityEvent();
+    }
 
     [Header("Duration")]
     [SerializeField] Target TurnOwner;
@@ -271,6 +273,7 @@ public class BuffStat : Effect, IProlongedEffect
         }
         StatBuffMod.Add(Modifier);
         Action = Combat.WaitForTurn(TurnsFromNow, phase, StopAtPhase, EffectEnded);
+        EffectApplied.Invoke();
     }
     public override void EffectEnded()
     {

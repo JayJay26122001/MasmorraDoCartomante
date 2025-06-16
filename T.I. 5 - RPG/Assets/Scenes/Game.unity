@@ -5955,7 +5955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6f8332da168ab478b6d5b9a3790f1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeBetweenActions: 1
+  TimeBetweenActions: 0.3
 --- !u!4 &921170258
 Transform:
   m_ObjectHideFlags: 0
@@ -7287,7 +7287,6 @@ MonoBehaviour:
   cardPrefab: {fileID: 9116686077430768635, guid: a468dd13253bcef47bbc2cf4ff5ff828, type: 3}
   cardsCamera: {fileID: 1487703419}
   maxTotalWidth: 10.5
-  rotTime: 0.15
   enemyCardAppearVfx: {fileID: 1986994750891469448, guid: db22c482f805eb840b17f4e40ef5d09f, type: 3}
   puffVfx: {fileID: 6860547894352093613, guid: 464f5d84aa1d36d47a607a26298c18ee, type: 3}
 --- !u!1001 &1240816930

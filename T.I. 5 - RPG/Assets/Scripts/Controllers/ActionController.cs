@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -281,8 +282,16 @@ public class ApplyEffectAction : SceneAction
             e.EffectEnd.AddListener(ActionController.instance.AdvanceQueue);
             e.Apply();
         }*/
-        e.EffectEnd.AddListener(AnimEnded.Invoke);
-        e.EffectEnd.AddListener(ActionController.instance.AdvanceQueue);
+        if (e is IProlongedEffect)
+        {
+            e.ConvertTo<IProlongedEffect>().EffectApplied.AddListener(AnimEnded.Invoke);
+            e.ConvertTo<IProlongedEffect>().EffectApplied.AddListener(ActionController.instance.AdvanceQueue);
+        }
+        else
+        {
+            e.EffectEnd.AddListener(AnimEnded.Invoke);
+            e.EffectEnd.AddListener(ActionController.instance.AdvanceQueue);
+        }
         e.Apply();
     }
 }
