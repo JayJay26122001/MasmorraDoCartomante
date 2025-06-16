@@ -81,7 +81,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -610,15 +610,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef094e823d2d5b24f9259c0c551cadf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardBack: {fileID: 614250444842566388}
+  image: {fileID: 8035003182033437193}
   rarity: {fileID: 5639887294695867546}
   background: {fileID: 5779241591510631186}
   type: {fileID: 3434293282127649669}
+  cardBase: {fileID: 8440197024545654065}
+  dissolveShader: {fileID: 2100000, guid: 11ac06c2df02f774bb89c92e9e47c154, type: 2}
+  cardBaseMat: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   cardCost: {fileID: 141830695480056064}
   cardName: {fileID: 704895259016238313}
   cardDescription: {fileID: 7150064401150702258}
   cardData: {fileID: 0}
   cardsUI: {fileID: 11400000, guid: 70d792a66a4e77b4c82d8cc248c95ab8, type: 2}
   pack: {fileID: 0}
+  shaderAnimSpeed: 2
 --- !u!65 &5130134605042037181
 BoxCollider:
   m_ObjectHideFlags: 0
