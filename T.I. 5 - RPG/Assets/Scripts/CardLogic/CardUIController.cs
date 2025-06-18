@@ -11,6 +11,7 @@ public class CardUIController : MonoBehaviour
     public CardDisplay cardPrefab;
     public CinemachineCamera cardsCamera;
     public float maxTotalWidth = 12.0f;
+    public float instantTimeAnim, smallTimeAnim, mediumTimeAnim, bigTimeAnim, highlightTimeAnim, delayTimeAnim, rotHandTimeAnim;
     public GameObject enemyCardAppearVfx, puffVfx;
     public Card highlightedCard { get; protected set; }
 
@@ -90,8 +91,8 @@ public class CardUIController : MonoBehaviour
             cardObject.transform.SetParent(c.combatSpace.playerHandSpace);
             Vector3 pos = (c.combatSpace.playerHandSpace.right * posX) + (c.combatSpace.playerHandSpace.up) * posY + (-c.combatSpace.playerHandSpace.forward) * posZ + c.combatSpace.playerHandSpace.position;
             Vector3 rot = c.combatSpace.playerHandSpace.rotation.eulerAngles;
-            LeanTween.rotate(cardObject, rot, 0.1f).setEaseInOutSine();
-            var moveTween = LeanTween.move(cardObject, pos, 0.15f).setEaseInOutSine();
+            LeanTween.rotate(cardObject, rot, instance.rotHandTimeAnim).setEaseInOutSine();
+            var moveTween = LeanTween.move(cardObject, pos, instance.smallTimeAnim).setEaseInOutSine();
             moveTween.setOnComplete(() =>
             {
                 currentCard.cardDisplay.UpdatePosition();
@@ -129,7 +130,7 @@ public class CardUIController : MonoBehaviour
             GameObject cardObject = currentCard.cardDisplay.gameObject;
             cardObject.transform.SetParent(c.combatSpace.playerHandSpace);
             Vector3 pos = (c.combatSpace.playerHandSpace.right * posX) + (c.combatSpace.playerHandSpace.up) * posY + (-c.combatSpace.playerHandSpace.forward) * posZ + c.combatSpace.playerHandSpace.position;
-            LeanTween.move(cardObject, pos, 0.05f).setEaseInOutSine();
+            LeanTween.move(cardObject, pos, instance.highlightTimeAnim).setEaseInOutSine();
         }
         
     }
@@ -215,17 +216,17 @@ public class CardUIController : MonoBehaviour
             Vector3 rot = c.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(90f, 0f, 0f);
             if(c.GetComponent<Player>() != null)
             {
-                LeanTween.rotate(cardObject, rot, 0.15f).setEaseInOutSine();
+                LeanTween.rotate(cardObject, rot, instance.smallTimeAnim).setEaseInOutSine();
                 if (i == totalCardsPlayed - 1)
                 {
-                    LeanTween.move(cardObject, pos, 0.15f).setEaseInOutSine().setOnComplete(() =>
+                    LeanTween.move(cardObject, pos, instance.smallTimeAnim).setEaseInOutSine().setOnComplete(() =>
                     {
                         PlayCardVFX(instance.puffVfx, pos, rot, 0.5f);
                     });
                 }
                 else
                 {
-                    LeanTween.move(cardObject, pos, 0.15f).setEaseInOutSine();
+                    LeanTween.move(cardObject, pos, instance.smallTimeAnim).setEaseInOutSine();
                 }
                 /*LeanTween.move(cardObject, pos, 0.15f).setEaseInOutSine().setOnComplete(() =>
                 {
@@ -249,8 +250,8 @@ public class CardUIController : MonoBehaviour
             Vector3 rot = GameplayManager.instance.player.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(90f, 0f, 0f);
             if (GameplayManager.instance.player.GetComponent<Player>() != null)
             {
-                LeanTween.move(cardObject, pos, 0.15f).setEaseInOutSine();
-                LeanTween.rotate(cardObject, rot, 0.15f).setEaseInOutSine();
+                LeanTween.move(cardObject, pos, instance.smallTimeAnim).setEaseInOutSine();
+                LeanTween.rotate(cardObject, rot, instance.smallTimeAnim).setEaseInOutSine();
                 cardObject.transform.SetParent(GameplayManager.instance.player.combatSpace.playedCardSpace);
                 CardDisplay cardDisplay = cardObject.GetComponent<CardDisplay>();
             }
@@ -268,8 +269,8 @@ public class CardUIController : MonoBehaviour
             Vector3 rot = GameplayManager.instance.player.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(90f, 0f, 0f);
             if (GameplayManager.instance.player.GetComponent<Player>() != null)
             {
-                LeanTween.move(cardObject, pos, 0.15f).setEaseInOutSine();
-                LeanTween.rotate(cardObject, rot, 0.15f).setEaseInOutSine();
+                LeanTween.move(cardObject, pos, instance.smallTimeAnim).setEaseInOutSine();
+                LeanTween.rotate(cardObject, rot, instance.smallTimeAnim).setEaseInOutSine();
                 cardObject.transform.SetParent(GameplayManager.instance.player.combatSpace.playedCardSpace);
                 CardDisplay cardDisplay = cardObject.GetComponent<CardDisplay>();
             }
@@ -297,12 +298,12 @@ public class CardUIController : MonoBehaviour
             }
             cardObject.transform.position = spawnPos;
             cardObject.GetComponent<CardDisplay>().AnimateEnemyCard(false);
-            LeanTween.rotate(cardObject, rot, 0.01f).setEaseInOutSine();
-            LeanTween.delayedCall(cardObject, 0.25f, () =>
+            LeanTween.rotate(cardObject, rot, instance.instantTimeAnim).setEaseInOutSine();
+            LeanTween.delayedCall(cardObject, instance.mediumTimeAnim, () =>
             {
-                LeanTween.move(cardObject, upPos, 0.5f).setEaseOutCubic().setOnComplete(() =>
+                LeanTween.move(cardObject, upPos, instance.bigTimeAnim).setEaseOutCubic().setOnComplete(() =>
                 {
-                    LeanTween.move(cardObject, finalPos, 0.25f).setEaseInCubic().setOnComplete(() =>
+                    LeanTween.move(cardObject, finalPos, instance.mediumTimeAnim).setEaseInCubic().setOnComplete(() =>
                     {
                         PlayCardVFX(instance.puffVfx, finalPos, rot, 0.5f);
                     });
@@ -336,13 +337,13 @@ public class CardUIController : MonoBehaviour
             if(card.deck.Owner != GameplayManager.instance.player)
             {
                 cardObject.GetComponent<CardDisplay>().AnimateEnemyCard(true);
-                LeanTween.move(cardObject, pos, 0.15f).setDelay(0.5f);
-                LeanTween.rotate(cardObject, rot, 0.15f).setDelay(0.5f);
+                LeanTween.move(cardObject, pos, instance.smallTimeAnim).setDelay(instance.delayTimeAnim);
+                LeanTween.rotate(cardObject, rot, instance.smallTimeAnim).setDelay(instance.delayTimeAnim);
             }
             else
             {
-                LeanTween.move(cardObject, pos, 0.15f);
-                LeanTween.rotate(cardObject, rot, 0.15f);
+                LeanTween.move(cardObject, pos, instance.smallTimeAnim);
+                LeanTween.rotate(cardObject, rot, instance.smallTimeAnim);
             }
             cardObject.transform.SetParent(space);
         }
@@ -363,15 +364,15 @@ public class CardUIController : MonoBehaviour
                 Vector3 upPos = cardObject.transform.position + Vector3.up * 20f;
                 Vector3 horizontalPos = new Vector3(finalPos.x, upPos.y, finalPos.z);
 
-                LeanTween.move(cardObject, upPos, 0.15f + i*0.02f).setEaseInOutSine().setOnComplete(() =>
+                LeanTween.move(cardObject, upPos, instance.smallTimeAnim + i*0.02f).setEaseInOutSine().setOnComplete(() =>
                 {
                     cardObject.transform.position = upPos;
-                    LeanTween.rotate(cardObject, finalRot, 0.15f).setEaseInOutSine();
-                    LeanTween.move(cardObject, horizontalPos, 0.15f).setEaseInOutSine().setOnComplete(() =>
+                    LeanTween.rotate(cardObject, finalRot, instance.smallTimeAnim).setEaseInOutSine();
+                    LeanTween.move(cardObject, horizontalPos, instance.smallTimeAnim).setEaseInOutSine().setOnComplete(() =>
                     {
                         cardObject.transform.position = horizontalPos;
 
-                        LeanTween.move(cardObject, finalPos, 0.15f).setEaseInOutSine();
+                        LeanTween.move(cardObject, finalPos, instance.smallTimeAnim).setEaseInOutSine();
                         cardObject.transform.SetParent(space);
                     });
                 });
