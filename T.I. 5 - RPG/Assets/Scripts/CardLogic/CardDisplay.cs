@@ -31,7 +31,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
             originalScale = transform.localScale;
             hasSetOriginalTransform = true;
         }
-        if(cardData.deck.Owner != GameplayManager.instance.player)
+        if(cardData.deck != null && cardData.deck.Owner != GameplayManager.instance.player)
         {
             SetupShader();
         }
