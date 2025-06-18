@@ -10,7 +10,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
 {
     public SpriteRenderer cardBack, image, rarity, background, type;
     public MeshRenderer cardBase;
-    public Material dissolveShader, cardBaseMat;
+    public Material dissolveShader, cardBaseShader, cardBaseMat;
     public TextMeshPro cardCost, cardName, cardDescription;
     public Card cardData;
     public CardsUI cardsUI;
@@ -49,8 +49,8 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         background.material = dissolveShader;
         dissolveShader.SetTexture("_MainTex", type.material.mainTexture);
         type.material = dissolveShader;
-        dissolveShader.SetTexture("_MainTex", cardBase.material.mainTexture);
-        cardBase.material = dissolveShader;
+        cardBaseShader.SetTexture("_MainTex", cardBase.material.mainTexture);
+        cardBase.material = cardBaseShader;
         /*dissolveShader.SetTexture("_MainTex", cardCost.material.mainTexture);
         cardCost.material = dissolveShader;
         dissolveShader.SetTexture("_MainTex", cardName.material.mainTexture);
@@ -205,7 +205,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
             rarity.material.SetFloat("_DissolveAmount", t);
             background.material.SetFloat("_DissolveAmount", t);
             type.material.SetFloat("_DissolveAmount", t);
-            cardBase.material.SetFloat("_DissolveAmount", t);
+            cardBase.material.SetFloat("_DisappearTime", t);
             if ((t >= 1 && disappearing) || (t <= 0 && !disappearing))
             {
                 inAnimation = false;

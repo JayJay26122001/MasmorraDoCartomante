@@ -617,6 +617,7 @@ MonoBehaviour:
   type: {fileID: 3434293282127649669}
   cardBase: {fileID: 8440197024545654065}
   dissolveShader: {fileID: 2100000, guid: 11ac06c2df02f774bb89c92e9e47c154, type: 2}
+  cardBaseShader: {fileID: 2100000, guid: 5b0babc4c6c059542bd364578a92d74c, type: 2}
   cardBaseMat: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   cardCost: {fileID: 141830695480056064}
   cardName: {fileID: 704895259016238313}
