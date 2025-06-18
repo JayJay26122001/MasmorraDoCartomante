@@ -4,6 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
+using Unity.VisualScripting;
 
 public class Creature : MonoBehaviour
 {
@@ -195,6 +196,10 @@ public class Creature : MonoBehaviour
         playedCards.Add(c);
         CardUIController.OrganizeHandCards(this);
         CardUIController.OrganizePlayedCards(this);
+        ActionController.instance.InvokeTimer(() =>
+        {
+            CardUIController.PlayCardVFX(CardUIController.instance.puffVfx, c.cardDisplay.transform.position);
+        }, CardUIController.instance.mediumTimeAnim * 2 + CardUIController.instance.bigTimeAnim);
         //CardUIController.OrganizeEnemyPlayedCards(this);
         c.CardPlayed();
         PlayedCard.Invoke(c);

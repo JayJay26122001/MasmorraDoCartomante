@@ -113,6 +113,7 @@ public class Enemy : Creature
     {
         if (!GameplayManager.instance.CombatActive) return;
         base.PlayCard(c);
+
         if (hand.Count == 0)
         {
             BuyCards(1);

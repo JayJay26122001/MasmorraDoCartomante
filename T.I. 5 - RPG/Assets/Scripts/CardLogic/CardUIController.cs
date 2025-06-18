@@ -221,7 +221,7 @@ public class CardUIController : MonoBehaviour
                 {
                     LeanTween.move(cardObject, pos, instance.smallTimeAnim).setEaseInOutSine().setOnComplete(() =>
                     {
-                        PlayCardVFX(instance.puffVfx, pos, rot, 0.5f);
+                        //PlayCardVFX(instance.puffVfx, pos, rot, 0.5f);
                     });
                 }
                 else
@@ -305,7 +305,7 @@ public class CardUIController : MonoBehaviour
                 {
                     LeanTween.move(cardObject, finalPos, instance.mediumTimeAnim).setEaseInCubic().setOnComplete(() =>
                     {
-                        PlayCardVFX(instance.puffVfx, finalPos, rot, 0.5f);
+                        //PlayCardVFX(instance.puffVfx, finalPos, rot, 0.5f);
                     });
                 });
             });
@@ -313,13 +313,13 @@ public class CardUIController : MonoBehaviour
         }
     }
 
-    public static void PlayCardVFX(GameObject cardVfx, Vector3 pos, Vector3 rot, float time)
+    public static void PlayCardVFX(GameObject cardVfx, Vector3 pos)
     {
         if (cardVfx != null)
         {
-            Quaternion rotation = Quaternion.Euler(rot);
+            Quaternion rotation = Quaternion.Euler(cardVfx.transform.rotation.eulerAngles);
             GameObject vfx = Instantiate(cardVfx, pos + Vector3.forward*1f +Vector3.up*0.5f, rotation);
-            Destroy(vfx, time);
+            Destroy(vfx, 0.5f);
         }
     }
 

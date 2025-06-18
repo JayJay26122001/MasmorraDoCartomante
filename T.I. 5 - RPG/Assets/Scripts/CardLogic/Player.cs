@@ -39,6 +39,10 @@ public class Player : Creature
         playedCards.Add(c);
         CardUIController.OrganizeHandCardsWhenHighlighted(this);
         CardUIController.OrganizePlayedCards(this);
+        ActionController.instance.InvokeTimer(() =>
+        {
+            CardUIController.PlayCardVFX(CardUIController.instance.puffVfx, c.cardDisplay.transform.position);
+        }, CardUIController.instance.smallTimeAnim);
         ActionController.instance.InvokeTimer(c.CardPlayed, 0.2f);
         ActionController.instance.InvokeTimer(PlayedCard.Invoke, c, 0.2f);
     }
