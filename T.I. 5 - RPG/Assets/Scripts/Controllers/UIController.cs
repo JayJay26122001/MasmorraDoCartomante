@@ -34,6 +34,10 @@ public class UIController : MonoBehaviour
     public GameObject leaveCreditsPanelButton;
     public GameObject leaveQuitPanelButton;
     public GameObject confirmQuitButton;
+    [Header("Settings Slider")]
+    public Slider _masterVolumeSlider;
+    public Slider _musicSlider;
+    public Slider _sfxSlider;
 
     /*bool gameStarted, gamePaused;
     public GameObject pausePanel, confirmReturnRoomPanel, confirmReturnMenuPanel, collectablesPanel;
@@ -66,8 +70,8 @@ public class UIController : MonoBehaviour
             data = new ConfigData(true, 0, 0, 0, 0);
         }
         EventSystem.current.SetSelectedGameObject(playButton);
-        SetDefaultVol();
-        AudioController.controller.SwitchMusic(SceneManager.GetActiveScene().name);*/
+        SetDefaultVol();*/
+        AudioController.instance.StartMusic();
     }
 
     /*private void Update()
@@ -364,22 +368,22 @@ public class UIController : MonoBehaviour
         itemWheel.SetActive(false);
     }*/
 
-    /*public void ChangeMasterVolume()
+    public void ChangeMasterVolume()
     {
-        data.master = _masterVolumeSlider.value;
-        AudioController.controller.ChangeMasterVol(_masterVolumeSlider.value);
+        //data.master = _masterVolumeSlider.value;
+        AudioController.instance.ChangeMasterVol(_masterVolumeSlider.value);
     }
     public void ChangeMusicVolume()
     {
-        data.music = _musicSlider.value;
-        AudioController.controller.ChangeMusicVol(_musicSlider.value);
+        //data.music = _musicSlider.value;
+        AudioController.instance.ChangeMusicVol(_musicSlider.value);
     }
     public void ChangeSFXVolume()
     {
-        data.sfx = _sfxSlider.value;
-        AudioController.controller.ChangeSFXVol(_sfxSlider.value);
+        //data.sfx = _sfxSlider.value;
+        AudioController.instance.ChangeSFXVol(_sfxSlider.value);
     }
-    public void SetDefaultVol()
+    /*public void SetDefaultVol()
     {
         AudioController.controller.mixer.GetFloat("MasterVol", out float aux1);
         if (_masterVolumeSlider != null)

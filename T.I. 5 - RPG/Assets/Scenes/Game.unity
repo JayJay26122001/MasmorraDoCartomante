@@ -1777,12 +1777,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -245974355, guid: fd5e8395d3ea14e478ffe600f2325146, type: 3}
+  m_Sprite: {fileID: -359850723, guid: fd5e8395d3ea14e478ffe600f2325146, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.25
+  m_FillAmount: 0.6666667
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -1854,8 +1854,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1236667894}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0.6666667, y: 0}
+  m_AnchorMax: {x: 0.6666667, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 40, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2118,7 +2118,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -359850723, guid: fd5e8395d3ea14e478ffe600f2325146, type: 3}
+  m_Sprite: {fileID: -245974355, guid: fd5e8395d3ea14e478ffe600f2325146, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2877,7 +2877,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -359850723, guid: fd5e8395d3ea14e478ffe600f2325146, type: 3}
+  m_Sprite: {fileID: -245974355, guid: fd5e8395d3ea14e478ffe600f2325146, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2952,12 +2952,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -245974355, guid: fd5e8395d3ea14e478ffe600f2325146, type: 3}
+  m_Sprite: {fileID: -359850723, guid: fd5e8395d3ea14e478ffe600f2325146, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.75
+  m_FillAmount: 0.6666667
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -5286,6 +5286,9 @@ MonoBehaviour:
   leaveCreditsPanelButton: {fileID: 0}
   leaveQuitPanelButton: {fileID: 0}
   confirmQuitButton: {fileID: 0}
+  _masterVolumeSlider: {fileID: 1695590368}
+  _musicSlider: {fileID: 927698765}
+  _sfxSlider: {fileID: 1996818470}
 --- !u!4 &672682254 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 961325641466372147, guid: 95c5796e80d83424d942710aff6f3d78, type: 3}
@@ -6002,13 +6005,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 205845815}
   m_HandleRect: {fileID: 1995595995}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -20
+  m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 0.25
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 666577884}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: ChangeMusicVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &931299368
 GameObject:
   m_ObjectHideFlags: 0
@@ -6773,6 +6788,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 921170258}
+  - {fileID: 1813879307}
   - {fileID: 1238991467}
   - {fileID: 666577883}
   - {fileID: 1432303489}
@@ -7610,12 +7626,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -245974355, guid: fd5e8395d3ea14e478ffe600f2325146, type: 3}
+  m_Sprite: {fileID: -359850723, guid: fd5e8395d3ea14e478ffe600f2325146, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.5
+  m_FillAmount: 0.6666667
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -10243,8 +10259,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1932384791}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.75, y: 0}
-  m_AnchorMax: {x: 0.75, y: 1}
+  m_AnchorMin: {x: 0.6666667, y: 0}
+  m_AnchorMax: {x: 0.6666667, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 40, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10627,13 +10643,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 410460912}
   m_HandleRect: {fileID: 1636732233}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -20
+  m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 0.75
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 666577884}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: ChangeMasterVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1699522178 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4701899809558952199, guid: 722a7e77cecf9e14bad9ae2e93d95038, type: 3}
@@ -10893,6 +10921,68 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: edc1b0e902e653344a83337943decdd6, type: 3}
   m_PrefabInstance: {fileID: 586457960}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1813879306
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1168141262}
+    m_Modifications:
+    - target: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6227090850702807371, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+      propertyPath: m_Name
+      value: AudioController
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+--- !u!4 &1813879307 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+  m_PrefabInstance: {fileID: 1813879306}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1817279769
 GameObject:
@@ -12177,8 +12267,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1398772562}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.25, y: 0}
-  m_AnchorMax: {x: 0.25, y: 1}
+  m_AnchorMin: {x: 0.6666667, y: 0}
+  m_AnchorMax: {x: 0.6666667, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 40, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12303,13 +12393,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 1242038484}
   m_HandleRect: {fileID: 224531250}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -20
+  m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 666577884}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: ChangeSFXVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &2013721898
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12468,7 +12570,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -359850723, guid: fd5e8395d3ea14e478ffe600f2325146, type: 3}
+  m_Sprite: {fileID: -245974355, guid: fd5e8395d3ea14e478ffe600f2325146, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

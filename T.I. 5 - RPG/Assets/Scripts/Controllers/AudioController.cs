@@ -1,19 +1,23 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class AudioController : MonoBehaviour
 {
-    public static AudioController controller;
+    public static AudioController instance;
     public AudioMixer mixer;
     public AudioSource musicSource;
     public AudioClip[] musics;
-    public AudioClip[] playerSFX;
+    public AudioClip[] soundEffects;
+    public AudioClip[] menuPlaylist;
+    private bool playingIntro;
 
     private void Awake()
     {
-        if (controller == null)
+        if (instance == null)
         {
-            controller = this;
+            instance = this;
         }
         else
         {
@@ -23,9 +27,9 @@ public class AudioController : MonoBehaviour
         musicSource = this.GetComponent<AudioSource>();
     }
 
-    /*public void SwitchMusic(string scene)
+    public void StartMusic()
     {
-        switch (scene)
+        /*switch (scene)
         {
             case "Game":
             case "Level1Theater":
@@ -42,8 +46,70 @@ public class AudioController : MonoBehaviour
                     musicSource.Play();
                 }
                 break;
+        }*/
+        if(SceneManager.GetActiveScene().name == "Menu")
+        {
+            PlayMenuMusic();
         }
-    }*/
+        else if(SceneManager.GetActiveScene().name == "Game")
+        {
+            PlayMapMusic();
+        }
+        else if(SceneManager.GetActiveScene().name == "Victory")
+        {
+            //Música de Cena de Vitória
+        }
+        else
+        {
+            //Música de Cena de Derrota
+        }
+    }
+
+    public void PlayMenuMusic()
+    {
+        playingIntro = true;
+        musicSource.clip = musics[0];
+        musicSource.loop = false;
+        musicSource.Play();
+        Invoke(nameof(PlayLoopMusic), musics[0].length - 0.75f);
+    }
+
+    public void PlayLoopMusic()
+    {
+        musicSource.clip = musics[1];
+        musicSource.loop = true;
+        musicSource.Play();
+        playingIntro = false;
+    }
+
+    public void PlayMapMusic()
+    {
+        musicSource.clip = musics[2];
+        musicSource.loop = true;
+        musicSource.Play();
+    }
+
+    public void PlayCombatMusic()
+    {
+        musicSource.clip = musics[3];
+        musicSource.loop = true;
+        musicSource.Play();
+    }
+
+    public void PlayShopMusic()
+    {
+        musicSource.clip = musics[4];
+        musicSource.loop = true;
+        musicSource.Play();
+    }
+
+    public void PlayBossMusic()
+    {
+        musicSource.clip = musics[5];
+        musicSource.loop = true;
+        musicSource.Play();
+    }
+
 
     public void ChangeMasterVol(float vol)
     {

@@ -109,11 +109,13 @@ public class GameplayManager : MonoBehaviour
         {
             int aux = enemyPools.GetValue(battlePerArea, areaIndex).value.SelectIndex();
             ShowEnemy(aux);
+            AudioController.instance.PlayBossMusic();
             currentCombat.SetEnemy(aux);
         }
         else
         {
             ShowBoss();
+            AudioController.instance.PlayCombatMusic();
             currentCombat.SetEnemy(areaIndex);
         }
     }
