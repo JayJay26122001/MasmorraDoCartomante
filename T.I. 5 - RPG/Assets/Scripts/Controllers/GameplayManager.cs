@@ -109,13 +109,13 @@ public class GameplayManager : MonoBehaviour
         {
             int aux = enemyPools.GetValue(battlePerArea, areaIndex).value.SelectIndex();
             ShowEnemy(aux);
-            AudioController.instance.PlayBossMusic();
+            AudioController.instance.PlayCombatMusic();
             currentCombat.SetEnemy(aux);
         }
         else
         {
             ShowBoss();
-            AudioController.instance.PlayCombatMusic();
+            AudioController.instance.PlayBossMusic();
             currentCombat.SetEnemy(areaIndex);
         }
     }
@@ -300,5 +300,15 @@ public class GameplayManager : MonoBehaviour
             }
         }
         return aux;
+    }
+
+    public void StartMapMusic()
+    {
+        AudioController.instance.PlayMapMusic();
+    }
+
+    public void StartShopMusic()
+    {
+        AudioController.instance.PlayShopMusic();
     }
 }

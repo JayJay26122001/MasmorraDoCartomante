@@ -7,11 +7,11 @@ public class AudioController : MonoBehaviour
 {
     public static AudioController instance;
     public AudioMixer mixer;
-    public AudioSource musicSource;
+    public AudioSource musicSource, auxSource;
     public AudioClip[] musics;
     public AudioClip[] soundEffects;
     public AudioClip[] menuPlaylist;
-    private bool playingIntro;
+    //private bool playingIntro;
 
     private void Awake()
     {
@@ -67,26 +67,33 @@ public class AudioController : MonoBehaviour
 
     public void PlayMenuMusic()
     {
-        playingIntro = true;
+        /*playingIntro = true;
         musicSource.clip = musics[0];
         musicSource.loop = false;
         musicSource.Play();
-        Invoke(nameof(PlayLoopMusic), musics[0].length - 0.75f);
+        Invoke(nameof(PlayLoopMusic), musics[0].length - 0.75f);*/
+        double startTime = AudioSettings.dspTime;
+        auxSource.clip = musics[0];
+        auxSource.PlayScheduled(startTime);
+        musicSource.clip = musics[1];
+        musicSource.loop = true;
+        musicSource.PlayScheduled(startTime + musics[0].length);
     }
 
-    public void PlayLoopMusic()
+    /*public void PlayLoopMusic()
     {
         musicSource.clip = musics[1];
         musicSource.loop = true;
         musicSource.Play();
-        playingIntro = false;
-    }
+        //playingIntro = false;
+    }*/
 
     public void PlayMapMusic()
     {
         musicSource.clip = musics[2];
         musicSource.loop = true;
         musicSource.Play();
+        Debug.Log("Playing : " + musics[2].name);
     }
 
     public void PlayCombatMusic()
@@ -94,6 +101,7 @@ public class AudioController : MonoBehaviour
         musicSource.clip = musics[3];
         musicSource.loop = true;
         musicSource.Play();
+        Debug.Log("Playing : " + musics[3].name);
     }
 
     public void PlayShopMusic()
@@ -101,6 +109,7 @@ public class AudioController : MonoBehaviour
         musicSource.clip = musics[4];
         musicSource.loop = true;
         musicSource.Play();
+        Debug.Log("Playing : " + musics[4].name);
     }
 
     public void PlayBossMusic()
@@ -108,6 +117,7 @@ public class AudioController : MonoBehaviour
         musicSource.clip = musics[5];
         musicSource.loop = true;
         musicSource.Play();
+        Debug.Log("Playing : " + musics[5].name);
     }
 
 
