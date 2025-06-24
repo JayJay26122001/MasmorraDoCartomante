@@ -6230,6 +6230,14 @@ PrefabInstance:
       propertyPath: auxSource
       value: 
       objectReference: {fileID: 659058443}
+    - target: {fileID: 7812149021497848683, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+      propertyPath: soundEffects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7812149021497848683, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+      propertyPath: 'soundEffects.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 26f70e5c27637e744add7fb60247c34b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

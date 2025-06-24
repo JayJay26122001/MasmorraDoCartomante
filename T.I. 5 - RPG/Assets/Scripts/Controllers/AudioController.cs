@@ -10,7 +10,7 @@ public class AudioController : MonoBehaviour
     public AudioSource musicSource, auxSource;
     public AudioClip[] musics;
     public AudioClip[] soundEffects;
-    public AudioClip[] menuPlaylist;
+    //public AudioClip[] menuPlaylist;
     //private bool playingIntro;
 
     private void Awake()
@@ -119,7 +119,6 @@ public class AudioController : MonoBehaviour
         musicSource.Play();
         Debug.Log("Playing : " + musics[5].name);
     }
-
 
     public void ChangeMasterVol(float vol)
     {
