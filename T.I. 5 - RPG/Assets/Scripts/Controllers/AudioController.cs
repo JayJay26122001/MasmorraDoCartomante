@@ -125,7 +125,7 @@ public class AudioController : MonoBehaviour
     {
         int randomIndex = Random.Range(0, sfxArray.Length);
         AudioClip chosenClip = sfxArray[randomIndex];
-        Debug.Log(chosenClip.name);
+        //Debug.Log(chosenClip.name);
         s.PlayOneShot(chosenClip);
     }
 

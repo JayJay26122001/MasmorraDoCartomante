@@ -64,6 +64,7 @@ public class GameplayManager : MonoBehaviour
         InputActive = true;
         ManualPause = false;
     }
+
     void IPauseInput()
     {
         PauseInstances++;
