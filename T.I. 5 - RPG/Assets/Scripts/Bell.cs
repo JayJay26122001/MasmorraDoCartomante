@@ -11,6 +11,6 @@ public class Bell : MonoBehaviour
 
     public void PlayBellSFX()
     {
-        sfxSource.PlayOneShot(AudioController.instance.soundEffects[0]);
+        sfxSource.PlayOneShot(AudioController.instance.bellSfx[0], 0.25f);
     }
 }

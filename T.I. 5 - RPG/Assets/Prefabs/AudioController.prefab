@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2390084456453939271}
   - component: {fileID: 7812149021497848683}
   - component: {fileID: 419529575397712776}
+  - component: {fileID: 1062513366243227478}
   m_Layer: 0
   m_Name: AudioController
   m_TagString: Untagged
@@ -46,7 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 271ef9e79565d354b85df16af1663473, type: 2}
-  musicSource: {fileID: 0}
+  musicSource: {fileID: 419529575397712776}
+  sfxSource: {fileID: 1062513366243227478}
   auxSource: {fileID: 0}
   musics:
   - {fileID: 8300000, guid: 417893e9619913240904e61356e17d14, type: 3}
@@ -55,8 +57,21 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f3ad124669a3a7f4590d7d35daa8e258, type: 3}
   - {fileID: 8300000, guid: 57713d8b234b80e4288bdb930320eead, type: 3}
   - {fileID: 8300000, guid: 4ef8a1c4abfa6f6408f1b51191c22cef, type: 3}
-  soundEffects:
+  bellSfx:
   - {fileID: 8300000, guid: 4973385c763a6884b888a169e26c9b2e, type: 3}
+  receiveCardSfx:
+  - {fileID: 8300000, guid: 0db8be01333732d4ab3efdea1474f956, type: 3}
+  - {fileID: 8300000, guid: d3ea73cb59c0d994c92672ba7e2af870, type: 3}
+  - {fileID: 8300000, guid: a49f58c9e45484745968d4fff9ebc721, type: 3}
+  - {fileID: 8300000, guid: b91b1364c103a9b40a41260b77131809, type: 3}
+  - {fileID: 8300000, guid: 59ddc294c5e421849906c04a0746e59f, type: 3}
+  - {fileID: 8300000, guid: aa403b8d8d9f2be419ac8cee9176f8a6, type: 3}
+  - {fileID: 8300000, guid: e3da3c7223136f747af4227b67da55c4, type: 3}
+  buttonClickSfx: []
+  shuffleDeckSfx:
+  - {fileID: 8300000, guid: ad76bae4b74a08c42852ca5708af59dc, type: 3}
+  - {fileID: 8300000, guid: ebf7712a55ab54943aa6f72254804bf4, type: 3}
+  - {fileID: 8300000, guid: a65b266f91f240f47bda0b86dae4c322, type: 3}
 --- !u!82 &419529575397712776
 AudioSource:
   m_ObjectHideFlags: 0
@@ -67,6 +82,103 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -3950347551576904935, guid: 271ef9e79565d354b85df16af1663473, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &1062513366243227478
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6227090850702807371}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 3635056084857984232, guid: 271ef9e79565d354b85df16af1663473, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1

@@ -156,6 +156,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
                 {
                     LeanTween.scale(gameObject, originalScale * 1.25f, 0.1f).setEaseOutQuad();
                     highlighted = true;
+                    AudioController.instance.RandomizeSfx(AudioController.instance.sfxSource, AudioController.instance.receiveCardSfx);
                     CardUIController.OrganizeHandCardsWhenHighlighted(c);
                 }
             }

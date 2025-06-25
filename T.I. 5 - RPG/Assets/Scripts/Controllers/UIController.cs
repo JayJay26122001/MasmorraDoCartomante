@@ -511,6 +511,7 @@ public class UIController : MonoBehaviour
                     Time.timeScale = 1.0f;
                     ClosePanel(pausePanel);
                     gamePaused = false;
+                    GameplayManager.instance.ResumeInput();
                 }
                 else
                 {
@@ -518,6 +519,7 @@ public class UIController : MonoBehaviour
                     Time.timeScale = 0f;
                     OpenPanel(pausePanel);
                     gamePaused = true;
+                    GameplayManager.instance.PauseInput();
                 }
             }
         }

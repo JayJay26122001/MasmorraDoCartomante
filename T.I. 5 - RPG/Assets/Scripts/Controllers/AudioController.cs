@@ -7,9 +7,9 @@ public class AudioController : MonoBehaviour
 {
     public static AudioController instance;
     public AudioMixer mixer;
-    public AudioSource musicSource, auxSource;
+    public AudioSource musicSource, sfxSource, auxSource;
     public AudioClip[] musics;
-    public AudioClip[] soundEffects;
+    public AudioClip[] bellSfx, receiveCardSfx, buttonClickSfx, shuffleDeckSfx;
     //public AudioClip[] menuPlaylist;
     //private bool playingIntro;
 
@@ -24,7 +24,8 @@ public class AudioController : MonoBehaviour
             Destroy(this.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
-        musicSource = this.GetComponent<AudioSource>();
+        //musicSource = this.GetComponent<AudioSource>();
+        //sfxSource = this.GetComponent<AudioSource> ();
     }
 
     public void StartMusic()
@@ -118,6 +119,14 @@ public class AudioController : MonoBehaviour
         musicSource.loop = true;
         musicSource.Play();
         Debug.Log("Playing : " + musics[5].name);
+    }
+
+    public void RandomizeSfx(AudioSource s, AudioClip[] sfxArray)
+    {
+        int randomIndex = Random.Range(0, sfxArray.Length);
+        AudioClip chosenClip = sfxArray[randomIndex];
+        Debug.Log(chosenClip.name);
+        s.PlayOneShot(chosenClip);
     }
 
     public void ChangeMasterVol(float vol)

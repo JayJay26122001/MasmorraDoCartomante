@@ -62,6 +62,7 @@ public class Player : Creature
                 if (decks[0].DiscardPile.Count != 0)
                 {
                     decks[0].ShuffleDeck();
+                    AudioController.instance.RandomizeSfx(AudioController.instance.sfxSource, AudioController.instance.shuffleDeckSfx);
                     shuffled = true;
                 }
                 else
@@ -80,6 +81,7 @@ public class Player : Creature
                 ActionController.instance.InvokeTimer(hand.Add, arg, basetime + i * 0.2f);
                 ActionController.instance.InvokeTimer(CardUIController.OrganizeHandCards, this, basetime + i * 0.2f);
                 ActionController.instance.InvokeTimer(CardUIController.OrganizeStack, decks[0].BuyingPile, combatSpace.buyingPileSpace, basetime + i * 0.2f);
+                ActionController.instance.InvokeTimer(AudioController.instance.RandomizeSfx, AudioController.instance.sfxSource, AudioController.instance.receiveCardSfx, basetime + i * 0.2f);
             }
         }
         GameplayManager.instance.PauseInput(basetime + quantity * 0.2f);

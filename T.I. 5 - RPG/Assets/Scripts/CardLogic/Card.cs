@@ -43,6 +43,7 @@ public class Card : ScriptableObject
     //List<Condition> conds = new List<Condition>();
     public void CardPlayed() // carta foi jogada na mesa
     {
+        AudioController.instance.RandomizeSfx(AudioController.instance.sfxSource, AudioController.instance.receiveCardSfx);
         foreach (Effect e in Effects)
         {
             e.InitiateEffect();

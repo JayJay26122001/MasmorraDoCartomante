@@ -50,7 +50,8 @@ public class GameplayManager : MonoBehaviour
     {
         //events.enabled = false;
         InputBlocker.SetActive(true);
-        Camera.main.GetComponent<PlayerInput>().actions.Disable();
+        Camera.main.GetComponent<PlayerInput>().actions.FindActionMap("Camera").Disable();
+        //Camera.main.GetComponent<PlayerInput>().actions.Disable();
         InputActive = false;
         ManualPause = true;
     }
@@ -58,7 +59,8 @@ public class GameplayManager : MonoBehaviour
     {
         //events.enabled = true;
         InputBlocker.SetActive(false);
-        Camera.main.GetComponent<PlayerInput>().actions.Enable();
+        Camera.main.GetComponent<PlayerInput>().actions.FindActionMap("Camera").Enable();
+        //Camera.main.GetComponent<PlayerInput>().actions.Enable();
         InputActive = true;
         ManualPause = false;
     }
