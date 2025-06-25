@@ -9,7 +9,7 @@ public class AudioController : MonoBehaviour
     public AudioMixer mixer;
     public AudioSource musicSource, sfxSource, auxSource;
     public AudioClip[] musics;
-    public AudioClip[] bellSfx, receiveCardSfx, buttonClickSfx, shuffleDeckSfx;
+    public AudioClip[] bellSfx, receiveCardSfx, buttonClickSfx, shuffleDeckSfx, playCardSfx;
     //public AudioClip[] menuPlaylist;
     //private bool playingIntro;
 

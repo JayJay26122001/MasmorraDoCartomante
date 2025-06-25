@@ -286,7 +286,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1863677423}
+  - {fileID: 289077257}
   - {fileID: 1329411886}
   - {fileID: 1867699273}
   m_Father: {fileID: 0}
@@ -427,6 +427,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187560002}
   m_CullTransparentMesh: 1
+--- !u!1001 &289077256
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 107777523}
+    m_Modifications:
+    - target: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6227090850702807371, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+      propertyPath: m_Name
+      value: AudioController
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+--- !u!4 &289077257 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+  m_PrefabInstance: {fileID: 289077256}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &314487866
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,6 +720,18 @@ MonoBehaviour:
           m_StringArgument: Menu
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1867699274}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: PlayButtonSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &594343760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -789,6 +863,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Game
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1867699274}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: PlayButtonSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &762928151
@@ -1347,54 +1433,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1863677422
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1863677423}
-  - component: {fileID: 1863677424}
-  m_Layer: 0
-  m_Name: AudioController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1863677423
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1863677422}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 107777523}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1863677424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1863677422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6c6fa986b1a6724d8427544d4958b84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mixer: {fileID: 0}
-  musicSource: {fileID: 0}
-  musics: []
-  playerSFX: []
 --- !u!1 &1867699272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,6 +1492,9 @@ MonoBehaviour:
   leaveCreditsPanelButton: {fileID: 0}
   leaveQuitPanelButton: {fileID: 0}
   confirmQuitButton: {fileID: 0}
+  _masterVolumeSlider: {fileID: 0}
+  _musicSlider: {fileID: 0}
+  _sfxSlider: {fileID: 0}
 --- !u!1 &2083562173
 GameObject:
   m_ObjectHideFlags: 0

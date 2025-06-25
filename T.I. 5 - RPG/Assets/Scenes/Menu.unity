@@ -313,7 +313,7 @@ MonoBehaviour:
   m_MinValue: -20
   m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -545,6 +545,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 284080736}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 274687318}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: PlayButtonSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1421,7 +1433,7 @@ MonoBehaviour:
   m_MinValue: -20
   m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1469,8 +1481,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1621838557}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.6666667, y: 0}
-  m_AnchorMax: {x: 0.6666667, y: 1}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 40, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1643,6 +1655,18 @@ MonoBehaviour:
           m_StringArgument: Game
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 274687318}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: PlayButtonSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &531625748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1713,8 +1737,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 253407767}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.6666667, y: 0}
-  m_AnchorMax: {x: 0.6666667, y: 1}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 40, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2029,7 +2053,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.6666667
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -2233,7 +2257,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.6666667
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -2339,6 +2363,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Game
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 274687318}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: PlayButtonSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &720812041
@@ -2465,6 +2501,18 @@ MonoBehaviour:
       - m_Target: {fileID: 274687318}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 274687318}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: PlayButtonSFX
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3590,6 +3638,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 274687318}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: PlayButtonSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1142758193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3690,7 +3750,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.6666667
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -4279,7 +4339,7 @@ MonoBehaviour:
   m_MinValue: -20
   m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -4518,8 +4578,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1379015456}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.6666667, y: 0}
-  m_AnchorMax: {x: 0.6666667, y: 1}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 40, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4787,6 +4847,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 1181815353}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 274687318}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: PlayButtonSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5440,6 +5512,18 @@ MonoBehaviour:
           m_StringArgument: Game
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 274687318}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: PlayButtonSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1846596256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5721,6 +5805,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 1942118695}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 274687318}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: PlayButtonSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6230,22 +6326,6 @@ PrefabInstance:
       propertyPath: auxSource
       value: 
       objectReference: {fileID: 659058443}
-    - target: {fileID: 7812149021497848683, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
-      propertyPath: buttonClickSfx.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7812149021497848683, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
-      propertyPath: 'buttonClickSfx.Array.data[0]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 26f70e5c27637e744add7fb60247c34b, type: 3}
-    - target: {fileID: 7812149021497848683, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
-      propertyPath: 'buttonClickSfx.Array.data[1]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 80e07567422d9d748888de918c250a12, type: 3}
-    - target: {fileID: 7812149021497848683, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
-      propertyPath: 'buttonClickSfx.Array.data[2]'
-      value: 
-      objectReference: {fileID: 8300000, guid: bcfadb5a6a047e348b91cc9588b9dc6c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

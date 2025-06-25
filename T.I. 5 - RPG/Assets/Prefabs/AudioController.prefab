@@ -67,11 +67,18 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 59ddc294c5e421849906c04a0746e59f, type: 3}
   - {fileID: 8300000, guid: aa403b8d8d9f2be419ac8cee9176f8a6, type: 3}
   - {fileID: 8300000, guid: e3da3c7223136f747af4227b67da55c4, type: 3}
-  buttonClickSfx: []
+  buttonClickSfx:
+  - {fileID: 8300000, guid: 26f70e5c27637e744add7fb60247c34b, type: 3}
+  - {fileID: 8300000, guid: 80e07567422d9d748888de918c250a12, type: 3}
+  - {fileID: 8300000, guid: bcfadb5a6a047e348b91cc9588b9dc6c, type: 3}
   shuffleDeckSfx:
   - {fileID: 8300000, guid: ad76bae4b74a08c42852ca5708af59dc, type: 3}
   - {fileID: 8300000, guid: ebf7712a55ab54943aa6f72254804bf4, type: 3}
   - {fileID: 8300000, guid: a65b266f91f240f47bda0b86dae4c322, type: 3}
+  playCardSfx:
+  - {fileID: 8300000, guid: 25dcba554f74d3c4182dd1777cae0d15, type: 3}
+  - {fileID: 8300000, guid: 44285216776ee7c4790561777bc7fcf6, type: 3}
+  - {fileID: 8300000, guid: ec8a5a8de716475438f05b81bae08099, type: 3}
 --- !u!82 &419529575397712776
 AudioSource:
   m_ObjectHideFlags: 0

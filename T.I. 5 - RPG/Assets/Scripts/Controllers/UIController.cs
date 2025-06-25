@@ -69,8 +69,8 @@ public class UIController : MonoBehaviour
         {
             data = new ConfigData(true, 0, 0, 0, 0);
         }
-        EventSystem.current.SetSelectedGameObject(playButton);
-        SetDefaultVol();*/
+        EventSystem.current.SetSelectedGameObject(playButton);*/
+        SetDefaultVol();
         AudioController.instance.StartMusic();
     }
 
@@ -125,6 +125,11 @@ public class UIController : MonoBehaviour
         SaveManager.SaveConfig();
     }*/
 
+    public void PlayButtonSFX()
+    {
+        AudioController.instance.RandomizeSfx(AudioController.instance.sfxSource, AudioController.instance.buttonClickSfx);
+    }
+
     public void ChangeScene(string scene)
     {
         if(gamePaused)
@@ -175,6 +180,7 @@ public class UIController : MonoBehaviour
             //GameManager.instance.player.movePaused = false;
             Time.timeScale = 1.0f;
             gamePaused = false;
+            GameplayManager.instance.ResumeInput();
         }
     }
 
@@ -383,24 +389,27 @@ public class UIController : MonoBehaviour
         //data.sfx = _sfxSlider.value;
         AudioController.instance.ChangeSFXVol(_sfxSlider.value);
     }
-    /*public void SetDefaultVol()
+    public void SetDefaultVol()
     {
-        AudioController.controller.mixer.GetFloat("MasterVol", out float aux1);
-        if (_masterVolumeSlider != null)
+        if(AudioController.instance.mixer != null)
         {
-            _masterVolumeSlider.value = aux1;
+            AudioController.instance.mixer.GetFloat("MasterVol", out float aux1);
+            if (_masterVolumeSlider != null)
+            {
+                _masterVolumeSlider.value = aux1;
+            }
+            AudioController.instance.mixer.GetFloat("MusicVol", out float aux2);
+            if (_musicSlider != null)
+            {
+                _musicSlider.value = aux2;
+            }
+            AudioController.instance.mixer.GetFloat("SFXVol", out float aux3);
+            if (_sfxSlider != null)
+            {
+                _sfxSlider.value = aux3;
+            }
         }
-        AudioController.controller.mixer.GetFloat("MusicVol", out float aux2);
-        if (_musicSlider != null)
-        {
-            _musicSlider.value = aux2;
-        }
-        AudioController.controller.mixer.GetFloat("SFXVol", out float aux3);
-        if (_sfxSlider != null)
-        {
-            _sfxSlider.value = aux3;
-        }
-    }*/
+    }
 
     /*public void ResolutionDropdown()
     {
