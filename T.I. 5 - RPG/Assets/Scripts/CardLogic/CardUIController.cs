@@ -3,7 +3,7 @@ using Unity.Cinemachine;
 using UnityEngine;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using static UnityEditor.PlayerSettings;
+//using static UnityEditor.PlayerSettings;
 
 public class CardUIController : MonoBehaviour
 {
