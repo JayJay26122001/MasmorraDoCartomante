@@ -69,7 +69,8 @@ public class GameplayManager : MonoBehaviour
     {
         PauseInstances++;
         InputBlocker.SetActive(true);
-        Camera.main.GetComponent<PlayerInput>().actions.Disable();
+        Camera.main.GetComponent<PlayerInput>().actions.FindActionMap("Camera").Disable();
+        //Camera.main.GetComponent<PlayerInput>().actions.Disable();
         InputActive = false;
     }
     void IResumeInput()
@@ -88,7 +89,8 @@ public class GameplayManager : MonoBehaviour
             }
         }
         InputBlocker.SetActive(false);
-        Camera.main.GetComponent<PlayerInput>().actions.Enable();
+        Camera.main.GetComponent<PlayerInput>().actions.FindActionMap("Camera").Enable();
+        //Camera.main.GetComponent<PlayerInput>().actions.Enable();
         InputActive = true;
     }
     void Update()
