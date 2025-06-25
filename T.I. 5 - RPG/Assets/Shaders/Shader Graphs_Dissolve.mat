@@ -31,13 +31,18 @@ Material:
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
-  disabledShaderPasses: []
+  disabledShaderPasses:
+  - MOTIONVECTORS
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_405e1f8220e6425caae23b99c3477fcd_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: d68b6d5bfe1cf184fb1b266443c44fa8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -54,7 +59,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DissolveAmount: 0.535
+    - _DissolveAmount: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
     m_Colors:
     - _DissolveColor: {r: 0, g: 1.8320234, b: 31.999996, a: 0}
   m_BuildTextureStacks: []
