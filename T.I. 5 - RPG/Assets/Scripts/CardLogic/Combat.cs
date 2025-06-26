@@ -76,7 +76,15 @@ public class Combat : MonoBehaviour
         CardUIController.CardsOrganizer(combatents[0]);
         CardUIController.CardsOrganizer(combatents[1]);
         //CombatUI();
-        turnText.text = $"Creature {TurnIndex + 1} - Turn {TurnIndex + 1} {ActiveTurn.currentPhase}";
+        if(TurnIndex == 0)
+        {
+            turnText.text = $"Player {ActiveTurn.currentPhase}";
+        }
+        else
+        {
+            turnText.text = $"Enemy {ActiveTurn.currentPhase}";
+        }
+        //turnText.text = $"Creature {TurnIndex + 1} - Turn {TurnIndex + 1} {ActiveTurn.currentPhase}";
         //combatents[0].CardsOrganizer(); //mudan�a futura
         //combatents[1].CardsOrganizer(); //mudan�a futura
     }
@@ -98,7 +106,15 @@ public class Combat : MonoBehaviour
         }
         //CardUIController.CardsOrganizer(combatents[0]);
         //CardUIController.CardsOrganizer(combatents[1]);
-        turnText.text = $"Creature {TurnIndex + 1} - Turn {TurnIndex + 1} {ActiveTurn.currentPhase}";
+        if (TurnIndex == 0)
+        {
+            turnText.text = $"Player {ActiveTurn.currentPhase}";
+        }
+        else
+        {
+            turnText.text = $"Enemy {ActiveTurn.currentPhase}";
+        }
+        //turnText.text = $"Creature {TurnIndex + 1} - Turn {TurnIndex + 1} {ActiveTurn.currentPhase}";
         CombatUI();
         //combatents[0].CardsOrganizer(); //mudan�a futura
         //combatents[1].CardsOrganizer(); //mudan�a futura
