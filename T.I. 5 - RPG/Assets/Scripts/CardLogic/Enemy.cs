@@ -4,7 +4,8 @@ public class Enemy : Creature
 {
     public Animator anim;
     public GameObject model;
-
+    public enum EnemySize { Small, Medium, Large };
+    public EnemySize size;
     public override void CombatStartAction()
     {
         base.CombatStartAction();

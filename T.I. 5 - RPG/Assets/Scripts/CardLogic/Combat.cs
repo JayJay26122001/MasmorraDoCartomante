@@ -28,6 +28,7 @@ public class Combat : MonoBehaviour
         {
             combatents[1] = GameplayManager.instance.enemies[index];
         }
+        CameraController.instance.PositionEnemyDamagedCam(combatents[1].GetComponent<Enemy>().size);
     }
     public TurnPhase GetTurnPhase(Creature C, TurnPhaseTypes phaseType)
     {

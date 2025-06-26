@@ -89,6 +89,22 @@ public class CameraController : MonoBehaviour
         enemyDamagedCamera.Priority = 0;
     }
 
+    public void PositionEnemyDamagedCam(Enemy.EnemySize size)
+    {
+        switch(size)
+        {
+            case Enemy.EnemySize.Small:
+                enemyDamagedCamera.transform.position = new Vector3(0, 15, -12.5f);
+                break;
+            case Enemy.EnemySize.Medium:
+                enemyDamagedCamera.transform.position = new Vector3(0, 19, -14.5f);
+                break;
+            case Enemy.EnemySize.Large:
+                enemyDamagedCamera.transform.position = new Vector3(0, 23, -16.5f);
+                break;
+        }
+    }
+
     public void DisableCameraInputs()
     {
         inputActive = false;

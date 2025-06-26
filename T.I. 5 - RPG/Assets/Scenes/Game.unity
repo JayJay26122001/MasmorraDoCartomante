@@ -2621,7 +2621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76732fbb8eaa6f84ca59334d1b8f69b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelsCount: 8
+  levelsCount: 2
   maxBranches: 3
   startRoom: {fileID: 11400000, guid: 360091fc7cea3ed4d8292376c8805d53, type: 2}
   bossRoom: {fileID: 11400000, guid: 6a701e2991ee8754b8cddb158e431ad2, type: 2}
@@ -4183,6 +4183,7 @@ MonoBehaviour:
   energyText: {fileID: 1957511179}
   anim: {fileID: 0}
   model: {fileID: 1429280706}
+  size: 0
 --- !u!1001 &511052325
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10851,6 +10852,7 @@ MonoBehaviour:
   energyText: {fileID: 1957511179}
   anim: {fileID: 0}
   model: {fileID: 726201785}
+  size: 2
 --- !u!4 &1648378709
 Transform:
   m_ObjectHideFlags: 0
@@ -11823,6 +11825,7 @@ MonoBehaviour:
   energyText: {fileID: 1957511179}
   anim: {fileID: 0}
   model: {fileID: 1426449208}
+  size: 0
 --- !u!4 &1848926785
 Transform:
   m_ObjectHideFlags: 0
