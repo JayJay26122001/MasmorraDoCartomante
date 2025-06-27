@@ -9,6 +9,8 @@ using static UnityEditor.PlayerSettings;
 public class CardDisplay : MonoBehaviour, IPointerClickHandler
 {
     public SpriteRenderer cardBack, image, rarity, background, type;
+    [SerializeField] ParticleSystem[] ActivationVFX;
+    [System.NonSerialized] public ParticleSystem SelectedActivationVFX;
     public MeshRenderer cardBase;
     public Material dissolveShader, cardBaseShader, cardBaseMat;
     public TextMeshPro cardCost, cardName, cardDescription;
@@ -84,6 +86,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         {
             type.sprite = cardsUI.cardType[(int)cardData.Type];
         }
+        SelectedActivationVFX = ActivationVFX[(int)cardData.Type];
         //type.sprite = cardsUI.cardType[(int)cardData.Type];
     }
 

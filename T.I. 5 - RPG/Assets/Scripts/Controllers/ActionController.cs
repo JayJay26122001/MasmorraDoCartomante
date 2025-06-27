@@ -284,16 +284,37 @@ public class ApplyEffectAction : SceneAction
             e.EffectEnd.AddListener(ActionController.instance.AdvanceQueue);
             e.Apply();
         }*/
-        if (e is IProlongedEffect)
+        UnityAction endingAction = () =>
         {
-            e.ConvertTo<IProlongedEffect>().EffectApplied.AddListener(AnimEnded.Invoke);
-            e.ConvertTo<IProlongedEffect>().EffectApplied.AddListener(ActionController.instance.AdvanceQueue);
+            if (e is IProlongedEffect)
+            {
+                e.ConvertTo<IProlongedEffect>().EffectApplied.AddListener(AnimEnded.Invoke);
+                e.ConvertTo<IProlongedEffect>().EffectApplied.AddListener(ActionController.instance.AdvanceQueue);
+            }
+            else
+            {
+                e.EffectEnd.AddListener(AnimEnded.Invoke);
+                e.EffectEnd.AddListener(ActionController.instance.AdvanceQueue);
+            }
+            e.Apply();
+        };
+        if (e is IHiddenEffect)
+        {
+            endingAction();
+            return;
+        }
+        ParticleSystem VFX = e.card.cardDisplay.SelectedActivationVFX;
+        if (!VFX.isPlaying)
+        {
+            VFX.Play();
+            float dur = VFX.main.duration;
+            ActionController.instance.InvokeTimer(endingAction, dur);
+
         }
         else
         {
-            e.EffectEnd.AddListener(AnimEnded.Invoke);
-            e.EffectEnd.AddListener(ActionController.instance.AdvanceQueue);
+            float dur = VFX.main.duration - VFX.totalTime;
+            ActionController.instance.InvokeTimer(endingAction, dur);
         }
-        e.Apply();
     }
 }

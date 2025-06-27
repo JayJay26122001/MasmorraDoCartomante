@@ -86,7 +86,15 @@ public abstract class Effect
         }
     }
 }
-public interface IActionEffect
+public interface IActionEffect //Efeito que implementa uma ação
+{
+
+}
+public interface IProlongedEffect // Efeito que dura por vários turnos e que, portanto, não se deve esperar a finalização
+{
+    public UnityEvent EffectApplied { get; set; }
+}
+public interface IHiddenEffect //Efeito que quando ativo não solta vfx ou indicações visuais
 {
     
 }
@@ -177,7 +185,7 @@ public class GainEnergy : Effect
     }
 }
 [Serializable]
-public class DiscardThisCard : Effect
+public class DiscardThisCard : Effect, IHiddenEffect
 {
     public enum DiscardType { Maximum, Minimum }
     public DiscardType SetAsDiscardTime;
@@ -208,6 +216,7 @@ public class DiscardThisCard : Effect
         return true;
     }
 }
+[Serializable]
 public class Heal : Effect
 {
     public int AmountHealled;
@@ -227,10 +236,6 @@ public class Heal : Effect
         }
         EffectEnded();
     }
-}
-public interface IProlongedEffect
-{
-    public UnityEvent EffectApplied{ get; set; }
 }
 [Serializable]
 public class BuffStat : Effect, IProlongedEffect
