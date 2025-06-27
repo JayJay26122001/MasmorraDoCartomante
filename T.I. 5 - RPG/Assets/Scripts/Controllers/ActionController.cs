@@ -17,10 +17,41 @@ public class ActionController : MonoBehaviour
         //director = GetComponent<PlayableDirector>();
         instance = this;
     }
+    public static void DebugAction(SceneAction action)
+    {
+        string actionName;
+        if (action is ApplyEffectAction)
+        {
+            actionName = $"{action.GetType().Name}: {action.ConvertTo<ApplyEffectAction>().e.GetType().Name}";
+        }
+        else
+        {
+            actionName = action.GetType().Name;
+        }
+        Debug.Log($"{actionName}");
+    }
+    public static void DebugAction(SceneAction action, int index)
+    {
+        string actionName;
+        if (action is ApplyEffectAction)
+        {
+            actionName = $"{action.GetType().Name}: {action.ConvertTo<ApplyEffectAction>().e.GetType().Name}";
+        }
+        else
+        {
+            actionName = action.GetType().Name;
+        }
+        Debug.Log($"Added to index {index} {actionName}");
+    }
     public void AddToQueue(SceneAction action)
     {
         //action.AnimEnded.AddListener(AdvanceQueue);
-        Debug.Log($"{action.GetType().Name}");
+        //DebugAction(action);
+        action.finishAction = () =>
+        {
+            action.AnimEnded.Invoke();
+            AdvanceQueue();
+        };
         ActionQueue.Add(action);
         UpdateQueueIndexes();
         if (ActionQueue.Count == 1)
@@ -30,7 +61,12 @@ public class ActionController : MonoBehaviour
     }
     public void AddToQueue(SceneAction action, int index)
     {
-        Debug.Log($"{index}: {action.GetType().Name}");
+        //DebugAction(action, index);
+        action.finishAction = () =>
+        {
+            action.AnimEnded.Invoke();
+            AdvanceQueue();
+        };
         if (index > ActionQueue.Count) index = ActionQueue.Count;
         ActionQueue.Insert(index, action);
         UpdateQueueIndexes();
@@ -104,14 +140,15 @@ public abstract class SceneAction
 {
     public float time;
     public int QueueIndex = 0;
+    public UnityAction finishAction;
     public virtual void StartAction()
     {
-        PerformAction();
-        UnityAction finishAction = () =>
+        if (finishAction == null)
         {
-            AnimEnded.Invoke();
-            ActionController.instance.AdvanceQueue();
-        };
+            finishAction = AnimEnded.Invoke;
+        }
+        ActionController.DebugAction(this);
+        PerformAction();
         ActionController.instance.InvokeTimer(finishAction, time);
         //ActionController.instance.InvokeTimer(() => Debug.Log(Time.time), time);
     }
@@ -260,13 +297,18 @@ public class WaitAction : SceneAction
 }
 public class ApplyEffectAction : SceneAction
 {
-    Effect e;
+    public readonly Effect e;
     public ApplyEffectAction(Effect effect)
     {
         e = effect;
     }
     public override void StartAction()
     {
+        if (finishAction == null)
+        {
+            finishAction = AnimEnded.Invoke;
+        }
+        ActionController.DebugAction(this);
         PerformAction();
     }
     public override void PerformAction()
@@ -288,13 +330,15 @@ public class ApplyEffectAction : SceneAction
         {
             if (e is IProlongedEffect)
             {
-                e.ConvertTo<IProlongedEffect>().EffectApplied.AddListener(AnimEnded.Invoke);
-                e.ConvertTo<IProlongedEffect>().EffectApplied.AddListener(ActionController.instance.AdvanceQueue);
+                e.ConvertTo<IProlongedEffect>().EffectApplied.AddListener(finishAction);
+                //e.ConvertTo<IProlongedEffect>().EffectApplied.AddListener(AnimEnded.Invoke);
+                //e.ConvertTo<IProlongedEffect>().EffectApplied.AddListener(ActionController.instance.AdvanceQueue);
             }
             else
             {
-                e.EffectEnd.AddListener(AnimEnded.Invoke);
-                e.EffectEnd.AddListener(ActionController.instance.AdvanceQueue);
+                e.EffectEnd.AddListener(finishAction);
+                //e.EffectEnd.AddListener(AnimEnded.Invoke);
+                //e.EffectEnd.AddListener(ActionController.instance.AdvanceQueue);
             }
             e.Apply();
         };
