@@ -38,6 +38,8 @@ public class UIController : MonoBehaviour
     public Slider _masterVolumeSlider;
     public Slider _musicSlider;
     public Slider _sfxSlider;
+    [Header("Game Combat HUD")]
+    public GameObject combatHUD;
 
     /*bool gameStarted, gamePaused;
     public GameObject pausePanel, confirmReturnRoomPanel, confirmReturnMenuPanel, collectablesPanel;
@@ -178,6 +180,7 @@ public class UIController : MonoBehaviour
         if (panel == pausePanel)
         {
             //GameManager.instance.player.movePaused = false;
+            ActivateChildrens(combatHUD);
             Time.timeScale = 1.0f;
             gamePaused = false;
             GameplayManager.instance.ResumeInput();
@@ -525,12 +528,30 @@ public class UIController : MonoBehaviour
                 else
                 {
                     //GameManager.instance.player.movePaused = true;
+                    //combatHUD.SetActive(false);
                     Time.timeScale = 0f;
+                    DeactivateChildrens(combatHUD);
                     OpenPanel(pausePanel);
                     gamePaused = true;
                     GameplayManager.instance.PauseInput();
                 }
             }
+        }
+    }
+
+    public void DeactivateChildrens(GameObject parent)
+    {
+        foreach (Transform child in parent.transform)
+        {
+            child.gameObject.SetActive(false);
+        }
+    }
+
+    public void ActivateChildrens(GameObject parent)
+    {
+        foreach (Transform child in parent.transform)
+        {
+            child.gameObject.SetActive(true);
         }
     }
 
