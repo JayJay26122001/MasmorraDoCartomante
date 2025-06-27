@@ -17,10 +17,42 @@ public class ActionController : MonoBehaviour
         //director = GetComponent<PlayableDirector>();
         instance = this;
     }
+    public static void DebugAction(SceneAction action)
+    {
+        string actionName;
+        if (action is ApplyEffectAction)
+        {
+            actionName = $"{action.GetType().Name}: {action.ConvertTo<ApplyEffectAction>().e.GetType().Name}";
+        }
+        else
+        {
+            actionName = action.GetType().Name;
+        }
+        Debug.Log($"{actionName}");
+    }
+    public static void DebugAction(SceneAction action, int index)
+    {
+        string actionName;
+        if (action is ApplyEffectAction)
+        {
+            actionName = $"{action.GetType().Name}: {action.ConvertTo<ApplyEffectAction>().e.GetType().Name}";
+        }
+        else
+        {
+            actionName = action.GetType().Name;
+        }
+        Debug.Log($"Added to index {index} {actionName}");
+    }
     public void AddToQueue(SceneAction action)
     {
         //action.AnimEnded.AddListener(AdvanceQueue);
-        Debug.Log($"{action.GetType().Name}");
+        //DebugAction(action);
+        /*action.finishAction = () =>
+        {
+            action.AnimEnded.Invoke();
+            AdvanceQueue();
+        };*/
+        action.IsInQueue = true;
         ActionQueue.Add(action);
         UpdateQueueIndexes();
         if (ActionQueue.Count == 1)
@@ -30,7 +62,13 @@ public class ActionController : MonoBehaviour
     }
     public void AddToQueue(SceneAction action, int index)
     {
-        Debug.Log($"{index}: {action.GetType().Name}");
+        //DebugAction(action, index);
+        /*action.finishAction = () =>
+        {
+            action.AnimEnded.Invoke();
+            AdvanceQueue();
+        };*/
+        action.IsInQueue = true;
         if (index > ActionQueue.Count) index = ActionQueue.Count;
         ActionQueue.Insert(index, action);
         UpdateQueueIndexes();
@@ -48,6 +86,7 @@ public class ActionController : MonoBehaviour
     }
     public void AdvanceQueue()
     {
+        Debug.Log("-------------NextEffect-------------");
         if (ActionQueue.Count <= 0) return;
         ActionQueue.Remove(ActionQueue[0]);
         UpdateQueueIndexes();
@@ -104,14 +143,19 @@ public abstract class SceneAction
 {
     public float time;
     public int QueueIndex = 0;
+    public bool IsInQueue;
     public virtual void StartAction()
     {
-        PerformAction();
         UnityAction finishAction = () =>
         {
             AnimEnded.Invoke();
-            ActionController.instance.AdvanceQueue();
+            if (IsInQueue)
+            {
+                ActionController.instance.AdvanceQueue();
+            }
         };
+        ActionController.DebugAction(this);
+        PerformAction();
         ActionController.instance.InvokeTimer(finishAction, time);
         //ActionController.instance.InvokeTimer(() => Debug.Log(Time.time), time);
     }
@@ -260,13 +304,23 @@ public class WaitAction : SceneAction
 }
 public class ApplyEffectAction : SceneAction
 {
-    Effect e;
+    public readonly Effect e;
+    UnityAction finishAction;
     public ApplyEffectAction(Effect effect)
     {
         e = effect;
     }
     public override void StartAction()
     {
+        /*finishAction = () =>
+        {
+            AnimEnded.Invoke();
+            if (IsInQueue)
+            {
+                ActionController.instance.AdvanceQueue();
+            }
+        };*/
+        ActionController.DebugAction(this);
         PerformAction();
     }
     public override void PerformAction()
@@ -286,16 +340,30 @@ public class ApplyEffectAction : SceneAction
         }*/
         UnityAction endingAction = () =>
         {
+            UnityEvent scribedEvent;
             if (e is IProlongedEffect)
             {
-                e.ConvertTo<IProlongedEffect>().EffectApplied.AddListener(AnimEnded.Invoke);
-                e.ConvertTo<IProlongedEffect>().EffectApplied.AddListener(ActionController.instance.AdvanceQueue);
+                scribedEvent = e.ConvertTo<IProlongedEffect>().EffectApplied;
+                //e.ConvertTo<IProlongedEffect>().EffectApplied.AddListener(AnimEnded.Invoke);
+                //e.ConvertTo<IProlongedEffect>().EffectApplied.AddListener(ActionController.instance.AdvanceQueue);
             }
             else
             {
-                e.EffectEnd.AddListener(AnimEnded.Invoke);
-                e.EffectEnd.AddListener(ActionController.instance.AdvanceQueue);
+                scribedEvent = e.EffectEnd;
+                //e.EffectEnd.AddListener(AnimEnded.Invoke);
+                //e.EffectEnd.AddListener(ActionController.instance.AdvanceQueue);
             }
+            UnityAction finishAction = null;
+            finishAction = () =>
+            {
+                AnimEnded.Invoke();
+                if (IsInQueue)
+                {
+                    ActionController.instance.AdvanceQueue();
+                }
+                scribedEvent.RemoveListener(finishAction);
+            };
+            scribedEvent.AddListener(finishAction);
             e.Apply();
         };
         if (e is IHiddenEffect)
