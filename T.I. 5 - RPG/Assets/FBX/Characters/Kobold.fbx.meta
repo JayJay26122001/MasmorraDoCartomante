@@ -3,7 +3,12 @@ guid: 3e6408557a678184699bd3e65e16848a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BarbarianRetopo
+    second: {fileID: 2100000, guid: dc3b88a0548252c4b8b67c225b3adcbc, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -262,7 +267,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.29999998
+    globalScale: 30
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

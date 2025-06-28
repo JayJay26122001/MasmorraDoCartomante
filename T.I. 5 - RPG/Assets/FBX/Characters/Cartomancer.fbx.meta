@@ -3,7 +3,12 @@ guid: 23a20f140633c4c48bb1d53098bfaf3f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CartomancerMat
+    second: {fileID: 2100000, guid: 4d6fccb2e445e614ea5120de2582cefc, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

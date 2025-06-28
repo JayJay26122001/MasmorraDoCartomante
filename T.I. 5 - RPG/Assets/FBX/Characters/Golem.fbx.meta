@@ -3,7 +3,22 @@ guid: 70fb5a2920719d740ac2786ffa359168
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GolemBaseMat
+    second: {fileID: 2100000, guid: 6406158e631793a4bb7156018070f090, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GolemVOneMat
+    second: {fileID: 2100000, guid: a5126d9e7961d9149b34fad90722e628, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GolemVTwoMat
+    second: {fileID: 2100000, guid: 1f71e5c8fb6262e4a996f1e7588f669e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
