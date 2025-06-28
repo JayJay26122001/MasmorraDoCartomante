@@ -357,6 +357,7 @@ public class BoardGenerator : MonoBehaviour
                 foreach (BoardRoom r in board[i])
                 {
                     r.roomObject.GetComponent<MeshRenderer>().material.SetFloat("_DisappearTime", t);
+                    r.roomObject.GetComponent<RoomObject>().icon.gameObject.GetComponent<MeshRenderer>().material.SetFloat("_DisappearTime", t);
                 }
             }
             foreach (GameObject go in lineObjects)

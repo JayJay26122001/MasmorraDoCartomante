@@ -3,6 +3,21 @@ using System;
 public class RoomObject : MonoBehaviour
 {
     public BoardRoom roomRef;
+    public MeshFilter icon;
+
+    private void Start()
+    {
+        icon = this.transform.GetChild(0).gameObject.GetComponent<MeshFilter>();
+        if(roomRef.type.iconMesh != null)
+        {
+            icon.mesh = roomRef.type.iconMesh;
+            icon.gameObject.GetComponent<MeshRenderer>().material.color = Color.black;
+        }
+        else
+        {
+            icon.gameObject.SetActive(false);
+        }
+    }
 
     public void OnMouseDown()
     {

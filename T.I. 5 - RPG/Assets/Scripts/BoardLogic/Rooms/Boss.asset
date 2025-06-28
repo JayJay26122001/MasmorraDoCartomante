@@ -17,3 +17,4 @@ MonoBehaviour:
   testColor:
     serializedVersion: 2
     rgba: 16711846
+  iconMesh: {fileID: 3037659003223748675, guid: ca57f70f1b814974480b49666b326da5, type: 3}
