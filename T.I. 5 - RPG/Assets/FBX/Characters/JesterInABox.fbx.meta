@@ -3,7 +3,27 @@ guid: ac923cff9972dc043830b469d8ef718f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BoxMaterial
+    second: {fileID: 2100000, guid: 648ac9468d1e4564c872a53e11a05167, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CollarMaterial
+    second: {fileID: 2100000, guid: b5e9befeac17be940a492799495e732a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: JesterMaterial
+    second: {fileID: 2100000, guid: 60ffc7a0b8e876d49b891c05f32aa692, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MaskMaterial
+    second: {fileID: 2100000, guid: 6ae9f8e73787e5b448b643683712a094, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -233,7 +253,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.17
+    globalScale: 17
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
