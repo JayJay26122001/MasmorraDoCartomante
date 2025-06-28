@@ -24,11 +24,13 @@ public class UIController : MonoBehaviour
     public GameObject settingsButton;
     public GameObject creditsButton;
     public GameObject quitButton;
+    public GameObject tutorialButton;
     [Header("Panels")]
     public GameObject settingsPanel;
     public GameObject creditsPanel;
     public GameObject quitPanel;
     public GameObject pausePanel;
+    public GameObject tutorialPanel;
     [Header("Panel Buttons")]
     public GameObject leaveSettingsPanelButton;
     public GameObject leaveCreditsPanelButton;
@@ -194,6 +196,7 @@ public class UIController : MonoBehaviour
         settingsButton.SetActive(false); 
         creditsButton.SetActive(false);
         quitButton.SetActive(false);
+        tutorialButton.SetActive(false);
     }
 
     public void ShowMenuObjects()
@@ -203,6 +206,7 @@ public class UIController : MonoBehaviour
         settingsButton.SetActive(true);
         creditsButton.SetActive(true);
         quitButton.SetActive(true);
+        tutorialButton.SetActive(true);
     }
 
     public void SetMenuButtonsInteractable(bool interactable)
@@ -211,6 +215,7 @@ public class UIController : MonoBehaviour
         settingsButton.GetComponent<Button>().interactable = interactable;
         creditsButton.GetComponent<Button>().interactable = interactable;
         quitButton.GetComponent<Button>().interactable = interactable;
+        tutorialButton.GetComponent<Button>().interactable = interactable;
     }
 
     public void UiSetup()
@@ -231,6 +236,10 @@ public class UIController : MonoBehaviour
         {
             quitButton.SetActive(true);
         }
+        if (tutorialButton != null)
+        {
+            tutorialButton.SetActive(true);
+        }
         if (settingsPanel != null)
         {
             settingsPanel.SetActive(false);
@@ -238,6 +247,10 @@ public class UIController : MonoBehaviour
         if (creditsPanel != null)
         {
             creditsPanel.SetActive(false);
+        }
+        if (tutorialPanel != null)
+        {
+            tutorialPanel.SetActive(false);
         }
         if (quitPanel != null)
         {
