@@ -4869,7 +4869,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1432303490}
           m_TargetAssemblyTypeName: GameplayManager, Assembly-CSharp
-          m_MethodName: DiscardBoughtCards
+          m_MethodName: DiscardBell
           m_Mode: 2
           m_Arguments:
             m_ObjectArgument: {fileID: 566439126}
@@ -5547,6 +5547,7 @@ MonoBehaviour:
   creditsButton: {fileID: 0}
   quitButton: {fileID: 0}
   tutorialButton: {fileID: 0}
+  featuresButton: {fileID: 0}
   settingsPanel: {fileID: 1486701015}
   creditsPanel: {fileID: 0}
   quitPanel: {fileID: 0}

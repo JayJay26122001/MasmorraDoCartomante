@@ -197,12 +197,22 @@ public class GameplayManager : MonoBehaviour
         }
         canBuy = true;
     }
-    public void DiscardBoughtCards(DiscardBell bell)
+
+    public void DiscardBell(DiscardBell bell)
     {
         if(bell.pack != null)
         {
-            bell.pack.DestroyBoughtCards();
+            DiscardBoughtCards(bell);
         }
+        else
+        {
+            player.ChangeMoney(3);
+            DestroyRemovingCards();
+        }
+    }
+    public void DiscardBoughtCards(DiscardBell bell)
+    {
+        bell.pack.DestroyBoughtCards();
     }
 
     public void RemovingCards()
@@ -213,6 +223,7 @@ public class GameplayManager : MonoBehaviour
             {
                 canBuy = false;
                 removingCards = true;
+                PlayCutscene(4);
                 List<CardDisplay> cds = new List<CardDisplay>();
                 foreach (Card c in player.decks[0].cards)
                 {
@@ -230,7 +241,8 @@ public class GameplayManager : MonoBehaviour
 
     public void DestroyRemovingCards()
     {
-        foreach(Transform t in player.combatSpace.playedCardSpace.transform)
+        PlayCutscene(5);
+        foreach (Transform t in player.combatSpace.playedCardSpace.transform)
         {
             var moveTween = LeanTween.move(t.gameObject, t.position + Vector3.up * 25, 0.05f);
             moveTween.setOnComplete(() =>

@@ -8001,9 +8001,10 @@ MonoBehaviour:
     but resets when entering another shop.\n\nCard remover (6): if you think a card
     from your deck isn't helping much, you can buy the remover, which will show all
     your cards at the table, and you can left click the one you want to remove from
-    your deck.\n\nHeal (7): if you took too much damage in the battles, you can buy
-    the heal to fully recover your health.\n\nWhen done shopping, you can click the
-    right bell (8) to leave the room."
+    your deck. If you regret buying the remover, just click the left bell (4) to
+    get a refund.\n\nHeal (7): if you took too much damage in the battles, you can
+    buy the heal to fully recover your health.\n\nWhen done shopping, you can click
+    the right bell (8) to leave the room."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
   m_sharedMaterial: {fileID: 1623889163624291708, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
