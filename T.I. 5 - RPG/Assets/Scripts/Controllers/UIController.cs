@@ -25,6 +25,7 @@ public class UIController : MonoBehaviour
     public GameObject creditsButton;
     public GameObject quitButton;
     public GameObject tutorialButton;
+    public GameObject featuresButton;
     [Header("Panels")]
     public GameObject settingsPanel;
     public GameObject creditsPanel;
@@ -197,6 +198,7 @@ public class UIController : MonoBehaviour
         creditsButton.SetActive(false);
         quitButton.SetActive(false);
         tutorialButton.SetActive(false);
+        featuresButton.SetActive(false);
     }
 
     public void ShowMenuObjects()
@@ -207,6 +209,7 @@ public class UIController : MonoBehaviour
         creditsButton.SetActive(true);
         quitButton.SetActive(true);
         tutorialButton.SetActive(true);
+        featuresButton.SetActive(true);
     }
 
     public void SetMenuButtonsInteractable(bool interactable)
@@ -239,6 +242,10 @@ public class UIController : MonoBehaviour
         if (tutorialButton != null)
         {
             tutorialButton.SetActive(true);
+        }
+        if (featuresButton != null)
+        {
+            featuresButton.SetActive(true);
         }
         if (settingsPanel != null)
         {
