@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Victory.unity
     guid: 538be4ccdab989040b4e3c5c9701c93d
+  - enabled: 1
+    path: Assets/Scenes/Features.unity
+    guid: 42d822f9efb9f534ea6e76adb1d35a4c
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 22d483749ffe2a04aa18adc84c6cad98, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

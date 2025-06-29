@@ -5546,10 +5546,12 @@ MonoBehaviour:
   settingsButton: {fileID: 1916134963}
   creditsButton: {fileID: 0}
   quitButton: {fileID: 0}
+  tutorialButton: {fileID: 0}
   settingsPanel: {fileID: 1486701015}
   creditsPanel: {fileID: 0}
   quitPanel: {fileID: 0}
   pausePanel: {fileID: 1084934152}
+  tutorialPanel: {fileID: 0}
   leaveSettingsPanelButton: {fileID: 1458695276}
   leaveCreditsPanelButton: {fileID: 0}
   leaveQuitPanelButton: {fileID: 0}
