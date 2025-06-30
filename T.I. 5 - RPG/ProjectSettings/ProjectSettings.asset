@@ -44,7 +44,7 @@ PlayerSettings:
     duration: 2
   - logo: {fileID: 21300000, guid: a1bf70a8ecb11194b9fcd74bcc45f3eb, type: 3}
     duration: 2
-  - logo: {fileID: 21300000, guid: b7250706379d90c47b35a12e7aecc18d, type: 3}
+  - logo: {fileID: 21300000, guid: 9eb62ac8c73a47340a989e60d99ee7b4, type: 3}
     duration: 2
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
@@ -859,8 +859,8 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: T.I. 5 - RPG
-  metroPackageVersion: 
+  metroPackageName: T.I.5-RPG
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -868,7 +868,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: T.I. 5 - RPG
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: Cartomancer`s Stronghold
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
