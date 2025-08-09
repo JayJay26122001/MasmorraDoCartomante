@@ -63,8 +63,16 @@ public abstract class Effect
                 EffectEnded();
                 return;
             }
-            else if (c.ConditionStatus == Condition.ConditionState.Unsolved)
+            else if (c.ConditionStatus == Condition.ConditionState.Unsolved && !(c is IConfirmationCondition))
             {
+                return;
+            }
+        }
+        foreach (IConfirmationCondition c in Conditions)
+        {
+            if (!c.Confirm())
+            {
+                EffectEnded();
                 return;
             }
         }
