@@ -7,6 +7,7 @@ using System.Linq;
 [CustomEditor(typeof(Card))]
 public class CardEditor : Editor
 {
+    public Color EffectColor = Color.green, ConditionColor = Color.red, ConfirmationColor = Color.blue;
     SerializedProperty effects;
 
     void OnEnable()
@@ -29,8 +30,10 @@ public class CardEditor : Editor
             if (effectProp.managedReferenceValue == null) continue;
 
             string className = effectProp.managedReferenceFullTypename.Split('.').Last().Split(' ').Last();
+            Color oldColor = GUI.backgroundColor;
+            GUI.backgroundColor = EffectColor;
             EditorGUILayout.BeginVertical("box");
-            EditorGUILayout.LabelField($"Effect {i+1} - {className}", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField($"Effect {i + 1} - {className}", EditorStyles.boldLabel);
 
             // Draw all effect fields (excluding Conditions)
             DrawPropertiesExcluding(effectProp, "Conditions", "ConfirmationConditions");
@@ -42,6 +45,7 @@ public class CardEditor : Editor
             {
                 var cond = conditionsProp.GetArrayElementAtIndex(j);
                 string conName = cond.managedReferenceFullTypename.Split('.').Last().Split(' ').Last();
+                GUI.backgroundColor = ConditionColor;
                 EditorGUILayout.BeginVertical("box");
                 EditorGUILayout.PropertyField(cond, new GUIContent($"Condition {j + 1} - {conName}"), true);
 
@@ -50,6 +54,7 @@ public class CardEditor : Editor
                     conditionsProp.DeleteArrayElementAtIndex(j);
                 }
                 EditorGUILayout.EndVertical();
+                GUI.backgroundColor = EffectColor;
             }
 
             if (GUILayout.Button("Add Condition"))
@@ -64,6 +69,7 @@ public class CardEditor : Editor
             {
                 var cond = confirmationProp.GetArrayElementAtIndex(j);
                 string conName = cond.managedReferenceFullTypename.Split('.').Last().Split(' ').Last();
+                GUI.backgroundColor = ConfirmationColor;
                 EditorGUILayout.BeginVertical("box");
                 EditorGUILayout.PropertyField(cond, new GUIContent($"Confirmation Condition {j + 1} - {conName}"), true);
 
@@ -72,11 +78,12 @@ public class CardEditor : Editor
                     confirmationProp.DeleteArrayElementAtIndex(j);
                 }
                 EditorGUILayout.EndVertical();
+                GUI.backgroundColor = EffectColor;
             }
 
             if (GUILayout.Button("Add Confirmation Condition"))
             {
-                ShowConditionSelector(confirmationProp);
+                ShowConfirmationSelector(confirmationProp);
             }
 
             EditorGUILayout.Separator();
@@ -87,6 +94,7 @@ public class CardEditor : Editor
             }
 
             EditorGUILayout.EndVertical();
+            GUI.backgroundColor = oldColor;
         }
 
         EditorGUILayout.Separator();
@@ -122,6 +130,26 @@ public class CardEditor : Editor
     void ShowConditionSelector(SerializedProperty list)
     {
         var types = GetAllDerivedTypes<Condition>();
+        var menu = new GenericMenu();
+
+        foreach (var type in types)
+        {
+            menu.AddItem(new GUIContent(type.Name), false, () =>
+            {
+                var instance = Activator.CreateInstance(type);
+                list.arraySize++;
+                serializedObject.ApplyModifiedProperties();
+                var newCondition = list.GetArrayElementAtIndex(list.arraySize - 1);
+                newCondition.managedReferenceValue = instance;
+                serializedObject.ApplyModifiedProperties();
+            });
+        }
+
+        menu.ShowAsContext();
+    }
+    void ShowConfirmationSelector(SerializedProperty list)
+    {
+        var types = GetAllDerivedTypes<ConfirmationCondition>();
         var menu = new GenericMenu();
 
         foreach (var type in types)

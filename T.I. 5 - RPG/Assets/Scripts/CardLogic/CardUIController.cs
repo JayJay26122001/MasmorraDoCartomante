@@ -49,6 +49,10 @@ public class CardUIController : MonoBehaviour
                 {
                     c.effect = e;
                 }
+                foreach (ConfirmationCondition c in e.ConfirmationConditions)
+                {
+                    c.effect = e;
+                }
             }
         }
         return temp;

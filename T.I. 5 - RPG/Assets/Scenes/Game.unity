@@ -11856,7 +11856,7 @@ GameObject:
   - component: {fileID: 1866734917}
   - component: {fileID: 1866734918}
   m_Layer: 0
-  m_Name: Criatura 1
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11891,7 +11891,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   DeckPresets:
-  - {fileID: 11400000, guid: 09d6c5b2d83f8a14dabe4d634765683a, type: 2}
+  - {fileID: 11400000, guid: 4b000ab3f8e8f994c8c754e94d28c100, type: 2}
   decks: []
   hand: []
   playedCards: []

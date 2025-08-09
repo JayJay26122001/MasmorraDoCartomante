@@ -12,17 +12,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
   m_Name: Ambush
   m_EditorClassIdentifier: 
-  Effects: []
+  Effects:
+  - rid: 1178401810453889024
+  - rid: 1178401810453889113
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: 
+  Name: Ambush
   hidden: 0
   limited: 0
   instantaneous: 0
-  cost: 0
+  cost: 1
   Type: 0
-  Rarity: 0
+  Rarity: 1
   Description: 
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 1178401810453889024
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        Conditions: []
+        ConfirmationConditions:
+        - rid: 1178401810453889108
+        DamageMultiplier: 0.2
+        IgnoreDefense: 0
+        target: 0
+    - rid: 1178401810453889108
+      type: {class: HasShield, ns: , asm: Assembly-CSharp}
+      data:
+        CreatureObserved: 1
+        Reverse: 1
+    - rid: 1178401810453889113
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        Conditions: []
+        ConfirmationConditions:
+        - rid: 1178401810453889114
+        DamageMultiplier: 1.5
+        IgnoreDefense: 0
+        target: 0
+    - rid: 1178401810453889114
+      type: {class: HasShield, ns: , asm: Assembly-CSharp}
+      data:
+        CreatureObserved: 1
+        Reverse: 0

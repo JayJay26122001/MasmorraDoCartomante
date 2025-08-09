@@ -69,14 +69,14 @@ public abstract class Effect
                 return;
             }
         }
-        /*foreach (IConfirmationCondition c in Conditions)
+        foreach (ConfirmationCondition c in ConfirmationConditions)
         {
             if (!c.Confirm())
             {
                 EffectEnded();
                 return;
             }
-        }*/
+        }
         ActionController.instance.AddToQueue(new ApplyEffectAction(this));
     }
     public void ApplyIfNoCondition()
@@ -84,6 +84,14 @@ public abstract class Effect
         if (Conditions.Count <= 0 && !effectStarted && !EffectAcomplished)
         {
             //Apply();
+            foreach (ConfirmationCondition c in ConfirmationConditions)
+            {
+                if (!c.Confirm())
+                {
+                    EffectEnded();
+                    return;
+                }
+            }
             ActionController.instance.AddToQueue(new ApplyEffectAction(this));
         }
     }
@@ -98,7 +106,7 @@ public interface IProlongedEffect // Efeito que dura por vários turnos e que, p
 }
 public interface IHiddenEffect //Efeito que quando ativo não solta vfx ou indicações visuais
 {
-    
+
 }
 
 [Serializable]
@@ -107,7 +115,7 @@ public class DealDamage : Effect, IActionEffect
     public float DamageMultiplier;
     [SerializeField] bool IgnoreDefense;
     enum Target { Oponent, User }
-    [SerializeField]Target target;
+    [SerializeField] Target target;
     public override void Apply()
     {
         base.Apply();
@@ -223,7 +231,7 @@ public class Heal : Effect
 {
     public int AmountHealled;
     enum Target { User, Oponent }
-    [SerializeField]Target target;
+    [SerializeField] Target target;
     public override void Apply()
     {
         base.Apply();
@@ -244,7 +252,7 @@ public class BuffStat : Effect, IProlongedEffect
 {
     enum BuffableStats { Attack, ShieldGain, DamageReduction }
     [SerializeField] BuffableStats StatToBuff;
-    public UnityEvent EffectApplied{ get; set; }
+    public UnityEvent EffectApplied { get; set; }
     public StatModifier Modifier = new StatModifier();
     public BuffStat()
     {
