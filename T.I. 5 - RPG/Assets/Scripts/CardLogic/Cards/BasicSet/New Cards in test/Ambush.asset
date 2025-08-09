@@ -24,7 +24,7 @@ MonoBehaviour:
   cost: 1
   Type: 0
   Rarity: 1
-  Description: 
+  Description: Deals 1 Damage. Deals 9 instead if the Opponent have Shield
   references:
     version: 2
     RefIds:
