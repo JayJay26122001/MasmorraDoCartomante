@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Bulwark (Temp)
+  m_Name: Bulwark
   m_EditorClassIdentifier: 
   Effects:
   - rid: 7391437929559097545
