@@ -65,6 +65,10 @@ public abstract class Condition
     }
     protected abstract void Unsubscribe();
 }
+public interface IConfirmationCondition // essas condições não impactam o tempo de ativação, serão apenas determinantes de se o efeito será ou não ativado
+{
+    public bool Confirm();
+}
 [Serializable]
 public class CreaturePlayedCardType : Condition
 {
@@ -188,4 +192,41 @@ public class DamageBlocked : Condition
         owner.DamageBlocked.RemoveListener(ConditionToSuceed);
         owner.Wounded.RemoveListener(ConditionToFail);
     }
+}
+[Serializable]
+public class HasShield : Condition, IConfirmationCondition
+{
+    [SerializeField] Target CreatureObserved;
+    enum Target { User, Oponent }
+    [SerializeField] bool Reverse;
+    Creature c;
+    public override void InitiateCondition()
+    {
+        base.InitiateCondition();
+        switch (CreatureObserved)
+        {
+            case Target.Oponent:
+                c = effect.card.deck.Owner.enemy;
+                break;
+            case Target.User:
+                c = effect.card.deck.Owner;
+                break;
+        }
+    }
+    public bool Confirm()
+    {
+        if (Reverse)
+        {
+            return !(c.Shield > 0);
+        }
+        else
+        {
+            return c.Shield > 0;
+        }
+    }
+    protected override void Unsubscribe()
+    {
+
+    }
+
 }
