@@ -65,10 +65,10 @@ public abstract class Condition
     }
     protected abstract void Unsubscribe();
 }
-public interface IConfirmationCondition // essas condições não impactam o tempo de ativação, serão apenas determinantes de se o efeito será ou não ativado
+/*public interface IConfirmationCondition // essas condições não impactam o tempo de ativação, serão apenas determinantes de se o efeito será ou não ativado
 {
     public bool Confirm();
-}
+}*/
 [Serializable]
 public class CreaturePlayedCardType : Condition
 {
@@ -193,7 +193,7 @@ public class DamageBlocked : Condition
         owner.Wounded.RemoveListener(ConditionToFail);
     }
 }
-[Serializable]
+/*[Serializable]
 public class HasShield : Condition, IConfirmationCondition
 {
     [SerializeField] Target CreatureObserved;
@@ -229,4 +229,4 @@ public class HasShield : Condition, IConfirmationCondition
 
     }
 
-}
+}*/

@@ -11,6 +11,7 @@ public abstract class Effect
     [System.NonSerialized] public Card card;
     [System.NonSerialized] public bool EffectAcomplished = false, effectStarted = false;
     [SerializeReference] public List<Condition> Conditions = new List<Condition>();
+    [SerializeReference] public List<ConfirmationCondition> ConfirmationConditions = new List<ConfirmationCondition>();
     [System.NonSerialized] public UnityEvent EffectStart = new UnityEvent(), EffectEnd = new UnityEvent();
     protected bool Repeatable = false;
 
@@ -63,26 +64,19 @@ public abstract class Effect
                 EffectEnded();
                 return;
             }
-            else if (c.ConditionStatus == Condition.ConditionState.Unsolved && !(c is IConfirmationCondition))
+            else if (c.ConditionStatus == Condition.ConditionState.Unsolved/* && !(c is IConfirmationCondition)*/)
             {
                 return;
             }
         }
-        foreach (IConfirmationCondition c in Conditions)
+        /*foreach (IConfirmationCondition c in Conditions)
         {
             if (!c.Confirm())
             {
                 EffectEnded();
                 return;
             }
-        }
-        /*if (hidden)
-        {
-            hidden = false;
-            CardUIController.OrganizeHandCards(deck.Owner);
-        }
-        CardHadEffect();*/
-        //Apply();
+        }*/
         ActionController.instance.AddToQueue(new ApplyEffectAction(this));
     }
     public void ApplyIfNoCondition()

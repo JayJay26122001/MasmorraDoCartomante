@@ -33,7 +33,7 @@ public class CardEditor : Editor
             EditorGUILayout.LabelField($"Effect {i+1} - {className}", EditorStyles.boldLabel);
 
             // Draw all effect fields (excluding Conditions)
-            DrawPropertiesExcluding(effectProp, "Conditions");
+            DrawPropertiesExcluding(effectProp, "Conditions", "ConfirmationConditions");
 
             // Draw the conditions inside the effect
             var conditionsProp = effectProp.FindPropertyRelative("Conditions");
@@ -57,6 +57,30 @@ public class CardEditor : Editor
                 ShowConditionSelector(conditionsProp);
             }
 
+            // Draw the conditions inside the effect
+            var confirmationProp = effectProp.FindPropertyRelative("ConfirmationConditions");
+            EditorGUILayout.LabelField("Confirmation Conditions", EditorStyles.miniBoldLabel);
+            for (int j = 0; j < confirmationProp.arraySize; j++)
+            {
+                var cond = confirmationProp.GetArrayElementAtIndex(j);
+                string conName = cond.managedReferenceFullTypename.Split('.').Last().Split(' ').Last();
+                EditorGUILayout.BeginVertical("box");
+                EditorGUILayout.PropertyField(cond, new GUIContent($"Confirmation Condition {j + 1} - {conName}"), true);
+
+                if (GUILayout.Button("Remove Confirmation Condition"))
+                {
+                    confirmationProp.DeleteArrayElementAtIndex(j);
+                }
+                EditorGUILayout.EndVertical();
+            }
+
+            if (GUILayout.Button("Add Confirmation Condition"))
+            {
+                ShowConditionSelector(confirmationProp);
+            }
+
+            EditorGUILayout.Separator();
+            EditorGUILayout.Separator();
             if (GUILayout.Button("Remove Effect"))
             {
                 effects.DeleteArrayElementAtIndex(i);
@@ -65,6 +89,7 @@ public class CardEditor : Editor
             EditorGUILayout.EndVertical();
         }
 
+        EditorGUILayout.Separator();
         if (GUILayout.Button("Add Effect"))
         {
             ShowEffectSelector();
