@@ -57,6 +57,7 @@ public class ActionController : MonoBehaviour
         UpdateQueueIndexes();
         if (ActionQueue.Count == 1)
         {
+            action.isPlaying = true;
             action.StartAction();
         }
     }
@@ -74,7 +75,28 @@ public class ActionController : MonoBehaviour
         UpdateQueueIndexes();
         if (ActionQueue.Count == 1)
         {
+            action.isPlaying = true;
             action.StartAction();
+        }
+    }
+    public void AddToQueueBeforeAdvance(SceneAction action)
+    {
+        int index = -1;
+        for (int i = 0; i < ActionQueue.Count; i++)
+        {
+            if (ActionQueue[i] is ICombatTurnActions && !ActionQueue[i].isPlaying)
+            {
+                index = i;
+                i = ActionQueue.Count;
+            }
+        }
+        if (index >= 0)
+        {
+            AddToQueue(action, index);
+        }
+        else
+        {
+            AddToQueue(action);
         }
     }
     public void UpdateQueueIndexes()
@@ -88,11 +110,17 @@ public class ActionController : MonoBehaviour
     {
         Debug.Log("-------------NextEffect-------------");
         if (ActionQueue.Count <= 0) return;
+        ActionQueue[0].isPlaying = false;
         ActionQueue.Remove(ActionQueue[0]);
         UpdateQueueIndexes();
+        UnityAction action = () =>
+        {
+            ActionQueue[0].isPlaying = true;
+            ActionQueue[0].StartAction();
+        };
         if (ActionQueue.Count > 0)
         {
-            InvokeTimer(ActionQueue[0].StartAction, TimeBetweenActions);
+            InvokeTimer(action, TimeBetweenActions);
             //ActionQueue[0].StartAction();
         }
     }
@@ -144,6 +172,7 @@ public abstract class SceneAction
     public float time;
     public int QueueIndex = 0;
     public bool IsInQueue;
+    public bool isPlaying;
     public virtual void StartAction()
     {
         UnityAction finishAction = () =>
@@ -262,8 +291,11 @@ public class EnemyDefeat : SceneAction
         //ActionController.instance.InvokeTimer(AnimEnded.Invoke, time);
     }
 }
-
-public class AdvanceCombatAction : SceneAction
+public interface ICombatTurnActions
+{
+    
+}
+public class AdvanceCombatAction : SceneAction, ICombatTurnActions
 {
     public AdvanceCombatAction(float WaitBeforeAdvance)
     {
@@ -281,6 +313,26 @@ public class AdvanceCombatAction : SceneAction
         };
         //ActionController.instance.InvokeTimer(action, time);
         AnimEnded.AddListener(action);
+    }
+}
+public class EndTurnAction : SceneAction, ICombatTurnActions
+{
+    public override void StartAction()
+    {
+        ActionController.DebugAction(this);
+        PerformAction();
+    }
+    public override void PerformAction()
+    {
+        GameplayManager.instance.PauseInput();
+        AnimStarted.Invoke();
+        GameplayManager.currentCombat.ActiveTurn.currentPhase.EndPhase();
+        AnimEnded.Invoke();
+        GameplayManager.instance.ResumeInput();
+        if (IsInQueue)
+        {
+            ActionController.instance.AdvanceQueue();
+        }
     }
 }
 public class WaitAction : SceneAction

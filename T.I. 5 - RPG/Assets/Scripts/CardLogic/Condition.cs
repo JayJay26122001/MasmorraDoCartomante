@@ -190,6 +190,7 @@ public class DamageBlocked : Condition
     protected override void Unsubscribe()
     {
         owner.DamageBlocked.RemoveListener(ConditionToSuceed);
+        if (Repeatable) return;
         owner.Wounded.RemoveListener(ConditionToFail);
     }
 }

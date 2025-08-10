@@ -26,17 +26,11 @@ public class Enemy : Creature
         //SceneAnimationController.instance.AddToQueue(playCardAnim);
     }
 
-    void TurnActionsDelayed()
+    /*void TurnActionsDelayed()
     {
         if (!GameplayManager.instance.CombatActive) return;
-        /*if (hand.Count == 0)
-        {
-            BuyCards(1);
-        }*/
         PlayCard(hand[0]);
-
-        //GameplayManager.currentCombat.AdvanceCombat();
-    }
+    }*/
     public override void TakeDamage(int damage)
     {
         if (Health > 0)

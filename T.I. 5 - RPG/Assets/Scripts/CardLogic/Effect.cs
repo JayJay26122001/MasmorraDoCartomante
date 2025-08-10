@@ -42,7 +42,11 @@ public abstract class Effect
     }
     public virtual void EffectEnded()
     {
-        if (Repeatable) return;
+        if (Repeatable)
+        {
+            EffectEnd.Invoke();
+            return;
+        }
         EffectAcomplished = true;
         EffectEnd.Invoke();
         foreach (Effect e in card.Effects)
@@ -77,7 +81,7 @@ public abstract class Effect
                 return;
             }
         }
-        ActionController.instance.AddToQueue(new ApplyEffectAction(this));
+        ActionController.instance.AddToQueueBeforeAdvance(new ApplyEffectAction(this));
     }
     public void ApplyIfNoCondition()
     {
@@ -92,7 +96,7 @@ public abstract class Effect
                     return;
                 }
             }
-            ActionController.instance.AddToQueue(new ApplyEffectAction(this));
+            ActionController.instance.AddToQueueBeforeAdvance(new ApplyEffectAction(this));
         }
     }
 }

@@ -89,6 +89,11 @@ public class Combat : MonoBehaviour
         //combatents[0].CardsOrganizer(); //mudan�a futura
         //combatents[1].CardsOrganizer(); //mudan�a futura
     }
+    public void EndPhaseAndAdvance()
+    {
+        ActiveTurn.currentPhase.EndPhase();
+        AdvanceCombat();
+    }
     public void AdvanceCombat()
     {
         /*if ((int)ActiveTurn.phase < Enum.GetNames(typeof(Turn.TurnPhase)).Length - 1)
@@ -96,7 +101,7 @@ public class Combat : MonoBehaviour
             ActiveTurn.NextPhase();
         }*/
         //GameplayManager.instance.PauseInput(0.5f);
-        ActiveTurn.currentPhase.EndPhase();
+        //ActiveTurn.currentPhase.EndPhase();
         if (ActiveTurn.phaseIndex < ActiveTurn.phases.Length - 1)
         {
             ActiveTurn.NextPhase();
@@ -454,7 +459,10 @@ public class TurnEnd : TurnPhase
         {
             //GameplayManager.instance.PauseInput();
             AdvanceCombatAction advance = new AdvanceCombatAction(1);
+            EndTurnAction end = new EndTurnAction();
             //advance.AnimEnded.AddListener(GameplayManager.instance.ResumeInput);
+            //EndPhase();
+            ActionController.instance.AddToQueue(end);
             ActionController.instance.AddToQueue(advance);
         }
 
