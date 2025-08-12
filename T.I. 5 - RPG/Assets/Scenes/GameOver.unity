@@ -170,10 +170,13 @@ MonoBehaviour:
   settingsButton: {fileID: 0}
   creditsButton: {fileID: 0}
   quitButton: {fileID: 0}
+  tutorialButton: {fileID: 0}
+  featuresButton: {fileID: 0}
   settingsPanel: {fileID: 0}
   creditsPanel: {fileID: 0}
   quitPanel: {fileID: 0}
   pausePanel: {fileID: 0}
+  tutorialPanel: {fileID: 0}
   leaveSettingsPanelButton: {fileID: 0}
   leaveCreditsPanelButton: {fileID: 0}
   leaveQuitPanelButton: {fileID: 0}
@@ -181,6 +184,7 @@ MonoBehaviour:
   _masterVolumeSlider: {fileID: 0}
   _musicSlider: {fileID: 0}
   _sfxSlider: {fileID: 0}
+  combatHUD: {fileID: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,6 +975,7 @@ GameObject:
   - component: {fileID: 1142758194}
   - component: {fileID: 1142758193}
   - component: {fileID: 1142758192}
+  - component: {fileID: 1142758195}
   m_Layer: 5
   m_Name: B_Menu
   m_TagString: Untagged
@@ -1104,6 +1109,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1142758190}
   m_CullTransparentMesh: 1
+--- !u!114 &1142758195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142758190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 274687318}
+          m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+          m_MethodName: UpscaleButton
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1142758190}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 274687318}
+          m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+          m_MethodName: DownscaleButton
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1142758190}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 274687318}
+          m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+          m_MethodName: DownscaleButton
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1142758190}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1168497426
 GameObject:
   m_ObjectHideFlags: 0
@@ -1393,6 +1459,7 @@ GameObject:
   - component: {fileID: 1846596257}
   - component: {fileID: 1846596256}
   - component: {fileID: 1846596255}
+  - component: {fileID: 1846596258}
   m_Layer: 5
   m_Name: B_TryAgain
   m_TagString: Untagged
@@ -1526,6 +1593,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1846596253}
   m_CullTransparentMesh: 1
+--- !u!114 &1846596258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846596253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 274687318}
+          m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+          m_MethodName: UpscaleButton
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1846596253}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 274687318}
+          m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+          m_MethodName: DownscaleButton
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1846596253}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 274687318}
+          m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+          m_MethodName: DownscaleButton
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1846596253}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &2119084262
 PrefabInstance:
   m_ObjectHideFlags: 0

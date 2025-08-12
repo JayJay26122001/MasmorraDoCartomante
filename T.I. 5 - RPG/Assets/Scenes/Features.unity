@@ -3762,6 +3762,7 @@ GameObject:
   - component: {fileID: 644407004}
   - component: {fileID: 644407003}
   - component: {fileID: 644407002}
+  - component: {fileID: 644407005}
   m_Layer: 5
   m_Name: B_Menu
   m_TagString: Untagged
@@ -3895,6 +3896,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644407000}
   m_CullTransparentMesh: 1
+--- !u!114 &644407005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644407000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 370936555}
+          m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+          m_MethodName: UpscaleButton
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 644407000}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 370936555}
+          m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+          m_MethodName: DownscaleButton
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 644407000}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 370936555}
+          m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+          m_MethodName: DownscaleButton
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 644407000}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &649554575
 GameObject:
   m_ObjectHideFlags: 0

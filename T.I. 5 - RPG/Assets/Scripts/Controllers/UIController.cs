@@ -135,6 +135,16 @@ public class UIController : MonoBehaviour
         AudioController.instance.RandomizeSfx(AudioController.instance.sfxSource, AudioController.instance.buttonClickSfx);
     }
 
+    public void UpscaleButton(GameObject button)
+    {
+        LeanTween.scale(button, Vector3.one * 1.2f, 0.15f).setEase(LeanTweenType.easeOutBack);
+    }
+
+    public void DownscaleButton(GameObject button)
+    {
+        LeanTween.scale(button, Vector3.one, 0.15f).setEase(LeanTweenType.easeOutBack);
+    }
+
     public void ChangeScene(string scene)
     {
         if(gamePaused)
@@ -162,11 +172,12 @@ public class UIController : MonoBehaviour
         if(SceneManager.GetActiveScene().name == "Menu")
         {
             SetMenuButtonsInteractable(false);
-        }
-        if(panel == quitPanel)
-        {
             HideMenuObjects();
         }
+        /*if(panel == quitPanel)
+        {
+            HideMenuObjects();
+        }*/
     }
 
     public void ClosePanel(GameObject panel)
@@ -175,11 +186,12 @@ public class UIController : MonoBehaviour
         if(SceneManager.GetActiveScene().name == "Menu")
         {
             SetMenuButtonsInteractable(true);
-        }
-        if(panel == quitPanel)
-        {
             ShowMenuObjects();
         }
+        /*if(panel == quitPanel)
+        {
+            ShowMenuObjects();
+        }*/
         if (panel == pausePanel)
         {
             //GameManager.instance.player.movePaused = false;
