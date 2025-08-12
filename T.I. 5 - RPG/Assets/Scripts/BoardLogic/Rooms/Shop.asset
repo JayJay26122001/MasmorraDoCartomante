@@ -13,10 +13,22 @@ MonoBehaviour:
   m_Name: Shop
   m_EditorClassIdentifier: 
   roomName: Shop
-  possibleNextRooms:
-  - {fileID: 11400000, guid: 502a13dcbc6c90a4ebe32af84743f161, type: 2}
-  - {fileID: 11400000, guid: bdbffcc7dc32f124589636aa2b21d6dc, type: 2}
-  - {fileID: 11400000}
+  baseProbabilities:
+  - type: Battle
+    probability: 55
+    multiplier: 0
+    minMult: 0
+    maxMult: 0
+  - type: Mimic
+    probability: 45
+    multiplier: 0
+    minMult: 0
+    maxMult: 0
+  - type: Shop
+    probability: 0
+    multiplier: 0
+    minMult: 0
+    maxMult: 0
   testColor:
     serializedVersion: 2
     rgba: 60159

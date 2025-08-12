@@ -1,11 +1,11 @@
 using UnityEngine;
 using System.Collections.Generic;
-
+using System;
 
 public class BoardRoom
 {
     public BoardRoomSO type;
-    public List<int> nextRoomsProbabilities = new List<int>();
+    public List<ControlledProbability> nextRoomsProbabilities = new List<ControlledProbability>();
     public int nextRoomsCount, branchLevel;
     public List<BoardRoom> nextRooms = new List<BoardRoom>();
     public GameObject roomObject;
@@ -14,7 +14,7 @@ public class BoardRoom
     {
         this.type = type;
     }
-    public BoardRoom (BoardRoomSO type, List<int> nrProbabilities, int nextCount, int branchLevel, bool wantsToMerge) //Other rooms
+    public BoardRoom (BoardRoomSO type, List<ControlledProbability> nrProbabilities, int nextCount, int branchLevel, bool wantsToMerge) //Other rooms
     {
         this.type = type;
         this.nextRoomsCount = nextCount;
@@ -35,5 +35,32 @@ public class BoardRoom
             }
         }
         return contains;
+    }
+}
+
+[Serializable]
+public class ControlledProbability
+{
+    public string type;
+    public int probability;
+    public float multiplier = 1, minMult, maxMult;
+
+    public ControlledProbability(string type, int probability, float multiplier, float minMult, float maxMult)
+    {
+        this.type = type;
+        this.probability = probability;
+        this.multiplier = multiplier;
+        this.minMult = minMult;
+        this.maxMult = maxMult;
+    }
+
+    public void ModifyProbability(int value)
+    {
+        probability = (int)((float)value * multiplier);
+    }
+
+    public void ModifyMultiplier(float diff)
+    {
+        multiplier = Mathf.Clamp(multiplier + diff, minMult, maxMult);
     }
 }

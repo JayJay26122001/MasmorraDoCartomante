@@ -333,7 +333,7 @@ Transform:
   m_GameObject: {fileID: 30614208}
   serializedVersion: 2
   m_LocalRotation: {x: 0.2999427, y: -0.000000010122138, z: -0.000000013213295, w: 0.95395726}
-  m_LocalPosition: {x: 0.0000011045444, y: 14.420627, z: -16.679585}
+  m_LocalPosition: {x: 0.0000009299775, y: 13.420052, z: -15.246324}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -416,7 +416,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 69.987595
+  field of view: 70.0006
   orthographic: 0
   orthographic size: 10
   m_Depth: 0
@@ -2625,6 +2625,42 @@ MonoBehaviour:
   maxBranches: 3
   startRoom: {fileID: 11400000, guid: 360091fc7cea3ed4d8292376c8805d53, type: 2}
   bossRoom: {fileID: 11400000, guid: 6a701e2991ee8754b8cddb158e431ad2, type: 2}
+  roomList:
+  - {fileID: 11400000, guid: 502a13dcbc6c90a4ebe32af84743f161, type: 2}
+  - {fileID: 11400000, guid: bdbffcc7dc32f124589636aa2b21d6dc, type: 2}
+  - {fileID: 11400000, guid: e9fb53d20fe3755498b5c6ed648a0b74, type: 2}
+  typeProbabilities:
+  - type: Battle
+    probability: 60
+    multiplier: 1
+    minMult: 0.1
+    maxMult: 2
+  - type: Mimic
+    probability: 40
+    multiplier: 1
+    minMult: 0.1
+    maxMult: 2
+  - type: Shop
+    probability: 0
+    multiplier: 1
+    minMult: 0
+    maxMult: 1.5
+  levelProbabilities:
+  - type: Merge
+    probability: 0
+    multiplier: 1
+    minMult: 0
+    maxMult: 1.5
+  - type: Proceed
+    probability: 20
+    multiplier: 1
+    minMult: 0.1
+    maxMult: 1.5
+  - type: Branch
+    probability: 80
+    multiplier: 1
+    minMult: 0
+    maxMult: 2
   roomTest: {fileID: 7463732538441254492, guid: 99a261ab24e2cec4e8e734aff19bfda6, type: 3}
   boardBase: {fileID: 902547673}
   lineRenderer: {fileID: 0}

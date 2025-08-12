@@ -13,10 +13,22 @@ MonoBehaviour:
   m_Name: Mimic
   m_EditorClassIdentifier: 
   roomName: Mimic
-  possibleNextRooms:
-  - {fileID: 11400000, guid: 502a13dcbc6c90a4ebe32af84743f161, type: 2}
-  - {fileID: 11400000}
-  - {fileID: 11400000, guid: e9fb53d20fe3755498b5c6ed648a0b74, type: 2}
+  baseProbabilities:
+  - type: Battle
+    probability: 45
+    multiplier: 0
+    minMult: 0
+    maxMult: 0
+  - type: Mimic
+    probability: 10
+    multiplier: 0
+    minMult: 0
+    maxMult: 0
+  - type: Shop
+    probability: 45
+    multiplier: 0
+    minMult: 0
+    maxMult: 0
   testColor:
     serializedVersion: 2
     rgba: 255

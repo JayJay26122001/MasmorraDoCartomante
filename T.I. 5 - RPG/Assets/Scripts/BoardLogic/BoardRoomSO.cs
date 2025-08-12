@@ -5,7 +5,8 @@ using System.Collections.Generic;
 public class BoardRoomSO : ScriptableObject
 {
     public string roomName;
-    public List<BoardRoomSO> possibleNextRooms = new List<BoardRoomSO>();
+    //public List<BoardRoomSO> possibleNextRooms = new List<BoardRoomSO>();
+    public List<ControlledProbability> baseProbabilities = new List<ControlledProbability>();
     public Color32 testColor;
     public Mesh iconMesh;
 }
