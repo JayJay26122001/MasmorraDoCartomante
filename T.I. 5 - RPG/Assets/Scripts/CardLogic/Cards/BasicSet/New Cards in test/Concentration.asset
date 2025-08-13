@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
+  m_Name: Concentration
+  m_EditorClassIdentifier: 
+  Effects:
+  - rid: 1178401898369908811
+  - rid: 1178401898369908812
+  cardDisplay: {fileID: 0}
+  deck: {fileID: 0}
+  Name: Concentration
+  hidden: 0
+  limited: 0
+  instantaneous: 0
+  cost: 1
+  Type: 0
+  Rarity: 1
+  Description: "Deals 11 Damage if the User doesn\u2019t take Damage on the Opponent\u2019s
+    Turn"
+  references:
+    version: 2
+    RefIds:
+    - rid: 1178401898369908811
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 1
+        Conditions:
+        - rid: 1178401898369908813
+        ConfirmationConditions: []
+        DamageMultiplier: 1.8
+        IgnoreDefense: 0
+        target: 0
+    - rid: 1178401898369908812
+      type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 1178401898369908814
+        ConfirmationConditions: []
+        SetAsDiscardTime: 0
+    - rid: 1178401898369908813
+      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        DiscardIfAcomplished: 0
+        TurnOwner: 1
+        TurnsFromNow: 0
+        TurnPhase: 1
+        PhaseTime: 1
+    - rid: 1178401898369908814
+      type: {class: DamageTaken, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        DiscardIfAcomplished: 0
+        DamagedTarget: 0
+        CountShieldedDamage: 0
