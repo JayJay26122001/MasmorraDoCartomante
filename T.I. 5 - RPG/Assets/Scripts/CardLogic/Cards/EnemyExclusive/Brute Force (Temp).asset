@@ -34,6 +34,7 @@ MonoBehaviour:
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
         Conditions: []
+        ConfirmationConditions: []
         DamageMultiplier: 0.8
         IgnoreDefense: 0
         target: 0
@@ -42,6 +43,7 @@ MonoBehaviour:
       data:
         Conditions:
         - rid: 7391437929559097577
+        ConfirmationConditions: []
         DamageMultiplier: 0.8
         IgnoreDefense: 0
         target: 0
@@ -51,10 +53,12 @@ MonoBehaviour:
         Repeatable: 0
         DiscardIfAcomplished: 0
         BlockedBy: 1
+        FailIfDamaged: 1
     - rid: 7391437929559097578
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
         Conditions: []
+        ConfirmationConditions: []
         DamageMultiplier: 0.8
         IgnoreDefense: 1
         target: 0

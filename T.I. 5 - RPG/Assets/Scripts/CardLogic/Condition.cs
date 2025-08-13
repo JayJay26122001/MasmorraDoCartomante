@@ -112,7 +112,7 @@ public class CreaturePlayedCardType : Condition
 [Serializable]
 public class WaitUntilTurn : Condition
 {
-    [SerializeField]Target TurnOwner;
+    [SerializeField] Target TurnOwner;
     enum Target { User, Oponent }
     public int TurnsFromNow;
     public Combat.TurnPhaseTypes TurnPhase;
@@ -157,6 +157,7 @@ public class WaitUntilTurn : Condition
 public class DamageBlocked : Condition
 {
     [SerializeField] Target BlockedBy;
+    [SerializeField] bool FailIfDamaged;
     enum Target { User, Oponent }
 
     UnityAction ConditionToSuceed = null, ConditionToFail = null;
@@ -179,19 +180,22 @@ public class DamageBlocked : Condition
             ConcludeCondition(true);
         };
         owner.DamageBlocked.AddListener(ConditionToSuceed);
-        if (Repeatable) return;
-        ConditionToFail = () =>
+        if (FailIfDamaged)
         {
-            ConcludeCondition(false);
-        };
-        owner.Wounded.AddListener(ConditionToFail);
-
+            ConditionToFail = () =>
+            {
+                ConcludeCondition(false);
+            };
+            owner.Wounded.AddListener(ConditionToFail);
+        }
     }
     protected override void Unsubscribe()
     {
         owner.DamageBlocked.RemoveListener(ConditionToSuceed);
-        if (Repeatable) return;
-        owner.Wounded.RemoveListener(ConditionToFail);
+        if (FailIfDamaged)
+        {
+            owner.Wounded.RemoveListener(ConditionToFail);
+        }
     }
 }
 /*[Serializable]
