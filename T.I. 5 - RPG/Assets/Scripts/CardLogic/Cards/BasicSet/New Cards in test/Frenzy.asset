@@ -32,6 +32,7 @@ MonoBehaviour:
     - rid: 1178401810453889125
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
+        DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions:
         - rid: 1178401810453889126
@@ -47,9 +48,11 @@ MonoBehaviour:
     - rid: 1178401810453889127
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
+        DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions:
         - rid: 1178401810453889128
+        - rid: 1178401898369908823
         DamageMultiplier: 0.6
         IgnoreDefense: 0
         target: 0
@@ -59,3 +62,8 @@ MonoBehaviour:
         HealthAmount: 10
         CreatureObserved: 0
         Equation: 3
+    - rid: 1178401898369908823
+      type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
+      data:
+        Equation: 1
+        Amount: 1

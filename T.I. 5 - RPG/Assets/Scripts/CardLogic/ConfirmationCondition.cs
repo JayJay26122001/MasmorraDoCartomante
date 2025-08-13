@@ -36,7 +36,8 @@ public class HasShield : ConfirmationCondition
         }
     }
 }
-public class HasHealthAmount: ConfirmationCondition
+[Serializable]
+public class HasHealthAmount : ConfirmationCondition
 {
     [SerializeField] int HealthAmount;
     [SerializeField] Target CreatureObserved;
@@ -67,5 +68,43 @@ public class HasHealthAmount: ConfirmationCondition
                 return c.Health <= HealthAmount;
             default: return false;
         }
+    }
+}
+[Serializable]
+public class NumberOfTriggeredEffects : ConfirmationCondition
+{
+    [SerializeField] Comparative Equation;
+    [SerializeField]public int Amount;
+    int CompleteEffects;
+
+    public override bool Confirm()
+    {
+        CompleteEffects = GetNumberOfCompleteEffects();
+        switch (Equation)
+        {
+            case Comparative.Higher:
+                return Amount > CompleteEffects;
+            case Comparative.Lower:
+                return Amount < CompleteEffects;
+            case Comparative.Iqual:
+                return Amount == CompleteEffects;
+            case Comparative.IqualOrHigher:
+                return Amount >= CompleteEffects;
+            case Comparative.IqualOrLower:
+                return Amount <= CompleteEffects;
+            default: return false;
+        }
+    }
+    public int GetNumberOfCompleteEffects()
+    {
+        int num = 0;
+        foreach (Effect e in effect.card.Effects)
+        {
+            if (e.EffectAcomplished)
+            {
+                num++;
+            }
+        }
+        return num;
     }
 }
