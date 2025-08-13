@@ -184,9 +184,19 @@ public class GameplayManager : MonoBehaviour
         PauseInput((float)cutscenes[index].duration);
     }
 
-    public void MoveBoard(Action act)
+    /*public void MoveBoard(Action act)
     {
         LeanTween.move(bg.gameObject, bg.gameObject.transform.position - (Vector3.forward * 20 * bg.gameObject.transform.localScale.z), 1).setOnComplete(act);
+    }*/
+    public void MoveBoard()
+    {
+        bg.MovementChange(true);
+        LeanTween.move(bg.gameObject, bg.gameObject.transform.position - (Vector3.forward * 20 * bg.gameObject.transform.localScale.z), 0.75f);
+        LeanTween.move(bg.playerPiece, bg.playerPiece.transform.position - (Vector3.forward * 20 * bg.gameObject.transform.localScale.z), 0.75f).setOnComplete(() => { bg.MovementChange(false); });
+    }
+    public void MovePiece(Action act, Vector3 pos)
+    {
+        LeanTween.move(bg.playerPiece, pos, 0.75f).setOnComplete(act);
     }
 
     public void ChangeArea()

@@ -14,7 +14,7 @@ public class BoardGenerator : MonoBehaviour
     //float battlePModifier = 1, mimicPModifier = 1, shopPModifier = 1, branchPModifier = 1, mergePModifier = 1, proceedPModifier = 1;
     bool willMerge;
     BoardRoom newRoom;
-    public GameObject roomTest, boardBase;
+    public GameObject roomTest, boardBase, playerPiece;
     public LineRenderer lineRenderer;
     public Material shaderMat;
     float zOffset, xOffset;
@@ -22,8 +22,10 @@ public class BoardGenerator : MonoBehaviour
     float animTimeStart;
     bool inAnimation, disappearing;
     public float animSpeed;
+    public bool inMovement;
     private void Start()
     {
+        inMovement = false;
         inAnimation = false;
         GenerateBoard();
         /*for(int i = 0; i < board.Count; i++)
@@ -334,6 +336,7 @@ public class BoardGenerator : MonoBehaviour
     public void InstantiateBoard()
     {
         boardBase.GetComponent<MeshRenderer>().material.color = new Color32(50, 100, 150, 255);
+        playerPiece.GetComponent<MeshRenderer>().material.color = new Color32(0, 100, 0, 255);
         int roomCount;
         zOffset = 0;
         xOffset = 0;
@@ -341,6 +344,7 @@ public class BoardGenerator : MonoBehaviour
         room.GetComponent<MeshRenderer>().material.color = board[0][0].type.testColor;
         board[0][0].roomObject = room;
         room.GetComponent<RoomObject>().roomRef = board[0][0];
+        playerPiece.transform.position = room.transform.position + Vector3.up;
         for (int i = 1; i < board.Count; i++)
         {
             zOffset += 20;
@@ -428,6 +432,7 @@ public class BoardGenerator : MonoBehaviour
                 t = Mathf.Clamp(1 - ((Time.time - animTimeStart) * animSpeed), 0, 1);
             }
             boardBase.GetComponent<MeshRenderer>().material.SetFloat("_DisappearTime", t);
+            playerPiece.GetComponent<MeshRenderer>().material.SetFloat("_DisappearTime", t);
             for (int i = 0; i < levelsCount; i++)
             {
                 foreach (BoardRoom r in board[i])
@@ -445,5 +450,10 @@ public class BoardGenerator : MonoBehaviour
                 inAnimation = false;
             }
         }
+    }
+
+    public void MovementChange(bool isMoving)
+    {
+        inMovement = isMoving;
     }
 }
