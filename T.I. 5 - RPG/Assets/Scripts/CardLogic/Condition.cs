@@ -9,7 +9,7 @@ public abstract class Condition
     public enum ConditionState { Unsolved, Achieved, Failled }
     public ConditionState ConditionStatus { get; private set; }
     [System.NonSerialized] public Effect effect;
-    public bool Repeatable = false, DiscardIfAcomplished = false; // if true the condition will repeat the efect every time it is acomplished
+    public bool Repeatable = false/*, DiscardIfAcomplished = false*/; // if true the condition will repeat the efect every time it is acomplished
     public void ActivateCondition() //começa a observar a condição
     {
         if (!ConditionActive)
@@ -45,10 +45,10 @@ public abstract class Condition
         }
         DeactivateCondition();
         effect.CheckConditions();
-        if (DiscardIfAcomplished)
+        /*if (DiscardIfAcomplished)
         {
             effect.card.deck.Owner.DiscardCard(effect.card);
-        }
+        }*/
     }
     public void ResetCondition() //reseta o status da condição
     {
@@ -112,7 +112,7 @@ public class CreaturePlayedCardType : Condition
 [Serializable]
 public class WaitUntilTurn : Condition
 {
-    [SerializeField]Target TurnOwner;
+    [SerializeField] Target TurnOwner;
     enum Target { User, Oponent }
     public int TurnsFromNow;
     public Combat.TurnPhaseTypes TurnPhase;
@@ -157,6 +157,7 @@ public class WaitUntilTurn : Condition
 public class DamageBlocked : Condition
 {
     [SerializeField] Target BlockedBy;
+    [SerializeField] bool FailIfDamaged;
     enum Target { User, Oponent }
 
     UnityAction ConditionToSuceed = null, ConditionToFail = null;
@@ -179,19 +180,63 @@ public class DamageBlocked : Condition
             ConcludeCondition(true);
         };
         owner.DamageBlocked.AddListener(ConditionToSuceed);
-        if (Repeatable) return;
-        ConditionToFail = () =>
+        if (FailIfDamaged)
         {
-            ConcludeCondition(false);
-        };
-        owner.Wounded.AddListener(ConditionToFail);
-
+            ConditionToFail = () =>
+            {
+                ConcludeCondition(false);
+            };
+            owner.Wounded.AddListener(ConditionToFail);
+        }
     }
     protected override void Unsubscribe()
     {
         owner.DamageBlocked.RemoveListener(ConditionToSuceed);
-        if (Repeatable) return;
-        owner.Wounded.RemoveListener(ConditionToFail);
+        if (FailIfDamaged)
+        {
+            owner.Wounded.RemoveListener(ConditionToFail);
+        }
+    }
+}
+[Serializable]
+public class DamageTaken : Condition
+{
+    [SerializeField] Target DamagedTarget;
+    [SerializeField] bool CountShieldedDamage;
+    enum Target { User, Oponent }
+
+    UnityAction ConditionToSuceed = null;
+    UnityEvent chosenEvent = null;
+    Creature owner;
+    public override void InitiateCondition()
+    {
+        base.InitiateCondition();
+        switch (DamagedTarget)
+        {
+            case Target.Oponent:
+                owner = effect.card.deck.Owner.enemy;
+                break;
+            case Target.User:
+                owner = effect.card.deck.Owner;
+                break;
+        }
+        if (CountShieldedDamage)
+        {
+            chosenEvent = owner.Damaged;
+        }
+        else
+        {
+            chosenEvent = owner.Wounded;
+        }
+        ConditionToSuceed = () =>
+        {
+            ConcludeCondition(true);
+        };
+        chosenEvent.AddListener(ConditionToSuceed);
+    }
+    protected override void Unsubscribe()
+    {
+        chosenEvent.RemoveListener(ConditionToSuceed);
     }
 }
 /*[Serializable]

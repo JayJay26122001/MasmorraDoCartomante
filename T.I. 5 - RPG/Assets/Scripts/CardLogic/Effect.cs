@@ -10,6 +10,7 @@ public abstract class Effect
 {
     [System.NonSerialized] public Card card;
     [System.NonSerialized] public bool EffectAcomplished = false, effectStarted = false;
+    [SerializeField] protected bool DiscardIfAcomplished = false;
     [SerializeReference] public List<Condition> Conditions = new List<Condition>();
     [SerializeReference] public List<ConfirmationCondition> ConfirmationConditions = new List<ConfirmationCondition>();
     [System.NonSerialized] public UnityEvent EffectStart = new UnityEvent(), EffectEnd = new UnityEvent();
@@ -49,11 +50,14 @@ public abstract class Effect
         }
         EffectAcomplished = true;
         EffectEnd.Invoke();
-        foreach (Effect e in card.Effects)
+        if (!DiscardIfAcomplished)
         {
-            if (!e.EffectAcomplished)
+            foreach (Effect e in card.Effects)
             {
-                return;
+                if (!e.EffectAcomplished)
+                {
+                    return;
+                }
             }
         }
         card.deck.Owner.DiscardCard(card);
