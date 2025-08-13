@@ -74,6 +74,8 @@ public class AudioController : MonoBehaviour
         musicSource.Play();
         Invoke(nameof(PlayLoopMusic), musics[0].length - 0.75f);*/
         double startTime = AudioSettings.dspTime;
+        auxSource.Stop();
+        musicSource.Stop();
         auxSource.clip = musics[0];
         auxSource.PlayScheduled(startTime);
         musicSource.clip = musics[1];
@@ -91,6 +93,8 @@ public class AudioController : MonoBehaviour
 
     public void PlayMapMusic()
     {
+        auxSource.Stop();
+        musicSource.Stop();
         musicSource.clip = musics[2];
         musicSource.loop = true;
         musicSource.Play();
@@ -99,6 +103,8 @@ public class AudioController : MonoBehaviour
 
     public void PlayCombatMusic()
     {
+        auxSource.Stop();
+        musicSource.Stop();
         musicSource.clip = musics[3];
         musicSource.loop = true;
         musicSource.Play();
@@ -107,6 +113,8 @@ public class AudioController : MonoBehaviour
 
     public void PlayShopMusic()
     {
+        auxSource.Stop();
+        musicSource.Stop();
         musicSource.clip = musics[4];
         musicSource.loop = true;
         musicSource.Play();
@@ -115,6 +123,8 @@ public class AudioController : MonoBehaviour
 
     public void PlayBossMusic()
     {
+        auxSource.Stop();
+        musicSource.Stop();
         musicSource.clip = musics[5];
         musicSource.loop = true;
         musicSource.Play();

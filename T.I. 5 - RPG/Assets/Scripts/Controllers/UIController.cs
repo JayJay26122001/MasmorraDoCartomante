@@ -152,7 +152,8 @@ public class UIController : MonoBehaviour
             Time.timeScale = 1.0f;
             gamePaused = false;
         }
-        SceneManager.LoadScene(scene);
+        SceneFadeController.instance.FadeOutToScene(scene);
+        //SceneManager.LoadScene(scene);
     }
 
     public void QuitGame()
