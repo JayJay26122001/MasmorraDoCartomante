@@ -13,4 +13,14 @@ MonoBehaviour:
   m_Name: TestEnemyPool
   m_EditorClassIdentifier: 
   pool: 0000000001000000
-  probabilities: 3c00000028000000
+  baseProbabilities:
+  - type: Lasquita
+    probability: 50
+    multiplier: 1
+    minMult: 0.25
+    maxMult: 2
+  - type: Kobold
+    probability: 50
+    multiplier: 1
+    minMult: 0.25
+    maxMult: 2

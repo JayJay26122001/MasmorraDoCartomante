@@ -40,6 +40,17 @@ public class GameplayManager : MonoBehaviour
         instance = this;
         //events = EventSystem.current;
     }
+
+    private void Start()
+    {
+        foreach(Envelope<EnemyPool> e in enemyPools.matrix)
+        {
+            if(e.value != null)
+            {
+                e.value.SetupProbabilities();
+            }
+        }
+    }
     public void PauseInput(float time)
     {
         IPauseInput();
@@ -113,6 +124,14 @@ public class GameplayManager : MonoBehaviour
         if(!figtingBoss)
         {
             int aux = enemyPools.GetValue(battlePerArea, areaIndex).value.SelectIndex();
+            if (battlePerArea < enemyPools.XLength - 1)
+            {
+                enemyPools.GetValue(battlePerArea + 1, areaIndex).value.ModifyMultipliers(enemyPools.GetValue(battlePerArea, areaIndex).value.baseProbabilities[aux].type);
+            }
+            else
+            {
+                enemyPools.GetValue(battlePerArea, areaIndex).value.ModifyMultipliers(enemyPools.GetValue(battlePerArea, areaIndex).value.baseProbabilities[aux].type);
+            }
             ShowEnemy(aux);
             AudioController.instance.PlayCombatMusic();
             currentCombat.SetEnemy(aux);

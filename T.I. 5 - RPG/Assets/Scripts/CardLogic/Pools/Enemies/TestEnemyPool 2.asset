@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TestEnemyPool 2
   m_EditorClassIdentifier: 
   pool: 0000000002000000
-  probabilities: 1e00000046000000
+  probabilities: []
