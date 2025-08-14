@@ -137,22 +137,22 @@ public class UIController : MonoBehaviour
 
     public void UpscaleButton(GameObject button)
     {
-        LeanTween.scale(button, Vector3.one * 1.2f, 0.15f).setEase(LeanTweenType.easeOutBack);
+        LeanTween.scale(button, Vector3.one * 1.2f, 0.15f).setEase(LeanTweenType.easeOutBack).setIgnoreTimeScale(true);
     }
 
     public void DownscaleButton(GameObject button)
     {
-        LeanTween.scale(button, Vector3.one, 0.15f).setEase(LeanTweenType.easeOutBack);
+        LeanTween.scale(button, Vector3.one, 0.15f).setEase(LeanTweenType.easeOutBack).setIgnoreTimeScale(true);
     }
 
     public void ChangeScene(string scene)
     {
-        if(gamePaused)
+        SceneFadeController.instance.FadeOutToScene(scene);
+        /*if(gamePaused)
         {
             Time.timeScale = 1.0f;
             gamePaused = false;
-        }
-        SceneFadeController.instance.FadeOutToScene(scene);
+        }*/
         //SceneManager.LoadScene(scene);
     }
 

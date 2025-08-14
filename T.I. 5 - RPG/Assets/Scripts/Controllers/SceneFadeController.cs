@@ -30,15 +30,23 @@ public class SceneFadeController : MonoBehaviour
     {
         fadeImage.blocksRaycasts = true;
         fadeImage.alpha = 1f;
-        LeanTween.alphaCanvas(fadeImage, 0f, fadeDuration).setOnComplete(() => fadeImage.blocksRaycasts = false);
+        LeanTween.alphaCanvas(fadeImage, 0f, fadeDuration)
+            .setIgnoreTimeScale(true)
+            .setOnComplete(() => fadeImage.blocksRaycasts = false);
     }
 
     public void FadeOutToScene(string sceneName)
     {
         fadeImage.blocksRaycasts = true;
         LeanTween.alphaCanvas(fadeImage, 1f, fadeDuration)
+            .setIgnoreTimeScale(true)
             .setOnComplete(() =>
             {
+                if(GameManager.instance.uiController.gamePaused)
+                {
+                    Time.timeScale = 1f;
+                    GameManager.instance.uiController.gamePaused = false;
+                }
                 SceneManager.LoadScene(sceneName);
                 LeanTween.delayedCall(0.05f, FadeIn);
             });
