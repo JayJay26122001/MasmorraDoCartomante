@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
@@ -73,9 +74,12 @@ public class HasHealthAmount : ConfirmationCondition
 [Serializable]
 public class NumberOfTriggeredEffects : ConfirmationCondition
 {
+    public bool CountThisEffect;
     [SerializeField] Comparative Equation;
-    [SerializeField]public int Amount;
+    [SerializeField] public int Amount;
+    [SerializeField] List<Effect.EffectState> EffectStates = new List<Effect.EffectState>();
     int CompleteEffects;
+
 
     public override bool Confirm()
     {
@@ -83,15 +87,15 @@ public class NumberOfTriggeredEffects : ConfirmationCondition
         switch (Equation)
         {
             case Comparative.Higher:
-                return Amount > CompleteEffects;
+                return CompleteEffects > Amount;
             case Comparative.Lower:
-                return Amount < CompleteEffects;
+                return CompleteEffects < Amount;
             case Comparative.Iqual:
-                return Amount == CompleteEffects;
+                return CompleteEffects == Amount;
             case Comparative.IqualOrHigher:
-                return Amount >= CompleteEffects;
+                return CompleteEffects >= Amount;
             case Comparative.IqualOrLower:
-                return Amount <= CompleteEffects;
+                return CompleteEffects <= Amount;
             default: return false;
         }
     }
@@ -100,9 +104,13 @@ public class NumberOfTriggeredEffects : ConfirmationCondition
         int num = 0;
         foreach (Effect e in effect.card.Effects)
         {
-            if (e.EffectAcomplished)
+            if (e != effect || CountThisEffect)
             {
-                num++;
+                if (EffectStates.Contains(e.state))
+                {
+
+                    num++;
+                }
             }
         }
         return num;

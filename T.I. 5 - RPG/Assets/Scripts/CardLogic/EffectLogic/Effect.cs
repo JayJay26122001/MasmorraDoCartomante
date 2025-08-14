@@ -14,10 +14,13 @@ public abstract class Effect
     [SerializeReference] public List<Condition> Conditions = new List<Condition>();
     [SerializeReference] public List<ConfirmationCondition> ConfirmationConditions = new List<ConfirmationCondition>();
     [System.NonSerialized] public UnityEvent EffectStart = new UnityEvent(), EffectEnd = new UnityEvent();
+    public enum EffectState {Unsolved, InProgress, Acomplished, Failled}
+    [NonSerialized]public EffectState state = EffectState.Unsolved;
     protected bool Repeatable = false;
 
     public void InitiateEffect()
     {
+        state = EffectState.Unsolved;
         foreach (Condition c in Conditions)
         {
             c.ActivateCondition();
@@ -34,6 +37,7 @@ public abstract class Effect
     }
     public void resetEffect()
     {
+        state = EffectState.Unsolved;
         EffectAcomplished = false;
         effectStarted = false;
         foreach (Condition c in Conditions)
@@ -69,6 +73,7 @@ public abstract class Effect
         {
             if (c.ConditionStatus == Condition.ConditionState.Failled)
             {
+                state = EffectState.Failled;
                 EffectEnded();
                 return;
             }
@@ -81,10 +86,12 @@ public abstract class Effect
         {
             if (!c.Confirm())
             {
+                state = EffectState.Failled;
                 EffectEnded();
                 return;
             }
         }
+        state = EffectState.InProgress;
         ActionController.instance.AddToQueueBeforeAdvance(new ApplyEffectAction(this));
     }
     public void ApplyIfNoCondition()
@@ -96,10 +103,12 @@ public abstract class Effect
             {
                 if (!c.Confirm())
                 {
+                    state = EffectState.Failled;
                     EffectEnded();
                     return;
                 }
             }
+            state = EffectState.InProgress;
             ActionController.instance.AddToQueueBeforeAdvance(new ApplyEffectAction(this));
         }
     }

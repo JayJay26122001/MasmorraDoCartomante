@@ -67,3 +67,4 @@ MonoBehaviour:
       data:
         Equation: 1
         Amount: 1
+        EffectStates: 02000000
