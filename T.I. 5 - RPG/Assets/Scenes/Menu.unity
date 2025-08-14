@@ -1571,6 +1571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamePaused: 0
+  panelAnimTime: 0.5
   money: {fileID: 0}
   gameLogo: {fileID: 819847372}
   playButton: {fileID: 1846596253}

@@ -15,6 +15,7 @@ using UnityEditor;
 public class UIController : MonoBehaviour
 {
     [HideInInspector] public bool gamePaused;
+    [HideInInspector] public float panelAnimTime = 0.5f;
     [Header("Player Money Text")]
     public TextMeshPro money;
     [Header("Game Logo")]
@@ -169,37 +170,53 @@ public class UIController : MonoBehaviour
 
     public void OpenPanel(GameObject panel)
     {
-        panel.SetActive(true);
         if(SceneManager.GetActiveScene().name == "Menu")
         {
             SetMenuButtonsInteractable(false);
             HideMenuObjects();
         }
-        /*if(panel == quitPanel)
+        panel.SetActive(true);
+        if(panel != pausePanel)
         {
-            HideMenuObjects();
-        }*/
+            panel.transform.localScale = Vector3.zero;
+            LeanTween.scale(panel, Vector3.one, panelAnimTime).setEase(LeanTweenType.easeInOutSine).setIgnoreTimeScale(true);
+        }
     }
 
     public void ClosePanel(GameObject panel)
     {
-        panel.SetActive(false);
-        if(SceneManager.GetActiveScene().name == "Menu")
+        if(panel == pausePanel)
         {
-            SetMenuButtonsInteractable(true);
-            ShowMenuObjects();
-        }
-        /*if(panel == quitPanel)
-        {
-            ShowMenuObjects();
-        }*/
-        if (panel == pausePanel)
-        {
-            //GameManager.instance.player.movePaused = false;
+            panel.SetActive(false);
             ActivateChildrens(combatHUD);
             Time.timeScale = 1.0f;
             gamePaused = false;
             GameplayManager.instance.ResumeInput();
+            Button[] buttons = panel.GetComponentsInChildren<Button>();
+            foreach (Button btn in buttons)
+            {
+                DownscaleButton(btn.gameObject);
+            }
+        }
+        else
+        {
+            LeanTween.scale(panel, Vector3.zero, panelAnimTime).setEase(LeanTweenType.easeInOutSine).setIgnoreTimeScale(true)
+            .setOnComplete(() =>
+            {
+                panel.SetActive(false);
+                if (SceneManager.GetActiveScene().name == "Menu")
+                {
+                    SetMenuButtonsInteractable(true);
+                    ShowMenuObjects();
+                }
+                /*if (panel == pausePanel)
+                {
+                    ActivateChildrens(combatHUD);
+                    Time.timeScale = 1.0f;
+                    gamePaused = false;
+                    GameplayManager.instance.ResumeInput();
+                }*/
+            });
         }
     }
 
