@@ -31,12 +31,29 @@ MonoBehaviour:
     - rid: 7391437586234343492
       type: {class: BuyCards, ns: , asm: Assembly-CSharp}
       data:
+        DiscardIfAcomplished: 0
         Conditions: []
+        ConfirmationConditions: []
         BuyCardNumber: 3
     - rid: 8509657751477026882
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
+        DiscardIfAcomplished: 0
         Conditions: []
+        ConfirmationConditions: []
+        var:
+          type: 0
+          value: 0
+          min: 0
+          max: 0
+          modifiers:
+          - operation: 0
+            value:
+              type: 0
+              value: 0
+              min: 0
+              max: 0
+              modifiers: []
         DamageMultiplier: 0.6
         IgnoreDefense: 0
         target: 0

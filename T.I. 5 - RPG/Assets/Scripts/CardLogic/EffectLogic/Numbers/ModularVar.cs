@@ -5,16 +5,16 @@ using UnityEngine;
 [Serializable]
 public abstract class ModularVar
 {
-    protected enum ValueType { Fixed, Random }
+    public enum ValueType { Fixed, Random }
 }
 
 [Serializable]
 public class ModularInt : ModularVar
 {
     [SerializeField] ValueType type;
-    [Header("Fixed")]
+    //[Header("Fixed")]
     public int value;
-    [Header("Random")]
+    //[Header("Random")]
     public int min;
     public int max;
     public List<ModularIntModifier> modifiers;
@@ -39,8 +39,6 @@ public class ModularInt : ModularVar
             default: return 0;
         }
     }
-
-
 
 }
 [Serializable]
