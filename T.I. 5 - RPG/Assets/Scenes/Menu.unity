@@ -5521,7 +5521,41 @@ MonoBehaviour:
     value: 0
     min: 0
     max: 0
-    modifiers: []
+    modifiers:
+    - operation: 0
+      Type: 0
+      IntValue:
+        type: 0
+        value: 0
+        min: 0
+        max: 0
+        modifiers: []
+      FloatValue:
+        type: 0
+        value: 0
+        min: 0
+        max: 0
+        modifiers: []
+  varFloat:
+    type: 0
+    value: 0
+    min: 0
+    max: 0
+    modifiers:
+    - operation: 0
+      Type: 0
+      IntValue:
+        type: 0
+        value: 0
+        min: 0
+        max: 0
+        modifiers: []
+      FloatValue:
+        type: 0
+        value: 0
+        min: 0
+        max: 0
+        modifiers: []
 --- !u!1 &1065846506
 GameObject:
   m_ObjectHideFlags: 0

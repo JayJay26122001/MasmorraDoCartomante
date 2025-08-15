@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
         }
         //DontDestroyOnLoad(this.gameObject);
     }
-    public ModularInt var = new ModularInt();
+    /*public ModularInt var = new ModularInt();
     public ModularFloat varFloat = new ModularFloat();
     void Update()
     {
@@ -25,5 +25,5 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log(var.GetValue());
         }
-    }
+    }*/
 }

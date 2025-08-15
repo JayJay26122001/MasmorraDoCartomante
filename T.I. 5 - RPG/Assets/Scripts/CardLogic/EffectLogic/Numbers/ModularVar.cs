@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 [Serializable]
 public abstract class ModularVar
@@ -17,11 +18,11 @@ public class ModularInt : ModularVar
     //[Header("Random")]
     public int min;
     public int max;
-    public List<ModularIntModifier> modifiers;
+    public List<ModularModifier> modifiers = new List<ModularModifier>();
     public int GetValue()
     {
         int value = GetBaseValue();
-        foreach (ModularIntModifier m in modifiers)
+        foreach (ModularModifier m in modifiers)
         {
             value = m.ApplyOperation(value);
         }
@@ -41,28 +42,7 @@ public class ModularInt : ModularVar
     }
 
 }
-[Serializable]
-public class ModularIntModifier
-{
-    public enum Equations { DividedBy, MultipliedBy, Add, Subdivide }
-    public Equations operation;
-    public ModularInt value = new ModularInt();
-    public int ApplyOperation(int BaseValue)
-    {
-        switch (operation)
-        {
-            case Equations.DividedBy:
-                return BaseValue / value.GetValue();
-            case Equations.MultipliedBy:
-                return BaseValue * value.GetValue();
-            case Equations.Add:
-                return BaseValue + value.GetValue();
-            case Equations.Subdivide:
-                return BaseValue - value.GetValue();
-            default: return 0;
-        }
-    }
-}
+
 [Serializable]
 public class ModularFloat : ModularVar
 {
@@ -72,11 +52,11 @@ public class ModularFloat : ModularVar
     //[Header("Random")]
     public float min;
     public float max;
-    public List<ModularFloatModifier> modifiers;
+    public List<ModularModifier> modifiers = new List<ModularModifier>();
     public float GetValue()
     {
         float value = GetBaseValue();
-        foreach (ModularFloatModifier m in modifiers)
+        foreach (ModularModifier m in modifiers)
         {
             value = m.ApplyOperation(value);
         }
@@ -96,24 +76,184 @@ public class ModularFloat : ModularVar
     }
 }
 [Serializable]
-public class ModularFloatModifier
+public class ModularModifier
 {
     public enum Equations { DividedBy, MultipliedBy, Add, Subdivide }
+    public enum ValueType { Int, Float }
     public Equations operation;
-    public ModularFloat value = new ModularFloat();
+    public ValueType Type;
+    public ModularInt IntValue = new ModularInt();
+    public ModularFloat FloatValue = new ModularFloat();
     public float ApplyOperation(float BaseValue)
     {
-        switch (operation)
+        switch (Type)
         {
-            case Equations.DividedBy:
-                return BaseValue / value.GetValue();
-            case Equations.MultipliedBy:
-                return BaseValue * value.GetValue();
-            case Equations.Add:
-                return BaseValue + value.GetValue();
-            case Equations.Subdivide:
-                return BaseValue - value.GetValue();
+            case ValueType.Int:
+                switch (operation)
+                {
+                    case Equations.DividedBy:
+                        return BaseValue / IntValue.GetValue();
+                    case Equations.MultipliedBy:
+                        return BaseValue * IntValue.GetValue();
+                    case Equations.Add:
+                        return BaseValue + IntValue.GetValue();
+                    case Equations.Subdivide:
+                        return BaseValue - IntValue.GetValue();
+                    default: return 0;
+                }
+
+            case ValueType.Float:
+                switch (operation)
+                {
+                    case Equations.DividedBy:
+                        return BaseValue / FloatValue.GetValue();
+                    case Equations.MultipliedBy:
+                        return BaseValue * FloatValue.GetValue();
+                    case Equations.Add:
+                        return BaseValue + FloatValue.GetValue();
+                    case Equations.Subdivide:
+                        return BaseValue - FloatValue.GetValue();
+                    default: return 0;
+                }
+
             default: return 0;
         }
+
+    }
+    public int ApplyOperation(int BaseValue)
+    {
+        switch (Type)
+        {
+            case ValueType.Int:
+                switch (operation)
+                {
+                    case Equations.DividedBy:
+                        return BaseValue / IntValue.GetValue();
+                    case Equations.MultipliedBy:
+                        return BaseValue * IntValue.GetValue();
+                    case Equations.Add:
+                        return BaseValue + IntValue.GetValue();
+                    case Equations.Subdivide:
+                        return BaseValue - IntValue.GetValue();
+                    default: return 0;
+                }
+
+            case ValueType.Float:
+                switch (operation)
+                {
+                    case Equations.DividedBy:
+                        return (int)(BaseValue / FloatValue.GetValue());
+                    case Equations.MultipliedBy:
+                        return (int)(BaseValue * FloatValue.GetValue());
+                    case Equations.Add:
+                        return (int)(BaseValue + FloatValue.GetValue());
+                    case Equations.Subdivide:
+                        return (int)(BaseValue - FloatValue.GetValue());
+                    default: return 0;
+                }
+
+            default: return 0;
+        }
+
+    }
+}
+[CustomPropertyDrawer(typeof(ModularModifier))]
+public class ModularModifierDrawer : PropertyDrawer
+{
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    {
+        EditorGUI.BeginProperty(position, label, property);
+
+        float line = EditorGUIUtility.singleLineHeight;
+        float svs  = EditorGUIUtility.standardVerticalSpacing;
+
+        // Foldout row
+        Rect r = new Rect(position.x, position.y, position.width, line);
+        property.isExpanded = EditorGUI.Foldout(r, property.isExpanded, label, true);
+
+        if (property.isExpanded)
+        {
+            EditorGUI.indentLevel++;
+            float y = position.y + line + svs;
+
+            var operation = property.FindPropertyRelative("operation");
+            var typeProp  = property.FindPropertyRelative("Type");      // note the capital T
+            var intValue  = property.FindPropertyRelative("IntValue");
+            var floatValue= property.FindPropertyRelative("FloatValue");
+
+            if (operation != null)
+            {
+                float h = EditorGUI.GetPropertyHeight(operation, false);
+                EditorGUI.PropertyField(new Rect(position.x, y, position.width, h), operation, false);
+                y += h + svs;
+            }
+
+            if (typeProp != null)
+            {
+                float h = EditorGUI.GetPropertyHeight(typeProp, false);
+                EditorGUI.PropertyField(new Rect(position.x, y, position.width, h), typeProp, false);
+                y += h + svs;
+
+                // Value by type
+                if (typeProp.enumValueIndex == (int)ModularModifier.ValueType.Int && intValue != null)
+                {
+                    float hVal = EditorGUI.GetPropertyHeight(intValue, false);
+                    EditorGUI.PropertyField(new Rect(position.x, y, position.width, hVal), intValue, false);
+                    y += hVal + svs;
+                }
+                else if (typeProp.enumValueIndex == (int)ModularModifier.ValueType.Float && floatValue != null)
+                {
+                    float hVal = EditorGUI.GetPropertyHeight(floatValue, false);
+                    EditorGUI.PropertyField(new Rect(position.x, y, position.width, hVal), floatValue, false);
+                    y += hVal + svs;
+                }
+                else
+                {
+                    float h2 = line;
+                    EditorGUI.LabelField(new Rect(position.x, y, position.width, h), "Unsupported Value Type");
+                    y += h2 + svs;
+                }
+            }
+
+            EditorGUI.indentLevel--;
+        }
+
+        EditorGUI.EndProperty();
+    }
+
+    public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+    {
+        float line = EditorGUIUtility.singleLineHeight;
+        float svs  = EditorGUIUtility.standardVerticalSpacing;
+
+        float h = line; // foldout
+
+        if (property.isExpanded)
+        {
+            // Space after foldout
+            h += svs;
+
+            var operation = property.FindPropertyRelative("operation");
+            var typeProp  = property.FindPropertyRelative("Type");
+            var intValue  = property.FindPropertyRelative("IntValue");
+            var floatValue= property.FindPropertyRelative("FloatValue");
+
+            if (operation != null)
+                h += EditorGUI.GetPropertyHeight(operation, false) + svs;
+
+            if (typeProp != null)
+            {
+                h += EditorGUI.GetPropertyHeight(typeProp, false) + svs;
+
+                if (typeProp.enumValueIndex == (int)ModularModifier.ValueType.Int && intValue != null)
+                    h += EditorGUI.GetPropertyHeight(intValue, false) + svs;
+                else if (typeProp.enumValueIndex == (int)ModularModifier.ValueType.Float && floatValue != null)
+                    h += EditorGUI.GetPropertyHeight(floatValue, false) + svs;
+                else
+                    h += line + svs; // "Unsupported" label
+            }
+        }
+
+        return h;
     }
 }
