@@ -67,9 +67,9 @@ public class ModularIntModifier
 public class ModularFloat : ModularVar
 {
     [SerializeField] ValueType type;
-    [Header("Fixed")]
+    //[Header("Fixed")]
     public float value;
-    [Header("Random")]
+    //[Header("Random")]
     public float min;
     public float max;
     public List<ModularFloatModifier> modifiers;
@@ -90,7 +90,7 @@ public class ModularFloat : ModularVar
             case ValueType.Fixed:
                 return value;
             case ValueType.Random:
-                return UnityEngine.Random.Range(min, max + 1);
+                return UnityEngine.Random.Range(min, max);
             default: return 0;
         }
     }

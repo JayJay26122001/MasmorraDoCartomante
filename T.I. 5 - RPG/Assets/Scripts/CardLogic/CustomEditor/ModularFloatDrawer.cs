@@ -1,8 +1,8 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomPropertyDrawer(typeof(ModularInt))]
-public class ModularIntDrawer : PropertyDrawer
+[CustomPropertyDrawer(typeof(ModularFloat))]
+public class ModularFloatDrawer : PropertyDrawer
 {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
@@ -89,45 +89,4 @@ public class ModularIntDrawer : PropertyDrawer
 
         return height;
     }
-    /*public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
-    {
-        EditorGUI.BeginProperty(position, label, property);
-
-        // Draw foldout
-        property.isExpanded = EditorGUI.Foldout(
-            new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight),
-            property.isExpanded, label);
-
-        if (property.isExpanded)
-        {
-            EditorGUI.indentLevel++;
-
-            SerializedProperty typeProp = property.FindPropertyRelative("type");
-            SerializedProperty valueProp = property.FindPropertyRelative("value");
-            SerializedProperty minProp = property.FindPropertyRelative("min");
-            SerializedProperty maxProp = property.FindPropertyRelative("max");
-            SerializedProperty modifiersProp = property.FindPropertyRelative("modifiers");
-
-            EditorGUILayout.PropertyField(typeProp);
-
-            switch (typeProp.GetEnumValue<ModularVar.ValueType>())
-            {
-                case ModularVar.ValueType.Fixed:
-                    EditorGUILayout.PropertyField(valueProp);
-                    break;
-
-                case ModularVar.ValueType.Random:
-                    EditorGUILayout.PropertyField(minProp);
-                    EditorGUILayout.PropertyField(maxProp);
-                    break;
-
-                default: break;
-            }
-            EditorGUILayout.PropertyField(modifiersProp, true);
-
-            EditorGUI.indentLevel--;
-        }
-
-        EditorGUI.EndProperty();
-    }*/
 }

@@ -17,12 +17,13 @@ public class GameManager : MonoBehaviour
         }
         //DontDestroyOnLoad(this.gameObject);
     }
-    /*public ModularInt var = new ModularInt();
+    public ModularInt var = new ModularInt();
+    public ModularFloat varFloat = new ModularFloat();
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log(var.GetValue());
         }
-    }*/
+    }
 }
