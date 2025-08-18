@@ -70,7 +70,8 @@ public class Creature : MonoBehaviour
     }
     public int BaseDamage
     {
-        get
+        get{ return baseDamage; }
+        /*get
         {
             int res = baseDamage;
             foreach (StatModifier m in DamageModifiers)
@@ -78,12 +79,12 @@ public class Creature : MonoBehaviour
                 res = m.ApplyModfier(res);
             }
             return res;
-            //return (int)Math.Ceiling(baseDamage * BaseDamageMultiplier);
-        }
+        }*/
     }
     public int BaseShieldGain
     {
-        get
+        get{ return baseShieldGain; }
+        /*get
         {
             int res = baseShieldGain;
             foreach (StatModifier m in ShieldModifiers)
@@ -91,8 +92,7 @@ public class Creature : MonoBehaviour
                 res = m.ApplyModfier(res);
             }
             return res;
-            //return (int)Math.Ceiling(baseShieldGain * BaseDefenseMultiplier);
-        }
+        }*/
     }
     [Range(0, 1)]
     public float BaseDamageReduction

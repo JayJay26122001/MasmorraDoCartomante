@@ -19,7 +19,7 @@ MonoBehaviour:
   Name: BattleCry
   hidden: 0
   limited: 0
-  instantaneous: 0
+  instantaneous: 1
   cost: 1
   Type: 2
   Rarity: 2

@@ -155,7 +155,7 @@ public class DealDamage : Effect, IActionEffect
     }
     public int GetDamage()
     {
-        return (int)Math.Round(card.deck.Owner.BaseDamage * DamageMultiplier);
+        return (int)Math.Round(StatModifier.ApplyModfierList(card.deck.Owner.BaseDamage * DamageMultiplier, card.deck.Owner.DamageModifiers));
     }
 }
 [Serializable]
@@ -171,7 +171,7 @@ public class GainDefense : Effect
     }
     public int GetDefense()
     {
-        return (int)Math.Round(card.deck.Owner.BaseShieldGain * DefenseMultiplier);
+        return (int)Math.Round(StatModifier.ApplyModfierList(card.deck.Owner.BaseShieldGain * DefenseMultiplier, card.deck.Owner.ShieldModifiers));
     }
 }
 [Serializable]
