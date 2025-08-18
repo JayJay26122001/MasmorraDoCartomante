@@ -2,15 +2,18 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.Serialization;
+using System.Linq;
 
 [Serializable]
 public abstract class ModularVar
 {
     public enum ValueType { Fixed, Random }
+    
 }
 
 [Serializable]
-public class ModularInt : ModularVar
+public class RecursiveInt : ModularVar
 {
     [SerializeField] ValueType type;
     //[Header("Fixed")]
@@ -18,18 +21,12 @@ public class ModularInt : ModularVar
     //[Header("Random")]
     public int min;
     public int max;
-    public List<ModularModifier> modifiers = new List<ModularModifier>();
-    public int GetValue()
-    {
-        int value = GetBaseValue();
-        foreach (ModularModifier m in modifiers)
-        {
-            value = m.ApplyOperation(value);
-        }
-        return value;
 
+    public virtual int GetValue()
+    {
+        return GetBaseValue();
     }
-    int GetBaseValue()
+    protected int GetBaseValue()
     {
         switch (type)
         {
@@ -42,9 +39,23 @@ public class ModularInt : ModularVar
     }
 
 }
+[Serializable]
+public class ModularInt : RecursiveInt
+{
+    public List<ModularModifier> modifiers = new List<ModularModifier>();
+    public override int GetValue()
+    {
+        int value = GetBaseValue();
+        foreach (ModularModifier m in modifiers)
+        {
+            value = m.ApplyOperation(value);
+        }
+        return value;
+    }
+}
 
 [Serializable]
-public class ModularFloat : ModularVar
+public class RecursiveFloat : ModularVar
 {
     [SerializeField] ValueType type;
     //[Header("Fixed")]
@@ -52,18 +63,12 @@ public class ModularFloat : ModularVar
     //[Header("Random")]
     public float min;
     public float max;
-    public List<ModularModifier> modifiers = new List<ModularModifier>();
-    public float GetValue()
-    {
-        float value = GetBaseValue();
-        foreach (ModularModifier m in modifiers)
-        {
-            value = m.ApplyOperation(value);
-        }
-        return value;
 
+    public virtual float GetValue()
+    {
+        return GetBaseValue();
     }
-    float GetBaseValue()
+    protected float GetBaseValue()
     {
         switch (type)
         {
@@ -75,6 +80,22 @@ public class ModularFloat : ModularVar
         }
     }
 }
+
+[Serializable]
+public class ModularFloat : RecursiveFloat
+{
+    public List<ModularModifier> modifiers = new List<ModularModifier>();
+    public override float GetValue()
+    {
+        float value = GetBaseValue();
+        foreach (ModularModifier m in modifiers)
+        {
+            value = m.ApplyOperation(value);
+        }
+        return value;
+
+    }
+}
 [Serializable]
 public class ModularModifier
 {
@@ -82,8 +103,8 @@ public class ModularModifier
     public enum ValueType { Int, Float }
     public Equations operation;
     public ValueType Type;
-    public ModularInt IntValue = new ModularInt();
-    public ModularFloat FloatValue = new ModularFloat();
+    public RecursiveInt IntValue = new RecursiveInt();
+    public RecursiveFloat FloatValue = new ModularFloat();
     public float ApplyOperation(float BaseValue)
     {
         switch (Type)
