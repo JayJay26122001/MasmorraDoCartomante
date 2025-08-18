@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Impenetrable Barrier
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 7391437407230361703
+  - rid: 1178401998732263513
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Impenetrable Barrier
   hidden: 0
-  exaust: 0
+  limited: 0
   instantaneous: 0
   cost: 2
   Type: 1
@@ -27,8 +27,10 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 7391437407230361703
-      type: {class: GainDefense, ns: , asm: Assembly-CSharp}
+    - rid: 1178401998732263513
+      type: {class: GainShield, ns: , asm: Assembly-CSharp}
       data:
+        DiscardIfAcomplished: 0
         Conditions: []
+        ConfirmationConditions: []
         DefenseMultiplier: 2.6

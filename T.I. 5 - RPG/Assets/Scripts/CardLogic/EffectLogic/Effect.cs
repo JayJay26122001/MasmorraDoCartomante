@@ -5,12 +5,13 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 [Serializable]
 public abstract class Effect
 {
     [System.NonSerialized] public Card card;
     [System.NonSerialized] public bool EffectAcomplished = false, effectStarted = false;
-    [SerializeField] protected bool DiscardIfAcomplished = false;
+    [SerializeField] public bool DiscardIfAcomplished = false;
     [SerializeReference] public List<Condition> Conditions = new List<Condition>();
     [SerializeReference] public List<ConfirmationCondition> ConfirmationConditions = new List<ConfirmationCondition>();
     [System.NonSerialized] public UnityEvent EffectStart = new UnityEvent(), EffectEnd = new UnityEvent();
@@ -166,11 +167,13 @@ public class DealDamage : Effect, IActionEffect
         }
     }
 }
+
+//[Serializable]public class GainDefense : GainShield{}
 [Serializable]
-public class GainDefense : Effect
+public class GainShield : Effect
 {
-    //public DamageEffect(Card c) : base(c){}
-    public float DefenseMultiplier;
+    [FormerlySerializedAs("DefenseMultiplier")]
+    public float ShieldMultiplier;
     public override void Apply()
     {
         base.Apply();
@@ -179,7 +182,7 @@ public class GainDefense : Effect
     }
     public int GetDefense()
     {
-        return (int)Math.Round(StatModifier.ApplyModfierList(card.deck.Owner.BaseShieldGain * DefenseMultiplier, card.deck.Owner.ShieldModifiers));
+        return (int)Math.Round(StatModifier.ApplyModfierList(card.deck.Owner.BaseShieldGain * ShieldMultiplier, card.deck.Owner.ShieldModifiers));
     }
 }
 [Serializable]

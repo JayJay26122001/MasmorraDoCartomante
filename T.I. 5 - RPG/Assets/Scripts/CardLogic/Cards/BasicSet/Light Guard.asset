@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Light Guard
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 7391437407230361703
+  - rid: 1178401998732263510
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Light Guard
@@ -27,8 +27,10 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 7391437407230361703
-      type: {class: GainDefense, ns: , asm: Assembly-CSharp}
+    - rid: 1178401998732263510
+      type: {class: GainShield, ns: , asm: Assembly-CSharp}
       data:
+        DiscardIfAcomplished: 0
         Conditions: []
+        ConfirmationConditions: []
         DefenseMultiplier: 1

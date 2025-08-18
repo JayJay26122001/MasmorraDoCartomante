@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bulwark
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 7391437929559097545
+  - rid: 1178401998732263511
   - rid: 7391437929559097575
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
@@ -28,31 +28,33 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 7391437929559097545
-      type: {class: GainDefense, ns: , asm: Assembly-CSharp}
+    - rid: 1178401998732263511
+      type: {class: GainShield, ns: , asm: Assembly-CSharp}
       data:
+        DiscardIfAcomplished: 0
         Conditions:
         - rid: 7391437929559097546
+        ConfirmationConditions: []
         DefenseMultiplier: 3
     - rid: 7391437929559097546
       type: {class: CreaturePlayedCardType, ns: , asm: Assembly-CSharp}
       data:
         Repeatable: 0
-        DiscardIfAcomplished: 0
         target: 0
         expectedType: 0
         mustBeFirst: 0
     - rid: 7391437929559097575
       type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
       data:
+        DiscardIfAcomplished: 0
         Conditions:
         - rid: 7391437929559097576
+        ConfirmationConditions: []
         SetAsDiscardTime: 0
     - rid: 7391437929559097576
       type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
       data:
         Repeatable: 0
-        DiscardIfAcomplished: 0
         TurnOwner: 0
         TurnsFromNow: 0
         TurnPhase: 0
