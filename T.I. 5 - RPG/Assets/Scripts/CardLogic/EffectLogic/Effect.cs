@@ -129,7 +129,8 @@ public interface IHiddenEffect //Efeito que quando ativo não solta vfx ou indic
 [Serializable]
 public class DealDamage : Effect, IActionEffect
 {
-    public float DamageMultiplier;
+    public bool MultipliedByBaseDamage = true;
+    public ModularFloat DamageMultiplier;
     [SerializeField] bool IgnoreDefense;
     enum Target { Oponent, User }
     [SerializeField] Target target;
@@ -141,11 +142,11 @@ public class DealDamage : Effect, IActionEffect
         {
             case Target.Oponent:
                 //card.deck.Owner.enemy.TakeDamage(GetDamage(), IgnoreDefense);
-                action = new DamageAction(card.deck.Owner.enemy, GetDamage(), IgnoreDefense);
+                action = new DamageAction(card.deck.Owner.enemy, GetDamage(MultipliedByBaseDamage), IgnoreDefense);
                 break;
             case Target.User:
                 //card.deck.Owner.TakeDamage(GetDamage(), IgnoreDefense);
-                action = new DamageAction(card.deck.Owner, GetDamage(), IgnoreDefense);
+                action = new DamageAction(card.deck.Owner, GetDamage(MultipliedByBaseDamage), IgnoreDefense);
                 break;
         }
         action.AnimEnded.AddListener(EffectEnded);
@@ -153,9 +154,16 @@ public class DealDamage : Effect, IActionEffect
         action.StartAction();
         //EffectEnded();
     }
-    public int GetDamage()
+    public int GetDamage(bool MultiplyByBaseDamage)
     {
-        return (int)Math.Round(StatModifier.ApplyModfierList(card.deck.Owner.BaseDamage * DamageMultiplier, card.deck.Owner.DamageModifiers));
+        if (MultiplyByBaseDamage)
+        {
+            return (int)Math.Round(StatModifier.ApplyModfierList(card.deck.Owner.BaseDamage * DamageMultiplier.GetValue(), card.deck.Owner.DamageModifiers));
+        }
+        else
+        {
+            return (int)Math.Round(StatModifier.ApplyModfierList(DamageMultiplier.GetValue(), card.deck.Owner.DamageModifiers));
+        }
     }
 }
 [Serializable]
