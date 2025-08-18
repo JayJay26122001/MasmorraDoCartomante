@@ -114,7 +114,7 @@ public class WaitUntilTurn : Condition
 {
     [SerializeField] Target TurnOwner;
     enum Target { User, Oponent }
-    public int TurnsFromNow;
+    public ModularInt TurnsFromNow;
     public Combat.TurnPhaseTypes TurnPhase;
     public TurnPhase.PhaseTime PhaseTime;
     UnityAction ConditionCheck = null, ListenerAction;
@@ -140,11 +140,11 @@ public class WaitUntilTurn : Condition
         };
         if (Repeatable)
         {
-            ListenerAction = Combat.RepeatOnTurn(TurnsFromNow, phase, PhaseTime, ConditionCheck);
+            ListenerAction = Combat.RepeatOnTurn(TurnsFromNow.GetValue(), phase, PhaseTime, ConditionCheck);
         }
         else
         {
-            ListenerAction = Combat.WaitForTurn(TurnsFromNow, phase, PhaseTime, ConditionCheck);
+            ListenerAction = Combat.WaitForTurn(TurnsFromNow.GetValue(), phase, PhaseTime, ConditionCheck);
         }
 
     }
