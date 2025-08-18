@@ -333,7 +333,7 @@ Transform:
   m_GameObject: {fileID: 30614208}
   serializedVersion: 2
   m_LocalRotation: {x: 0.2999427, y: -0.000000010122138, z: -0.000000013213295, w: 0.95395726}
-  m_LocalPosition: {x: 0.0000009299775, y: 13.420052, z: -15.246324}
+  m_LocalPosition: {x: 0.0000004954074, y: 14.425909, z: -16.687153}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -416,7 +416,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 70.0006
+  field of view: 69.987625
   orthographic: 0
   orthographic size: 10
   m_Depth: 0
@@ -1291,7 +1291,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &125215945
 Transform:
   m_ObjectHideFlags: 0
@@ -6269,7 +6269,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &707346587
 Transform:
   m_ObjectHideFlags: 0
@@ -6311,6 +6311,7 @@ Transform:
   - {fileID: 1453751410}
   - {fileID: 1631803550}
   - {fileID: 1041658264}
+  - {fileID: 1426449209}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &712950611 stripped
@@ -9091,7 +9092,6 @@ Transform:
   m_Children:
   - {fileID: 741689271}
   - {fileID: 1551659757}
-  - {fileID: 1426449209}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1279180082
@@ -9766,12 +9766,12 @@ Transform:
   m_GameObject: {fileID: 1426449208}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 4.771933, y: 68.702995, z: -243.71109}
+  m_LocalPosition: {x: 0, y: -12, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2046547043}
-  m_Father: {fileID: 1264320103}
+  m_Father: {fileID: 707346587}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1427449431
 GameObject:
