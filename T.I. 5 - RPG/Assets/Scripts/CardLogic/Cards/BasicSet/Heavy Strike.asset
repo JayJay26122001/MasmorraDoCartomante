@@ -18,7 +18,7 @@ MonoBehaviour:
   deck: {fileID: 0}
   Name: Heavy Strike
   hidden: 0
-  exaust: 0
+  limited: 0
   instantaneous: 0
   cost: 2
   Type: 0
@@ -30,7 +30,15 @@ MonoBehaviour:
     - rid: 7391437407230361702
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
+        DiscardIfAcomplished: 0
         Conditions: []
-        DamageMultiplier: 2.33
+        ConfirmationConditions: []
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          type: 0
+          value: 2.3
+          min: 0
+          max: 0
+          modifiers: []
         IgnoreDefense: 0
         target: 0

@@ -33,32 +33,52 @@ MonoBehaviour:
     - rid: 7391437929559097541
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
+        DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
-        DamageMultiplier: 0.8
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          type: 0
+          value: 0.8
+          min: 0
+          max: 0
+          modifiers: []
         IgnoreDefense: 0
         target: 0
     - rid: 7391437929559097543
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
+        DiscardIfAcomplished: 0
         Conditions:
         - rid: 7391437929559097577
         ConfirmationConditions: []
-        DamageMultiplier: 0.8
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          type: 0
+          value: 0.8
+          min: 0
+          max: 0
+          modifiers: []
         IgnoreDefense: 0
         target: 0
     - rid: 7391437929559097577
       type: {class: DamageBlocked, ns: , asm: Assembly-CSharp}
       data:
         Repeatable: 0
-        DiscardIfAcomplished: 0
         BlockedBy: 1
         FailIfDamaged: 1
     - rid: 7391437929559097578
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
+        DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
-        DamageMultiplier: 0.8
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          type: 0
+          value: 0.8
+          min: 0
+          max: 0
+          modifiers: []
         IgnoreDefense: 1
         target: 0

@@ -36,7 +36,12 @@ MonoBehaviour:
         StatToBuff: 0
         Modifier:
           type: 1
-          value: 4
+          value:
+            type: 0
+            value: 4
+            min: 0
+            max: 0
+            modifiers: []
         TurnOwner: 0
         TurnsFromNow: 0
         TurnPhaseToStop: 0

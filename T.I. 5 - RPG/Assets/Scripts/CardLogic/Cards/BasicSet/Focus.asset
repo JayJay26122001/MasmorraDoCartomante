@@ -18,7 +18,7 @@ MonoBehaviour:
   deck: {fileID: 0}
   Name: Focus
   hidden: 0
-  exaust: 0
+  limited: 0
   instantaneous: 1
   cost: 0
   Type: 2
@@ -30,5 +30,13 @@ MonoBehaviour:
     - rid: 4002061059687186508
       type: {class: GainEnergy, ns: , asm: Assembly-CSharp}
       data:
+        DiscardIfAcomplished: 0
         Conditions: []
-        Amount: 1
+        ConfirmationConditions: []
+        Amount:
+          type: 0
+          value: 1
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0

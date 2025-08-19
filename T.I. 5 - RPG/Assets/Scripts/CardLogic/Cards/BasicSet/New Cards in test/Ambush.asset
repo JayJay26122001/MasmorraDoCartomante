@@ -35,7 +35,13 @@ MonoBehaviour:
         Conditions: []
         ConfirmationConditions:
         - rid: 1178401810453889108
-        DamageMultiplier: 0.2
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          type: 0
+          value: 0.2
+          min: 0
+          max: 0
+          modifiers: []
         IgnoreDefense: 0
         target: 0
     - rid: 1178401810453889108
@@ -51,7 +57,13 @@ MonoBehaviour:
         ConfirmationConditions:
         - rid: 1178401810453889114
         - rid: 1178401898369908824
-        DamageMultiplier: 1.5
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          type: 0
+          value: 1.5
+          min: 0
+          max: 0
+          modifiers: []
         IgnoreDefense: 0
         target: 0
     - rid: 1178401810453889114
@@ -62,6 +74,12 @@ MonoBehaviour:
     - rid: 1178401898369908824
       type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
       data:
+        CountThisEffect: 0
         Equation: 1
-        Amount: 1
+        Amount:
+          type: 0
+          value: 1
+          min: 0
+          max: 0
+          modifiers: []
         EffectStates: 02000000

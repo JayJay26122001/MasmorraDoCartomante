@@ -19,7 +19,7 @@ MonoBehaviour:
   deck: {fileID: 0}
   Name: "XVI \u2013 The Tower"
   hidden: 0
-  exaust: 0
+  limited: 0
   instantaneous: 0
   cost: 2
   Type: 0
@@ -32,18 +32,33 @@ MonoBehaviour:
     - rid: 7391437929559097470
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
+        DiscardIfAcomplished: 0
         Conditions: []
-        DamageMultiplier: 1
+        ConfirmationConditions: []
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          type: 0
+          value: 1
+          min: 0
+          max: 0
+          modifiers: []
         IgnoreDefense: 0
         target: 0
     - rid: 7391437929559097471
       type: {class: BuffStat, ns: , asm: Assembly-CSharp}
       data:
+        DiscardIfAcomplished: 0
         Conditions: []
+        ConfirmationConditions: []
         StatToBuff: 2
         Modifier:
           type: 1
-          value: 0.5
+          value:
+            type: 0
+            value: 0.6
+            min: 0
+            max: 0
+            modifiers: []
         TurnOwner: 0
         TurnsFromNow: 0
         TurnPhaseToStop: 0
