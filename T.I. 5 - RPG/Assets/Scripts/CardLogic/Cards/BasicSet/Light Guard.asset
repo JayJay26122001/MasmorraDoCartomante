@@ -33,4 +33,11 @@ MonoBehaviour:
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
-        DefenseMultiplier: 1
+        MultipliedByBaseShield: 1
+        ShieldMultiplier:
+          type: 0
+          value: 1
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0

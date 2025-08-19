@@ -30,7 +30,15 @@ MonoBehaviour:
     - rid: 7391437407230361702
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
+        DiscardIfAcomplished: 0
         Conditions: []
-        DamageMultiplier: 1
+        ConfirmationConditions: []
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          type: 0
+          value: 1
+          min: 0
+          max: 0
+          modifiers: []
         IgnoreDefense: 0
         target: 0

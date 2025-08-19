@@ -40,7 +40,7 @@ MonoBehaviour:
         MultipliedByBaseDamage: 1
         DamageMultiplier:
           type: 0
-          value: 0
+          value: 0.6
           min: 0
           max: 0
           modifiers: []
@@ -65,7 +65,12 @@ MonoBehaviour:
       data:
         Repeatable: 0
         TurnOwner: 1
-        TurnsFromNow: 0
+        TurnsFromNow:
+          type: 0
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
         TurnPhase: 1
         PhaseTime: 1
     - rid: 1178401998732263515
@@ -74,4 +79,11 @@ MonoBehaviour:
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
-        DefenseMultiplier: 0.8
+        MultipliedByBaseShield: 1
+        ShieldMultiplier:
+          type: 0
+          value: 0.8
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0

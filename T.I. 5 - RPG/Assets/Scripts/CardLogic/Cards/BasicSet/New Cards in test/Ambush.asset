@@ -38,7 +38,7 @@ MonoBehaviour:
         MultipliedByBaseDamage: 1
         DamageMultiplier:
           type: 0
-          value: 0
+          value: 0.2
           min: 0
           max: 0
           modifiers: []
@@ -60,7 +60,7 @@ MonoBehaviour:
         MultipliedByBaseDamage: 1
         DamageMultiplier:
           type: 0
-          value: 0
+          value: 1.5
           min: 0
           max: 0
           modifiers: []

@@ -36,7 +36,14 @@ MonoBehaviour:
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
-        DefenseMultiplier: 1.8
+        MultipliedByBaseShield: 1
+        ShieldMultiplier:
+          type: 0
+          value: 1.8
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0
     - rid: 7391437929559097479
       type: {class: Heal, ns: , asm: Assembly-CSharp}
       data:
@@ -44,7 +51,12 @@ MonoBehaviour:
         Conditions:
         - rid: 7391437929559097481
         ConfirmationConditions: []
-        AmountHealled: 10
+        AmountHealled:
+          type: 0
+          value: 10
+          min: 0
+          max: 0
+          modifiers: []
         target: 0
     - rid: 7391437929559097481
       type: {class: DamageBlocked, ns: , asm: Assembly-CSharp}
@@ -65,6 +77,11 @@ MonoBehaviour:
       data:
         Repeatable: 0
         TurnOwner: 0
-        TurnsFromNow: 0
+        TurnsFromNow:
+          type: 0
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
         TurnPhase: 0
         PhaseTime: 0

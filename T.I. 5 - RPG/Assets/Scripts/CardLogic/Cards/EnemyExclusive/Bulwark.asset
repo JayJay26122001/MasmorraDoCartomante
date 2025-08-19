@@ -35,7 +35,14 @@ MonoBehaviour:
         Conditions:
         - rid: 7391437929559097546
         ConfirmationConditions: []
-        DefenseMultiplier: 3
+        MultipliedByBaseShield: 1
+        ShieldMultiplier:
+          type: 0
+          value: 3
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0
     - rid: 7391437929559097546
       type: {class: CreaturePlayedCardType, ns: , asm: Assembly-CSharp}
       data:
@@ -56,6 +63,11 @@ MonoBehaviour:
       data:
         Repeatable: 0
         TurnOwner: 0
-        TurnsFromNow: 0
+        TurnsFromNow:
+          type: 0
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
         TurnPhase: 0
         PhaseTime: 0

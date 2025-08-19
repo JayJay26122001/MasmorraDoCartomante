@@ -36,7 +36,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         BuyCardNumber:
           type: 0
-          value: 0
+          value: 3
           min: 0
           max: 0
           modifiers: []
@@ -49,7 +49,7 @@ MonoBehaviour:
         MultipliedByBaseDamage: 1
         DamageMultiplier:
           type: 0
-          value: 0
+          value: 0.6
           min: 0
           max: 0
           modifiers: []
