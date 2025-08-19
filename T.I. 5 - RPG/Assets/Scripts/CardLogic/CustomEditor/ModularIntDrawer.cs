@@ -1,7 +1,9 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomPropertyDrawer(typeof(ModularInt))][CustomPropertyDrawer(typeof(RecursiveInt))]
+#if UNITY_EDITOR
+[CustomPropertyDrawer(typeof(ModularInt))]
+[CustomPropertyDrawer(typeof(RecursiveInt))]
 public class ModularIntDrawer : PropertyDrawer
 {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
@@ -109,3 +111,4 @@ public class ModularIntDrawer : PropertyDrawer
     }
 
 }
+#endif

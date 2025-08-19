@@ -1,7 +1,8 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomPropertyDrawer(typeof(ModularFloat))] [CustomPropertyDrawer(typeof(RecursiveFloat))]
+#if UNITY_EDITOR
+[CustomPropertyDrawer(typeof(ModularFloat))][CustomPropertyDrawer(typeof(RecursiveFloat))]
 public class ModularFloatDrawer : PropertyDrawer
 {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
@@ -102,9 +103,10 @@ public class ModularFloatDrawer : PropertyDrawer
             {
                 height += EditorGUI.GetPropertyHeight(modifiersProp, true) + 2f; // Modifiers
             }
-            
+
         }
 
         return height;
     }
 }
+#endif

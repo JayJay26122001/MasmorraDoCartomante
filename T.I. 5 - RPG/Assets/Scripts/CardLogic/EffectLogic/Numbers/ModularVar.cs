@@ -178,6 +178,7 @@ public class ModularModifier
 
     }
 }
+#if UNITY_EDITOR
 [CustomPropertyDrawer(typeof(ModularModifier))]
 public class ModularModifierDrawer : PropertyDrawer
 {
@@ -186,7 +187,7 @@ public class ModularModifierDrawer : PropertyDrawer
         EditorGUI.BeginProperty(position, label, property);
 
         float line = EditorGUIUtility.singleLineHeight;
-        float svs  = EditorGUIUtility.standardVerticalSpacing;
+        float svs = EditorGUIUtility.standardVerticalSpacing;
 
         // Foldout row
         Rect r = new Rect(position.x, position.y, position.width, line);
@@ -198,9 +199,9 @@ public class ModularModifierDrawer : PropertyDrawer
             float y = position.y + line + svs;
 
             var operation = property.FindPropertyRelative("operation");
-            var typeProp  = property.FindPropertyRelative("Type");      // note the capital T
-            var intValue  = property.FindPropertyRelative("IntValue");
-            var floatValue= property.FindPropertyRelative("FloatValue");
+            var typeProp = property.FindPropertyRelative("Type");      // note the capital T
+            var intValue = property.FindPropertyRelative("IntValue");
+            var floatValue = property.FindPropertyRelative("FloatValue");
 
             if (operation != null)
             {
@@ -245,7 +246,7 @@ public class ModularModifierDrawer : PropertyDrawer
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
         float line = EditorGUIUtility.singleLineHeight;
-        float svs  = EditorGUIUtility.standardVerticalSpacing;
+        float svs = EditorGUIUtility.standardVerticalSpacing;
 
         float h = line; // foldout
 
@@ -255,9 +256,9 @@ public class ModularModifierDrawer : PropertyDrawer
             h += svs;
 
             var operation = property.FindPropertyRelative("operation");
-            var typeProp  = property.FindPropertyRelative("Type");
-            var intValue  = property.FindPropertyRelative("IntValue");
-            var floatValue= property.FindPropertyRelative("FloatValue");
+            var typeProp = property.FindPropertyRelative("Type");
+            var intValue = property.FindPropertyRelative("IntValue");
+            var floatValue = property.FindPropertyRelative("FloatValue");
 
             if (operation != null)
                 h += EditorGUI.GetPropertyHeight(operation, false) + svs;
@@ -278,3 +279,4 @@ public class ModularModifierDrawer : PropertyDrawer
         return h;
     }
 }
+#endif
