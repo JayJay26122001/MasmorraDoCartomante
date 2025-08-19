@@ -1,4 +1,4 @@
-using UnityEditor;
+/*using UnityEditor;
 using UnityEngine;
 
 #if UNITY_EDITOR
@@ -111,4 +111,4 @@ public class ModularIntDrawer : PropertyDrawer
     }
 
 }
-#endif
+#endif*/

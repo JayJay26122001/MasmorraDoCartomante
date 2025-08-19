@@ -2,7 +2,10 @@ using UnityEditor;
 using UnityEngine;
 
 #if UNITY_EDITOR
-[CustomPropertyDrawer(typeof(ModularFloat))][CustomPropertyDrawer(typeof(RecursiveFloat))]
+[CustomPropertyDrawer(typeof(ModularFloat))]
+[CustomPropertyDrawer(typeof(RecursiveFloat))]
+[CustomPropertyDrawer(typeof(ModularInt))]
+[CustomPropertyDrawer(typeof(RecursiveInt))]
 public class ModularFloatDrawer : PropertyDrawer
 {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
