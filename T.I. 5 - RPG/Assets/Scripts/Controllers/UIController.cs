@@ -44,6 +44,11 @@ public class UIController : MonoBehaviour
     public Slider _sfxSlider;
     [Header("Game Combat HUD")]
     public GameObject combatHUD;
+    [Header("Resolution and ScreenMode")]
+    public TMP_Dropdown resDropdown, screenModeDropdown;
+    Resolution[] allRes;
+    List<Resolution> selectedResList = new List<Resolution>();
+    public ConfigData data;
 
     /*bool gameStarted, gamePaused;
     public GameObject pausePanel, confirmReturnRoomPanel, confirmReturnMenuPanel, collectablesPanel;
@@ -52,7 +57,6 @@ public class UIController : MonoBehaviour
     public TMP_Dropdown resDropdown, screenModeDropdown;
     Resolution[] allRes;
     List<Resolution> selectedResList = new List<Resolution>();
-    public ConfigData data;
     */
 
     private void Awake()
@@ -64,33 +68,22 @@ public class UIController : MonoBehaviour
     {
         GameManager.instance.uiController = this;
         gamePaused = false;
-        /*ResolutionDropdown();
+        ResolutionDropdown();
         ScreenModeDropdown();
         if (File.Exists(Application.dataPath + "/configSave.json"))
         {
             SaveManager.LoadConfig();
             ConfigUpdate();
+            Debug.Log("Your Configs!");
         }
         else
         {
-            data = new ConfigData(true, 0, 0, 0, 0);
+            data = new ConfigData(0, 0, -7.5f, -7.5f, -7.5f);
+            Debug.Log("Game Configs");
         }
-        EventSystem.current.SetSelectedGameObject(playButton);*/
+        EventSystem.current.SetSelectedGameObject(playButton);
         SetDefaultVol();
         AudioController.instance.StartMusic();
-    }
-
-    /*private void Update()
-    {
-        if (SceneManager.GetActiveScene().name == "PressToStartScene")
-        {
-            if (!gameStarted && Input.anyKeyDown)
-            {
-                gameStarted = true;
-                ChangeScene("Menu");
-            }
-        }
-        
     }
 
     public void ConfigUpdate()
@@ -101,26 +94,31 @@ public class UIController : MonoBehaviour
         }
         if (screenModeDropdown != null)
         {
-            if (data.fullScreen)
+            screenModeDropdown.value = data.screenMode;
+            /*if (data.screenMode == 0)
             {
                 screenModeDropdown.value = 0;
             }
-            else
+            else if(data.screenMode == 1)
             {
                 screenModeDropdown.value = 1;
             }
+            else
+            {
+                screenModeDropdown.value = 2;
+            }*/
         }
-        AudioController.controller.ChangeMasterVol(data.master);
+        AudioController.instance.ChangeMasterVol(data.master);
         if (_masterVolumeSlider != null)
         {
             _masterVolumeSlider.value = data.master;
         }
-        AudioController.controller.ChangeMusicVol(data.music);
+        AudioController.instance.ChangeMusicVol(data.music);
         if (_musicSlider != null)
         {
             _musicSlider.value = data.music;
         }
-        AudioController.controller.ChangeSFXVol(data.sfx);
+        AudioController.instance.ChangeSFXVol(data.sfx);
         if (_sfxSlider != null)
         {
             _sfxSlider.value = data.sfx;
@@ -129,7 +127,8 @@ public class UIController : MonoBehaviour
     public void SaveConfigs()
     {
         SaveManager.SaveConfig();
-    }*/
+        Debug.Log("Configs Saved!");
+    }
 
     public void PlayButtonSFX()
     {
@@ -309,7 +308,6 @@ public class UIController : MonoBehaviour
         {
             confirmQuitButton.SetActive(true);
         }
-        /*
         if (resDropdown != null)
         {
             resDropdown.gameObject.SetActive(true);
@@ -318,27 +316,6 @@ public class UIController : MonoBehaviour
         {
             screenModeDropdown.gameObject.SetActive(true);
         }
-        if (itemWheel != null)
-        {
-            itemWheel.SetActive(false);
-            Invoke("SetupItemWheelIcons", 0.1f);
-        }
-        if (pausePanel != null)
-        {
-            pausePanel.SetActive(false);
-        }
-        if (collectablesPanel != null)
-        {
-            collectablesPanel.SetActive(false);
-        }
-        if (confirmReturnRoomPanel != null)
-        {
-            confirmReturnRoomPanel.SetActive(false);
-        }
-        if (confirmReturnMenuPanel != null)
-        {
-            confirmReturnMenuPanel.SetActive(false);
-        }*/
     }
     /*public void OpenPanel(GameObject panel)
     {
@@ -412,34 +389,21 @@ public class UIController : MonoBehaviour
         {
             EventSystem.current.SetSelectedGameObject(returnMenuButton);
         }
-    }
-
-    public void ActivateItemWheel()
-    {
-        itemWheel.SetActive(true);
-    }
-
-    public void DeactivateItemWheel()
-    {
-        //GameManager.instance.player.movePaused = false;
-        //GameManager.instance.player.clone.movePaused = false;
-        GameManager.instance.UnpauseTime();
-        itemWheel.SetActive(false);
     }*/
 
     public void ChangeMasterVolume()
     {
-        //data.master = _masterVolumeSlider.value;
+        data.master = _masterVolumeSlider.value;
         AudioController.instance.ChangeMasterVol(_masterVolumeSlider.value);
     }
     public void ChangeMusicVolume()
     {
-        //data.music = _musicSlider.value;
+        data.music = _musicSlider.value;
         AudioController.instance.ChangeMusicVol(_musicSlider.value);
     }
     public void ChangeSFXVolume()
     {
-        //data.sfx = _sfxSlider.value;
+        data.sfx = _sfxSlider.value;
         AudioController.instance.ChangeSFXVol(_sfxSlider.value);
     }
     public void SetDefaultVol()
@@ -464,7 +428,7 @@ public class UIController : MonoBehaviour
         }
     }
 
-    /*public void ResolutionDropdown()
+    public void ResolutionDropdown()
     {
         allRes = Screen.resolutions;
         Array.Sort(allRes, (a, b) =>
@@ -500,62 +464,37 @@ public class UIController : MonoBehaviour
     public void ChangeRes()
     {
         data.selectedRes = resDropdown.value;
-        Screen.SetResolution(selectedResList[data.selectedRes].width, selectedResList[data.selectedRes].height, data.fullScreen);
+        Screen.SetResolution(selectedResList[data.selectedRes].width, selectedResList[data.selectedRes].height, Screen.fullScreenMode);
     }
 
     public void ScreenModeDropdown()
     {
-        List<string> screenModes = new List<string> { "Fullscreen Mode", "Window Mode" };
+        List<string> screenModes = new List<string> { "Fullscreen Mode", "Borderless Mode", "Window Mode" };
         if (screenModeDropdown != null)
         {
             screenModeDropdown.ClearOptions();
             screenModeDropdown.AddOptions(screenModes);
             screenModeDropdown.onValueChanged.AddListener((int index) =>
             {
-                Debug.Log(index);
+                //Debug.Log(index);
                 if (index == 0)
                 {
-                    data.fullScreen = true;
-                    Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
-                    Debug.Log("Fullscreen Mode");
+                    data.screenMode = 0;
+                    Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
                 }
                 else if (index == 1)
                 {
-                    data.fullScreen = false;
+                    data.screenMode = 1;
+                    Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+                }
+                else if (index == 2)
+                {
+                    data.screenMode = 2;
                     Screen.fullScreenMode = FullScreenMode.Windowed;
-                    Debug.Log("Window Mode");
                 }
             });
         }
     }
-
-    public void SelectItemWheelButton(string selected)
-    {
-        if (selected == "lantern")
-        {
-            lanternButton.GetComponent<Image>().color = Color.red;
-            remoteButton.GetComponent<Image>().color = Color.white;
-            mirrorButton.GetComponent<Image>().color = Color.white;
-        }
-        if (selected == "remote")
-        {
-            remoteButton.GetComponent<Image>().color = Color.red;
-            lanternButton.GetComponent<Image>().color = Color.white;
-            mirrorButton.GetComponent<Image>().color = Color.white;
-        }
-        if (selected == "mirror")
-        {
-            mirrorButton.GetComponent<Image>().color = Color.red;
-            remoteButton.GetComponent<Image>().color = Color.white;
-            lanternButton.GetComponent<Image>().color = Color.white;
-        }
-        if (selected == "none")
-        {
-            mirrorButton.GetComponent<Image>().color = Color.white;
-            remoteButton.GetComponent<Image>().color = Color.white;
-            lanternButton.GetComponent<Image>().color = Color.white;
-        }
-    }*/
 
     public void PauseGameInput(InputAction.CallbackContext context)
     {
@@ -563,6 +502,7 @@ public class UIController : MonoBehaviour
         {
             if (settingsPanel.activeSelf)
             {
+                SaveConfigs();
                 ClosePanel(settingsPanel);
             }
             else
@@ -604,151 +544,4 @@ public class UIController : MonoBehaviour
             child.gameObject.SetActive(true);
         }
     }
-
-    /*public void ShowPowerUpSelected(string selected)
-    {
-        if (selected == "lantern")
-        {
-            lanternHudImage.SetActive(true);
-            remoteHudImage.SetActive(false);
-            mirrorHudImage.SetActive(false);
-        }
-        if (selected == "remote")
-        {
-            lanternHudImage.SetActive(false);
-            remoteHudImage.SetActive(true);
-            mirrorHudImage.SetActive(false);
-        }
-        if (selected == "mirror")
-        {
-            lanternHudImage.SetActive(false);
-            remoteHudImage.SetActive(false);
-            mirrorHudImage.SetActive(true);
-        }
-    }
-
-    public void AttPlayerHearts()
-    {
-        if (GameManager.instance.PlayerHP == 3)
-        {
-            firstHeart.isOn = true;
-            secondHeart.isOn = true;
-            thirdHeart.isOn = true;
-        }
-        if (GameManager.instance.PlayerHP == 2)
-        {
-            firstHeart.isOn = true;
-            secondHeart.isOn = true;
-            thirdHeart.isOn = false;
-        }
-        if (GameManager.instance.PlayerHP == 1)
-        {
-            firstHeart.isOn = true;
-            secondHeart.isOn = false;
-            thirdHeart.isOn = false;
-        }
-        if (GameManager.instance.PlayerHP <= 0)
-        {
-            firstHeart.isOn = false;
-            secondHeart.isOn = false;
-            thirdHeart.isOn = false;
-        }
-    }
-
-    public void SetupItemWheelIcons()
-    {
-        if (itemWheel != null)
-        {
-            if (GameManager.instance.player.data.canReveal)
-            {
-                lanternButton.GetComponent<Image>().sprite = lanternOn;
-                if (lanternUnlock != null)
-                {
-                    lanternUnlock.SetActive(false);
-                }
-            }
-            else
-            {
-                lanternButton.GetComponent<Image>().sprite = lanternOff;
-                if (lanternUnlock != null)
-                {
-                    lanternUnlock.SetActive(true);
-                }
-            }
-            if (GameManager.instance.player.data.canDash)
-            {
-                remoteButton.GetComponent<Image>().sprite = remoteOn;
-            }
-            else
-            {
-                remoteButton.GetComponent<Image>().sprite = remoteOff;
-            }
-            if (GameManager.instance.player.data.canClone)
-            {
-                mirrorButton.GetComponent<Image>().sprite = mirrorOn;
-                if (mirrorUnlock != null)
-                {
-                    mirrorUnlock.SetActive(false);
-                }
-            }
-            else
-            {
-                mirrorButton.GetComponent<Image>().sprite = mirrorOff;
-                if (mirrorUnlock != null)
-                {
-                    mirrorUnlock.SetActive(true);
-                }
-            }
-        }
-    }
-
-    public void UnlockLantern()
-    {
-        lanternButton.GetComponent<Image>().sprite = lanternOn;
-    }
-
-    public void UnlockMirror()
-    {
-        mirrorButton.GetComponent<Image>().sprite = mirrorOn;
-    }
-
-    public void EnterChangeLevelConfirmationTrigger()
-    {
-        changeLevelConfirmation.SetActive(true);
-    }
-
-    public void LeaveChangeLevelConfirmationTrigger()
-    {
-        changeLevelConfirmation.SetActive(false);
-    }
-
-    public void AttFuel()
-    {
-        if (_fuelSlider != null)
-        {
-            _fuelSlider.value = GameManager.instance.player.revealFuel;
-        }
-    }
-    
-    public void ActivateObjectHud(GameObject obj)
-    {
-        obj.SetActive(true);
-    }
-
-    public void DeactivateObjectHud(GameObject obj)
-    {
-        obj.SetActive(false);
-    }
-
-    public void IncreaseButtonScale(GameObject obj)
-    {
-        RectTransform rectTransform = obj.GetComponent<RectTransform>();
-        LeanTween.scale(obj, new Vector3(1.25f, 1.25f, 1.25f), 0.25f).setEase(LeanTweenType.easeOutQuad);
-    }
-
-    public void DecreaseButtonScale(GameObject obj)
-    {
-        RectTransform rectTransform = obj.GetComponent<RectTransform>();
-        LeanTween.scale(obj, new Vector3(1f, 1f, 1f), 0.25f).setEase(LeanTweenType.easeOutQuad);
-    }*/
 }
