@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 1124d2a7001a6d041a80a78b3012638b
+guid: 67759c364e7a96a4580cb10d97d04cd4
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Templo
-    second: {fileID: 2100000, guid: ae83bcc350629744abe970b5410ffdf8, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -38,7 +33,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 9.8
+    globalScale: 12.6
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -93,7 +88,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 9.8
+    globalScale: 0.126
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
