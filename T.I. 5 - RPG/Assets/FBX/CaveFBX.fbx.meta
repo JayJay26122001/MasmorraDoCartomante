@@ -3,7 +3,17 @@ guid: e0ded59344387f640ab2b715391db9c3
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CavernaTEMP
+    second: {fileID: 2100000, guid: ed18fd44229dd7543971d74675fa93f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: EstalactitesTEMP
+    second: {fileID: 2100000, guid: 2a33306247cc4e9479a053fbe4ce8c32, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -33,7 +43,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 9.8
+    globalScale: 9
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -88,7 +98,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.098
+    globalScale: 0.089999996
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
