@@ -9,6 +9,20 @@ public abstract class ConfirmationCondition
     protected enum Comparative { Higher, Lower, Iqual, IqualOrHigher, IqualOrLower }
     [NonSerialized] public Effect effect;
     public abstract bool Confirm();
+    public virtual void SetCard(Card c)
+    {
+        foreach (var field in GetType().GetFields(
+            System.Reflection.BindingFlags.Public |
+            System.Reflection.BindingFlags.NonPublic |
+            System.Reflection.BindingFlags.Instance))
+        {
+            if (typeof(ModularVar).IsAssignableFrom(field.FieldType))
+            {
+                var var = field.GetValue(this) as ModularVar;
+                var?.SetCard(c);
+            }
+        }
+    }
 }
 [Serializable]
 public class HasShield : ConfirmationCondition

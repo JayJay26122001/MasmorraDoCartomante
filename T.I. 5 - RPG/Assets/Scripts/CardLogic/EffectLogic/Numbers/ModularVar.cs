@@ -4,20 +4,23 @@ using UnityEngine;
 using UnityEditor;
 using UnityEngine.Serialization;
 using System.Linq;
-
 [Serializable]
 public abstract class ModularVar
 {
-    public ModularVar(Card user)
-    {
-        card = user;
-    }
     [NonSerialized]public Card card;
     public enum ValueType { Fixed, Random, CardNumber }
     public enum Target { User, Oponent }
     public enum Pile { Hand, PlayedPile, DiscardPile, BuyingPile }
     public Target target;
     public Pile ObservedPile;
+    public void SetCard(Card owner)
+    {
+        card = owner;
+        OnSetCard();
+    }
+
+    // Override in children if they need to forward to sub-objects
+    protected virtual void OnSetCard() { }
     protected int GetCardNum()
     {
         Creature t = null;
@@ -48,7 +51,7 @@ public abstract class ModularVar
 [Serializable]
 public class RecursiveInt : ModularVar
 {
-    public RecursiveInt(Card user): base(user) {}
+    //public RecursiveInt(Card user): base(user) {}
     
     [SerializeField] ValueType type;
     //[Header("Fixed")]
@@ -78,12 +81,9 @@ public class RecursiveInt : ModularVar
 
 }
 [Serializable]
-public class ModularInt : RecursiveInt, ISerializationCallbackReceiver
+public class ModularInt : RecursiveInt
 {
-    public ModularInt(Card user) : base(user)
-    {
-
-    }
+    //public ModularInt(Card user) : base(user){}
     public List<ModularModifier> modifiers = new List<ModularModifier>();
     public override int GetValue()
     {
@@ -94,20 +94,25 @@ public class ModularInt : RecursiveInt, ISerializationCallbackReceiver
         }
         return value;
     }
+    protected override void OnSetCard()
+    {
+        foreach (var m in modifiers)
+            m.SetCard(card);
+    }
     // Ensure modifiers know their parent
-    public void OnAfterDeserialize()
+    /*public void OnAfterDeserialize()
     {
         foreach (var m in modifiers)
             m.Initialize(this);
     }
 
-    public void OnBeforeSerialize() { }
+    public void OnBeforeSerialize() { }*/
 }
 
 [Serializable]
 public class RecursiveFloat : ModularVar
 {
-    public RecursiveFloat(Card user): base(user) {}
+    //public RecursiveFloat(Card user): base(user) {}
     [SerializeField] ValueType type;
     //[Header("Fixed")]
     public float value;
@@ -135,11 +140,13 @@ public class RecursiveFloat : ModularVar
 }
 
 [Serializable]
-public class ModularFloat : RecursiveFloat, ISerializationCallbackReceiver
+public class ModularFloat : RecursiveFloat
 {
-    public ModularFloat(Card user) : base(user)
+    //public ModularFloat(Card user) : base(user){}
+    protected override void OnSetCard()
     {
-
+        foreach (var m in modifiers)
+            m.SetCard(card);
     }
     public List<ModularModifier> modifiers = new List<ModularModifier>();
     public override float GetValue()
@@ -153,13 +160,13 @@ public class ModularFloat : RecursiveFloat, ISerializationCallbackReceiver
 
     }
     // Ensure modifiers know their parent
-    public void OnAfterDeserialize()
+    /*public void OnAfterDeserialize()
     {
         foreach (var m in modifiers)
             m.Initialize(this);
     }
 
-    public void OnBeforeSerialize() { }
+    public void OnBeforeSerialize() { }*/
 }
 [Serializable]
 public class ModularModifier
@@ -170,20 +177,25 @@ public class ModularModifier
         IntValue = new RecursiveInt(var.card);
         FloatValue = new RecursiveFloat(var.card);
     }*/
-    public void Initialize(ModularVar var)
+    /*public void Initialize(ModularVar var)
     {
         ownerVar = var;
 
         if (IntValue == null) IntValue = new RecursiveInt(var.card);
         if (FloatValue == null) FloatValue = new RecursiveFloat(var.card);
-    }
-    ModularVar ownerVar;
+    }*/
+    //ModularVar ownerVar;
     public enum Equations { DividedBy, MultipliedBy, Add, Subdivide }
     public enum ValueType { Int, Float }
     public Equations operation;
     public ValueType Type;
     public RecursiveInt IntValue;
     public RecursiveFloat FloatValue;
+    public void SetCard(Card c)
+    {
+        if (IntValue != null) IntValue.SetCard(c);
+        if (FloatValue != null) FloatValue.SetCard(c);
+    }
     public float ApplyOperation(float BaseValue)
     {
         switch (Type)
