@@ -59,6 +59,7 @@ public class UIController : MonoBehaviour
     Resolution[] allRes;
     List<Resolution> selectedResList = new List<Resolution>();
     public ConfigData data;
+    GameObject activeMask;
 
     /*bool gameStarted, gamePaused;
     public GameObject pausePanel, confirmReturnRoomPanel, confirmReturnMenuPanel, collectablesPanel;
@@ -244,9 +245,17 @@ public class UIController : MonoBehaviour
         if (quitButton != null) quitButton.SetActive(false);
         if (tutorialButton != null) tutorialButton.SetActive(false);
         if (featuresButton != null) featuresButton.SetActive(false);
+        CheckActiveMask();
         if (happyMask != null) happyMask.SetActive(false);
         if (openMask != null) openMask.SetActive(false);
         if (sadMask != null) sadMask.SetActive(false);
+    }
+
+    public void CheckActiveMask() //verificar qual máscara está ativa antes de esconder os objetos do menu
+    {
+        if (happyMask != null && happyMask.activeSelf) activeMask = happyMask;
+        else if (openMask != null && openMask.activeSelf) activeMask = openMask;
+        else if (sadMask != null && sadMask.activeSelf) activeMask = sadMask;
     }
 
     public void ShowMenuObjects()
@@ -258,9 +267,7 @@ public class UIController : MonoBehaviour
         if (quitButton != null) quitButton.SetActive(true);
         if (tutorialButton != null) tutorialButton.SetActive(true);
         if (featuresButton != null) featuresButton.SetActive(true);
-        if (happyMask != null) happyMask.SetActive(true);
-        if (openMask != null) openMask.SetActive(true);
-        if (sadMask != null) sadMask.SetActive(true);
+        if (activeMask != null) activeMask.SetActive(true); //ativar a máscara correta
 
     }
 
