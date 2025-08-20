@@ -31,10 +31,11 @@ public class UIController : MonoBehaviour
     public GameObject play3DButton;
     public GameObject settings3DButton;
     public GameObject quit3DButton;
+    public GameObject rightArrow;
+    public GameObject leftArrow;
+    public float spinTime;
     [Header("3D Objects")]
-    public GameObject happyMask;
-    public GameObject openMask;
-    public GameObject sadMask;
+    public List<GameObject> masks;
     [Header("Panels")]
     public GameObject settingsPanel;
     public GameObject creditsPanel;
@@ -60,6 +61,8 @@ public class UIController : MonoBehaviour
     List<Resolution> selectedResList = new List<Resolution>();
     public ConfigData data;
     GameObject activeMask;
+    int currentMaskIndex = 0;
+    bool isMaskRotating = false;
 
     /*bool gameStarted, gamePaused;
     public GameObject pausePanel, confirmReturnRoomPanel, confirmReturnMenuPanel, collectablesPanel;
@@ -246,16 +249,18 @@ public class UIController : MonoBehaviour
         if (tutorialButton != null) tutorialButton.SetActive(false);
         if (featuresButton != null) featuresButton.SetActive(false);
         CheckActiveMask();
-        if (happyMask != null) happyMask.SetActive(false);
-        if (openMask != null) openMask.SetActive(false);
-        if (sadMask != null) sadMask.SetActive(false);
+        if (masks[0] != null) masks[0].SetActive(false);
+        if (masks[1] != null) masks[1].SetActive(false);
+        if (masks[2] != null) masks[2].SetActive(false);
+        if (rightArrow != null) rightArrow.SetActive(false);
+        if (leftArrow != null) leftArrow.SetActive(false);
     }
 
     public void CheckActiveMask() //verificar qual máscara está ativa antes de esconder os objetos do menu
     {
-        if (happyMask != null && happyMask.activeSelf) activeMask = happyMask;
-        else if (openMask != null && openMask.activeSelf) activeMask = openMask;
-        else if (sadMask != null && sadMask.activeSelf) activeMask = sadMask;
+        if (masks[0] != null && masks[0].activeSelf) activeMask = masks[0];
+        else if (masks[1] != null && masks[1].activeSelf) activeMask = masks[1];
+        else if (masks[2] != null && masks[2].activeSelf) activeMask = masks[2];
     }
 
     public void ShowMenuObjects()
@@ -268,6 +273,8 @@ public class UIController : MonoBehaviour
         if (tutorialButton != null) tutorialButton.SetActive(true);
         if (featuresButton != null) featuresButton.SetActive(true);
         if (activeMask != null) activeMask.SetActive(true); //ativar a máscara correta
+        if (rightArrow != null) rightArrow.SetActive(true);
+        if (leftArrow != null) leftArrow.SetActive(true);
 
     }
 
@@ -575,6 +582,46 @@ public class UIController : MonoBehaviour
         }
     }
 
+    public void RotateRight()
+    {
+        if (isMaskRotating) return;
+        isMaskRotating = true;
+        int nextIndex = (currentMaskIndex + 1) % masks.Count;
+        GameObject currentModel = masks[currentMaskIndex];
+        GameObject nextModel = masks[nextIndex];
+        float halfDuration = spinTime / 2f;
+        LeanTween.rotateAroundLocal(currentModel, Vector3.down, 720f, halfDuration).setEase(LeanTweenType.easeInQuad);
+        LeanTween.rotateAroundLocal(nextModel, Vector3.down, 720f, halfDuration).setEase(LeanTweenType.easeInQuad)
+            .setOnComplete(() =>
+            {
+                nextModel.SetActive(true);
+                currentModel.SetActive(false);
+                currentMaskIndex = nextIndex;
+                LeanTween.rotateAroundLocal(nextModel, Vector3.down, 720f, halfDuration).setEase(LeanTweenType.easeOutQuad)
+                    .setOnComplete(() => { isMaskRotating = false; });
+            });
+    }
+
+    public void RotateLeft()
+    {
+        if (isMaskRotating) return;
+        isMaskRotating = true;
+        int prevIndex = (currentMaskIndex - 1 + masks.Count) % masks.Count;
+        GameObject currentModel = masks[currentMaskIndex];
+        GameObject prevModel = masks[prevIndex];
+        float halfDuration = spinTime / 2f;
+
+        LeanTween.rotateAroundLocal(currentModel, Vector3.up, 720f, halfDuration).setEase(LeanTweenType.easeInQuad);
+        LeanTween.rotateAroundLocal(prevModel, Vector3.up, 720f, halfDuration).setEase(LeanTweenType.easeInQuad)
+            .setOnComplete(() =>
+            {
+                prevModel.SetActive(true);
+                currentModel.SetActive(false);
+                currentMaskIndex = prevIndex;
+                LeanTween.rotateAroundLocal(prevModel, Vector3.up, 720f, halfDuration).setEase(LeanTweenType.easeOutQuad)
+                    .setOnComplete(() => { isMaskRotating = false; }); ;
+            });
+    }
     public void DetectClick()
     {
         if (Mouse.current.leftButton.wasPressedThisFrame)
@@ -595,6 +642,14 @@ public class UIController : MonoBehaviour
                 else if (clicked == quit3DButton)
                 {
                     OpenPanel(quitPanel);
+                }
+                else if (clicked == rightArrow)
+                {
+                    RotateRight();
+                }
+                else if (clicked == leftArrow)
+                {
+                    RotateLeft();
                 }
             }
         }
