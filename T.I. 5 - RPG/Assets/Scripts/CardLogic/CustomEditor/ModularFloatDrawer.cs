@@ -2,7 +2,10 @@ using UnityEditor;
 using UnityEngine;
 
 #if UNITY_EDITOR
-[CustomPropertyDrawer(typeof(ModularFloat))][CustomPropertyDrawer(typeof(RecursiveFloat))]
+[CustomPropertyDrawer(typeof(ModularFloat))]
+[CustomPropertyDrawer(typeof(RecursiveFloat))]
+[CustomPropertyDrawer(typeof(ModularInt))]
+[CustomPropertyDrawer(typeof(RecursiveInt))]
 public class ModularFloatDrawer : PropertyDrawer
 {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
@@ -26,6 +29,8 @@ public class ModularFloatDrawer : PropertyDrawer
             SerializedProperty minProp = property.FindPropertyRelative("min");
             SerializedProperty maxProp = property.FindPropertyRelative("max");
             SerializedProperty modifiersProp = property.FindPropertyRelative("modifiers");
+            SerializedProperty target = property.FindPropertyRelative("target");
+            SerializedProperty ObservedPile = property.FindPropertyRelative("ObservedPile");
 
             // Draw type
             if (typeProp != null)
@@ -55,6 +60,19 @@ public class ModularFloatDrawer : PropertyDrawer
                     if (maxProp != null)
                     {
                         EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, EditorGUIUtility.singleLineHeight), maxProp);
+                        yOffset += lineHeight;
+                    }
+                    break;
+
+                case ModularVar.ValueType.CardNumber:
+                    if (target != null)
+                    {
+                        EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, EditorGUIUtility.singleLineHeight), target);
+                        yOffset += lineHeight;
+                    }
+                    if (ObservedPile != null)
+                    {
+                        EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, EditorGUIUtility.singleLineHeight), ObservedPile);
                         yOffset += lineHeight;
                     }
                     break;

@@ -10,54 +10,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: TestCard
+  m_Name: "XV \u2013 The Devil"
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 1178401817022169202
+  - rid: 1178402034227347527
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Test
+  Name: "XV \u2013 The Devil"
   hidden: 0
   limited: 0
   instantaneous: 0
-  cost: 0
+  cost: 1
   Type: 0
   Rarity: 4
-  Description: every turn deal damage iqual to the number of cards in the oponent
-    buying pile
+  Description: Deals 3 -18 random Damage
   references:
     version: 2
     RefIds:
-    - rid: 1178401817022169202
+    - rid: 1178402034227347527
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
-        Conditions:
-        - rid: 1178401817022169203
+        Conditions: []
         ConfirmationConditions: []
-        MultipliedByBaseDamage: 0
+        MultipliedByBaseDamage: 1
         DamageMultiplier:
-          target: 1
-          ObservedPile: 3
-          type: 2
+          type: 1
           value: 0
-          min: 0
-          max: 0
+          min: 0.5
+          max: 3
           modifiers: []
         IgnoreDefense: 0
         target: 0
-    - rid: 1178401817022169203
-      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
-      data:
-        Repeatable: 1
-        TurnOwner: 0
-        TurnsFromNow:
-          target: 0
-          ObservedPile: 0
-          type: 0
-          value: 0
-          min: 0
-          max: 0
-          modifiers: []
-        TurnPhase: 1
-        PhaseTime: 0

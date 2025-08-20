@@ -44,7 +44,8 @@ public class CardUIController : MonoBehaviour
             temp.transform.SetParent(card.deck.Owner.transform);
             foreach (Effect e in temp.cardData.Effects)
             {
-                e.card = temp.cardData;
+                e.SetCard(temp.cardData);
+                //e.card = temp.cardData;
                 foreach (Condition c in e.Conditions)
                 {
                     c.effect = e;

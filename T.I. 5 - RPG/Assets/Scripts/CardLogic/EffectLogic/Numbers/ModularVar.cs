@@ -4,17 +4,57 @@ using UnityEngine;
 using UnityEditor;
 using UnityEngine.Serialization;
 using System.Linq;
-
 [Serializable]
 public abstract class ModularVar
 {
-    public enum ValueType { Fixed, Random }
-    
+    [NonSerialized]public Card card;
+    public enum ValueType { Fixed, Random, CardNumber }
+    public enum Target { User, Oponent }
+    public enum Pile { Hand, PlayedPile, DiscardPile, BuyingPile, Deck }
+    public Target target;
+    public Pile ObservedPile;
+    public void SetCard(Card owner)
+    {
+        card = owner;
+        OnSetCard();
+    }
+
+    // Override in children if they need to forward to sub-objects
+    protected virtual void OnSetCard() { }
+    protected int GetCardNum()
+    {
+        Creature t = null;
+        switch (target)
+        {
+            case Target.User:
+                t = card.deck.Owner;
+                break;
+            case Target.Oponent:
+                t = card.deck.Owner.enemy;
+                break;
+        }
+        switch (ObservedPile)
+        {
+            case Pile.Hand:
+                return t.hand.Count;
+            case Pile.PlayedPile:
+                return t.playedCards.Count;
+            case Pile.DiscardPile:
+                return t.decks[0].DiscardPile.Count;
+            case Pile.BuyingPile:
+                return t.decks[0].BuyingPile.Count;
+            case Pile.Deck:
+                return t.decks[0].cards.Count;
+            default: return 0;
+        }
+    }
 }
 
 [Serializable]
 public class RecursiveInt : ModularVar
 {
+    //public RecursiveInt(Card user): base(user) {}
+    
     [SerializeField] ValueType type;
     //[Header("Fixed")]
     public int value;
@@ -34,14 +74,18 @@ public class RecursiveInt : ModularVar
                 return value;
             case ValueType.Random:
                 return UnityEngine.Random.Range(min, max + 1);
+            case ValueType.CardNumber:
+                return GetCardNum();
             default: return 0;
         }
     }
+    
 
 }
 [Serializable]
 public class ModularInt : RecursiveInt
 {
+    //public ModularInt(Card user) : base(user){}
     public List<ModularModifier> modifiers = new List<ModularModifier>();
     public override int GetValue()
     {
@@ -52,11 +96,25 @@ public class ModularInt : RecursiveInt
         }
         return value;
     }
+    protected override void OnSetCard()
+    {
+        foreach (var m in modifiers)
+            m.SetCard(card);
+    }
+    // Ensure modifiers know their parent
+    /*public void OnAfterDeserialize()
+    {
+        foreach (var m in modifiers)
+            m.Initialize(this);
+    }
+
+    public void OnBeforeSerialize() { }*/
 }
 
 [Serializable]
 public class RecursiveFloat : ModularVar
 {
+    //public RecursiveFloat(Card user): base(user) {}
     [SerializeField] ValueType type;
     //[Header("Fixed")]
     public float value;
@@ -76,6 +134,8 @@ public class RecursiveFloat : ModularVar
                 return value;
             case ValueType.Random:
                 return UnityEngine.Random.Range(min, max);
+            case ValueType.CardNumber:
+                return GetCardNum();
             default: return 0;
         }
     }
@@ -84,6 +144,12 @@ public class RecursiveFloat : ModularVar
 [Serializable]
 public class ModularFloat : RecursiveFloat
 {
+    //public ModularFloat(Card user) : base(user){}
+    protected override void OnSetCard()
+    {
+        foreach (var m in modifiers)
+            m.SetCard(card);
+    }
     public List<ModularModifier> modifiers = new List<ModularModifier>();
     public override float GetValue()
     {
@@ -95,16 +161,43 @@ public class ModularFloat : RecursiveFloat
         return value;
 
     }
+    // Ensure modifiers know their parent
+    /*public void OnAfterDeserialize()
+    {
+        foreach (var m in modifiers)
+            m.Initialize(this);
+    }
+
+    public void OnBeforeSerialize() { }*/
 }
 [Serializable]
 public class ModularModifier
 {
+    /*public ModularModifier(ModularVar var)
+    {
+        ownerVar = var;
+        IntValue = new RecursiveInt(var.card);
+        FloatValue = new RecursiveFloat(var.card);
+    }*/
+    /*public void Initialize(ModularVar var)
+    {
+        ownerVar = var;
+
+        if (IntValue == null) IntValue = new RecursiveInt(var.card);
+        if (FloatValue == null) FloatValue = new RecursiveFloat(var.card);
+    }*/
+    //ModularVar ownerVar;
     public enum Equations { DividedBy, MultipliedBy, Add, Subdivide }
     public enum ValueType { Int, Float }
     public Equations operation;
     public ValueType Type;
-    public RecursiveInt IntValue = new RecursiveInt();
-    public RecursiveFloat FloatValue = new ModularFloat();
+    public RecursiveInt IntValue;
+    public RecursiveFloat FloatValue;
+    public void SetCard(Card c)
+    {
+        if (IntValue != null) IntValue.SetCard(c);
+        if (FloatValue != null) FloatValue.SetCard(c);
+    }
     public float ApplyOperation(float BaseValue)
     {
         switch (Type)

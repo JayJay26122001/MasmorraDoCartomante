@@ -19,6 +19,30 @@ public abstract class Effect
     [NonSerialized] public EffectState state = EffectState.Unsolved;
     protected bool Repeatable = false;
 
+    public void SetCard(Card c)
+    {
+        card = c;
+
+        // Push card into all modular variables
+        foreach (var field in GetType().GetFields(
+            System.Reflection.BindingFlags.Public |
+            System.Reflection.BindingFlags.NonPublic |
+            System.Reflection.BindingFlags.Instance))
+        {
+            if (typeof(ModularVar).IsAssignableFrom(field.FieldType))
+            {
+                var var = field.GetValue(this) as ModularVar;
+                var?.SetCard(c);
+            }
+        }
+
+        // Also assign to Conditions
+        foreach (var cond in Conditions)
+            cond.SetCard(c);
+        foreach (var cond in ConfirmationConditions)
+            cond.SetCard(c);
+    }
+
     public void InitiateEffect()
     {
         state = EffectState.Unsolved;
