@@ -10,7 +10,7 @@ public abstract class ModularVar
     [NonSerialized]public Card card;
     public enum ValueType { Fixed, Random, CardNumber }
     public enum Target { User, Oponent }
-    public enum Pile { Hand, PlayedPile, DiscardPile, BuyingPile }
+    public enum Pile { Hand, PlayedPile, DiscardPile, BuyingPile, Deck }
     public Target target;
     public Pile ObservedPile;
     public void SetCard(Card owner)
@@ -43,6 +43,8 @@ public abstract class ModularVar
                 return t.decks[0].DiscardPile.Count;
             case Pile.BuyingPile:
                 return t.decks[0].BuyingPile.Count;
+            case Pile.Deck:
+                return t.decks[0].cards.Count;
             default: return 0;
         }
     }
