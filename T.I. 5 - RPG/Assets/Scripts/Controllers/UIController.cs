@@ -27,6 +27,14 @@ public class UIController : MonoBehaviour
     public GameObject quitButton;
     public GameObject tutorialButton;
     public GameObject featuresButton;
+    [Header("3D Buttons")]
+    public GameObject play3DButton;
+    public GameObject settings3DButton;
+    public GameObject quit3DButton;
+    [Header("3D Objects")]
+    public GameObject happyMask;
+    public GameObject openMask;
+    public GameObject sadMask;
     [Header("Panels")]
     public GameObject settingsPanel;
     public GameObject creditsPanel;
@@ -46,6 +54,8 @@ public class UIController : MonoBehaviour
     public GameObject combatHUD;
     [Header("Resolution and ScreenMode")]
     public TMP_Dropdown resDropdown, screenModeDropdown;
+    [Header("Camera")]
+    public Camera mainCamera;
     Resolution[] allRes;
     List<Resolution> selectedResList = new List<Resolution>();
     public ConfigData data;
@@ -84,6 +94,12 @@ public class UIController : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(playButton);
         SetDefaultVol();
         AudioController.instance.StartMusic();
+        mainCamera = Camera.main;
+    }
+
+    private void Update()
+    {
+        DetectClick();
     }
 
     public void ConfigUpdate()
@@ -221,33 +237,40 @@ public class UIController : MonoBehaviour
 
     public void HideMenuObjects()
     {
-        gameLogo.SetActive(false);
-        playButton.SetActive(false);
-        settingsButton.SetActive(false); 
-        creditsButton.SetActive(false);
-        quitButton.SetActive(false);
-        tutorialButton.SetActive(false);
-        featuresButton.SetActive(false);
+        if (gameLogo != null) gameLogo.SetActive(false);
+        if (playButton != null) playButton.SetActive(false);
+        if (settingsButton != null) settingsButton.SetActive(false);
+        if (creditsButton != null) creditsButton.SetActive(false);
+        if (quitButton != null) quitButton.SetActive(false);
+        if (tutorialButton != null) tutorialButton.SetActive(false);
+        if (featuresButton != null) featuresButton.SetActive(false);
+        if (happyMask != null) happyMask.SetActive(false);
+        if (openMask != null) openMask.SetActive(false);
+        if (sadMask != null) sadMask.SetActive(false);
     }
 
     public void ShowMenuObjects()
     {
-        gameLogo.SetActive(true);
-        playButton.SetActive(true);
-        settingsButton.SetActive(true);
-        creditsButton.SetActive(true);
-        quitButton.SetActive(true);
-        tutorialButton.SetActive(true);
-        featuresButton.SetActive(true);
+        if (gameLogo != null) gameLogo.SetActive(true);
+        if (playButton != null) playButton.SetActive(true);
+        if (settingsButton != null) settingsButton.SetActive(true);
+        if (creditsButton != null) creditsButton.SetActive(true);
+        if (quitButton != null) quitButton.SetActive(true);
+        if (tutorialButton != null) tutorialButton.SetActive(true);
+        if (featuresButton != null) featuresButton.SetActive(true);
+        if (happyMask != null) happyMask.SetActive(true);
+        if (openMask != null) openMask.SetActive(true);
+        if (sadMask != null) sadMask.SetActive(true);
+
     }
 
     public void SetMenuButtonsInteractable(bool interactable)
     {
-        playButton.GetComponent<Button>().interactable = interactable;
-        settingsButton.GetComponent<Button>().interactable = interactable;
-        creditsButton.GetComponent<Button>().interactable = interactable;
-        quitButton.GetComponent<Button>().interactable = interactable;
-        tutorialButton.GetComponent<Button>().interactable = interactable;
+        if (playButton != null) playButton.GetComponent<Button>().interactable = interactable;
+        if (settingsButton != null) settingsButton.GetComponent<Button>().interactable = interactable;
+        if (creditsButton != null) creditsButton.GetComponent<Button>().interactable = interactable;
+        if (quitButton != null) quitButton.GetComponent<Button>().interactable = interactable;
+        if (tutorialButton != null) tutorialButton.GetComponent<Button>().interactable = interactable;
     }
 
     public void UiSetup()
@@ -542,6 +565,31 @@ public class UIController : MonoBehaviour
         foreach (Transform child in parent.transform)
         {
             child.gameObject.SetActive(true);
+        }
+    }
+
+    public void DetectClick()
+    {
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                GameObject clicked = hit.collider.gameObject;
+
+                if (clicked == play3DButton)
+                {
+                    ChangeScene("Game");
+                }
+                else if (clicked == settings3DButton)
+                {
+                    OpenPanel(settingsPanel);
+                }
+                else if (clicked == quit3DButton)
+                {
+                    OpenPanel(quitPanel);
+                }
+            }
         }
     }
 }
