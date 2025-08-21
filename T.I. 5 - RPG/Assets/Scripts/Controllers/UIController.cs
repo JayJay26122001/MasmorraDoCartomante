@@ -190,17 +190,21 @@ public class UIController : MonoBehaviour
 
     public void OpenPanel(GameObject panel)
     {
-        if(SceneManager.GetActiveScene().name == "Menu")
+        /*if(SceneManager.GetActiveScene().name == "Menu")
         {
             if (panel == playPanel || panel == settingsPanel || panel == quitPanel)
             {
                 HideMenuObjects();
             }
-        }
+        }*/
         if(panel != pausePanel)
         {
             if (panel == playPanel || panel == settingsPanel || panel == quitPanel)
             {
+                if (SceneManager.GetActiveScene().name == "Menu")
+                {
+                    HideMenuObjects();
+                }
                 panel.SetActive(true);
                 panel.transform.localScale = Vector3.zero;
                 LeanTween.scale(panel, Vector3.one, panelAnimTime).setEase(LeanTweenType.easeInOutSine).setIgnoreTimeScale(true);
@@ -232,25 +236,28 @@ public class UIController : MonoBehaviour
                 DownscaleButton(btn.gameObject);
             }
         }
-        if (panel == tutorialPanel || panel == creditsPanel)
-        {
-            if (panel == tutorialPanel) { InternPanel(tutorialPanel, playPanel); }
-            else if (panel == creditsPanel) { InternPanel(creditsPanel, settingsPanel); }
-        }
         else
         {
-            LeanTween.scale(panel, Vector3.zero, panelAnimTime).setEase(LeanTweenType.easeInOutSine).setIgnoreTimeScale(true)
-            .setOnComplete(() =>
+            if (panel == tutorialPanel || panel == creditsPanel)
             {
-                panel.SetActive(false);
-                if (SceneManager.GetActiveScene().name == "Menu")
+                if (panel == tutorialPanel) { InternPanel(tutorialPanel, playPanel); }
+                else if (panel == creditsPanel) { InternPanel(creditsPanel, settingsPanel); }
+            }
+            else
+            {
+                LeanTween.scale(panel, Vector3.zero, panelAnimTime).setEase(LeanTweenType.easeInOutSine).setIgnoreTimeScale(true)
+                .setOnComplete(() =>
                 {
-                    if (panel != creditsPanel && panel != tutorialPanel)
+                    panel.SetActive(false);
+                    if (SceneManager.GetActiveScene().name == "Menu")
                     {
-                        ShowMenuObjects();
+                        if (panel != creditsPanel && panel != tutorialPanel)
+                        {
+                            ShowMenuObjects();
+                        }
                     }
-                }
-            });
+                });
+            }
         }
     }
 
