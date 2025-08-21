@@ -36,7 +36,13 @@ MonoBehaviour:
         Conditions:
         - rid: 1178401898369908813
         ConfirmationConditions: []
-        DamageMultiplier: 1.8
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          type: 0
+          value: 1.8
+          min: 0
+          max: 0
+          modifiers: []
         IgnoreDefense: 0
         target: 0
     - rid: 1178401898369908812
@@ -52,7 +58,12 @@ MonoBehaviour:
       data:
         Repeatable: 0
         TurnOwner: 1
-        TurnsFromNow: 0
+        TurnsFromNow:
+          type: 0
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
         TurnPhase: 1
         PhaseTime: 1
     - rid: 1178401898369908814

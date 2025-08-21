@@ -36,13 +36,24 @@ MonoBehaviour:
         Conditions: []
         ConfirmationConditions:
         - rid: 1178401810453889126
-        DamageMultiplier: 4
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          type: 0
+          value: 4
+          min: 0
+          max: 0
+          modifiers: []
         IgnoreDefense: 0
         target: 0
     - rid: 1178401810453889126
       type: {class: HasHealthAmount, ns: , asm: Assembly-CSharp}
       data:
-        HealthAmount: 10
+        HealthAmount:
+          type: 0
+          value: 10
+          min: 0
+          max: 0
+          modifiers: []
         CreatureObserved: 0
         Equation: 1
     - rid: 1178401810453889127
@@ -53,18 +64,35 @@ MonoBehaviour:
         ConfirmationConditions:
         - rid: 1178401810453889128
         - rid: 1178401898369908823
-        DamageMultiplier: 0.6
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          type: 0
+          value: 0.6
+          min: 0
+          max: 0
+          modifiers: []
         IgnoreDefense: 0
         target: 0
     - rid: 1178401810453889128
       type: {class: HasHealthAmount, ns: , asm: Assembly-CSharp}
       data:
-        HealthAmount: 10
+        HealthAmount:
+          type: 0
+          value: 10
+          min: 0
+          max: 0
+          modifiers: []
         CreatureObserved: 0
         Equation: 3
     - rid: 1178401898369908823
       type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
       data:
+        CountThisEffect: 0
         Equation: 1
-        Amount: 1
+        Amount:
+          type: 0
+          value: 1
+          min: 0
+          max: 0
+          modifiers: []
         EffectStates: 02000000

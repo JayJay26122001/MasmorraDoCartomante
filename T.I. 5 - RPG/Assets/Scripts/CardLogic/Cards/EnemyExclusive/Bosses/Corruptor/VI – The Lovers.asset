@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
+  m_Name: "VI \u2013 The Lovers"
+  m_EditorClassIdentifier: 
+  Effects:
+  - rid: 1178402034227347529
+  cardDisplay: {fileID: 0}
+  deck: {fileID: 0}
+  Name: "VI \u2013 The Lovers"
+  hidden: 0
+  limited: 0
+  instantaneous: 0
+  cost: 1
+  Type: 2
+  Rarity: 4
+  Description: Heal 2 -12 random Health
+  references:
+    version: 2
+    RefIds:
+    - rid: 1178402034227347529
+      type: {class: Heal, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        AmountHealled:
+          type: 1
+          value: 0
+          min: 2
+          max: 12
+          modifiers: []
+        target: 0

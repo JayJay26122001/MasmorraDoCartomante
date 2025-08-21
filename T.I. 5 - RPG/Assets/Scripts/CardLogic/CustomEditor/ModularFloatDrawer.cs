@@ -1,7 +1,11 @@
 using UnityEditor;
 using UnityEngine;
 
+#if UNITY_EDITOR
 [CustomPropertyDrawer(typeof(ModularFloat))]
+[CustomPropertyDrawer(typeof(RecursiveFloat))]
+[CustomPropertyDrawer(typeof(ModularInt))]
+[CustomPropertyDrawer(typeof(RecursiveInt))]
 public class ModularFloatDrawer : PropertyDrawer
 {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
@@ -25,39 +29,68 @@ public class ModularFloatDrawer : PropertyDrawer
             SerializedProperty minProp = property.FindPropertyRelative("min");
             SerializedProperty maxProp = property.FindPropertyRelative("max");
             SerializedProperty modifiersProp = property.FindPropertyRelative("modifiers");
+            SerializedProperty target = property.FindPropertyRelative("target");
+            SerializedProperty ObservedPile = property.FindPropertyRelative("ObservedPile");
 
             // Draw type
-            EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, EditorGUIUtility.singleLineHeight), typeProp);
-            yOffset += lineHeight;
+            if (typeProp != null)
+            {
+                EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, EditorGUIUtility.singleLineHeight), typeProp);
+                yOffset += lineHeight;
+            }
 
             // Draw value(s) depending on type
             switch ((ModularVar.ValueType)typeProp.enumValueIndex)
             {
                 case ModularVar.ValueType.Fixed:
-                    EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, EditorGUIUtility.singleLineHeight),valueProp);
-                    yOffset += lineHeight;
+                    if (valueProp != null)
+                    {
+                        EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, EditorGUIUtility.singleLineHeight), valueProp);
+                        yOffset += lineHeight;
+                    }
                     break;
 
                 case ModularVar.ValueType.Random:
-                    EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, EditorGUIUtility.singleLineHeight),minProp);
-                    yOffset += lineHeight;
+                    if (minProp != null)
+                    {
+                        EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, EditorGUIUtility.singleLineHeight), minProp);
+                        yOffset += lineHeight;
+                    }
 
-                    EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, EditorGUIUtility.singleLineHeight), maxProp);
-                    yOffset += lineHeight;
+                    if (maxProp != null)
+                    {
+                        EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, EditorGUIUtility.singleLineHeight), maxProp);
+                        yOffset += lineHeight;
+                    }
+                    break;
+
+                case ModularVar.ValueType.CardNumber:
+                    if (target != null)
+                    {
+                        EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, EditorGUIUtility.singleLineHeight), target);
+                        yOffset += lineHeight;
+                    }
+                    if (ObservedPile != null)
+                    {
+                        EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, EditorGUIUtility.singleLineHeight), ObservedPile);
+                        yOffset += lineHeight;
+                    }
                     break;
 
                 // Optional: case for future types
                 default:
-                    EditorGUI.LabelField(new Rect(position.x, yOffset, position.width, EditorGUIUtility.singleLineHeight),"Unsupported Value Type");
+                    EditorGUI.LabelField(new Rect(position.x, yOffset, position.width, EditorGUIUtility.singleLineHeight), "Unsupported Value Type");
                     yOffset += lineHeight;
                     break;
             }
 
             // Draw modifiers inside the box
-            float modifiersHeight = EditorGUI.GetPropertyHeight(modifiersProp, true);
-            EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, modifiersHeight), modifiersProp, true);
-            yOffset += modifiersHeight + 2f;
-
+            if (modifiersProp != null)
+            {
+                float modifiersHeight = EditorGUI.GetPropertyHeight(modifiersProp, true);
+                EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, modifiersHeight), modifiersProp, true);
+                yOffset += modifiersHeight + 2f;
+            }
             EditorGUI.indentLevel--;
         }
 
@@ -84,9 +117,14 @@ public class ModularFloatDrawer : PropertyDrawer
             }
 
             SerializedProperty modifiersProp = property.FindPropertyRelative("modifiers");
-            height += EditorGUI.GetPropertyHeight(modifiersProp, true) + 2f; // Modifiers
+            if (modifiersProp != null)
+            {
+                height += EditorGUI.GetPropertyHeight(modifiersProp, true) + 2f; // Modifiers
+            }
+
         }
 
         return height;
     }
 }
+#endif

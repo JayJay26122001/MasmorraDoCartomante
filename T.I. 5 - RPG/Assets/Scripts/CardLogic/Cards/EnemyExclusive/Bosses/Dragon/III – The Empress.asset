@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
+  m_Name: "III \u2013 The Empress"
+  m_EditorClassIdentifier: 
+  Effects:
+  - rid: 1178402034227347533
+  - rid: 1178402034227347534
+  cardDisplay: {fileID: 0}
+  deck: {fileID: 0}
+  Name: "III \u2013 The Empress"
+  hidden: 0
+  limited: 0
+  instantaneous: 0
+  cost: 2
+  Type: 1
+  Rarity: 4
+  Description: "Gain 18 Shield. Makes the Opponent receive +1 Energy on it\u2019s
+    next turn"
+  references:
+    version: 2
+    RefIds:
+    - rid: 1178402034227347533
+      type: {class: GainShield, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        MultipliedByBaseShield: 1
+        ShieldMultiplier:
+          type: 0
+          value: 3.6
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0
+    - rid: 1178402034227347534
+      type: {class: GainEnergy, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 1178402034227347535
+        ConfirmationConditions: []
+        Amount:
+          type: 0
+          value: 1
+          min: 0
+          max: 0
+          modifiers: []
+        target: 1
+    - rid: 1178402034227347535
+      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        TurnOwner: 1
+        TurnsFromNow:
+          type: 0
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+        TurnPhase: 0
+        PhaseTime: 0

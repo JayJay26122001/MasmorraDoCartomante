@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Barbed Shield
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 1178401817022169088
+  - rid: 1178401998732263515
   - rid: 1178401817022169089
   - rid: 1178401817022169091
   cardDisplay: {fileID: 0}
@@ -30,30 +30,32 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 1178401817022169088
-      type: {class: GainDefense, ns: , asm: Assembly-CSharp}
-      data:
-        Conditions: []
-        ConfirmationConditions: []
-        DefenseMultiplier: 0.8
     - rid: 1178401817022169089
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
+        DiscardIfAcomplished: 0
         Conditions:
         - rid: 1178401817022169090
         ConfirmationConditions: []
-        DamageMultiplier: 0.6
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          type: 0
+          value: 0.6
+          min: 0
+          max: 0
+          modifiers: []
         IgnoreDefense: 0
         target: 0
     - rid: 1178401817022169090
       type: {class: DamageBlocked, ns: , asm: Assembly-CSharp}
       data:
         Repeatable: 1
-        DiscardIfAcomplished: 0
         BlockedBy: 0
+        FailIfDamaged: 0
     - rid: 1178401817022169091
       type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
       data:
+        DiscardIfAcomplished: 0
         Conditions:
         - rid: 1178401817022169092
         ConfirmationConditions: []
@@ -62,8 +64,26 @@ MonoBehaviour:
       type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
       data:
         Repeatable: 0
-        DiscardIfAcomplished: 0
         TurnOwner: 1
-        TurnsFromNow: 0
+        TurnsFromNow:
+          type: 0
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
         TurnPhase: 1
         PhaseTime: 1
+    - rid: 1178401998732263515
+      type: {class: GainShield, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        MultipliedByBaseShield: 1
+        ShieldMultiplier:
+          type: 0
+          value: 0.8
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0

@@ -10,6 +10,20 @@ public abstract class Condition
     public ConditionState ConditionStatus { get; private set; }
     [System.NonSerialized] public Effect effect;
     public bool Repeatable = false/*, DiscardIfAcomplished = false*/; // if true the condition will repeat the efect every time it is acomplished
+    public virtual void SetCard(Card c)
+    {
+        foreach (var field in GetType().GetFields(
+            System.Reflection.BindingFlags.Public |
+            System.Reflection.BindingFlags.NonPublic |
+            System.Reflection.BindingFlags.Instance))
+        {
+            if (typeof(ModularVar).IsAssignableFrom(field.FieldType))
+            {
+                var var = field.GetValue(this) as ModularVar;
+                var?.SetCard(c);
+            }
+        }
+    }
     public void ActivateCondition() //começa a observar a condição
     {
         if (!ConditionActive)
@@ -114,7 +128,7 @@ public class WaitUntilTurn : Condition
 {
     [SerializeField] Target TurnOwner;
     enum Target { User, Oponent }
-    public int TurnsFromNow;
+    public ModularInt TurnsFromNow;
     public Combat.TurnPhaseTypes TurnPhase;
     public TurnPhase.PhaseTime PhaseTime;
     UnityAction ConditionCheck = null, ListenerAction;
@@ -140,11 +154,11 @@ public class WaitUntilTurn : Condition
         };
         if (Repeatable)
         {
-            ListenerAction = Combat.RepeatOnTurn(TurnsFromNow, phase, PhaseTime, ConditionCheck);
+            ListenerAction = Combat.RepeatOnTurn(TurnsFromNow.GetValue(), phase, PhaseTime, ConditionCheck);
         }
         else
         {
-            ListenerAction = Combat.WaitForTurn(TurnsFromNow, phase, PhaseTime, ConditionCheck);
+            ListenerAction = Combat.WaitForTurn(TurnsFromNow.GetValue(), phase, PhaseTime, ConditionCheck);
         }
 
     }

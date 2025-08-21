@@ -18,7 +18,7 @@ MonoBehaviour:
   deck: {fileID: 0}
   Name: Stamina Potion
   hidden: 0
-  exaust: 0
+  limited: 0
   instantaneous: 1
   cost: 1
   Type: 2
@@ -30,14 +30,27 @@ MonoBehaviour:
     - rid: 4002061059687186508
       type: {class: GainEnergy, ns: , asm: Assembly-CSharp}
       data:
+        DiscardIfAcomplished: 0
         Conditions:
         - rid: 7391437906615730246
-        Amount: 2
+        ConfirmationConditions: []
+        Amount:
+          type: 0
+          value: 2
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0
     - rid: 7391437906615730246
       type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
       data:
         Repeatable: 0
         TurnOwner: 0
-        TurnsFromNow: 0
+        TurnsFromNow:
+          type: 0
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
         TurnPhase: 0
         PhaseTime: 0

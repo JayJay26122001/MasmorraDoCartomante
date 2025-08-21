@@ -7,7 +7,7 @@ public class StatModifier
 {
     public enum ModfierType { Multiply, Add }
     public ModfierType type;
-    public float value;
+    public ModularFloat value;
     public static float ApplyModfierList(float stat, List<StatModifier> modifiers)
     {
         float res = stat;
@@ -32,10 +32,10 @@ public class StatModifier
         switch (type)
         {
             case ModfierType.Multiply:
-                res = stat * value;
+                res = stat * value.GetValue();
                 break;
             case ModfierType.Add:
-                res = stat + value;
+                res = stat + value.GetValue();
                 break;
         }
         return res;
@@ -46,10 +46,10 @@ public class StatModifier
         switch (type)
         {
             case ModfierType.Multiply:
-                res = (int)(stat * value);
+                res = (int)(stat * value.GetValue());
                 break;
             case ModfierType.Add:
-                res = stat + (int)value;
+                res = stat + (int)value.GetValue();
                 break;
         }
         return res;

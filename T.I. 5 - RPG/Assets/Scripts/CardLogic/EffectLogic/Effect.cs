@@ -5,18 +5,43 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 [Serializable]
 public abstract class Effect
 {
     [System.NonSerialized] public Card card;
     [System.NonSerialized] public bool EffectAcomplished = false, effectStarted = false;
-    [SerializeField] protected bool DiscardIfAcomplished = false;
+    [SerializeField] public bool DiscardIfAcomplished = false;
     [SerializeReference] public List<Condition> Conditions = new List<Condition>();
     [SerializeReference] public List<ConfirmationCondition> ConfirmationConditions = new List<ConfirmationCondition>();
     [System.NonSerialized] public UnityEvent EffectStart = new UnityEvent(), EffectEnd = new UnityEvent();
-    public enum EffectState {Unsolved, InProgress, Acomplished, Failled}
-    [NonSerialized]public EffectState state = EffectState.Unsolved;
+    public enum EffectState { Unsolved, InProgress, Acomplished, Failled }
+    [NonSerialized] public EffectState state = EffectState.Unsolved;
     protected bool Repeatable = false;
+
+    public void SetCard(Card c)
+    {
+        card = c;
+
+        // Push card into all modular variables
+        foreach (var field in GetType().GetFields(
+            System.Reflection.BindingFlags.Public |
+            System.Reflection.BindingFlags.NonPublic |
+            System.Reflection.BindingFlags.Instance))
+        {
+            if (typeof(ModularVar).IsAssignableFrom(field.FieldType))
+            {
+                var var = field.GetValue(this) as ModularVar;
+                var?.SetCard(c);
+            }
+        }
+
+        // Also assign to Conditions
+        foreach (var cond in Conditions)
+            cond.SetCard(c);
+        foreach (var cond in ConfirmationConditions)
+            cond.SetCard(c);
+    }
 
     public void InitiateEffect()
     {
@@ -129,7 +154,8 @@ public interface IHiddenEffect //Efeito que quando ativo não solta vfx ou indic
 [Serializable]
 public class DealDamage : Effect, IActionEffect
 {
-    public float DamageMultiplier;
+    public bool MultipliedByBaseDamage = true;
+    public ModularFloat DamageMultiplier;
     [SerializeField] bool IgnoreDefense;
     enum Target { Oponent, User }
     [SerializeField] Target target;
@@ -141,11 +167,11 @@ public class DealDamage : Effect, IActionEffect
         {
             case Target.Oponent:
                 //card.deck.Owner.enemy.TakeDamage(GetDamage(), IgnoreDefense);
-                action = new DamageAction(card.deck.Owner.enemy, GetDamage(), IgnoreDefense);
+                action = new DamageAction(card.deck.Owner.enemy, GetDamage(MultipliedByBaseDamage), IgnoreDefense);
                 break;
             case Target.User:
                 //card.deck.Owner.TakeDamage(GetDamage(), IgnoreDefense);
-                action = new DamageAction(card.deck.Owner, GetDamage(), IgnoreDefense);
+                action = new DamageAction(card.deck.Owner, GetDamage(MultipliedByBaseDamage), IgnoreDefense);
                 break;
         }
         action.AnimEnded.AddListener(EffectEnded);
@@ -153,48 +179,87 @@ public class DealDamage : Effect, IActionEffect
         action.StartAction();
         //EffectEnded();
     }
-    public int GetDamage()
+    public int GetDamage(bool MultiplyByBaseDamage)
     {
-        return (int)Math.Round(StatModifier.ApplyModfierList(card.deck.Owner.BaseDamage * DamageMultiplier, card.deck.Owner.DamageModifiers));
+        if (MultiplyByBaseDamage)
+        {
+            return (int)Math.Round(StatModifier.ApplyModfierList(card.deck.Owner.BaseDamage * DamageMultiplier.GetValue(), card.deck.Owner.DamageModifiers));
+        }
+        else
+        {
+            return (int)Math.Round(StatModifier.ApplyModfierList(DamageMultiplier.GetValue(), card.deck.Owner.DamageModifiers));
+        }
     }
 }
+
+//[Serializable]public class GainDefense : GainShield{}
 [Serializable]
-public class GainDefense : Effect
+public class GainShield : Effect
 {
-    //public DamageEffect(Card c) : base(c){}
-    public float DefenseMultiplier;
+    enum Target { User, Oponent }
+    public bool MultipliedByBaseShield = true;
+    //[FormerlySerializedAs("DefenseMultiplier")]
+    public ModularFloat ShieldMultiplier;
+    [SerializeField] Target target;
     public override void Apply()
     {
         base.Apply();
-        card.deck.Owner.AddShield(GetDefense());
+        switch (target)
+        {
+            case Target.User:
+                card.deck.Owner.AddShield(GetDefense(MultipliedByBaseShield));
+                break;
+            case Target.Oponent:
+                card.deck.Owner.enemy.AddShield(GetDefense(MultipliedByBaseShield));
+                break;
+        }
+
         EffectEnded();
     }
-    public int GetDefense()
+    public int GetDefense(bool MultiplyByBaseShield)
     {
-        return (int)Math.Round(StatModifier.ApplyModfierList(card.deck.Owner.BaseShieldGain * DefenseMultiplier, card.deck.Owner.ShieldModifiers));
+        if (MultiplyByBaseShield)
+        {
+            return (int)Math.Round(StatModifier.ApplyModfierList(card.deck.Owner.BaseShieldGain * ShieldMultiplier.GetValue(), card.deck.Owner.ShieldModifiers));
+        }
+        else
+        {
+            return (int)Math.Round(StatModifier.ApplyModfierList(ShieldMultiplier.GetValue(), card.deck.Owner.ShieldModifiers));
+        }
+
     }
 }
 [Serializable]
 public class BuyCards : Effect
 {
-    public int BuyCardNumber;
+    public ModularInt BuyCardNumber;
     public override void Apply()
     {
         base.Apply();
-        card.deck.Owner.BuyCards(BuyCardNumber);
+        card.deck.Owner.BuyCards(BuyCardNumber.GetValue());
         EffectEnded();
         //Combat.WaitForTurn(0, GameplayManager.currentCombat.GetTurnPhase(card.deck.Owner, Combat.TurnPhaseTypes.Reaction), TurnPhase.PhaseTime.End, EffectEnded);
     }
 }
 public class GainEnergy : Effect
 {
-    public int Amount;
+    public ModularInt Amount;
+    enum Target { User, Oponent }
+    [SerializeField] Target target;
     //enum GainTime { WhenPlayed, NextTurn };
     //[SerializeField] GainTime time;
     public override void Apply()
     {
         base.Apply();
-        card.deck.Owner.GainEnergy(Amount);
+        switch (target)
+        {
+            case Target.User:
+                card.deck.Owner.GainEnergy(Amount.GetValue());
+                break;
+            case Target.Oponent:
+                card.deck.Owner.enemy.GainEnergy(Amount.GetValue());
+                break;
+        }
         EffectEnded();
         /*Combat.WaitForTurn(0, GameplayManager.currentCombat.GetTurnPhase(card.deck.Owner, Combat.TurnPhaseTypes.Reaction), TurnPhase.PhaseTime.End, EffectEnded);
         switch (time)
@@ -246,7 +311,7 @@ public class DiscardThisCard : Effect, IHiddenEffect
 [Serializable]
 public class Heal : Effect
 {
-    public int AmountHealled;
+    public ModularInt AmountHealled;
     enum Target { User, Oponent }
     [SerializeField] Target target;
     public override void Apply()
@@ -255,10 +320,10 @@ public class Heal : Effect
         switch (target)
         {
             case Target.Oponent:
-                card.deck.Owner.enemy.Heal(AmountHealled);
+                card.deck.Owner.enemy.Heal(AmountHealled.GetValue());
                 break;
             case Target.User:
-                card.deck.Owner.Heal(AmountHealled);
+                card.deck.Owner.Heal(AmountHealled.GetValue());
                 break;
         }
         EffectEnded();

@@ -32,21 +32,41 @@ MonoBehaviour:
       type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
       data:
         Repeatable: 0
-        DiscardIfAcomplished: 0
         TurnOwner: 0
-        TurnsFromNow: 0
+        TurnsFromNow:
+          type: 0
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
         TurnPhase: 0
         PhaseTime: 0
     - rid: 8409414130953617409
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
+        DiscardIfAcomplished: 0
         Conditions: []
-        DamageMultiplier: 3.8
+        ConfirmationConditions: []
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          type: 0
+          value: 3.8
+          min: 0
+          max: 0
+          modifiers: []
         IgnoreDefense: 0
         target: 0
     - rid: 8409414130953617410
       type: {class: GainEnergy, ns: , asm: Assembly-CSharp}
       data:
+        DiscardIfAcomplished: 0
         Conditions:
         - rid: 7391437914212401152
-        Amount: -1000
+        ConfirmationConditions: []
+        Amount:
+          type: 0
+          value: -99
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0

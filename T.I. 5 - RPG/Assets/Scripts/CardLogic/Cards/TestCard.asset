@@ -23,25 +23,41 @@ MonoBehaviour:
   cost: 0
   Type: 0
   Rarity: 4
-  Description: 6 damage every turn
+  Description: every turn deal damage iqual to the number of cards in the oponent
+    buying pile
   references:
     version: 2
     RefIds:
     - rid: 1178401817022169202
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
+        DiscardIfAcomplished: 0
         Conditions:
         - rid: 1178401817022169203
         ConfirmationConditions: []
-        DamageMultiplier: 1
+        MultipliedByBaseDamage: 0
+        DamageMultiplier:
+          target: 1
+          ObservedPile: 3
+          type: 2
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
         IgnoreDefense: 0
         target: 0
     - rid: 1178401817022169203
       type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
       data:
         Repeatable: 1
-        DiscardIfAcomplished: 0
         TurnOwner: 0
-        TurnsFromNow: 0
+        TurnsFromNow:
+          target: 0
+          ObservedPile: 0
+          type: 0
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
         TurnPhase: 1
         PhaseTime: 0

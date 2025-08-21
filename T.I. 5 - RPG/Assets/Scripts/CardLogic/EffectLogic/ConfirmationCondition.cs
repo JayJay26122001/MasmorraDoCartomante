@@ -9,6 +9,20 @@ public abstract class ConfirmationCondition
     protected enum Comparative { Higher, Lower, Iqual, IqualOrHigher, IqualOrLower }
     [NonSerialized] public Effect effect;
     public abstract bool Confirm();
+    public virtual void SetCard(Card c)
+    {
+        foreach (var field in GetType().GetFields(
+            System.Reflection.BindingFlags.Public |
+            System.Reflection.BindingFlags.NonPublic |
+            System.Reflection.BindingFlags.Instance))
+        {
+            if (typeof(ModularVar).IsAssignableFrom(field.FieldType))
+            {
+                var var = field.GetValue(this) as ModularVar;
+                var?.SetCard(c);
+            }
+        }
+    }
 }
 [Serializable]
 public class HasShield : ConfirmationCondition
@@ -40,7 +54,7 @@ public class HasShield : ConfirmationCondition
 [Serializable]
 public class HasHealthAmount : ConfirmationCondition
 {
-    [SerializeField] int HealthAmount;
+    [SerializeField] ModularInt HealthAmount;
     [SerializeField] Target CreatureObserved;
     [SerializeField] Comparative Equation;
     Creature c;
@@ -58,15 +72,15 @@ public class HasHealthAmount : ConfirmationCondition
         switch (Equation)
         {
             case Comparative.Higher:
-                return c.Health > HealthAmount;
+                return c.Health > HealthAmount.GetValue();
             case Comparative.Lower:
-                return c.Health < HealthAmount;
+                return c.Health < HealthAmount.GetValue();
             case Comparative.Iqual:
-                return c.Health == HealthAmount;
+                return c.Health == HealthAmount.GetValue();
             case Comparative.IqualOrHigher:
-                return c.Health >= HealthAmount;
+                return c.Health >= HealthAmount.GetValue();
             case Comparative.IqualOrLower:
-                return c.Health <= HealthAmount;
+                return c.Health <= HealthAmount.GetValue();
             default: return false;
         }
     }
@@ -76,7 +90,7 @@ public class NumberOfTriggeredEffects : ConfirmationCondition
 {
     public bool CountThisEffect;
     [SerializeField] Comparative Equation;
-    [SerializeField] public int Amount;
+    [SerializeField] public ModularInt Amount;
     [SerializeField] List<Effect.EffectState> EffectStates = new List<Effect.EffectState>();
     int CompleteEffects;
 
@@ -87,15 +101,15 @@ public class NumberOfTriggeredEffects : ConfirmationCondition
         switch (Equation)
         {
             case Comparative.Higher:
-                return CompleteEffects > Amount;
+                return CompleteEffects > Amount.GetValue();
             case Comparative.Lower:
-                return CompleteEffects < Amount;
+                return CompleteEffects < Amount.GetValue();
             case Comparative.Iqual:
-                return CompleteEffects == Amount;
+                return CompleteEffects == Amount.GetValue();
             case Comparative.IqualOrHigher:
-                return CompleteEffects >= Amount;
+                return CompleteEffects >= Amount.GetValue();
             case Comparative.IqualOrLower:
-                return CompleteEffects <= Amount;
+                return CompleteEffects <= Amount.GetValue();
             default: return false;
         }
     }

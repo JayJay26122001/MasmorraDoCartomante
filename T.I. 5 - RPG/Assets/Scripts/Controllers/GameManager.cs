@@ -17,6 +17,10 @@ public class GameManager : MonoBehaviour
         }
         //DontDestroyOnLoad(this.gameObject);
     }
+
+    void Start()
+    {
+    }
     /*public ModularInt var = new ModularInt();
     public ModularFloat varFloat = new ModularFloat();
     void Update()
