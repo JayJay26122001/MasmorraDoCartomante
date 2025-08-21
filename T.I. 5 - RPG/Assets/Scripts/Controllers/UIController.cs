@@ -37,6 +37,7 @@ public class UIController : MonoBehaviour
     [Header("3D Objects")]
     public List<GameObject> masks;
     [Header("Panels")]
+    public GameObject playPanel;
     public GameObject settingsPanel;
     public GameObject creditsPanel;
     public GameObject quitPanel;
@@ -191,14 +192,28 @@ public class UIController : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name == "Menu")
         {
-            SetMenuButtonsInteractable(false);
-            HideMenuObjects();
+            if (panel == playPanel || panel == settingsPanel || panel == quitPanel)
+            {
+                HideMenuObjects();
+            }
         }
-        panel.SetActive(true);
         if(panel != pausePanel)
         {
-            panel.transform.localScale = Vector3.zero;
-            LeanTween.scale(panel, Vector3.one, panelAnimTime).setEase(LeanTweenType.easeInOutSine).setIgnoreTimeScale(true);
+            if (panel == playPanel || panel == settingsPanel || panel == quitPanel)
+            {
+                panel.SetActive(true);
+                panel.transform.localScale = Vector3.zero;
+                LeanTween.scale(panel, Vector3.one, panelAnimTime).setEase(LeanTweenType.easeInOutSine).setIgnoreTimeScale(true);
+            }
+            else
+            {
+                if (panel == tutorialPanel) { InternPanel(playPanel, tutorialPanel); }
+                else if (panel == creditsPanel) { InternPanel(settingsPanel, creditsPanel); }
+            }
+        }
+        else
+        {
+            panel.SetActive(true);
         }
     }
 
@@ -217,6 +232,11 @@ public class UIController : MonoBehaviour
                 DownscaleButton(btn.gameObject);
             }
         }
+        if (panel == tutorialPanel || panel == creditsPanel)
+        {
+            if (panel == tutorialPanel) { InternPanel(tutorialPanel, playPanel); }
+            else if (panel == creditsPanel) { InternPanel(creditsPanel, settingsPanel); }
+        }
         else
         {
             LeanTween.scale(panel, Vector3.zero, panelAnimTime).setEase(LeanTweenType.easeInOutSine).setIgnoreTimeScale(true)
@@ -225,29 +245,34 @@ public class UIController : MonoBehaviour
                 panel.SetActive(false);
                 if (SceneManager.GetActiveScene().name == "Menu")
                 {
-                    SetMenuButtonsInteractable(true);
-                    ShowMenuObjects();
+                    if (panel != creditsPanel && panel != tutorialPanel)
+                    {
+                        ShowMenuObjects();
+                    }
                 }
-                /*if (panel == pausePanel)
-                {
-                    ActivateChildrens(combatHUD);
-                    Time.timeScale = 1.0f;
-                    gamePaused = false;
-                    GameplayManager.instance.ResumeInput();
-                }*/
             });
         }
     }
 
+    public void InternPanel(GameObject closePanel, GameObject openPanel) 
+    { 
+        LeanTween.scale(closePanel, Vector3.zero, panelAnimTime).setEase(LeanTweenType.easeInOutSine).setIgnoreTimeScale(true)
+            .setOnComplete(() => 
+            { 
+                closePanel.SetActive(false); openPanel.SetActive(true); openPanel.transform.localScale = Vector3.zero; 
+                LeanTween.scale(openPanel, Vector3.one, panelAnimTime).setEase(LeanTweenType.easeInOutSine).setIgnoreTimeScale(true); 
+            }); 
+    }
+
     public void HideMenuObjects()
     {
-        if (gameLogo != null) gameLogo.SetActive(false);
+        /*if (gameLogo != null) gameLogo.SetActive(false);
         if (playButton != null) playButton.SetActive(false);
         if (settingsButton != null) settingsButton.SetActive(false);
         if (creditsButton != null) creditsButton.SetActive(false);
         if (quitButton != null) quitButton.SetActive(false);
         if (tutorialButton != null) tutorialButton.SetActive(false);
-        if (featuresButton != null) featuresButton.SetActive(false);
+        if (featuresButton != null) featuresButton.SetActive(false);*/
         CheckActiveMask();
         if (masks[0] != null) masks[0].SetActive(false);
         if (masks[1] != null) masks[1].SetActive(false);
@@ -265,13 +290,13 @@ public class UIController : MonoBehaviour
 
     public void ShowMenuObjects()
     {
-        if (gameLogo != null) gameLogo.SetActive(true);
+        /*if (gameLogo != null) gameLogo.SetActive(true);
         if (playButton != null) playButton.SetActive(true);
         if (settingsButton != null) settingsButton.SetActive(true);
         if (creditsButton != null) creditsButton.SetActive(true);
         if (quitButton != null) quitButton.SetActive(true);
         if (tutorialButton != null) tutorialButton.SetActive(true);
-        if (featuresButton != null) featuresButton.SetActive(true);
+        if (featuresButton != null) featuresButton.SetActive(true);*/
         if (activeMask != null) activeMask.SetActive(true); //ativar a máscara correta
         if (rightArrow != null) rightArrow.SetActive(true);
         if (leftArrow != null) leftArrow.SetActive(true);
@@ -586,6 +611,7 @@ public class UIController : MonoBehaviour
     {
         if (isMaskRotating) return;
         isMaskRotating = true;
+        PlayButtonSFX();
         int nextIndex = (currentMaskIndex + 1) % masks.Count;
         GameObject currentModel = masks[currentMaskIndex];
         GameObject nextModel = masks[nextIndex];
@@ -606,6 +632,7 @@ public class UIController : MonoBehaviour
     {
         if (isMaskRotating) return;
         isMaskRotating = true;
+        PlayButtonSFX();
         int prevIndex = (currentMaskIndex - 1 + masks.Count) % masks.Count;
         GameObject currentModel = masks[currentMaskIndex];
         GameObject prevModel = masks[prevIndex];
@@ -633,15 +660,18 @@ public class UIController : MonoBehaviour
 
                 if (clicked == play3DButton)
                 {
-                    ChangeScene("Game");
+                    OpenPanel(playPanel);
+                    PlayButtonSFX();
                 }
                 else if (clicked == settings3DButton)
                 {
                     OpenPanel(settingsPanel);
+                    PlayButtonSFX();
                 }
                 else if (clicked == quit3DButton)
                 {
                     OpenPanel(quitPanel);
+                    PlayButtonSFX();
                 }
                 else if (clicked == rightArrow)
                 {

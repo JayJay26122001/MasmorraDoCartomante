@@ -2139,21 +2139,11 @@ MonoBehaviour:
   money: {fileID: 0}
   gameLogo: {fileID: 819847372}
   playButton: {fileID: 1317225426}
-  newGameButton: {fileID: 1370535353}
-  tutorialButton: {fileID: 283880329}
-  leaveTutorialPanel: {fileID: 997827057}
-  leavePlayPanel: {fileID: 133463922}
-  creditsButton: {fileID: 720812038}
-  leaveCreditsPanel: {fileID: 1536999254}
-  featuresButton: {fileID: 2074150766}
-  leaveMenuSettingsPanel: {fileID: 82744553}
-  leaveQuitPanel: {fileID: 1979200822}
-  quitButton: {fileID: 732476645}
-  returnGameButton: {fileID: 0}
   settingsButton: {fileID: 0}
-  leaveGameSettingsButton: {fileID: 0}
-  returnMenuButton: {fileID: 0}
-  restartGameButton: {fileID: 0}
+  creditsButton: {fileID: 720812038}
+  quitButton: {fileID: 732476645}
+  tutorialButton: {fileID: 283880329}
+  featuresButton: {fileID: 2074150766}
   play3DButton: {fileID: 549590048}
   settings3DButton: {fileID: 588175734}
   quit3DButton: {fileID: 1694192321}
@@ -2165,17 +2155,21 @@ MonoBehaviour:
   - {fileID: 1209265909}
   - {fileID: 998663281}
   playPanel: {fileID: 1093733247}
-  tutorialPanel: {fileID: 950833041}
   settingsPanel: {fileID: 284080736}
   creditsPanel: {fileID: 1181815353}
   quitPanel: {fileID: 1942118695}
   pausePanel: {fileID: 0}
+  tutorialPanel: {fileID: 950833041}
+  leaveSettingsPanelButton: {fileID: 0}
+  leaveCreditsPanelButton: {fileID: 0}
+  leaveQuitPanelButton: {fileID: 0}
+  confirmQuitButton: {fileID: 0}
   _masterVolumeSlider: {fileID: 1338219779}
   _musicSlider: {fileID: 445296872}
   _sfxSlider: {fileID: 18422012}
+  combatHUD: {fileID: 0}
   resDropdown: {fileID: 1788665835}
   screenModeDropdown: {fileID: 1479110351}
-  combatHUD: {fileID: 0}
   mainCamera: {fileID: 330585545}
   data:
     selectedRes: 0
