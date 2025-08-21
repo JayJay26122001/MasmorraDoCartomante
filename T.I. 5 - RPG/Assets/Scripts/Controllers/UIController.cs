@@ -20,13 +20,24 @@ public class UIController : MonoBehaviour
     public TextMeshPro money;
     [Header("Game Logo")]
     public GameObject gameLogo;
-    [Header("Buttons")]
+    [Header("Menu Buttons")]
     public GameObject playButton;
-    public GameObject settingsButton;
-    public GameObject creditsButton;
-    public GameObject quitButton;
+    public GameObject newGameButton;
     public GameObject tutorialButton;
+    public GameObject leaveTutorialPanel;
+    public GameObject leavePlayPanel;
+    public GameObject creditsButton;
+    public GameObject leaveCreditsPanel;
     public GameObject featuresButton;
+    public GameObject leaveMenuSettingsPanel;
+    public GameObject leaveQuitPanel;
+    public GameObject quitButton;
+    [Header("Other Scene Buttons")]
+    public GameObject returnGameButton;
+    public GameObject settingsButton;
+    public GameObject leaveGameSettingsButton;
+    public GameObject returnMenuButton;
+    public GameObject restartGameButton;
     [Header("3D Buttons")]
     public GameObject play3DButton;
     public GameObject settings3DButton;
@@ -37,24 +48,20 @@ public class UIController : MonoBehaviour
     [Header("3D Objects")]
     public List<GameObject> masks;
     [Header("Panels")]
+    public GameObject playPanel;
+    public GameObject tutorialPanel;
     public GameObject settingsPanel;
     public GameObject creditsPanel;
     public GameObject quitPanel;
     public GameObject pausePanel;
-    public GameObject tutorialPanel;
-    [Header("Panel Buttons")]
-    public GameObject leaveSettingsPanelButton;
-    public GameObject leaveCreditsPanelButton;
-    public GameObject leaveQuitPanelButton;
-    public GameObject confirmQuitButton;
     [Header("Settings Slider")]
     public Slider _masterVolumeSlider;
     public Slider _musicSlider;
     public Slider _sfxSlider;
-    [Header("Game Combat HUD")]
-    public GameObject combatHUD;
     [Header("Resolution and ScreenMode")]
     public TMP_Dropdown resDropdown, screenModeDropdown;
+    [Header("Game Combat HUD")]
+    public GameObject combatHUD;
     [Header("Camera")]
     public Camera mainCamera;
     Resolution[] allRes;
@@ -191,14 +198,34 @@ public class UIController : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name == "Menu")
         {
-            SetMenuButtonsInteractable(false);
-            HideMenuObjects();
+            if(panel == playPanel || panel == settingsPanel || panel == quitPanel)
+            {
+                //SetMenuButtonsInteractable(false);
+                HideMenuObjects();
+            }
+            /*else
+            {
+                if (panel == tutorialPanel) { InternPanel(playPanel, tutorialPanel); }
+                else if (panel == creditsPanel) { InternPanel(settingsPanel, creditsPanel); }
+            }*/
         }
-        panel.SetActive(true);
         if(panel != pausePanel)
         {
-            panel.transform.localScale = Vector3.zero;
-            LeanTween.scale(panel, Vector3.one, panelAnimTime).setEase(LeanTweenType.easeInOutSine).setIgnoreTimeScale(true);
+            if (panel == playPanel || panel == settingsPanel || panel == quitPanel)
+            {
+                panel.SetActive(true);
+                panel.transform.localScale = Vector3.zero;
+                LeanTween.scale(panel, Vector3.one, panelAnimTime).setEase(LeanTweenType.easeInOutSine).setIgnoreTimeScale(true);
+            }
+            else
+            {
+                if (panel == tutorialPanel) { InternPanel(playPanel, tutorialPanel); }
+                else if (panel == creditsPanel) { InternPanel(settingsPanel, creditsPanel); }
+            }
+        }
+        else
+        {
+            panel.SetActive(true);
         }
     }
 
@@ -219,41 +246,76 @@ public class UIController : MonoBehaviour
         }
         else
         {
-            LeanTween.scale(panel, Vector3.zero, panelAnimTime).setEase(LeanTweenType.easeInOutSine).setIgnoreTimeScale(true)
-            .setOnComplete(() =>
+            if(panel == tutorialPanel || panel == creditsPanel)
             {
-                panel.SetActive(false);
-                if (SceneManager.GetActiveScene().name == "Menu")
+                if (panel == tutorialPanel) { InternPanel(tutorialPanel, playPanel); }
+                else if (panel == creditsPanel) { InternPanel(creditsPanel, settingsPanel); }
+            }
+            else
+            {
+                LeanTween.scale(panel, Vector3.zero, panelAnimTime).setEase(LeanTweenType.easeInOutSine).setIgnoreTimeScale(true)
+                .setOnComplete(() =>
                 {
-                    SetMenuButtonsInteractable(true);
-                    ShowMenuObjects();
-                }
-                /*if (panel == pausePanel)
-                {
-                    ActivateChildrens(combatHUD);
-                    Time.timeScale = 1.0f;
-                    gamePaused = false;
-                    GameplayManager.instance.ResumeInput();
-                }*/
-            });
+                    panel.SetActive(false);
+                    if (SceneManager.GetActiveScene().name == "Menu")
+                    {
+                        if (panel != creditsPanel && panel != tutorialPanel)
+                        {
+                            //SetMenuButtonsInteractable(true);
+                            ShowMenuObjects();
+                        }
+                        /*else
+                        {
+                            if (panel == tutorialPanel) { InternPanel(tutorialPanel, playPanel); }
+                            else if (panel == creditsPanel) { InternPanel(creditsPanel, settingsPanel); }
+                        }*/
+                    }
+                    /*if (panel == pausePanel)
+                    {
+                        ActivateChildrens(combatHUD);
+                        Time.timeScale = 1.0f;
+                        gamePaused = false;
+                        GameplayManager.instance.ResumeInput();
+                    }*/
+                });
+            }
         }
+    }
+
+    public void InternPanel(GameObject closePanel, GameObject openPanel)
+    {
+        LeanTween.scale(closePanel, Vector3.zero, panelAnimTime).setEase(LeanTweenType.easeInOutSine).setIgnoreTimeScale(true)
+        .setOnComplete(() =>
+        {
+            closePanel.SetActive(false);
+            openPanel.SetActive(true);
+            openPanel.transform.localScale = Vector3.zero;
+            LeanTween.scale(openPanel, Vector3.one, panelAnimTime).setEase(LeanTweenType.easeInOutSine).setIgnoreTimeScale(true);
+        });
     }
 
     public void HideMenuObjects()
     {
-        if (gameLogo != null) gameLogo.SetActive(false);
-        if (playButton != null) playButton.SetActive(false);
-        if (settingsButton != null) settingsButton.SetActive(false);
-        if (creditsButton != null) creditsButton.SetActive(false);
-        if (quitButton != null) quitButton.SetActive(false);
-        if (tutorialButton != null) tutorialButton.SetActive(false);
-        if (featuresButton != null) featuresButton.SetActive(false);
-        CheckActiveMask();
-        if (masks[0] != null) masks[0].SetActive(false);
-        if (masks[1] != null) masks[1].SetActive(false);
-        if (masks[2] != null) masks[2].SetActive(false);
-        if (rightArrow != null) rightArrow.SetActive(false);
-        if (leftArrow != null) leftArrow.SetActive(false);
+        if(SceneManager.GetActiveScene().name == "Menu")
+        {
+            /*if (gameLogo != null) gameLogo.SetActive(false);
+            if (playButton != null) playButton.SetActive(false);
+            if (settingsButton != null) settingsButton.SetActive(false);
+            if (creditsButton != null) creditsButton.SetActive(false);
+            if (quitButton != null) quitButton.SetActive(false);
+            if (tutorialButton != null) tutorialButton.SetActive(false);
+            if (featuresButton != null) featuresButton.SetActive(false);*/
+            CheckActiveMask();
+            if (masks[0] != null) masks[0].SetActive(false);
+            if (masks[1] != null) masks[1].SetActive(false);
+            if (masks[2] != null) masks[2].SetActive(false);
+            if (rightArrow != null) rightArrow.SetActive(false);
+            if (leftArrow != null) leftArrow.SetActive(false);
+        }
+        else
+        {
+
+        }
     }
 
     public void CheckActiveMask() //verificar qual máscara está ativa antes de esconder os objetos do menu
@@ -265,53 +327,81 @@ public class UIController : MonoBehaviour
 
     public void ShowMenuObjects()
     {
-        if (gameLogo != null) gameLogo.SetActive(true);
+        /*if (gameLogo != null) gameLogo.SetActive(true);
         if (playButton != null) playButton.SetActive(true);
         if (settingsButton != null) settingsButton.SetActive(true);
         if (creditsButton != null) creditsButton.SetActive(true);
         if (quitButton != null) quitButton.SetActive(true);
         if (tutorialButton != null) tutorialButton.SetActive(true);
-        if (featuresButton != null) featuresButton.SetActive(true);
+        if (featuresButton != null) featuresButton.SetActive(true);*/
         if (activeMask != null) activeMask.SetActive(true); //ativar a máscara correta
         if (rightArrow != null) rightArrow.SetActive(true);
         if (leftArrow != null) leftArrow.SetActive(true);
 
     }
 
-    public void SetMenuButtonsInteractable(bool interactable)
+    /*public void SetMenuButtonsInteractable(bool interactable)
     {
         if (playButton != null) playButton.GetComponent<Button>().interactable = interactable;
         if (settingsButton != null) settingsButton.GetComponent<Button>().interactable = interactable;
         if (creditsButton != null) creditsButton.GetComponent<Button>().interactable = interactable;
         if (quitButton != null) quitButton.GetComponent<Button>().interactable = interactable;
         if (tutorialButton != null) tutorialButton.GetComponent<Button>().interactable = interactable;
-    }
+    }*/
 
     public void UiSetup()
     {
+        //Play
         if (playButton != null)
         {
             playButton.SetActive(true);
         }
-        if (settingsButton != null)
+        if (newGameButton != null)
         {
-            settingsButton.SetActive(true);
-        }
-        if (creditsButton != null)
-        {
-            creditsButton.SetActive(true);
-        }
-        if (quitButton != null)
-        {
-            quitButton.SetActive(true);
+            newGameButton.SetActive(true);
         }
         if (tutorialButton != null)
         {
             tutorialButton.SetActive(true);
         }
+        if (leaveTutorialPanel != null)
+        {
+            leaveTutorialPanel.SetActive(true);
+        }
+        if (leavePlayPanel != null)
+        {
+            leavePlayPanel.SetActive(true);
+        }
+        //Settings
+        if (creditsButton != null)
+        {
+            creditsButton.SetActive(true);
+        }
+        if (leaveCreditsPanel)
+        {
+            leaveCreditsPanel.SetActive(true);
+        }
         if (featuresButton != null)
         {
             featuresButton.SetActive(true);
+        }
+        if (leaveMenuSettingsPanel != null)
+        {
+            leaveMenuSettingsPanel.SetActive(true);
+        }
+        //Quit
+        if (quitButton != null)
+        {
+            quitButton.SetActive(true);
+        }
+        if (leaveQuitPanel != null)
+        {
+            leaveQuitPanel.SetActive(true);
+        }
+        //Panels
+        if (playPanel != null)
+        {
+            playPanel.SetActive(false);
         }
         if (settingsPanel != null)
         {
@@ -325,26 +415,15 @@ public class UIController : MonoBehaviour
         {
             tutorialPanel.SetActive(false);
         }
+        if (pausePanel != null)
+        {
+            pausePanel.SetActive(false);
+        }
         if (quitPanel != null)
         {
             quitPanel.SetActive(false);
         }
-        if (leaveSettingsPanelButton != null)
-        {
-            leaveSettingsPanelButton.SetActive(true);
-        }
-        if (leaveCreditsPanelButton != null)
-        {
-            leaveCreditsPanelButton.SetActive(true);
-        }
-        if(leaveQuitPanelButton != null)
-        {
-            leaveQuitPanelButton.SetActive(true);
-        }
-        if (confirmQuitButton != null)
-        {
-            confirmQuitButton.SetActive(true);
-        }
+        //Dropdowns
         if (resDropdown != null)
         {
             resDropdown.gameObject.SetActive(true);
@@ -352,6 +431,23 @@ public class UIController : MonoBehaviour
         if (screenModeDropdown != null)
         {
             screenModeDropdown.gameObject.SetActive(true);
+        }
+        //Game Buttons
+        if (settingsButton != null)
+        {
+            settingsButton.SetActive(true);
+        }
+        if (leaveGameSettingsButton != null)
+        {
+            leaveGameSettingsButton.SetActive(true);    
+        }
+        if (returnGameButton != null)
+        {
+            returnGameButton.SetActive(true);
+        }
+        if (returnMenuButton != null)
+        {
+            returnMenuButton.SetActive(true);
         }
     }
     /*public void OpenPanel(GameObject panel)
@@ -586,6 +682,7 @@ public class UIController : MonoBehaviour
     {
         if (isMaskRotating) return;
         isMaskRotating = true;
+        PlayButtonSFX();
         int nextIndex = (currentMaskIndex + 1) % masks.Count;
         GameObject currentModel = masks[currentMaskIndex];
         GameObject nextModel = masks[nextIndex];
@@ -606,6 +703,7 @@ public class UIController : MonoBehaviour
     {
         if (isMaskRotating) return;
         isMaskRotating = true;
+        PlayButtonSFX();
         int prevIndex = (currentMaskIndex - 1 + masks.Count) % masks.Count;
         GameObject currentModel = masks[currentMaskIndex];
         GameObject prevModel = masks[prevIndex];
@@ -633,15 +731,18 @@ public class UIController : MonoBehaviour
 
                 if (clicked == play3DButton)
                 {
-                    ChangeScene("Game");
+                    OpenPanel(playPanel);
+                    PlayButtonSFX();
                 }
                 else if (clicked == settings3DButton)
                 {
                     OpenPanel(settingsPanel);
+                    PlayButtonSFX();
                 }
                 else if (clicked == quit3DButton)
                 {
                     OpenPanel(quitPanel);
+                    PlayButtonSFX();
                 }
                 else if (clicked == rightArrow)
                 {

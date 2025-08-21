@@ -2293,24 +2293,47 @@ MonoBehaviour:
   money: {fileID: 0}
   gameLogo: {fileID: 0}
   playButton: {fileID: 0}
-  settingsButton: {fileID: 0}
-  creditsButton: {fileID: 0}
-  quitButton: {fileID: 0}
+  newGameButton: {fileID: 0}
   tutorialButton: {fileID: 0}
+  leaveTutorialPanel: {fileID: 0}
+  leavePlayPanel: {fileID: 0}
+  creditsButton: {fileID: 0}
+  leaveCreditsPanel: {fileID: 0}
   featuresButton: {fileID: 0}
+  leaveMenuSettingsPanel: {fileID: 0}
+  leaveQuitPanel: {fileID: 0}
+  quitButton: {fileID: 0}
+  returnGameButton: {fileID: 0}
+  settingsButton: {fileID: 0}
+  leaveGameSettingsButton: {fileID: 0}
+  returnMenuButton: {fileID: 644407000}
+  restartGameButton: {fileID: 0}
+  play3DButton: {fileID: 0}
+  settings3DButton: {fileID: 0}
+  quit3DButton: {fileID: 0}
+  rightArrow: {fileID: 0}
+  leftArrow: {fileID: 0}
+  spinTime: 0
+  masks: []
+  playPanel: {fileID: 0}
+  tutorialPanel: {fileID: 0}
   settingsPanel: {fileID: 0}
   creditsPanel: {fileID: 0}
   quitPanel: {fileID: 0}
   pausePanel: {fileID: 0}
-  tutorialPanel: {fileID: 0}
-  leaveSettingsPanelButton: {fileID: 0}
-  leaveCreditsPanelButton: {fileID: 0}
-  leaveQuitPanelButton: {fileID: 0}
-  confirmQuitButton: {fileID: 0}
   _masterVolumeSlider: {fileID: 0}
   _musicSlider: {fileID: 0}
   _sfxSlider: {fileID: 0}
+  resDropdown: {fileID: 0}
+  screenModeDropdown: {fileID: 0}
   combatHUD: {fileID: 0}
+  mainCamera: {fileID: 0}
+  data:
+    selectedRes: 0
+    screenMode: 0
+    master: 0
+    music: 0
+    sfx: 0
 --- !u!1 &398917770
 GameObject:
   m_ObjectHideFlags: 0

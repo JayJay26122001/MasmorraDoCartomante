@@ -333,7 +333,7 @@ Transform:
   m_GameObject: {fileID: 30614208}
   serializedVersion: 2
   m_LocalRotation: {x: 0.2999427, y: -0.000000010122138, z: -0.000000013213295, w: 0.95395726}
-  m_LocalPosition: {x: 0.0000004954074, y: 14.425909, z: -16.687153}
+  m_LocalPosition: {x: 0.0000009299775, y: 13.420052, z: -15.246324}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -416,7 +416,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 69.987625
+  field of view: 70.0006
   orthographic: 0
   orthographic size: 10
   m_Depth: 0
@@ -6983,26 +6983,40 @@ MonoBehaviour:
   money: {fileID: 2023532461}
   gameLogo: {fileID: 0}
   playButton: {fileID: 0}
-  settingsButton: {fileID: 1916134963}
-  creditsButton: {fileID: 0}
-  quitButton: {fileID: 0}
+  newGameButton: {fileID: 0}
   tutorialButton: {fileID: 0}
+  leaveTutorialPanel: {fileID: 0}
+  leavePlayPanel: {fileID: 0}
+  creditsButton: {fileID: 0}
+  leaveCreditsPanel: {fileID: 0}
   featuresButton: {fileID: 0}
+  leaveMenuSettingsPanel: {fileID: 0}
+  leaveQuitPanel: {fileID: 0}
+  quitButton: {fileID: 0}
+  returnGameButton: {fileID: 1213425984}
+  settingsButton: {fileID: 1916134963}
+  leaveGameSettingsButton: {fileID: 1458695276}
+  returnMenuButton: {fileID: 1514169505}
+  play3DButton: {fileID: 0}
+  settings3DButton: {fileID: 0}
+  quit3DButton: {fileID: 0}
+  rightArrow: {fileID: 0}
+  leftArrow: {fileID: 0}
+  spinTime: 0
+  masks: []
+  playPanel: {fileID: 0}
+  tutorialPanel: {fileID: 0}
   settingsPanel: {fileID: 1486701015}
   creditsPanel: {fileID: 0}
   quitPanel: {fileID: 0}
   pausePanel: {fileID: 1084934152}
-  tutorialPanel: {fileID: 0}
-  leaveSettingsPanelButton: {fileID: 1458695276}
-  leaveCreditsPanelButton: {fileID: 0}
-  leaveQuitPanelButton: {fileID: 0}
-  confirmQuitButton: {fileID: 0}
   _masterVolumeSlider: {fileID: 1695590368}
   _musicSlider: {fileID: 927698765}
   _sfxSlider: {fileID: 1996818470}
-  combatHUD: {fileID: 1836948287}
   resDropdown: {fileID: 211882593}
   screenModeDropdown: {fileID: 1758936941}
+  combatHUD: {fileID: 1836948287}
+  mainCamera: {fileID: 0}
   data:
     selectedRes: 0
     screenMode: 0
