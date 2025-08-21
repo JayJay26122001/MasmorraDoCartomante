@@ -676,6 +676,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 8af2f461-6b71-446c-8a52-c624f4f91563
     m_ActionName: 'Player/MouseClick[/Mouse/rightButton,/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: eb340a78-3b64-465a-b70b-cf05da87843d
+    m_ActionName: 'Camera/SwitchFeaturesCameraRight[/Keyboard/d,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 38169d1b-e17a-48c2-a541-252a94029310
+    m_ActionName: 'Camera/SwitchFeaturesCameraLeft[/Keyboard/a,/Keyboard/leftArrow]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1291,7 +1299,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &125215945
 Transform:
   m_ObjectHideFlags: 0
@@ -7093,6 +7101,13 @@ MonoBehaviour:
   quitButton: {fileID: 0}
   tutorialButton: {fileID: 0}
   featuresButton: {fileID: 0}
+  play3DButton: {fileID: 0}
+  settings3DButton: {fileID: 0}
+  quit3DButton: {fileID: 0}
+  rightArrow: {fileID: 0}
+  leftArrow: {fileID: 0}
+  spinTime: 0
+  masks: []
   settingsPanel: {fileID: 1486701015}
   creditsPanel: {fileID: 0}
   quitPanel: {fileID: 0}
@@ -7108,6 +7123,7 @@ MonoBehaviour:
   combatHUD: {fileID: 1836948287}
   resDropdown: {fileID: 211882593}
   screenModeDropdown: {fileID: 1758936941}
+  mainCamera: {fileID: 0}
   data:
     selectedRes: 0
     screenMode: 0
@@ -7288,7 +7304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &707346587
 Transform:
   m_ObjectHideFlags: 0
@@ -11112,7 +11128,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -11145,12 +11161,12 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
+  m_ColorTemperature: 5440
+  m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
@@ -11168,13 +11184,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1249348947}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2757473, y: 0.21827047, z: -0.064447515, w: 0.93389934}
+  m_LocalRotation: {x: 0.25569904, y: 0.41213349, z: -0.12168838, w: 0.866}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 125215945}
-  m_LocalEulerAnglesHint: {x: 32.9, y: 26.31, z: 0}
+  m_LocalEulerAnglesHint: {x: 32.9, y: 50.9, z: 0}
 --- !u!114 &1249348950
 MonoBehaviour:
   m_ObjectHideFlags: 0
