@@ -66,11 +66,14 @@ public abstract class ModularVar : ISerializationCallbackReceiver
     }
     public void OnBeforeSerialize()
     {
-        MaxReturnedNumber.type = SimpleVar.ValueType.Infinity;
+
     }
     public void OnAfterDeserialize()
     {
-        
+        if (!Enum.IsDefined(typeof(SimpleVar.ValueType), MaxReturnedNumber.type))
+        {
+            MaxReturnedNumber.type = SimpleVar.ValueType.Infinity;
+        }
     }
 }
 
@@ -78,7 +81,7 @@ public abstract class ModularVar : ISerializationCallbackReceiver
 public class RecursiveInt : ModularVar
 {
     //public RecursiveInt(Card user): base(user) {}
-    
+
     [SerializeField] ValueType type;
     //[Header("Fixed")]
     public int value;
@@ -105,7 +108,7 @@ public class RecursiveInt : ModularVar
             default: return 0;
         }
     }
-    
+
 
 }
 [Serializable]

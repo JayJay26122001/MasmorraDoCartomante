@@ -6,8 +6,6 @@ using UnityEngine;
 [CustomPropertyDrawer(typeof(RecursiveFloat))]
 [CustomPropertyDrawer(typeof(ModularInt))]
 [CustomPropertyDrawer(typeof(RecursiveInt))]
-[CustomPropertyDrawer(typeof(SimpleInt))]
-[CustomPropertyDrawer(typeof(SimpleFloat))]
 public class ModularFloatDrawer : PropertyDrawer
 {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
@@ -81,14 +79,15 @@ public class ModularFloatDrawer : PropertyDrawer
                     }
                     if (MaxReturnedNumber != null)
                     {
-                        EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, EditorGUIUtility.singleLineHeight), MaxReturnedNumber);
-                        yOffset += lineHeight;
+                        float numberHeight = EditorGUI.GetPropertyHeight(MaxReturnedNumber, true);
+                        EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, numberHeight),MaxReturnedNumber,true);
+                        yOffset += numberHeight + 2f;
                     }
                     if (CountOnlyTypes != null)
                     {
-                        float modifiersHeight = EditorGUI.GetPropertyHeight(CountOnlyTypes, true);
-                        EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, modifiersHeight), CountOnlyTypes, true);
-                        yOffset += modifiersHeight + 2f;
+                        float TypeHeight = EditorGUI.GetPropertyHeight(CountOnlyTypes, true);
+                        EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, TypeHeight), CountOnlyTypes, true);
+                        yOffset += TypeHeight + 2f;
                     }
                     break;
 
@@ -123,38 +122,41 @@ public class ModularFloatDrawer : PropertyDrawer
             SerializedProperty typeProp = property.FindPropertyRelative("type");
 
             switch ((ModularVar.ValueType)typeProp.enumValueIndex)
-        {
-            case ModularVar.ValueType.Fixed:
-                height += EditorGUIUtility.singleLineHeight + 2f; // Value
-                break;
+            {
+                case ModularVar.ValueType.Fixed:
+                    height += EditorGUIUtility.singleLineHeight + 2f; // Value
+                    break;
 
-            case ModularVar.ValueType.Random:
-                height += (EditorGUIUtility.singleLineHeight + 2f) * 2; // Min + Max
-                break;
+                case ModularVar.ValueType.Random:
+                    height += (EditorGUIUtility.singleLineHeight + 2f) * 2; // Min + Max
+                    break;
 
-            case ModularVar.ValueType.CardNumber:
-                // target
-                height += EditorGUIUtility.singleLineHeight + 2f;
+                case ModularVar.ValueType.CardNumber:
+                    // target
+                    height += EditorGUIUtility.singleLineHeight + 2f;
 
-                // ObservedPile
-                height += EditorGUIUtility.singleLineHeight + 2f;
+                    // ObservedPile
+                    height += EditorGUIUtility.singleLineHeight + 2f;
 
-                // CountOnlyTypes (LIST → ask Unity)
-                SerializedProperty countOnlyTypes = property.FindPropertyRelative("CountOnlyTypes");
-                if (countOnlyTypes != null)
-                    height += EditorGUI.GetPropertyHeight(countOnlyTypes, true) + 2f;
+                    //Max returned number
+                    SerializedProperty maxReturnedNumber = property.FindPropertyRelative("MaxReturnedNumber");
+                    if (maxReturnedNumber != null)
+                        height += EditorGUI.GetPropertyHeight(maxReturnedNumber, true) + 2f;
 
-                // MaxReturnedNumber (ENUM → 1 line)
-                height += EditorGUIUtility.singleLineHeight + 2f;
-                break;
-        }
+                    // CountOnlyTypes (LIST → ask Unity)
+                    SerializedProperty countOnlyTypes = property.FindPropertyRelative("CountOnlyTypes");
+                    if (countOnlyTypes != null)
+                        height += EditorGUI.GetPropertyHeight(countOnlyTypes, true) + 2f;
+
+                    break;
+            }
 
             SerializedProperty modifiersProp = property.FindPropertyRelative("modifiers");
             if (modifiersProp != null)
             {
                 height += EditorGUI.GetPropertyHeight(modifiersProp, true) + 2f; // Modifiers
             }
-            
+
 
         }
 
