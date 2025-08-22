@@ -9,13 +9,15 @@ using Unity.Mathematics;
 public abstract class ModularVar : ISerializationCallbackReceiver
 {
     [NonSerialized] public Card card;
-    public enum ValueType { Fixed, Random, CardNumber, Infinity }
+    public enum ValueType { Fixed, Random, CardNumber, CreatureStat, Infinity}
     public enum Target { User, Opponent }
     public enum Pile { Hand, PlayedPile, DiscardPile, BuyingPile, Deck }
+    public enum StatType {Health, Shield, Energy, Coins}
     public Target target;
     public Pile ObservedPile;
     public List<Card.CardType> CountOnlyTypes = new List<Card.CardType>();
     public SimpleInt MaxReturnedNumber = new SimpleInt();
+    public StatType ObservedStat;
     public void SetCard(Card owner)
     {
         card = owner;
@@ -24,6 +26,37 @@ public abstract class ModularVar : ISerializationCallbackReceiver
 
     // Override in children if they need to forward to sub-objects
     protected virtual void OnSetCard() { }
+    protected int GetStat()
+    {
+        int value;
+        Creature t = null;
+        switch (target)
+        {
+            case Target.User:
+                t = card.deck.Owner;
+                break;
+            case Target.Opponent:
+                t = card.deck.Owner.enemy;
+                break;
+        }
+        switch (ObservedStat)
+        {
+            case StatType.Health:
+                value = t.Health;
+                break;
+            case StatType.Shield:
+                value = t.Shield;
+                break;
+            case StatType.Energy:
+                value = t.Energy;
+                break;
+            case StatType.Coins:
+                value = t.Money;
+                break;
+            default: return 0;
+        }
+        return math.clamp(value, 0, MaxReturnedNumber.GetValue());
+    }
     protected int GetCardNum()
     {
         Creature t = null;
@@ -105,6 +138,8 @@ public class RecursiveInt : ModularVar
                 return GetCardNum();
             case ValueType.Infinity:
                 return int.MaxValue;
+            case ValueType.CreatureStat:
+                return GetStat();
             default: return 0;
         }
     }
@@ -167,6 +202,8 @@ public class RecursiveFloat : ModularVar
                 return GetCardNum();
             case ValueType.Infinity:
                 return Mathf.Infinity;
+            case ValueType.CreatureStat:
+                return GetStat();
             default: return 0;
         }
     }

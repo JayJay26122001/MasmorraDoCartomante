@@ -33,6 +33,7 @@ public class ModularDrawer : PropertyDrawer
             SerializedProperty ObservedPile = property.FindPropertyRelative("ObservedPile");
             SerializedProperty CountOnlyTypes = property.FindPropertyRelative("CountOnlyTypes");
             SerializedProperty MaxReturnedNumber = property.FindPropertyRelative("MaxReturnedNumber");
+            SerializedProperty ObservedStat = property.FindPropertyRelative("ObservedStat");
 
             // Draw type
             if (typeProp != null)
@@ -88,6 +89,25 @@ public class ModularDrawer : PropertyDrawer
                         float TypeHeight = EditorGUI.GetPropertyHeight(CountOnlyTypes, true);
                         EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, TypeHeight), CountOnlyTypes, true);
                         yOffset += TypeHeight + 2f;
+                    }
+                    break;
+
+                case ModularVar.ValueType.CreatureStat:
+                    if (target != null)
+                    {
+                        EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, EditorGUIUtility.singleLineHeight), target);
+                        yOffset += lineHeight;
+                    }
+                    if (ObservedStat != null)
+                    {
+                        EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, EditorGUIUtility.singleLineHeight), ObservedStat);
+                        yOffset += lineHeight;
+                    }
+                    if (MaxReturnedNumber != null)
+                    {
+                        float numberHeight = EditorGUI.GetPropertyHeight(MaxReturnedNumber, true);
+                        EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, numberHeight),MaxReturnedNumber,true);
+                        yOffset += numberHeight + 2f;
                     }
                     break;
 
@@ -147,6 +167,20 @@ public class ModularDrawer : PropertyDrawer
                     SerializedProperty countOnlyTypes = property.FindPropertyRelative("CountOnlyTypes");
                     if (countOnlyTypes != null)
                         height += EditorGUI.GetPropertyHeight(countOnlyTypes, true) + 2f;
+
+                    break;
+
+                case ModularVar.ValueType.CreatureStat:
+                    // target
+                    height += EditorGUIUtility.singleLineHeight + 2f;
+
+                    // ObservedStat
+                    height += EditorGUIUtility.singleLineHeight + 2f;
+
+                    //Max returned number
+                    SerializedProperty MaxReturnedNumber = property.FindPropertyRelative("MaxReturnedNumber");
+                    if (MaxReturnedNumber != null)
+                        height += EditorGUI.GetPropertyHeight(MaxReturnedNumber, true) + 2f;
 
                     break;
             }
