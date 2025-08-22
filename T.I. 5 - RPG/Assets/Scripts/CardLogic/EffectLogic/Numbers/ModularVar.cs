@@ -4,15 +4,18 @@ using UnityEngine;
 using UnityEditor;
 using UnityEngine.Serialization;
 using System.Linq;
+using Unity.Mathematics;
 [Serializable]
-public abstract class ModularVar
+public abstract class ModularVar : ISerializationCallbackReceiver
 {
-    [NonSerialized]public Card card;
-    public enum ValueType { Fixed, Random, CardNumber }
-    public enum Target { User, Oponent }
+    [NonSerialized] public Card card;
+    public enum ValueType { Fixed, Random, CardNumber, Infinity }
+    public enum Target { User, Opponent }
     public enum Pile { Hand, PlayedPile, DiscardPile, BuyingPile, Deck }
     public Target target;
     public Pile ObservedPile;
+    public List<Card.CardType> CountOnlyTypes = new List<Card.CardType>();
+    public SimpleInt MaxReturnedNumber = new SimpleInt();
     public void SetCard(Card owner)
     {
         card = owner;
@@ -29,23 +32,47 @@ public abstract class ModularVar
             case Target.User:
                 t = card.deck.Owner;
                 break;
-            case Target.Oponent:
+            case Target.Opponent:
                 t = card.deck.Owner.enemy;
                 break;
         }
         switch (ObservedPile)
         {
             case Pile.Hand:
-                return t.hand.Count;
+                return CheckTypes(t.hand);
             case Pile.PlayedPile:
-                return t.playedCards.Count;
+                return CheckTypes(t.playedCards);
             case Pile.DiscardPile:
-                return t.decks[0].DiscardPile.Count;
+                return CheckTypes(t.decks[0].DiscardPile.ToList());
             case Pile.BuyingPile:
-                return t.decks[0].BuyingPile.Count;
+                return CheckTypes(t.decks[0].BuyingPile.ToList());
             case Pile.Deck:
-                return t.decks[0].cards.Count;
+                return CheckTypes(t.decks[0].cards);
             default: return 0;
+        }
+    }
+    int CheckTypes(List<Card> pile)
+    {
+        if (CountOnlyTypes.Count <= 0) { math.clamp(pile.Count, 0, MaxReturnedNumber.GetValue()); }
+        int num = 0;
+        foreach (Card c in pile)
+        {
+            if (CountOnlyTypes.Contains(c.Type))
+            {
+                num++;
+            }
+        }
+        return math.clamp(num, 0, MaxReturnedNumber.GetValue());
+    }
+    public void OnBeforeSerialize()
+    {
+
+    }
+    public void OnAfterDeserialize()
+    {
+        if (!Enum.IsDefined(typeof(SimpleVar.ValueType), MaxReturnedNumber.type))
+        {
+            MaxReturnedNumber.type = SimpleVar.ValueType.Infinity;
         }
     }
 }
@@ -54,7 +81,7 @@ public abstract class ModularVar
 public class RecursiveInt : ModularVar
 {
     //public RecursiveInt(Card user): base(user) {}
-    
+
     [SerializeField] ValueType type;
     //[Header("Fixed")]
     public int value;
@@ -76,10 +103,12 @@ public class RecursiveInt : ModularVar
                 return UnityEngine.Random.Range(min, max + 1);
             case ValueType.CardNumber:
                 return GetCardNum();
+            case ValueType.Infinity:
+                return int.MaxValue;
             default: return 0;
         }
     }
-    
+
 
 }
 [Serializable]
@@ -136,6 +165,8 @@ public class RecursiveFloat : ModularVar
                 return UnityEngine.Random.Range(min, max);
             case ValueType.CardNumber:
                 return GetCardNum();
+            case ValueType.Infinity:
+                return Mathf.Infinity;
             default: return 0;
         }
     }

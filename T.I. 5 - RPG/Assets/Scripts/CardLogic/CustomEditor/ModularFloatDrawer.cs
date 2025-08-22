@@ -6,7 +6,7 @@ using UnityEngine;
 [CustomPropertyDrawer(typeof(RecursiveFloat))]
 [CustomPropertyDrawer(typeof(ModularInt))]
 [CustomPropertyDrawer(typeof(RecursiveInt))]
-public class ModularFloatDrawer : PropertyDrawer
+public class ModularDrawer : PropertyDrawer
 {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
@@ -31,6 +31,8 @@ public class ModularFloatDrawer : PropertyDrawer
             SerializedProperty modifiersProp = property.FindPropertyRelative("modifiers");
             SerializedProperty target = property.FindPropertyRelative("target");
             SerializedProperty ObservedPile = property.FindPropertyRelative("ObservedPile");
+            SerializedProperty CountOnlyTypes = property.FindPropertyRelative("CountOnlyTypes");
+            SerializedProperty MaxReturnedNumber = property.FindPropertyRelative("MaxReturnedNumber");
 
             // Draw type
             if (typeProp != null)
@@ -75,12 +77,24 @@ public class ModularFloatDrawer : PropertyDrawer
                         EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, EditorGUIUtility.singleLineHeight), ObservedPile);
                         yOffset += lineHeight;
                     }
+                    if (MaxReturnedNumber != null)
+                    {
+                        float numberHeight = EditorGUI.GetPropertyHeight(MaxReturnedNumber, true);
+                        EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, numberHeight),MaxReturnedNumber,true);
+                        yOffset += numberHeight + 2f;
+                    }
+                    if (CountOnlyTypes != null)
+                    {
+                        float TypeHeight = EditorGUI.GetPropertyHeight(CountOnlyTypes, true);
+                        EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, TypeHeight), CountOnlyTypes, true);
+                        yOffset += TypeHeight + 2f;
+                    }
                     break;
 
                 // Optional: case for future types
                 default:
-                    EditorGUI.LabelField(new Rect(position.x, yOffset, position.width, EditorGUIUtility.singleLineHeight), "Unsupported Value Type");
-                    yOffset += lineHeight;
+                    //EditorGUI.LabelField(new Rect(position.x, yOffset, position.width, EditorGUIUtility.singleLineHeight), "Unsupported Value Type");
+                    //yOffset += lineHeight;
                     break;
             }
 
@@ -107,13 +121,34 @@ public class ModularFloatDrawer : PropertyDrawer
 
             SerializedProperty typeProp = property.FindPropertyRelative("type");
 
-            if (typeProp.enumValueIndex == (int)ModularVar.ValueType.Fixed)
+            switch ((ModularVar.ValueType)typeProp.enumValueIndex)
             {
-                height += EditorGUIUtility.singleLineHeight + 2f; // Value
-            }
-            else
-            {
-                height += (EditorGUIUtility.singleLineHeight + 2f) * 2; // Min + Max
+                case ModularVar.ValueType.Fixed:
+                    height += EditorGUIUtility.singleLineHeight + 2f; // Value
+                    break;
+
+                case ModularVar.ValueType.Random:
+                    height += (EditorGUIUtility.singleLineHeight + 2f) * 2; // Min + Max
+                    break;
+
+                case ModularVar.ValueType.CardNumber:
+                    // target
+                    height += EditorGUIUtility.singleLineHeight + 2f;
+
+                    // ObservedPile
+                    height += EditorGUIUtility.singleLineHeight + 2f;
+
+                    //Max returned number
+                    SerializedProperty maxReturnedNumber = property.FindPropertyRelative("MaxReturnedNumber");
+                    if (maxReturnedNumber != null)
+                        height += EditorGUI.GetPropertyHeight(maxReturnedNumber, true) + 2f;
+
+                    // CountOnlyTypes (LIST → ask Unity)
+                    SerializedProperty countOnlyTypes = property.FindPropertyRelative("CountOnlyTypes");
+                    if (countOnlyTypes != null)
+                        height += EditorGUI.GetPropertyHeight(countOnlyTypes, true) + 2f;
+
+                    break;
             }
 
             SerializedProperty modifiersProp = property.FindPropertyRelative("modifiers");
@@ -121,6 +156,7 @@ public class ModularFloatDrawer : PropertyDrawer
             {
                 height += EditorGUI.GetPropertyHeight(modifiersProp, true) + 2f; // Modifiers
             }
+
 
         }
 

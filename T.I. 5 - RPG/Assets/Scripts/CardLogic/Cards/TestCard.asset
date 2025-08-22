@@ -23,7 +23,7 @@ MonoBehaviour:
   cost: 0
   Type: 0
   Rarity: 4
-  Description: every turn deal damage iqual to the number of cards in the oponent
+  Description: every turn deal damage equal to the number of cards in the oponent
     buying pile
   references:
     version: 2
@@ -39,6 +39,12 @@ MonoBehaviour:
         DamageMultiplier:
           target: 1
           ObservedPile: 3
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
           type: 2
           value: 0
           min: 0
@@ -54,6 +60,12 @@ MonoBehaviour:
         TurnsFromNow:
           target: 0
           ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
           type: 0
           value: 0
           min: 0

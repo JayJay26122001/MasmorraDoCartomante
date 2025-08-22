@@ -157,7 +157,7 @@ public class DealDamage : Effect, IActionEffect
     public bool MultipliedByBaseDamage = true;
     public ModularFloat DamageMultiplier;
     [SerializeField] bool IgnoreDefense;
-    enum Target { Oponent, User }
+    enum Target { Opponent, User }
     [SerializeField] Target target;
     public override void Apply()
     {
@@ -165,7 +165,7 @@ public class DealDamage : Effect, IActionEffect
         DamageAction action = null;
         switch (target)
         {
-            case Target.Oponent:
+            case Target.Opponent:
                 //card.deck.Owner.enemy.TakeDamage(GetDamage(), IgnoreDefense);
                 action = new DamageAction(card.deck.Owner.enemy, GetDamage(MultipliedByBaseDamage), IgnoreDefense);
                 break;
@@ -196,7 +196,7 @@ public class DealDamage : Effect, IActionEffect
 [Serializable]
 public class GainShield : Effect
 {
-    enum Target { User, Oponent }
+    enum Target { User, Opponent }
     public bool MultipliedByBaseShield = true;
     //[FormerlySerializedAs("DefenseMultiplier")]
     public ModularFloat ShieldMultiplier;
@@ -209,7 +209,7 @@ public class GainShield : Effect
             case Target.User:
                 card.deck.Owner.AddShield(GetDefense(MultipliedByBaseShield));
                 break;
-            case Target.Oponent:
+            case Target.Opponent:
                 card.deck.Owner.enemy.AddShield(GetDefense(MultipliedByBaseShield));
                 break;
         }
@@ -244,7 +244,7 @@ public class BuyCards : Effect
 public class GainEnergy : Effect
 {
     public ModularInt Amount;
-    enum Target { User, Oponent }
+    enum Target { User, Opponent }
     [SerializeField] Target target;
     //enum GainTime { WhenPlayed, NextTurn };
     //[SerializeField] GainTime time;
@@ -256,7 +256,7 @@ public class GainEnergy : Effect
             case Target.User:
                 card.deck.Owner.GainEnergy(Amount.GetValue());
                 break;
-            case Target.Oponent:
+            case Target.Opponent:
                 card.deck.Owner.enemy.GainEnergy(Amount.GetValue());
                 break;
         }
@@ -312,14 +312,14 @@ public class DiscardThisCard : Effect, IHiddenEffect
 public class Heal : Effect
 {
     public ModularInt AmountHealled;
-    enum Target { User, Oponent }
+    enum Target { User, Opponent }
     [SerializeField] Target target;
     public override void Apply()
     {
         base.Apply();
         switch (target)
         {
-            case Target.Oponent:
+            case Target.Opponent:
                 card.deck.Owner.enemy.Heal(AmountHealled.GetValue());
                 break;
             case Target.User:
@@ -343,7 +343,7 @@ public class BuffStat : Effect, IProlongedEffect
 
     [Header("Duration")]
     [SerializeField] Target TurnOwner;
-    enum Target { User, Oponent }
+    enum Target { User, Opponent }
     public int TurnsFromNow;
     public Combat.TurnPhaseTypes TurnPhaseToStop;
     [SerializeField] TurnPhase.PhaseTime StopAtPhase;
@@ -356,7 +356,7 @@ public class BuffStat : Effect, IProlongedEffect
         base.Apply();
         switch (TurnOwner)
         {
-            case Target.Oponent:
+            case Target.Opponent:
                 owner = card.deck.Owner.enemy;
                 break;
             case Target.User:
