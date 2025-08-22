@@ -10,7 +10,7 @@ public abstract class ModularVar : ISerializationCallbackReceiver
 {
     [NonSerialized] public Card card;
     public enum ValueType { Fixed, Random, CardNumber, Infinity }
-    public enum Target { User, Oponent }
+    public enum Target { User, Opponent }
     public enum Pile { Hand, PlayedPile, DiscardPile, BuyingPile, Deck }
     public Target target;
     public Pile ObservedPile;
@@ -32,7 +32,7 @@ public abstract class ModularVar : ISerializationCallbackReceiver
             case Target.User:
                 t = card.deck.Owner;
                 break;
-            case Target.Oponent:
+            case Target.Opponent:
                 t = card.deck.Owner.enemy;
                 break;
         }

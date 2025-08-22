@@ -79,15 +79,16 @@ public class ModularFloatDrawer : PropertyDrawer
                         EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, EditorGUIUtility.singleLineHeight), ObservedPile);
                         yOffset += lineHeight;
                     }
-                    if (CountOnlyTypes != null)
-                    {
-                        EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, EditorGUIUtility.singleLineHeight), CountOnlyTypes);
-                        yOffset += lineHeight;
-                    }
                     if (MaxReturnedNumber != null)
                     {
                         EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, EditorGUIUtility.singleLineHeight), MaxReturnedNumber);
                         yOffset += lineHeight;
+                    }
+                    if (CountOnlyTypes != null)
+                    {
+                        float modifiersHeight = EditorGUI.GetPropertyHeight(CountOnlyTypes, true);
+                        EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, modifiersHeight), CountOnlyTypes, true);
+                        yOffset += modifiersHeight + 2f;
                     }
                     break;
 
