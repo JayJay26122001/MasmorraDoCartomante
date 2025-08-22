@@ -5,7 +5,7 @@ using UnityEngine;
 [Serializable]
 public abstract class ConfirmationCondition
 {
-    protected enum Target { User, Oponent }
+    protected enum Target { User, Opponent }
     protected enum Comparative { Higher, Lower, Iqual, IqualOrHigher, IqualOrLower }
     [NonSerialized] public Effect effect;
     public abstract bool Confirm();
@@ -34,7 +34,7 @@ public class HasShield : ConfirmationCondition
     {
         switch (CreatureObserved)
         {
-            case Target.Oponent:
+            case Target.Opponent:
                 c = effect.card.deck.Owner.enemy;
                 break;
             case Target.User:
@@ -62,7 +62,7 @@ public class HasHealthAmount : ConfirmationCondition
     {
         switch (CreatureObserved)
         {
-            case Target.Oponent:
+            case Target.Opponent:
                 c = effect.card.deck.Owner.enemy;
                 break;
             case Target.User:

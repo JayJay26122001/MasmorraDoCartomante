@@ -6,7 +6,7 @@ using UnityEngine;
 [CustomPropertyDrawer(typeof(RecursiveFloat))]
 [CustomPropertyDrawer(typeof(ModularInt))]
 [CustomPropertyDrawer(typeof(RecursiveInt))]
-public class ModularFloatDrawer : PropertyDrawer
+public class ModularDrawer : PropertyDrawer
 {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {

@@ -86,7 +86,7 @@ public abstract class Condition
 [Serializable]
 public class CreaturePlayedCardType : Condition
 {
-    enum Target { Oponent, User }
+    enum Target { Opponent, User }
     [SerializeField] Target target;
     Creature t;
     [SerializeField] private Card.CardType expectedType;
@@ -97,7 +97,7 @@ public class CreaturePlayedCardType : Condition
         base.InitiateCondition();
         switch (target)
         {
-            case Target.Oponent:
+            case Target.Opponent:
                 t = effect.card.deck.Owner.enemy;
                 break;
             case Target.User:
@@ -127,7 +127,7 @@ public class CreaturePlayedCardType : Condition
 public class WaitUntilTurn : Condition
 {
     [SerializeField] Target TurnOwner;
-    enum Target { User, Oponent }
+    enum Target { User, Opponent }
     public ModularInt TurnsFromNow;
     public Combat.TurnPhaseTypes TurnPhase;
     public TurnPhase.PhaseTime PhaseTime;
@@ -139,7 +139,7 @@ public class WaitUntilTurn : Condition
         base.InitiateCondition();
         switch (TurnOwner)
         {
-            case Target.Oponent:
+            case Target.Opponent:
                 owner = effect.card.deck.Owner.enemy;
                 break;
             case Target.User:
@@ -172,7 +172,7 @@ public class DamageBlocked : Condition
 {
     [SerializeField] Target BlockedBy;
     [SerializeField] bool FailIfDamaged;
-    enum Target { User, Oponent }
+    enum Target { User, Opponent }
 
     UnityAction ConditionToSuceed = null, ConditionToFail = null;
     Creature owner;
@@ -181,7 +181,7 @@ public class DamageBlocked : Condition
         base.InitiateCondition();
         switch (BlockedBy)
         {
-            case Target.Oponent:
+            case Target.Opponent:
                 owner = effect.card.deck.Owner.enemy;
                 break;
             case Target.User:
@@ -217,7 +217,7 @@ public class DamageTaken : Condition
 {
     [SerializeField] Target DamagedTarget;
     [SerializeField] bool CountShieldedDamage;
-    enum Target { User, Oponent }
+    enum Target { User, Opponent }
 
     UnityAction ConditionToSuceed = null;
     UnityEvent chosenEvent = null;
@@ -227,7 +227,7 @@ public class DamageTaken : Condition
         base.InitiateCondition();
         switch (DamagedTarget)
         {
-            case Target.Oponent:
+            case Target.Opponent:
                 owner = effect.card.deck.Owner.enemy;
                 break;
             case Target.User:
@@ -257,7 +257,7 @@ public class DamageTaken : Condition
 public class HasShield : Condition, IConfirmationCondition
 {
     [SerializeField] Target CreatureObserved;
-    enum Target { User, Oponent }
+    enum Target { User, Opponent }
     [SerializeField] bool Reverse;
     Creature c;
     public override void InitiateCondition()
@@ -265,7 +265,7 @@ public class HasShield : Condition, IConfirmationCondition
         base.InitiateCondition();
         switch (CreatureObserved)
         {
-            case Target.Oponent:
+            case Target.Opponent:
                 c = effect.card.deck.Owner.enemy;
                 break;
             case Target.User:
