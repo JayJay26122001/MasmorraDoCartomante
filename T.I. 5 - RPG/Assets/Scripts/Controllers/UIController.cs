@@ -33,6 +33,8 @@ public class UIController : MonoBehaviour
     public GameObject quit3DButton;
     public GameObject rightArrow;
     public GameObject leftArrow;
+    public GameObject gameNameUp;
+    public GameObject gameNameDown;
     public float spinTime;
     [Header("3D Objects")]
     public List<GameObject> masks;
@@ -286,6 +288,8 @@ public class UIController : MonoBehaviour
         if (masks[2] != null) masks[2].SetActive(false);
         if (rightArrow != null) rightArrow.SetActive(false);
         if (leftArrow != null) leftArrow.SetActive(false);
+        if (gameNameUp != null) gameNameUp.SetActive(false);
+        if (gameNameDown != null) gameNameDown.SetActive(false);
     }
 
     public void CheckActiveMask() //verificar qual máscara está ativa antes de esconder os objetos do menu
@@ -307,7 +311,8 @@ public class UIController : MonoBehaviour
         if (activeMask != null) activeMask.SetActive(true); //ativar a máscara correta
         if (rightArrow != null) rightArrow.SetActive(true);
         if (leftArrow != null) leftArrow.SetActive(true);
-
+        if (gameNameUp != null) gameNameUp.SetActive(true);
+        if (gameNameDown != null) gameNameDown.SetActive(true);
     }
 
     public void SetMenuButtonsInteractable(bool interactable)
