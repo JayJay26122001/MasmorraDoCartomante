@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 235aa34e1edcd7940908071b2f440028
+guid: 5fbfb753604c45c4182c4978562dc267
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Var3Mat
+    second: {fileID: 2100000, guid: 1441e27535124c84ba8b7683e1680d3a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -22,7 +27,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -31,11 +36,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: PlayCard
-      takeName: ImaculatusRig|Cycle_Attack
-      internalID: -4256642220646521224
+      name: Defeat
+      takeName: MiniGolemRig|Defeat
+      internalID: -8717458491102739705
       firstFrame: 0
-      lastFrame: 65
+      lastFrame: 34
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -60,11 +65,40 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Damage
-      takeName: ImaculatusRig|Cycle_Damage
-      internalID: 6204639139645257638
+      name: Intro
+      takeName: MiniGolemRig|MiniGolem_NEWARRIVE
+      internalID: -7121596077427084787
       firstFrame: 0
-      lastFrame: 70
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: PlayCard
+      takeName: MiniGolemRig|MiniGolem_NEWATTACK
+      internalID: -988219160094675889
+      firstFrame: 0
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -90,17 +124,17 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Idle
-      takeName: ImaculatusRig|Cycle_Idle
-      internalID: 848531841790367536
+      takeName: MiniGolemRig|MiniGolem_NEWIDLE
+      internalID: 1336989776309409573
       firstFrame: 0
-      lastFrame: 249
+      lastFrame: 420
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -118,11 +152,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Shunt
-      takeName: ImaculatusRig|Cycle_Shunt
-      internalID: -8199317834814067824
+      name: TakeDamage
+      takeName: MiniGolemRig|MiniGolem_NEWTAKEDAMAGE
+      internalID: 2322121233251742213
       firstFrame: 0
-      lastFrame: 97
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -149,7 +183,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 23
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -204,7 +238,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 23
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
@@ -213,7 +247,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
