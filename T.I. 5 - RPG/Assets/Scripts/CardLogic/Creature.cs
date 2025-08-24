@@ -327,7 +327,7 @@ public class Creature : MonoBehaviour
         }
     }
 
-    public void Heal(int heal)
+    public virtual void Heal(int heal)
     {
         if (heal < 0) heal = 0;
         Health += heal;
@@ -345,7 +345,7 @@ public class Creature : MonoBehaviour
     {
         Energy = maxBaseEnergy;
     }
-    public void ResetHP()
+    public virtual void ResetHP()
     {
         hp = maxHP;
     }

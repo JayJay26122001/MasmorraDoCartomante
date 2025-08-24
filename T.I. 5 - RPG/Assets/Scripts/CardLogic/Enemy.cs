@@ -79,10 +79,16 @@ public class Enemy : Creature
                 if (trueDamage == 0)
                 {
                     DamageBlocked.Invoke();
+                    GameplayManager.instance.EnemyShieldVFX();
                 }
                 else
                 {
                     Wounded.Invoke();
+                    if(damage != trueDamage)
+                    {
+                        GameplayManager.instance.EnemyFracturedShieldVFX();
+                    }
+                    GameplayManager.instance.EnemyHitVFX(trueDamage);
                 }
             }
             Health -= trueDamage;

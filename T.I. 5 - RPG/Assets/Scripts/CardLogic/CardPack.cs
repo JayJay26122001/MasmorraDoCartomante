@@ -37,6 +37,7 @@ public class CardPack : MonoBehaviour
         {
             if (GameplayManager.instance.player.ChangeMoney(-data.price))
             {
+                GameplayManager.instance.ExplodeCoins(this.transform.position);
                 GameplayManager.instance.canBuy = false;
                 GameplayManager.instance.PlayCutscene(4);
                 discardBell.pack = this;

@@ -7,6 +7,7 @@ using UnityEngine.Playables;
 using UnityEngine.Timeline;
 using System.Collections;
 using TMPro;
+using UnityEngine.Rendering;
 public class GameplayManager : MonoBehaviour
 {
     public static Combat currentCombat;
@@ -35,6 +36,14 @@ public class GameplayManager : MonoBehaviour
     public bool canBuy, removingCards = false, figtingBoss;
     public int rerollPrice, rerollBasePrice;
     public TextMeshPro rerollText;
+
+    public ParticleSystem coinExplosion, hitVFX;
+    public List<CardAttack> attacksPool = new List<CardAttack>();
+    public List<CardAttack> attacksUsed = new List<CardAttack>();
+    public Volume hitVol, healVol;
+    public GameObject shield, fracturedShield;
+    public DamageVFX damageVFX;
+
     private void Awake()
     {
         instance = this;
@@ -50,6 +59,8 @@ public class GameplayManager : MonoBehaviour
                 e.value.SetupProbabilities();
             }
         }
+        coinExplosion.gameObject.SetActive(false);
+        hitVFX.gameObject.SetActive(false);
     }
     public void PauseInput(float time)
     {
@@ -244,12 +255,13 @@ public class GameplayManager : MonoBehaviour
         bell.pack.DestroyBoughtCards();
     }
 
-    public void RemovingCards()
+    public void RemovingCards(GameObject go)
     {
         if(canBuy)
         {
             if(player.ChangeMoney(-3))
             {
+                ExplodeCoins(go.transform.position);
                 canBuy = false;
                 removingCards = true;
                 PlayCutscene(4);
@@ -283,12 +295,13 @@ public class GameplayManager : MonoBehaviour
         canBuy = true;
     }
 
-    public void RerollPacks()
+    public void RerollPacks(GameObject go)
     {
         if(canBuy)
         {
             if(player.ChangeMoney(-rerollPrice))
             {
+                ExplodeCoins(go.transform.position);
                 bool disappear = false;
                 canBuy = false;
                 rerollPrice++;
@@ -356,5 +369,89 @@ public class GameplayManager : MonoBehaviour
     public void StartShopMusic()
     {
         AudioController.instance.PlayShopMusic();
+    }
+
+    public void ExplodeCoins(Vector3 pos)
+    {
+        coinExplosion.gameObject.transform.position = pos;
+        coinExplosion.gameObject.SetActive(true);
+        coinExplosion.Play();
+    }
+
+    public void ActivateCardAttack(Vector3 pos)
+    {
+        for(int i = 0; i < attacksPool.Count; i++)
+        {
+            if (!attacksUsed.Contains(attacksPool[i]))
+            {
+                attacksPool[i].transform.position = pos;
+                attacksPool[i].SetTarget(player.enemy.GetComponent<Enemy>().model.transform);
+                attacksPool[i].BezierCurve();
+                attacksUsed.Add(attacksPool[i]);
+                i = attacksPool.Count;
+            }
+        }
+    }
+
+    float volumeTimeStart, vfxDuration = 0.5f;
+    public void HealVFX()
+    {
+        volumeTimeStart = Time.time;
+        StartCoroutine(BlendVolumeIn(healVol));
+    }
+    public void HurtVFX()
+    {
+        volumeTimeStart = Time.time;
+        StartCoroutine(BlendVolumeIn(hitVol));
+    }
+
+    IEnumerator BlendVolumeIn(Volume v)
+    {
+        v.weight = Mathf.Clamp((Time.time - volumeTimeStart) / (vfxDuration / 2), 0, 1);
+        if(v.weight < 1)
+        {
+            yield return new WaitForSeconds(0.001f);
+            StartCoroutine(BlendVolumeIn(v));
+        }
+        else
+        {
+            volumeTimeStart = Time.time;
+            StartCoroutine(BlendVolumeOut(v));
+        }
+    }
+    IEnumerator BlendVolumeOut(Volume v)
+    {
+        v.weight = Mathf.Clamp(1 - ((Time.time - volumeTimeStart) / (vfxDuration / 2)), 0, 1);
+        if (v.weight > 0)
+        {
+            yield return new WaitForSeconds(0.001f);
+            StartCoroutine(BlendVolumeOut(v));
+        }
+    }
+
+    public void EnemyShieldVFX()
+    {
+        Vector3 auxPos = player.enemy.GetComponent<Enemy>().model.transform.position;
+        shield.transform.position = new Vector3(auxPos.x, 0, auxPos.z - player.enemy.GetComponent<Enemy>().model.GetComponent<CapsuleCollider>().radius - 10);
+        shield.SetActive(true);
+        Invoke("HideShield", 0.5f);
+    }
+    void HideShield()
+    {
+        shield.SetActive(false);
+    }
+    public void EnemyFracturedShieldVFX()
+    {
+        Vector3 auxPos = player.enemy.GetComponent<Enemy>().model.transform.position;
+        GameObject fShield = Instantiate(fracturedShield, new Vector3(auxPos.x, 0, auxPos.z - player.enemy.GetComponent<Enemy>().model.GetComponent<CapsuleCollider>().radius - 10), Quaternion.Euler(0,180,0));
+        Destroy(fShield, 3f);
+    }
+    public void EnemyHitVFX(int damage)
+    {
+        Vector3 auxPos = player.enemy.GetComponent<Enemy>().model.transform.position;
+        hitVFX.transform.position = new Vector3(auxPos.x, 5, auxPos.z - player.enemy.GetComponent<Enemy>().model.GetComponent<CapsuleCollider>().radius);
+        hitVFX.gameObject.SetActive(true);
+        hitVFX.Play();
+        damageVFX.SetDamage(damage);
     }
 }

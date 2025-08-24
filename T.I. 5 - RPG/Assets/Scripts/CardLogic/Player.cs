@@ -119,15 +119,28 @@ public class Player : Creature
         }
     }
 
-    public void BuyHeal(int price)
+    public void BuyHeal(GameObject go)
     {
         if(GameplayManager.instance.canBuy)
         {
-            if(ChangeMoney(-price))
+            if(ChangeMoney(-3))
             {
+                GameplayManager.instance.ExplodeCoins(go.transform.position);
                 ResetHP();
             }
         }
+    }
+
+    public override void ResetHP()
+    {
+        base.ResetHP();
+        GameplayManager.instance.HealVFX();
+    }
+
+    public override void Heal(int heal)
+    {
+        base.Heal(heal);
+        GameplayManager.instance.HealVFX();
     }
 }
 
