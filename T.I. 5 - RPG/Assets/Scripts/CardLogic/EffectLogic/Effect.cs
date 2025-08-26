@@ -394,3 +394,22 @@ public class BuffStat : Effect, IProlongedEffect
         }
     }
 }
+public class ShuffleDeck : Effect //bota as cartas descartadas na pilha de compra e embaralha
+{
+    enum Target { User, Opponent }
+    [SerializeField] Target target;
+    public override void Apply()
+    {
+        base.Apply();
+        switch (target)
+        {
+            case Target.Opponent:
+                card.deck.Owner.enemy.decks[0].ShuffleDeck();
+                break;
+            case Target.User:
+                card.deck.Owner.decks[0].ShuffleDeck();
+                break;
+        }
+        EffectEnded();
+    }
+}
