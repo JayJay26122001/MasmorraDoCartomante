@@ -22,7 +22,7 @@ public static class ListUT
         List<T> list = stack.ToList();
         stack.Clear();
 
-        for (int n = stack.Count; n > 1;)
+        for (int n = list.Count; n > 1;)
         {
             n--;
             int k = Random.Range(0, n + 1);
