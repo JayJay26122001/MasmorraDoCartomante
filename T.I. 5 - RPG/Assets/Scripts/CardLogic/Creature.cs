@@ -26,7 +26,7 @@ public class Creature : MonoBehaviour
     [Range(0, 1)][SerializeField] float baseDamageReduction = 0;
     public List<StatModifier> DamageModifiers, ShieldModifiers, DamageReductionModifiers;
     //public float BaseDamageMultiplier = 1, BaseDefenseMultiplier = 1;
-    public UnityEvent Damaged = new UnityEvent(), Wounded = new UnityEvent(), DamageBlocked = new UnityEvent();
+    public UnityEvent Damaged = new UnityEvent(), Wounded = new UnityEvent(), DamageBlocked = new UnityEvent(), ShieldBreak = new UnityEvent();
     public UnityEvent<Card> PlayedCard = new UnityEvent<Card>();
     public bool canPlayCards;
     public CardCombatSpaces combatSpace;
@@ -70,7 +70,7 @@ public class Creature : MonoBehaviour
     }
     public int BaseDamage
     {
-        get{ return baseDamage; }
+        get { return baseDamage; }
         /*get
         {
             int res = baseDamage;
@@ -83,7 +83,7 @@ public class Creature : MonoBehaviour
     }
     public int BaseShieldGain
     {
-        get{ return baseShieldGain; }
+        get { return baseShieldGain; }
         /*get
         {
             int res = baseShieldGain;
@@ -202,8 +202,8 @@ public class Creature : MonoBehaviour
             AudioController.instance.RandomizeSfx(AudioController.instance.sfxSource, AudioController.instance.playCardSfx);
         }, CardUIController.instance.mediumTimeAnim * 2 + CardUIController.instance.bigTimeAnim);
         //CardUIController.OrganizeEnemyPlayedCards(this);
-        c.CardPlayed();
         PlayedCard.Invoke(c);
+        c.CardPlayed();
         //Debug.Log("played card");
     }
     public void TriggerPlayedCards()
@@ -288,7 +288,12 @@ public class Creature : MonoBehaviour
         else
         {
             trueDamage = (int)Mathf.Clamp(damage - Shield, 0, Mathf.Infinity);
+            int OGshield = Shield;
             Shield -= damage;
+            if (OGshield > 0 && Shield == 0)
+            {
+                ShieldBreak.Invoke();
+            }
             if (trueDamage == 0)
             {
                 DamageBlocked.Invoke();
@@ -310,7 +315,12 @@ public class Creature : MonoBehaviour
         damage -= (int)(BaseDamageReduction * damage);
         if (damage <= 0) { return; }
         int trueDamage = (int)Mathf.Clamp(damage - Shield, 0, Mathf.Infinity);
+        int OGshield = Shield;
         Shield -= damage;
+        if (OGshield > 0 && Shield == 0)
+        {
+            ShieldBreak.Invoke();
+        }
         if (trueDamage == 0)
         {
             DamageBlocked.Invoke();

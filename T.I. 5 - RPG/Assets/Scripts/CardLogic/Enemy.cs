@@ -38,16 +38,25 @@ public class Enemy : Creature
             damage -= (int)(BaseDamageReduction * damage);
             if (damage <= 0) { return; }
             int trueDamage = (int)Mathf.Clamp(damage - Shield, 0, Mathf.Infinity);
+            int OGshield = Shield;
             Shield -= damage;
+            if (OGshield > 0 && Shield == 0)
+            {
+                GameplayManager.instance.EnemyFracturedShieldVFX();
+                ShieldBreak.Invoke();
+            }
             if (trueDamage == 0)
             {
+                GameplayManager.instance.EnemyShieldVFX();
                 DamageBlocked.Invoke();
             }
             else
             {
+                GameplayManager.instance.EnemyHitVFX();
                 Wounded.Invoke();
             }
             Health -= trueDamage;
+            GameplayManager.instance.DamageNumber(damage);
             Damaged.Invoke();
             if (Health <= 0)
             {
@@ -70,28 +79,33 @@ public class Enemy : Creature
             if (IgnoreDefense)
             {
                 trueDamage = damage;
+                GameplayManager.instance.EnemyHitVFX();
                 Wounded.Invoke();
             }
             else
             {
                 trueDamage = (int)Mathf.Clamp(damage - Shield, 0, Mathf.Infinity);
+                int OGshield = Shield;
                 Shield -= damage;
+                if (OGshield > 0 && Shield == 0)
+                {
+                    GameplayManager.instance.EnemyFracturedShieldVFX();
+                    ShieldBreak.Invoke();
+                }
                 if (trueDamage == 0)
                 {
-                    DamageBlocked.Invoke();
                     GameplayManager.instance.EnemyShieldVFX();
+                    DamageBlocked.Invoke();
                 }
                 else
                 {
+                    GameplayManager.instance.EnemyHitVFX();
                     Wounded.Invoke();
-                    if(damage != trueDamage)
-                    {
-                        GameplayManager.instance.EnemyFracturedShieldVFX();
-                    }
-                    GameplayManager.instance.EnemyHitVFX(trueDamage);
                 }
             }
             Health -= trueDamage;
+
+            GameplayManager.instance.DamageNumber(damage);
             Damaged.Invoke();
             if (Health <= 0)
             {

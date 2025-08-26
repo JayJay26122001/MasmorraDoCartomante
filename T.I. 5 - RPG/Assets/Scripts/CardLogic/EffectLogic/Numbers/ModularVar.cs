@@ -86,7 +86,7 @@ public abstract class ModularVar : ISerializationCallbackReceiver
     }
     int CheckTypes(List<Card> pile)
     {
-        if (CountOnlyTypes.Count <= 0) { math.clamp(pile.Count, 0, MaxReturnedNumber.GetValue()); }
+        if (CountOnlyTypes.Count <= 0) { return math.clamp(pile.Count, 0, MaxReturnedNumber.GetValue()); }
         int num = 0;
         foreach (Card c in pile)
         {

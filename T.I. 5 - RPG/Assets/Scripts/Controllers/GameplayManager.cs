@@ -52,9 +52,9 @@ public class GameplayManager : MonoBehaviour
 
     private void Start()
     {
-        foreach(Envelope<EnemyPool> e in enemyPools.matrix)
+        foreach (Envelope<EnemyPool> e in enemyPools.matrix)
         {
-            if(e.value != null)
+            if (e.value != null)
             {
                 e.value.SetupProbabilities();
             }
@@ -132,7 +132,7 @@ public class GameplayManager : MonoBehaviour
 
     public void SelectEnemy()
     {
-        if(!figtingBoss)
+        if (!figtingBoss)
         {
             int aux = enemyPools.GetValue(battlePerArea, areaIndex).value.SelectIndex();
             if (battlePerArea < enemyPools.XLength - 1)
@@ -157,28 +157,28 @@ public class GameplayManager : MonoBehaviour
 
     public void ShowEnemy(int index)
     {
-        for(int i = 0; i < enemies.Count; i++)
+        for (int i = 0; i < enemies.Count; i++)
         {
             enemies[i].gameObject.SetActive(i == index);
         }
     }
     public void ShowBoss()
     {
-        for(int i = 0; i < bosses.Count; i++)
+        for (int i = 0; i < bosses.Count; i++)
         {
             bosses[i].gameObject.SetActive(i == areaIndex);
         }
     }
     public void HideAllEnemies()
     {
-        for(int i = 0; i < enemies.Count; i++)
+        for (int i = 0; i < enemies.Count; i++)
         {
             enemies[i].gameObject.SetActive(false);
         }
     }
     public void HideAllBosses()
     {
-        for(int i = 0; i < bosses.Count; i++)
+        for (int i = 0; i < bosses.Count; i++)
         {
             bosses[i].gameObject.SetActive(false);
         }
@@ -186,7 +186,7 @@ public class GameplayManager : MonoBehaviour
 
     public void PlayCutscene(int index)
     {
-        if(index == 3 && !canBuy)
+        if (index == 3 && !canBuy)
         {
             return;
         }
@@ -240,7 +240,7 @@ public class GameplayManager : MonoBehaviour
 
     public void DiscardBell(DiscardBell bell)
     {
-        if(bell.pack != null)
+        if (bell.pack != null)
         {
             DiscardBoughtCards(bell);
         }
@@ -257,9 +257,9 @@ public class GameplayManager : MonoBehaviour
 
     public void RemovingCards(GameObject go)
     {
-        if(canBuy)
+        if (canBuy)
         {
-            if(player.ChangeMoney(-3))
+            if (player.ChangeMoney(-3))
             {
                 ExplodeCoins(go.transform.position);
                 canBuy = false;
@@ -297,18 +297,18 @@ public class GameplayManager : MonoBehaviour
 
     public void RerollPacks(GameObject go)
     {
-        if(canBuy)
+        if (canBuy)
         {
-            if(player.ChangeMoney(-rerollPrice))
+            if (player.ChangeMoney(-rerollPrice))
             {
                 ExplodeCoins(go.transform.position);
                 bool disappear = false;
                 canBuy = false;
                 rerollPrice++;
                 rerollText.text = "$" + rerollPrice;
-                foreach(CardPack pack in packs)
+                foreach (CardPack pack in packs)
                 {
-                    if(!pack.bought)
+                    if (!pack.bought)
                     {
                         pack.AnimatePack(true);
                         disappear = true;
@@ -321,7 +321,7 @@ public class GameplayManager : MonoBehaviour
 
     IEnumerator RerollAnimations(bool disappear)
     {
-        if(disappear)
+        if (disappear)
         {
             yield return new WaitUntil(() => CheckPacks(true));
         }
@@ -338,7 +338,7 @@ public class GameplayManager : MonoBehaviour
     bool CheckPacks(bool disappear)
     {
         bool aux = true;
-        if(disappear)
+        if (disappear)
         {
             foreach (CardPack pack in packs)
             {
@@ -380,7 +380,7 @@ public class GameplayManager : MonoBehaviour
 
     public void ActivateCardAttack(Vector3 pos)
     {
-        for(int i = 0; i < attacksPool.Count; i++)
+        for (int i = 0; i < attacksPool.Count; i++)
         {
             if (!attacksUsed.Contains(attacksPool[i]))
             {
@@ -408,7 +408,7 @@ public class GameplayManager : MonoBehaviour
     IEnumerator BlendVolumeIn(Volume v)
     {
         v.weight = Mathf.Clamp((Time.time - volumeTimeStart) / (vfxDuration / 2), 0, 1);
-        if(v.weight < 1)
+        if (v.weight < 1)
         {
             yield return new WaitForSeconds(0.001f);
             StartCoroutine(BlendVolumeIn(v));
@@ -443,15 +443,19 @@ public class GameplayManager : MonoBehaviour
     public void EnemyFracturedShieldVFX()
     {
         Vector3 auxPos = player.enemy.GetComponent<Enemy>().model.transform.position;
-        GameObject fShield = Instantiate(fracturedShield, new Vector3(auxPos.x, 0, auxPos.z - player.enemy.GetComponent<Enemy>().model.GetComponent<CapsuleCollider>().radius - 10), Quaternion.Euler(0,180,0));
+        GameObject fShield = Instantiate(fracturedShield, new Vector3(auxPos.x, 0, auxPos.z - player.enemy.GetComponent<Enemy>().model.GetComponent<CapsuleCollider>().radius - 10), Quaternion.Euler(0, 180, 0));
         Destroy(fShield, 3f);
     }
-    public void EnemyHitVFX(int damage)
+    public void EnemyHitVFX()
     {
         Vector3 auxPos = player.enemy.GetComponent<Enemy>().model.transform.position;
         hitVFX.transform.position = new Vector3(auxPos.x, 5, auxPos.z - player.enemy.GetComponent<Enemy>().model.GetComponent<CapsuleCollider>().radius);
         hitVFX.gameObject.SetActive(true);
         hitVFX.Play();
+        
+    }
+    public void DamageNumber(int damage)
+    {
         damageVFX.SetDamage(damage);
     }
 }

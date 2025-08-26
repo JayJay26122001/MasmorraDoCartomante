@@ -45,9 +45,9 @@ public class Player : Creature
         {
             CardUIController.PlayCardVFX(CardUIController.instance.puffVfx, c.cardDisplay.transform.position);
         }, CardUIController.instance.smallTimeAnim);
+        ActionController.instance.InvokeTimer(PlayedCard.Invoke, c, 0.2f);
         ActionController.instance.InvokeTimer(c.CardPlayed, 0.2f);
         ActionController.instance.InvokeTimer(AudioController.instance.RandomizeSfx, AudioController.instance.sfxSource, AudioController.instance.playCardSfx, 0.2f);
-        ActionController.instance.InvokeTimer(PlayedCard.Invoke, c, 0.2f);
     }
 
     public override void BuyCards(int quantity)
