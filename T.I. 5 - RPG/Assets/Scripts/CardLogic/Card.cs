@@ -36,8 +36,10 @@ public class Card : ScriptableObject
     public bool hidden, limited, instantaneous;
     public int cost;
     public enum CardType { Attack, Defense, Mind }
+    public enum CardPack { Normal, Zodiac, EnemyExclusive, MinorArcana, MajorArcana}
     public enum CardRarity { Common, Uncommon, Rare, Epic, Legendary }
     public CardType Type;
+    public CardPack Pack;
     public CardRarity Rarity;
     public string Description;
     //public List<Condition.condition> conditions = new List<Condition.condition>();
