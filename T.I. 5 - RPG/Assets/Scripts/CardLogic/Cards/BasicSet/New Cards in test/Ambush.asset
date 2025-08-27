@@ -24,7 +24,7 @@ MonoBehaviour:
   cost: 1
   Type: 0
   Rarity: 1
-  Description: Deals 1 Damage. Deals 9 instead if the Opponent have Shield
+  Description: Deals 1 Damage. Deals 9 instead if the Opponent have Shield.
   references:
     version: 2
     RefIds:
@@ -37,6 +37,15 @@ MonoBehaviour:
         - rid: 1178401810453889108
         MultipliedByBaseDamage: 1
         DamageMultiplier:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
           type: 0
           value: 0.2
           min: 0
@@ -59,6 +68,15 @@ MonoBehaviour:
         - rid: 1178401898369908824
         MultipliedByBaseDamage: 1
         DamageMultiplier:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
           type: 0
           value: 1.5
           min: 0
@@ -77,6 +95,15 @@ MonoBehaviour:
         CountThisEffect: 0
         Equation: 1
         Amount:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
           type: 0
           value: 1
           min: 0

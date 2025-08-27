@@ -18250,7 +18250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   DeckPresets:
-  - {fileID: 11400000, guid: 4b000ab3f8e8f994c8c754e94d28c100, type: 2}
+  - {fileID: 11400000, guid: 41288dae6ba50af42a2b52f1d724db83, type: 2}
   decks: []
   hand: []
   playedCards: []
@@ -22954,6 +22954,10 @@ PrefabInstance:
     - target: {fileID: 1521541294891739707, guid: d0e7254c8844de643b752aebbc3e360f, type: 3}
       propertyPath: EmissionModule.m_BurstCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1521541294891739707, guid: d0e7254c8844de643b752aebbc3e360f, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 1521541294891739707, guid: d0e7254c8844de643b752aebbc3e360f, type: 3}
       propertyPath: TrailModule.lifetime.scalar

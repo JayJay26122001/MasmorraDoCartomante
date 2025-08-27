@@ -25,8 +25,8 @@ MonoBehaviour:
   cost: 1
   Type: 2
   Rarity: 1
-  Description: If the opponent's next card is an attack card, deals 8 Damage and
-    gains 6 Defense
+  Description: If the Opponent's Next Card is an Attack card, deals 8 Damage and
+    gains 6 Shield
   references:
     version: 2
     RefIds:
@@ -39,6 +39,15 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseShield: 1
         ShieldMultiplier:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
           type: 0
           value: 1.2
           min: 0
@@ -54,6 +63,15 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseDamage: 1
         DamageMultiplier:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
           type: 0
           value: 1.2
           min: 0
@@ -89,6 +107,15 @@ MonoBehaviour:
         Repeatable: 0
         TurnOwner: 1
         TurnsFromNow:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
           type: 0
           value: 0
           min: 0

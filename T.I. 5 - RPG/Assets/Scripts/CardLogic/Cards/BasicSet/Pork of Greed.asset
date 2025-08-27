@@ -23,7 +23,7 @@ MonoBehaviour:
   cost: 0
   Type: 2
   Rarity: 2
-  Description: Buy 2 Cards
+  Description: Buy 2 Cards.
   references:
     version: 2
     RefIds:
@@ -34,6 +34,15 @@ MonoBehaviour:
         Conditions: []
         ConfirmationConditions: []
         BuyCardNumber:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
           type: 0
           value: 2
           min: 0

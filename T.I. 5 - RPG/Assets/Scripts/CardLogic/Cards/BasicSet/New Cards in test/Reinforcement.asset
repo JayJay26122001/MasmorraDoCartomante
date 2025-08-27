@@ -10,33 +10,65 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: "IV \u2013 The Emperor"
+  m_Name: Reinforcement
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 1178402034227347530
-  - rid: 1178402034227347531
+  - rid: 6961742099578617936
+  - rid: 6961742099578617938
+  - rid: 6961742099578617939
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: "IV \u2013 The Emperor"
+  Name: Reinforcement
   hidden: 0
-  limited: 0
+  limited: 1
   instantaneous: 0
-  cost: 1
-  Type: 0
-  Rarity: 4
-  Description: "Deals 10 damage and removes -1 Energy from the opponent\u2019s next
-    turn."
+  cost: 0
+  Type: 1
+  Rarity: 3
+  Description: Gain 2 Shield. Increases +4 for each Defense Card played with after.
+    LIMITED
   references:
     version: 2
     RefIds:
-    - rid: 1178402034227347530
-      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+    - rid: 6961742099578617936
+      type: {class: GainShield, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 6961742099578617937
+        ConfirmationConditions: []
+        MultipliedByBaseShield: 1
+        ShieldMultiplier:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          type: 0
+          value: 0.8
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0
+    - rid: 6961742099578617937
+      type: {class: CreaturePlayedCardType, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 1
+        target: 1
+        expectedType: 1
+        mustBeFirst: 0
+    - rid: 6961742099578617938
+      type: {class: GainShield, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
-        MultipliedByBaseDamage: 1
-        DamageMultiplier:
+        MultipliedByBaseShield: 1
+        ShieldMultiplier:
           target: 0
           ObservedPile: 0
           CountOnlyTypes: 
@@ -47,54 +79,15 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           type: 0
-          value: 1.6
+          value: 0.4
           min: 0
           max: 0
           modifiers: []
-        IgnoreDefense: 0
         target: 0
-    - rid: 1178402034227347531
-      type: {class: GainEnergy, ns: , asm: Assembly-CSharp}
+    - rid: 6961742099578617939
+      type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
-        Conditions:
-        - rid: 1178402034227347532
+        Conditions: []
         ConfirmationConditions: []
-        Amount:
-          target: 0
-          ObservedPile: 0
-          CountOnlyTypes: 
-          MaxReturnedNumber:
-            type: 0
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          type: 0
-          value: -1
-          min: 0
-          max: 0
-          modifiers: []
-        target: 1
-    - rid: 1178402034227347532
-      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
-      data:
-        Repeatable: 0
-        TurnOwner: 1
-        TurnsFromNow:
-          target: 0
-          ObservedPile: 0
-          CountOnlyTypes: 
-          MaxReturnedNumber:
-            type: 0
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          type: 0
-          value: 0
-          min: 0
-          max: 0
-          modifiers: []
-        TurnPhase: 0
-        PhaseTime: 0
+        SetAsDiscardTime: 0

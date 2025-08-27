@@ -23,7 +23,7 @@ MonoBehaviour:
   cost: 2
   Type: 1
   Rarity: 0
-  Description: Gains 13 defense.
+  Description: Gains 13 Shield.
   references:
     version: 2
     RefIds:
@@ -35,6 +35,15 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseShield: 1
         ShieldMultiplier:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
           type: 0
           value: 2.6
           min: 0

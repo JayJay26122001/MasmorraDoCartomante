@@ -25,8 +25,8 @@ MonoBehaviour:
   cost: 0
   Type: 1
   Rarity: 4
-  Description: Gain 9 defense. Until the user's next turn, if an incoming damage
-    is fully blocked, heal 10 health. LIMITED
+  Description: Gain 9 Shield. Until the user's next turn, if an incoming damage is
+    fully blocked, heal 10 health. LIMITED
   references:
     version: 2
     RefIds:
@@ -38,6 +38,15 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseShield: 1
         ShieldMultiplier:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
           type: 0
           value: 1.8
           min: 0
@@ -52,6 +61,15 @@ MonoBehaviour:
         - rid: 7391437929559097481
         ConfirmationConditions: []
         AmountHealled:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
           type: 0
           value: 10
           min: 0
@@ -78,6 +96,15 @@ MonoBehaviour:
         Repeatable: 0
         TurnOwner: 0
         TurnsFromNow:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
           type: 0
           value: 0
           min: 0

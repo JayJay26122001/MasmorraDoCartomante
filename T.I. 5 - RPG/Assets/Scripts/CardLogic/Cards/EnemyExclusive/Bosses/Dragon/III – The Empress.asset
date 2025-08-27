@@ -25,7 +25,7 @@ MonoBehaviour:
   Type: 1
   Rarity: 4
   Description: "Gain 18 Shield. Makes the Opponent receive +1 Energy on it\u2019s
-    next turn"
+    next turn."
   references:
     version: 2
     RefIds:
@@ -37,6 +37,15 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseShield: 1
         ShieldMultiplier:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
           type: 0
           value: 3.6
           min: 0
@@ -51,6 +60,15 @@ MonoBehaviour:
         - rid: 1178402034227347535
         ConfirmationConditions: []
         Amount:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
           type: 0
           value: 1
           min: 0
@@ -63,6 +81,15 @@ MonoBehaviour:
         Repeatable: 0
         TurnOwner: 1
         TurnsFromNow:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
           type: 0
           value: 0
           min: 0

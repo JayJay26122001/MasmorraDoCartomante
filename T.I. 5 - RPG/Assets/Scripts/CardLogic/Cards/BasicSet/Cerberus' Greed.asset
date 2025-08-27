@@ -24,7 +24,7 @@ MonoBehaviour:
   cost: 1
   Type: 0
   Rarity: 3
-  Description: Deal 4 damage and buy 3 cards
+  Description: Deal 4 Damage and Buy 3 Cards
   references:
     version: 2
     RefIds:
@@ -35,6 +35,15 @@ MonoBehaviour:
         Conditions: []
         ConfirmationConditions: []
         BuyCardNumber:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
           type: 0
           value: 3
           min: 0
@@ -48,6 +57,15 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseDamage: 1
         DamageMultiplier:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
           type: 0
           value: 0.6
           min: 0

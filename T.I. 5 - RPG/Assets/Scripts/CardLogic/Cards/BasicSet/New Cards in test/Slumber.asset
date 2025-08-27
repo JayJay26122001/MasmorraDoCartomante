@@ -10,30 +10,54 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: BattleCry
+  m_Name: Slumber
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 1178401898369908825
+  - rid: 6961742099578617938
+  - rid: 6961742099578617941
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: BattleCry
+  Name: Slumber
   hidden: 0
   limited: 0
-  instantaneous: 1
+  instantaneous: 0
   cost: 1
-  Type: 2
-  Rarity: 2
-  Description: "This turn, All the User\u2019s Damage Sources gain +4."
+  Type: 1
+  Rarity: 1
+  Description: "Gain 4 Shield and \u20133 Damage Reduction."
   references:
     version: 2
     RefIds:
-    - rid: 1178401898369908825
+    - rid: 6961742099578617938
+      type: {class: GainShield, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        MultipliedByBaseShield: 1
+        ShieldMultiplier:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          type: 0
+          value: 0.8
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0
+    - rid: 6961742099578617941
       type: {class: BuffStat, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
-        StatToBuff: 0
+        StatToBuff: 2
         Modifier:
           type: 1
           value:
@@ -47,7 +71,7 @@ MonoBehaviour:
               max: 0
             ObservedStat: 0
             type: 0
-            value: 4
+            value: 0.5
             min: 0
             max: 0
             modifiers: []

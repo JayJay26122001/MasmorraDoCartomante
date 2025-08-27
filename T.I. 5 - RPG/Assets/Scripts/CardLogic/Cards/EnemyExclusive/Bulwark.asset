@@ -24,7 +24,7 @@ MonoBehaviour:
   cost: 0
   Type: 2
   Rarity: 2
-  Description: If the oponent plays an attack card in their next turn, gain 15 defense.
+  Description: If the Opponent plays an Attack Card in their Next Turn, gain 15 Shield.
   references:
     version: 2
     RefIds:
@@ -37,6 +37,15 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseShield: 1
         ShieldMultiplier:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
           type: 0
           value: 3
           min: 0
@@ -64,6 +73,15 @@ MonoBehaviour:
         Repeatable: 0
         TurnOwner: 0
         TurnsFromNow:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
           type: 0
           value: 0
           min: 0
