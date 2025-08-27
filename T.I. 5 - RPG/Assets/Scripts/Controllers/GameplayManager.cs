@@ -44,6 +44,7 @@ public class GameplayManager : MonoBehaviour
     public GameObject shield, fracturedShield;
     public DamageVFX damageVFX;
 
+    public SimpleInt moneyPrize;
     private void Awake()
     {
         instance = this;
@@ -457,5 +458,10 @@ public class GameplayManager : MonoBehaviour
     public void DamageNumber(int damage)
     {
         damageVFX.SetDamage(damage);
+    }
+
+    public void PrizeMoney()
+    {
+        player.ChangeMoney(moneyPrize.GetValue() + areaIndex);
     }
 }
