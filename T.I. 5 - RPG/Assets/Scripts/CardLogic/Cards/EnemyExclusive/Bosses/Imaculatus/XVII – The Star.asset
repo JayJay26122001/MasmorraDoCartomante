@@ -10,34 +10,34 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: "III \u2013 The Empress"
+  m_Name: "XVII \u2013 The Star"
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 1178402034227347533
-  - rid: 1178402034227347534
+  - rid: 6961742135542415432
+  - rid: 6961742135542415433
+  - rid: 6961742135542415435
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: "III \u2013 The Empress"
+  Name: "XVII \u2013 The Star"
   hidden: 0
   limited: 0
   instantaneous: 0
-  cost: 2
-  Type: 1
+  cost: 1
+  Type: 0
   Pack: 4
   Rarity: 4
-  Description: "Gain 18 Shield. Makes the Opponent receive +1 Energy on it\u2019s
-    next turn."
+  Description: Deals 23 Damage. If Blocked, return the Damage to the User.
   references:
     version: 2
     RefIds:
-    - rid: 1178402034227347533
-      type: {class: GainShield, ns: , asm: Assembly-CSharp}
+    - rid: 6961742135542415432
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
-        MultipliedByBaseShield: 1
-        ShieldMultiplier:
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
           target: 0
           ObservedCards:
             target: 0
@@ -57,19 +57,21 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           type: 0
-          value: 3.6
+          value: 3.8
           min: 0
           max: 0
           modifiers: []
+        IgnoreDefense: 0
         target: 0
-    - rid: 1178402034227347534
-      type: {class: GainEnergy, ns: , asm: Assembly-CSharp}
+    - rid: 6961742135542415433
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions:
-        - rid: 1178402034227347535
+        - rid: 6961742135542415434
         ConfirmationConditions: []
-        Amount:
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
           target: 0
           ObservedCards:
             target: 0
@@ -89,39 +91,22 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           type: 0
-          value: 1
+          value: 3.8
           min: 0
           max: 0
           modifiers: []
+        IgnoreDefense: 0
         target: 1
-    - rid: 1178402034227347535
-      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
+    - rid: 6961742135542415434
+      type: {class: DamageBlocked, ns: , asm: Assembly-CSharp}
       data:
         Repeatable: 0
-        TurnOwner: 1
-        TurnsFromNow:
-          target: 0
-          ObservedCards:
-            target: 0
-            pile: 0
-            type: 0
-            rarity: 0
-            pack: 0
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-          MaxReturnedNumber:
-            type: 0
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          type: 0
-          value: 0
-          min: 0
-          max: 0
-          modifiers: []
-        TurnPhase: 0
-        PhaseTime: 0
+        BlockedBy: 1
+        FailIfDamaged: 0
+    - rid: 6961742135542415435
+      type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        SetAsDiscardTime: 0

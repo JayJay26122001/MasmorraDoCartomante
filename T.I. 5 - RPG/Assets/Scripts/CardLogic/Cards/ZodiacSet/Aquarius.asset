@@ -23,6 +23,7 @@ MonoBehaviour:
   instantaneous: 1
   cost: 2
   Type: 1
+  Pack: 1
   Rarity: 2
   Description: 8 Shield. Start the Next Turn with already 8 Shield
   references:
@@ -37,8 +38,17 @@ MonoBehaviour:
         MultipliedByBaseShield: 1
         ShieldMultiplier:
           target: 0
-          ObservedPile: 0
-          CountOnlyTypes: 
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
           MaxReturnedNumber:
             type: 0
             value: 0
@@ -61,8 +71,17 @@ MonoBehaviour:
         MultipliedByBaseShield: 1
         ShieldMultiplier:
           target: 0
-          ObservedPile: 0
-          CountOnlyTypes: 
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
           MaxReturnedNumber:
             type: 0
             value: 0
@@ -82,8 +101,17 @@ MonoBehaviour:
         TurnOwner: 0
         TurnsFromNow:
           target: 0
-          ObservedPile: 0
-          CountOnlyTypes: 
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
           MaxReturnedNumber:
             type: 0
             value: 0

@@ -23,6 +23,7 @@ MonoBehaviour:
   instantaneous: 0
   cost: 2
   Type: 0
+  Pack: 4
   Rarity: 4
   Description: Deals 6 Damage. Reduces by half the Damage Taken until the start of
     the User's next turn.
@@ -38,8 +39,17 @@ MonoBehaviour:
         MultipliedByBaseDamage: 1
         DamageMultiplier:
           target: 0
-          ObservedPile: 0
-          CountOnlyTypes: 
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
           MaxReturnedNumber:
             type: 0
             value: 0
@@ -64,8 +74,17 @@ MonoBehaviour:
           type: 1
           value:
             target: 0
-            ObservedPile: 0
-            CountOnlyTypes: 
+            ObservedCards:
+              target: 0
+              pile: 0
+              type: 0
+              rarity: 0
+              pack: 0
+              MaxReturnedNumber:
+                type: 2
+                value: 0
+                min: 0
+                max: 0
             MaxReturnedNumber:
               type: 0
               value: 0
