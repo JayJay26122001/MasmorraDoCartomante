@@ -14,18 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Owner: {fileID: 0}
   CardPresets:
-  - {fileID: 11400000, guid: b25decef69398d34baab05e906159592, type: 2}
-  - {fileID: 11400000, guid: f5df698fa3947074ebb31b07fdb255cd, type: 2}
-  - {fileID: 11400000, guid: f5df698fa3947074ebb31b07fdb255cd, type: 2}
-  - {fileID: 11400000, guid: f5df698fa3947074ebb31b07fdb255cd, type: 2}
-  - {fileID: 11400000, guid: f5df698fa3947074ebb31b07fdb255cd, type: 2}
-  - {fileID: 11400000, guid: f5df698fa3947074ebb31b07fdb255cd, type: 2}
-  - {fileID: 11400000, guid: f5df698fa3947074ebb31b07fdb255cd, type: 2}
-  - {fileID: 11400000, guid: f5df698fa3947074ebb31b07fdb255cd, type: 2}
-  - {fileID: 11400000, guid: f5df698fa3947074ebb31b07fdb255cd, type: 2}
-  - {fileID: 11400000, guid: f5df698fa3947074ebb31b07fdb255cd, type: 2}
-  - {fileID: 11400000, guid: f5df698fa3947074ebb31b07fdb255cd, type: 2}
-  - {fileID: 11400000, guid: f5df698fa3947074ebb31b07fdb255cd, type: 2}
+  - {fileID: 11400000, guid: c83363b608d14c54fae441586c3fdc23, type: 2}
+  - {fileID: 11400000, guid: e02e0690cdb79404986ac48fea040d4c, type: 2}
+  - {fileID: 11400000, guid: e02e0690cdb79404986ac48fea040d4c, type: 2}
+  - {fileID: 11400000, guid: e02e0690cdb79404986ac48fea040d4c, type: 2}
+  - {fileID: 11400000, guid: e02e0690cdb79404986ac48fea040d4c, type: 2}
+  - {fileID: 11400000, guid: 86df2bc4e2f5b8b40a967184fcd08235, type: 2}
+  - {fileID: 11400000, guid: c1f47245640c3104b8533113e96b066d, type: 2}
   cards: []
   BuyingPile:
     Stack: []
