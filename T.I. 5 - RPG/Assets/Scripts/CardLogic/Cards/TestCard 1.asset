@@ -22,6 +22,7 @@ MonoBehaviour:
   instantaneous: 0
   cost: 0
   Type: 1
+  Pack: 0
   Rarity: 4
   Description: 5 defense every turn
   references:
@@ -32,7 +33,30 @@ MonoBehaviour:
       data:
         Repeatable: 1
         TurnOwner: 0
-        TurnsFromNow: 0
+        TurnsFromNow:
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          type: 0
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
         TurnPhase: 1
         PhaseTime: 0
     - rid: 1178401998732263509
@@ -42,4 +66,29 @@ MonoBehaviour:
         Conditions:
         - rid: 1178401817022169206
         ConfirmationConditions: []
-        DefenseMultiplier: 1
+        MultipliedByBaseShield: 1
+        ShieldMultiplier:
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          type: 2
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0

@@ -6,6 +6,13 @@ public class Enemy : Creature
     public GameObject model;
     public enum EnemySize { Small, Medium, Large };
     public EnemySize size;
+    protected override void Awake()
+    {
+        base.Awake();
+        Wounded.AddListener(GameplayManager.instance.EnemyHitVFX);
+        DamageBlocked.AddListener(GameplayManager.instance.EnemyShieldVFX);
+        ShieldBreak.AddListener(GameplayManager.instance.EnemyFracturedShieldVFX);
+    }
     public override void CombatStartAction()
     {
         base.CombatStartAction();
@@ -42,17 +49,17 @@ public class Enemy : Creature
             Shield -= damage;
             if (OGshield > 0 && Shield == 0)
             {
-                GameplayManager.instance.EnemyFracturedShieldVFX();
+                //GameplayManager.instance.EnemyFracturedShieldVFX();
                 ShieldBreak.Invoke();
             }
             if (trueDamage == 0)
             {
-                GameplayManager.instance.EnemyShieldVFX();
+                //GameplayManager.instance.EnemyShieldVFX();
                 DamageBlocked.Invoke();
             }
             else
             {
-                GameplayManager.instance.EnemyHitVFX();
+                //GameplayManager.instance.EnemyHitVFX();
                 Wounded.Invoke();
             }
             Health -= trueDamage;
@@ -62,11 +69,6 @@ public class Enemy : Creature
             {
                 ActionController.instance.AddToQueue(new EnemyDefeat(this));
             }
-            /*else
-            {
-                EnemyTakeDamage anim = new EnemyTakeDamage(this);
-                ActionController.instance.AddToQueue(anim);
-            }*/
         }
     }
     public override void TakeDamage(int damage, bool IgnoreDefense)
@@ -79,7 +81,7 @@ public class Enemy : Creature
             if (IgnoreDefense)
             {
                 trueDamage = damage;
-                GameplayManager.instance.EnemyHitVFX();
+                //GameplayManager.instance.EnemyHitVFX();
                 Wounded.Invoke();
             }
             else
@@ -89,17 +91,17 @@ public class Enemy : Creature
                 Shield -= damage;
                 if (OGshield > 0 && Shield == 0)
                 {
-                    GameplayManager.instance.EnemyFracturedShieldVFX();
+                    //GameplayManager.instance.EnemyFracturedShieldVFX();
                     ShieldBreak.Invoke();
                 }
                 if (trueDamage == 0)
                 {
-                    GameplayManager.instance.EnemyShieldVFX();
+                    //GameplayManager.instance.EnemyShieldVFX();
                     DamageBlocked.Invoke();
                 }
                 else
                 {
-                    GameplayManager.instance.EnemyHitVFX();
+                    //GameplayManager.instance.EnemyHitVFX();
                     Wounded.Invoke();
                 }
             }
@@ -111,11 +113,6 @@ public class Enemy : Creature
             {
                 ActionController.instance.AddToQueue(new EnemyDefeat(this));
             }
-            /*else
-            {
-                EnemyTakeDamage anim = new EnemyTakeDamage(this);
-                ActionController.instance.AddToQueue(anim);
-            }*/
         }
 
         //N�O PODE TER ESSE ELSE AQUI, ESSE IF � PRA EVITAR DAR DANO DEPOIS DO INIMIGO MORRER E CHAMAR AS FUN��O DENOVO

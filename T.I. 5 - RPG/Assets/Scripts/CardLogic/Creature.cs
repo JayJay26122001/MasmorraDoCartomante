@@ -352,6 +352,10 @@ public class Creature : MonoBehaviour
 
     public void AddShield(int shield)
     {
+        if (Shield > 0 && Shield + shield <= 0)
+        {
+            ShieldBreak.Invoke();
+        }
         Shield += shield;
     }
     public void ResetShield()

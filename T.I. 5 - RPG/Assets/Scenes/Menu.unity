@@ -8181,6 +8181,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiController: {fileID: 0}
+  card:
+    target: 0
+    pile: 0
+    type: 0
+    rarity: 0
+    pack: 0
 --- !u!1 &1065846506
 GameObject:
   m_ObjectHideFlags: 0

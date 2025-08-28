@@ -30,8 +30,9 @@ public class ModularDrawer : PropertyDrawer
             SerializedProperty maxProp = property.FindPropertyRelative("max");
             SerializedProperty modifiersProp = property.FindPropertyRelative("modifiers");
             SerializedProperty target = property.FindPropertyRelative("target");
-            SerializedProperty ObservedPile = property.FindPropertyRelative("ObservedPile");
-            SerializedProperty CountOnlyTypes = property.FindPropertyRelative("CountOnlyTypes");
+            //SerializedProperty ObservedPile = property.FindPropertyRelative("ObservedPile");
+            //SerializedProperty CountOnlyTypes = property.FindPropertyRelative("CountOnlyTypes");
+            SerializedProperty ObservedCards = property.FindPropertyRelative("ObservedCards");
             SerializedProperty MaxReturnedNumber = property.FindPropertyRelative("MaxReturnedNumber");
             SerializedProperty ObservedStat = property.FindPropertyRelative("ObservedStat");
 
@@ -68,7 +69,7 @@ public class ModularDrawer : PropertyDrawer
                     break;
 
                 case ModularVar.ValueType.CardNumber:
-                    if (target != null)
+                    /*if (target != null)
                     {
                         EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, EditorGUIUtility.singleLineHeight), target);
                         yOffset += lineHeight;
@@ -89,6 +90,12 @@ public class ModularDrawer : PropertyDrawer
                         float TypeHeight = EditorGUI.GetPropertyHeight(CountOnlyTypes, true);
                         EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, TypeHeight), CountOnlyTypes, true);
                         yOffset += TypeHeight + 2f;
+                    }*/
+                    if (ObservedCards != null)
+                    {
+                        float observedCardHeight = EditorGUI.GetPropertyHeight(ObservedCards, true);
+                        EditorGUI.PropertyField(new Rect(position.x, yOffset, position.width, observedCardHeight),ObservedCards,true);
+                        yOffset += observedCardHeight + 2f;
                     }
                     break;
 
@@ -152,7 +159,7 @@ public class ModularDrawer : PropertyDrawer
                     break;
 
                 case ModularVar.ValueType.CardNumber:
-                    // target
+                    /*// target
                     height += EditorGUIUtility.singleLineHeight + 2f;
 
                     // ObservedPile
@@ -167,7 +174,11 @@ public class ModularDrawer : PropertyDrawer
                     SerializedProperty countOnlyTypes = property.FindPropertyRelative("CountOnlyTypes");
                     if (countOnlyTypes != null)
                         height += EditorGUI.GetPropertyHeight(countOnlyTypes, true) + 2f;
-
+                    */
+                    // ObservedCards
+                    SerializedProperty ObservedCards = property.FindPropertyRelative("ObservedCards");
+                    if (ObservedCards != null)
+                        height += EditorGUI.GetPropertyHeight(ObservedCards, true) + 2f;
                     break;
 
                 case ModularVar.ValueType.CreatureStat:

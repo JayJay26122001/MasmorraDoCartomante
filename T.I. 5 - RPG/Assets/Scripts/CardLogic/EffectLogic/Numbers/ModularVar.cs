@@ -11,11 +11,12 @@ public abstract class ModularVar : ISerializationCallbackReceiver
     [NonSerialized] public Card card;
     public enum ValueType { Fixed, Random, CardNumber, CreatureStat, Infinity}
     public enum Target { User, Opponent }
-    public enum Pile { Hand, PlayedPile, DiscardPile, BuyingPile, Deck }
+    //public enum Pile { Hand, PlayedPile, DiscardPile, BuyingPile, Deck }
     public enum StatType {Health, Shield, Energy, Coins}
     public Target target;
-    public Pile ObservedPile;
-    public List<Card.CardType> CountOnlyTypes = new List<Card.CardType>();
+    //public Pile ObservedPile;
+    //public List<Card.CardType> CountOnlyTypes = new List<Card.CardType>();
+    public CardVar ObservedCards;
     public SimpleInt MaxReturnedNumber = new SimpleInt();
     public StatType ObservedStat;
     public void SetCard(Card owner)
@@ -59,7 +60,8 @@ public abstract class ModularVar : ISerializationCallbackReceiver
     }
     protected int GetCardNum()
     {
-        Creature t = null;
+        return ObservedCards.GetCardsWithStats(card.deck.Owner).Count;
+        /*Creature t = null;
         switch (target)
         {
             case Target.User:
@@ -82,9 +84,9 @@ public abstract class ModularVar : ISerializationCallbackReceiver
             case Pile.Deck:
                 return CheckTypes(t.decks[0].cards);
             default: return 0;
-        }
+        }*/
     }
-    int CheckTypes(List<Card> pile)
+    /*int CheckTypes(List<Card> pile)
     {
         if (CountOnlyTypes.Count <= 0) { return math.clamp(pile.Count, 0, MaxReturnedNumber.GetValue()); }
         int num = 0;
@@ -96,7 +98,7 @@ public abstract class ModularVar : ISerializationCallbackReceiver
             }
         }
         return math.clamp(num, 0, MaxReturnedNumber.GetValue());
-    }
+    }*/
     public void OnBeforeSerialize()
     {
 

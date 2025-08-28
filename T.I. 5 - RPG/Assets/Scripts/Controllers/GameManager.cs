@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -21,13 +22,15 @@ public class GameManager : MonoBehaviour
     void Start()
     {
     }
-    /*public ModularInt var = new ModularInt();
-    public ModularFloat varFloat = new ModularFloat();
+    /*public CardVar card = new CardVar();
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log(var.GetValue());
+            foreach (Card c in card.GetCardsWithStats(GameplayManager.currentCombat.combatents[0])) {
+                Debug.Log(c.name);
+            }
+            
         }
     }*/
 }
