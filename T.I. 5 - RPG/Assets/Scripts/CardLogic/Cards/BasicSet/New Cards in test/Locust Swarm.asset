@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Locust Swarm(W.I.P)
+  m_Name: Locust Swarm
   m_EditorClassIdentifier: 
   Effects:
   - rid: 6961742136573427785
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Locust Swarm(W.I.P)
+  Name: Locust Swarm
   hidden: 0
   limited: 1
   instantaneous: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
           min: 0
           max: 0
           modifiers:
-          - operation: 3
+          - operation: 1
             Type: 1
             IntValue:
               target: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
                 max: 0
               ObservedStat: 0
               type: 0
-              value: 3
+              value: -2
               min: 0
               max: 0
         target: 1
