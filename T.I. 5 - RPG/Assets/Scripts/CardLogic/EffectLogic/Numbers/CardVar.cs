@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 
 [Serializable]
-public class CardVar
+public class CardVar : ISerializationCallbackReceiver
 {
     public enum Target { User, Opponent }
     public enum Pile { Deck, Hand, PlayedPile, DiscardPile, BuyingPile }
@@ -48,6 +48,7 @@ public class CardVar
     public Type type;
     public Rarity rarity;
     public Pack pack;
+    public SimpleInt MaxReturnedNumber = new SimpleInt();
 
     public List<Card> GetCardsWithStats(Creature user)
     {
@@ -75,7 +76,10 @@ public class CardVar
                 {
                     if ((pack & (Pack)(1 << (int)c.Pack)) != 0)
                     {
-                        foundCards.Add(c);
+                        if (foundCards.Count < MaxReturnedNumber.GetValue())
+                        {
+                            foundCards.Add(c);
+                        }
                     }
                 }
             }
@@ -97,6 +101,19 @@ public class CardVar
             case Pile.Deck:
                 return t.decks[0].cards;
             default: return null;
+        }
+    }
+    public void OnBeforeSerialize()
+    {
+
+    }
+    private bool initialized;
+    public void OnAfterDeserialize()
+    {
+        if (!initialized)
+        {
+            MaxReturnedNumber.type = SimpleVar.ValueType.Infinity;
+            initialized = true;
         }
     }
 }
