@@ -56,6 +56,7 @@ public class UIController : MonoBehaviour
     public Slider _sfxSlider;
     [Header("Game Combat HUD")]
     public GameObject combatHUD;
+    public TextMeshPro enemyName;
     [Header("Resolution and ScreenMode")]
     public TMP_Dropdown resDropdown, screenModeDropdown;
     [Header("Camera")]
@@ -695,5 +696,10 @@ public class UIController : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void ChangeNamePlate(string name)
+    {
+        enemyName.text = name;
     }
 }

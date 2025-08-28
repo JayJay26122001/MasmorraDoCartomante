@@ -138,6 +138,7 @@ public class Enemy : Creature
     {
         base.Die();
         GameplayManager.instance.PrizeMoney();
+        GameManager.instance.uiController.ChangeNamePlate("");
         //EnemyDefeat anim = new EnemyDefeat(this);
         //anim.AnimEnded.AddListener(SwitchToMap);
         //SceneAnimationController.instance.AddToQueue(anim);

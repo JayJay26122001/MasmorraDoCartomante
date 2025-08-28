@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class Creature : MonoBehaviour
 {
@@ -32,6 +34,7 @@ public class Creature : MonoBehaviour
     public CardCombatSpaces combatSpace;
 
     public TextMeshProUGUI hpText, shieldText, energyText;  //Ui das criaturas na batalha
+    public UnityEngine.UI.Image hpCircle;
     List<Card> exausted = new List<Card>();
 
     public int Money
@@ -119,15 +122,19 @@ public class Creature : MonoBehaviour
     {
         if (hpText != null)
         {
-            hpText.text = $"HP: {c.Health}";
+            hpText.text = $"{c.Health}";
         }
         if (shieldText != null)
         {
-            shieldText.text = $"Shield: {c.Shield}";
+            shieldText.text = $"{c.Shield}";
         }
         if (energyText != null)
         {
-            energyText.text = $"Energy: {c.Energy}";
+            energyText.text = $"{c.Energy}";
+        }
+        if(hpCircle != null)
+        {
+            hpCircle.fillAmount = (float)hp / (float)maxHP;
         }
     }
 

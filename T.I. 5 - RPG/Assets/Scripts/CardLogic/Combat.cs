@@ -29,6 +29,8 @@ public class Combat : MonoBehaviour
             combatents[1] = GameplayManager.instance.enemies[index];
         }
         CameraController.instance.PositionEnemyDamagedCam(combatents[1].GetComponent<Enemy>().size);
+
+        GameManager.instance.uiController.ChangeNamePlate(combatents[1].gameObject.name);
     }
     public TurnPhase GetTurnPhase(Creature C, TurnPhaseTypes phaseType)
     {
