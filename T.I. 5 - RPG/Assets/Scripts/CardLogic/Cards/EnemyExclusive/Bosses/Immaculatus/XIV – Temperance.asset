@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
+  m_Name: "XIV \u2013 Temperance"
+  m_EditorClassIdentifier: 
+  Effects:
+  - rid: 6961742136573427712
+  cardDisplay: {fileID: 0}
+  deck: {fileID: 0}
+  Name: "XIV \u2013 Temperance"
+  hidden: 0
+  limited: 0
+  instantaneous: 0
+  cost: 2
+  Type: 2
+  Pack: 4
+  Rarity: 4
+  Description: Receive Heal equal to half of the Opponent's Shield
+  references:
+    version: 2
+    RefIds:
+    - rid: 6961742136573427712
+      type: {class: Heal, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        AmountHealled:
+          target: 1
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+          MaxReturnedNumber:
+            type: 2
+            value: 999
+            min: 0
+            max: 0
+          ObservedStat: 1
+          type: 3
+          value: 0
+          min: 0
+          max: 0
+          modifiers:
+          - operation: 0
+            Type: 1
+            IntValue:
+              target: 0
+              ObservedCards:
+                target: 0
+                pile: 0
+                type: 0
+                rarity: 0
+                pack: 0
+                MaxReturnedNumber:
+                  type: 2
+                  value: 0
+                  min: 0
+                  max: 0
+              MaxReturnedNumber:
+                type: 0
+                value: 0
+                min: 0
+                max: 0
+              ObservedStat: 0
+              type: 0
+              value: 2
+              min: 0
+              max: 0
+            FloatValue:
+              target: 0
+              ObservedCards:
+                target: 0
+                pile: 0
+                type: 0
+                rarity: 0
+                pack: 0
+                MaxReturnedNumber:
+                  type: 2
+                  value: 0
+                  min: 0
+                  max: 0
+              MaxReturnedNumber:
+                type: 0
+                value: 0
+                min: 0
+                max: 0
+              ObservedStat: 0
+              type: 0
+              value: 2
+              min: 0
+              max: 0
+        target: 0
