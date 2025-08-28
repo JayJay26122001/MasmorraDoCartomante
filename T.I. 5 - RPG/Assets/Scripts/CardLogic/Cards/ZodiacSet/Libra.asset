@@ -49,8 +49,9 @@ MonoBehaviour:
               value: 0
               min: 0
               max: 0
+            initialized: 1
           MaxReturnedNumber:
-            type: 0
+            type: 2
             value: 999
             min: 0
             max: 0
@@ -75,6 +76,7 @@ MonoBehaviour:
                   value: 0
                   min: 0
                   max: 0
+                initialized: 1
               MaxReturnedNumber:
                 type: 0
                 value: 0
@@ -98,6 +100,7 @@ MonoBehaviour:
                   value: 0
                   min: 0
                   max: 0
+                initialized: 1
               MaxReturnedNumber:
                 type: 0
                 value: 0
@@ -130,6 +133,7 @@ MonoBehaviour:
               value: 0
               min: 0
               max: 0
+            initialized: 1
           MaxReturnedNumber:
             type: 2
             value: 999
@@ -156,6 +160,7 @@ MonoBehaviour:
                   value: 0
                   min: 0
                   max: 0
+                initialized: 1
               MaxReturnedNumber:
                 type: 0
                 value: 0
@@ -179,6 +184,7 @@ MonoBehaviour:
                   value: 0
                   min: 0
                   max: 0
+                initialized: 1
               MaxReturnedNumber:
                 type: 0
                 value: 0

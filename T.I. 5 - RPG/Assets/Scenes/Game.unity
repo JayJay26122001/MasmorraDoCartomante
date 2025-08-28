@@ -5223,7 +5223,7 @@ BoxCollider:
   m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 4.8976784, y: 1.708926, z: 0.052833498}
-  m_Center: {x: -1.1665664, y: 4.5421786, z: 0.97605085}
+  m_Center: {x: -1.09, y: 0, z: 0}
 --- !u!114 &435492735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20259,7 +20259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   DeckPresets:
-  - {fileID: 11400000, guid: 41288dae6ba50af42a2b52f1d724db83, type: 2}
+  - {fileID: 11400000, guid: 09d6c5b2d83f8a14dabe4d634765683a, type: 2}
   decks: []
   hand: []
   playedCards: []

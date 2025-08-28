@@ -107,7 +107,7 @@ public class CardVar : ISerializationCallbackReceiver
     {
 
     }
-    private bool initialized;
+    [SerializeField, HideInInspector]private bool initialized;
     public void OnAfterDeserialize()
     {
         if (!initialized)
