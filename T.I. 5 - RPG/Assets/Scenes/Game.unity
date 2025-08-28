@@ -25167,6 +25167,10 @@ PrefabInstance:
       value: VelaComSuporte
       objectReference: {fileID: 0}
     - target: {fileID: 6658485986305882312, guid: fc31ca6be1250c64bb3a81df3f94047b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6658485986305882312, guid: fc31ca6be1250c64bb3a81df3f94047b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
