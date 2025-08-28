@@ -10,58 +10,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: "XVI \u2013 The Tower"
+  m_Name: Ophiuchus
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 7391437929559097470
-  - rid: 7391437929559097471
+  - rid: 7391437906615730264
+  - rid: 6961742099578617856
+  - rid: 6961742099578617857
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: "XVI \u2013 The Tower"
+  Name: Ophiuchus
   hidden: 0
-  limited: 0
-  instantaneous: 0
-  cost: 2
-  Type: 0
+  limited: 1
+  instantaneous: 1
+  cost: 1
+  Type: 2
   Rarity: 4
-  Description: Deals 6 Damage. Reduces by half the Damage Taken until the start of
-    the User's next turn.
+  Description: Doubles the User's Attack and Shield effects, and 3 Extra Energy.
+    LIMITED
   references:
     version: 2
     RefIds:
-    - rid: 7391437929559097470
-      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
-      data:
-        DiscardIfAcomplished: 0
-        Conditions: []
-        ConfirmationConditions: []
-        MultipliedByBaseDamage: 1
-        DamageMultiplier:
-          target: 0
-          ObservedPile: 0
-          CountOnlyTypes: 
-          MaxReturnedNumber:
-            type: 0
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          type: 0
-          value: 1
-          min: 0
-          max: 0
-          modifiers: []
-        IgnoreDefense: 0
-        target: 0
-    - rid: 7391437929559097471
+    - rid: 6961742099578617856
       type: {class: BuffStat, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
-        StatToBuff: 2
+        StatToBuff: 0
         Modifier:
-          type: 1
+          type: 0
           value:
             target: 0
             ObservedPile: 0
@@ -73,11 +50,61 @@ MonoBehaviour:
               max: 0
             ObservedStat: 0
             type: 0
-            value: 0.6
+            value: 2
             min: 0
             max: 0
             modifiers: []
         TurnOwner: 0
         TurnsFromNow: 0
-        TurnPhaseToStop: 0
-        StopAtPhase: 0
+        TurnPhaseToStop: 1
+        StopAtPhase: 1
+    - rid: 6961742099578617857
+      type: {class: GainEnergy, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        Amount:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          type: 0
+          value: 3
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0
+    - rid: 7391437906615730264
+      type: {class: BuffStat, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        StatToBuff: 1
+        Modifier:
+          type: 0
+          value:
+            target: 0
+            ObservedPile: 0
+            CountOnlyTypes: 
+            MaxReturnedNumber:
+              type: 0
+              value: 0
+              min: 0
+              max: 0
+            ObservedStat: 0
+            type: 0
+            value: 2
+            min: 0
+            max: 0
+            modifiers: []
+        TurnOwner: 0
+        TurnsFromNow: 0
+        TurnPhaseToStop: 1
+        StopAtPhase: 1

@@ -137,7 +137,7 @@ public class Enemy : Creature
     public override void Die()
     {
         base.Die();
-        GameplayManager.instance.player.ChangeMoney(money);
+        GameplayManager.instance.PrizeMoney();
         //EnemyDefeat anim = new EnemyDefeat(this);
         //anim.AnimEnded.AddListener(SwitchToMap);
         //SceneAnimationController.instance.AddToQueue(anim);

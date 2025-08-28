@@ -24,7 +24,7 @@ MonoBehaviour:
   cost: 0
   Type: 2
   Rarity: 0
-  Description: Deal 4 Damage for each Attack Card the oponent plays next turn
+  Description: Deal 4 Damage for each Attack Card the Opponent plays Next Turn
   references:
     version: 2
     RefIds:
@@ -37,6 +37,15 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseDamage: 1
         DamageMultiplier:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
           type: 0
           value: 0.6
           min: 0
@@ -65,6 +74,15 @@ MonoBehaviour:
         Repeatable: 0
         TurnOwner: 1
         TurnsFromNow:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
           type: 0
           value: 0
           min: 0

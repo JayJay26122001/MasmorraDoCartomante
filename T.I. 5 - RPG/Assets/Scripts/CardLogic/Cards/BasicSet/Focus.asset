@@ -23,7 +23,7 @@ MonoBehaviour:
   cost: 0
   Type: 2
   Rarity: 1
-  Description: Gain 1 extra energy for this turn.
+  Description: Gain 1 Extra Energy for this Turn.
   references:
     version: 2
     RefIds:
@@ -34,6 +34,15 @@ MonoBehaviour:
         Conditions: []
         ConfirmationConditions: []
         Amount:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
           type: 0
           value: 1
           min: 0

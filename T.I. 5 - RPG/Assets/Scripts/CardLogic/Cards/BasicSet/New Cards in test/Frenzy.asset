@@ -25,7 +25,7 @@ MonoBehaviour:
   Type: 0
   Rarity: 3
   Description: Deals 4 Damage. Turns into 24 if the User has less than 10 health
-    remaining
+    remaining.
   references:
     version: 2
     RefIds:
@@ -38,6 +38,15 @@ MonoBehaviour:
         - rid: 1178401810453889126
         MultipliedByBaseDamage: 1
         DamageMultiplier:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
           type: 0
           value: 4
           min: 0
@@ -49,6 +58,15 @@ MonoBehaviour:
       type: {class: HasHealthAmount, ns: , asm: Assembly-CSharp}
       data:
         HealthAmount:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
           type: 0
           value: 10
           min: 0
@@ -66,6 +84,15 @@ MonoBehaviour:
         - rid: 1178401898369908823
         MultipliedByBaseDamage: 1
         DamageMultiplier:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
           type: 0
           value: 0.6
           min: 0
@@ -77,6 +104,15 @@ MonoBehaviour:
       type: {class: HasHealthAmount, ns: , asm: Assembly-CSharp}
       data:
         HealthAmount:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
           type: 0
           value: 10
           min: 0
@@ -90,6 +126,15 @@ MonoBehaviour:
         CountThisEffect: 0
         Equation: 1
         Amount:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
           type: 0
           value: 1
           min: 0

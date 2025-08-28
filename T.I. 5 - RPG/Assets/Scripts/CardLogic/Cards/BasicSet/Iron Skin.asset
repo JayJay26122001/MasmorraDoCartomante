@@ -23,7 +23,7 @@ MonoBehaviour:
   cost: 1
   Type: 1
   Rarity: 3
-  Description: Doubles the user's defense gain until the end of its turn.
+  Description: Doubles the User's Shield gain until the End of its Turn.
   references:
     version: 2
     RefIds:
@@ -37,6 +37,15 @@ MonoBehaviour:
         Modifier:
           type: 0
           value:
+            target: 0
+            ObservedPile: 0
+            CountOnlyTypes: 
+            MaxReturnedNumber:
+              type: 0
+              value: 0
+              min: 0
+              max: 0
+            ObservedStat: 0
             type: 0
             value: 2
             min: 0

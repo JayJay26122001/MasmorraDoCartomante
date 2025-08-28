@@ -23,7 +23,7 @@ MonoBehaviour:
   cost: 1
   Type: 2
   Rarity: 4
-  Description: Heal 2 -12 random Health
+  Description: Heal 2 -12 random Health.
   references:
     version: 2
     RefIds:
@@ -34,6 +34,15 @@ MonoBehaviour:
         Conditions: []
         ConfirmationConditions: []
         AmountHealled:
+          target: 0
+          ObservedPile: 0
+          CountOnlyTypes: 
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
           type: 1
           value: 0
           min: 2

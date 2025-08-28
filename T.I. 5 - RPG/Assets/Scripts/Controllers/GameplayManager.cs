@@ -44,6 +44,7 @@ public class GameplayManager : MonoBehaviour
     public GameObject shield, fracturedShield;
     public DamageVFX damageVFX;
 
+    public SimpleInt moneyPrize;
     private void Awake()
     {
         instance = this;
@@ -442,9 +443,26 @@ public class GameplayManager : MonoBehaviour
     }
     public void EnemyFracturedShieldVFX()
     {
-        Vector3 auxPos = player.enemy.GetComponent<Enemy>().model.transform.position;
+        /*Vector3 auxPos = player.enemy.GetComponent<Enemy>().model.transform.position;
         GameObject fShield = Instantiate(fracturedShield, new Vector3(auxPos.x, 0, auxPos.z - player.enemy.GetComponent<Enemy>().model.GetComponent<CapsuleCollider>().radius - 10), Quaternion.Euler(0, 180, 0));
-        Destroy(fShield, 3f);
+        Destroy(fShield, 3f);*/
+        Vector3 auxPos = player.enemy.GetComponent<Enemy>().model.transform.position;
+        fracturedShield.transform.position = new Vector3(auxPos.x, 0, auxPos.z - player.enemy.GetComponent<Enemy>().model.GetComponent<CapsuleCollider>().radius - 10);
+        for(int i = 0; i < fracturedShield.transform.childCount; i++)
+        {
+            fracturedShield.transform.GetChild(i).gameObject.GetComponent<ShieldPiece>().ResetTransform();
+            fracturedShield.transform.GetChild(i).gameObject.GetComponent<ShieldPiece>().Force();
+        }
+        fracturedShield.SetActive(true);
+        Invoke("HideFracturedShield", 3f);
+    }
+    void HideFracturedShield()
+    {
+        for (int i = 0; i < fracturedShield.transform.childCount; i++)
+        {
+            fracturedShield.transform.GetChild(i).gameObject.GetComponent<ShieldPiece>().DisableGravity();
+        }
+        fracturedShield.SetActive(false);
     }
     public void EnemyHitVFX()
     {
@@ -457,5 +475,10 @@ public class GameplayManager : MonoBehaviour
     public void DamageNumber(int damage)
     {
         damageVFX.SetDamage(damage);
+    }
+
+    public void PrizeMoney()
+    {
+        player.ChangeMoney(moneyPrize.GetValue() + areaIndex);
     }
 }

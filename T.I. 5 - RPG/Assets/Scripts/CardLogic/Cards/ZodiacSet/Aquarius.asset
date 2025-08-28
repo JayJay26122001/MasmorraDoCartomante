@@ -10,34 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Brute Force (Temp)
+  m_Name: Aquarius
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 7391437929559097541
-  - rid: 7391437929559097543
-  - rid: 7391437929559097578
+  - rid: 6961742099578617926
+  - rid: 6961742099578617928
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Brute Force
+  Name: Aquarius
   hidden: 0
   limited: 0
-  instantaneous: 0
-  cost: 0
-  Type: 0
+  instantaneous: 1
+  cost: 2
+  Type: 1
   Rarity: 2
-  Description: Deals 5 Damage, then deals 5 Piercing Damage. If the First Damage
-    that is dealt to the Opponent is Blocked, Deals an additional 5 Damage.
+  Description: 8 Shield. Start the Next Turn with already 8 Shield
   references:
     version: 2
     RefIds:
-    - rid: 7391437929559097541
-      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+    - rid: 6961742099578617926
+      type: {class: GainShield, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
-        MultipliedByBaseDamage: 1
-        DamageMultiplier:
+        MultipliedByBaseShield: 1
+        ShieldMultiplier:
           target: 0
           ObservedPile: 0
           CountOnlyTypes: 
@@ -48,21 +46,20 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           type: 0
-          value: 0.8
+          value: 1.5
           min: 0
           max: 0
           modifiers: []
-        IgnoreDefense: 0
         target: 0
-    - rid: 7391437929559097543
-      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+    - rid: 6961742099578617928
+      type: {class: GainShield, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions:
-        - rid: 7391437929559097577
+        - rid: 6961742099578617933
         ConfirmationConditions: []
-        MultipliedByBaseDamage: 1
-        DamageMultiplier:
+        MultipliedByBaseShield: 1
+        ShieldMultiplier:
           target: 0
           ObservedPile: 0
           CountOnlyTypes: 
@@ -73,26 +70,17 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           type: 0
-          value: 0.8
+          value: 1.5
           min: 0
           max: 0
           modifiers: []
-        IgnoreDefense: 0
         target: 0
-    - rid: 7391437929559097577
-      type: {class: DamageBlocked, ns: , asm: Assembly-CSharp}
+    - rid: 6961742099578617933
+      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
       data:
         Repeatable: 0
-        BlockedBy: 1
-        FailIfDamaged: 1
-    - rid: 7391437929559097578
-      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
-      data:
-        DiscardIfAcomplished: 0
-        Conditions: []
-        ConfirmationConditions: []
-        MultipliedByBaseDamage: 1
-        DamageMultiplier:
+        TurnOwner: 0
+        TurnsFromNow:
           target: 0
           ObservedPile: 0
           CountOnlyTypes: 
@@ -103,9 +91,9 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           type: 0
-          value: 0.8
+          value: 0
           min: 0
           max: 0
           modifiers: []
-        IgnoreDefense: 1
-        target: 0
+        TurnPhase: 0
+        PhaseTime: 0

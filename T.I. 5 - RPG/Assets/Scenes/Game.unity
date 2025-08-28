@@ -8748,6 +8748,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e01a27b40b7864495ba29f2877d079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &851689914
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1016935894}
+    m_Modifications:
+    - target: {fileID: 4914699753925300049, guid: 5d46227df9a09d543917fc7bd2b86e89, type: 3}
+      propertyPath: m_Name
+      value: FracturedShield
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914699753925300049, guid: 5d46227df9a09d543917fc7bd2b86e89, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728391600881178091, guid: 5d46227df9a09d543917fc7bd2b86e89, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728391600881178091, guid: 5d46227df9a09d543917fc7bd2b86e89, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728391600881178091, guid: 5d46227df9a09d543917fc7bd2b86e89, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728391600881178091, guid: 5d46227df9a09d543917fc7bd2b86e89, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728391600881178091, guid: 5d46227df9a09d543917fc7bd2b86e89, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728391600881178091, guid: 5d46227df9a09d543917fc7bd2b86e89, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728391600881178091, guid: 5d46227df9a09d543917fc7bd2b86e89, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728391600881178091, guid: 5d46227df9a09d543917fc7bd2b86e89, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728391600881178091, guid: 5d46227df9a09d543917fc7bd2b86e89, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728391600881178091, guid: 5d46227df9a09d543917fc7bd2b86e89, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5d46227df9a09d543917fc7bd2b86e89, type: 3}
 --- !u!1001 &867860072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9816,6 +9877,7 @@ Transform:
   - {fileID: 2125100999}
   - {fileID: 1700515076}
   - {fileID: 633837953}
+  - {fileID: 1382608229}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1033830381
@@ -13868,6 +13930,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1382608228 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4914699753925300049, guid: 5d46227df9a09d543917fc7bd2b86e89, type: 3}
+  m_PrefabInstance: {fileID: 851689914}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1382608229 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5728391600881178091, guid: 5d46227df9a09d543917fc7bd2b86e89, type: 3}
+  m_PrefabInstance: {fileID: 851689914}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1390083254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14477,8 +14549,13 @@ MonoBehaviour:
   hitVol: {fileID: 1700515077}
   healVol: {fileID: 633837954}
   shield: {fileID: 1219280677}
-  fracturedShield: {fileID: 4914699753925300049, guid: 5d46227df9a09d543917fc7bd2b86e89, type: 3}
+  fracturedShield: {fileID: 1382608228}
   damageVFX: {fileID: 1119806922}
+  moneyPrize:
+    type: 1
+    value: 0
+    min: 3
+    max: 5
 --- !u!114 &1432303491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18538,7 +18615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   DeckPresets:
-  - {fileID: 11400000, guid: 4b000ab3f8e8f994c8c754e94d28c100, type: 2}
+  - {fileID: 11400000, guid: 09d6c5b2d83f8a14dabe4d634765683a, type: 2}
   decks: []
   hand: []
   playedCards: []
@@ -23078,7 +23155,7 @@ PrefabInstance:
     - target: {fileID: 8338555351441099056, guid: 7d1b08cdd17bdfe469f03578c3e0d327, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 1549597524460503744, guid: b2520514044891446a89dc774c530aad, type: 2}
+      objectReference: {fileID: 1549597524460503744, guid: 89f0997d9a53d184d859a74ecc6874b5, type: 2}
     - target: {fileID: 8367927032789553607, guid: 7d1b08cdd17bdfe469f03578c3e0d327, type: 3}
       propertyPath: m_Name
       value: DamageVFX
