@@ -1,30 +1,47 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 [Serializable]
 public class CardVar
 {
     public enum Target { User, Opponent }
     public enum Pile { Deck, Hand, PlayedPile, DiscardPile, BuyingPile }
-    public enum Type { Any, Attack = Card.CardType.Attack, Defense = Card.CardType.Defense, Mind = Card.CardType.Mind}
-    public enum Rarity 
-    { 
-        Any, 
-        Common = Card.CardRarity.Common ,
-        Uncommon = Card.CardRarity.Uncommon, 
-        Rare = Card.CardRarity.Rare, 
-        Epic = Card.CardRarity.Epic, 
-        Legendary = Card.CardRarity.Legendary 
+    [System.Flags]
+    public enum Type
+    {
+        //Nothing = 0,
+        Attack = 1 << 0,
+        Defense = 1 << 1,
+        Mind = 1 << 2,
+
+        //Everything = Attack | Defense | Mind
     }
+
+    [System.Flags]
+    public enum Rarity
+    {
+        //Nothing = 0,
+        Common = 1 << 0,
+        Uncommon = 1 << 1,
+        Rare = 1 << 2,
+        Epic = 1 << 3,
+        Legendary = 1 << 4,
+
+        //Everything = Common | Uncommon | Rare | Epic | Legendary
+    }
+    [System.Flags]
     public enum Pack
     {
-        Any,
-        Normal = Card.CardPack.Normal,
-        Zodiac = Card.CardPack.Zodiac,
-        EnemyExclusive = Card.CardPack.EnemyExclusive,
-        MinorArcana = Card.CardPack.MinorArcana,
-        MajorArcana = Card.CardPack.MajorArcana
+        //Nothing = 0,
+        Normal = 1 << 0,
+        Zodiac = 1 << 1,
+        EnemyExclusive = 1 << 2,
+        MinorArcana = 1 << 3,
+        MajorArcana = 1 << 4,
+
+        //Everything = Normal | Zodiac | EnemyExclusive | MinorArcana | MajorArcana
     }
     public Target target;
     public Pile pile;
@@ -43,20 +60,20 @@ public class CardVar
             case Target.Opponent:
                 t = user.enemy;
                 break;
-            default: 
-                t= null;
+            default:
+                t = null;
                 break;
 
         }
         List<Card> observedPile = GetPile(t);
         List<Card> foundCards = new List<Card>();
-        foreach (Card c in t.decks[0].cards)
+        foreach (Card c in observedPile)
         {
-            if (type == Type.Any || (int)c.Type == (int)type-1)
+            if ((type & (Type)(1 << (int)c.Type)) != 0)
             {
-                if (rarity == Rarity.Any || (int)c.Rarity == (int)rarity - 1)
+                if ((rarity & (Rarity)(1 << (int)c.Rarity)) != 0)
                 {
-                    if (pack == Pack.Any || (int)c.Pack == (int)pack - 1)
+                    if ((pack & (Pack)(1 << (int)c.Pack)) != 0)
                     {
                         foundCards.Add(c);
                     }
@@ -65,7 +82,7 @@ public class CardVar
         }
         return foundCards;
     }
-    List<Card> GetPile( Creature t)
+    List<Card> GetPile(Creature t)
     {
         switch (pile)
         {
@@ -81,5 +98,48 @@ public class CardVar
                 return t.decks[0].cards;
             default: return null;
         }
+    }
+}
+public class ECardVar : CardVar
+{
+    public enum CountCard { DontCountThisCard, CountThisCard, CountOnlyThisCard }
+    public CountCard CountThisCard;
+    public List<Card> GetCardsWithStats(Card ownerCard)
+    {
+        List<Card> temp = GetCardsWithStats(ownerCard.deck.Owner);
+        switch (CountThisCard)
+        {
+            case CountCard.DontCountThisCard:
+                temp.Remove(ownerCard);
+                return temp;
+
+            case CountCard.CountThisCard:
+                return temp;
+
+            case CountCard.CountOnlyThisCard:
+                foreach (Card c in temp)
+                {
+                    if (c != ownerCard)
+                    {
+                        temp.Remove(c);
+                    }
+                }
+                return temp;
+
+            default: return null;
+        }
+    }
+}
+[CustomPropertyDrawer(typeof(CardVar.Type))][CustomPropertyDrawer(typeof(CardVar.Rarity))][CustomPropertyDrawer(typeof(CardVar.Pack))]
+public class CardTypeDrawer : PropertyDrawer
+{
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    {
+        property.intValue = EditorGUI.MaskField(
+            position,
+            label,
+            property.intValue,
+            property.enumDisplayNames
+        );
     }
 }
