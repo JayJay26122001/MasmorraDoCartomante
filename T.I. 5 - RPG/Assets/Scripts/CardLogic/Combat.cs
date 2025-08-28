@@ -87,6 +87,10 @@ public class Combat : MonoBehaviour
         {
             turnText.text = $"Enemy {ActiveTurn.currentPhase}";
         }
+        if(!BellColider.gameObject.GetComponent<Bell>().pointedToPlayer)
+        {
+            BellColider.gameObject.GetComponent<Bell>().Turn();
+        }
         //turnText.text = $"Creature {TurnIndex + 1} - Turn {TurnIndex + 1} {ActiveTurn.currentPhase}";
         //combatents[0].CardsOrganizer(); //mudan�a futura
         //combatents[1].CardsOrganizer(); //mudan�a futura
