@@ -28,7 +28,7 @@ public class Creature : MonoBehaviour
     [Range(0, 1)][SerializeField] float baseDamageReduction = 0;
     public List<StatModifier> DamageModifiers, ShieldModifiers, DamageReductionModifiers;
     //public float BaseDamageMultiplier = 1, BaseDefenseMultiplier = 1;
-    public UnityEvent Damaged = new UnityEvent(), Wounded = new UnityEvent(), DamageBlocked = new UnityEvent(), ShieldBreak = new UnityEvent();
+    public UnityEvent Damaged = new UnityEvent(), Wounded = new UnityEvent(), DamageBlocked = new UnityEvent(), ShieldBreak = new UnityEvent(), GainedShield = new UnityEvent();
     public UnityEvent<Card> PlayedCard = new UnityEvent<Card>();
     public bool canPlayCards;
     public CardCombatSpaces combatSpace;
@@ -352,11 +352,16 @@ public class Creature : MonoBehaviour
 
     public void AddShield(int shield)
     {
-        if (Shield > 0 && Shield + shield <= 0)
+        int OGshield = Shield;
+        Shield += shield;
+        if (OGshield > 0 && OGshield + shield <= 0)
         {
             ShieldBreak.Invoke();
         }
-        Shield += shield;
+        if (shield > 0)
+        {
+            GainedShield.Invoke();
+        }
     }
     public void ResetShield()
     {

@@ -284,3 +284,34 @@ public class ShieldBroke : Condition
         owner.ShieldBreak.RemoveListener(ConditionToSuceed);
     }
 }
+public class GainedShield : Condition
+{
+    [SerializeField] Target target;
+    enum Target { User, Opponent }
+
+    UnityAction ConditionToSuceed = null;
+    Creature owner;
+    public override void InitiateCondition()
+    {
+        base.InitiateCondition();
+        switch (target)
+        {
+            case Target.Opponent:
+                owner = effect.card.deck.Owner.enemy;
+                break;
+            case Target.User:
+                owner = effect.card.deck.Owner;
+                break;
+        }
+
+        ConditionToSuceed = () =>
+        {
+            ConcludeCondition(true);
+        };
+        owner.GainedShield.AddListener(ConditionToSuceed);
+    }
+    protected override void Unsubscribe()
+    {
+        owner.GainedShield.RemoveListener(ConditionToSuceed);
+    }
+}
