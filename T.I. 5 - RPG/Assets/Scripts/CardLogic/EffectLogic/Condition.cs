@@ -253,40 +253,34 @@ public class DamageTaken : Condition
         chosenEvent.RemoveListener(ConditionToSuceed);
     }
 }
-/*[Serializable]
-public class HasShield : Condition, IConfirmationCondition
+public class ShieldBroke : Condition
 {
-    [SerializeField] Target CreatureObserved;
+    [SerializeField] Target target;
     enum Target { User, Opponent }
-    [SerializeField] bool Reverse;
-    Creature c;
+
+    UnityAction ConditionToSuceed = null;
+    Creature owner;
     public override void InitiateCondition()
     {
         base.InitiateCondition();
-        switch (CreatureObserved)
+        switch (target)
         {
             case Target.Opponent:
-                c = effect.card.deck.Owner.enemy;
+                owner = effect.card.deck.Owner.enemy;
                 break;
             case Target.User:
-                c = effect.card.deck.Owner;
+                owner = effect.card.deck.Owner;
                 break;
         }
-    }
-    public bool Confirm()
-    {
-        if (Reverse)
+
+        ConditionToSuceed = () =>
         {
-            return !(c.Shield > 0);
-        }
-        else
-        {
-            return c.Shield > 0;
-        }
+            ConcludeCondition(true);
+        };
+        owner.ShieldBreak.AddListener(ConditionToSuceed);
     }
     protected override void Unsubscribe()
     {
-
+        owner.ShieldBreak.RemoveListener(ConditionToSuceed);
     }
-
-}*/
+}
