@@ -368,7 +368,10 @@ public class ApplyEffectAction : SceneAction
             {
                 e.state = Effect.EffectState.Failled;
                 e.EffectEnded();
-                ActionController.instance.AdvanceQueue();
+                if (IsInQueue)
+                {
+                    ActionController.instance.AdvanceQueue();
+                }
                 return;
             }
         }
