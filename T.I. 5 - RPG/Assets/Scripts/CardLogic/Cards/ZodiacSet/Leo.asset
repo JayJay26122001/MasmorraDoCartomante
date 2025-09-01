@@ -10,74 +10,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Scorpio
+  m_Name: Leo
   m_EditorClassIdentifier: 
   Effects:
   - rid: 6961742135542415360
-  - rid: 6961742135542415429
+  - rid: 6721762116634935296
+  - rid: 6721762116634935365
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Scorpio
+  Name: Leo
   hidden: 0
   limited: 0
   instantaneous: 0
-  cost: 1
+  cost: 2
   Type: 0
   Pack: 1
-  Rarity: 2
-  Description: Deals 4 Damage for 3 Turns.
+  Rarity: 3
+  Description: Deals 12 Damage. Retrigges if breaks the Opponent's Shield.
   references:
     version: 2
     RefIds:
-    - rid: 6961742135542415360
+    - rid: 6721762116634935296
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions:
-        - rid: 6961742135542415431
+        - rid: 6721762116634935297
         ConfirmationConditions: []
         MultipliedByBaseDamage: 1
         DamageMultiplier:
-          target: 0
-          ObservedCards:
-            target: 0
-            pile: 0
-            type: 0
-            rarity: 0
-            pack: 0
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-            initialized: 1
-          MaxReturnedNumber:
-            type: 0
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          type: 0
-          value: 0.6
-          min: 0
-          max: 0
-          modifiers: []
-        IgnoreDefense: 0
-        target: 0
-    - rid: 6961742135542415429
-      type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
-      data:
-        DiscardIfAcomplished: 0
-        Conditions:
-        - rid: 6961742135542415430
-        ConfirmationConditions: []
-        SetAsDiscardTime: 0
-    - rid: 6961742135542415430
-      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
-      data:
-        Repeatable: 0
-        TurnOwner: 0
-        TurnsFromNow:
           target: 0
           ObservedCards:
             target: 0
@@ -102,12 +63,25 @@ MonoBehaviour:
           min: 0
           max: 0
           modifiers: []
-        TurnPhase: 0
-        PhaseTime: 0
-    - rid: 6961742135542415431
+        IgnoreDefense: 0
+        target: 0
+    - rid: 6721762116634935297
+      type: {class: ShieldBroke, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        target: 1
+    - rid: 6721762116634935365
+      type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 6721762116634935366
+        ConfirmationConditions: []
+        SetAsDiscardTime: 0
+    - rid: 6721762116634935366
       type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
       data:
-        Repeatable: 1
+        Repeatable: 0
         TurnOwner: 0
         TurnsFromNow:
           target: 0
@@ -136,3 +110,37 @@ MonoBehaviour:
           modifiers: []
         TurnPhase: 1
         PhaseTime: 1
+    - rid: 6961742135542415360
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          type: 0
+          value: 2
+          min: 0
+          max: 0
+          modifiers: []
+        IgnoreDefense: 0
+        target: 0

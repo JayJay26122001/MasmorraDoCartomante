@@ -10,31 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Scorpio
+  m_Name: Cancer
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 6961742135542415360
-  - rid: 6961742135542415429
+  - rid: 6961742099578617926
+  - rid: 6721762116634935367
+  - rid: 6721762116634935369
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Scorpio
+  Name: Cancer
   hidden: 0
   limited: 0
   instantaneous: 0
-  cost: 1
-  Type: 0
+  cost: 2
+  Type: 1
   Pack: 1
   Rarity: 2
-  Description: Deals 4 Damage for 3 Turns.
+  Description: Gains 10 Shield. If the User's Shield breaks, deals 5 Damage.
   references:
     version: 2
     RefIds:
-    - rid: 6961742135542415360
+    - rid: 6721762116634935367
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions:
-        - rid: 6961742135542415431
+        - rid: 6721762116634935368
         ConfirmationConditions: []
         MultipliedByBaseDamage: 1
         DamageMultiplier:
@@ -58,57 +59,30 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           type: 0
-          value: 0.6
+          value: 0.8
           min: 0
           max: 0
           modifiers: []
         IgnoreDefense: 0
         target: 0
-    - rid: 6961742135542415429
+    - rid: 6721762116634935368
+      type: {class: ShieldBroke, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        target: 0
+    - rid: 6721762116634935369
       type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions:
-        - rid: 6961742135542415430
+        - rid: 6721762116634935370
         ConfirmationConditions: []
         SetAsDiscardTime: 0
-    - rid: 6961742135542415430
+    - rid: 6721762116634935370
       type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
       data:
         Repeatable: 0
-        TurnOwner: 0
-        TurnsFromNow:
-          target: 0
-          ObservedCards:
-            target: 0
-            pile: 0
-            type: 0
-            rarity: 0
-            pack: 0
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-            initialized: 1
-          MaxReturnedNumber:
-            type: 0
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          type: 0
-          value: 2
-          min: 0
-          max: 0
-          modifiers: []
-        TurnPhase: 0
-        PhaseTime: 0
-    - rid: 6961742135542415431
-      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
-      data:
-        Repeatable: 1
-        TurnOwner: 0
+        TurnOwner: 1
         TurnsFromNow:
           target: 0
           ObservedCards:
@@ -136,3 +110,36 @@ MonoBehaviour:
           modifiers: []
         TurnPhase: 1
         PhaseTime: 1
+    - rid: 6961742099578617926
+      type: {class: GainShield, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        MultipliedByBaseShield: 1
+        ShieldMultiplier:
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          type: 0
+          value: 2
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0

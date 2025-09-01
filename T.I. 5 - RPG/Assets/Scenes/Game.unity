@@ -7027,6 +7027,9 @@ MonoBehaviour:
   ShieldBreak:
     m_PersistentCalls:
       m_Calls: []
+  GainedShield:
+    m_PersistentCalls:
+      m_Calls: []
   PlayedCard:
     m_PersistentCalls:
       m_Calls: []
@@ -18394,6 +18397,9 @@ MonoBehaviour:
   ShieldBreak:
     m_PersistentCalls:
       m_Calls: []
+  GainedShield:
+    m_PersistentCalls:
+      m_Calls: []
   PlayedCard:
     m_PersistentCalls:
       m_Calls: []
@@ -20251,6 +20257,9 @@ MonoBehaviour:
   ShieldBreak:
     m_PersistentCalls:
       m_Calls: []
+  GainedShield:
+    m_PersistentCalls:
+      m_Calls: []
   PlayedCard:
     m_PersistentCalls:
       m_Calls: []
@@ -20486,6 +20495,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   ShieldBreak:
+    m_PersistentCalls:
+      m_Calls: []
+  GainedShield:
     m_PersistentCalls:
       m_Calls: []
   PlayedCard:
