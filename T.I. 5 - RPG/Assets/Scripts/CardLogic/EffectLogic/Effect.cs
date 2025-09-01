@@ -413,3 +413,29 @@ public class ShuffleDeck : Effect //bota as cartas descartadas na pilha de compr
         EffectEnded();
     }
 }
+public class DiscardCard : Effect
+{
+    [SerializeField] ECardVar Cards = new ECardVar();
+    public override void Apply()
+    {
+        base.Apply();
+        foreach (Card c in Cards.GetCardsWithStats(card))
+        {
+            c.deck.Owner.DiscardCard(c);
+        }
+        EffectEnded();
+    }
+}
+public class DestroyCard : Effect
+{
+    [SerializeField] ECardVar Cards = new ECardVar();
+    public override void Apply()
+    {
+        base.Apply();
+        foreach (Card c in Cards.GetCardsWithStats(card))
+        {
+            c.deck.Owner.ExaustCard(c);
+        }
+        EffectEnded();
+    }
+}
