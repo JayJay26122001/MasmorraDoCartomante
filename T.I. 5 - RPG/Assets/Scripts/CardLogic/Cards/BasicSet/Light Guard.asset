@@ -48,6 +48,7 @@ MonoBehaviour:
               value: 0
               min: 0
               max: 0
+            initialized: 1
           MaxReturnedNumber:
             type: 0
             value: 0
