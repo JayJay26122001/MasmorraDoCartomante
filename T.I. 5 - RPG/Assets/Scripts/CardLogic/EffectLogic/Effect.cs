@@ -107,7 +107,7 @@ public abstract class Effect
                 return;
             }
         }
-        foreach (ConfirmationCondition c in ConfirmationConditions)
+        /*foreach (ConfirmationCondition c in ConfirmationConditions)
         {
             if (!c.Confirm())
             {
@@ -115,7 +115,7 @@ public abstract class Effect
                 EffectEnded();
                 return;
             }
-        }
+        }*/
         state = EffectState.InProgress;
         ActionController.instance.AddToQueueBeforeAdvance(new ApplyEffectAction(this));
     }
@@ -124,7 +124,7 @@ public abstract class Effect
         if (Conditions.Count <= 0 && !effectStarted && !EffectAcomplished)
         {
             //Apply();
-            foreach (ConfirmationCondition c in ConfirmationConditions)
+            /*foreach (ConfirmationCondition c in ConfirmationConditions)
             {
                 if (!c.Confirm())
                 {
@@ -132,7 +132,7 @@ public abstract class Effect
                     EffectEnded();
                     return;
                 }
-            }
+            }*/
             state = EffectState.InProgress;
             ActionController.instance.AddToQueueBeforeAdvance(new ApplyEffectAction(this));
         }
@@ -156,7 +156,7 @@ public class DealDamage : Effect, IActionEffect
 {
     public bool MultipliedByBaseDamage = true;
     public ModularFloat DamageMultiplier;
-    [SerializeField] bool IgnoreDefense;
+    [SerializeField] public bool IgnoreDefense;
     enum Target { Opponent, User }
     [SerializeField] Target target;
     public override void Apply()
@@ -167,11 +167,11 @@ public class DealDamage : Effect, IActionEffect
         {
             case Target.Opponent:
                 //card.deck.Owner.enemy.TakeDamage(GetDamage(), IgnoreDefense);
-                action = new DamageAction(card.deck.Owner.enemy, GetDamage(MultipliedByBaseDamage), IgnoreDefense);
+                action = new DamageAction(card.deck.Owner.enemy, this);
                 break;
             case Target.User:
                 //card.deck.Owner.TakeDamage(GetDamage(), IgnoreDefense);
-                action = new DamageAction(card.deck.Owner, GetDamage(MultipliedByBaseDamage), IgnoreDefense);
+                action = new DamageAction(card.deck.Owner, this);
                 break;
         }
         action.AnimEnded.AddListener(EffectEnded);
@@ -179,9 +179,9 @@ public class DealDamage : Effect, IActionEffect
         action.StartAction();
         //EffectEnded();
     }
-    public int GetDamage(bool MultiplyByBaseDamage)
+    public int GetDamage()
     {
-        if (MultiplyByBaseDamage)
+        if (MultipliedByBaseDamage)
         {
             return (int)Math.Round(StatModifier.ApplyModfierList(card.deck.Owner.BaseDamage * DamageMultiplier.GetValue(), card.deck.Owner.DamageModifiers));
         }
