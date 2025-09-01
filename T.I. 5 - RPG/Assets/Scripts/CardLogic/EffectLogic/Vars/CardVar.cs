@@ -107,7 +107,7 @@ public class CardVar : ISerializationCallbackReceiver
     {
 
     }
-    [SerializeField, HideInInspector]private bool initialized;
+    [SerializeField, HideInInspector] private bool initialized;
     public void OnAfterDeserialize()
     {
         if (!initialized)
@@ -117,6 +117,7 @@ public class CardVar : ISerializationCallbackReceiver
         }
     }
 }
+[Serializable]
 public class ECardVar : CardVar
 {
     public enum CountCard { DontCountThisCard, CountThisCard, CountOnlyThisCard }
