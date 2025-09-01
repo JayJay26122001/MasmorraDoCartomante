@@ -107,7 +107,7 @@ public abstract class Effect
                 return;
             }
         }
-        foreach (ConfirmationCondition c in ConfirmationConditions)
+        /*foreach (ConfirmationCondition c in ConfirmationConditions)
         {
             if (!c.Confirm())
             {
@@ -115,7 +115,7 @@ public abstract class Effect
                 EffectEnded();
                 return;
             }
-        }
+        }*/
         state = EffectState.InProgress;
         ActionController.instance.AddToQueueBeforeAdvance(new ApplyEffectAction(this));
     }
@@ -124,7 +124,7 @@ public abstract class Effect
         if (Conditions.Count <= 0 && !effectStarted && !EffectAcomplished)
         {
             //Apply();
-            foreach (ConfirmationCondition c in ConfirmationConditions)
+            /*foreach (ConfirmationCondition c in ConfirmationConditions)
             {
                 if (!c.Confirm())
                 {
@@ -132,7 +132,7 @@ public abstract class Effect
                     EffectEnded();
                     return;
                 }
-            }
+            }*/
             state = EffectState.InProgress;
             ActionController.instance.AddToQueueBeforeAdvance(new ApplyEffectAction(this));
         }

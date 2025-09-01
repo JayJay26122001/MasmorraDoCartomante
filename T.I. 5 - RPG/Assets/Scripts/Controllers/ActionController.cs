@@ -362,14 +362,16 @@ public class ApplyEffectAction : SceneAction
     }
     public override void StartAction()
     {
-        /*finishAction = () =>
+        foreach (ConfirmationCondition c in e.ConfirmationConditions)
         {
-            AnimEnded.Invoke();
-            if (IsInQueue)
+            if (!c.Confirm())
             {
+                e.state = Effect.EffectState.Failled;
+                e.EffectEnded();
                 ActionController.instance.AdvanceQueue();
+                return;
             }
-        };*/
+        }
         ActionController.DebugAction(this);
         PerformAction();
     }
