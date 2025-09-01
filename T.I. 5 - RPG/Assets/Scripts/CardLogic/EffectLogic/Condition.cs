@@ -171,10 +171,10 @@ public class WaitUntilTurn : Condition
 public class DamageBlocked : Condition
 {
     [SerializeField] Target BlockedBy;
-    [SerializeField] bool FailIfDamaged;
+    [SerializeField] bool FailIfDamaged, DamageCameFromCard;
     enum Target { User, Opponent }
 
-    UnityAction ConditionToSuceed = null, ConditionToFail = null;
+    UnityAction<DealDamage> ConditionToSuceed = null, ConditionToFail = null;
     Creature owner;
     public override void InitiateCondition()
     {
@@ -189,16 +189,22 @@ public class DamageBlocked : Condition
                 break;
         }
 
-        ConditionToSuceed = () =>
+        ConditionToSuceed = (DealDamage d) =>
         {
-            ConcludeCondition(true);
+            if (!DamageCameFromCard || effect.card.Effects.Contains(d))
+            {
+                ConcludeCondition(true);
+            }
         };
         owner.DamageBlocked.AddListener(ConditionToSuceed);
         if (FailIfDamaged)
         {
-            ConditionToFail = () =>
+            ConditionToFail = (DealDamage d) =>
             {
-                ConcludeCondition(false);
+                if (!DamageCameFromCard || effect.card.Effects.Contains(d))
+                {
+                    ConcludeCondition(false);
+                }
             };
             owner.Wounded.AddListener(ConditionToFail);
         }
@@ -216,11 +222,11 @@ public class DamageBlocked : Condition
 public class DamageTaken : Condition
 {
     [SerializeField] Target DamagedTarget;
-    [SerializeField] bool CountShieldedDamage;
+    [SerializeField] bool CountShieldedDamage, DamageCameFromCard;
     enum Target { User, Opponent }
 
-    UnityAction ConditionToSuceed = null;
-    UnityEvent chosenEvent = null;
+    UnityAction<DealDamage> ConditionToSuceed = null;
+    UnityEvent<DealDamage> chosenEvent = null;
     Creature owner;
     public override void InitiateCondition()
     {
@@ -242,9 +248,13 @@ public class DamageTaken : Condition
         {
             chosenEvent = owner.Wounded;
         }
-        ConditionToSuceed = () =>
+        ConditionToSuceed = (DealDamage d) =>
         {
-            ConcludeCondition(true);
+            if (!DamageCameFromCard || effect.card.Effects.Contains(d))
+            {
+                ConcludeCondition(true);
+            }
+            
         };
         chosenEvent.AddListener(ConditionToSuceed);
     }

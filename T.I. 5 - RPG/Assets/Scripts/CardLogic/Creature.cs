@@ -28,7 +28,8 @@ public class Creature : MonoBehaviour
     [Range(0, 1)][SerializeField] float baseDamageReduction = 0;
     public List<StatModifier> DamageModifiers, ShieldModifiers, DamageReductionModifiers;
     //public float BaseDamageMultiplier = 1, BaseDefenseMultiplier = 1;
-    public UnityEvent Damaged = new UnityEvent(), Wounded = new UnityEvent(), DamageBlocked = new UnityEvent(), ShieldBreak = new UnityEvent(), GainedShield = new UnityEvent();
+    public UnityEvent<DealDamage> Damaged = new UnityEvent<DealDamage>(), Wounded = new UnityEvent<DealDamage>(), DamageBlocked = new UnityEvent<DealDamage>();
+    public UnityEvent ShieldBreak = new UnityEvent(), GainedShield = new UnityEvent();
     public UnityEvent<Card> PlayedCard = new UnityEvent<Card>();
     public bool canPlayCards;
     public CardCombatSpaces combatSpace;
@@ -282,15 +283,17 @@ public class Creature : MonoBehaviour
 
 
     //COMBAT METHODS
-    public virtual void TakeDamage(int damage, bool IgnoreDefense)
+    public virtual void TakeDamage(DealDamage dmg)
     {
+        int damage = dmg.GetDamage();
+        bool IgnoreDefense = dmg.IgnoreDefense;
         damage -= (int)(BaseDamageReduction * damage);
         if (damage <= 0) { return; }
         int trueDamage;
         if (IgnoreDefense)
         {
             trueDamage = damage;
-            Wounded.Invoke();
+            Wounded.Invoke(dmg);
         }
         else
         {
@@ -303,41 +306,15 @@ public class Creature : MonoBehaviour
             }
             if (trueDamage == 0)
             {
-                DamageBlocked.Invoke();
+                DamageBlocked.Invoke(dmg);
             }
             else
             {
-                Wounded.Invoke();
+                Wounded.Invoke(dmg);
             }
         }
         Health -= trueDamage;
-        Damaged.Invoke();
-        if (Health <= 0)
-        {
-            Die();
-        }
-    }
-    public virtual void TakeDamage(int damage)
-    {
-        damage -= (int)(BaseDamageReduction * damage);
-        if (damage <= 0) { return; }
-        int trueDamage = (int)Mathf.Clamp(damage - Shield, 0, Mathf.Infinity);
-        int OGshield = Shield;
-        Shield -= damage;
-        if (OGshield > 0 && Shield == 0)
-        {
-            ShieldBreak.Invoke();
-        }
-        if (trueDamage == 0)
-        {
-            DamageBlocked.Invoke();
-        }
-        else
-        {
-            Wounded.Invoke();
-        }
-        Health -= trueDamage;
-        Damaged.Invoke();
+        Damaged.Invoke(dmg);
         if (Health <= 0)
         {
             Die();

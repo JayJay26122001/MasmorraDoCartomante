@@ -25,7 +25,7 @@ MonoBehaviour:
   Type: 0
   Pack: 1
   Rarity: 2
-  Description: Deals 4 Damage for 3 Turns.
+  Description: Deals 4 Damage for 3 Turns on the End of the User's Turn.
   references:
     version: 2
     RefIds:
