@@ -24,6 +24,7 @@ MonoBehaviour:
   instantaneous: 0
   cost: 0
   Type: 0
+  Pack: 0
   Rarity: 2
   Description: Deals 5 Damage, then deals 5 Piercing Damage. If the First Damage
     that is dealt to the Opponent is Blocked, Deals an additional 5 Damage.
@@ -39,8 +40,18 @@ MonoBehaviour:
         MultipliedByBaseDamage: 1
         DamageMultiplier:
           target: 0
-          ObservedPile: 0
-          CountOnlyTypes: 
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
           MaxReturnedNumber:
             type: 0
             value: 0
@@ -64,8 +75,18 @@ MonoBehaviour:
         MultipliedByBaseDamage: 1
         DamageMultiplier:
           target: 0
-          ObservedPile: 0
-          CountOnlyTypes: 
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
           MaxReturnedNumber:
             type: 0
             value: 0
@@ -85,6 +106,7 @@ MonoBehaviour:
         Repeatable: 0
         BlockedBy: 1
         FailIfDamaged: 1
+        DamageCameFromCard: 1
     - rid: 7391437929559097578
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
@@ -94,8 +116,18 @@ MonoBehaviour:
         MultipliedByBaseDamage: 1
         DamageMultiplier:
           target: 0
-          ObservedPile: 0
-          CountOnlyTypes: 
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
           MaxReturnedNumber:
             type: 0
             value: 0

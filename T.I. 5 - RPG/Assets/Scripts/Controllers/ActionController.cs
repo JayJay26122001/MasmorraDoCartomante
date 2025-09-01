@@ -227,13 +227,11 @@ public class EnemyPlayCard : SceneAction
 public class DamageAction : SceneAction
 {
     Creature c;
-    int dmg;
-    bool ignoreDfns;
-    public DamageAction(Creature creature, int damage, bool IgnoreDefense)
+    DealDamage dmg;
+    public DamageAction(Creature creature, DealDamage damage)
     {
         c = creature;
         dmg = damage;
-        ignoreDfns = IgnoreDefense;
         if (c.GetType() == typeof(Enemy))
         {
             foreach (AnimationClip a in c.GetComponent<Enemy>().anim.runtimeAnimatorController.animationClips)
@@ -247,7 +245,7 @@ public class DamageAction : SceneAction
     }
     public override void PerformAction()
     {
-        c.TakeDamage(dmg, ignoreDfns);
+        c.TakeDamage(dmg);
         if (c.GetType() == typeof(Enemy))
         {
             c.GetComponent<Enemy>().anim.SetTrigger("TakeDamage");

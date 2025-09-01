@@ -9,8 +9,8 @@ public class Enemy : Creature
     protected override void Awake()
     {
         base.Awake();
-        Wounded.AddListener(GameplayManager.instance.EnemyHitVFX);
-        DamageBlocked.AddListener(GameplayManager.instance.EnemyShieldVFX);
+        Wounded.AddListener((DealDamage d) => GameplayManager.instance.EnemyHitVFX());
+        DamageBlocked.AddListener((DealDamage d) => GameplayManager.instance.EnemyShieldVFX());
         ShieldBreak.AddListener(GameplayManager.instance.EnemyFracturedShieldVFX);
     }
     public override void CombatStartAction()
@@ -38,43 +38,12 @@ public class Enemy : Creature
         if (!GameplayManager.instance.CombatActive) return;
         PlayCard(hand[0]);
     }*/
-    public override void TakeDamage(int damage)
+    public override void TakeDamage(DealDamage dmg)
     {
         if (Health > 0)
         {
-            damage -= (int)(BaseDamageReduction * damage);
-            if (damage <= 0) { return; }
-            int trueDamage = (int)Mathf.Clamp(damage - Shield, 0, Mathf.Infinity);
-            int OGshield = Shield;
-            Shield -= damage;
-            if (OGshield > 0 && Shield == 0)
-            {
-                //GameplayManager.instance.EnemyFracturedShieldVFX();
-                ShieldBreak.Invoke();
-            }
-            if (trueDamage == 0)
-            {
-                //GameplayManager.instance.EnemyShieldVFX();
-                DamageBlocked.Invoke();
-            }
-            else
-            {
-                //GameplayManager.instance.EnemyHitVFX();
-                Wounded.Invoke();
-            }
-            Health -= trueDamage;
-            GameplayManager.instance.DamageNumber(damage);
-            Damaged.Invoke();
-            if (Health <= 0)
-            {
-                ActionController.instance.AddToQueue(new EnemyDefeat(this));
-            }
-        }
-    }
-    public override void TakeDamage(int damage, bool IgnoreDefense)
-    {
-        if (Health > 0)
-        {
+            int damage = dmg.GetDamage();
+            bool IgnoreDefense = dmg.IgnoreDefense;
             damage -= (int)(BaseDamageReduction * damage);
             if (damage <= 0) { return; }
             int trueDamage;
@@ -82,7 +51,7 @@ public class Enemy : Creature
             {
                 trueDamage = damage;
                 //GameplayManager.instance.EnemyHitVFX();
-                Wounded.Invoke();
+                Wounded.Invoke(dmg);
             }
             else
             {
@@ -97,18 +66,18 @@ public class Enemy : Creature
                 if (trueDamage == 0)
                 {
                     //GameplayManager.instance.EnemyShieldVFX();
-                    DamageBlocked.Invoke();
+                    DamageBlocked.Invoke(dmg);
                 }
                 else
                 {
                     //GameplayManager.instance.EnemyHitVFX();
-                    Wounded.Invoke();
+                    Wounded.Invoke(dmg);
                 }
             }
             Health -= trueDamage;
 
             GameplayManager.instance.DamageNumber(damage);
-            Damaged.Invoke();
+            Damaged.Invoke(dmg);
             if (Health <= 0)
             {
                 ActionController.instance.AddToQueue(new EnemyDefeat(this));

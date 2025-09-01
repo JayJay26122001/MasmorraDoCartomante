@@ -50,6 +50,7 @@ MonoBehaviour:
               value: 0
               min: 0
               max: 0
+            initialized: 1
           MaxReturnedNumber:
             type: 0
             value: 0
@@ -84,6 +85,7 @@ MonoBehaviour:
               value: 0
               min: 0
               max: 0
+            initialized: 1
           MaxReturnedNumber:
             type: 0
             value: 0
@@ -102,7 +104,8 @@ MonoBehaviour:
       data:
         Repeatable: 0
         BlockedBy: 1
-        FailIfDamaged: 0
+        FailIfDamaged: 1
+        DamageCameFromCard: 1
     - rid: 6961742135542415435
       type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
       data:
