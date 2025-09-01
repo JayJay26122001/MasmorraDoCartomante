@@ -1,13 +1,14 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using System.Collections.Generic;
 using UnityEngine.Playables;
-using UnityEngine.Timeline;
-using System.Collections;
-using TMPro;
 using UnityEngine.Rendering;
+using UnityEngine.Timeline;
+using static UnityEditor.PlayerSettings;
 public class GameplayManager : MonoBehaviour
 {
     public static Combat currentCombat;
@@ -37,12 +38,15 @@ public class GameplayManager : MonoBehaviour
     public int rerollPrice, rerollBasePrice;
     public TextMeshPro rerollText;
 
-    public ParticleSystem coinExplosion, hitVFX;
+    public ParticleSystem coinExplosion;
     public List<CardAttack> attacksPool = new List<CardAttack>();
     public List<CardAttack> attacksUsed = new List<CardAttack>();
     public Volume hitVol, healVol;
     public GameObject shield, fracturedShield;
-    public DamageVFX damageVFX;
+    public List<DamageVFX> damageVFXPool = new List<DamageVFX>();
+    public List<DamageVFX> damageVFXUsed = new List<DamageVFX>();
+    public List<ParticleSystem> hitVFXPool = new List<ParticleSystem>();
+    public List<ParticleSystem> hitVFXUsed = new List<ParticleSystem>();
 
     public SimpleInt moneyPrize;
     private void Awake()
@@ -61,7 +65,10 @@ public class GameplayManager : MonoBehaviour
             }
         }
         coinExplosion.gameObject.SetActive(false);
-        hitVFX.gameObject.SetActive(false);
+        foreach (ParticleSystem p in hitVFXPool)
+        {
+            p.gameObject.SetActive(false);
+        }
     }
     public void PauseInput(float time)
     {
@@ -466,15 +473,37 @@ public class GameplayManager : MonoBehaviour
     }
     public void EnemyHitVFX()
     {
-        Vector3 auxPos = player.enemy.GetComponent<Enemy>().model.transform.position;
-        hitVFX.transform.position = new Vector3(auxPos.x, 5, auxPos.z - player.enemy.GetComponent<Enemy>().model.GetComponent<CapsuleCollider>().radius);
-        hitVFX.gameObject.SetActive(true);
-        hitVFX.Play();
-        
+        for (int i = 0; i < hitVFXPool.Count; i++)
+        {
+            if (!hitVFXUsed.Contains(hitVFXPool[i]))
+            {
+                Vector3 auxPos = player.enemy.GetComponent<Enemy>().model.transform.position;
+                hitVFXPool[i].transform.position = new Vector3(auxPos.x, 5, auxPos.z - player.enemy.GetComponent<Enemy>().model.GetComponent<CapsuleCollider>().radius);
+                hitVFXPool[i].gameObject.SetActive(true);
+                hitVFXPool[i].Play();
+                hitVFXUsed.Add(hitVFXPool[i]);
+                StartCoroutine(HitVFXStop(hitVFXPool[i]));
+                i = attacksPool.Count;
+            }
+        }
+    }
+
+    IEnumerator HitVFXStop(ParticleSystem p)
+    {
+        yield return new WaitForSeconds(0.5f);
+        GameplayManager.instance.hitVFXUsed.Remove(p);
     }
     public void DamageNumber(int damage)
     {
-        damageVFX.SetDamage(damage);
+        for (int i = 0; i < damageVFXPool.Count; i++)
+        {
+            if (!damageVFXUsed.Contains(damageVFXPool[i]))
+            {
+                damageVFXPool[i].SetDamage(damage);
+                damageVFXUsed.Add(damageVFXPool[i]);
+                i = damageVFXPool.Count;
+            }
+        }
     }
 
     public void PrizeMoney()

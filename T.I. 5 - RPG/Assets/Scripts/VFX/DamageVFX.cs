@@ -55,5 +55,9 @@ public class DamageVFX : MonoBehaviour
             t = Mathf.Clamp(t - 0.01f, 0, 1);
             Invoke("Disappear", 0.0001f);
         }
+        else
+        {
+            GameplayManager.instance.damageVFXUsed.Remove(this);
+        }
     }
 }
