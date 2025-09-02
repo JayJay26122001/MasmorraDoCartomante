@@ -52,15 +52,16 @@ public class HasShield : ConfirmationCondition
     }
 }
 [Serializable]
-public class HasHealthAmount : ConfirmationCondition
+public class ComparativeConfirmation : ConfirmationCondition
 {
-    [SerializeField] ModularInt HealthAmount;
-    [SerializeField] Target CreatureObserved;
+    [SerializeField] ModularInt ObservedValue;
     [SerializeField] Comparative Equation;
+    [SerializeField] ModularInt Amount;
+    //[SerializeField] Target CreatureObserved;
     Creature c;
     public override bool Confirm()
     {
-        switch (CreatureObserved)
+        /*switch (CreatureObserved)
         {
             case Target.Opponent:
                 c = effect.card.deck.Owner.enemy;
@@ -68,19 +69,19 @@ public class HasHealthAmount : ConfirmationCondition
             case Target.User:
                 c = effect.card.deck.Owner;
                 break;
-        }
+        }*/
         switch (Equation)
         {
             case Comparative.Higher:
-                return c.Health > HealthAmount.GetValue();
+                return ObservedValue.GetValue() > Amount.GetValue();
             case Comparative.Lower:
-                return c.Health < HealthAmount.GetValue();
+                return ObservedValue.GetValue() < Amount.GetValue();
             case Comparative.Iqual:
-                return c.Health == HealthAmount.GetValue();
+                return ObservedValue.GetValue() == Amount.GetValue();
             case Comparative.IqualOrHigher:
-                return c.Health >= HealthAmount.GetValue();
+                return ObservedValue.GetValue() >= Amount.GetValue();
             case Comparative.IqualOrLower:
-                return c.Health <= HealthAmount.GetValue();
+                return ObservedValue.GetValue() <= Amount.GetValue();
             default: return false;
         }
     }

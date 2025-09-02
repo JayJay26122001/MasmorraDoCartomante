@@ -23,6 +23,7 @@ MonoBehaviour:
   instantaneous: 0
   cost: 1
   Type: 0
+  Pack: 0
   Rarity: 3
   Description: Deals 4 Damage. Turns into 24 if the User has less than 10 health
     remaining.
@@ -35,12 +36,22 @@ MonoBehaviour:
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions:
-        - rid: 1178401810453889126
+        - rid: 8815182808613912642
         MultipliedByBaseDamage: 1
         DamageMultiplier:
           target: 0
-          ObservedPile: 0
-          CountOnlyTypes: 
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
           MaxReturnedNumber:
             type: 0
             value: 0
@@ -54,39 +65,29 @@ MonoBehaviour:
           modifiers: []
         IgnoreDefense: 0
         target: 0
-    - rid: 1178401810453889126
-      type: {class: HasHealthAmount, ns: , asm: Assembly-CSharp}
-      data:
-        HealthAmount:
-          target: 0
-          ObservedPile: 0
-          CountOnlyTypes: 
-          MaxReturnedNumber:
-            type: 0
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          type: 0
-          value: 10
-          min: 0
-          max: 0
-          modifiers: []
-        CreatureObserved: 0
-        Equation: 1
     - rid: 1178401810453889127
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions:
-        - rid: 1178401810453889128
         - rid: 1178401898369908823
+        - rid: 8815182808613912643
         MultipliedByBaseDamage: 1
         DamageMultiplier:
           target: 0
-          ObservedPile: 0
-          CountOnlyTypes: 
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
           MaxReturnedNumber:
             type: 0
             value: 0
@@ -100,26 +101,6 @@ MonoBehaviour:
           modifiers: []
         IgnoreDefense: 0
         target: 0
-    - rid: 1178401810453889128
-      type: {class: HasHealthAmount, ns: , asm: Assembly-CSharp}
-      data:
-        HealthAmount:
-          target: 0
-          ObservedPile: 0
-          CountOnlyTypes: 
-          MaxReturnedNumber:
-            type: 0
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          type: 0
-          value: 10
-          min: 0
-          max: 0
-          modifiers: []
-        CreatureObserved: 0
-        Equation: 3
     - rid: 1178401898369908823
       type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
       data:
@@ -127,8 +108,18 @@ MonoBehaviour:
         Equation: 1
         Amount:
           target: 0
-          ObservedPile: 0
-          CountOnlyTypes: 
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
           MaxReturnedNumber:
             type: 0
             value: 0
@@ -141,3 +132,111 @@ MonoBehaviour:
           max: 0
           modifiers: []
         EffectStates: 02000000
+    - rid: 8815182808613912642
+      type: {class: ComparativeConfirmation, ns: , asm: Assembly-CSharp}
+      data:
+        ObservedValue:
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          type: 3
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+        Equation: 1
+        Amount:
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          type: 0
+          value: 10
+          min: 0
+          max: 0
+          modifiers: []
+    - rid: 8815182808613912643
+      type: {class: ComparativeConfirmation, ns: , asm: Assembly-CSharp}
+      data:
+        ObservedValue:
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          type: 3
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+        Equation: 3
+        Amount:
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 0
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          type: 0
+          value: 10
+          min: 0
+          max: 0
+          modifiers: []
