@@ -103,13 +103,26 @@ public abstract class ModularVar : ISerializationCallbackReceiver
     {
 
     }
+    [SerializeField, HideInInspector] private bool initialized;
+    public void OnAfterDeserialize()
+    {
+        if (!initialized)
+        {
+            MaxReturnedNumber.type = SimpleVar.ValueType.Infinity;
+            initialized = true;
+        }
+    }
+    /*public void OnBeforeSerialize()
+    {
+
+    }
     public void OnAfterDeserialize()
     {
         if (!Enum.IsDefined(typeof(SimpleVar.ValueType), MaxReturnedNumber.type))
         {
             MaxReturnedNumber.type = SimpleVar.ValueType.Infinity;
         }
-    }
+    }*/
 }
 
 [Serializable]
