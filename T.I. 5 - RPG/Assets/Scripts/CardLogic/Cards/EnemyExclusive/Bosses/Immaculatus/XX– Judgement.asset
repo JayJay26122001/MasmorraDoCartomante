@@ -10,25 +10,54 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Pierce
+  m_Name: "XX\u2013 Judgement"
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 7391437407230361702
+  - rid: 6961742135542415432
+  - rid: 6721762140899246150
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Pierce
+  Name: "XX\u2013 Judgement"
   hidden: 0
   limited: 0
   instantaneous: 0
   cost: 1
   Type: 0
-  Pack: 0
-  Rarity: 2
-  Description: Deals 5 Damage, ignores Shield.
+  Pack: 4
+  Rarity: 4
+  Description: Deals 1 Damage. If Blocked, the Defense Card on Top of the Opponent's
+    Discard Pile is Destroyed.
   references:
     version: 2
     RefIds:
-    - rid: 7391437407230361702
+    - rid: 6721762140899246150
+      type: {class: DestroyCard, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 6721762140899246151
+        ConfirmationConditions: []
+        Cards:
+          target: 1
+          pile: 3
+          type: 2
+          rarity: -1
+          pack: -1
+          MaxReturnedNumber:
+            type: 0
+            value: 1
+            min: 0
+            max: 0
+          initialized: 1
+          CountThisCard: 0
+    - rid: 6721762140899246151
+      type: {class: DamageBlocked, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        BlockedBy: 1
+        FailIfDamaged: 1
+        DamageCameFromCard: 1
+    - rid: 6961742135542415432
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
@@ -56,9 +85,9 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           type: 0
-          value: 0.8
+          value: 0.2
           min: 0
           max: 0
           modifiers: []
-        IgnoreDefense: 1
+        IgnoreDefense: 0
         target: 0
