@@ -36,7 +36,7 @@ public class Creature : MonoBehaviour
 
     public TextMeshProUGUI hpText, shieldText, energyText;  //Ui das criaturas na batalha
     public UnityEngine.UI.Image hpCircle;
-    List<Card> exausted = new List<Card>();
+    public List<Card> exausted = new List<Card>();
 
     public int Money
     {

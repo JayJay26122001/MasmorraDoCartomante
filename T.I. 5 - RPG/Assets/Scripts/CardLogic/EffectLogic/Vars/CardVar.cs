@@ -7,7 +7,7 @@ using UnityEditor;
 public class CardVar : ISerializationCallbackReceiver
 {
     public enum Target { User, Opponent }
-    public enum Pile { Deck, Hand, PlayedPile, DiscardPile, BuyingPile }
+    public enum Pile { Deck, Hand, PlayedPile, DiscardPile, BuyingPile, ExistentDeck, Destroyed }
     [System.Flags]
     public enum Type
     {
@@ -100,6 +100,18 @@ public class CardVar : ISerializationCallbackReceiver
                 return t.decks[0].BuyingPile.ToList();
             case Pile.Deck:
                 return t.decks[0].cards;
+            case Pile.ExistentDeck:
+                List<Card> list = new List<Card>();
+                foreach (Card c in t.decks[0].cards)
+                {
+                    if (!t.exausted.Contains(c))
+                    {
+                        list.Add(c);
+                    }
+                }
+                return list;
+            case Pile.Destroyed:
+                return t.exausted;
             default: return null;
         }
     }
