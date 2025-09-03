@@ -666,6 +666,7 @@ MonoBehaviour:
   cardsUI: {fileID: 11400000, guid: 70d792a66a4e77b4c82d8cc248c95ab8, type: 2}
   pack: {fileID: 0}
   shaderAnimSpeed: 2
+  modularDesc: {fileID: 296441404591400809}
 --- !u!65 &5130134605042037181
 BoxCollider:
   m_ObjectHideFlags: 0

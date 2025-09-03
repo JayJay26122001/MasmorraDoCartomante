@@ -12,29 +12,46 @@ public class CardModularDescription : MonoBehaviour
     {
         cardDisplay = GetComponentInParent<CardDisplay>();
         cardData = cardDisplay.cardData;
+
+        //currentDamage = cardData.CardDamage();
     }
 
     void Update()
     {
-        UpdateDescription();
+        UpdateCardEffectDescription();
+        //UpdateValue();
     }
 
-    public void UpdateDescription()
+    public void UpdateCardEffectDescription()
     {
-        string desc = cardDisplay.cardData.Description;
-        if(cardDisplay.cardData.instantaneous && cardDisplay.cardData.limited)
+        string desc = cardData.Description;
+        if(cardData.instantaneous && cardData.limited)
         {
             desc += " INSTANTANEOUS & LIMITED";
         }
-        else if(cardDisplay.cardData.instantaneous && !cardDisplay.cardData.limited)
+        else if(cardData.instantaneous && !cardData.limited)
         {
             desc += " INSTANTANEOUS";
         }
-        else if (!cardDisplay.cardData.instantaneous && cardDisplay.cardData.limited)
+        else if (!cardData.instantaneous && cardData.limited)
         {
             desc += " LIMITED";
         }
         descriptionText.text = desc;
     }
+
+    /*public void UpdateValue()
+    {
+        string desc = descriptionText.text;
+        if (currentDamage == cardData.CardDamage())
+        {
+            desc = desc.Replace("v{Damage}", currentDamage.ToString());
+        }
+        else
+        {
+            desc = desc.Replace("v{Damage}", $"<color=#FF5555>{currentDamage}</color>");
+        }
+        descriptionText.text = desc;
+    }*/
 
 }

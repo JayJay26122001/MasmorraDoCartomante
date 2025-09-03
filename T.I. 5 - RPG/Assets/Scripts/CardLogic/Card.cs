@@ -66,6 +66,19 @@ public class Card : ScriptableObject
         }
     }
 
+    /*public int CardDamage()
+    {
+        var dmg = Effects.OfType<DealDamage>().FirstOrDefault();
+        if(dmg != null)
+        {
+            return dmg.GetDamage();
+        }
+        else
+        {
+            return 0;
+        }
+    }*/
+
 
     //CONDICIONAIS DA CARTA
     /*public void CheckConditions() // Checa se as condições para os efeitos da carta foram resolvidas
