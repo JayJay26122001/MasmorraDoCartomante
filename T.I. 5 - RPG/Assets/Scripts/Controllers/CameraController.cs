@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
     public List<CinemachineCamera> cameras = new List<CinemachineCamera>();
     [SerializeField]int activeCamIndex;
     public static CameraController instance;
-    public CinemachineCamera highlightCardCamera, angledTopCamera, enemyDamagedCamera;
+    public CinemachineCamera highlightCardCamera, angledTopCamera, enemyDamagedCamera, shopCamera, zoomedCamera;
     bool inputActive;
     bool blockHighlight;
     private void Awake()
@@ -122,6 +122,26 @@ public class CameraController : MonoBehaviour
     public void DeActivateAngledTopCamera()
     {
         angledTopCamera.Priority = 0;
+    }
+
+    public void ActivateZoomedCamera()
+    {
+        zoomedCamera.Priority = 2;
+    }
+
+    public void DeActivateZoomedCamera()
+    {
+        zoomedCamera.Priority = 0;
+    }
+
+    public void ActivateShopCamera()
+    {
+        shopCamera.Priority = 2;
+    }
+
+    public void DeActivateShopCamera()
+    {
+        shopCamera.Priority = 0;
     }
 
     public void RemoveHighlight(InputAction.CallbackContext context)
