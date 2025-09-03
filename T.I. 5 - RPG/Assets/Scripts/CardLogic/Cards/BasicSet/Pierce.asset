@@ -24,7 +24,7 @@ MonoBehaviour:
   Type: 0
   Pack: 0
   Rarity: 2
-  Description: Deals 5 Damage, ignores Shield.
+  Description: Deals v[0]{Damage} Damage, ignores Shield.
   references:
     version: 2
     RefIds:
