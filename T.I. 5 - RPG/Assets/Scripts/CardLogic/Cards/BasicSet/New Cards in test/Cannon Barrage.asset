@@ -24,7 +24,7 @@ MonoBehaviour:
   Type: 0
   Pack: 0
   Rarity: 2
-  Description: Deals 9 Damage, ignores Shield. LIMITED
+  Description: Deals 9 Damage, ignores Shield.
   references:
     version: 2
     RefIds:
@@ -50,11 +50,12 @@ MonoBehaviour:
               max: 0
             initialized: 1
           MaxReturnedNumber:
-            type: 0
+            type: 2
             value: 0
             min: 0
             max: 0
           ObservedStat: 0
+          initialized: 1
           type: 0
           value: 1.5
           min: 0

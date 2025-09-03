@@ -10,28 +10,69 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: "II \u2013 The High Priestess"
+  m_Name: Introspection
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 1178401998732263508
-  - rid: 7391437929559097479
-  - rid: 7391437929559097483
+  - rid: 4002061059687186508
+  - rid: 6721762162139988043
+  - rid: 6721762162139988045
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: "II \u2013 The High Priestess"
+  Name: Introspection
   hidden: 0
-  limited: 1
+  limited: 0
   instantaneous: 0
-  cost: 0
+  cost: 1
   Type: 1
-  Pack: 4
-  Rarity: 4
-  Description: 'Gain 9 Shield. Until the user''s next turn, if an incoming damage
-    is fully blocked, heal 10 health. '
+  Pack: 3
+  Rarity: 1
+  Description: Gain 7 Shield. If Blocks Damage, Gain +1 Energy the Next Turn.
   references:
     version: 2
     RefIds:
-    - rid: 1178401998732263508
+    - rid: 4002061059687186508
+      type: {class: GainEnergy, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 7391437906615730246
+        - rid: 6721762162139988042
+        ConfirmationConditions: []
+        Amount:
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          type: 0
+          value: 1
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0
+    - rid: 6721762162139988042
+      type: {class: DamageBlocked, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        BlockedBy: 0
+        FailIfDamaged: 1
+        DamageCameFromCard: 0
+    - rid: 6721762162139988043
       type: {class: GainShield, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
@@ -60,19 +101,25 @@ MonoBehaviour:
           ObservedStat: 0
           initialized: 1
           type: 0
-          value: 1.8
+          value: 1.4
           min: 0
           max: 0
           modifiers: []
         target: 0
-    - rid: 7391437929559097479
-      type: {class: Heal, ns: , asm: Assembly-CSharp}
+    - rid: 6721762162139988045
+      type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
       data:
-        DiscardIfAcomplished: 1
+        DiscardIfAcomplished: 0
         Conditions:
-        - rid: 7391437929559097481
+        - rid: 6721762162139988046
         ConfirmationConditions: []
-        AmountHealled:
+        SetAsDiscardTime: 0
+    - rid: 6721762162139988046
+      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        TurnOwner: 0
+        TurnsFromNow:
           target: 0
           ObservedCards:
             target: 0
@@ -94,27 +141,13 @@ MonoBehaviour:
           ObservedStat: 0
           initialized: 1
           type: 0
-          value: 10
+          value: 0
           min: 0
           max: 0
           modifiers: []
-        target: 0
-    - rid: 7391437929559097481
-      type: {class: DamageBlocked, ns: , asm: Assembly-CSharp}
-      data:
-        Repeatable: 0
-        BlockedBy: 0
-        FailIfDamaged: 1
-        DamageCameFromCard: 0
-    - rid: 7391437929559097483
-      type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
-      data:
-        DiscardIfAcomplished: 0
-        Conditions:
-        - rid: 7391437929559097484
-        ConfirmationConditions: []
-        SetAsDiscardTime: 0
-    - rid: 7391437929559097484
+        TurnPhase: 0
+        PhaseTime: 0
+    - rid: 7391437906615730246
       type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
       data:
         Repeatable: 0

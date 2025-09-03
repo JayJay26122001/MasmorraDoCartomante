@@ -24,8 +24,8 @@ MonoBehaviour:
   Type: 2
   Pack: 1
   Rarity: 3
-  Description: Gives Energy based on the number of Cards in the Discard Pile (6 Max).
-    LIMITED
+  Description: 'Gives Energy based on the number of Cards in the Discard Pile (6
+    Max). '
   references:
     version: 2
     RefIds:
@@ -50,11 +50,12 @@ MonoBehaviour:
               max: 0
             initialized: 1
           MaxReturnedNumber:
-            type: 0
+            type: 2
             value: 0
             min: 0
             max: 0
           ObservedStat: 0
+          initialized: 1
           type: 2
           value: 0
           min: 0

@@ -25,7 +25,7 @@ MonoBehaviour:
   Type: 1
   Pack: 1
   Rarity: 4
-  Description: Gain 5 Shield. Gain +3 for each Zodiac Card in the Deck. LIMITED
+  Description: Gain 5 Shield. Gain +3 for each Zodiac Card in the Deck.
   references:
     version: 2
     RefIds:
@@ -49,12 +49,14 @@ MonoBehaviour:
               value: 0
               min: 0
               max: 0
+            initialized: 1
           MaxReturnedNumber:
-            type: 0
+            type: 2
             value: 0
             min: 0
             max: 0
           ObservedStat: 0
+          initialized: 1
           type: 0
           value: 1
           min: 0
@@ -81,12 +83,14 @@ MonoBehaviour:
               value: 0
               min: 0
               max: 0
+            initialized: 1
           MaxReturnedNumber:
-            type: 0
+            type: 2
             value: 0
             min: 0
             max: 0
           ObservedStat: 0
+          initialized: 1
           type: 2
           value: 0
           min: 0
@@ -107,12 +111,14 @@ MonoBehaviour:
                   value: 0
                   min: 0
                   max: 0
+                initialized: 1
               MaxReturnedNumber:
-                type: 0
+                type: 2
                 value: 0
                 min: 0
                 max: 0
               ObservedStat: 0
+              initialized: 1
               type: 0
               value: 0
               min: 0
@@ -130,12 +136,14 @@ MonoBehaviour:
                   value: 0
                   min: 0
                   max: 0
+                initialized: 1
               MaxReturnedNumber:
-                type: 0
+                type: 2
                 value: 0
                 min: 0
                 max: 0
               ObservedStat: 0
+              initialized: 1
               type: 0
               value: 3
               min: 0

@@ -22,6 +22,7 @@ MonoBehaviour:
   instantaneous: 1
   cost: 1
   Type: 2
+  Pack: 0
   Rarity: 2
   Description: Gain 2 Extra Energy Next Turn.
   references:
@@ -36,14 +37,25 @@ MonoBehaviour:
         ConfirmationConditions: []
         Amount:
           target: 0
-          ObservedPile: 0
-          CountOnlyTypes: 
-          MaxReturnedNumber:
+          ObservedCards:
+            target: 0
+            pile: 0
             type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
             value: 0
             min: 0
             max: 0
           ObservedStat: 0
+          initialized: 1
           type: 0
           value: 2
           min: 0
@@ -57,14 +69,25 @@ MonoBehaviour:
         TurnOwner: 0
         TurnsFromNow:
           target: 0
-          ObservedPile: 0
-          CountOnlyTypes: 
-          MaxReturnedNumber:
+          ObservedCards:
+            target: 0
+            pile: 0
             type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
             value: 0
             min: 0
             max: 0
           ObservedStat: 0
+          initialized: 1
           type: 0
           value: 0
           min: 0
