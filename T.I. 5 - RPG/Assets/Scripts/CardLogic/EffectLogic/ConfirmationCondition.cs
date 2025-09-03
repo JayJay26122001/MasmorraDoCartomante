@@ -131,3 +131,11 @@ public class NumberOfTriggeredEffects : ConfirmationCondition
         return num;
     }
 }
+public class RandomChance : ConfirmationCondition
+{
+    [Range(1, 99)] public int percentageChance;
+    public override bool Confirm()
+    {
+        return percentageChance <= UnityEngine.Random.Range(1, 101);
+    }
+}
