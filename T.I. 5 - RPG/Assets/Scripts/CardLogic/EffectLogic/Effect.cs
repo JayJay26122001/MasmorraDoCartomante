@@ -207,18 +207,18 @@ public class GainShield : Effect
         switch (target)
         {
             case Target.User:
-                card.deck.Owner.AddShield(GetDefense(MultipliedByBaseShield));
+                card.deck.Owner.AddShield(GetShield());
                 break;
             case Target.Opponent:
-                card.deck.Owner.enemy.AddShield(GetDefense(MultipliedByBaseShield));
+                card.deck.Owner.enemy.AddShield(GetShield());
                 break;
         }
 
         EffectEnded();
     }
-    public int GetDefense(bool MultiplyByBaseShield)
+    public int GetShield()
     {
-        if (MultiplyByBaseShield)
+        if (MultipliedByBaseShield)
         {
             return (int)Math.Round(StatModifier.ApplyModfierList(card.deck.Owner.BaseShieldGain * ShieldMultiplier.GetValue(), card.deck.Owner.ShieldModifiers));
         }

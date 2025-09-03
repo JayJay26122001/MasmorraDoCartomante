@@ -36,12 +36,12 @@ public class Card : ScriptableObject
     public bool hidden, limited, instantaneous;
     public int cost;
     public enum CardType { Attack, Defense, Mind }
-    public enum CardPack { Normal, Zodiac, EnemyExclusive, MinorArcana, MajorArcana}
+    public enum CardPack { Normal, Zodiac, EnemyExclusive, MinorArcana, MajorArcana }
     public enum CardRarity { Common, Uncommon, Rare, Epic, Legendary }
     public CardType Type;
     public CardPack Pack;
     public CardRarity Rarity;
-    public string Description;
+    [TextArea]public string Description;
     //public List<Condition.condition> conditions = new List<Condition.condition>();
     //List<Condition> conds = new List<Condition>();
     public void CardPlayed() // carta foi jogada na mesa
@@ -65,19 +65,6 @@ public class Card : ScriptableObject
             e.ApplyIfNoCondition();
         }
     }
-
-    /*public int CardDamage()
-    {
-        var dmg = Effects.OfType<DealDamage>().FirstOrDefault();
-        if(dmg != null)
-        {
-            return dmg.GetDamage();
-        }
-        else
-        {
-            return 0;
-        }
-    }*/
 
 
     //CONDICIONAIS DA CARTA

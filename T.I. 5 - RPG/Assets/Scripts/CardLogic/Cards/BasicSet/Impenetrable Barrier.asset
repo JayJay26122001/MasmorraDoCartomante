@@ -24,7 +24,7 @@ MonoBehaviour:
   Type: 1
   Pack: 0
   Rarity: 0
-  Description: Gains 13 Shield.
+  Description: Gains v[0]{Shield} Shield.
   references:
     version: 2
     RefIds:

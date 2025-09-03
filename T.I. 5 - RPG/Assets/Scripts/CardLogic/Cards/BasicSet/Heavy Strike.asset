@@ -24,7 +24,7 @@ MonoBehaviour:
   Type: 0
   Pack: 0
   Rarity: 0
-  Description: Deals 14 Damage.
+  Description: Deals v[0]{Damage} Damage.
   references:
     version: 2
     RefIds:
