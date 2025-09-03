@@ -10,32 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Reinforcement
+  m_Name: Attainment
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 6961742099578617936
-  - rid: 6961742099578617938
-  - rid: 6961742099578617939
+  - rid: 1178401998732263513
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Reinforcement
+  Name: Attainment
   hidden: 0
-  limited: 1
+  limited: 0
   instantaneous: 0
-  cost: 0
+  cost: 2
   Type: 1
-  Pack: 0
-  Rarity: 3
-  Description: 'Gain 2 Shield. Increases +4 for each Defense Card played with after. '
+  Pack: 3
+  Rarity: 2
+  Description: Gains 15 Shield in the User's Next Turn.
   references:
     version: 2
     RefIds:
-    - rid: 6961742099578617936
+    - rid: 1178401998732263513
       type: {class: GainShield, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions:
-        - rid: 6961742099578617937
+        - rid: 6721762162139988050
         ConfirmationConditions: []
         MultipliedByBaseShield: 1
         ShieldMultiplier:
@@ -60,26 +58,17 @@ MonoBehaviour:
           ObservedStat: 0
           initialized: 1
           type: 0
-          value: 0.8
+          value: 3
           min: 0
           max: 0
           modifiers: []
         target: 0
-    - rid: 6961742099578617937
-      type: {class: CreaturePlayedCardType, ns: , asm: Assembly-CSharp}
+    - rid: 6721762162139988050
+      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
       data:
-        Repeatable: 1
-        target: 1
-        expectedType: 1
-        mustBeFirst: 0
-    - rid: 6961742099578617938
-      type: {class: GainShield, ns: , asm: Assembly-CSharp}
-      data:
-        DiscardIfAcomplished: 0
-        Conditions: []
-        ConfirmationConditions: []
-        MultipliedByBaseShield: 1
-        ShieldMultiplier:
+        Repeatable: 0
+        TurnOwner: 0
+        TurnsFromNow:
           target: 0
           ObservedCards:
             target: 0
@@ -101,15 +90,9 @@ MonoBehaviour:
           ObservedStat: 0
           initialized: 1
           type: 0
-          value: 0.4
+          value: 0
           min: 0
           max: 0
           modifiers: []
-        target: 0
-    - rid: 6961742099578617939
-      type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
-      data:
-        DiscardIfAcomplished: 0
-        Conditions: []
-        ConfirmationConditions: []
-        SetAsDiscardTime: 0
+        TurnPhase: 0
+        PhaseTime: 0
