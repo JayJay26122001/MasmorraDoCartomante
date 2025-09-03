@@ -188,7 +188,7 @@ public class UIController : MonoBehaviour
 
     public void UpdateMoney(int m)
     {
-        money.text = m + "$";
+        money.text = "$" + m;
     }
 
     public void OpenPanel(GameObject panel)

@@ -28,7 +28,7 @@ public class CardPack : MonoBehaviour
         mat.SetFloat("_DisappearTime", 0);
         cardsInstances.Clear();
         cards = data.possibleCards.SelectCards(data.cardQuantity);
-        priceText.text = data.price + "$";
+        priceText.text = "$" + data.price;
     }
 
     public void OnMouseDown()
