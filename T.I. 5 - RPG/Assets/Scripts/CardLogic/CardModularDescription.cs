@@ -22,11 +22,15 @@ public class CardModularDescription : MonoBehaviour
     public void UpdateDescription()
     {
         string desc = cardDisplay.cardData.Description;
-        if(cardDisplay.cardData.instantaneous)
+        if(cardDisplay.cardData.instantaneous && cardDisplay.cardData.limited)
+        {
+            desc += " INSTANTANEOUS & LIMITED";
+        }
+        else if(cardDisplay.cardData.instantaneous && !cardDisplay.cardData.limited)
         {
             desc += " INSTANTANEOUS";
         }
-        else if(cardDisplay.cardData.limited)
+        else if (!cardDisplay.cardData.instantaneous && cardDisplay.cardData.limited)
         {
             desc += " LIMITED";
         }
