@@ -344,7 +344,7 @@ public class BoardGenerator : MonoBehaviour
         room.GetComponent<MeshRenderer>().material.color = board[0][0].type.testColor;
         board[0][0].roomObject = room;
         room.GetComponent<RoomObject>().roomRef = board[0][0];
-        playerPiece.transform.position = room.transform.position + Vector3.up * 1.2f;
+        playerPiece.transform.position = room.transform.position + Vector3.up * 0.2f;
         for (int i = 1; i < board.Count; i++)
         {
             zOffset += 20;

@@ -41,7 +41,7 @@ public class RoomObject : MonoBehaviour
                     break;
             }
             //GameplayManager.instance.MoveBoard(act);
-            GameplayManager.instance.MovePiece(act, this.transform.position + Vector3.up * 1.2f);
+            GameplayManager.instance.MovePiece(act, this.transform.position + Vector3.up * 0.2f);
             GameplayManager.instance.currentRoom = roomRef;
         }
     }
