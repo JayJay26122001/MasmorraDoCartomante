@@ -24,7 +24,7 @@ MonoBehaviour:
   Type: 0
   Pack: 4
   Rarity: 4
-  Description: Deals 3 -18 random Damage.
+  Description: Deals v[0]{Damage} random Damage.
   references:
     version: 2
     RefIds:
@@ -36,6 +36,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseDamage: 1
         DamageMultiplier:
+          type: 1
           target: 0
           ObservedCards:
             target: 0
@@ -48,13 +49,14 @@ MonoBehaviour:
               value: 0
               min: 0
               max: 0
+            initialized: 1
           MaxReturnedNumber:
-            type: 0
+            type: 2
             value: 0
             min: 0
             max: 0
           ObservedStat: 0
-          type: 1
+          initialized: 1
           value: 0
           min: 0.5
           max: 3

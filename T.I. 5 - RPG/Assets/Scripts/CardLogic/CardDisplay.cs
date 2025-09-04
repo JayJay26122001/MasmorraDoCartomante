@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-using Unity.VisualScripting;
+using System;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 
@@ -41,7 +41,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
             originalScale = transform.localScale;
             hasSetOriginalTransform = true;
         }
-        if(cardData.deck != null && cardData.deck.Owner != GameplayManager.instance.player)
+        if (cardData.deck != null && cardData.deck.Owner != GameplayManager.instance.player)
         {
             SetupShader();
         }
@@ -72,7 +72,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
     public void SetCard(Card card)
     {
         cardData = card;
-        if(!GameplayManager.instance.removingCards)
+        if (!GameplayManager.instance.removingCards)
         {
             card.cardDisplay = this;
         }
@@ -102,9 +102,9 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            if(pack == null)
+            if (pack == null)
             {
-                if(!GameplayManager.instance.removingCards)
+                if (!GameplayManager.instance.removingCards)
                 {
                     LeanTween.scale(gameObject, originalScale, 0.15f).setEaseOutQuad();
                     cardData.deck.Owner.PlayCard(cardData);
@@ -155,7 +155,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
             CardUIController.instance.SetHighlightedCard(null);
         }
     }
-    
+
     public void HighlightCard()
     {
         if (gameObject.transform.localScale == originalScale)
@@ -322,13 +322,39 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         if (effectIndex < cardData.Effects.Count && effectIndex >= 0)
         {
             Effect observedEffect = cardData.Effects[effectIndex];
+            Creature statOwner;
+            if (cardData.deck != null && cardData.deck.Owner != null)
+            {
+                statOwner = cardData.deck.Owner;
+            }
+            else
+            {
+                statOwner = GameplayManager.instance.player;
+            }
             switch (variable)
             {
                 case "Damage":
                     if (observedEffect is DealDamage damage)
                     {
+                        VarValue v = GetExpression(damage.DamageMultiplier);
+                        int baseMultiplier = 1;
+                        if (damage.MultipliedByBaseDamage)
+                        {
+                            baseMultiplier = statOwner.BaseDamage;
+                        }
+                        if (!v.isRandom)
+                        {
+                            int i = (int)Math.Round(StatModifier.ApplyModfierList(baseMultiplier * v.def, statOwner.DamageModifiers));
+                            return $"<color=#FF5555>{i}</color>";
+                        }
+                        else
+                        {
+                            int min = (int)Math.Round(StatModifier.ApplyModfierList(baseMultiplier * v.min, statOwner.DamageModifiers));
+                            int max = (int)Math.Round(StatModifier.ApplyModfierList(baseMultiplier * v.max, statOwner.DamageModifiers));
+                            return $"<color=#FF5555>{min}-{max}</color>";
+                        }
                         //return damage.GetDamage().ToString();
-                        if(pack == null)
+                        /*if (pack == null)
                         {
                             return $"<color=#FF5555>{damage.GetDamage()}</color>";
                         }
@@ -336,14 +362,31 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
                         {
                             int dmg = (int)Mathf.Round(GameplayManager.instance.player.BaseDamage * damage.DamageMultiplier.GetValue());
                             return $"<color=#FF5555>{dmg}</color>";
-                        }
+                        }*/
                     }
                     break;
                 case "Shield":
                     if (observedEffect is GainShield shield)
                     {
+                        VarValue v = GetExpression(shield.ShieldMultiplier);
+                        int baseMultiplier = 1;
+                        if (shield.MultipliedByBaseShield)
+                        {
+                            baseMultiplier = statOwner.BaseShieldGain;
+                        }
+                        if (!v.isRandom)
+                        {
+                            int i = (int)Math.Round(StatModifier.ApplyModfierList(baseMultiplier * v.def, statOwner.ShieldModifiers));
+                            return $"<color=#55AAFF>{i}</color>";
+                        }
+                        else
+                        {
+                            int min = (int)Math.Round(StatModifier.ApplyModfierList(baseMultiplier * v.min, statOwner.ShieldModifiers));
+                            int max = (int)Math.Round(StatModifier.ApplyModfierList(baseMultiplier * v.max, statOwner.ShieldModifiers));
+                            return $"<color=#55AAFF>{min}-{max}</color>";
+                        }
                         //return shield.GetShield().ToString();
-                        if(pack == null)
+                        /*if (pack == null)
                         {
                             return $"<color=#55AAFF>{shield.GetShield()}</color>";
                         }
@@ -351,12 +394,66 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
                         {
                             int shld = (int)Mathf.Round(GameplayManager.instance.player.BaseShieldGain * shield.ShieldMultiplier.GetValue());
                             return $"<color=#55AAFF>{shld}</color>";
-                        }
+                        }*/
                     }
                     break;
             }
         }
         return "Invalid Value";
+    }
+    struct VarValue
+    {
+        public bool isRandom;
+        public float def, min, max;
+
+    }
+    VarValue GetExpression(ModularVar V)
+    {
+        VarValue value = new VarValue();
+        value.isRandom = V.HasRandom();
+        if (!value.isRandom)
+        {
+            if (V is RecursiveInt i)
+            {
+                value.def = i.GetValue();
+            }
+            else if (V is RecursiveFloat f)
+            {
+                value.def = f.GetValue();
+            }
+            /*else if (V is ModularInt mi)
+            {
+                value.def = mi.GetValue();
+            }
+            else if (V is ModularFloat mf)
+            {
+                value.def = mf.GetValue();
+            }*/
+        }
+        else
+        {
+            if (V is RecursiveInt i)
+            {
+                value.min = i.GetMinValue();
+                value.max = i.GetMaxValue();
+            }
+            else if (V is RecursiveFloat f)
+            {
+                value.min = f.GetMinValue();
+                value.max = f.GetMaxValue();
+            }
+            /*else if (V is ModularInt mi)
+            {
+                value.min = mi.GetMinValue();
+                value.max = mi.GetMaxValue();
+            }
+            else if (V is ModularFloat mf)
+            {
+                value.min = mf.GetMinValue();
+                value.max = mf.GetMaxValue();
+            }*/
+        }
+        return value;
     }
 }
 

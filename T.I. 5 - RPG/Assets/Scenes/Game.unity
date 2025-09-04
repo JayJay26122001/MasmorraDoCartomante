@@ -21691,7 +21691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   DeckPresets:
-  - {fileID: 11400000, guid: 09d6c5b2d83f8a14dabe4d634765683a, type: 2}
+  - {fileID: 11400000, guid: 41288dae6ba50af42a2b52f1d724db83, type: 2}
   decks: []
   hand: []
   playedCards: []

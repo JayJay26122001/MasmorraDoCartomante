@@ -13,6 +13,7 @@ public abstract class ModularVar : ISerializationCallbackReceiver
     public enum Target { User, Opponent }
     //public enum Pile { Hand, PlayedPile, DiscardPile, BuyingPile, Deck }
     public enum StatType {Health, Shield, Energy, Coins}
+    [SerializeField] public ValueType type;
     public Target target;
     //public Pile ObservedPile;
     //public List<Card.CardType> CountOnlyTypes = new List<Card.CardType>();
@@ -86,6 +87,10 @@ public abstract class ModularVar : ISerializationCallbackReceiver
             default: return 0;
         }*/
     }
+    public virtual bool HasRandom()
+    {
+        return type == ValueType.Random;
+    }
     /*int CheckTypes(List<Card> pile)
     {
         if (CountOnlyTypes.Count <= 0) { return math.clamp(pile.Count, 0, MaxReturnedNumber.GetValue()); }
@@ -130,7 +135,7 @@ public class RecursiveInt : ModularVar
 {
     //public RecursiveInt(Card user): base(user) {}
 
-    [SerializeField] ValueType type;
+    //[SerializeField] public ValueType type;
     //[Header("Fixed")]
     public int value;
     //[Header("Random")]
@@ -158,6 +163,28 @@ public class RecursiveInt : ModularVar
             default: return 0;
         }
     }
+    public virtual int GetMinValue()
+    {
+        if (type == ValueType.Random)
+        {
+            return min;
+        }
+        else
+        {
+            return GetBaseValue();
+        }
+    }
+    public virtual int GetMaxValue()
+    {
+        if (type == ValueType.Random)
+        {
+            return max;
+        }
+        else
+        {
+            return GetBaseValue();
+        }
+    }
 
 
 }
@@ -171,7 +198,7 @@ public class ModularInt : RecursiveInt
         int value = GetBaseValue();
         foreach (ModularModifier m in modifiers)
         {
-            value = m.ApplyOperation(value);
+            value = m.ApplyOperation(value, ModularModifier.OperationConfig.Default);
         }
         return value;
     }
@@ -180,21 +207,46 @@ public class ModularInt : RecursiveInt
         foreach (var m in modifiers)
             m.SetCard(card);
     }
-    // Ensure modifiers know their parent
-    /*public void OnAfterDeserialize()
+    public override int GetMinValue()
     {
-        foreach (var m in modifiers)
-            m.Initialize(this);
+        int value = base.GetMinValue();
+        foreach (ModularModifier m in modifiers)
+        {
+            value = m.ApplyOperation(value, ModularModifier.OperationConfig.Minimum);
+        }
+        return value;
     }
-
-    public void OnBeforeSerialize() { }*/
+    public override int GetMaxValue()
+    {
+        int value = base.GetMaxValue();
+        foreach (ModularModifier m in modifiers)
+        {
+            value = m.ApplyOperation(value, ModularModifier.OperationConfig.Maximum);
+        }
+        return value;
+    }
+    public override bool HasRandom()
+    {
+        if (base.HasRandom())
+        {
+            return true;
+        }
+        foreach (ModularModifier m in modifiers)
+        {
+            if (m.HasRandom())
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 [Serializable]
 public class RecursiveFloat : ModularVar
 {
     //public RecursiveFloat(Card user): base(user) {}
-    [SerializeField] ValueType type;
+    //[SerializeField] public ValueType type;
     //[Header("Fixed")]
     public float value;
     //[Header("Random")]
@@ -222,6 +274,28 @@ public class RecursiveFloat : ModularVar
             default: return 0;
         }
     }
+    public virtual float GetMinValue()
+    {
+        if (type == ValueType.Random)
+        {
+            return min;
+        }
+        else
+        {
+            return GetBaseValue();
+        }
+    }
+    public virtual float GetMaxValue()
+    {
+        if (type == ValueType.Random)
+        {
+            return max;
+        }
+        else
+        {
+            return GetBaseValue();
+        }
+    }
 }
 
 [Serializable]
@@ -239,19 +313,44 @@ public class ModularFloat : RecursiveFloat
         float value = GetBaseValue();
         foreach (ModularModifier m in modifiers)
         {
-            value = m.ApplyOperation(value);
+            value = m.ApplyOperation(value, ModularModifier.OperationConfig.Default);
         }
         return value;
 
     }
-    // Ensure modifiers know their parent
-    /*public void OnAfterDeserialize()
+    public override float GetMinValue()
     {
-        foreach (var m in modifiers)
-            m.Initialize(this);
+        float value = base.GetMinValue();
+        foreach (ModularModifier m in modifiers)
+        {
+            value = m.ApplyOperation(value, ModularModifier.OperationConfig.Minimum);
+        }
+        return value;
     }
-
-    public void OnBeforeSerialize() { }*/
+    public override float GetMaxValue()
+    {
+        float value = base.GetMaxValue();
+        foreach (ModularModifier m in modifiers)
+        {
+            value = m.ApplyOperation(value, ModularModifier.OperationConfig.Maximum);
+        }
+        return value;
+    }
+    public override bool HasRandom()
+    {
+        if (base.HasRandom())
+        {
+            return true;
+        }
+        foreach (ModularModifier m in modifiers)
+        {
+            if (m.HasRandom())
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 [Serializable]
 public class ModularModifier
@@ -272,6 +371,7 @@ public class ModularModifier
     //ModularVar ownerVar;
     public enum Equations { DividedBy, MultipliedBy, Add, Subdivide }
     public enum ValueType { Int, Float }
+    public enum OperationConfig {Default, Minimum, Maximum}
     public Equations operation;
     public ValueType Type;
     public RecursiveInt IntValue;
@@ -281,35 +381,72 @@ public class ModularModifier
         if (IntValue != null) IntValue.SetCard(c);
         if (FloatValue != null) FloatValue.SetCard(c);
     }
-    public float ApplyOperation(float BaseValue)
+    public bool HasRandom()
     {
         switch (Type)
         {
             case ValueType.Int:
+                return IntValue.HasRandom();
+            case ValueType.Float:
+                return FloatValue.HasRandom();
+            default: return false;
+        }
+    }
+    public float ApplyOperation(float BaseValue, OperationConfig config)
+    {
+        switch (Type)
+        {
+            case ValueType.Int:
+                int Ivalue = 1;
+                switch (config)
+                {
+                    case OperationConfig.Default:
+                        Ivalue = IntValue.GetValue();
+                        break;
+                    case OperationConfig.Minimum:
+                        Ivalue = IntValue.GetMinValue();
+                        break;
+                    case OperationConfig.Maximum:
+                        Ivalue = IntValue.GetMaxValue();
+                        break;
+                }
                 switch (operation)
                 {
                     case Equations.DividedBy:
-                        return BaseValue / IntValue.GetValue();
+                        return BaseValue / Ivalue;
                     case Equations.MultipliedBy:
-                        return BaseValue * IntValue.GetValue();
+                        return BaseValue * Ivalue;
                     case Equations.Add:
-                        return BaseValue + IntValue.GetValue();
+                        return BaseValue + Ivalue;
                     case Equations.Subdivide:
-                        return BaseValue - IntValue.GetValue();
+                        return BaseValue - Ivalue;
                     default: return 0;
                 }
 
             case ValueType.Float:
+                float Fvalue = 1;
+                switch (config)
+                {
+                    case OperationConfig.Default:
+                        Fvalue = FloatValue.GetValue();
+                        break;
+                    case OperationConfig.Minimum:
+                        Fvalue = FloatValue.GetMinValue();
+                        break;
+                    case OperationConfig.Maximum:
+                        Fvalue = FloatValue.GetMaxValue();
+                        break;
+                }
                 switch (operation)
                 {
                     case Equations.DividedBy:
-                        return BaseValue / FloatValue.GetValue();
+                        return BaseValue / Fvalue;
                     case Equations.MultipliedBy:
-                        return BaseValue * FloatValue.GetValue();
+                        return BaseValue * Fvalue;
                     case Equations.Add:
-                        return BaseValue + FloatValue.GetValue();
+                        return BaseValue + Fvalue;
                     case Equations.Subdivide:
-                        return BaseValue - FloatValue.GetValue();
+                        return BaseValue - Fvalue;
                     default: return 0;
                 }
 
@@ -317,35 +454,61 @@ public class ModularModifier
         }
 
     }
-    public int ApplyOperation(int BaseValue)
+    public int ApplyOperation(int BaseValue, OperationConfig config)
     {
         switch (Type)
         {
             case ValueType.Int:
+                int Ivalue = 1;
+                switch (config)
+                {
+                    case OperationConfig.Default:
+                        Ivalue = IntValue.GetValue();
+                        break;
+                    case OperationConfig.Minimum:
+                        Ivalue = IntValue.GetMinValue();
+                        break;
+                    case OperationConfig.Maximum:
+                        Ivalue = IntValue.GetMaxValue();
+                        break;
+                }
                 switch (operation)
                 {
                     case Equations.DividedBy:
-                        return BaseValue / IntValue.GetValue();
+                        return BaseValue / Ivalue;
                     case Equations.MultipliedBy:
-                        return BaseValue * IntValue.GetValue();
+                        return BaseValue * Ivalue;
                     case Equations.Add:
-                        return BaseValue + IntValue.GetValue();
+                        return BaseValue + Ivalue;
                     case Equations.Subdivide:
-                        return BaseValue - IntValue.GetValue();
+                        return BaseValue - Ivalue;
                     default: return 0;
                 }
 
             case ValueType.Float:
+                float Fvalue = 1;
+                switch (config)
+                {
+                    case OperationConfig.Default:
+                        Fvalue = FloatValue.GetValue();
+                        break;
+                    case OperationConfig.Minimum:
+                        Fvalue = FloatValue.GetMinValue();
+                        break;
+                    case OperationConfig.Maximum:
+                        Fvalue = FloatValue.GetMaxValue();
+                        break;
+                }
                 switch (operation)
                 {
                     case Equations.DividedBy:
-                        return (int)(BaseValue / FloatValue.GetValue());
+                        return (int)(BaseValue / Fvalue);
                     case Equations.MultipliedBy:
-                        return (int)(BaseValue * FloatValue.GetValue());
+                        return (int)(BaseValue * Fvalue);
                     case Equations.Add:
-                        return (int)(BaseValue + FloatValue.GetValue());
+                        return (int)(BaseValue + Fvalue);
                     case Equations.Subdivide:
-                        return (int)(BaseValue - FloatValue.GetValue());
+                        return (int)(BaseValue - Fvalue);
                     default: return 0;
                 }
 
