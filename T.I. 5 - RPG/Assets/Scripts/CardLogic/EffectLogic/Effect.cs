@@ -6,6 +6,7 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
+using Unity.Mathematics;
 [Serializable]
 public abstract class Effect
 {
@@ -435,6 +436,41 @@ public class DestroyCard : Effect
         foreach (Card c in Cards.GetCardsWithStats(card))
         {
             c.deck.Owner.ExaustCard(c);
+        }
+        EffectEnded();
+    }
+}
+public class GainCoins : Effect
+{
+    enum Target { User, Opponent }
+    enum Operation { Gain, StealFromOpponent }
+    [SerializeField] Target target;
+    [SerializeField] Operation Origin;
+    [SerializeField] ModularInt amount;
+    public override void Apply()
+    {
+        base.Apply();
+        Creature t = null;
+        switch (target)
+        {
+            case Target.User:
+                t = card.deck.Owner;
+                break;
+            case Target.Opponent:
+                t = card.deck.Owner.enemy;
+                break;
+        }
+        switch (Origin)
+        {
+            case Operation.Gain:
+                t.Money += amount.GetValue();
+                break;
+            case Operation.StealFromOpponent:
+                int a = amount.GetValue();
+                a = Math.Clamp(a, 0, t.enemy.Money);
+                t.enemy.Money -= a;
+                t.Money += a;
+                break;
         }
         EffectEnded();
     }
