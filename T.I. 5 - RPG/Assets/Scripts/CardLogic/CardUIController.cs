@@ -75,9 +75,16 @@ public class CardUIController : MonoBehaviour
                 c.cardDisplay.UpdateCard();
             }
         }
-        foreach(Deck deck in creature.decks)
+        foreach (Deck deck in creature.decks)
         {
             foreach (Card c in deck.BuyingPile.ToList())
+            {
+                if (c.cardDisplay != null)
+                {
+                    c.cardDisplay.UpdateCard();
+                }
+            }
+            foreach (Card c in deck.DiscardPile.ToList())
             {
                 if (c.cardDisplay != null)
                 {
