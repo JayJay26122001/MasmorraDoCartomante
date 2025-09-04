@@ -40,7 +40,12 @@ public class Creature : MonoBehaviour
 
     public int Money
     {
-        get { return hp; }
+        get { return money; }
+        set
+        {
+            if (value < 0) value = 0;
+            money = value;
+        }
     }
 
     public int Health
