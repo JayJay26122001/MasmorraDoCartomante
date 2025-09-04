@@ -24,7 +24,7 @@ MonoBehaviour:
   cost: 2
   Type: 1
   Pack: 1
-  Rarity: 2
+  Rarity: 1
   Description: 8 Shield. Start the Next Turn with already 8 Shield
   references:
     version: 2
@@ -49,12 +49,14 @@ MonoBehaviour:
               value: 0
               min: 0
               max: 0
+            initialized: 1
           MaxReturnedNumber:
-            type: 0
+            type: 2
             value: 0
             min: 0
             max: 0
           ObservedStat: 0
+          initialized: 1
           type: 0
           value: 1.5
           min: 0
@@ -82,12 +84,14 @@ MonoBehaviour:
               value: 0
               min: 0
               max: 0
+            initialized: 1
           MaxReturnedNumber:
-            type: 0
+            type: 2
             value: 0
             min: 0
             max: 0
           ObservedStat: 0
+          initialized: 1
           type: 0
           value: 1.5
           min: 0
@@ -112,12 +116,14 @@ MonoBehaviour:
               value: 0
               min: 0
               max: 0
+            initialized: 1
           MaxReturnedNumber:
-            type: 0
+            type: 2
             value: 0
             min: 0
             max: 0
           ObservedStat: 0
+          initialized: 1
           type: 0
           value: 0
           min: 0

@@ -24,9 +24,10 @@ MonoBehaviour:
   instantaneous: 0
   cost: 1
   Type: 1
+  Pack: 0
   Rarity: 1
-  Description: "Gain 4 Shield. Until the next turn, if the Shield is hit but isn\u2019t
-    broke, Deal 4 Damage."
+  Description: "Gain v[0]{Shield} Shield. Until the next turn, if the Shield is hit
+    but isn\u2019t broke, Deal v[1]{Damage} Damage."
   references:
     version: 2
     RefIds:
@@ -40,14 +41,25 @@ MonoBehaviour:
         MultipliedByBaseDamage: 1
         DamageMultiplier:
           target: 0
-          ObservedPile: 0
-          CountOnlyTypes: 
-          MaxReturnedNumber:
+          ObservedCards:
+            target: 0
+            pile: 0
             type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
             value: 0
             min: 0
             max: 0
           ObservedStat: 0
+          initialized: 1
           type: 0
           value: 0.6
           min: 0
@@ -61,6 +73,7 @@ MonoBehaviour:
         Repeatable: 1
         BlockedBy: 0
         FailIfDamaged: 0
+        DamageCameFromCard: 0
     - rid: 1178401817022169091
       type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
       data:
@@ -76,14 +89,25 @@ MonoBehaviour:
         TurnOwner: 1
         TurnsFromNow:
           target: 0
-          ObservedPile: 0
-          CountOnlyTypes: 
-          MaxReturnedNumber:
+          ObservedCards:
+            target: 0
+            pile: 0
             type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
             value: 0
             min: 0
             max: 0
           ObservedStat: 0
+          initialized: 1
           type: 0
           value: 0
           min: 0
@@ -100,14 +124,25 @@ MonoBehaviour:
         MultipliedByBaseShield: 1
         ShieldMultiplier:
           target: 0
-          ObservedPile: 0
-          CountOnlyTypes: 
-          MaxReturnedNumber:
+          ObservedCards:
+            target: 0
+            pile: 0
             type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
             value: 0
             min: 0
             max: 0
           ObservedStat: 0
+          initialized: 1
           type: 0
           value: 0.8
           min: 0

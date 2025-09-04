@@ -26,8 +26,9 @@ MonoBehaviour:
   Type: 0
   Pack: 0
   Rarity: 2
-  Description: Deals 5 Damage, then deals 5 Piercing Damage. If the First Damage
-    that is dealt to the Opponent is Blocked, Deals an additional 5 Damage.
+  Description: Deals v[0]{Damage} Damage, then deals v[2]{Damage} Piercing Damage.
+    If the First Damage that is dealt to the Opponent is Blocked, Deals an additional
+    v[1]{Damage} Damage.
   references:
     version: 2
     RefIds:
@@ -53,11 +54,12 @@ MonoBehaviour:
               max: 0
             initialized: 1
           MaxReturnedNumber:
-            type: 0
+            type: 2
             value: 0
             min: 0
             max: 0
           ObservedStat: 0
+          initialized: 1
           type: 0
           value: 0.8
           min: 0
@@ -88,11 +90,12 @@ MonoBehaviour:
               max: 0
             initialized: 1
           MaxReturnedNumber:
-            type: 0
+            type: 2
             value: 0
             min: 0
             max: 0
           ObservedStat: 0
+          initialized: 1
           type: 0
           value: 0.8
           min: 0
@@ -129,11 +132,12 @@ MonoBehaviour:
               max: 0
             initialized: 1
           MaxReturnedNumber:
-            type: 0
+            type: 2
             value: 0
             min: 0
             max: 0
           ObservedStat: 0
+          initialized: 1
           type: 0
           value: 0.8
           min: 0

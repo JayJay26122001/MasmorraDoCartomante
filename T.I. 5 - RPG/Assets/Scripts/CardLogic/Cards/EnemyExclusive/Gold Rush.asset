@@ -10,33 +10,78 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Frenzy
+  m_Name: Gold Rush
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 1178401810453889125
-  - rid: 1178401810453889127
+  - rid: 7391437407230361702
+  - rid: 6721762184433238097
+  - rid: 6721762184433238099
+  - rid: 6721762185478406144
+  - rid: 6721762185478406147
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Frenzy
+  Name: Gold Rush
   hidden: 0
   limited: 0
   instantaneous: 0
-  cost: 1
+  cost: 2
   Type: 0
-  Pack: 0
+  Pack: 2
   Rarity: 3
-  Description: Deals v[1]{Damage} Damage. Turns into v[0]{Damage} if the User has
-    less than 10 health remaining.
+  Description: Deals v[0]{Damage} Damage, and Steals 3 Coins if Takes Health. Retriggers
+    if the User's Health is Higher than the Opponent's.
   references:
     version: 2
     RefIds:
-    - rid: 1178401810453889125
+    - rid: 6721762184433238097
+      type: {class: GainCoins, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 6721762184433238098
+        ConfirmationConditions: []
+        target: 0
+        Origin: 1
+        amount:
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          type: 0
+          value: 3
+          min: 0
+          max: 0
+          modifiers: []
+    - rid: 6721762184433238098
+      type: {class: DamageTaken, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        DamagedTarget: 1
+        CountShieldedDamage: 0
+        DamageCameFromCard: 1
+    - rid: 6721762184433238099
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions:
-        - rid: 8815182808613912642
+        - rid: 6721762184433238100
         MultipliedByBaseDamage: 1
         DamageMultiplier:
           target: 0
@@ -60,82 +105,13 @@ MonoBehaviour:
           ObservedStat: 0
           initialized: 1
           type: 0
-          value: 4
+          value: 1.2
           min: 0
           max: 0
           modifiers: []
         IgnoreDefense: 0
         target: 0
-    - rid: 1178401810453889127
-      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
-      data:
-        DiscardIfAcomplished: 0
-        Conditions: []
-        ConfirmationConditions:
-        - rid: 1178401898369908823
-        - rid: 8815182808613912643
-        MultipliedByBaseDamage: 1
-        DamageMultiplier:
-          target: 0
-          ObservedCards:
-            target: 0
-            pile: 0
-            type: 0
-            rarity: 0
-            pack: 0
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-            initialized: 1
-          MaxReturnedNumber:
-            type: 2
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          initialized: 1
-          type: 0
-          value: 0.6
-          min: 0
-          max: 0
-          modifiers: []
-        IgnoreDefense: 0
-        target: 0
-    - rid: 1178401898369908823
-      type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
-      data:
-        CountThisEffect: 0
-        Equation: 1
-        Amount:
-          target: 0
-          ObservedCards:
-            target: 0
-            pile: 0
-            type: 0
-            rarity: 0
-            pack: 0
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-            initialized: 1
-          MaxReturnedNumber:
-            type: 2
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          initialized: 1
-          type: 0
-          value: 1
-          min: 0
-          max: 0
-          modifiers: []
-        EffectStates: 02000000
-    - rid: 8815182808613912642
+    - rid: 6721762184433238100
       type: {class: ComparativeConfirmation, ns: , asm: Assembly-CSharp}
       data:
         ObservedValue:
@@ -164,8 +140,44 @@ MonoBehaviour:
           min: 0
           max: 0
           modifiers: []
-        Equation: 1
+        Equation: 0
         Amount:
+          target: 1
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          type: 3
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+    - rid: 6721762185478406144
+      type: {class: GainCoins, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 6721762185478406145
+        ConfirmationConditions:
+        - rid: 6721762185478406146
+        target: 0
+        Origin: 1
+        amount:
           target: 0
           ObservedCards:
             target: 0
@@ -187,11 +199,18 @@ MonoBehaviour:
           ObservedStat: 0
           initialized: 1
           type: 0
-          value: 10
+          value: 3
           min: 0
           max: 0
           modifiers: []
-    - rid: 8815182808613912643
+    - rid: 6721762185478406145
+      type: {class: DamageTaken, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        DamagedTarget: 1
+        CountShieldedDamage: 0
+        DamageCameFromCard: 1
+    - rid: 6721762185478406146
       type: {class: ComparativeConfirmation, ns: , asm: Assembly-CSharp}
       data:
         ObservedValue:
@@ -220,8 +239,47 @@ MonoBehaviour:
           min: 0
           max: 0
           modifiers: []
-        Equation: 3
+        Equation: 0
         Amount:
+          target: 1
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          type: 3
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+    - rid: 6721762185478406147
+      type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 6721762185478406148
+        ConfirmationConditions: []
+        SetAsDiscardTime: 0
+    - rid: 6721762185478406148
+      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        TurnOwner: 0
+        TurnsFromNow:
           target: 0
           ObservedCards:
             target: 0
@@ -243,7 +301,44 @@ MonoBehaviour:
           ObservedStat: 0
           initialized: 1
           type: 0
-          value: 10
+          value: 0
           min: 0
           max: 0
           modifiers: []
+        TurnPhase: 1
+        PhaseTime: 1
+    - rid: 7391437407230361702
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          type: 0
+          value: 1.2
+          min: 0
+          max: 0
+          modifiers: []
+        IgnoreDefense: 0
+        target: 0

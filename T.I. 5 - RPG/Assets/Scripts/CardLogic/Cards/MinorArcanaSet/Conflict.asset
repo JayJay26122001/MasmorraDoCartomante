@@ -25,7 +25,7 @@ MonoBehaviour:
   Type: 0
   Pack: 3
   Rarity: 0
-  Description: Deals 7 Damage, but also 3 on the User.
+  Description: Deals v[0]{Damage} Damage, but also v[1]{Damage} on the User.
   references:
     version: 2
     RefIds:

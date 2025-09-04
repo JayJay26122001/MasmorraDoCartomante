@@ -23,8 +23,10 @@ MonoBehaviour:
   instantaneous: 0
   cost: 1
   Type: 2
+  Pack: 0
   Rarity: 1
-  Description: If the Opponent's Next Card is an Defense Card, deals 3 Damage.
+  Description: If the Opponent's Next Card is an Defense Card, deals v[0]{Damage}
+    Damage.
   references:
     version: 2
     RefIds:
@@ -38,14 +40,25 @@ MonoBehaviour:
         MultipliedByBaseDamage: 1
         DamageMultiplier:
           target: 0
-          ObservedPile: 0
-          CountOnlyTypes: 
-          MaxReturnedNumber:
+          ObservedCards:
+            target: 0
+            pile: 0
             type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
             value: 0
             min: 0
             max: 0
           ObservedStat: 0
+          initialized: 1
           type: 0
           value: 0.5
           min: 0
@@ -75,14 +88,25 @@ MonoBehaviour:
         TurnOwner: 1
         TurnsFromNow:
           target: 0
-          ObservedPile: 0
-          CountOnlyTypes: 
-          MaxReturnedNumber:
+          ObservedCards:
+            target: 0
+            pile: 0
             type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
             value: 0
             min: 0
             max: 0
           ObservedStat: 0
+          initialized: 1
           type: 0
           value: 0
           min: 0

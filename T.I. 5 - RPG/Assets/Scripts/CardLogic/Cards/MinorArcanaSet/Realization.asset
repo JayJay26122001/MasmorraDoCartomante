@@ -25,7 +25,7 @@ MonoBehaviour:
   Type: 0
   Pack: 3
   Rarity: 1
-  Description: Deals 8 Damage. Retriggers if the Opponent loses Health.
+  Description: Deals v[0]{Damage} Damage. Retriggers if the Opponent loses Health.
   references:
     version: 2
     RefIds:

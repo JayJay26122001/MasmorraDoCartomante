@@ -10,66 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Slumber
+  m_Name: Growth
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 6961742099578617938
-  - rid: 6961742099578617941
+  - rid: 1178401898369908825
+  - rid: 6721762184433238016
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Slumber
+  Name: Growth
   hidden: 0
   limited: 0
-  instantaneous: 0
+  instantaneous: 1
   cost: 1
-  Type: 1
-  Pack: 0
-  Rarity: 1
-  Description: "Gain v[1]{Shield} Shield and \u20133 Damage Reduction."
+  Type: 2
+  Pack: 3
+  Rarity: 0
+  Description: Cards gain +2 Attack and Shield this Turn.
   references:
     version: 2
     RefIds:
-    - rid: 6961742099578617938
-      type: {class: GainShield, ns: , asm: Assembly-CSharp}
-      data:
-        DiscardIfAcomplished: 0
-        Conditions: []
-        ConfirmationConditions: []
-        MultipliedByBaseShield: 1
-        ShieldMultiplier:
-          target: 0
-          ObservedCards:
-            target: 0
-            pile: 0
-            type: 0
-            rarity: 0
-            pack: 0
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-            initialized: 1
-          MaxReturnedNumber:
-            type: 2
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          initialized: 1
-          type: 0
-          value: 0.8
-          min: 0
-          max: 0
-          modifiers: []
-        target: 0
-    - rid: 6961742099578617941
+    - rid: 1178401898369908825
       type: {class: BuffStat, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
-        StatToBuff: 2
+        StatToBuff: 0
         Modifier:
           type: 1
           value:
@@ -94,7 +60,46 @@ MonoBehaviour:
             ObservedStat: 0
             initialized: 1
             type: 0
-            value: 0.5
+            value: 2
+            min: 0
+            max: 0
+            modifiers: []
+        TurnOwner: 0
+        TurnsFromNow: 0
+        TurnPhaseToStop: 0
+        StopAtPhase: 0
+    - rid: 6721762184433238016
+      type: {class: BuffStat, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        StatToBuff: 1
+        Modifier:
+          type: 1
+          value:
+            target: 0
+            ObservedCards:
+              target: 0
+              pile: 0
+              type: 0
+              rarity: 0
+              pack: 0
+              MaxReturnedNumber:
+                type: 2
+                value: 0
+                min: 0
+                max: 0
+              initialized: 1
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            ObservedStat: 0
+            initialized: 1
+            type: 0
+            value: 2
             min: 0
             max: 0
             modifiers: []

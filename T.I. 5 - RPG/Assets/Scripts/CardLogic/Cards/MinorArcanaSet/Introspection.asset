@@ -26,7 +26,8 @@ MonoBehaviour:
   Type: 1
   Pack: 3
   Rarity: 1
-  Description: Gain 7 Shield. If Blocks Damage, Gain +1 Energy the Next Turn.
+  Description: Gain v[1]{Shield} Shield. If Blocks Damage, Gain +1 Energy the Next
+    Turn.
   references:
     version: 2
     RefIds:
