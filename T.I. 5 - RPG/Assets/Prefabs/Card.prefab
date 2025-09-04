@@ -666,7 +666,6 @@ MonoBehaviour:
   cardsUI: {fileID: 11400000, guid: 70d792a66a4e77b4c82d8cc248c95ab8, type: 2}
   pack: {fileID: 0}
   shaderAnimSpeed: 2
-  modularDesc: {fileID: 296441404591400809}
 --- !u!65 &5130134605042037181
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1176,7 +1175,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7903230808532093324}
   - component: {fileID: 1587521853134556830}
-  - component: {fileID: 296441404591400809}
   - component: {fileID: 7150064401150702258}
   m_Layer: 0
   m_Name: T_Description
@@ -1249,19 +1247,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &296441404591400809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9015780125450053769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3462b32542e7b5249a10d33599ffa779, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  descriptionText: {fileID: 7150064401150702258}
 --- !u!114 &7150064401150702258
 MonoBehaviour:
   m_ObjectHideFlags: 0

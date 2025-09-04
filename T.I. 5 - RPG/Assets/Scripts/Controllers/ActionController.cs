@@ -108,6 +108,8 @@ public class ActionController : MonoBehaviour
     }
     public void AdvanceQueue()
     {
+        CardUIController.instance.AttCardDescription(GameplayManager.currentCombat.combatents[0]);    
+        CardUIController.instance.AttCardDescription(GameplayManager.currentCombat.combatents[1]);    
         Debug.Log("-------------NextEffect-------------");
         if (ActionQueue.Count <= 0) return;
         ActionQueue[0].isPlaying = false;

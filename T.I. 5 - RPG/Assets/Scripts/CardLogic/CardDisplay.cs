@@ -2,6 +2,8 @@ using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine.EventSystems;
+using System.Collections.Generic;
+
 #if UNITY_EDITOR
 using static UnityEditor.PlayerSettings;
 #endif
@@ -25,6 +27,12 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
     bool inAnimation = false, disappearing;
     float animTimeStart;
     public float shaderAnimSpeed;
+
+    public struct Token
+    {
+        public int index;
+        public string var;
+    }
 
     void Start()
     {
@@ -227,6 +235,112 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
                 cardDescription.gameObject.SetActive(true);
             }
         }
+        //UpdateCardBoolDescription();
+        //UpdateValues();
+    }
+
+    /*public void UpdateCardBoolDescription()
+    {
+        string desc = cardData.Description;
+        if (cardData.instantaneous && cardData.limited)
+        {
+            desc += " INSTANTANEOUS & LIMITED";
+        }
+        else if (cardData.instantaneous && !cardData.limited)
+        {
+            desc += " INSTANTANEOUS";
+        }
+        else if (!cardData.instantaneous && cardData.limited)
+        {
+            desc += " LIMITED";
+        }
+        cardDescription.text = desc;
+    }*/
+
+    public void UpdateCard()
+    {
+        string desc = cardData.Description;
+        List<Token> tokens = FindValuesInString(desc);
+        foreach (Token token in tokens)
+        {
+            string value = GetEffectValue(token.index, token.var);
+            string pattern = $"v[{token.index}]{{{token.var}}}";
+            desc = desc.Replace(pattern, value);
+        }
+        if (cardData.instantaneous && cardData.limited)
+        {
+            desc += " INSTANTANEOUS & LIMITED";
+        }
+        else if (cardData.instantaneous && !cardData.limited)
+        {
+            desc += " INSTANTANEOUS";
+        }
+        else if (!cardData.instantaneous && cardData.limited)
+        {
+            desc += " LIMITED";
+        }
+        cardDescription.text = desc;
+    }
+
+    public List<Token> FindValuesInString(string input)
+    {
+        List<Token> tokens = new List<Token>();
+        for (int i = 0; i < input.Length; i++)
+        {
+            if (input[i] == 'v' && i + 1 < input.Length && input[i + 1] == '[')
+            {
+                i += 2; // skip "v["
+
+                // --- Parse index ---
+                int start = i;
+                for (; i < input.Length && input[i] != ']'; i++) { }
+                int effectIndex = int.Parse(input.Substring(start, i - start));
+
+                // Expect ']'
+                if (i < input.Length && input[i] == ']') i++;
+
+                // Expect '{'
+                if (i < input.Length && input[i] == '{') i++;
+
+                // --- Parse variable ---
+                start = i;
+                for (; i < input.Length && input[i] != '}'; i++) { }
+                string variable = input.Substring(start, i - start);
+
+                // Expect '}'
+                if (i < input.Length && input[i] == '}') i++;
+
+                // Add to results
+                tokens.Add(new Token { index = effectIndex, var = variable });
+            }
+        }
+        return tokens;
+    }
+
+    string GetEffectValue(int effectIndex, string variable)
+    {
+        if (effectIndex < cardData.Effects.Count && effectIndex >= 0)
+        {
+            Effect observedEffect = cardData.Effects[effectIndex];
+            switch (variable)
+            {
+                case "Damage":
+                    if (observedEffect is DealDamage damage)
+                    {
+                        //return damage.GetDamage().ToString();
+                        return $"<color=#FF5555>{damage.GetDamage()}</color>";
+                    }
+                    break;
+                case "Shield":
+                    if (observedEffect is GainShield shield)
+                    {
+                        //return shield.GetShield().ToString();
+                        return $"<color=#55AAFF>{shield.GetShield()}</color>";
+                    }
+                    break;
+            }
+        }
+        return "Invalid Value";
     }
 }
 

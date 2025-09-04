@@ -59,6 +59,48 @@ public class CardUIController : MonoBehaviour
         return temp;
     }
 
+    public void AttCardDescription(Creature creature)
+    {
+        foreach (Card c in creature.hand)
+        {
+            if (c.cardDisplay != null)
+            {
+                c.cardDisplay.UpdateCard();
+            }
+        }
+        foreach (Card c in creature.playedCards)
+        {
+            if (c.cardDisplay != null)
+            {
+                c.cardDisplay.UpdateCard();
+            }
+        }
+        foreach(Deck deck in creature.decks)
+        {
+            foreach (Card c in deck.BuyingPile.ToList())
+            {
+                if (c.cardDisplay != null)
+                {
+                    c.cardDisplay.UpdateCard();
+                }
+            }
+        }
+    }
+
+    public void AttDeckCard(Creature creature)
+    {
+        foreach (Deck deck in creature.decks)
+        {
+            foreach (Card c in deck.cards)
+            {
+                if (c.cardDisplay != null)
+                {
+                    c.cardDisplay.UpdateCard();
+                }
+            }
+        }
+    }
+
     public static void CardsOrganizer(Creature c) //mudan�a futura
     {
         OrganizeHandCards(c);
