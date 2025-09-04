@@ -35,8 +35,9 @@ public class GameplayManager : MonoBehaviour
     public List<CardPack> packs = new List<CardPack>();
     public List<PackPool> packPools = new List<PackPool>();
     public bool canBuy, removingCards = false, figtingBoss;
-    public int rerollPrice, rerollBasePrice;
-    public TextMeshPro rerollText;
+    public int rerollPrice, rerollBasePrice, potionBasePrice;
+    public TextMeshPro rerollText, potionText;
+    public DisappearingObject potion;
 
     public ParticleSystem coinExplosion;
     public List<CardAttack> attacksPool = new List<CardAttack>();
@@ -230,6 +231,10 @@ public class GameplayManager : MonoBehaviour
 
     public void DefineShop()
     {
+        potion.mat.SetFloat("_DisappearTime", 0);
+        potion.gameObject.GetComponent<BoxCollider>().enabled = true;
+        potionText.gameObject.SetActive(true);
+        potionText.text = "$" + potionBasePrice;
         rerollPrice = rerollBasePrice;
         rerollText.text = "$" + rerollPrice;
         DefinePacks();
@@ -309,6 +314,10 @@ public class GameplayManager : MonoBehaviour
         {
             if (player.ChangeMoney(-rerollPrice))
             {
+                if (potion.mat.GetFloat("_DisappearTime") >= 1)
+                {
+                    potion.AnimateObject(false);
+                }
                 ExplodeCoins(go.transform.position);
                 bool disappear = false;
                 canBuy = false;
