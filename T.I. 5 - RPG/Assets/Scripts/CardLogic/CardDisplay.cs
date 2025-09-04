@@ -328,14 +328,30 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
                     if (observedEffect is DealDamage damage)
                     {
                         //return damage.GetDamage().ToString();
-                        return $"<color=#FF5555>{damage.GetDamage()}</color>";
+                        if(pack == null)
+                        {
+                            return $"<color=#FF5555>{damage.GetDamage()}</color>";
+                        }
+                        else
+                        {
+                            int dmg = (int)Mathf.Round(GameplayManager.instance.player.BaseDamage * damage.DamageMultiplier.GetValue());
+                            return $"<color=#FF5555>{dmg}</color>";
+                        }
                     }
                     break;
                 case "Shield":
                     if (observedEffect is GainShield shield)
                     {
                         //return shield.GetShield().ToString();
-                        return $"<color=#55AAFF>{shield.GetShield()}</color>";
+                        if(pack == null)
+                        {
+                            return $"<color=#55AAFF>{shield.GetShield()}</color>";
+                        }
+                        else
+                        {
+                            int shld = (int)Mathf.Round(GameplayManager.instance.player.BaseShieldGain * shield.ShieldMultiplier.GetValue());
+                            return $"<color=#55AAFF>{shld}</color>";
+                        }
                     }
                     break;
             }

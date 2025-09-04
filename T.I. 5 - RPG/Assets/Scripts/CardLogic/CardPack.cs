@@ -48,6 +48,7 @@ public class CardPack : MonoBehaviour
                     CardDisplay aux = CardUIController.instance.InstantiateCard(c);
                     aux.pack = this;
                     cardsInstances.Add(aux.cardData);
+                    aux.UpdateCard();
                     CardUIController.OrganizeBoughtPackCards(this);
                 }
             }
