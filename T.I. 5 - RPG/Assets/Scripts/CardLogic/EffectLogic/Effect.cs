@@ -334,6 +334,7 @@ public class Heal : Effect
 public class BuffStat : Effect, IProlongedEffect
 {
     enum BuffableStats { Attack, ShieldGain, DamageReduction }
+    [SerializeField] Target BuffTarget;
     [SerializeField] BuffableStats StatToBuff;
     public UnityEvent EffectApplied { get; set; }
     public StatModifier Modifier = new StatModifier();
@@ -348,7 +349,7 @@ public class BuffStat : Effect, IProlongedEffect
     public int TurnsFromNow;
     public Combat.TurnPhaseTypes TurnPhaseToStop;
     [SerializeField] TurnPhase.PhaseTime StopAtPhase;
-    Creature owner;
+    Creature owner, buffTar;
     List<StatModifier> StatBuffMod;
     TurnPhase phase;
     UnityAction Action;
@@ -364,6 +365,15 @@ public class BuffStat : Effect, IProlongedEffect
                 owner = card.deck.Owner;
                 break;
         }
+        switch (BuffTarget)
+        {
+            case Target.Opponent:
+                buffTar = card.deck.Owner.enemy;
+                break;
+            case Target.User:
+                buffTar = card.deck.Owner;
+                break;
+        }
         phase = GameplayManager.currentCombat.GetTurnPhase(owner, TurnPhaseToStop);
         if (StatBuffMod == null)
         {
@@ -371,6 +381,7 @@ public class BuffStat : Effect, IProlongedEffect
         }
         StatBuffMod.Add(Modifier);
         Action = Combat.WaitForTurn(TurnsFromNow, phase, StopAtPhase, EffectEnded);
+        CardUIController.instance.AttCardDescription(buffTar);  
         EffectApplied.Invoke();
     }
     public override void EffectEnded()
@@ -378,6 +389,7 @@ public class BuffStat : Effect, IProlongedEffect
         Combat.CancelWait(phase, StopAtPhase, Action);
         StatBuffMod?.Remove(Modifier);
         StatBuffMod = null;
+        CardUIController.instance.AttCardDescription(buffTar);  
         base.EffectEnded();
     }
     private ref List<StatModifier> GetStatReference()
@@ -385,11 +397,11 @@ public class BuffStat : Effect, IProlongedEffect
         switch (StatToBuff)
         {
             case BuffableStats.Attack:
-                return ref owner.DamageModifiers;
+                return ref buffTar.DamageModifiers;
             case BuffableStats.ShieldGain:
-                return ref owner.ShieldModifiers;
+                return ref buffTar.ShieldModifiers;
             case BuffableStats.DamageReduction:
-                return ref owner.DamageReductionModifiers;
+                return ref buffTar.DamageReductionModifiers;
             default:
                 throw new System.Exception("Unsupported stat type.");
         }

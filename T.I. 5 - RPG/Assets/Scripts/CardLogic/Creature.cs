@@ -284,6 +284,7 @@ public class Creature : MonoBehaviour
         //ResetHP();
         ResetDamageModifiers();
         ResetShieldModifiers();
+        CardUIController.instance.AttDeckCard(this);
     }
 
 
