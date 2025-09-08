@@ -33,7 +33,7 @@ public class Card : ScriptableObject
     public CardDisplay cardDisplay;
     public Deck deck;
     public string Name;
-    public bool hidden, limited, instantaneous;
+    public bool /*hidden,*/ limited, instantaneous;
     public int cost;
     public enum CardType { Attack, Defense, Mind }
     public enum CardPack { Normal, Zodiac, EnemyExclusive, MinorArcana, MajorArcana }
@@ -41,7 +41,8 @@ public class Card : ScriptableObject
     public CardType Type;
     public CardPack Pack;
     public CardRarity Rarity;
-    [TextArea]public string Description;
+    [NonSerialized] public bool Temporary = false;
+    [TextArea] public string Description;
     //public List<Condition.condition> conditions = new List<Condition.condition>();
     //List<Condition> conds = new List<Condition>();
     public void CardPlayed() // carta foi jogada na mesa

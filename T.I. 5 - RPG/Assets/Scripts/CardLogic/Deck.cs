@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,6 +10,7 @@ public class Deck : ScriptableObject
     public Creature Owner;
     [SerializeField] List<Card> CardPresets = new List<Card>();
     public List<Card> cards = new List<Card>();
+    [NonSerialized] public List<Card> allCards = new List<Card>();
     public SerializableStack<Card> BuyingPile = new SerializableStack<Card>(), DiscardPile = new SerializableStack<Card>();
     public void Setup()
     {
@@ -23,18 +26,45 @@ public class Deck : ScriptableObject
         card.Setup();
         card.deck = this;
         cards.Add(card);
+        allCards.Add(card);
         CardUIController.instance.InstantiateCard(card);
+    }
+    public void AddTemporaryCard(Card preset)
+    {
+        Card card = Instantiate(preset);
+        card.Temporary = true;
+        card.Setup();
+        card.deck = this;
+        allCards.Add(card);
+        Owner.hand.Add(card);
+        CardUIController.instance.InstantiateCard(card);
+        CardUIController.AttCardDescription(Owner);
+        CardUIController.OrganizeHandCards(Owner);
     }
 
     public void RemoveCard(CardDisplay c)
     {
-        for(int i = 0; i < cards.Count; i++)
+        Destroy(c.gameObject);
+        cards.Remove(c.cardData);
+        allCards.Remove(c.cardData);
+        /*for (int i = 0; i < cards.Count; i++)
         {
-            if (cards[i] == c.cardData) 
+            if (cards[i] == c.cardData)
             {
                 Destroy(cards[i].cardDisplay.gameObject);
                 cards.RemoveAt(i);
                 i = cards.Count;
+            }
+        }*/
+    }
+    public void RemoveTemporaryCards()
+    {
+        List<Card> aux = allCards.ToList();
+        foreach (Card c in aux)
+        {
+            if (c.Temporary)
+            {
+                RemoveCard(c.cardDisplay);
             }
         }
     }
