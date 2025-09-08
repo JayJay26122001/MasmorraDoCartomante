@@ -59,7 +59,7 @@ public class CardUIController : MonoBehaviour
         return temp;
     }
 
-    public void AttCardDescription(Creature creature)
+    public static void AttCardDescription(Creature creature)
     {
         foreach (Card c in creature.hand)
         {
@@ -92,9 +92,19 @@ public class CardUIController : MonoBehaviour
                 }
             }
         }
+        /*foreach (Deck deck in creature.decks)
+        {
+            foreach (Card c in deck.allCards)
+            {
+                if (c.cardDisplay != null)
+                {
+                    c.cardDisplay.UpdateCard();
+                }
+            }
+        }*/
     }
 
-    public void AttDeckCard(Creature creature)
+    public static void AttDeckCard(Creature creature)
     {
         foreach (Deck deck in creature.decks)
         {

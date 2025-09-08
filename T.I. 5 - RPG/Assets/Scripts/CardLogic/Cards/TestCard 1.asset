@@ -13,82 +13,25 @@ MonoBehaviour:
   m_Name: TestCard 1
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 1178401998732263509
+  - rid: 1148618214811893837
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Test
-  hidden: 0
   limited: 0
-  instantaneous: 0
+  instantaneous: 1
   cost: 0
-  Type: 1
+  Type: 2
   Pack: 0
-  Rarity: 4
-  Description: 5 defense every turn
+  Rarity: 3
+  Description: spawn devil
   references:
     version: 2
     RefIds:
-    - rid: 1178401817022169206
-      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
-      data:
-        Repeatable: 1
-        TurnOwner: 0
-        TurnsFromNow:
-          target: 0
-          ObservedCards:
-            target: 0
-            pile: 0
-            type: 0
-            rarity: 0
-            pack: 0
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-          MaxReturnedNumber:
-            type: 0
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          type: 0
-          value: 0
-          min: 0
-          max: 0
-          modifiers: []
-        TurnPhase: 1
-        PhaseTime: 0
-    - rid: 1178401998732263509
-      type: {class: GainShield, ns: , asm: Assembly-CSharp}
+    - rid: 1148618214811893837
+      type: {class: CreateCard, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
-        Conditions:
-        - rid: 1178401817022169206
+        Conditions: []
         ConfirmationConditions: []
-        MultipliedByBaseShield: 1
-        ShieldMultiplier:
-          target: 0
-          ObservedCards:
-            target: 0
-            pile: 0
-            type: 0
-            rarity: 0
-            pack: 0
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-          MaxReturnedNumber:
-            type: 0
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          type: 2
-          value: 0
-          min: 0
-          max: 0
-          modifiers: []
         target: 0
+        CardPrefab: {fileID: 11400000, guid: 5f9ebffd98acc504f880de1c4dd72584, type: 2}

@@ -381,7 +381,7 @@ public class BuffStat : Effect, IProlongedEffect
         }
         StatBuffMod.Add(Modifier);
         Action = Combat.WaitForTurn(TurnsFromNow, phase, StopAtPhase, EffectEnded);
-        CardUIController.instance.AttCardDescription(buffTar);  
+        CardUIController.AttCardDescription(buffTar);  
         EffectApplied.Invoke();
     }
     public override void EffectEnded()
@@ -389,7 +389,7 @@ public class BuffStat : Effect, IProlongedEffect
         Combat.CancelWait(phase, StopAtPhase, Action);
         StatBuffMod?.Remove(Modifier);
         StatBuffMod = null;
-        CardUIController.instance.AttCardDescription(buffTar);  
+        CardUIController.AttCardDescription(buffTar);
         base.EffectEnded();
     }
     private ref List<StatModifier> GetStatReference()
@@ -484,6 +484,30 @@ public class GainCoins : Effect
                 t.Money += a;
                 break;
         }
+        EffectEnded();
+    }
+}
+public class CreateCard : Effect
+{
+    enum Target { User, Opponent }
+    [SerializeField] Target target;
+    public Card CardPrefab;
+    public override void Apply()
+    {
+        base.Apply();
+        Creature t = null;
+        switch (target)
+        {
+            case Target.User:
+                t = card.deck.Owner;
+                break;
+            case Target.Opponent:
+                t = card.deck.Owner.enemy;
+                break;
+        }
+        //t.hand.Add(CardUIController.instance.InstantiateCard(CardPrefab).cardData);
+        t.decks[0].AddTemporaryCard(CardPrefab);
+        //CardUIController.OrganizeHandCards(t);
         EffectEnded();
     }
 }

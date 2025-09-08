@@ -238,7 +238,7 @@ public class Creature : MonoBehaviour
         playedCards.Remove(card);
         foreach (Effect e in card.Effects)
         {
-            if (!e.EffectAcomplished)
+            if (e.effectStarted && !e.EffectAcomplished)
             {
                 e.EffectEnded();
             }
@@ -275,6 +275,7 @@ public class Creature : MonoBehaviour
         ResetDeckPiles();
         foreach (Deck deck in decks)
         {
+            deck.RemoveTemporaryCards();
             hand.Clear();
             //playedCards.Clear();
             deck.ResetPiles();
@@ -284,7 +285,7 @@ public class Creature : MonoBehaviour
         //ResetHP();
         ResetDamageModifiers();
         ResetShieldModifiers();
-        CardUIController.instance.AttDeckCard(this);
+        CardUIController.AttDeckCard(this);
     }
 
 
@@ -387,8 +388,8 @@ public class Creature : MonoBehaviour
         List<Card> auxExaust = exausted.ToList();
         foreach (Card c in auxExaust)
         {
-            DiscardCard(c);
             RevertExaust(c);
+            DiscardCard(c);
         }
         decks[0].ShuffleDeck();
     }

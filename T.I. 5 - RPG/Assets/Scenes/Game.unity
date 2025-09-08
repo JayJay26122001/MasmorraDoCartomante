@@ -7300,7 +7300,7 @@ MonoBehaviour:
   CardBuyMax: 5
   baseDamage: 6
   baseShieldGain: 5
-  baseDamageReduction: 0
+  baseDamageTaken: 100
   DamageModifiers: []
   ShieldModifiers: []
   DamageReductionModifiers: []
@@ -19474,7 +19474,7 @@ MonoBehaviour:
   CardBuyMax: 5
   baseDamage: 6
   baseShieldGain: 5
-  baseDamageReduction: 0
+  baseDamageTaken: 100
   DamageModifiers: []
   ShieldModifiers: []
   DamageReductionModifiers: []
@@ -21475,7 +21475,7 @@ MonoBehaviour:
   CardBuyMax: 5
   baseDamage: 6
   baseShieldGain: 5
-  baseDamageReduction: 0
+  baseDamageTaken: 100
   DamageModifiers: []
   ShieldModifiers: []
   DamageReductionModifiers: []
@@ -21704,7 +21704,7 @@ MonoBehaviour:
   CardBuyMax: 5
   baseDamage: 6
   baseShieldGain: 5
-  baseDamageReduction: 0
+  baseDamageTaken: 100
   DamageModifiers: []
   ShieldModifiers: []
   DamageReductionModifiers: []
