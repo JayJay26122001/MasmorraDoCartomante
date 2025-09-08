@@ -342,14 +342,15 @@ public class CardUIController : MonoBehaviour
             Vector3 spawnPos = finalPos + Vector3.up * 5f;
             Vector3 upPos = spawnPos + Vector3.up * 1.5f;
             Vector3 rot;
-            if (!c.playedCards[i].hidden)
+            /*if (!c.playedCards[i].hidden)
             {
                 rot = c.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(90f, 0f, 0f);
             }
             else
             {
                 rot = c.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(-90f, 180f, 0);
-            }
+            }*/
+            rot = c.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(90f, 0f, 0f);
             cardObject.transform.position = spawnPos;
             cardObject.GetComponent<CardDisplay>().AnimateEnemyCard(false);
             LeanTween.rotate(cardObject, rot, instance.instantTimeAnim).setEaseInOutSine();

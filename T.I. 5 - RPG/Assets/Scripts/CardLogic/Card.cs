@@ -33,7 +33,7 @@ public class Card : ScriptableObject
     public CardDisplay cardDisplay;
     public Deck deck;
     public string Name;
-    public bool hidden, limited, instantaneous;
+    public bool /*hidden,*/ limited, instantaneous;
     public int cost;
     public enum CardType { Attack, Defense, Mind }
     public enum CardPack { Normal, Zodiac, EnemyExclusive, MinorArcana, MajorArcana }
