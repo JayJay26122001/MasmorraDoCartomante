@@ -44,7 +44,8 @@ public class Enemy : Creature
         {
             int damage = dmg.GetDamage();
             bool IgnoreDefense = dmg.IgnoreDefense;
-            damage -= (int)(BaseDamageReduction * damage);
+            //damage -= (int)(BaseDamageTaken/100 * damage);
+            damage = (int)(damage* (BaseDamageTaken / 100));
             if (damage <= 0) { return; }
             int trueDamage;
             if (IgnoreDefense)

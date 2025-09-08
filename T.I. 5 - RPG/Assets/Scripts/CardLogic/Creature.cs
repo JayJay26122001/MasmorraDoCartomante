@@ -25,7 +25,7 @@ public class Creature : MonoBehaviour
     [SerializeField] protected int hp, shld, energy, maxBaseEnergy = 3, money;
     public int CardBuyMax = 5;
     [SerializeField] int baseDamage = 6, baseShieldGain = 5;
-    [Range(0, 1)][SerializeField] float baseDamageReduction = 0;
+    [Range(0, 200)][SerializeField] float baseDamageTaken = 100;
     public List<StatModifier> DamageModifiers, ShieldModifiers, DamageReductionModifiers;
     //public float BaseDamageMultiplier = 1, BaseDefenseMultiplier = 1;
     public UnityEvent<DealDamage> Damaged = new UnityEvent<DealDamage>(), Wounded = new UnityEvent<DealDamage>(), DamageBlocked = new UnityEvent<DealDamage>();
@@ -104,11 +104,11 @@ public class Creature : MonoBehaviour
         }*/
     }
     [Range(0, 1)]
-    public float BaseDamageReduction
+    public float BaseDamageTaken
     {
         get
         {
-            float res = baseDamageReduction;
+            float res = baseDamageTaken;
             foreach (StatModifier m in DamageReductionModifiers)
             {
                 res = m.ApplyModfier(res);
@@ -293,7 +293,8 @@ public class Creature : MonoBehaviour
     {
         int damage = dmg.GetDamage();
         bool IgnoreDefense = dmg.IgnoreDefense;
-        damage -= (int)(BaseDamageReduction * damage);
+        //damage -= (int)(BaseDamageTaken/100 * damage);
+        damage = (int)(damage* (BaseDamageTaken / 100));
         if (damage <= 0) { return; }
         int trueDamage;
         if (IgnoreDefense)

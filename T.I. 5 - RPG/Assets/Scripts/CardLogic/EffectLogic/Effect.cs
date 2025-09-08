@@ -333,7 +333,7 @@ public class Heal : Effect
 [Serializable]
 public class BuffStat : Effect, IProlongedEffect
 {
-    enum BuffableStats { Attack, ShieldGain, DamageReduction }
+    enum BuffableStats { Attack, ShieldGain, DamageTaken }
     [SerializeField] Target BuffTarget;
     [SerializeField] BuffableStats StatToBuff;
     public UnityEvent EffectApplied { get; set; }
@@ -400,7 +400,7 @@ public class BuffStat : Effect, IProlongedEffect
                 return ref buffTar.DamageModifiers;
             case BuffableStats.ShieldGain:
                 return ref buffTar.ShieldModifiers;
-            case BuffableStats.DamageReduction:
+            case BuffableStats.DamageTaken:
                 return ref buffTar.DamageReductionModifiers;
             default:
                 throw new System.Exception("Unsupported stat type.");
