@@ -38,6 +38,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseDamage: 1
         DamageMultiplier:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -50,13 +51,14 @@ MonoBehaviour:
               value: 0
               min: 0
               max: 0
+            initialized: 1
           MaxReturnedNumber:
-            type: 0
+            type: 2
             value: 0
             min: 0
             max: 0
           ObservedStat: 0
-          type: 0
+          initialized: 1
           value: 1
           min: 0
           max: 0
@@ -69,10 +71,12 @@ MonoBehaviour:
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
+        BuffTarget: 0
         StatToBuff: 2
         Modifier:
-          type: 1
+          type: 0
           value:
+            type: 0
             target: 0
             ObservedCards:
               target: 0
@@ -85,14 +89,15 @@ MonoBehaviour:
                 value: 0
                 min: 0
                 max: 0
+              initialized: 1
             MaxReturnedNumber:
-              type: 0
+              type: 2
               value: 0
               min: 0
               max: 0
             ObservedStat: 0
-            type: 0
-            value: 0.6
+            initialized: 1
+            value: 0.5
             min: 0
             max: 0
             modifiers: []
