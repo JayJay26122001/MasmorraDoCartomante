@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
   m_Name: Focus
   m_EditorClassIdentifier: 
-  Effects: []
+  Effects:
+  - rid: 1148618236215689298
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Focus
-  hidden: 0
   limited: 0
   instantaneous: 1
   cost: 0
@@ -26,4 +26,37 @@ MonoBehaviour:
   Description: Gain 1 Extra Energy for this Turn.
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 1148618236215689298
+      type: {class: GainEnergy, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        Amount:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 1
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0
