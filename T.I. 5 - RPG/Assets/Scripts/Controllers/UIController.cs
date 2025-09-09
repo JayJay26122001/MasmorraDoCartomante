@@ -710,7 +710,7 @@ public class UIController : MonoBehaviour
         enemyName.text = name;
     }
 
-    public void DescHUD(bool active, string s)
+    public void ShopDescHUD(bool active, string s)
     {
         shopObjectHUD.SetActive(active);
         shopObjectDescription.text = s;

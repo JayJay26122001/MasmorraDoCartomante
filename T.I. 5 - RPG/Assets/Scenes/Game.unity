@@ -8654,7 +8654,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &566439120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8679,6 +8679,38 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 566439126}
             m_ObjectArgumentAssemblyTypeName: DiscardBell, Assembly-CSharp
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 566439128}
+          m_TargetAssemblyTypeName: ShopObject, Assembly-CSharp
+          m_MethodName: ShowDescHUD
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 566439128}
+          m_TargetAssemblyTypeName: ShopObject, Assembly-CSharp
+          m_MethodName: HideDescHUD
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 3
             m_FloatArgument: 0
             m_StringArgument: 
@@ -8820,7 +8852,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3fb166d4b9ee8143ad7f1141fcaa32c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectDescription: 
+  objectDescription: 'Cancel Action
+
+    "If you don''t want, you can just leave!"'
 --- !u!1 &568923913
 GameObject:
   m_ObjectHideFlags: 0
