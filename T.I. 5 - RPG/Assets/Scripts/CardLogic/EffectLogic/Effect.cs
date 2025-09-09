@@ -389,7 +389,11 @@ public class BuffStat : Effect, IProlongedEffect
         Combat.CancelWait(phase, StopAtPhase, Action);
         StatBuffMod?.Remove(Modifier);
         StatBuffMod = null;
-        CardUIController.AttCardDescription(buffTar);
+        if (effectStarted)
+        {
+            CardUIController.AttCardDescription(buffTar);
+        }
+        
         base.EffectEnded();
     }
     private ref List<StatModifier> GetStatReference()

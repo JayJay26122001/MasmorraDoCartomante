@@ -24,8 +24,8 @@ MonoBehaviour:
   Type: 2
   Pack: 4
   Rarity: 4
-  Description: Buy 6 Cards. After played, 50% Chance the Use takes double the Damage
-    from the Opponent on its Next Turn.
+  Description: Buy 6 Cards. After played, 50% Chance the User takes double Damage
+    on the Opponent's Next Turn.
   references:
     version: 2
     RefIds:
@@ -65,8 +65,7 @@ MonoBehaviour:
       type: {class: BuffStat, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
-        Conditions:
-        - rid: 6721762298113032276
+        Conditions: []
         ConfirmationConditions:
         - rid: 6721762298113032275
         BuffTarget: 0
@@ -107,36 +106,3 @@ MonoBehaviour:
       type: {class: RandomChance, ns: , asm: Assembly-CSharp}
       data:
         percentageChance: 50
-    - rid: 6721762298113032276
-      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
-      data:
-        Repeatable: 0
-        TurnOwner: 0
-        TurnsFromNow:
-          type: 0
-          target: 0
-          ObservedCards:
-            target: 0
-            pile: 0
-            type: 0
-            rarity: 0
-            pack: 0
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-            initialized: 1
-          MaxReturnedNumber:
-            type: 2
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          initialized: 1
-          value: 0
-          min: 0
-          max: 0
-          modifiers: []
-        TurnPhase: 0
-        PhaseTime: 0

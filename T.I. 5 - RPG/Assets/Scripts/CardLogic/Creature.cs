@@ -236,9 +236,10 @@ public class Creature : MonoBehaviour
         card.deck.DiscardPile.Add(card);
         hand.Remove(card);
         playedCards.Remove(card);
+        card.deck.BuyingPile.Remove(card);
         foreach (Effect e in card.Effects)
         {
-            if (e.effectStarted && !e.EffectAcomplished)
+            if (/*e.effectStarted &&*/ !e.EffectAcomplished)
             {
                 e.EffectEnded();
             }
