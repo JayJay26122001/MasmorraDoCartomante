@@ -276,6 +276,10 @@ public class Creature : MonoBehaviour
         foreach (Deck deck in decks)
         {
             deck.RemoveTemporaryCards();
+            foreach(Card card in deck.cards)
+            {
+                card.RevertProperties();
+            }
             hand.Clear();
             //playedCards.Clear();
             deck.ResetPiles();
