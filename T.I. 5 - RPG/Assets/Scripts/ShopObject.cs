@@ -3,6 +3,7 @@ using UnityEngine;
 public class ShopObject : MonoBehaviour
 {
     Vector3 startPos;
+    [TextArea] public string objectDescription;
 
     public void MoveUp()
     {
@@ -18,5 +19,15 @@ public class ShopObject : MonoBehaviour
     public void ResetPosition()
     {
         transform.localPosition = startPos;
+    }
+
+    public void ShowDescHUD()
+    {
+        GameManager.instance.uiController.DescHUD(true, objectDescription);
+    }
+
+    public void HideDescHUD()
+    {
+        GameManager.instance.uiController.DescHUD(false, objectDescription);
     }
 }

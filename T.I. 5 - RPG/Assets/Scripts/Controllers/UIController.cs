@@ -57,6 +57,9 @@ public class UIController : MonoBehaviour
     [Header("Game Combat HUD")]
     public GameObject combatHUD;
     public TextMeshPro enemyName;
+    [Header("ShopUI")]
+    public GameObject shopObjectHUD;
+    public TextMeshProUGUI shopObjectDescription;
     [Header("Resolution and ScreenMode")]
     public TMP_Dropdown resDropdown, screenModeDropdown;
     [Header("Camera")]
@@ -391,6 +394,10 @@ public class UIController : MonoBehaviour
         {
             screenModeDropdown.gameObject.SetActive(true);
         }
+        if (shopObjectHUD != null)
+        {
+            shopObjectHUD.gameObject.SetActive(false);
+        }
     }
     /*public void OpenPanel(GameObject panel)
     {
@@ -701,5 +708,11 @@ public class UIController : MonoBehaviour
     public void ChangeNamePlate(string name)
     {
         enemyName.text = name;
+    }
+
+    public void DescHUD(bool active, string s)
+    {
+        shopObjectHUD.SetActive(active);
+        shopObjectDescription.text = s;
     }
 }
