@@ -10,28 +10,47 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Potential
+  m_Name: Crow's Nest
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 6961742136573427780
+  - rid: 6721762298113032192
+  - rid: 6721762298113032262
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Potential
+  Name: Crow's Nest
   limited: 0
   instantaneous: 0
   cost: 1
   Type: 2
-  Pack: 3
-  Rarity: 0
-  Description: Reshuffle the Discard Pile on the End of the User's Turn.
+  Pack: 0
+  Rarity: 1
+  Description: If the User's Shield Breaks this Turn. Create an instance of Cannon
+    Barrage in Hand.
   references:
     version: 2
     RefIds:
-    - rid: 6721762184433238087
+    - rid: 6721762298113032192
+      type: {class: CreateCard, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 6721762298113032264
+        ConfirmationConditions: []
+        target: 0
+        CardPrefab: {fileID: 11400000, guid: d55365f6f790eea4fbd4163e789bfcad, type: 2}
+    - rid: 6721762298113032262
+      type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 6721762298113032263
+        ConfirmationConditions: []
+        SetAsDiscardTime: 0
+    - rid: 6721762298113032263
       type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
       data:
         Repeatable: 0
-        TurnOwner: 0
+        TurnOwner: 1
         TurnsFromNow:
           type: 0
           target: 0
@@ -60,11 +79,8 @@ MonoBehaviour:
           modifiers: []
         TurnPhase: 1
         PhaseTime: 1
-    - rid: 6961742136573427780
-      type: {class: ShuffleDeck, ns: , asm: Assembly-CSharp}
+    - rid: 6721762298113032264
+      type: {class: ShieldBroke, ns: , asm: Assembly-CSharp}
       data:
-        DiscardIfAcomplished: 0
-        Conditions:
-        - rid: 6721762184433238087
-        ConfirmationConditions: []
+        Repeatable: 0
         target: 0
