@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Sandstorm(W.I.P)
+  m_Name: Sandstorm
   m_EditorClassIdentifier: 
   Effects:
   - rid: 6721762140899246148
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Sandstorm(W.I.P)
+  Name: Sandstorm
   limited: 0
   instantaneous: 1
   cost: 1
