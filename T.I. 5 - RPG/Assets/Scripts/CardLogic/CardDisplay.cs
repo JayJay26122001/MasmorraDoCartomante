@@ -289,28 +289,16 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         {
             if (input[i] == 'v' && i + 1 < input.Length && input[i + 1] == '[')
             {
-                i += 2; // skip "v["
-
-                // --- Parse index ---
+                i += 2;
                 int start = i;
                 for (; i < input.Length && input[i] != ']'; i++) { }
                 int effectIndex = int.Parse(input.Substring(start, i - start));
-
-                // Expect ']'
                 if (i < input.Length && input[i] == ']') i++;
-
-                // Expect '{'
                 if (i < input.Length && input[i] == '{') i++;
-
-                // --- Parse variable ---
                 start = i;
                 for (; i < input.Length && input[i] != '}'; i++) { }
                 string variable = input.Substring(start, i - start);
-
-                // Expect '}'
                 if (i < input.Length && input[i] == '}') i++;
-
-                // Add to results
                 tokens.Add(new Token { index = effectIndex, var = variable });
             }
         }

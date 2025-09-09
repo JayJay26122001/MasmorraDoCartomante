@@ -23,11 +23,11 @@ public class ShopObject : MonoBehaviour
 
     public void ShowDescHUD()
     {
-        GameManager.instance.uiController.DescHUD(true, objectDescription);
+        GameManager.instance.uiController.ShopDescHUD(true, objectDescription);
     }
 
     public void HideDescHUD()
     {
-        GameManager.instance.uiController.DescHUD(false, objectDescription);
+        GameManager.instance.uiController.ShopDescHUD(false, objectDescription);
     }
 }
