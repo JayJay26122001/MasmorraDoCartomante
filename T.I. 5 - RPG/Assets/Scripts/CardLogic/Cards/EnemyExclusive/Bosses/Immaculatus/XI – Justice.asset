@@ -18,7 +18,6 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: "XI \u2013 Justice"
-  hidden: 0
   limited: 0
   instantaneous: 0
   cost: 1
@@ -26,7 +25,7 @@ MonoBehaviour:
   Pack: 4
   Rarity: 4
   Description: Deals Piercing Damage Equal half the Opponent's Current Health and
-    receive Half of its Shield
+    receive Half of its Shield (v[0]{Damage}) (v[1]{Shield}).
   references:
     version: 2
     RefIds:
@@ -38,6 +37,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseDamage: 0
         DamageMultiplier:
+          type: 3
           target: 1
           ObservedCards:
             target: 0
@@ -50,13 +50,14 @@ MonoBehaviour:
               value: 999
               min: 0
               max: 0
+            initialized: 1
           MaxReturnedNumber:
             type: 2
             value: 999
             min: 0
             max: 0
           ObservedStat: 0
-          type: 3
+          initialized: 1
           value: 0
           min: 0
           max: 0
@@ -64,6 +65,7 @@ MonoBehaviour:
           - operation: 0
             Type: 1
             IntValue:
+              type: 0
               target: 0
               ObservedCards:
                 target: 0
@@ -76,17 +78,19 @@ MonoBehaviour:
                   value: 0
                   min: 0
                   max: 0
+                initialized: 1
               MaxReturnedNumber:
-                type: 0
+                type: 2
                 value: 0
                 min: 0
                 max: 0
               ObservedStat: 0
-              type: 0
+              initialized: 1
               value: 0
               min: 0
               max: 0
             FloatValue:
+              type: 0
               target: 0
               ObservedCards:
                 target: 0
@@ -99,13 +103,14 @@ MonoBehaviour:
                   value: 0
                   min: 0
                   max: 0
+                initialized: 1
               MaxReturnedNumber:
-                type: 0
+                type: 2
                 value: 0
                 min: 0
                 max: 0
               ObservedStat: 0
-              type: 0
+              initialized: 1
               value: 2
               min: 0
               max: 0
@@ -119,6 +124,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseShield: 0
         ShieldMultiplier:
+          type: 3
           target: 1
           ObservedCards:
             target: 0
@@ -131,13 +137,14 @@ MonoBehaviour:
               value: 0
               min: 0
               max: 0
+            initialized: 1
           MaxReturnedNumber:
-            type: 0
+            type: 2
             value: 999
             min: 0
             max: 0
           ObservedStat: 1
-          type: 3
+          initialized: 1
           value: 0
           min: 0
           max: 0
@@ -145,6 +152,7 @@ MonoBehaviour:
           - operation: 0
             Type: 1
             IntValue:
+              type: 0
               target: 0
               ObservedCards:
                 target: 0
@@ -157,17 +165,19 @@ MonoBehaviour:
                   value: 0
                   min: 0
                   max: 0
+                initialized: 1
               MaxReturnedNumber:
-                type: 0
+                type: 2
                 value: 0
                 min: 0
                 max: 0
               ObservedStat: 0
-              type: 0
+              initialized: 1
               value: 0
               min: 0
               max: 0
             FloatValue:
+              type: 0
               target: 0
               ObservedCards:
                 target: 0
@@ -180,13 +190,14 @@ MonoBehaviour:
                   value: 0
                   min: 0
                   max: 0
+                initialized: 1
               MaxReturnedNumber:
-                type: 0
+                type: 2
                 value: 0
                 min: 0
                 max: 0
               ObservedStat: 0
-              type: 0
+              initialized: 1
               value: 2
               min: 0
               max: 0

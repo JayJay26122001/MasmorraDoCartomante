@@ -10,32 +10,34 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Locust Swarm
+  m_Name: Sekhmet's Rage
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 6961742136573427785
+  - rid: 6721762322506580036
+  - rid: 6721762322506580038
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Locust Swarm
-  limited: 1
+  Name: Sekhmet's Rage
+  limited: 0
   instantaneous: 0
-  cost: 1
-  Type: 2
+  cost: 2
+  Type: 0
   Pack: 0
-  Rarity: 2
-  Description: 'Reduces the Opponent''s Shield by -3 for each Card on its Discard
-    Pile (v[0]{Shield}). '
+  Rarity: 3
+  Description: If the User takes Damage, Deals 3 Damage based on the Opponent's Discard
+    Pile(v[0]{Damage}).
   references:
     version: 2
     RefIds:
-    - rid: 6961742136573427785
-      type: {class: GainShield, ns: , asm: Assembly-CSharp}
+    - rid: 6721762322506580036
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
-        Conditions: []
+        Conditions:
+        - rid: 6721762322506580037
         ConfirmationConditions: []
-        MultipliedByBaseShield: 0
-        ShieldMultiplier:
+        MultipliedByBaseDamage: 0
+        DamageMultiplier:
           type: 2
           target: 1
           ObservedCards:
@@ -52,10 +54,10 @@ MonoBehaviour:
             initialized: 1
           MaxReturnedNumber:
             type: 2
-            value: 999
+            value: 0
             min: 0
             max: 0
-          ObservedStat: 1
+          ObservedStat: 0
           initialized: 1
           value: 0
           min: 0
@@ -110,7 +112,56 @@ MonoBehaviour:
                 max: 0
               ObservedStat: 0
               initialized: 1
-              value: -3
+              value: 3
               min: 0
               max: 0
-        target: 1
+        IgnoreDefense: 0
+        target: 0
+    - rid: 6721762322506580037
+      type: {class: DamageTaken, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        DamagedTarget: 0
+        CountShieldedDamage: 0
+        DamageCameFromCard: 0
+    - rid: 6721762322506580038
+      type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 6721762323323158594
+        ConfirmationConditions: []
+        SetAsDiscardTime: 0
+    - rid: 6721762323323158594
+      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        TurnOwner: 1
+        TurnsFromNow:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+        TurnPhase: 1
+        PhaseTime: 1

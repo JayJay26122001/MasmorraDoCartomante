@@ -10,72 +10,39 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Taurus
+  m_Name: Steam Engine(W.I.P)
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 6961742099578617924
-  - rid: 6961742099578617926
+  - rid: 7391437407230361702
+  - rid: 6721762321394565199
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Taurus
-  limited: 0
-  instantaneous: 1
+  Name: Steam Engine(W.I.P)
+  limited: 1
+  instantaneous: 0
   cost: 3
-  Type: 1
-  Pack: 1
-  Rarity: 3
-  Description: "Gain v[1]{Shield}  Shield. During the User\u2019s Next Turn, Cards
-    gain +5 Damage."
+  Type: 0
+  Pack: 0
+  Rarity: 2
+  Description: beta Steam Engine
   references:
     version: 2
     RefIds:
-    - rid: 6961742099578617924
-      type: {class: BuffStat, ns: , asm: Assembly-CSharp}
+    - rid: 6721762321394565198
+      type: {class: DamageBlocked, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 1
+        BlockedBy: 1
+        FailIfDamaged: 1
+        DamageCameFromCard: 1
+    - rid: 6721762321394565199
+      type: {class: GainEnergy, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions:
-        - rid: 6961742099578617925
+        - rid: 6721762321394565200
         ConfirmationConditions: []
-        BuffTarget: 0
-        StatToBuff: 0
-        Modifier:
-          type: 1
-          value:
-            type: 0
-            target: 0
-            ObservedCards:
-              target: 0
-              pile: 0
-              type: 0
-              rarity: 0
-              pack: 0
-              MaxReturnedNumber:
-                type: 2
-                value: 0
-                min: 0
-                max: 0
-              initialized: 1
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-            ObservedStat: 0
-            initialized: 1
-            value: 5
-            min: 0
-            max: 0
-            modifiers: []
-        TurnOwner: 0
-        TurnsFromNow: 0
-        TurnPhaseToStop: 0
-        StopAtPhase: 0
-    - rid: 6961742099578617925
-      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
-      data:
-        Repeatable: 0
-        TurnOwner: 0
-        TurnsFromNow:
+        Amount:
           type: 0
           target: 0
           ObservedCards:
@@ -97,20 +64,27 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          value: 0
+          value: 1
           min: 0
           max: 0
           modifiers: []
-        TurnPhase: 0
-        PhaseTime: 0
-    - rid: 6961742099578617926
-      type: {class: GainShield, ns: , asm: Assembly-CSharp}
+        target: 0
+    - rid: 6721762321394565200
+      type: {class: DamageBlocked, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 1
+        BlockedBy: 1
+        FailIfDamaged: 0
+        DamageCameFromCard: 0
+    - rid: 7391437407230361702
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
-        Conditions: []
+        Conditions:
+        - rid: 6721762321394565198
         ConfirmationConditions: []
-        MultipliedByBaseShield: 1
-        ShieldMultiplier:
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
           type: 0
           target: 0
           ObservedCards:
@@ -132,8 +106,9 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          value: 2
+          value: 0.6
           min: 0
           max: 0
           modifiers: []
+        IgnoreDefense: 0
         target: 0

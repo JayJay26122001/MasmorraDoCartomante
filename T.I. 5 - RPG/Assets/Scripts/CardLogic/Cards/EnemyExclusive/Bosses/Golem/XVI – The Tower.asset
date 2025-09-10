@@ -18,15 +18,14 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: "XVI \u2013 The Tower"
-  hidden: 0
   limited: 0
   instantaneous: 0
   cost: 2
   Type: 0
   Pack: 4
   Rarity: 4
-  Description: Deals 6 Damage. Reduces by half the Damage Taken until the start of
-    the User's next turn.
+  Description: Deals v[0]{Damage}  Damage. Reduces by half the Damage Taken until
+    the start of the User's next turn.
   references:
     version: 2
     RefIds:

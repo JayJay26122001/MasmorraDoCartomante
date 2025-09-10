@@ -18,14 +18,13 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Libra
-  hidden: 0
   limited: 0
   instantaneous: 0
   cost: 1
   Type: 2
   Pack: 1
   Rarity: 3
-  Description: Transform Half of the User's Shield into Damage
+  Description: Transform Half of the User's Shield into Damage.
   references:
     version: 2
     RefIds:
@@ -37,6 +36,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseDamage: 0
         DamageMultiplier:
+          type: 3
           target: 0
           ObservedCards:
             target: 0
@@ -56,7 +56,7 @@ MonoBehaviour:
             min: 0
             max: 0
           ObservedStat: 1
-          type: 3
+          initialized: 1
           value: 0
           min: 0
           max: 0
@@ -64,6 +64,7 @@ MonoBehaviour:
           - operation: 0
             Type: 1
             IntValue:
+              type: 0
               target: 0
               ObservedCards:
                 target: 0
@@ -78,16 +79,17 @@ MonoBehaviour:
                   max: 0
                 initialized: 1
               MaxReturnedNumber:
-                type: 0
+                type: 2
                 value: 0
                 min: 0
                 max: 0
               ObservedStat: 0
-              type: 0
+              initialized: 1
               value: 0
               min: 0
               max: 0
             FloatValue:
+              type: 0
               target: 0
               ObservedCards:
                 target: 0
@@ -102,12 +104,12 @@ MonoBehaviour:
                   max: 0
                 initialized: 1
               MaxReturnedNumber:
-                type: 0
+                type: 2
                 value: 0
                 min: 0
                 max: 0
               ObservedStat: 0
-              type: 0
+              initialized: 1
               value: 2
               min: 0
               max: 0
@@ -121,6 +123,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseShield: 0
         ShieldMultiplier:
+          type: 3
           target: 0
           ObservedCards:
             target: 0
@@ -140,7 +143,7 @@ MonoBehaviour:
             min: 0
             max: 0
           ObservedStat: 1
-          type: 3
+          initialized: 1
           value: 0
           min: 0
           max: 0
@@ -148,6 +151,7 @@ MonoBehaviour:
           - operation: 0
             Type: 1
             IntValue:
+              type: 0
               target: 0
               ObservedCards:
                 target: 0
@@ -162,16 +166,17 @@ MonoBehaviour:
                   max: 0
                 initialized: 1
               MaxReturnedNumber:
-                type: 0
+                type: 2
                 value: 0
                 min: 0
                 max: 0
               ObservedStat: 0
-              type: 0
+              initialized: 1
               value: 0
               min: 0
               max: 0
             FloatValue:
+              type: 0
               target: 0
               ObservedCards:
                 target: 0
@@ -186,12 +191,12 @@ MonoBehaviour:
                   max: 0
                 initialized: 1
               MaxReturnedNumber:
-                type: 0
+                type: 2
                 value: 0
                 min: 0
                 max: 0
               ObservedStat: 0
-              type: 0
+              initialized: 1
               value: -2
               min: 0
               max: 0

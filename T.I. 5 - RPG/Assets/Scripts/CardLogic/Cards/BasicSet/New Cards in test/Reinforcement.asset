@@ -19,7 +19,6 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Reinforcement
-  hidden: 0
   limited: 1
   instantaneous: 0
   cost: 0
@@ -27,7 +26,7 @@ MonoBehaviour:
   Pack: 0
   Rarity: 3
   Description: 'Gain v[1]{Shield} Shield. Increases +4 for each Defense Card played
-    with after. '
+    with after (v[0]{Shield}). '
   references:
     version: 2
     RefIds:
@@ -40,6 +39,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseShield: 1
         ShieldMultiplier:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -60,7 +60,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 0.8
           min: 0
           max: 0
@@ -81,6 +80,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseShield: 1
         ShieldMultiplier:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -101,7 +101,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 0.4
           min: 0
           max: 0

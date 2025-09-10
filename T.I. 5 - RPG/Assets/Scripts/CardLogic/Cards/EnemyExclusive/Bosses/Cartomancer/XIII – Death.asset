@@ -18,14 +18,13 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: "XIII \u2013 Death"
-  hidden: 0
   limited: 0
   instantaneous: 0
   cost: 1
   Type: 0
   Pack: 4
   Rarity: 4
-  Description: Deals 3 Damage and Destroys the Opponent's Discard Pile
+  Description: Deals v[0]{Damage}  Damage and Destroys the Opponent's Discard Pile
   references:
     version: 2
     RefIds:
@@ -37,6 +36,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseDamage: 1
         DamageMultiplier:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -51,12 +51,12 @@ MonoBehaviour:
               max: 0
             initialized: 1
           MaxReturnedNumber:
-            type: 0
+            type: 2
             value: 0
             min: 0
             max: 0
           ObservedStat: 0
-          type: 0
+          initialized: 1
           value: 0.5
           min: 0
           max: 0

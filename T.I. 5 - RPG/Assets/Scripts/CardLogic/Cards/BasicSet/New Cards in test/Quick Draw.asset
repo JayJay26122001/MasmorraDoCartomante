@@ -18,14 +18,13 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Quick Draw
-  hidden: 0
   limited: 0
   instantaneous: 0
   cost: 1
   Type: 2
   Pack: 0
   Rarity: 1
-  Description: If the Opponent's Next Card is an Defense Card, deals v[0]{Damage}
+  Description: If the Opponent's Next Card is a Defense Card, deals v[0]{Damage}
     Damage.
   references:
     version: 2
@@ -39,6 +38,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseDamage: 1
         DamageMultiplier:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -59,7 +59,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 0.5
           min: 0
           max: 0
@@ -87,6 +86,7 @@ MonoBehaviour:
         Repeatable: 0
         TurnOwner: 1
         TurnsFromNow:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -107,7 +107,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 0
           min: 0
           max: 0

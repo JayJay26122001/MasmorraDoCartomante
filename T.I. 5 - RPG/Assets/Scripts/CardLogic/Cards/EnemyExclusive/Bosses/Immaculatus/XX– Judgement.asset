@@ -18,15 +18,14 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: "XX\u2013 Judgement"
-  hidden: 0
   limited: 0
   instantaneous: 0
   cost: 1
   Type: 0
   Pack: 4
   Rarity: 4
-  Description: Deals 1 Damage. If Blocked, the Defense Card on Top of the Opponent's
-    Discard Pile is Destroyed.
+  Description: Deals v[0]{Damage}  Damage. If Blocked, the Defense Card on Top of
+    the Opponent's Discard Pile is Destroyed.
   references:
     version: 2
     RefIds:
@@ -65,6 +64,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseDamage: 1
         DamageMultiplier:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -79,12 +79,12 @@ MonoBehaviour:
               max: 0
             initialized: 1
           MaxReturnedNumber:
-            type: 0
+            type: 2
             value: 0
             min: 0
             max: 0
           ObservedStat: 0
-          type: 0
+          initialized: 1
           value: 0.2
           min: 0
           max: 0

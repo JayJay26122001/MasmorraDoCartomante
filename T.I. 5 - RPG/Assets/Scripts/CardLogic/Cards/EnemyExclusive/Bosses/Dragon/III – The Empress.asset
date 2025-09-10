@@ -18,15 +18,14 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: "III \u2013 The Empress"
-  hidden: 0
   limited: 0
   instantaneous: 0
   cost: 2
   Type: 1
   Pack: 4
   Rarity: 4
-  Description: "Gain 18 Shield. Makes the Opponent receive +1 Energy on it\u2019s
-    next turn."
+  Description: "Gain v[0]{Shield}  Shield. Makes the Opponent receive +1 Energy on
+    it\u2019s next turn."
   references:
     version: 2
     RefIds:
@@ -38,6 +37,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseShield: 1
         ShieldMultiplier:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -50,13 +50,14 @@ MonoBehaviour:
               value: 0
               min: 0
               max: 0
+            initialized: 1
           MaxReturnedNumber:
-            type: 0
+            type: 2
             value: 0
             min: 0
             max: 0
           ObservedStat: 0
-          type: 0
+          initialized: 1
           value: 3.6
           min: 0
           max: 0
@@ -70,6 +71,7 @@ MonoBehaviour:
         - rid: 1178402034227347535
         ConfirmationConditions: []
         Amount:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -82,13 +84,14 @@ MonoBehaviour:
               value: 0
               min: 0
               max: 0
+            initialized: 1
           MaxReturnedNumber:
-            type: 0
+            type: 2
             value: 0
             min: 0
             max: 0
           ObservedStat: 0
-          type: 0
+          initialized: 1
           value: 1
           min: 0
           max: 0
@@ -100,6 +103,7 @@ MonoBehaviour:
         Repeatable: 0
         TurnOwner: 1
         TurnsFromNow:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -112,13 +116,14 @@ MonoBehaviour:
               value: 0
               min: 0
               max: 0
+            initialized: 1
           MaxReturnedNumber:
-            type: 0
+            type: 2
             value: 0
             min: 0
             max: 0
           ObservedStat: 0
-          type: 0
+          initialized: 1
           value: 0
           min: 0
           max: 0

@@ -10,40 +10,41 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Locust Swarm
+  m_Name: High-Voltage
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 6961742136573427785
+  - rid: 7391437407230361702
+  - rid: 6721762320743137280
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Locust Swarm
-  limited: 1
+  Name: High-Voltage
+  limited: 0
   instantaneous: 0
-  cost: 1
-  Type: 2
+  cost: 3
+  Type: 0
   Pack: 0
-  Rarity: 2
-  Description: 'Reduces the Opponent''s Shield by -3 for each Card on its Discard
-    Pile (v[0]{Shield}). '
+  Rarity: 3
+  Description: Deals v[0]{Damage} Piercing Damage, adding 10 Non-Piercing Damage
+    for every Energy remaining(v[1]{Damage}).
   references:
     version: 2
     RefIds:
-    - rid: 6961742136573427785
-      type: {class: GainShield, ns: , asm: Assembly-CSharp}
+    - rid: 6721762320743137280
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
-        MultipliedByBaseShield: 0
-        ShieldMultiplier:
-          type: 2
-          target: 1
+        MultipliedByBaseDamage: 0
+        DamageMultiplier:
+          type: 3
+          target: 0
           ObservedCards:
-            target: 1
-            pile: 3
-            type: -1
-            rarity: -1
-            pack: -1
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
             MaxReturnedNumber:
               type: 2
               value: 0
@@ -52,10 +53,10 @@ MonoBehaviour:
             initialized: 1
           MaxReturnedNumber:
             type: 2
-            value: 999
+            value: 0
             min: 0
             max: 0
-          ObservedStat: 1
+          ObservedStat: 2
           initialized: 1
           value: 0
           min: 0
@@ -110,7 +111,43 @@ MonoBehaviour:
                 max: 0
               ObservedStat: 0
               initialized: 1
-              value: -3
+              value: 10
               min: 0
               max: 0
-        target: 1
+        IgnoreDefense: 1
+        target: 0
+    - rid: 7391437407230361702
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0.8
+          min: 0
+          max: 0
+          modifiers: []
+        IgnoreDefense: 1
+        target: 0

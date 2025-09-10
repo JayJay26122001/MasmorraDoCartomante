@@ -18,14 +18,14 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Manifestation
-  hidden: 0
   limited: 0
   instantaneous: 0
   cost: 0
   Type: 1
   Pack: 3
   Rarity: 0
-  Description: If the User's Shield Breaks, Gain 5 Shield on the Next Turn.
+  Description: If the User's Shield Breaks, Gain v[0]{Shield} Shield on the Next
+    Turn.
   references:
     version: 2
     RefIds:
@@ -40,6 +40,7 @@ MonoBehaviour:
         Repeatable: 0
         TurnOwner: 0
         TurnsFromNow:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -60,7 +61,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 0
           min: 0
           max: 0
@@ -81,6 +81,7 @@ MonoBehaviour:
         Repeatable: 0
         TurnOwner: 0
         TurnsFromNow:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -101,7 +102,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 0
           min: 0
           max: 0
@@ -118,6 +118,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseShield: 1
         ShieldMultiplier:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -138,7 +139,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 1
           min: 0
           max: 0

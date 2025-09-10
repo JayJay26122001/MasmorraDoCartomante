@@ -18,14 +18,13 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Cerberus' Greed
-  hidden: 0
   limited: 0
   instantaneous: 1
   cost: 1
   Type: 0
   Pack: 0
   Rarity: 3
-  Description: Deal v[1]{Damage} Damage and Buy 3 Cards
+  Description: Deal v[1]{Damage} Damage and Buy 3 Cards.
   references:
     version: 2
     RefIds:
@@ -36,6 +35,7 @@ MonoBehaviour:
         Conditions: []
         ConfirmationConditions: []
         BuyCardNumber:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -56,7 +56,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 3
           min: 0
           max: 0
@@ -69,6 +68,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseDamage: 1
         DamageMultiplier:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -89,7 +89,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 0.6
           min: 0
           max: 0

@@ -24,7 +24,8 @@ MonoBehaviour:
   Type: 1
   Pack: 1
   Rarity: 1
-  Description: 8 Shield. Start the Next Turn with already 8 Shield
+  Description: Gain v[0]{Shield} Shield. Start the Next Turn with already v[0]{Shield}
+    Shield
   references:
     version: 2
     RefIds:

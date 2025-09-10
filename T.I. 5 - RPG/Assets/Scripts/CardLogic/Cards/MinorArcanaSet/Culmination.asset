@@ -17,15 +17,14 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Culmination
-  hidden: 0
   limited: 0
   instantaneous: 1
   cost: 2
   Type: 0
   Pack: 3
   Rarity: 2
-  Description: Deals v[0]{Damage} Piercing Damage based on the number of Cards in
-    the Discard Pile.
+  Description: Deals 1 Piercing Damage based on the number of Cards in the Discard
+    Pile(v[0]{Damage}).
   references:
     version: 2
     RefIds:
@@ -37,6 +36,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseDamage: 0
         DamageMultiplier:
+          type: 2
           target: 0
           ObservedCards:
             target: 0
@@ -57,7 +57,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 2
           value: 1.4
           min: 0
           max: 0
