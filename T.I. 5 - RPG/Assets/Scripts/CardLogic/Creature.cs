@@ -34,7 +34,7 @@ public class Creature : MonoBehaviour
     public bool canPlayCards;
     public CardCombatSpaces combatSpace;
 
-    public TextMeshProUGUI hpText, shieldText, energyText;  //Ui das criaturas na batalha
+    public TextMeshPro hpText, shieldText, energyText;  //Ui das criaturas na batalha
     public UnityEngine.UI.Image hpCircle;
     public List<Card> exausted = new List<Card>();
 
