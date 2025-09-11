@@ -794,7 +794,7 @@ public class UIController : MonoBehaviour
 
         if (card.cardData.extraDesc)
         {
-            popupTexts.Add("This card has extra description!");
+            popupTexts.Add("This card has extra description!"); //change after for the card extra description, the string "card.extraDescription"
         }
 
         if (card.cardData.instantaneous)
