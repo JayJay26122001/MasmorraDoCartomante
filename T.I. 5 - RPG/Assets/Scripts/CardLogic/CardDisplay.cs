@@ -443,5 +443,22 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         }
         return value;
     }
+    public int VerifyCardPopupQuantity()
+    {
+        int popupQuantity = 0;
+        if(cardData.instantaneous)
+        {
+            popupQuantity++;
+        }
+        if(cardData.limited)
+        {
+            popupQuantity++;
+        }
+        if (cardData.extraDesc)
+        {
+            popupQuantity++;
+        }
+        return popupQuantity;
+    }
 }
 

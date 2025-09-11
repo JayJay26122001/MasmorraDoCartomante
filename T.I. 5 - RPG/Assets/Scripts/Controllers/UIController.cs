@@ -60,6 +60,10 @@ public class UIController : MonoBehaviour
     [Header("ShopUI")]
     public GameObject shopObjectHUD;
     public TextMeshProUGUI shopObjectDescription;
+    [Header("Ingame Popup")]
+    public GameObject ingamePopup;
+    public TextMeshProUGUI ingamePopupDescription;
+    List<GameObject> popups = new List<GameObject>();
     [Header("Resolution and ScreenMode")]
     public TMP_Dropdown resDropdown, screenModeDropdown;
     [Header("Camera")]
@@ -83,6 +87,10 @@ public class UIController : MonoBehaviour
     private void Awake()
     {
         UiSetup();
+        if(!popups.Contains(ingamePopup))
+        {
+            popups.Add(ingamePopup);
+        }
     }
 
     private void Start()
@@ -203,7 +211,7 @@ public class UIController : MonoBehaviour
                 HideMenuObjects();
             }
         }*/
-        if(panel != pausePanel)
+        if (panel != pausePanel)
         {
             if (panel == playPanel || panel == settingsPanel || panel == quitPanel)
             {
@@ -229,7 +237,7 @@ public class UIController : MonoBehaviour
 
     public void ClosePanel(GameObject panel)
     {
-        if(panel == pausePanel)
+        if (panel == pausePanel)
         {
             panel.SetActive(false);
             ActivateChildrens(combatHUD);
@@ -267,14 +275,14 @@ public class UIController : MonoBehaviour
         }
     }
 
-    public void InternPanel(GameObject closePanel, GameObject openPanel) 
-    { 
+    public void InternPanel(GameObject closePanel, GameObject openPanel)
+    {
         LeanTween.scale(closePanel, Vector3.zero, panelAnimTime).setEase(LeanTweenType.easeInOutSine).setIgnoreTimeScale(true)
-            .setOnComplete(() => 
-            { 
-                closePanel.SetActive(false); openPanel.SetActive(true); openPanel.transform.localScale = Vector3.zero; 
-                LeanTween.scale(openPanel, Vector3.one, panelAnimTime).setEase(LeanTweenType.easeInOutSine).setIgnoreTimeScale(true); 
-            }); 
+            .setOnComplete(() =>
+            {
+                closePanel.SetActive(false); openPanel.SetActive(true); openPanel.transform.localScale = Vector3.zero;
+                LeanTween.scale(openPanel, Vector3.one, panelAnimTime).setEase(LeanTweenType.easeInOutSine).setIgnoreTimeScale(true);
+            });
     }
 
     public void HideMenuObjects()
@@ -378,7 +386,7 @@ public class UIController : MonoBehaviour
         {
             leaveCreditsPanelButton.SetActive(true);
         }
-        if(leaveQuitPanelButton != null)
+        if (leaveQuitPanelButton != null)
         {
             leaveQuitPanelButton.SetActive(true);
         }
@@ -490,7 +498,7 @@ public class UIController : MonoBehaviour
     }
     public void SetDefaultVol()
     {
-        if(AudioController.instance.mixer != null)
+        if (AudioController.instance.mixer != null)
         {
             AudioController.instance.mixer.GetFloat("MasterVol", out float aux1);
             if (_masterVolumeSlider != null)
@@ -714,5 +722,90 @@ public class UIController : MonoBehaviour
     {
         shopObjectHUD.SetActive(active);
         shopObjectDescription.text = s;
+    }
+
+    public void ShowPopups(CardDisplay card)
+    {
+        int quantity = card.VerifyCardPopupQuantity();
+        if(quantity == 0) //no popups
+        {
+            HidePopups();
+            return;
+        }
+        else if (quantity <= popups.Count) //hide some popups and show the ones based on the quantity
+        {
+            for (int i = 0; i < popups.Count; i++)
+            {
+                if (i < quantity)
+                {
+                    popups[i].SetActive(true);
+                    UpdatePopupUI(popups[i], card, i);
+                }
+                else
+                {
+                    popups[i].SetActive(false);
+                }
+            }
+            return;
+        }
+        else //create popup 
+        {
+            float baseX = -25f;
+            float baseY = -25f;
+            float width = 400f;
+            float gap = 25f;
+            for (int i = 0; i < quantity; i++)
+            {
+                if(i < popups.Count)
+                {
+                    popups[i].SetActive(true);
+                    UpdatePopupUI(popups[i], card, i);
+                }
+                else
+                {
+                    float offsetX = baseX - (i * (width + gap));
+                    GameObject newPopup = Instantiate(ingamePopup);
+                    popups.Add(newPopup);
+                    UpdatePopupUI(newPopup, card, i);
+                }
+            }
+            return;
+        }
+    }
+
+    public void HidePopups()
+    {
+        foreach(var p in popups)
+        {
+            p.SetActive(false);
+        }
+    }
+
+    public void UpdatePopupUI(GameObject popup, CardDisplay card, int index)
+    {
+        var text = popup.GetComponentInChildren<TextMeshProUGUI>();
+        text.text = PopUpText(card)[index];
+    }
+
+    public List<string> PopUpText(CardDisplay card)
+    {
+        List<string> popupTexts = new List<string>();
+
+        if (card.cardData.extraDesc)
+        {
+            popupTexts.Add("This card has extra description!");
+        }
+
+        if (card.cardData.instantaneous)
+        {
+            popupTexts.Add("Instantaneous\n This card activates instantaneously when used!");
+        }
+
+        if (card.cardData.limited)
+        {
+            popupTexts.Add("Limited\n This card can be used only once!");
+        }
+
+        return popupTexts;
     }
 }
