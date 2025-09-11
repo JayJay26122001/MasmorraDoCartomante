@@ -4,6 +4,7 @@ public class DisappearingObject : MonoBehaviour
 {
     public Material mat;
     public GameObject extraObj;
+    public bool startShown;
     float animTimeStart;
     bool inAnimation, disappearing;
     float t;
@@ -11,10 +12,21 @@ public class DisappearingObject : MonoBehaviour
     private void Start()
     {
         mat = GetComponent<MeshRenderer>().material;
-        mat.SetFloat("_DisappearTime", 1);
-        if (extraObj != null)
+        if(!startShown)
         {
-            extraObj.SetActive(false);
+            mat.SetFloat("_DisappearTime", 1);
+            if (extraObj != null)
+            {
+                extraObj.SetActive(false);
+            }
+        }
+        else
+        {
+            mat.SetFloat("_DisappearTime", 0);
+            if (extraObj != null)
+            {
+                extraObj.SetActive(true);
+            }
         }
     }
     public void AnimateObject(bool disappear)

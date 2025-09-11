@@ -49,6 +49,8 @@ public class GameplayManager : MonoBehaviour
     public List<ParticleSystem> hitVFXPool = new List<ParticleSystem>();
     public List<ParticleSystem> hitVFXUsed = new List<ParticleSystem>();
 
+    public List<DisappearingObject> uiObjects = new List<DisappearingObject>();
+
     public SimpleInt moneyPrize;
     private void Awake()
     {
@@ -518,5 +520,36 @@ public class GameplayManager : MonoBehaviour
     public void PrizeMoney()
     {
         player.ChangeMoney(moneyPrize.GetValue() + areaIndex);
+    }
+
+    public void DisappearUI(bool includePlayerHP)
+    {
+        int i = 0;
+        if (!includePlayerHP)
+        {
+            i++;
+        }
+        for(; i < uiObjects.Count; i++)
+        {
+            uiObjects[i].AnimateObject(true);
+        }
+    }
+
+    public void AppearUI(bool includePlayerHP)
+    {
+        int i = 0;
+        if (!includePlayerHP)
+        {
+            i++;
+        }
+        for(; i < uiObjects.Count; i++)
+        {
+            uiObjects[i].AnimateObject(false);
+        }
+    }
+
+    public void AppearOnlyPlayerHealth()
+    {
+        uiObjects[0].AnimateObject(false);
     }
 }

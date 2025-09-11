@@ -4352,9 +4352,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: db19c44611073a140b32e970f1908268, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1746961116}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: db19c44611073a140b32e970f1908268, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1746961117}
   m_SourcePrefab: {fileID: 100100000, guid: db19c44611073a140b32e970f1908268, type: 3}
 --- !u!4 &329660133 stripped
 Transform:
@@ -5482,51 +5479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mat: {fileID: 0}
   extraObj: {fileID: 0}
---- !u!114 &435492741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 435492728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: 1dce8730a9be37c46bbe9eb61c2a0546, type: 2}
-    - {fileID: 11400000, guid: 0068e1bf5029a5c4289a1537bfab2cc4, type: 2}
-    m_Events:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 435492740}
-          m_TargetAssemblyTypeName: DisappearingObject, Assembly-CSharp
-          m_MethodName: AnimateObject
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 435492740}
-          m_TargetAssemblyTypeName: DisappearingObject, Assembly-CSharp
-          m_MethodName: AnimateObject
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
+  startShown: 0
 --- !u!114 &438657361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5885,15 +5838,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -4800153203691683718, guid: 69d40547889daab4b903c94c66c8eca4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 435492740}
-    - targetCorrespondingSourceObject: {fileID: -4800153203691683718, guid: 69d40547889daab4b903c94c66c8eca4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 435492741}
     - targetCorrespondingSourceObject: {fileID: 5464212035927242305, guid: 69d40547889daab4b903c94c66c8eca4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1706122379}
-    - targetCorrespondingSourceObject: {fileID: 5464212035927242305, guid: 69d40547889daab4b903c94c66c8eca4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1706122380}
   m_SourcePrefab: {fileID: 100100000, guid: 69d40547889daab4b903c94c66c8eca4, type: 3}
 --- !u!4 &452740899 stripped
 Transform:
@@ -5963,13 +5910,36 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: db19c44611073a140b32e970f1908268, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 454608769}
   m_SourcePrefab: {fileID: 100100000, guid: db19c44611073a140b32e970f1908268, type: 3}
 --- !u!4 &454608767 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: db19c44611073a140b32e970f1908268, type: 3}
   m_PrefabInstance: {fileID: 454608766}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &454608768 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: db19c44611073a140b32e970f1908268, type: 3}
+  m_PrefabInstance: {fileID: 454608766}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &454608769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454608768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20f6cbf73bdbfa14193943f642420e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 0}
+  extraObj: {fileID: 1236923043}
+  startShown: 1
 --- !u!1 &454741948
 GameObject:
   m_ObjectHideFlags: 0
@@ -6228,6 +6198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mat: {fileID: 2100000, guid: 35c479cd93087c54287e5d263f2fead1, type: 2}
   extraObj: {fileID: 1671040974}
+  startShown: 0
 --- !u!114 &454741957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8779,7 +8750,7 @@ PlayableDirector:
   m_GameObject: {fileID: 626271299}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: c6d5144740e9b284aa29af9da6b7909e, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: fbef68baeb48bff439b5d4200d5387fa, type: 2}
   m_InitialState: 0
   m_WrapMode: 0
   m_DirectorUpdateMode: 1
@@ -8922,37 +8893,9 @@ PlayableDirector:
   - key: {fileID: 6992612871485803683, guid: 229bd1c6a57556f45ac1911797a033bb, type: 2}
     value: {fileID: 1432303491}
   - key: {fileID: -8529210373472302105, guid: fbef68baeb48bff439b5d4200d5387fa, type: 2}
-    value: {fileID: 2137595327}
-  - key: {fileID: -4040974605511968234, guid: fbef68baeb48bff439b5d4200d5387fa, type: 2}
-    value: {fileID: 1746961117}
-  - key: {fileID: 8176518577546781595, guid: fbef68baeb48bff439b5d4200d5387fa, type: 2}
-    value: {fileID: 1571396170}
-  - key: {fileID: -8018391113863317404, guid: fbef68baeb48bff439b5d4200d5387fa, type: 2}
-    value: {fileID: 2037835495}
-  - key: {fileID: 4983793404967564438, guid: fbef68baeb48bff439b5d4200d5387fa, type: 2}
-    value: {fileID: 2076040892}
-  - key: {fileID: 4933488872804368798, guid: fbef68baeb48bff439b5d4200d5387fa, type: 2}
-    value: {fileID: 1732093843}
-  - key: {fileID: -2465607706834260987, guid: fbef68baeb48bff439b5d4200d5387fa, type: 2}
-    value: {fileID: 435492741}
-  - key: {fileID: -1596525974546329212, guid: fbef68baeb48bff439b5d4200d5387fa, type: 2}
-    value: {fileID: 1706122380}
+    value: {fileID: 1432303491}
   - key: {fileID: -7492451252806694403, guid: c6d5144740e9b284aa29af9da6b7909e, type: 2}
-    value: {fileID: 2137595327}
-  - key: {fileID: 4956235446906357624, guid: c6d5144740e9b284aa29af9da6b7909e, type: 2}
-    value: {fileID: 1746961117}
-  - key: {fileID: -8265847494324538342, guid: c6d5144740e9b284aa29af9da6b7909e, type: 2}
-    value: {fileID: 1571396170}
-  - key: {fileID: 6855578979269935038, guid: c6d5144740e9b284aa29af9da6b7909e, type: 2}
-    value: {fileID: 2037835495}
-  - key: {fileID: -5735760392008103520, guid: c6d5144740e9b284aa29af9da6b7909e, type: 2}
-    value: {fileID: 2076040892}
-  - key: {fileID: -5546144049365423073, guid: c6d5144740e9b284aa29af9da6b7909e, type: 2}
-    value: {fileID: 1732093843}
-  - key: {fileID: 6103933769053769241, guid: c6d5144740e9b284aa29af9da6b7909e, type: 2}
-    value: {fileID: 435492741}
-  - key: {fileID: 1357132550349953590, guid: c6d5144740e9b284aa29af9da6b7909e, type: 2}
-    value: {fileID: 1706122380}
+    value: {fileID: 1432303491}
   - key: {fileID: -113870832535394378, guid: 3b957b7ff9a6fa248994e3624e08a010, type: 2}
     value: {fileID: 1972853265}
   - key: {fileID: 1406047235886734461, guid: 3b957b7ff9a6fa248994e3624e08a010, type: 2}
@@ -17468,6 +17411,16 @@ MonoBehaviour:
   - {fileID: 1594187322}
   - {fileID: 537033267}
   hitVFXUsed: []
+  uiObjects:
+  - {fileID: 454608769}
+  - {fileID: 1746961116}
+  - {fileID: 1571396169}
+  - {fileID: 2037835494}
+  - {fileID: 2076040891}
+  - {fileID: 1732093842}
+  - {fileID: 435492740}
+  - {fileID: 1706122379}
+  - {fileID: 2137595326}
   moneyPrize:
     type: 1
     value: 0
@@ -17493,6 +17446,11 @@ MonoBehaviour:
     - {fileID: 11400000, guid: b6056126443b3fd4ca0a59429cc5e2b8, type: 2}
     - {fileID: 11400000, guid: 0ab951e65a9be6b45b810e89a3559528, type: 2}
     - {fileID: 11400000, guid: b5b64fd4943f52f4baa2e26e8aa55313, type: 2}
+    - {fileID: 11400000, guid: 1dce8730a9be37c46bbe9eb61c2a0546, type: 2}
+    - {fileID: 11400000, guid: 0068e1bf5029a5c4289a1537bfab2cc4, type: 2}
+    - {fileID: 11400000, guid: aa2780620e0a53f4a98831847d0bc309, type: 2}
+    - {fileID: 11400000, guid: c1f062ec3c98e234cb54f197d0d69658, type: 2}
+    - {fileID: 11400000, guid: 3e085a5cdfad959479b915f8d14c49fa, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -17569,6 +17527,76 @@ MonoBehaviour:
         - m_Target: {fileID: 1432303490}
           m_TargetAssemblyTypeName: GameplayManager, Assembly-CSharp
           m_MethodName: MoveBoard
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1432303490}
+          m_TargetAssemblyTypeName: GameplayManager, Assembly-CSharp
+          m_MethodName: AppearUI
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1432303490}
+          m_TargetAssemblyTypeName: GameplayManager, Assembly-CSharp
+          m_MethodName: DisappearUI
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1432303490}
+          m_TargetAssemblyTypeName: GameplayManager, Assembly-CSharp
+          m_MethodName: AppearUI
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1432303490}
+          m_TargetAssemblyTypeName: GameplayManager, Assembly-CSharp
+          m_MethodName: DisappearUI
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1432303490}
+          m_TargetAssemblyTypeName: GameplayManager, Assembly-CSharp
+          m_MethodName: AppearOnlyPlayerHealth
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -18397,9 +18425,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3bdf54b5281f7cb48853ec7c83cc2cca, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2076040891}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3bdf54b5281f7cb48853ec7c83cc2cca, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2076040892}
   m_SourcePrefab: {fileID: 100100000, guid: 3bdf54b5281f7cb48853ec7c83cc2cca, type: 3}
 --- !u!4 &1461864185 stripped
 Transform:
@@ -19612,9 +19637,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: abcd637d529064448a8c0e8a8027625e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1571396169}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: abcd637d529064448a8c0e8a8027625e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1571396170}
   m_SourcePrefab: {fileID: 100100000, guid: abcd637d529064448a8c0e8a8027625e, type: 3}
 --- !u!4 &1571396166 stripped
 Transform:
@@ -19635,51 +19657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mat: {fileID: 0}
   extraObj: {fileID: 343960609}
---- !u!114 &1571396170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1359385330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: 1dce8730a9be37c46bbe9eb61c2a0546, type: 2}
-    - {fileID: 11400000, guid: 0068e1bf5029a5c4289a1537bfab2cc4, type: 2}
-    m_Events:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1571396169}
-          m_TargetAssemblyTypeName: DisappearingObject, Assembly-CSharp
-          m_MethodName: AnimateObject
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1571396169}
-          m_TargetAssemblyTypeName: DisappearingObject, Assembly-CSharp
-          m_MethodName: AnimateObject
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
+  startShown: 0
 --- !u!114 &1583269871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21094,51 +21072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mat: {fileID: 0}
   extraObj: {fileID: 0}
---- !u!114 &1706122380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1706122375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: 1dce8730a9be37c46bbe9eb61c2a0546, type: 2}
-    - {fileID: 11400000, guid: 0068e1bf5029a5c4289a1537bfab2cc4, type: 2}
-    m_Events:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1706122379}
-          m_TargetAssemblyTypeName: DisappearingObject, Assembly-CSharp
-          m_MethodName: AnimateObject
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1706122379}
-          m_TargetAssemblyTypeName: DisappearingObject, Assembly-CSharp
-          m_MethodName: AnimateObject
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
+  startShown: 0
 --- !u!1 &1707706539 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6406496897430019111, guid: 722a7e77cecf9e14bad9ae2e93d95038, type: 3}
@@ -21349,9 +21283,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3bdf54b5281f7cb48853ec7c83cc2cca, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1732093842}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3bdf54b5281f7cb48853ec7c83cc2cca, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1732093843}
   m_SourcePrefab: {fileID: 100100000, guid: 3bdf54b5281f7cb48853ec7c83cc2cca, type: 3}
 --- !u!4 &1732093839 stripped
 Transform:
@@ -21372,51 +21303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mat: {fileID: 0}
   extraObj: {fileID: 1323262170}
---- !u!114 &1732093843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 457587455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: 1dce8730a9be37c46bbe9eb61c2a0546, type: 2}
-    - {fileID: 11400000, guid: 0068e1bf5029a5c4289a1537bfab2cc4, type: 2}
-    m_Events:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1732093842}
-          m_TargetAssemblyTypeName: DisappearingObject, Assembly-CSharp
-          m_MethodName: AnimateObject
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1732093842}
-          m_TargetAssemblyTypeName: DisappearingObject, Assembly-CSharp
-          m_MethodName: AnimateObject
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
+  startShown: 0
 --- !u!4 &1742920144 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8367386588004491990, guid: 8664490cbdd8a1f4cb39009f262c7029, type: 3}
@@ -21441,51 +21328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mat: {fileID: 0}
   extraObj: {fileID: 638348213}
---- !u!114 &1746961117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1746961113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: 1dce8730a9be37c46bbe9eb61c2a0546, type: 2}
-    - {fileID: 11400000, guid: 0068e1bf5029a5c4289a1537bfab2cc4, type: 2}
-    m_Events:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1746961116}
-          m_TargetAssemblyTypeName: DisappearingObject, Assembly-CSharp
-          m_MethodName: AnimateObject
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1746961116}
-          m_TargetAssemblyTypeName: DisappearingObject, Assembly-CSharp
-          m_MethodName: AnimateObject
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
+  startShown: 0
 --- !u!1 &1747732012
 GameObject:
   m_ObjectHideFlags: 0
@@ -25103,9 +24946,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: abcd637d529064448a8c0e8a8027625e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2037835494}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: abcd637d529064448a8c0e8a8027625e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2037835495}
   m_SourcePrefab: {fileID: 100100000, guid: abcd637d529064448a8c0e8a8027625e, type: 3}
 --- !u!4 &2037835491 stripped
 Transform:
@@ -25126,51 +24966,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mat: {fileID: 0}
   extraObj: {fileID: 1176796263}
---- !u!114 &2037835495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763096234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: 1dce8730a9be37c46bbe9eb61c2a0546, type: 2}
-    - {fileID: 11400000, guid: 0068e1bf5029a5c4289a1537bfab2cc4, type: 2}
-    m_Events:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2037835494}
-          m_TargetAssemblyTypeName: DisappearingObject, Assembly-CSharp
-          m_MethodName: AnimateObject
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2037835494}
-          m_TargetAssemblyTypeName: DisappearingObject, Assembly-CSharp
-          m_MethodName: AnimateObject
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
+  startShown: 0
 --- !u!4 &2043155103 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: edc1b0e902e653344a83337943decdd6, type: 3}
@@ -25372,51 +25168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mat: {fileID: 0}
   extraObj: {fileID: 1215672136}
---- !u!114 &2076040892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2076040888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: 1dce8730a9be37c46bbe9eb61c2a0546, type: 2}
-    - {fileID: 11400000, guid: 0068e1bf5029a5c4289a1537bfab2cc4, type: 2}
-    m_Events:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2076040891}
-          m_TargetAssemblyTypeName: DisappearingObject, Assembly-CSharp
-          m_MethodName: AnimateObject
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2076040891}
-          m_TargetAssemblyTypeName: DisappearingObject, Assembly-CSharp
-          m_MethodName: AnimateObject
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
+  startShown: 0
 --- !u!1001 &2077033033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25839,6 +25591,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mat: {fileID: 0}
   extraObj: {fileID: 1618065892}
+  startShown: 0
 --- !u!114 &2137595327
 MonoBehaviour:
   m_ObjectHideFlags: 0

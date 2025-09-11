@@ -291,6 +291,31 @@ public class EnemyDefeat : SceneAction
         //ActionController.instance.InvokeTimer(AnimEnded.Invoke, time);
     }
 }
+public class BossDefeat : SceneAction
+{
+    Enemy c;
+    public BossDefeat(Enemy e)
+    {
+        c = e;
+        foreach (AnimationClip a in c.anim.runtimeAnimatorController.animationClips)
+        {
+            if (a.name == "Defeat")
+            {
+                time = a.length;
+            }
+        }
+        //AnimEnded.AddListener(() => GameplayManager.instance.PlayCutscene(0));
+    }
+    public override void PerformAction()
+    {
+        c.Die();
+        c.anim.SetTrigger("Defeat");
+        GameplayManager.instance.PauseInput(time);
+        AnimStarted.Invoke();
+        CameraController.instance.ChangeCamera(1);
+        //ActionController.instance.InvokeTimer(AnimEnded.Invoke, time);
+    }
+}
 public interface ICombatTurnActions
 {
     

@@ -81,7 +81,14 @@ public class Enemy : Creature
             Damaged.Invoke(dmg);
             if (Health <= 0)
             {
-                ActionController.instance.AddToQueue(new EnemyDefeat(this));
+                if(!GameplayManager.instance.figtingBoss)
+                {
+                    ActionController.instance.AddToQueue(new EnemyDefeat(this));
+                }
+                else
+                {
+                    ActionController.instance.AddToQueue(new BossDefeat(this));
+                }
             }
         }
 
