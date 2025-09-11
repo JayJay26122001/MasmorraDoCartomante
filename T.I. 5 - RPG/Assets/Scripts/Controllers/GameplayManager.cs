@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Playables;
 using UnityEngine.Rendering;
 using UnityEngine.Timeline;
-using static UnityEditor.PlayerSettings;
+//using static UnityEditor.PlayerSettings;
 public class GameplayManager : MonoBehaviour
 {
     public static Combat currentCombat;

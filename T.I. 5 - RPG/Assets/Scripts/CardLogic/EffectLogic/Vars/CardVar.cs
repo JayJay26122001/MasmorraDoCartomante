@@ -160,6 +160,7 @@ public class ECardVar : CardVar
         }
     }
 }
+#if UNITY_EDITOR
 [CustomPropertyDrawer(typeof(CardVar.Type))][CustomPropertyDrawer(typeof(CardVar.Rarity))][CustomPropertyDrawer(typeof(CardVar.Pack))]
 public class CardTypeDrawer : PropertyDrawer
 {
@@ -173,3 +174,4 @@ public class CardTypeDrawer : PropertyDrawer
         );
     }
 }
+#endif
