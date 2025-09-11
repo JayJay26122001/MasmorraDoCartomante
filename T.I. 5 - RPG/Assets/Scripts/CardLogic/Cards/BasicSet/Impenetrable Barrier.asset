@@ -17,9 +17,9 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Impenetrable Barrier
-  hidden: 0
   limited: 0
   instantaneous: 0
+  extraDesc: 0
   cost: 2
   Type: 1
   Pack: 0
@@ -36,6 +36,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseShield: 1
         ShieldMultiplier:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -56,7 +57,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 2.6
           min: 0
           max: 0

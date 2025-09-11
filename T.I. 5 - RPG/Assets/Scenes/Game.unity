@@ -9365,9 +9365,12 @@ MonoBehaviour:
   enemyName: {fileID: 1618065893}
   shopObjectHUD: {fileID: 60692913}
   shopObjectDescription: {fileID: 687015218}
+  ingamePopup: {fileID: 1448328671}
+  ingamePopupDescription: {fileID: 1336983447}
   resDropdown: {fileID: 211882593}
   screenModeDropdown: {fileID: 1758936941}
   mainCamera: {fileID: 0}
+  canvas: {fileID: 150813617}
   data:
     selectedRes: 0
     screenMode: 0
@@ -17592,7 +17595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1448328672
 RectTransform:
   m_ObjectHideFlags: 0

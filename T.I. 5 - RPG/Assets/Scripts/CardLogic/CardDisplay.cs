@@ -146,6 +146,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         {
             CardUIController.instance.SetHighlightedCard(null);
         }
+        GameManager.instance.uiController.ShowPopups(this);
     }
 
     public void OnMouseExit()
@@ -154,6 +155,8 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         {
             CardUIController.instance.SetHighlightedCard(null);
         }
+
+        GameManager.instance.uiController.HidePopups();
     }
 
     public void HighlightCard()

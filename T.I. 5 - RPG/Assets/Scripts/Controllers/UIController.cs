@@ -68,6 +68,8 @@ public class UIController : MonoBehaviour
     public TMP_Dropdown resDropdown, screenModeDropdown;
     [Header("Camera")]
     public Camera mainCamera;
+    [Header("Canvas")]
+    public Transform canvas;
     Resolution[] allRes;
     List<Resolution> selectedResList = new List<Resolution>();
     public ConfigData data;
@@ -750,8 +752,6 @@ public class UIController : MonoBehaviour
         }
         else //create popup 
         {
-            float baseX = -25f;
-            float baseY = -25f;
             float width = 400f;
             float gap = 25f;
             for (int i = 0; i < quantity; i++)
@@ -763,8 +763,9 @@ public class UIController : MonoBehaviour
                 }
                 else
                 {
-                    float offsetX = baseX - (i * (width + gap));
-                    GameObject newPopup = Instantiate(ingamePopup);
+                    float offsetX = - (i * (width + gap));
+                    GameObject newPopup = Instantiate(ingamePopup, ingamePopup.GetComponent<RectTransform>().position + new Vector3(offsetX, 0, 0), Quaternion.identity);
+                    newPopup.transform.SetParent(canvas);
                     popups.Add(newPopup);
                     UpdatePopupUI(newPopup, card, i);
                 }
