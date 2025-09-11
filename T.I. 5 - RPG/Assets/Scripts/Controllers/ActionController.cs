@@ -304,7 +304,7 @@ public class BossDefeat : SceneAction
                 time = a.length;
             }
         }
-        //AnimEnded.AddListener(() => GameplayManager.instance.PlayCutscene(0));
+        AnimEnded.AddListener(() => GameplayManager.instance.PlayCutscene(6));
     }
     public override void PerformAction()
     {

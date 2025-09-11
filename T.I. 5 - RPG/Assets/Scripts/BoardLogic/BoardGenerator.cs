@@ -43,6 +43,23 @@ public class BoardGenerator : MonoBehaviour
         InstantiateBoard();
     }
 
+    public void ResetBoard()
+    {
+        board.Clear();
+        foreach(Transform c in this.transform)
+        {
+            Destroy(c.gameObject);
+        }
+        foreach(ControlledProbability p in typeProbabilities)
+        {
+            p.ModifyMultiplier(1 - p.multiplier);
+        }
+        foreach(ControlledProbability p in levelProbabilities)
+        {
+            p.ModifyMultiplier(1 - p.multiplier);
+        }
+    }
+
     public void GenerateBoard()
     {
         board.Clear();
