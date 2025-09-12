@@ -19,9 +19,10 @@ MonoBehaviour:
   Name: Locust Swarm
   limited: 1
   instantaneous: 0
+  extraDesc: 0
   cost: 1
   Type: 2
-  Pack: 0
+  Pack: 5
   Rarity: 2
   Description: 'Reduces the Opponent''s Shield by -3 for each Card on its Discard
     Pile (v[0]{Shield}). '

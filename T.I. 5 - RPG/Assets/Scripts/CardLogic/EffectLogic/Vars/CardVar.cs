@@ -40,6 +40,8 @@ public class CardVar : ISerializationCallbackReceiver
         EnemyExclusive = 1 << 2,
         MinorArcana = 1 << 3,
         MajorArcana = 1 << 4,
+        SandsOfTime = 1 << 5,
+        PowerSurge = 1 << 6,
 
         //Everything = Normal | Zodiac | EnemyExclusive | MinorArcana | MajorArcana
     }

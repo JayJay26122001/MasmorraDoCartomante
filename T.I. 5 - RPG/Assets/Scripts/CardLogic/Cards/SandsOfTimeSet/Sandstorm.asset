@@ -19,9 +19,10 @@ MonoBehaviour:
   Name: Sandstorm
   limited: 0
   instantaneous: 1
+  extraDesc: 0
   cost: 1
   Type: 2
-  Pack: 0
+  Pack: 5
   Rarity: 1
   Description: Discard 4 Cards from the Top of the User's Buying Pile.
   references:

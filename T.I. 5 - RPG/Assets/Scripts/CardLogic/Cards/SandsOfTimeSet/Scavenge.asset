@@ -21,9 +21,10 @@ MonoBehaviour:
   Name: Scavenge
   limited: 1
   instantaneous: 0
+  extraDesc: 0
   cost: 1
   Type: 2
-  Pack: 0
+  Pack: 5
   Rarity: 1
   Description: Instances 3 copies of Pile of Bones in Hand.
   references:

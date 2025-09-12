@@ -17,7 +17,7 @@ public class Card : ScriptableObject
     public bool /*hidden,*/ limited, instantaneous, extraDesc;
     public int cost;
     public enum CardType { Attack, Defense, Mind }
-    public enum CardPack { Normal, Zodiac, EnemyExclusive, MinorArcana, MajorArcana }
+    public enum CardPack { Normal, Zodiac, EnemyExclusive, MinorArcana, MajorArcana, SandsOfTime, PowerSurge}
     public enum CardRarity { Common, Uncommon, Rare, Epic, Legendary }
     public CardType Type;
     public CardPack Pack;
