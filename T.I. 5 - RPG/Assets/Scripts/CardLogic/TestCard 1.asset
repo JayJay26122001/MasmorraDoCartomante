@@ -13,25 +13,108 @@ MonoBehaviour:
   m_Name: TestCard 1
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 1148618214811893837
+  - rid: 1148618374694568008
+  - rid: 1148618374694568009
+  - rid: 1148618374694568010
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Test
   limited: 0
   instantaneous: 1
+  extraDesc: 0
   cost: 0
   Type: 2
   Pack: 0
   Rarity: 3
-  Description: spawn devil
+  Description: Transforma todas as cartas em 0 custo, limited e instantaneo
   references:
     version: 2
     RefIds:
-    - rid: 1148618214811893837
-      type: {class: CreateCard, ns: , asm: Assembly-CSharp}
+    - rid: 1148618374694568008
+      type: {class: SetCardIntProperty, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
-        target: 0
-        CardPrefab: {fileID: 11400000, guid: 5f9ebffd98acc504f880de1c4dd72584, type: 2}
+        AffectedCards:
+          target: 0
+          pile: 5
+          type: -1
+          rarity: -1
+          pack: -1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          initialized: 1
+          CountThisCard: 0
+        SelectedInt: 0
+        intValue:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+    - rid: 1148618374694568009
+      type: {class: SetCardBoolProperty, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        AffectedCards:
+          target: 0
+          pile: 5
+          type: -1
+          rarity: -1
+          pack: -1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          initialized: 1
+          CountThisCard: 0
+        SelectedBoolean: 0
+        booleanValue: 1
+    - rid: 1148618374694568010
+      type: {class: SetCardBoolProperty, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        AffectedCards:
+          target: 0
+          pile: 5
+          type: -1
+          rarity: -1
+          pack: -1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          initialized: 1
+          CountThisCard: 0
+        SelectedBoolean: 1
+        booleanValue: 1

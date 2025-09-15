@@ -279,7 +279,7 @@ public class Creature : MonoBehaviour
             deck.RemoveTemporaryCards();
             foreach(Card card in deck.cards)
             {
-                card.RevertProperties();
+                card.RevertAllProperties();
             }
             hand.Clear();
             //playedCards.Clear();

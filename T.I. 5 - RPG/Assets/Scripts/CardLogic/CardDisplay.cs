@@ -81,7 +81,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
 
     public void CardSetup()
     {
-        cardCost.text = cardData.cost.ToString();
+        UpdateCardCost();
         cardName.text = cardData.Name;
         cardDescription.text = cardData.Description;
         rarity.sprite = cardsUI.cardRarity[(int)cardData.Rarity];
@@ -259,7 +259,10 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         }
         cardDescription.text = desc;
     }*/
-
+    public void UpdateCardCost()
+    {
+        cardCost.text = cardData.cost.ToString();
+    }
     public void UpdateCard()
     {
         string desc = cardData.Description;
@@ -449,11 +452,11 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
     public int VerifyCardPopupQuantity()
     {
         int popupQuantity = 0;
-        if(cardData.instantaneous)
+        if (cardData.instantaneous)
         {
             popupQuantity++;
         }
-        if(cardData.limited)
+        if (cardData.limited)
         {
             popupQuantity++;
         }
