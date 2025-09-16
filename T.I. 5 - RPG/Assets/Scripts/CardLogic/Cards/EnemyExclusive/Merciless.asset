@@ -10,22 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: "I \u2013 The Magician"
+  m_Name: Merciless
   m_EditorClassIdentifier: 
   Effects:
   - rid: 6721762140899246080
   - rid: 6721762140899246148
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: "I \u2013 The Magician"
+  Name: Merciless
   limited: 0
   instantaneous: 0
   extraDesc: 0
-  cost: 1
+  cost: 3
   Type: 0
-  Pack: 4
-  Rarity: 4
-  Description: Deals v[0]{Damage} Damage and makes the Opponent Discard the Hand
+  Pack: 2
+  Rarity: 3
+  Description: Deals v[0]{Damage} Damage and Discard All Defense Cards in the Opponent's
+    Hand.
   references:
     version: 2
     RefIds:
@@ -58,7 +59,7 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          value: 1.4
+          value: 1.7
           min: 0
           max: 0
           modifiers: []
@@ -73,7 +74,7 @@ MonoBehaviour:
         Cards:
           target: 1
           pile: 1
-          type: -1
+          type: 2
           rarity: -1
           pack: -1
           MaxReturnedNumber:
