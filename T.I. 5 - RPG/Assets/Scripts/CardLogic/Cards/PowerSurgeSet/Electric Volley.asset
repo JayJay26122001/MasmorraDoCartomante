@@ -22,9 +22,10 @@ MonoBehaviour:
   Name: Electric Volley
   limited: 0
   instantaneous: 0
+  extraDesc: 0
   cost: 2
   Type: 0
-  Pack: 0
+  Pack: 6
   Rarity: 2
   Description: Deals v[0]{Damage} Damage if Blocked by either Targets. Going back
     and forth between Targets until someone can't Block. When taking Damage, remove

@@ -19,9 +19,10 @@ MonoBehaviour:
   Name: Pile of Bones
   limited: 0
   instantaneous: 0
+  extraDesc: 0
   cost: 0
   Type: 1
-  Pack: 0
+  Pack: 5
   Rarity: 0
   Description: Gains v[0]{Shield} Shield.
   references:

@@ -17,7 +17,7 @@ public class Card : ScriptableObject
     public bool /*hidden,*/ limited, instantaneous, extraDesc;
     public int cost;
     public enum CardType { Attack, Defense, Mind }
-    public enum CardPack { Normal, Zodiac, EnemyExclusive, MinorArcana, MajorArcana }
+    public enum CardPack { Normal, Zodiac, EnemyExclusive, MinorArcana, MajorArcana, SandsOfTime, PowerSurge }
     public enum CardRarity { Common, Uncommon, Rare, Epic, Legendary }
     public CardType Type;
     public CardPack Pack;
@@ -48,6 +48,14 @@ public class Card : ScriptableObject
         ogProperties.Limited = limited;
         ogProperties.Instantaneous = instantaneous;
         ogProperties.Cost = cost;
+        /*foreach (Effect effect in Effects) 
+        {
+            if(effect is IProlongedEffect e)
+            {
+                e.EffectApplied.AddListener(() => cardDisplay.SetActivatedEffectVFX(true));
+                effect.EffectEnd.AddListener(() => cardDisplay.SetActivatedEffectVFX(false));
+            }
+        }*/
     }
     public void CardPlayed() // carta foi jogada na mesa
     {
@@ -70,16 +78,33 @@ public class Card : ScriptableObject
             e.ApplyIfNoCondition();
         }
     }
-    [NonSerialized] ModifiableProperties ogProperties; 
+    [NonSerialized] ModifiableProperties ogProperties;
     struct ModifiableProperties
     {
         public bool Limited, Instantaneous;
         public int Cost;
     }
-    public void RevertProperties()
+    public void RevertAllProperties()
     {
         limited = ogProperties.Limited;
         instantaneous = ogProperties.Instantaneous;
         cost = ogProperties.Cost;
+        cardDisplay.UpdateCard();
+        cardDisplay.UpdateCardCost();
+    }
+    public void RevertLimited()
+    {
+        limited = ogProperties.Limited;
+        cardDisplay.UpdateCard();
+    }
+    public void RevertInstantaneous()
+    {
+        instantaneous = ogProperties.Instantaneous;
+        cardDisplay.UpdateCard();
+    }
+    public void RevertCost()
+    {
+        cost = ogProperties.Cost;
+        cardDisplay.UpdateCardCost();
     }
 }

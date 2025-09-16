@@ -10,40 +10,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Steam Engine(W.I.P)
+  m_Name: Revampment
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 7391437407230361702
-  - rid: 6721762321394565199
+  - rid: 1178401998732263511
+  - rid: 6721762456344723529
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Steam Engine(W.I.P)
-  limited: 1
+  Name: Revampment
+  limited: 0
   instantaneous: 0
   extraDesc: 0
-  cost: 3
-  Type: 0
-  Pack: 6
+  cost: 2
+  Type: 1
+  Pack: 2
   Rarity: 2
-  Description: beta Steam Engine
+  Description: Gain v[0]{Shield} Shield and Heal 8 Health.
   references:
     version: 2
     RefIds:
-    - rid: 6721762321394565198
-      type: {class: DamageBlocked, ns: , asm: Assembly-CSharp}
-      data:
-        Repeatable: 1
-        BlockedBy: 1
-        FailIfDamaged: 1
-        DamageCameFromCard: 1
-    - rid: 6721762321394565199
-      type: {class: GainEnergy, ns: , asm: Assembly-CSharp}
+    - rid: 1178401998732263511
+      type: {class: GainShield, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
-        Conditions:
-        - rid: 6721762321394565200
+        Conditions: []
         ConfirmationConditions: []
-        Amount:
+        MultipliedByBaseShield: 1
+        ShieldMultiplier:
           type: 0
           target: 0
           ObservedCards:
@@ -65,27 +58,18 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          value: 1
+          value: 2
           min: 0
           max: 0
           modifiers: []
         target: 0
-    - rid: 6721762321394565200
-      type: {class: DamageBlocked, ns: , asm: Assembly-CSharp}
-      data:
-        Repeatable: 1
-        BlockedBy: 1
-        FailIfDamaged: 0
-        DamageCameFromCard: 0
-    - rid: 7391437407230361702
-      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+    - rid: 6721762456344723529
+      type: {class: Heal, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
-        Conditions:
-        - rid: 6721762321394565198
+        Conditions: []
         ConfirmationConditions: []
-        MultipliedByBaseDamage: 1
-        DamageMultiplier:
+        AmountHealled:
           type: 0
           target: 0
           ObservedCards:
@@ -107,9 +91,8 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          value: 0.6
+          value: 8
           min: 0
           max: 0
           modifiers: []
-        IgnoreDefense: 0
         target: 0

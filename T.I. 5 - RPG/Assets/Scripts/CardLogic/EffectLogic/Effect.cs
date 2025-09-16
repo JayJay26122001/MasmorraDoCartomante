@@ -42,6 +42,16 @@ public abstract class Effect
             cond.SetCard(c);
         foreach (var cond in ConfirmationConditions)
             cond.SetCard(c);
+
+        if (this is IProlongedEffect e)
+        {
+            e.EffectApplied.AddListener(() => card.cardDisplay.SetActivatedEffectVFX(true));
+            EffectEnd.AddListener(() => card.cardDisplay.SetActivatedEffectVFX(false));
+        }
+        else
+        {
+            EffectStart.AddListener(card.cardDisplay.PlayActivatedEffectOnce);
+        }
     }
 
     public void InitiateEffect()
@@ -381,7 +391,7 @@ public class BuffStat : Effect, IProlongedEffect
         }
         StatBuffMod.Add(Modifier);
         Action = Combat.WaitForTurn(TurnsFromNow, phase, StopAtPhase, EffectEnded);
-        CardUIController.AttCardDescription(buffTar);  
+        CardUIController.AttCardDescription(buffTar);
         EffectApplied.Invoke();
     }
     public override void EffectEnded()
@@ -393,7 +403,7 @@ public class BuffStat : Effect, IProlongedEffect
         {
             CardUIController.AttCardDescription(buffTar);
         }
-        
+
         base.EffectEnded();
     }
     private ref List<StatModifier> GetStatReference()
@@ -513,5 +523,88 @@ public class CreateCard : Effect
         t.decks[0].AddTemporaryCard(CardPrefab);
         //CardUIController.OrganizeHandCards(t);
         EffectEnded();
+    }
+}
+
+public class SetCardBoolProperty : Effect
+{
+    public ECardVar AffectedCards;
+    public enum BooleanProperties { Limited, Instantaneous }
+    public BooleanProperties SelectedBoolean;
+    public bool booleanValue;
+    public override void Apply()
+    {
+        base.Apply();
+        List<Card> cards = AffectedCards.GetCardsWithStats(card);
+        foreach (Card c in cards)
+        {
+            switch (SelectedBoolean)
+            {
+                case BooleanProperties.Limited:
+                    c.limited = booleanValue;
+                    break;
+                case BooleanProperties.Instantaneous:
+                    c.instantaneous = booleanValue;
+                    break;
+            }
+            c.cardDisplay.UpdateCard();
+        }
+        EffectEnded();
+    }
+}
+public class SetCardIntProperty : Effect
+{
+    public ECardVar AffectedCards;
+    public enum IntProperties { Cost }
+    public IntProperties SelectedInt;
+    public ModularInt intValue;
+    public override void Apply()
+    {
+        base.Apply();
+        List<Card> cards = AffectedCards.GetCardsWithStats(card);
+        foreach (Card c in cards)
+        {
+            switch (SelectedInt)
+            {
+                case IntProperties.Cost:
+                    c.cost = intValue.GetValue();
+                    break;
+            }
+            c.cardDisplay.UpdateCardCost();
+        }
+        EffectEnded();
+    }
+}
+public class ResetProperties : Effect
+{
+    [System.Flags]
+    public enum Vars
+    {
+        Limited = 1 << 0,
+        Instantaneous = 1 << 1,
+        Cost = 1 << 2,
+    }
+    public ECardVar AffectedCards;
+    public Vars SelectedVar;
+    public override void Apply()
+    {
+        base.Apply();
+        List<Card> cards = AffectedCards.GetCardsWithStats(card);
+        foreach (Card c in cards)
+        {
+            if ((SelectedVar & Vars.Limited) != 0)
+            {
+                c.RevertLimited();
+            }
+            if ((SelectedVar & Vars.Instantaneous) != 0)
+            {
+                c.RevertInstantaneous();
+            }
+            if ((SelectedVar & Vars.Cost) != 0)
+            {
+                c.RevertCost();
+            }
+        }
+
     }
 }

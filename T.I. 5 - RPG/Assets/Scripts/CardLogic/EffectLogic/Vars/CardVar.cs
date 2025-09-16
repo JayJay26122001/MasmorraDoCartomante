@@ -40,6 +40,8 @@ public class CardVar : ISerializationCallbackReceiver
         EnemyExclusive = 1 << 2,
         MinorArcana = 1 << 3,
         MajorArcana = 1 << 4,
+        SandsOfTime = 1 << 5,
+        PowerSurge = 1 << 6,
 
         //Everything = Normal | Zodiac | EnemyExclusive | MinorArcana | MajorArcana
     }
@@ -162,6 +164,7 @@ public class ECardVar : CardVar
 }
 #if UNITY_EDITOR
 [CustomPropertyDrawer(typeof(CardVar.Type))][CustomPropertyDrawer(typeof(CardVar.Rarity))][CustomPropertyDrawer(typeof(CardVar.Pack))]
+[CustomPropertyDrawer(typeof(ResetProperties.Vars))]
 public class CardTypeDrawer : PropertyDrawer
 {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)

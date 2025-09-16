@@ -10,33 +10,47 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: "I \u2013 The Magician"
+  m_Name: TestCard 1
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 6721762140899246080
-  - rid: 6721762140899246148
+  - rid: 1148618374694568008
+  - rid: 1148618374694568009
+  - rid: 1148618374694568010
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: "I \u2013 The Magician"
+  Name: Test
   limited: 0
-  instantaneous: 0
+  instantaneous: 1
   extraDesc: 0
-  cost: 1
-  Type: 0
-  Pack: 4
-  Rarity: 4
-  Description: Deals v[0]{Damage} Damage and makes the Opponent Discard the Hand
+  cost: 0
+  Type: 2
+  Pack: 0
+  Rarity: 3
+  Description: Transforma todas as cartas em 0 custo, limited e instantaneo
   references:
     version: 2
     RefIds:
-    - rid: 6721762140899246080
-      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+    - rid: 1148618374694568008
+      type: {class: SetCardIntProperty, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
-        MultipliedByBaseDamage: 1
-        DamageMultiplier:
+        AffectedCards:
+          target: 0
+          pile: 5
+          type: -1
+          rarity: -1
+          pack: -1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          initialized: 1
+          CountThisCard: 0
+        SelectedInt: 0
+        intValue:
           type: 0
           target: 0
           ObservedCards:
@@ -58,21 +72,19 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          value: 1.4
+          value: 0
           min: 0
           max: 0
           modifiers: []
-        IgnoreDefense: 0
-        target: 0
-    - rid: 6721762140899246148
-      type: {class: DiscardCard, ns: , asm: Assembly-CSharp}
+    - rid: 1148618374694568009
+      type: {class: SetCardBoolProperty, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
-        Cards:
-          target: 1
-          pile: 1
+        AffectedCards:
+          target: 0
+          pile: 5
           type: -1
           rarity: -1
           pack: -1
@@ -83,3 +95,26 @@ MonoBehaviour:
             max: 0
           initialized: 1
           CountThisCard: 0
+        SelectedBoolean: 0
+        booleanValue: 1
+    - rid: 1148618374694568010
+      type: {class: SetCardBoolProperty, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        AffectedCards:
+          target: 0
+          pile: 5
+          type: -1
+          rarity: -1
+          pack: -1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          initialized: 1
+          CountThisCard: 0
+        SelectedBoolean: 1
+        booleanValue: 1

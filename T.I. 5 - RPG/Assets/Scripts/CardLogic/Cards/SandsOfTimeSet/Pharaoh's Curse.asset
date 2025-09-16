@@ -19,9 +19,10 @@ MonoBehaviour:
   Name: Pharaoh's Curse
   limited: 1
   instantaneous: 1
+  extraDesc: 0
   cost: 2
   Type: 2
-  Pack: 0
+  Pack: 5
   Rarity: 2
   Description: Discard All of the User's Defense Cards from the Buying Pile
   references:
