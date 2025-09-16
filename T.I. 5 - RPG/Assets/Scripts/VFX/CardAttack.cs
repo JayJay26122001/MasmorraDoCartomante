@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CardAttack : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class CardAttack : MonoBehaviour
     //public float moveSpeed, turnSpeed, launchForce;
     float t;
     Vector3 aux, startPos, targetPos;
+    public UnityEvent HitTarget;
 
     private void Start()
     {
@@ -41,6 +43,8 @@ public class CardAttack : MonoBehaviour
     {
         if(other.transform == target)
         {
+            HitTarget.Invoke();
+            HitTarget.RemoveAllListeners();
             GameplayManager.instance.attacksUsed.Remove(this);
             this.gameObject.SetActive(false);
             //Destroy(this.gameObject);

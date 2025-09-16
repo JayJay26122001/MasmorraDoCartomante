@@ -248,22 +248,26 @@ public class DamageAction : SceneAction
     }
     public override void PerformAction()
     {
-        c.TakeDamage(dmg);
-        if (c.GetType() == typeof(Enemy))
+        UnityAction takeDMGanim = () =>
         {
-            c.GetComponent<Enemy>().anim.SetTrigger("TakeDamage");
-            GameplayManager.instance.PauseInput(time);
-            AnimStarted.Invoke();
-            //CameraController.instance.ChangeCamera(1);
-            CameraController.instance.ActivateDamageEnemyCam();
-            //ActionController.instance.InvokeTimer(CameraController.instance.ChangeCamera, 0, time - 0.3f);
-            ActionController.instance.InvokeTimer(CameraController.instance.DeactivateDamageEnemyCam, time - 0.3f);
-            //ActionController.instance.InvokeTimer(AnimEnded.Invoke, time);
-        }
-        else
-        {
-            //AnimEnded.Invoke();
-        }
+            c.TakeDamage(dmg);
+            if (c.GetType() == typeof(Enemy))
+            {
+                c.GetComponent<Enemy>().anim.SetTrigger("TakeDamage");
+                GameplayManager.instance.PauseInput(time);
+                AnimStarted.Invoke();
+                //CameraController.instance.ChangeCamera(1);
+                CameraController.instance.ActivateDamageEnemyCam();
+                //ActionController.instance.InvokeTimer(CameraController.instance.ChangeCamera, 0, time - 0.3f);
+                ActionController.instance.InvokeTimer(CameraController.instance.DeactivateDamageEnemyCam, time - 0.3f);
+                //ActionController.instance.InvokeTimer(AnimEnded.Invoke, time);
+            }
+            else
+            {
+                //AnimEnded.Invoke();
+            }
+        };
+        GameplayManager.instance.ActivateCardAttack(dmg.card.cardDisplay.transform.position, c).AddListener(takeDMGanim);
 
     }
 }
