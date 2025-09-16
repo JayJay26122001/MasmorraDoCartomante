@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using static Effect;
 
 public class ActionController : MonoBehaviour
 {
@@ -440,6 +441,15 @@ public class ApplyEffectAction : SceneAction
         {
             float dur = VFX.main.duration - VFX.totalTime;
             ActionController.instance.InvokeTimer(endingAction, dur);
+        }
+        if (e is IProlongedEffect effect)
+        {
+            effect.EffectApplied.AddListener(() => e.card.cardDisplay.SetActivatedEffectVFX(true));
+            e.EffectEnd.AddListener(() => e.card.cardDisplay.SetActivatedEffectVFX(false));
+        }
+        else
+        {
+            e.card.cardDisplay.PlayActivatedEffectOnce();
         }
     }
 }
