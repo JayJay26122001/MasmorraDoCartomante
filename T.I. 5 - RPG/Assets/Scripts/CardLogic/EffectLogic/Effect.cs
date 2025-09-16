@@ -42,6 +42,16 @@ public abstract class Effect
             cond.SetCard(c);
         foreach (var cond in ConfirmationConditions)
             cond.SetCard(c);
+
+        if (this is IProlongedEffect e)
+        {
+            e.EffectApplied.AddListener(() => card.cardDisplay.SetActivatedEffectVFX(true));
+            EffectEnd.AddListener(() => card.cardDisplay.SetActivatedEffectVFX(false));
+        }
+        else
+        {
+            EffectStart.AddListener(card.cardDisplay.PlayActivatedEffectOnce);
+        }
     }
 
     public void InitiateEffect()

@@ -48,6 +48,14 @@ public class Card : ScriptableObject
         ogProperties.Limited = limited;
         ogProperties.Instantaneous = instantaneous;
         ogProperties.Cost = cost;
+        /*foreach (Effect effect in Effects) 
+        {
+            if(effect is IProlongedEffect e)
+            {
+                e.EffectApplied.AddListener(() => cardDisplay.SetActivatedEffectVFX(true));
+                effect.EffectEnd.AddListener(() => cardDisplay.SetActivatedEffectVFX(false));
+            }
+        }*/
     }
     public void CardPlayed() // carta foi jogada na mesa
     {

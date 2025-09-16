@@ -3,6 +3,8 @@ using TMPro;
 using System;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+
 
 #if UNITY_EDITOR
 using static UnityEditor.PlayerSettings;
@@ -11,6 +13,7 @@ using static UnityEditor.PlayerSettings;
 public class CardDisplay : MonoBehaviour, IPointerClickHandler
 {
     public SpriteRenderer cardBack, image, rarity, background, type;
+    [SerializeField] ParticleSystem ActivatedEffectVFX;
     [SerializeField] ParticleSystem[] ActivationVFX;
     [System.NonSerialized] public ParticleSystem SelectedActivationVFX;
     public MeshRenderer cardBase;
@@ -96,6 +99,21 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         }
         SelectedActivationVFX = ActivationVFX[(int)cardData.Type];
         //type.sprite = cardsUI.cardType[(int)cardData.Type];
+        Color effectcolor = Color.white;
+        switch (cardData.Type)
+        {
+            case Card.CardType.Attack:
+                effectcolor = Color.red;
+                break;
+            case Card.CardType.Defense:
+                effectcolor = Color.blue;
+                break;
+            case Card.CardType.Mind:
+                effectcolor = Color.green;
+                break;
+        }
+        var main = ActivatedEffectVFX.main;
+        main.startColor = effectcolor;
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -195,6 +213,30 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         }
     }
 
+    public void SetActivatedEffectVFX(bool active) 
+    {
+        if (active)
+        {
+            var main = ActivatedEffectVFX.main;
+            main.loop = true;
+            main.prewarm = true;
+            ActivatedEffectVFX.Play();
+        }
+        else 
+        {
+            ActivatedEffectVFX.Stop();
+        }
+    }
+    public void PlayActivatedEffectOnce()
+    {
+        if (!ActivatedEffectVFX.isPlaying)
+        {
+            var main = ActivatedEffectVFX.main;
+            main.loop = false;
+            ActivatedEffectVFX.Play();
+        }
+    }
+
     public void AnimateEnemyCard(bool disappear)
     {
         disappearing = disappear;
@@ -259,6 +301,8 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         }
         cardDescription.text = desc;
     }*/
+
+    //DESCRIÇÃO MODULAR
     public void UpdateCardCost()
     {
         cardCost.text = cardData.cost.ToString();
