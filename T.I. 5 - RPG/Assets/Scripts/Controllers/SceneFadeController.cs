@@ -51,4 +51,21 @@ public class SceneFadeController : MonoBehaviour
                 LeanTween.delayedCall(0.05f, FadeIn);
             });
     }
+
+    public void FadeOutToArea()
+    {
+        fadeImage.blocksRaycasts = true;
+        LeanTween.alphaCanvas(fadeImage, 1f, fadeDuration)
+            .setIgnoreTimeScale(true)
+            .setOnComplete(() =>
+            {
+                if(GameManager.instance.uiController.gamePaused)
+                {
+                    Time.timeScale = 1f;
+                    GameManager.instance.uiController.gamePaused = false;
+                }
+                GameplayManager.instance.SwitchArea();
+                LeanTween.delayedCall(0.15f, FadeIn);
+            });
+    }
 }

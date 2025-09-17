@@ -23,8 +23,10 @@ public class BoardGenerator : MonoBehaviour
     bool inAnimation, disappearing;
     public float animSpeed;
     public bool inMovement;
+    Vector3 startPos;
     private void Start()
     {
+        startPos = transform.localPosition;
         inMovement = false;
         inAnimation = false;
         GenerateBoard();
@@ -40,11 +42,12 @@ public class BoardGenerator : MonoBehaviour
                 Debug.Log(s);
             }
         }*/
-        InstantiateBoard();
+        //InstantiateBoard();
     }
 
     public void ResetBoard()
     {
+        levelsCount = 8;
         board.Clear();
         foreach(Transform c in this.transform)
         {
@@ -58,6 +61,10 @@ public class BoardGenerator : MonoBehaviour
         {
             p.ModifyMultiplier(1 - p.multiplier);
         }
+        transform.localPosition = startPos;
+        boardBase.GetComponent<MeshRenderer>().material.SetFloat("_DisappearTime", 1);
+        playerPiece.GetComponent<MeshRenderer>().material.SetFloat("_DisappearTime", 1);
+        GenerateBoard();
     }
 
     public void GenerateBoard()
@@ -156,6 +163,7 @@ public class BoardGenerator : MonoBehaviour
             r.nextRooms.Add(newRoom);
         }
         board[levelsCount - 1].Add(newRoom);
+        InstantiateBoard();
     }
 
     public bool VerifyCanMerge(BoardRoom room, int i, int j)
