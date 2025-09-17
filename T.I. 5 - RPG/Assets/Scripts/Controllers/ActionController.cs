@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using static Effect;
 
 public class ActionController : MonoBehaviour
 {
@@ -245,24 +246,43 @@ public class DamageAction : SceneAction
             }
         }
     }
+    public override void StartAction()
+    {
+        
+        ActionController.DebugAction(this);
+        PerformAction();
+    }
     public override void PerformAction()
     {
-        c.TakeDamage(dmg);
-        if (c.GetType() == typeof(Enemy))
+        UnityAction takeDMGanim = () =>
         {
-            c.GetComponent<Enemy>().anim.SetTrigger("TakeDamage");
-            GameplayManager.instance.PauseInput(time);
-            AnimStarted.Invoke();
-            //CameraController.instance.ChangeCamera(1);
-            CameraController.instance.ActivateDamageEnemyCam();
-            //ActionController.instance.InvokeTimer(CameraController.instance.ChangeCamera, 0, time - 0.3f);
-            ActionController.instance.InvokeTimer(CameraController.instance.DeactivateDamageEnemyCam, time - 0.3f);
-            //ActionController.instance.InvokeTimer(AnimEnded.Invoke, time);
-        }
-        else
-        {
-            //AnimEnded.Invoke();
-        }
+            UnityAction finishAction = () =>
+            {
+                AnimEnded.Invoke();
+                if (IsInQueue)
+                {
+                    ActionController.instance.AdvanceQueue();
+                }
+            };
+            ActionController.instance.InvokeTimer(finishAction, time);
+            c.TakeDamage(dmg);
+            if (c.GetType() == typeof(Enemy))
+            {
+                c.GetComponent<Enemy>().anim.SetTrigger("TakeDamage");
+                GameplayManager.instance.PauseInput(time);
+                AnimStarted.Invoke();
+                //CameraController.instance.ChangeCamera(1);
+                CameraController.instance.ActivateDamageEnemyCam();
+                //ActionController.instance.InvokeTimer(CameraController.instance.ChangeCamera, 0, time - 0.3f);
+                ActionController.instance.InvokeTimer(CameraController.instance.DeactivateDamageEnemyCam, time - 0.3f);
+                //ActionController.instance.InvokeTimer(AnimEnded.Invoke, time);
+            }
+            else
+            {
+                //AnimEnded.Invoke();
+            }
+        };
+        GameplayManager.instance.ActivateCardAttack(dmg.card.cardDisplay.transform.position, c).AddListener(takeDMGanim);
 
     }
 }
@@ -465,6 +485,15 @@ public class ApplyEffectAction : SceneAction
         {
             float dur = VFX.main.duration - VFX.totalTime;
             ActionController.instance.InvokeTimer(endingAction, dur);
+        }
+        if (e is IProlongedEffect effect)
+        {
+            effect.EffectApplied.AddListener(() => e.card.cardDisplay.SetActivatedEffectVFX(true));
+            e.EffectEnd.AddListener(() => e.card.cardDisplay.SetActivatedEffectVFX(false));
+        }
+        else
+        {
+            e.card.cardDisplay.PlayActivatedEffectOnce();
         }
     }
 }

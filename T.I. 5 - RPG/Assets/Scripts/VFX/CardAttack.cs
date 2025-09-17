@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CardAttack : MonoBehaviour
 {
@@ -6,11 +7,7 @@ public class CardAttack : MonoBehaviour
     //public float moveSpeed, turnSpeed, launchForce;
     float t;
     Vector3 aux, startPos, targetPos;
-
-    private void Start()
-    {
-        this.gameObject.SetActive(false);
-    }
+    public UnityEvent HitTarget;
 
     public void SetTarget(Transform t)
     {
@@ -22,6 +19,7 @@ public class CardAttack : MonoBehaviour
         targetPos = new Vector3(target.position.x, startPos.y, target.position.z - target.gameObject.GetComponent<CapsuleCollider>().radius / 2);
         aux = new Vector3(startPos.x + (targetPos.x - startPos.x) / 2, startPos.y + (targetPos.z - startPos.z) / 2, startPos.z + (targetPos.z - startPos.z) / 2);
         t = 0;
+        gameObject.SetActive(true);
         CurveMovement();
     }
 
@@ -41,6 +39,8 @@ public class CardAttack : MonoBehaviour
     {
         if(other.transform == target)
         {
+            HitTarget.Invoke();
+            HitTarget.RemoveAllListeners();
             GameplayManager.instance.attacksUsed.Remove(this);
             this.gameObject.SetActive(false);
             //Destroy(this.gameObject);

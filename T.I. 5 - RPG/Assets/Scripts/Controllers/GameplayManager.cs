@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.Playables;
@@ -397,19 +398,22 @@ public class GameplayManager : MonoBehaviour
         coinExplosion.Play();
     }
 
-    public void ActivateCardAttack(Vector3 pos)
+    public UnityEvent ActivateCardAttack(Vector3 pos, Creature target)
     {
         for (int i = 0; i < attacksPool.Count; i++)
         {
             if (!attacksUsed.Contains(attacksPool[i]))
             {
+                UnityEvent temp = attacksPool[i].HitTarget;
                 attacksPool[i].transform.position = pos;
-                attacksPool[i].SetTarget(player.enemy.GetComponent<Enemy>().model.transform);
+                attacksPool[i].SetTarget(target.transform);
                 attacksPool[i].BezierCurve();
                 attacksUsed.Add(attacksPool[i]);
                 i = attacksPool.Count;
+                return temp;
             }
         }
+        return null;
     }
 
     float volumeTimeStart, vfxDuration = 0.5f;
