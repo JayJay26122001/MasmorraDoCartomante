@@ -455,7 +455,7 @@ public class GameplayManager : MonoBehaviour
     public void EnemyShieldVFX()
     {
         Vector3 auxPos = player.enemy.GetComponent<Enemy>().model.transform.position;
-        shield.transform.position = new Vector3(auxPos.x, 0, auxPos.z - player.enemy.GetComponent<Enemy>().model.GetComponent<CapsuleCollider>().radius - 10);
+        shield.transform.position = new Vector3(auxPos.x, 0, auxPos.z - player.enemy.GetComponent<Enemy>().GetComponent<CapsuleCollider>().radius - 10);
         shield.SetActive(true);
         Invoke("HideShield", 0.5f);
     }
@@ -469,7 +469,7 @@ public class GameplayManager : MonoBehaviour
         GameObject fShield = Instantiate(fracturedShield, new Vector3(auxPos.x, 0, auxPos.z - player.enemy.GetComponent<Enemy>().model.GetComponent<CapsuleCollider>().radius - 10), Quaternion.Euler(0, 180, 0));
         Destroy(fShield, 3f);*/
         Vector3 auxPos = player.enemy.GetComponent<Enemy>().model.transform.position;
-        fracturedShield.transform.position = new Vector3(auxPos.x, 0, auxPos.z - player.enemy.GetComponent<Enemy>().model.GetComponent<CapsuleCollider>().radius - 10);
+        fracturedShield.transform.position = new Vector3(auxPos.x, 0, auxPos.z - player.enemy.GetComponent<Enemy>().GetComponent<CapsuleCollider>().radius - 10);
         for(int i = 0; i < fracturedShield.transform.childCount; i++)
         {
             fracturedShield.transform.GetChild(i).gameObject.GetComponent<ShieldPiece>().ResetTransform();
@@ -493,7 +493,7 @@ public class GameplayManager : MonoBehaviour
             if (!hitVFXUsed.Contains(hitVFXPool[i]))
             {
                 Vector3 auxPos = player.enemy.GetComponent<Enemy>().model.transform.position;
-                hitVFXPool[i].transform.position = new Vector3(auxPos.x, 5, auxPos.z - player.enemy.GetComponent<Enemy>().model.GetComponent<CapsuleCollider>().radius);
+                hitVFXPool[i].transform.position = new Vector3(auxPos.x, 5, auxPos.z - player.enemy.GetComponent<Enemy>().GetComponent<CapsuleCollider>().radius);
                 hitVFXPool[i].gameObject.SetActive(true);
                 hitVFXPool[i].Play();
                 hitVFXUsed.Add(hitVFXPool[i]);

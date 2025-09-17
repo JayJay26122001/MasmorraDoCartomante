@@ -17,7 +17,7 @@ public class CardAttack : MonoBehaviour
     {
         startPos = transform.position;
         targetPos = new Vector3(target.position.x, startPos.y, target.position.z - target.gameObject.GetComponent<CapsuleCollider>().radius / 2);
-        aux = new Vector3(startPos.x + (targetPos.x - startPos.x) / 2, startPos.y + (targetPos.z - startPos.z) / 2, startPos.z + (targetPos.z - startPos.z) / 2);
+        aux = new Vector3(startPos.x + (targetPos.x - startPos.x) / 2, startPos.y + Mathf.Abs((targetPos.z - startPos.z) / 2), startPos.z + (targetPos.z - startPos.z) / 2);
         t = 0;
         gameObject.SetActive(true);
         CurveMovement();
