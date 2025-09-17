@@ -246,10 +246,25 @@ public class DamageAction : SceneAction
             }
         }
     }
+    public override void StartAction()
+    {
+        
+        ActionController.DebugAction(this);
+        PerformAction();
+    }
     public override void PerformAction()
     {
         UnityAction takeDMGanim = () =>
         {
+            UnityAction finishAction = () =>
+            {
+                AnimEnded.Invoke();
+                if (IsInQueue)
+                {
+                    ActionController.instance.AdvanceQueue();
+                }
+            };
+            ActionController.instance.InvokeTimer(finishAction, time);
             c.TakeDamage(dmg);
             if (c.GetType() == typeof(Enemy))
             {

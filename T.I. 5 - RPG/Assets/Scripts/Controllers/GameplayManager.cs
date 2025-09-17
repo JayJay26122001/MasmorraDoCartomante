@@ -402,12 +402,13 @@ public class GameplayManager : MonoBehaviour
         {
             if (!attacksUsed.Contains(attacksPool[i]))
             {
+                UnityEvent temp = attacksPool[i].HitTarget;
                 attacksPool[i].transform.position = pos;
                 attacksPool[i].SetTarget(target.transform);
                 attacksPool[i].BezierCurve();
                 attacksUsed.Add(attacksPool[i]);
                 i = attacksPool.Count;
-                return attacksPool[i].HitTarget;
+                return temp;
             }
         }
         return null;
