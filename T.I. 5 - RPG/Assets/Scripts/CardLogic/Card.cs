@@ -14,7 +14,7 @@ public class Card : ScriptableObject
     public CardDisplay cardDisplay;
     public Deck deck;
     public string Name;
-    public bool /*hidden,*/ limited, instantaneous, extraDesc;
+    public bool /*hidden,*/ limited, instantaneous;
     public int cost;
     public enum CardType { Attack, Defense, Mind }
     public enum CardPack { Normal, Zodiac, EnemyExclusive, MinorArcana, MajorArcana, SandsOfTime, PowerSurge }
@@ -23,7 +23,7 @@ public class Card : ScriptableObject
     public CardPack Pack;
     public CardRarity Rarity;
     [NonSerialized] public bool Temporary = false;
-    [TextArea] public string Description;
+    [TextArea] public string Description, extraDescription;
     //public List<Condition.condition> conditions = new List<Condition.condition>();
     //List<Condition> conds = new List<Condition>();
     public void Setup() // chamado quando uma carta é adicionada ao deck

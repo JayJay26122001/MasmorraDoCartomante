@@ -17,13 +17,15 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Iron Skin
-  hidden: 0
   limited: 0
   instantaneous: 1
+  extraDesc: 0
   cost: 1
   Type: 1
+  Pack: 0
   Rarity: 3
   Description: Doubles the User's Shield gain until the End of its Turn.
+  extraDescription: 
   references:
     version: 2
     RefIds:
@@ -33,20 +35,32 @@ MonoBehaviour:
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
+        BuffTarget: 0
         StatToBuff: 1
         Modifier:
           type: 0
           value:
+            type: 0
             target: 0
-            ObservedPile: 0
-            CountOnlyTypes: 
-            MaxReturnedNumber:
+            ObservedCards:
+              target: 0
+              pile: 0
               type: 0
+              rarity: 0
+              pack: 0
+              MaxReturnedNumber:
+                type: 2
+                value: 0
+                min: 0
+                max: 0
+              initialized: 1
+            MaxReturnedNumber:
+              type: 2
               value: 0
               min: 0
               max: 0
             ObservedStat: 0
-            type: 0
+            initialized: 1
             value: 2
             min: 0
             max: 0

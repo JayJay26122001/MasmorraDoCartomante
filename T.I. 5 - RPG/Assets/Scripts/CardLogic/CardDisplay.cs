@@ -504,7 +504,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         {
             popupQuantity++;
         }
-        if (cardData.extraDesc)
+        if (!string.IsNullOrEmpty(cardData.extraDescription))
         {
             popupQuantity++;
         }

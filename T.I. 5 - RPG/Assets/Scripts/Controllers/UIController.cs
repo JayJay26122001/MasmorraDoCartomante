@@ -792,9 +792,9 @@ public class UIController : MonoBehaviour
     {
         List<string> popupTexts = new List<string>();
 
-        if (card.cardData.extraDesc)
+        if (!string.IsNullOrEmpty(card.cardData.extraDescription))
         {
-            popupTexts.Add("This card has extra description!"); //change after for the card extra description, the string "card.extraDescription"
+            popupTexts.Add(card.cardData.extraDescription);
         }
 
         if (card.cardData.instantaneous)
