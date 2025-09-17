@@ -16,3 +16,4 @@ MonoBehaviour:
   price: 6
   cardQuantity: 3
   selectableCardsQuantity: 1
+  packDescription: Rare Pack, you can choose 1 card between 3!

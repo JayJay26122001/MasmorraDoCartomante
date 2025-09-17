@@ -16,3 +16,4 @@ MonoBehaviour:
   price: 2
   cardQuantity: 2
   selectableCardsQuantity: 1
+  packDescription: Simple Pack, you can choose 1 card between 2!

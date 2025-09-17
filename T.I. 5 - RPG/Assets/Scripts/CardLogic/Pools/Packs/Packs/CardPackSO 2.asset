@@ -16,3 +16,4 @@ MonoBehaviour:
   price: 3
   cardQuantity: 2
   selectableCardsQuantity: 1
+  packDescription: Medium Pack, you can choose 1 card between 2!

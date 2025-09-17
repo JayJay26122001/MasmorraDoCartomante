@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ShopObject : MonoBehaviour
@@ -21,13 +22,26 @@ public class ShopObject : MonoBehaviour
         transform.localPosition = startPos;
     }
 
+    string ObjectDescription()
+    {
+        CardPack pack = GetComponent<CardPack>();
+        if(pack != null)
+        {
+            return pack.data.packDescription;
+        }
+        else
+        {
+            return objectDescription;
+        }
+    }
+
     public void ShowDescHUD()
     {
-        GameManager.instance.uiController.ShopDescHUD(true, objectDescription);
+        GameManager.instance.uiController.ShopDescHUD(true, ObjectDescription());
     }
 
     public void HideDescHUD()
     {
-        GameManager.instance.uiController.ShopDescHUD(false, objectDescription);
+        GameManager.instance.uiController.ShopDescHUD(false, ObjectDescription());
     }
 }
