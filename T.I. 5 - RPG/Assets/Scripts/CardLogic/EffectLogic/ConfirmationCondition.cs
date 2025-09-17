@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static CardVar;
 
 [Serializable]
 public abstract class ConfirmationCondition
@@ -89,10 +90,17 @@ public class ComparativeConfirmation : ConfirmationCondition
 [Serializable]
 public class NumberOfTriggeredEffects : ConfirmationCondition
 {
+    public enum EffectState 
+    { 
+        Unsolved = 1 << 0, 
+        InProgress = 1 << 1, 
+        Acomplished = 1 << 2, 
+        Failled = 1 << 3
+    }
     public bool CountThisEffect;
     [SerializeField] Comparative Equation;
     [SerializeField] public ModularInt Amount;
-    [SerializeField] List<Effect.EffectState> EffectStates = new List<Effect.EffectState>();
+    [SerializeField] EffectState EffectStates;
     int CompleteEffects;
 
 
@@ -121,21 +129,23 @@ public class NumberOfTriggeredEffects : ConfirmationCondition
         {
             if (e != effect || CountThisEffect)
             {
-                if (EffectStates.Contains(e.state))
+                Debug.Log(e.state);
+                if ((EffectStates & (EffectState)(1 << (int)e.state)) != 0)
                 {
 
                     num++;
                 }
             }
         }
+        Debug.Log(num);
         return num;
     }
 }
 public class RandomChance : ConfirmationCondition
 {
-    [Range(1, 99)] public int percentageChance;
+    [Range(1, 99)] public float percentageChance;
     public override bool Confirm()
     {
-        return percentageChance <= UnityEngine.Random.Range(1, 101);
+        return   UnityEngine.Random.Range(1, 101) <= percentageChance;
     }
 }

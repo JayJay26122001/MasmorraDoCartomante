@@ -24,12 +24,12 @@ MonoBehaviour:
   Name: Test
   limited: 0
   instantaneous: 1
-  extraDesc: 0
   cost: 0
   Type: 2
   Pack: 0
   Rarity: 3
   Description: Teste Roleta de Efeito
+  extraDescription: 
   references:
     version: 2
     RefIds:
@@ -219,7 +219,6 @@ MonoBehaviour:
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions:
-        - rid: 6721762478525775976
         - rid: 6721762478525775982
         MultipliedByBaseShield: 1
         ShieldMultiplier:
@@ -252,31 +251,27 @@ MonoBehaviour:
     - rid: 6721762478525775970
       type: {class: RandomChance, ns: , asm: Assembly-CSharp}
       data:
-        percentageChance: 84
+        percentageChance: 16
     - rid: 6721762478525775971
       type: {class: RandomChance, ns: , asm: Assembly-CSharp}
       data:
-        percentageChance: 80
+        percentageChance: 20
     - rid: 6721762478525775973
       type: {class: RandomChance, ns: , asm: Assembly-CSharp}
       data:
-        percentageChance: 75
+        percentageChance: 25
     - rid: 6721762478525775974
       type: {class: RandomChance, ns: , asm: Assembly-CSharp}
       data:
-        percentageChance: 66
+        percentageChance: 34
     - rid: 6721762478525775975
       type: {class: RandomChance, ns: , asm: Assembly-CSharp}
       data:
         percentageChance: 50
-    - rid: 6721762478525775976
-      type: {class: RandomChance, ns: , asm: Assembly-CSharp}
-      data:
-        percentageChance: 1
     - rid: 6721762478525775977
       type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
       data:
-        CountThisEffect: 1
+        CountThisEffect: 0
         Equation: 2
         Amount:
           type: 0
@@ -304,11 +299,11 @@ MonoBehaviour:
           min: 0
           max: 0
           modifiers: []
-        EffectStates: 
+        EffectStates: 6
     - rid: 6721762478525775978
       type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
       data:
-        CountThisEffect: 1
+        CountThisEffect: 0
         Equation: 2
         Amount:
           type: 0
@@ -336,11 +331,11 @@ MonoBehaviour:
           min: 0
           max: 0
           modifiers: []
-        EffectStates: 
+        EffectStates: 6
     - rid: 6721762478525775979
       type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
       data:
-        CountThisEffect: 1
+        CountThisEffect: 0
         Equation: 2
         Amount:
           type: 0
@@ -368,11 +363,11 @@ MonoBehaviour:
           min: 0
           max: 0
           modifiers: []
-        EffectStates: 
+        EffectStates: 6
     - rid: 6721762478525775980
       type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
       data:
-        CountThisEffect: 1
+        CountThisEffect: 0
         Equation: 2
         Amount:
           type: 0
@@ -400,11 +395,11 @@ MonoBehaviour:
           min: 0
           max: 0
           modifiers: []
-        EffectStates: 
+        EffectStates: 6
     - rid: 6721762478525775981
       type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
       data:
-        CountThisEffect: 1
+        CountThisEffect: 0
         Equation: 2
         Amount:
           type: 0
@@ -432,11 +427,11 @@ MonoBehaviour:
           min: 0
           max: 0
           modifiers: []
-        EffectStates: 
+        EffectStates: 6
     - rid: 6721762478525775982
       type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
       data:
-        CountThisEffect: 1
+        CountThisEffect: 0
         Equation: 2
         Amount:
           type: 0
@@ -464,4 +459,4 @@ MonoBehaviour:
           min: 0
           max: 0
           modifiers: []
-        EffectStates: 
+        EffectStates: 6
