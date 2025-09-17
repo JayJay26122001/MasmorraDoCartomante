@@ -1,0 +1,467 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
+  m_Name: TestCard 2
+  m_EditorClassIdentifier: 
+  Effects:
+  - rid: 6721762478525775964
+  - rid: 6721762478525775965
+  - rid: 6721762478525775966
+  - rid: 6721762478525775967
+  - rid: 6721762478525775968
+  - rid: 6721762478525775969
+  cardDisplay: {fileID: 0}
+  deck: {fileID: 0}
+  Name: Test
+  limited: 0
+  instantaneous: 1
+  extraDesc: 0
+  cost: 0
+  Type: 2
+  Pack: 0
+  Rarity: 3
+  Description: Teste Roleta de Efeito
+  references:
+    version: 2
+    RefIds:
+    - rid: 6721762478525775964
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions:
+        - rid: 6721762478525775970
+        - rid: 6721762478525775977
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 1
+          min: 0
+          max: 0
+          modifiers: []
+        IgnoreDefense: 0
+        target: 0
+    - rid: 6721762478525775965
+      type: {class: GainShield, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions:
+        - rid: 6721762478525775971
+        - rid: 6721762478525775978
+        MultipliedByBaseShield: 1
+        ShieldMultiplier:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 1
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0
+    - rid: 6721762478525775966
+      type: {class: GainEnergy, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions:
+        - rid: 6721762478525775973
+        - rid: 6721762478525775979
+        Amount:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 1
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0
+    - rid: 6721762478525775967
+      type: {class: Heal, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions:
+        - rid: 6721762478525775974
+        - rid: 6721762478525775980
+        AmountHealled:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 3
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0
+    - rid: 6721762478525775968
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions:
+        - rid: 6721762478525775975
+        - rid: 6721762478525775981
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 2
+          min: 0
+          max: 0
+          modifiers: []
+        IgnoreDefense: 0
+        target: 0
+    - rid: 6721762478525775969
+      type: {class: GainShield, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions:
+        - rid: 6721762478525775976
+        - rid: 6721762478525775982
+        MultipliedByBaseShield: 1
+        ShieldMultiplier:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 2
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0
+    - rid: 6721762478525775970
+      type: {class: RandomChance, ns: , asm: Assembly-CSharp}
+      data:
+        percentageChance: 84
+    - rid: 6721762478525775971
+      type: {class: RandomChance, ns: , asm: Assembly-CSharp}
+      data:
+        percentageChance: 80
+    - rid: 6721762478525775973
+      type: {class: RandomChance, ns: , asm: Assembly-CSharp}
+      data:
+        percentageChance: 75
+    - rid: 6721762478525775974
+      type: {class: RandomChance, ns: , asm: Assembly-CSharp}
+      data:
+        percentageChance: 66
+    - rid: 6721762478525775975
+      type: {class: RandomChance, ns: , asm: Assembly-CSharp}
+      data:
+        percentageChance: 50
+    - rid: 6721762478525775976
+      type: {class: RandomChance, ns: , asm: Assembly-CSharp}
+      data:
+        percentageChance: 1
+    - rid: 6721762478525775977
+      type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
+      data:
+        CountThisEffect: 1
+        Equation: 2
+        Amount:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+        EffectStates: 
+    - rid: 6721762478525775978
+      type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
+      data:
+        CountThisEffect: 1
+        Equation: 2
+        Amount:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+        EffectStates: 
+    - rid: 6721762478525775979
+      type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
+      data:
+        CountThisEffect: 1
+        Equation: 2
+        Amount:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+        EffectStates: 
+    - rid: 6721762478525775980
+      type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
+      data:
+        CountThisEffect: 1
+        Equation: 2
+        Amount:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+        EffectStates: 
+    - rid: 6721762478525775981
+      type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
+      data:
+        CountThisEffect: 1
+        Equation: 2
+        Amount:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+        EffectStates: 
+    - rid: 6721762478525775982
+      type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
+      data:
+        CountThisEffect: 1
+        Equation: 2
+        Amount:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+        EffectStates: 

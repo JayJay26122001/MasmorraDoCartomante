@@ -10,40 +10,42 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Pharaoh's Curse
+  m_Name: Magic Hand
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 6721762140899246148
+  - rid: 6721762478525775942
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Pharaoh's Curse
+  Name: Magic Hand
   limited: 1
-  instantaneous: 1
+  instantaneous: 0
   extraDesc: 0
-  cost: 2
+  cost: 1
   Type: 2
   Pack: 5
-  Rarity: 2
-  Description: Discard All of the User's Defense Cards from the Buying Pile.
+  Rarity: 3
+  Description: Turns the Next Card the Opponent plays into a Limited Card.
   references:
     version: 2
     RefIds:
-    - rid: 6721762140899246148
-      type: {class: DiscardCard, ns: , asm: Assembly-CSharp}
+    - rid: 6721762478525775942
+      type: {class: SetCardBoolProperty, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
-        Cards:
-          target: 0
-          pile: 4
-          type: 2
+        AffectedCards:
+          target: 1
+          pile: 1
+          type: -1
           rarity: -1
           pack: -1
           MaxReturnedNumber:
-            type: 2
-            value: 4
+            type: 0
+            value: 1
             min: 0
             max: 0
           initialized: 1
           CountThisCard: 0
+        SelectedBoolean: 0
+        booleanValue: 1

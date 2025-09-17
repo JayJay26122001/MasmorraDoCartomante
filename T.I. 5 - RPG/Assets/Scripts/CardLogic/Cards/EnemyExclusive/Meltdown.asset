@@ -10,32 +10,55 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Rotten Core
+  m_Name: Meltdown
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 6721762298113032265
+  - rid: 7391437407230361702
+  - rid: 6721762478525775942
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Rotten Core
+  Name: Meltdown
   limited: 0
-  instantaneous: 1
+  instantaneous: 0
   extraDesc: 0
-  cost: 0
-  Type: 2
-  Pack: 0
-  Rarity: 0
-  Description: 25% Chance to Heal 2 Health.
+  cost: 2
+  Type: 0
+  Pack: 2
+  Rarity: 3
+  Description: Deals v[0]{Damage} Damage and Transforms a Defense Card most near
+    the top of the Opponent's Discard Pile into a Limited Card.
   references:
     version: 2
     RefIds:
-    - rid: 6721762298113032265
-      type: {class: Heal, ns: , asm: Assembly-CSharp}
+    - rid: 6721762478525775942
+      type: {class: SetCardBoolProperty, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions: []
-        ConfirmationConditions:
-        - rid: 6721762298113032266
-        AmountHealled:
+        ConfirmationConditions: []
+        AffectedCards:
+          target: 1
+          pile: 3
+          type: 2
+          rarity: -1
+          pack: -1
+          MaxReturnedNumber:
+            type: 0
+            value: 1
+            min: 0
+            max: 0
+          initialized: 1
+          CountThisCard: 0
+        SelectedBoolean: 0
+        booleanValue: 1
+    - rid: 7391437407230361702
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
           type: 0
           target: 0
           ObservedCards:
@@ -57,12 +80,9 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          value: 2
+          value: 2.6
           min: 0
           max: 0
           modifiers: []
+        IgnoreDefense: 0
         target: 0
-    - rid: 6721762298113032266
-      type: {class: RandomChance, ns: , asm: Assembly-CSharp}
-      data:
-        percentageChance: 75

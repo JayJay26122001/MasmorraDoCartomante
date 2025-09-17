@@ -10,31 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Rotten Core
+  m_Name: Parasite
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 6721762298113032265
+  - rid: 7391437407230361702
+  - rid: 6721762478525775940
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Rotten Core
-  limited: 0
-  instantaneous: 1
+  Name: Parasite
+  limited: 1
+  instantaneous: 0
   extraDesc: 0
-  cost: 0
-  Type: 2
+  cost: 1
+  Type: 0
   Pack: 0
-  Rarity: 0
-  Description: 25% Chance to Heal 2 Health.
+  Rarity: 2
+  Description: Deals v[0]{Damage} Damage and Heal 6 Health.
   references:
     version: 2
     RefIds:
-    - rid: 6721762298113032265
+    - rid: 6721762478525775940
       type: {class: Heal, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions: []
-        ConfirmationConditions:
-        - rid: 6721762298113032266
+        ConfirmationConditions: []
         AmountHealled:
           type: 0
           target: 0
@@ -57,12 +57,43 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          value: 2
+          value: 6
           min: 0
           max: 0
           modifiers: []
         target: 0
-    - rid: 6721762298113032266
-      type: {class: RandomChance, ns: , asm: Assembly-CSharp}
+    - rid: 7391437407230361702
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
-        percentageChance: 75
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 1.2
+          min: 0
+          max: 0
+          modifiers: []
+        IgnoreDefense: 0
+        target: 0

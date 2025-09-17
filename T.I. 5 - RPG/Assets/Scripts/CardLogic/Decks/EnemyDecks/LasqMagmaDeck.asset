@@ -10,15 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d1a39dfc1f14914194bdd1ce1b68008, type: 3}
-  m_Name: TestDeck2
+  m_Name: LasqMagmaDeck
   m_EditorClassIdentifier: 
   Owner: {fileID: 0}
   CardPresets:
-  - {fileID: 11400000, guid: 8f4e6cdd47e26f54f86739772baa3f9a, type: 2}
-  - {fileID: 11400000, guid: 8f4e6cdd47e26f54f86739772baa3f9a, type: 2}
-  - {fileID: 11400000, guid: 8f4e6cdd47e26f54f86739772baa3f9a, type: 2}
-  - {fileID: 11400000, guid: 8f4e6cdd47e26f54f86739772baa3f9a, type: 2}
-  - {fileID: 11400000, guid: 8f4e6cdd47e26f54f86739772baa3f9a, type: 2}
+  - {fileID: 11400000, guid: 9b4e031e6f8cab54a83bddb6fa9cf491, type: 2}
+  - {fileID: 11400000, guid: c48524a5a8985764a83e220c5a6193eb, type: 2}
+  - {fileID: 11400000, guid: 64fd16d97b8342c42927177fdd16e6ae, type: 2}
+  - {fileID: 11400000, guid: 5119bb34a760d184eaad134abb942e00, type: 2}
   cards: []
   BuyingPile:
     Stack: []

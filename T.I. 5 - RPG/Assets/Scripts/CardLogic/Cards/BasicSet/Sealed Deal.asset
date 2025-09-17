@@ -10,25 +10,45 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Pharaoh's Curse
+  m_Name: Sealed Deal
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 6721762140899246148
+  - rid: 6721762478525775872
+  - rid: 6721762478525775873
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Pharaoh's Curse
-  limited: 1
+  Name: Sealed Deal
+  limited: 0
   instantaneous: 1
   extraDesc: 0
   cost: 2
   Type: 2
-  Pack: 5
-  Rarity: 2
-  Description: Discard All of the User's Defense Cards from the Buying Pile.
+  Pack: 0
+  Rarity: 3
+  Description: Discard All Mind Cards placed on the Table.
   references:
     version: 2
     RefIds:
-    - rid: 6721762140899246148
+    - rid: 6721762478525775872
+      type: {class: DiscardCard, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        Cards:
+          target: 1
+          pile: 2
+          type: 4
+          rarity: -1
+          pack: -1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          initialized: 1
+          CountThisCard: 0
+    - rid: 6721762478525775873
       type: {class: DiscardCard, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
@@ -36,13 +56,13 @@ MonoBehaviour:
         ConfirmationConditions: []
         Cards:
           target: 0
-          pile: 4
-          type: 2
+          pile: 2
+          type: 4
           rarity: -1
           pack: -1
           MaxReturnedNumber:
             type: 2
-            value: 4
+            value: 0
             min: 0
             max: 0
           initialized: 1
