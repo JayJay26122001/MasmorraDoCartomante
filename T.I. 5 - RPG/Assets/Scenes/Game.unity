@@ -3763,7 +3763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76732fbb8eaa6f84ca59334d1b8f69b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelsCount: 2
+  levelsCount: 8
   maxBranches: 3
   startRoom: {fileID: 11400000, guid: 360091fc7cea3ed4d8292376c8805d53, type: 2}
   bossRoom: {fileID: 11400000, guid: 6a701e2991ee8754b8cddb158e431ad2, type: 2}
@@ -20333,7 +20333,7 @@ MonoBehaviour:
   decks: []
   hand: []
   playedCards: []
-  maxHP: 1
+  maxHP: 70
   hp: 0
   shld: 0
   energy: 0
@@ -28179,10 +28179,10 @@ SceneRoots:
   - {fileID: 1866734917}
   - {fileID: 713266986}
   - {fileID: 707346587}
-  - {fileID: 125215945}
   - {fileID: 1264320103}
-  - {fileID: 665812756}
+  - {fileID: 125215945}
   - {fileID: 931299369}
+  - {fileID: 665812756}
   - {fileID: 626271300}
   - {fileID: 1516939213}
   - {fileID: 1348968611}
