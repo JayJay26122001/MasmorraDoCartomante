@@ -47,8 +47,8 @@ public class BoardGenerator : MonoBehaviour
 
     public void ResetBoard()
     {
-        levelsCount = 8;
         board.Clear();
+        lineObjects.Clear();
         foreach(Transform c in this.transform)
         {
             Destroy(c.gameObject);
