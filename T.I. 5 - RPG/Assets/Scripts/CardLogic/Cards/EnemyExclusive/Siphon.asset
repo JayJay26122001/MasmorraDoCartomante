@@ -1,0 +1,191 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
+  m_Name: Siphon
+  m_EditorClassIdentifier: 
+  Effects:
+  - rid: 7391437407230361702
+  - rid: 6721762501874679874
+  - rid: 6721762501874679875
+  - rid: 6721762501874679877
+  cardDisplay: {fileID: 0}
+  deck: {fileID: 0}
+  Name: Siphon
+  limited: 0
+  instantaneous: 0
+  cost: 1
+  Type: 0
+  Pack: 0
+  Rarity: 2
+  Description: Deals v[0]{Damage} Damage and makes the Opponent take 25% More Damage
+    this Turn. If Takes Health, Heal 6 Health.
+  extraDescription: 
+  references:
+    version: 2
+    RefIds:
+    - rid: 6721762501874679874
+      type: {class: BuffStat, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        BuffTarget: 1
+        StatToBuff: 2
+        Modifier:
+          type: 0
+          value:
+            type: 0
+            target: 0
+            ObservedCards:
+              target: 0
+              pile: 0
+              type: 0
+              rarity: 0
+              pack: 0
+              MaxReturnedNumber:
+                type: 2
+                value: 0
+                min: 0
+                max: 0
+              initialized: 1
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            ObservedStat: 0
+            initialized: 1
+            value: 1.25
+            min: 0
+            max: 0
+            modifiers: []
+        TurnOwner: 0
+        TurnsFromNow: 0
+        TurnPhaseToStop: 0
+        StopAtPhase: 0
+    - rid: 6721762501874679875
+      type: {class: Heal, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 6721762501874679876
+        ConfirmationConditions: []
+        AmountHealled:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 6
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0
+    - rid: 6721762501874679876
+      type: {class: DamageTaken, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        DamagedTarget: 1
+        CountShieldedDamage: 0
+        DamageCameFromCard: 1
+    - rid: 6721762501874679877
+      type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 6721762501874679878
+        ConfirmationConditions: []
+        SetAsDiscardTime: 0
+    - rid: 6721762501874679878
+      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        TurnOwner: 1
+        TurnsFromNow:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+        TurnPhase: 0
+        PhaseTime: 0
+    - rid: 7391437407230361702
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0.8
+          min: 0
+          max: 0
+          modifiers: []
+        IgnoreDefense: 0
+        target: 0

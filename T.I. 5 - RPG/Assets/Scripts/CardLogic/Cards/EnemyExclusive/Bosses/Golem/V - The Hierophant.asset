@@ -1,0 +1,236 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
+  m_Name: V - The Hierophant
+  m_EditorClassIdentifier: 
+  Effects:
+  - rid: 1178401998732263512
+  - rid: 6721762501874679889
+  - rid: 6721762501874679891
+  - rid: 6721762501874679893
+  - rid: 6721762501874679895
+  cardDisplay: {fileID: 0}
+  deck: {fileID: 0}
+  Name: "VII \u2013 The Hierophant"
+  limited: 0
+  instantaneous: 0
+  cost: 1
+  Type: 1
+  Pack: 4
+  Rarity: 4
+  Description: Gain v[0]{Shield}  Shield.  Retrigger for Every Card the Opponent
+    Plays until the User's Next Turn.
+  extraDescription: 
+  references:
+    version: 2
+    RefIds:
+    - rid: 1178401998732263512
+      type: {class: GainShield, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        MultipliedByBaseShield: 1
+        ShieldMultiplier:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0.7
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0
+    - rid: 6721762501874679889
+      type: {class: GainShield, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 6721762501874679890
+        ConfirmationConditions: []
+        MultipliedByBaseShield: 1
+        ShieldMultiplier:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0.7
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0
+    - rid: 6721762501874679890
+      type: {class: CreaturePlayedCardType, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 1
+        target: 0
+        expectedType: 0
+        mustBeFirst: 0
+    - rid: 6721762501874679891
+      type: {class: GainShield, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 6721762501874679892
+        ConfirmationConditions: []
+        MultipliedByBaseShield: 1
+        ShieldMultiplier:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0.7
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0
+    - rid: 6721762501874679892
+      type: {class: CreaturePlayedCardType, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 1
+        target: 0
+        expectedType: 1
+        mustBeFirst: 0
+    - rid: 6721762501874679893
+      type: {class: GainShield, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 6721762501874679894
+        ConfirmationConditions: []
+        MultipliedByBaseShield: 1
+        ShieldMultiplier:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0.7
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0
+    - rid: 6721762501874679894
+      type: {class: CreaturePlayedCardType, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 1
+        target: 0
+        expectedType: 2
+        mustBeFirst: 0
+    - rid: 6721762501874679895
+      type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 6721762501874679896
+        ConfirmationConditions: []
+        SetAsDiscardTime: 0
+    - rid: 6721762501874679896
+      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        TurnOwner: 0
+        TurnsFromNow:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+        TurnPhase: 0
+        PhaseTime: 0

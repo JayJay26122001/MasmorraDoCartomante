@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d1a39dfc1f14914194bdd1ce1b68008, type: 3}
-  m_Name: JesterBlueDeck
+  m_Name: ImmaculatusDeck
   m_EditorClassIdentifier: 
   Owner: {fileID: 0}
   CardPresets:
-  - {fileID: 11400000, guid: eff59449be2df1b49b41c11908452d65, type: 2}
-  - {fileID: 11400000, guid: 84084150b6b660d448c5f313b5ad512e, type: 2}
-  - {fileID: 11400000, guid: 7498c4820b13f384bb9e9d12afe52c10, type: 2}
-  - {fileID: 11400000, guid: 0123b1c072c002c4dbdbb78e75f0f3f6, type: 2}
+  - {fileID: 11400000, guid: 6dab9832802a1a7498ff81f161a22df7, type: 2}
+  - {fileID: 11400000, guid: 6b78860bf4ab4b54297ef665707fc184, type: 2}
+  - {fileID: 11400000, guid: 4d6ea6c6b466e3f4c9aa54b2cd0cd78d, type: 2}
+  - {fileID: 11400000, guid: 380d08bc41dc92f488fcf358066b010a, type: 2}
+  - {fileID: 11400000, guid: 4690fc0a2099f8a48a0e90eefab0355c, type: 2}
   cards: []
   BuyingPile:
     Stack: []
