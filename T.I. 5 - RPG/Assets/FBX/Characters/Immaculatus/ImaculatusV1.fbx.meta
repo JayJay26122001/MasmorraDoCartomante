@@ -9,6 +9,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: ImaculatusMat
     second: {fileID: 2100000, guid: 88d264083566583459c4347f5886e856, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ImaculatusV1Mat
+    second: {fileID: 2100000, guid: 88d264083566583459c4347f5886e856, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -238,7 +243,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.049999997
+    globalScale: 5
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
