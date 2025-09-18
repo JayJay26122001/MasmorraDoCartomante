@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: SpearMat
+    second: {fileID: 2100000, guid: 1cb5373a30b38e9459214e1e63fd4978, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: WarriorMat
     second: {fileID: 2100000, guid: 1de0644b88f8df446baf4cac34ccf4db, type: 2}
   materials:
@@ -95,7 +100,7 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Intro
-      takeName: HumanArmature|Intro
+      takeName: HumanArmature|Arrive
       internalID: 2044266404497292911
       firstFrame: 0
       lastFrame: 59
@@ -153,7 +158,7 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: TakeDamage
-      takeName: HumanArmature|TakeDamage
+      takeName: HumanArmature|HitReact
       internalID: -1286438663290009813
       firstFrame: 0
       lastFrame: 24
@@ -238,7 +243,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.17999999
+    globalScale: 18
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

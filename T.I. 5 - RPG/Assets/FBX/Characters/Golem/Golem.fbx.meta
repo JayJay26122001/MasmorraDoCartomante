@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: GolemBaseMat
-    second: {fileID: 2100000, guid: 6406158e631793a4bb7156018070f090, type: 2}
+    second: {fileID: 2100000, guid: 2e27ee2006b3588469a6dca59499c2b4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
