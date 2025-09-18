@@ -165,6 +165,7 @@ public class ECardVar : CardVar
 #if UNITY_EDITOR
 [CustomPropertyDrawer(typeof(CardVar.Type))][CustomPropertyDrawer(typeof(CardVar.Rarity))][CustomPropertyDrawer(typeof(CardVar.Pack))]
 [CustomPropertyDrawer(typeof(ResetProperties.Vars))]
+[CustomPropertyDrawer(typeof(NumberOfTriggeredEffects.EffectState))]
 public class CardTypeDrawer : PropertyDrawer
 {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)

@@ -31,8 +31,8 @@ public class CardAttack : MonoBehaviour
             Vector3 p2 = Vector3.Lerp(aux, targetPos, t);
             Vector3 p3 = Vector3.Lerp(p1, p2, t);
             transform.position = p3;
-            t += 0.005f;
-            Invoke("CurveMovement", 0.0001f);
+            t += Time.deltaTime*1.5f;
+            Invoke("CurveMovement", Time.deltaTime);
         }
     }
     private void OnTriggerEnter(Collider other)
