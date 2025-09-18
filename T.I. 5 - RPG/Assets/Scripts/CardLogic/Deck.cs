@@ -41,6 +41,33 @@ public class Deck : ScriptableObject
         CardUIController.AttCardDescription(Owner);
         CardUIController.OrganizeHandCards(Owner);
     }
+    public void AddTemporaryCard(Card preset, CreateCard.Pile selectedPile)
+    {
+        Card card = Instantiate(preset);
+        card.Temporary = true;
+        card.Setup();
+        card.deck = this;
+        allCards.Add(card);
+        switch (selectedPile)
+        {
+            case CreateCard.Pile.Hand:
+                Owner.hand.Add(card);
+                break;
+            case CreateCard.Pile.BuyingPile:
+                BuyingPile.Add(card);
+                break;
+            case CreateCard.Pile.DiscardPile:
+                DiscardPile.Add(card);
+                break;
+            default:
+                Owner.hand.Add(card);
+                break;
+        }
+        
+        CardUIController.instance.InstantiateCard(card);
+        CardUIController.AttCardDescription(Owner);
+        CardUIController.CardsOrganizer(Owner);
+    }
 
     public void RemoveCard(CardDisplay c)
     {

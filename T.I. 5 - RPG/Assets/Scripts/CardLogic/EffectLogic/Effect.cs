@@ -504,7 +504,9 @@ public class GainCoins : Effect
 public class CreateCard : Effect
 {
     enum Target { User, Opponent }
+    public enum Pile { Hand, BuyingPile, DiscardPile}
     [SerializeField] Target target;
+    [SerializeField] Pile AddToPile;
     public Card CardPrefab;
     public override void Apply()
     {
@@ -520,7 +522,7 @@ public class CreateCard : Effect
                 break;
         }
         //t.hand.Add(CardUIController.instance.InstantiateCard(CardPrefab).cardData);
-        t.decks[0].AddTemporaryCard(CardPrefab);
+        t.decks[0].AddTemporaryCard(CardPrefab, AddToPile);
         //CardUIController.OrganizeHandCards(t);
         EffectEnded();
     }
