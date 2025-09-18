@@ -323,13 +323,34 @@ public class CardUIController : MonoBehaviour
     }
     public static void OrganizeRemovingCards(List<CardDisplay> cards)
     {
-        int totalCardsPlayed = cards.Count();
+        /*int totalCardsPlayed = cards.Count();
         float playedCardsSpacing = 3f;
         for (int i = 0; i < totalCardsPlayed; i++)
         {
             float posX = (i - ((totalCardsPlayed - 1) / 2f)) * playedCardsSpacing;
             GameObject cardObject = cards[i].gameObject;
             Vector3 pos = (GameplayManager.instance.player.combatSpace.playedCardSpace.right * posX) + GameplayManager.instance.player.combatSpace.playedCardSpace.position;
+            Vector3 rot = GameplayManager.instance.player.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(90f, 0f, 0f);
+            if (GameplayManager.instance.player.GetComponent<Player>() != null)
+            {
+                LeanTween.move(cardObject, pos, instance.smallTimeAnim).setEaseInOutSine();
+                LeanTween.rotate(cardObject, rot, instance.smallTimeAnim).setEaseInOutSine();
+                cardObject.transform.SetParent(GameplayManager.instance.player.combatSpace.playedCardSpace);
+                CardDisplay cardDisplay = cardObject.GetComponent<CardDisplay>();
+            }
+        }*/
+        int totalCardsPlayed = cards.Count();
+        int maxCardsPerRow = 8;
+        float spacingX = 3f;
+        float spacingZ = 4f;
+        for (int i = 0; i < totalCardsPlayed; i++)
+        {
+            int row = i / maxCardsPerRow;
+            int column = i % maxCardsPerRow;
+            float posX = (column - (Mathf.Min(maxCardsPerRow, totalCardsPlayed - row * maxCardsPerRow) - 1) / 2f) * spacingX;
+            float posZ = -row * spacingZ;
+            GameObject cardObject = cards[i].gameObject;
+            Vector3 pos = (GameplayManager.instance.player.combatSpace.playedCardSpace.right * posX) + GameplayManager.instance.player.combatSpace.playedCardSpace.forward * posZ + GameplayManager.instance.player.combatSpace.playedCardSpace.position;
             Vector3 rot = GameplayManager.instance.player.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(90f, 0f, 0f);
             if (GameplayManager.instance.player.GetComponent<Player>() != null)
             {

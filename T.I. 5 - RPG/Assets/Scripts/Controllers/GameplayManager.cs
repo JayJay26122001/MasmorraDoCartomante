@@ -286,6 +286,7 @@ public class GameplayManager : MonoBehaviour
                 {
                     CardDisplay cd = CardUIController.instance.InstantiateCard(c);
                     cds.Add(cd);
+                    cd.UpdateCard();
                     CardUIController.OrganizeRemovingCards(cds);
                 }
             }
