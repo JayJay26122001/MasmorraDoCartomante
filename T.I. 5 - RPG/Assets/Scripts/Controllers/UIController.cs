@@ -50,10 +50,14 @@ public class UIController : MonoBehaviour
     public GameObject leaveCreditsPanelButton;
     public GameObject leaveQuitPanelButton;
     public GameObject confirmQuitButton;
-    [Header("Settings Slider")]
+    [Header("Settings Sliders and Toggles")]
     public Slider _masterVolumeSlider;
     public Slider _musicSlider;
     public Slider _sfxSlider;
+    public Toggle vsyncToggle;
+    public Image vsyncToggleImage;
+    public Sprite vsyncConfirm;
+    public Sprite vsyncDeny;
     [Header("Game Combat HUD")]
     public GameObject combatHUD;
     public TextMeshPro enemyName;
@@ -109,13 +113,17 @@ public class UIController : MonoBehaviour
         }
         else
         {
-            data = new ConfigData(0, 0, -7.5f, -7.5f, -7.5f);
+            data = new ConfigData(0, 0, -7.5f, -7.5f, -7.5f, false);
             Debug.Log("Game Configs");
         }
         EventSystem.current.SetSelectedGameObject(playButton);
         SetDefaultVol();
         AudioController.instance.StartMusic();
         mainCamera = Camera.main;
+        bool isOn = QualitySettings.vSyncCount == 1;
+        vsyncToggle.isOn = isOn;
+        UpdateToggleImages(isOn);
+        vsyncToggle.onValueChanged.AddListener(ChangeToggle);
     }
 
     private void Update()
@@ -132,18 +140,6 @@ public class UIController : MonoBehaviour
         if (screenModeDropdown != null)
         {
             screenModeDropdown.value = data.screenMode;
-            /*if (data.screenMode == 0)
-            {
-                screenModeDropdown.value = 0;
-            }
-            else if(data.screenMode == 1)
-            {
-                screenModeDropdown.value = 1;
-            }
-            else
-            {
-                screenModeDropdown.value = 2;
-            }*/
         }
         AudioController.instance.ChangeMasterVol(data.master);
         if (_masterVolumeSlider != null)
@@ -159,6 +155,12 @@ public class UIController : MonoBehaviour
         if (_sfxSlider != null)
         {
             _sfxSlider.value = data.sfx;
+        }
+        if(vsyncToggle != null)
+        {
+            vsyncToggle.isOn = data.vsyncEnabled;
+            QualitySettings.vSyncCount = data.vsyncEnabled ? 1 : 0;
+            UpdateToggleImages(data.vsyncEnabled);
         }
     }
     public void SaveConfigs()
@@ -808,5 +810,24 @@ public class UIController : MonoBehaviour
         }
 
         return popupTexts;
+    }
+
+    public void ChangeToggle(bool isOn)
+    {
+        QualitySettings.vSyncCount = isOn ? 1 : 0;
+        data.vsyncEnabled = isOn;
+        UpdateToggleImages(isOn);
+    }
+
+    public void UpdateToggleImages(bool isOn)
+    {
+        if(isOn)
+        {
+            vsyncToggleImage.sprite = vsyncConfirm;
+        }
+        else
+        {
+            vsyncToggleImage.sprite = vsyncDeny;
+        }
     }
 }
