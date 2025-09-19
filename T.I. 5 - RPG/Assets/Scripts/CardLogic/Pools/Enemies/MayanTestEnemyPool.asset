@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df63f8d404d0a464ba76aae892ae72a4, type: 3}
-  m_Name: TestEnemyPool
+  m_Name: MayanTestEnemyPool
   m_EditorClassIdentifier: 
-  pool: 0000000001000000
+  pool: 000000000100000002000000
   baseProbabilities:
   - type: Lasquita
     probability: 50
@@ -20,6 +20,11 @@ MonoBehaviour:
     minMult: 0.25
     maxMult: 2
   - type: Kobold
+    probability: 50
+    multiplier: 1
+    minMult: 0.25
+    maxMult: 2
+  - type: Aztec Warrior
     probability: 50
     multiplier: 1
     minMult: 0.25

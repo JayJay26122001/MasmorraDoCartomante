@@ -54,4 +54,18 @@ public class EnemyPool : ScriptableObject
             p.ModifyProbability(p.probability);
         }
     }
+
+    public int CheckIndexAt(int v)
+    {
+        int index = 0;
+        for(int i = 0; i < pool.Count; i++)
+        {
+            if(pool[i] == v)
+            {
+                index = i;
+                i = pool.Count;
+            }
+        }
+        return index;
+    }
 }

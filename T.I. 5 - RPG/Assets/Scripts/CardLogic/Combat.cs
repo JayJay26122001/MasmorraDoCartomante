@@ -177,8 +177,14 @@ public class Combat : MonoBehaviour
         StartCoroutine(combatents[1].GetComponent<Enemy>().DisableModel());
         if (GameplayManager.instance.figtingBoss)
         {
-            //GameManager.instance.uiController.ChangeScene("Victory"); //TEMPORÁRIO
-            GameplayManager.instance.ChangeArea();
+            if(GameplayManager.instance.areaIndex != GameplayManager.instance.areas.Count - 1)
+            {
+                GameplayManager.instance.ChangeArea();
+            }
+            else
+            {
+                GameManager.instance.uiController.ChangeScene("Victory"); //TEMPORÁRIO
+            }
         }
         GameplayManager.instance.CombatActive = false;
     }

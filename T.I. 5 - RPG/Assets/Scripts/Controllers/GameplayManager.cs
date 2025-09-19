@@ -31,7 +31,7 @@ public class GameplayManager : MonoBehaviour
     public List<Enemy> bosses = new List<Enemy>();
     public SerializedMatrix<EnemyPool> enemyPools = new SerializedMatrix<EnemyPool>(5, 5);
     public Player player;
-    int areaIndex = 0, battlePerArea = 0;
+    [HideInInspector] public int areaIndex = 0, battlePerArea = 0;
 
     public List<CardPack> packs = new List<CardPack>();
     public List<PackPool> packPools = new List<PackPool>();
@@ -149,11 +149,11 @@ public class GameplayManager : MonoBehaviour
             int aux = enemyPools.GetValue(battlePerArea, areaIndex).value.SelectIndex();
             if (battlePerArea < enemyPools.XLength - 1)
             {
-                enemyPools.GetValue(battlePerArea + 1, areaIndex).value.ModifyMultipliers(enemyPools.GetValue(battlePerArea, areaIndex).value.baseProbabilities[aux].type);
+                enemyPools.GetValue(battlePerArea + 1, areaIndex).value.ModifyMultipliers(enemyPools.GetValue(battlePerArea, areaIndex).value.baseProbabilities[enemyPools.GetValue(battlePerArea, areaIndex).value.CheckIndexAt(aux)].type);
             }
             else
             {
-                enemyPools.GetValue(battlePerArea, areaIndex).value.ModifyMultipliers(enemyPools.GetValue(battlePerArea, areaIndex).value.baseProbabilities[aux].type);
+                enemyPools.GetValue(battlePerArea, areaIndex).value.ModifyMultipliers(enemyPools.GetValue(battlePerArea, areaIndex).value.baseProbabilities[enemyPools.GetValue(battlePerArea, areaIndex).value.CheckIndexAt(aux)].type);
             }
             ShowEnemy(aux);
             AudioController.instance.PlayCombatMusic();

@@ -121,9 +121,12 @@ public class UIController : MonoBehaviour
         AudioController.instance.StartMusic();
         mainCamera = Camera.main;
         bool isOn = QualitySettings.vSyncCount == 1;
-        vsyncToggle.isOn = isOn;
-        UpdateToggleImages(isOn);
-        vsyncToggle.onValueChanged.AddListener(ChangeToggle);
+        if(vsyncToggle != null)
+        {
+            vsyncToggle.isOn = isOn;
+            UpdateToggleImages(isOn);
+            vsyncToggle.onValueChanged.AddListener(ChangeToggle);
+        }
     }
 
     private void Update()
