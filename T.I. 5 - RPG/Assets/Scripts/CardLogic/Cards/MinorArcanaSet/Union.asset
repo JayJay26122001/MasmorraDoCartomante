@@ -19,7 +19,6 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Union
-  hidden: 0
   limited: 0
   instantaneous: 1
   cost: 1
@@ -28,6 +27,7 @@ MonoBehaviour:
   Rarity: 0
   Description: Gains v[0]{Shield} Shield. Retriggers if an Attack Card is played
     after it.
+  extraDescription: 
   references:
     version: 2
     RefIds:
@@ -39,6 +39,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseShield: 1
         ShieldMultiplier:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -59,7 +60,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 0.8
           min: 0
           max: 0
@@ -74,6 +74,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseShield: 1
         ShieldMultiplier:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -94,7 +95,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 0.8
           min: 0
           max: 0
@@ -119,8 +119,9 @@ MonoBehaviour:
       type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
       data:
         Repeatable: 0
-        TurnOwner: 1
+        TurnOwner: 0
         TurnsFromNow:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -141,7 +142,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 0
           min: 0
           max: 0

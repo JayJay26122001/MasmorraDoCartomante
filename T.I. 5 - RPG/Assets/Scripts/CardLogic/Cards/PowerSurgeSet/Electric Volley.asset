@@ -13,32 +13,190 @@ MonoBehaviour:
   m_Name: Electric Volley
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 6721762320743137349
-  - rid: 6721762321394565187
-  - rid: 6721762321394565192
-  - rid: 6721762321394565195
+  - rid: 4294249745929470023
+  - rid: 4294249745929470025
+  - rid: 4294249745929470027
+  - rid: 4294249745929470029
+  - rid: 4294249745929470032
+  - rid: 4294249745929470034
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Electric Volley
   limited: 0
   instantaneous: 0
-  extraDesc: 0
   cost: 2
   Type: 0
   Pack: 6
   Rarity: 2
-  Description: Deals v[0]{Damage} Damage if Blocked by either Targets. Going back
+  Description: Deals v[0]{Damage} if the Opponent have Shield. Upon Hit, go back
     and forth between Targets until someone can't Block. When taking Damage, remove
     -3 Energy from who toke Damage on the Next Turn.
+  extraDescription: 
   references:
     version: 2
     RefIds:
-    - rid: 6721762320743137349
+    - rid: 4294249745929470023
+      type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions:
+        - rid: 4294249745929470024
+        SetAsDiscardTime: 0
+    - rid: 4294249745929470024
+      type: {class: ComparativeConfirmation, ns: , asm: Assembly-CSharp}
+      data:
+        ObservedValue:
+          type: 3
+          target: 1
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 1
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+        Equation: 4
+        Amount:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+    - rid: 4294249745929470025
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions:
+        - rid: 4294249745929470026
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0.7
+          min: 0
+          max: 0
+          modifiers: []
+        IgnoreDefense: 0
+        target: 0
+    - rid: 4294249745929470026
+      type: {class: ComparativeConfirmation, ns: , asm: Assembly-CSharp}
+      data:
+        ObservedValue:
+          type: 3
+          target: 1
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 1
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+        Equation: 0
+        Amount:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+    - rid: 4294249745929470027
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions:
-        - rid: 6721762320743137350
+        - rid: 4294249745929470028
         ConfirmationConditions: []
         MultipliedByBaseDamage: 1
         DamageMultiplier:
@@ -69,19 +227,19 @@ MonoBehaviour:
           modifiers: []
         IgnoreDefense: 0
         target: 0
-    - rid: 6721762320743137350
+    - rid: 4294249745929470028
       type: {class: DamageBlocked, ns: , asm: Assembly-CSharp}
       data:
         Repeatable: 1
-        BlockedBy: 1
+        BlockedBy: 0
         FailIfDamaged: 1
         DamageCameFromCard: 0
-    - rid: 6721762321394565187
+    - rid: 4294249745929470029
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions:
-        - rid: 6721762321394565189
+        - rid: 4294249745929470031
         ConfirmationConditions: []
         MultipliedByBaseDamage: 1
         DamageMultiplier:
@@ -106,26 +264,26 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          value: 0.5
+          value: 0.7
           min: 0
           max: 0
           modifiers: []
         IgnoreDefense: 0
         target: 1
-    - rid: 6721762321394565189
+    - rid: 4294249745929470031
       type: {class: DamageBlocked, ns: , asm: Assembly-CSharp}
       data:
         Repeatable: 1
         BlockedBy: 1
         FailIfDamaged: 1
         DamageCameFromCard: 0
-    - rid: 6721762321394565192
+    - rid: 4294249745929470032
       type: {class: GainEnergy, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 1
         Conditions:
-        - rid: 6721762321394565193
-        - rid: 6721762322506579968
+        - rid: 4294249745929470033
+        - rid: 4294249745929470036
         ConfirmationConditions: []
         Amount:
           type: 0
@@ -154,7 +312,7 @@ MonoBehaviour:
           max: 0
           modifiers: []
         target: 0
-    - rid: 6721762321394565193
+    - rid: 4294249745929470033
       type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
       data:
         Repeatable: 0
@@ -187,13 +345,13 @@ MonoBehaviour:
           modifiers: []
         TurnPhase: 0
         PhaseTime: 0
-    - rid: 6721762321394565195
+    - rid: 4294249745929470034
       type: {class: GainEnergy, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 1
         Conditions:
-        - rid: 6721762321394565196
-        - rid: 6721762322506579969
+        - rid: 4294249745929470035
+        - rid: 4294249745929470037
         ConfirmationConditions: []
         Amount:
           type: 0
@@ -222,7 +380,7 @@ MonoBehaviour:
           max: 0
           modifiers: []
         target: 1
-    - rid: 6721762321394565196
+    - rid: 4294249745929470035
       type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
       data:
         Repeatable: 0
@@ -255,12 +413,12 @@ MonoBehaviour:
           modifiers: []
         TurnPhase: 0
         PhaseTime: 0
-    - rid: 6721762322506579968
+    - rid: 4294249745929470036
       type: {class: ShieldBroke, ns: , asm: Assembly-CSharp}
       data:
         Repeatable: 0
         target: 0
-    - rid: 6721762322506579969
+    - rid: 4294249745929470037
       type: {class: ShieldBroke, ns: , asm: Assembly-CSharp}
       data:
         Repeatable: 0
