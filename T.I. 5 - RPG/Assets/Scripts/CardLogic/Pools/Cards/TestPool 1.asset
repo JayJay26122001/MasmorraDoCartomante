@@ -13,8 +13,33 @@ MonoBehaviour:
   m_Name: TestPool 1
   m_EditorClassIdentifier: 
   pool:
-  - {fileID: 11400000, guid: b4f1c9213ec94944fbb3140dc70fd316, type: 2}
-  - {fileID: 11400000, guid: f5df698fa3947074ebb31b07fdb255cd, type: 2}
-  - {fileID: 11400000, guid: c1f47245640c3104b8533113e96b066d, type: 2}
-  - {fileID: 11400000, guid: af3ff619289d27f498a0d8c245caaea5, type: 2}
-  probabilities: 230000001e000000140000000f000000
+  - {fileID: 11400000, guid: 892b3329aa703584988bef6e4d0c56e1, type: 2}
+  - {fileID: 11400000, guid: 817918c91da7e194ebd90fdf38991a61, type: 2}
+  - {fileID: 11400000, guid: 4426ce2809e88fc45a0d182e139be68e, type: 2}
+  - {fileID: 11400000, guid: 3d8797586a7cef04395b78289155cc7f, type: 2}
+  - {fileID: 11400000, guid: 0b794a45be27a2c42a56f5e9a680f09f, type: 2}
+  - {fileID: 11400000, guid: 9c2718cb6be94f746b860d77d5a544fc, type: 2}
+  - {fileID: 11400000, guid: 5a25f4ab5c51c8047abfab42ada2a7a5, type: 2}
+  - {fileID: 11400000, guid: ba67df793728ef9449f85401f96602cb, type: 2}
+  - {fileID: 11400000, guid: 94a5bd81c0bcf8d46b38fad62ede9b84, type: 2}
+  - {fileID: 11400000, guid: 1726f59bd942ead4d860410e4b3837ca, type: 2}
+  - {fileID: 11400000, guid: 0d4f49f94f1f84f4fb502149ce0a1bac, type: 2}
+  - {fileID: 11400000, guid: bfc4243eba0b90b42bd2f4bec7ae8c4a, type: 2}
+  - {fileID: 11400000, guid: 916edbe0275616e4ea9aaaeac7aa789a, type: 2}
+  - {fileID: 11400000, guid: b28d09ac36a737b4d8a5d24c1d088dcf, type: 2}
+  - {fileID: 11400000, guid: 887cec054b499c84584f306a4820858a, type: 2}
+  - {fileID: 11400000, guid: c51d53c8640ff6848814f1cef44b0df0, type: 2}
+  - {fileID: 11400000, guid: f1b0bcc82c6d55e4fb298fe71fac00e4, type: 2}
+  - {fileID: 11400000, guid: 0e370d58a3839df4bbc344f7ea9cbdb9, type: 2}
+  - {fileID: 11400000, guid: 3eecfe0903f40e5409af7936bff76d7e, type: 2}
+  - {fileID: 11400000, guid: 11c48069759c95649844d6b6533c2a93, type: 2}
+  - {fileID: 11400000, guid: 0d98cfe429c18d243b6f57326086aef3, type: 2}
+  - {fileID: 11400000, guid: 0a39791d8f35dbb4e822a34358fa18c2, type: 2}
+  - {fileID: 11400000, guid: 57a25e841ef2e1e48bda5b445c9ad703, type: 2}
+  - {fileID: 11400000, guid: 533625566d7c7754c9f0149735268d22, type: 2}
+  - {fileID: 11400000, guid: cc534209ca0c0714aa6b95b4e2153749, type: 2}
+  - {fileID: 11400000, guid: afcd3dd1b01c3d74fbc0bf8bf02b5e33, type: 2}
+  probabilities: 1e0000001e000000140000000a000000
+  type: -1
+  rarity: -1
+  packSet: -1

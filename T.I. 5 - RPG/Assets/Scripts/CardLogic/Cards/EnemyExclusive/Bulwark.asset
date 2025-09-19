@@ -18,15 +18,15 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Bulwark
-  hidden: 0
   limited: 0
   instantaneous: 0
   cost: 0
   Type: 2
-  Pack: 0
+  Pack: 2
   Rarity: 2
   Description: If the Opponent plays an Attack Card in their Next Turn, gain v[0]{Shield}
     Shield.
+  extraDescription: 
   references:
     version: 2
     RefIds:
@@ -39,6 +39,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseShield: 1
         ShieldMultiplier:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -59,7 +60,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 3
           min: 0
           max: 0
@@ -86,6 +86,7 @@ MonoBehaviour:
         Repeatable: 0
         TurnOwner: 0
         TurnsFromNow:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -106,7 +107,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 0
           min: 0
           max: 0

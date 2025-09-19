@@ -1,5 +1,9 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEditor;
+using UnityEditor.ShaderGraph.Internal;
+using UnityEditor.UIElements;
+using UnityEngine;
+using System;
 
 [CreateAssetMenu(fileName = "CardPool", menuName = "CardLogic/CardPool")]
 public class CardPool : ScriptableObject
@@ -7,6 +11,30 @@ public class CardPool : ScriptableObject
     public List<Card> pool = new List<Card>();
     public List<int> probabilities = new List<int>();
 
+    [DrawerAttribute]
+    public Card.CardType type;
+    [DrawerAttribute]
+    public Card.CardRarity rarity;
+    [DrawerAttribute]
+    public Card.CardPack packSet;
+
+    [ContextMenu("Set Pool")]
+    public void SetPool()
+    {
+        pool.Clear();
+        List<int> selectedTypes = DrawerAttribute.GetSelectedIndexes(type);
+        List<int> selectedRarities = DrawerAttribute.GetSelectedIndexes(rarity);
+        List<int> selectedSets = DrawerAttribute.GetSelectedIndexes(packSet);
+        Card[] aux = Resources.LoadAll<Card>("");
+        //Debug.Log(aux.Length);
+        for(int i = 0; i < aux.Length; i++)
+        {
+            if (selectedTypes.Contains((int)aux[i].Type) && selectedRarities.Contains((int)aux[i].Rarity) && selectedSets.Contains((int)aux[i].Pack))
+            {
+                pool.Add(aux[i]);
+            }
+        }
+    }
     public List<Card> SelectCards(int quantity)
     {
         for(int i = 0; i < pool.Count; i++)
@@ -45,7 +73,7 @@ public class CardPool : ScriptableObject
             bool success = false;
             while(!success)
             {
-                int rand = Random.Range(0, sum);
+                int rand = UnityEngine.Random.Range(0, sum);
                 int aux = 0;
                 for(int i = 0; i < probabilities.Count; i++)
                 {
@@ -65,3 +93,49 @@ public class CardPool : ScriptableObject
         return auxList;
     }
 }
+public class DrawerAttribute: PropertyAttribute
+{
+    public DrawerAttribute()
+    {
+
+    }
+
+    public static List<string> GetSelectedStrings<T>(T v)
+    {
+        List<string> selected = new List<string>();
+        for(int i = 0; i < Enum.GetValues(typeof(T)).Length; i++)
+        {
+            int layer = 1 << i;
+            if((Convert.ToInt32(v) & layer) != 0)
+            {
+                selected.Add(Enum.GetValues(typeof(T)).GetValue(i).ToString());
+            }
+        }
+        return selected;
+    }
+
+    public static List<int> GetSelectedIndexes<T>(T v)
+    {
+        List<int> selected = new List<int>();
+        for(int i = 0; i < Enum.GetValues(typeof(T)).Length; i++)
+        {
+            int layer = 1 << i;
+            if((Convert.ToInt32(v) & layer) != 0)
+            {
+                selected.Add(i);
+            }
+        }
+        return selected;
+    }
+}
+#if UNITY_EDITOR
+[CustomPropertyDrawer(typeof(DrawerAttribute))]
+public class Drawer: PropertyDrawer
+{
+    public override void OnGUI(Rect pos, SerializedProperty prop, GUIContent label)
+    {
+        prop.intValue = EditorGUI.MaskField(pos, label, prop.intValue, prop.enumNames);
+    }
+}
+#endif
+

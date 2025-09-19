@@ -20,16 +20,16 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Brute Force
-  hidden: 0
   limited: 0
   instantaneous: 0
   cost: 0
   Type: 0
-  Pack: 0
+  Pack: 2
   Rarity: 2
   Description: Deals v[0]{Damage} Damage, then deals v[2]{Damage} Piercing Damage.
     If the First Damage that is dealt to the Opponent is Blocked, Deals an additional
     v[1]{Damage} Damage.
+  extraDescription: 
   references:
     version: 2
     RefIds:

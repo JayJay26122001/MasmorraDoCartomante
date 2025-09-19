@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 [CreateAssetMenu(fileName = "CardPackSO", menuName = "CardLogic/CardPackSO")]
 public class CardPackSO : ScriptableObject
 {
