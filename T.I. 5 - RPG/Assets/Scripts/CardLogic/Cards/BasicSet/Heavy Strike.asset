@@ -19,12 +19,12 @@ MonoBehaviour:
   Name: Heavy Strike
   limited: 0
   instantaneous: 0
-  extraDesc: 0
   cost: 2
   Type: 0
   Pack: 0
   Rarity: 0
   Description: Deals v[0]{Damage} Damage.
+  extraDescription: 
   references:
     version: 2
     RefIds:

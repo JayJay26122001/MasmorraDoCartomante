@@ -165,6 +165,10 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
             CardUIController.instance.SetHighlightedCard(null);
         }
         GameManager.instance.uiController.ShowPopups(this);
+        if(!string.IsNullOrEmpty(cardData.extraDescription)) 
+        {
+            UpdateCardExtraDescription();
+        }
     }
 
     public void OnMouseExit()
@@ -330,6 +334,19 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
             desc += " LIMITED";
         }
         cardDescription.text = desc;
+    }
+
+    public void UpdateCardExtraDescription()
+    {
+        string desc = cardData.extraDescription;
+        List<Token> tokens = FindValuesInString(desc);
+        foreach (Token token in tokens)
+        {
+            string value = GetEffectValue(token.index, token.var);
+            string pattern = $"v[{token.index}]{{{token.var}}}";
+            desc = desc.Replace(pattern, value);
+        }
+        GameManager.instance.uiController.ingamePopupDescription.text = desc;
     }
 
     public List<Token> FindValuesInString(string input)
