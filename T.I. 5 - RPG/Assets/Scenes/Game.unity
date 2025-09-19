@@ -185,6 +185,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 302b51f8cf2e58645bf0a4b2538fd184, type: 3}
   m_PrefabInstance: {fileID: 1273532}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1273534 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 302b51f8cf2e58645bf0a4b2538fd184, type: 3}
+  m_PrefabInstance: {fileID: 1273532}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1273535 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 302b51f8cf2e58645bf0a4b2538fd184, type: 3}
+  m_PrefabInstance: {fileID: 1273532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &11951105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9188,6 +9198,39 @@ Transform:
   - {fileID: 1237098779}
   m_Father: {fileID: 707346587}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &322468178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 322468179}
+  m_Layer: 0
+  m_Name: Enemies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &322468179
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322468178}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1551659757}
+  - {fileID: 1472330958}
+  m_Father: {fileID: 1264320103}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &323159922
 GameObject:
   m_ObjectHideFlags: 0
@@ -9846,7 +9889,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 509029434}
+    m_TransformParent: {fileID: 2049845127}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 26c3148a7701d264e929e1caf4210e50, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9854,27 +9897,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 26c3148a7701d264e929e1caf4210e50, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -16.781609
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 26c3148a7701d264e929e1caf4210e50, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 29.851353
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 26c3148a7701d264e929e1caf4210e50, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 26c3148a7701d264e929e1caf4210e50, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 26c3148a7701d264e929e1caf4210e50, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 26c3148a7701d264e929e1caf4210e50, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 26c3148a7701d264e929e1caf4210e50, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9908,6 +9951,16 @@ PrefabInstance:
 --- !u!4 &361981470 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 26c3148a7701d264e929e1caf4210e50, type: 3}
+  m_PrefabInstance: {fileID: 361981469}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &361981471 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 26c3148a7701d264e929e1caf4210e50, type: 3}
+  m_PrefabInstance: {fileID: 361981469}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &361981472 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 26c3148a7701d264e929e1caf4210e50, type: 3}
   m_PrefabInstance: {fileID: 361981469}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &363602393
@@ -11352,7 +11405,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 509029434}
+    m_TransformParent: {fileID: 1472330958}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5fbfb753604c45c4182c4978562dc267, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11360,27 +11413,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5fbfb753604c45c4182c4978562dc267, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -16.781609
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5fbfb753604c45c4182c4978562dc267, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 29.851353
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5fbfb753604c45c4182c4978562dc267, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5fbfb753604c45c4182c4978562dc267, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5fbfb753604c45c4182c4978562dc267, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5fbfb753604c45c4182c4978562dc267, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5fbfb753604c45c4182c4978562dc267, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -11414,6 +11467,16 @@ PrefabInstance:
 --- !u!4 &461322263 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5fbfb753604c45c4182c4978562dc267, type: 3}
+  m_PrefabInstance: {fileID: 461322262}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &461322264 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5fbfb753604c45c4182c4978562dc267, type: 3}
+  m_PrefabInstance: {fileID: 461322262}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &461322265 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 5fbfb753604c45c4182c4978562dc267, type: 3}
   m_PrefabInstance: {fileID: 461322262}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &462162435
@@ -12263,8 +12326,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 403507164}
-  - {fileID: 361981470}
-  - {fileID: 461322263}
   m_Father: {fileID: 1636932032}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &509029435
@@ -14579,7 +14640,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1120228319}
+  - {fileID: 1151479976}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &666577882
@@ -15568,6 +15629,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 786645940}
+  - component: {fileID: 786645941}
   m_Layer: 0
   m_Name: Corruptor
   m_TagString: Untagged
@@ -15583,7 +15645,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 786645939}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: -6.5785904, z: 21.436565}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15591,8 +15653,67 @@ Transform:
   - {fileID: 1124749325}
   - {fileID: 719955096}
   - {fileID: 1592096500}
-  m_Father: {fileID: 931299369}
+  m_Father: {fileID: 835108580}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &786645941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786645939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef8394d76fca764fbbc7af354477e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  DeckPresets:
+  - {fileID: 11400000, guid: fb34069793a4fac4a8acdbd389a9ca30, type: 2}
+  decks: []
+  hand: []
+  playedCards: []
+  maxHP: 250
+  hp: 0
+  shld: 0
+  energy: 0
+  maxBaseEnergy: 3
+  money: 3
+  CardBuyMax: 5
+  baseDamage: 6
+  baseShieldGain: 5
+  baseDamageTaken: 100
+  DamageModifiers: []
+  ShieldModifiers: []
+  DamageReductionModifiers: []
+  Damaged:
+    m_PersistentCalls:
+      m_Calls: []
+  Wounded:
+    m_PersistentCalls:
+      m_Calls: []
+  DamageBlocked:
+    m_PersistentCalls:
+      m_Calls: []
+  ShieldBreak:
+    m_PersistentCalls:
+      m_Calls: []
+  GainedShield:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayedCard:
+    m_PersistentCalls:
+      m_Calls: []
+  canPlayCards: 0
+  combatSpace: {fileID: 0}
+  hpText: {fileID: 1991594902}
+  shieldText: {fileID: 343960610}
+  energyText: {fileID: 1215672137}
+  hpCircle: {fileID: 1932448058}
+  exausted: []
+  anim: {fileID: 1124749327}
+  model: {fileID: 1124749326}
+  size: 0
 --- !u!1001 &790105379
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15838,6 +15959,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e01a27b40b7864495ba29f2877d079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &835108579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 835108580}
+  m_Layer: 0
+  m_Name: Enemies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &835108580
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835108579}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 786645940}
+  m_Father: {fileID: 931299369}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &851689914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21177,6 +21330,98 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1516939213}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &916723814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 916723815}
+  - component: {fileID: 916723816}
+  m_Layer: 0
+  m_Name: JesterSad
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &916723815
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916723814}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1390083255}
+  m_Father: {fileID: 1151479976}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &916723816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916723814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef8394d76fca764fbbc7af354477e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  DeckPresets:
+  - {fileID: 11400000, guid: e4bf6ad3b9448c8428ea2cfde2aa0889, type: 2}
+  decks: []
+  hand: []
+  playedCards: []
+  maxHP: 50
+  hp: 0
+  shld: 0
+  energy: 0
+  maxBaseEnergy: 3
+  money: 3
+  CardBuyMax: 5
+  baseDamage: 6
+  baseShieldGain: 10
+  baseDamageTaken: 100
+  DamageModifiers: []
+  ShieldModifiers: []
+  DamageReductionModifiers: []
+  Damaged:
+    m_PersistentCalls:
+      m_Calls: []
+  Wounded:
+    m_PersistentCalls:
+      m_Calls: []
+  DamageBlocked:
+    m_PersistentCalls:
+      m_Calls: []
+  ShieldBreak:
+    m_PersistentCalls:
+      m_Calls: []
+  GainedShield:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayedCard:
+    m_PersistentCalls:
+      m_Calls: []
+  canPlayCards: 0
+  combatSpace: {fileID: 0}
+  hpText: {fileID: 1991594902}
+  shieldText: {fileID: 343960610}
+  energyText: {fileID: 1215672137}
+  hpCircle: {fileID: 1932448058}
+  exausted: []
+  anim: {fileID: 1390083257}
+  model: {fileID: 1390083256}
+  size: 0
 --- !u!1 &921170255
 GameObject:
   m_ObjectHideFlags: 0
@@ -21324,6 +21569,98 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &928584686
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 928584687}
+  - component: {fileID: 928584688}
+  m_Layer: 0
+  m_Name: JesterAngry
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &928584687
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928584686}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1641493832}
+  m_Father: {fileID: 1151479976}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &928584688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928584686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef8394d76fca764fbbc7af354477e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  DeckPresets:
+  - {fileID: 11400000, guid: 527ade200fe974e468af6bc66be58914, type: 2}
+  decks: []
+  hand: []
+  playedCards: []
+  maxHP: 50
+  hp: 0
+  shld: 0
+  energy: 0
+  maxBaseEnergy: 3
+  money: 3
+  CardBuyMax: 5
+  baseDamage: 11
+  baseShieldGain: 5
+  baseDamageTaken: 100
+  DamageModifiers: []
+  ShieldModifiers: []
+  DamageReductionModifiers: []
+  Damaged:
+    m_PersistentCalls:
+      m_Calls: []
+  Wounded:
+    m_PersistentCalls:
+      m_Calls: []
+  DamageBlocked:
+    m_PersistentCalls:
+      m_Calls: []
+  ShieldBreak:
+    m_PersistentCalls:
+      m_Calls: []
+  GainedShield:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayedCard:
+    m_PersistentCalls:
+      m_Calls: []
+  canPlayCards: 0
+  combatSpace: {fileID: 0}
+  hpText: {fileID: 1991594902}
+  shieldText: {fileID: 343960610}
+  energyText: {fileID: 1215672137}
+  hpCircle: {fileID: 1932448058}
+  exausted: []
+  anim: {fileID: 1641493834}
+  model: {fileID: 1641493833}
+  size: 0
 --- !u!1001 &929844986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21464,7 +21801,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 786645940}
+  - {fileID: 835108580}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &953135375
@@ -22747,8 +23084,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1120228319}
+  - component: {fileID: 1120228320}
   m_Layer: 0
-  m_Name: Jester
+  m_Name: JesterHappy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22762,16 +23100,73 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1120228318}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -21.090841, z: 20.9384}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1196244613}
-  - {fileID: 1390083255}
-  - {fileID: 1641493832}
-  m_Father: {fileID: 665812756}
+  m_Father: {fileID: 1151479976}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1120228320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120228318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef8394d76fca764fbbc7af354477e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  DeckPresets:
+  - {fileID: 11400000, guid: a1d55d957c885bf4fb37e7116ebe65c8, type: 2}
+  decks: []
+  hand: []
+  playedCards: []
+  maxHP: 50
+  hp: 0
+  shld: 0
+  energy: 0
+  maxBaseEnergy: 3
+  money: 3
+  CardBuyMax: 5
+  baseDamage: 8
+  baseShieldGain: 7
+  baseDamageTaken: 100
+  DamageModifiers: []
+  ShieldModifiers: []
+  DamageReductionModifiers: []
+  Damaged:
+    m_PersistentCalls:
+      m_Calls: []
+  Wounded:
+    m_PersistentCalls:
+      m_Calls: []
+  DamageBlocked:
+    m_PersistentCalls:
+      m_Calls: []
+  ShieldBreak:
+    m_PersistentCalls:
+      m_Calls: []
+  GainedShield:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayedCard:
+    m_PersistentCalls:
+      m_Calls: []
+  canPlayCards: 0
+  combatSpace: {fileID: 0}
+  hpText: {fileID: 1991594902}
+  shieldText: {fileID: 343960610}
+  energyText: {fileID: 1215672137}
+  hpCircle: {fileID: 1932448058}
+  exausted: []
+  anim: {fileID: 209104458}
+  model: {fileID: 209104456}
+  size: 0
 --- !u!1001 &1124749324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22840,6 +23235,16 @@ PrefabInstance:
 --- !u!4 &1124749325 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f290bc088a6ce9e43a3d7c5150d8642e, type: 3}
+  m_PrefabInstance: {fileID: 1124749324}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1124749326 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f290bc088a6ce9e43a3d7c5150d8642e, type: 3}
+  m_PrefabInstance: {fileID: 1124749324}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1124749327 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: f290bc088a6ce9e43a3d7c5150d8642e, type: 3}
   m_PrefabInstance: {fileID: 1124749324}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1129172233
@@ -23175,6 +23580,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Asset: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_ActionId: 3c7022bf-7922-4f7c-a998-c437916075ad
+--- !u!1 &1151479975
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1151479976}
+  m_Layer: 0
+  m_Name: Enemies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1151479976
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151479975}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1120228319}
+  - {fileID: 928584687}
+  - {fileID: 916723815}
+  m_Father: {fileID: 665812756}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1156878350
 GameObject:
   m_ObjectHideFlags: 0
@@ -25366,7 +25805,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 741689271}
-  - {fileID: 1551659757}
   - {fileID: 1061313318}
   - {fileID: 1174948818}
   - {fileID: 1846137766}
@@ -25376,6 +25814,7 @@ Transform:
   - {fileID: 154777430}
   - {fileID: 479749461873295444}
   - {fileID: 1337612571}
+  - {fileID: 322468179}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1279180082
@@ -25585,6 +26024,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1288769830}
+  - component: {fileID: 1288769831}
   m_Layer: 0
   m_Name: Diplomat
   m_TagString: Untagged
@@ -25608,6 +26048,65 @@ Transform:
   - {fileID: 1289391189}
   m_Father: {fileID: 1419871205}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1288769831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288769829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef8394d76fca764fbbc7af354477e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  DeckPresets:
+  - {fileID: 11400000, guid: 4523cb4755c145e488d3591089024504, type: 2}
+  decks: []
+  hand: []
+  playedCards: []
+  maxHP: 45
+  hp: 0
+  shld: 0
+  energy: 0
+  maxBaseEnergy: 3
+  money: 3
+  CardBuyMax: 5
+  baseDamage: 7
+  baseShieldGain: 8
+  baseDamageTaken: 100
+  DamageModifiers: []
+  ShieldModifiers: []
+  DamageReductionModifiers: []
+  Damaged:
+    m_PersistentCalls:
+      m_Calls: []
+  Wounded:
+    m_PersistentCalls:
+      m_Calls: []
+  DamageBlocked:
+    m_PersistentCalls:
+      m_Calls: []
+  ShieldBreak:
+    m_PersistentCalls:
+      m_Calls: []
+  GainedShield:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayedCard:
+    m_PersistentCalls:
+      m_Calls: []
+  canPlayCards: 0
+  combatSpace: {fileID: 0}
+  hpText: {fileID: 1991594902}
+  shieldText: {fileID: 343960610}
+  energyText: {fileID: 1215672137}
+  hpCircle: {fileID: 1932448058}
+  exausted: []
+  anim: {fileID: 1289391191}
+  model: {fileID: 1289391190}
+  size: 0
 --- !u!1001 &1289391188
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25672,6 +26171,16 @@ PrefabInstance:
 --- !u!4 &1289391189 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: df6088e1f79e9e748aef2443b905929f, type: 3}
+  m_PrefabInstance: {fileID: 1289391188}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1289391190 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: df6088e1f79e9e748aef2443b905929f, type: 3}
+  m_PrefabInstance: {fileID: 1289391188}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1289391191 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: df6088e1f79e9e748aef2443b905929f, type: 3}
   m_PrefabInstance: {fileID: 1289391188}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1298388186 stripped
@@ -26854,6 +27363,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1351723672}
+  - component: {fileID: 1351723673}
   m_Layer: 0
   m_Name: Immaculatus
   m_TagString: Untagged
@@ -26879,6 +27389,65 @@ Transform:
   - {fileID: 961927582}
   m_Father: {fileID: 1419871205}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1351723673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351723671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef8394d76fca764fbbc7af354477e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  DeckPresets:
+  - {fileID: 11400000, guid: e17ec550c4dbdae4fbd9175b0c419194, type: 2}
+  decks: []
+  hand: []
+  playedCards: []
+  maxHP: 200
+  hp: 0
+  shld: 0
+  energy: 0
+  maxBaseEnergy: 3
+  money: 3
+  CardBuyMax: 5
+  baseDamage: 6
+  baseShieldGain: 5
+  baseDamageTaken: 100
+  DamageModifiers: []
+  ShieldModifiers: []
+  DamageReductionModifiers: []
+  Damaged:
+    m_PersistentCalls:
+      m_Calls: []
+  Wounded:
+    m_PersistentCalls:
+      m_Calls: []
+  DamageBlocked:
+    m_PersistentCalls:
+      m_Calls: []
+  ShieldBreak:
+    m_PersistentCalls:
+      m_Calls: []
+  GainedShield:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayedCard:
+    m_PersistentCalls:
+      m_Calls: []
+  canPlayCards: 0
+  combatSpace: {fileID: 0}
+  hpText: {fileID: 1991594902}
+  shieldText: {fileID: 343960610}
+  energyText: {fileID: 1215672137}
+  hpCircle: {fileID: 1932448058}
+  exausted: []
+  anim: {fileID: 1961797305}
+  model: {fileID: 1961797304}
+  size: 0
 --- !u!1001 &1358389549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27117,7 +27686,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1120228319}
+    m_TransformParent: {fileID: 916723815}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 51e0b3b9a66408d4a8c65603088f0160, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27125,11 +27694,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51e0b3b9a66408d4a8c65603088f0160, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -21.090841
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51e0b3b9a66408d4a8c65603088f0160, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 20.9384
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51e0b3b9a66408d4a8c65603088f0160, type: 3}
       propertyPath: m_LocalRotation.w
@@ -27137,7 +27706,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51e0b3b9a66408d4a8c65603088f0160, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51e0b3b9a66408d4a8c65603088f0160, type: 3}
       propertyPath: m_LocalRotation.y
@@ -27145,7 +27714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51e0b3b9a66408d4a8c65603088f0160, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51e0b3b9a66408d4a8c65603088f0160, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -27179,6 +27748,16 @@ PrefabInstance:
 --- !u!4 &1390083255 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 51e0b3b9a66408d4a8c65603088f0160, type: 3}
+  m_PrefabInstance: {fileID: 1390083254}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1390083256 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 51e0b3b9a66408d4a8c65603088f0160, type: 3}
+  m_PrefabInstance: {fileID: 1390083254}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1390083257 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 51e0b3b9a66408d4a8c65603088f0160, type: 3}
   m_PrefabInstance: {fileID: 1390083254}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1398772561
@@ -27446,6 +28025,7 @@ Transform:
   m_Children:
   - {fileID: 1351723672}
   - {fileID: 1288769830}
+  - {fileID: 2049845127}
   m_Father: {fileID: 125215945}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1427449431
@@ -28860,6 +29440,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 07fd38504efd3464a9f55b508d2d7930, type: 3}
   m_PrefabInstance: {fileID: 1462765973}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1462765975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 07fd38504efd3464a9f55b508d2d7930, type: 3}
+  m_PrefabInstance: {fileID: 1462765973}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1462765976 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 07fd38504efd3464a9f55b508d2d7930, type: 3}
+  m_PrefabInstance: {fileID: 1462765973}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1463999614 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1423886183391351199, guid: 4a0b3dda025c1d549bffbad4345d8a11, type: 3}
@@ -29007,6 +29597,98 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1471198172}
   m_CullTransparentMesh: 1
+--- !u!1 &1472330957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1472330958}
+  - component: {fileID: 1472330959}
+  m_Layer: 0
+  m_Name: LasquitaLava
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1472330958
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472330957}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 461322263}
+  m_Father: {fileID: 322468179}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1472330959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472330957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef8394d76fca764fbbc7af354477e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  DeckPresets:
+  - {fileID: 11400000, guid: bd21f178dbcf1d1418e6644fce2b07c0, type: 2}
+  decks: []
+  hand: []
+  playedCards: []
+  maxHP: 35
+  hp: 0
+  shld: 0
+  energy: 0
+  maxBaseEnergy: 3
+  money: 3
+  CardBuyMax: 5
+  baseDamage: 6
+  baseShieldGain: 3
+  baseDamageTaken: 100
+  DamageModifiers: []
+  ShieldModifiers: []
+  DamageReductionModifiers: []
+  Damaged:
+    m_PersistentCalls:
+      m_Calls: []
+  Wounded:
+    m_PersistentCalls:
+      m_Calls: []
+  DamageBlocked:
+    m_PersistentCalls:
+      m_Calls: []
+  ShieldBreak:
+    m_PersistentCalls:
+      m_Calls: []
+  GainedShield:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayedCard:
+    m_PersistentCalls:
+      m_Calls: []
+  canPlayCards: 0
+  combatSpace: {fileID: 0}
+  hpText: {fileID: 1991594902}
+  shieldText: {fileID: 343960610}
+  energyText: {fileID: 1215672137}
+  hpCircle: {fileID: 1932448058}
+  exausted: []
+  anim: {fileID: 461322265}
+  model: {fileID: 461322264}
+  size: 0
 --- !u!4 &1480511629 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8120512506599178477, guid: fd99910c466836b4b95aa0d02deb67ea, type: 3}
@@ -29708,6 +30390,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1551659757}
+  - component: {fileID: 1551659758}
   m_Layer: 0
   m_Name: Dragon
   m_TagString: Untagged
@@ -29731,8 +30414,67 @@ Transform:
   - {fileID: 1462765974}
   - {fileID: 1698253677}
   - {fileID: 867860073}
-  m_Father: {fileID: 1264320103}
+  m_Father: {fileID: 322468179}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1551659758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551659756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef8394d76fca764fbbc7af354477e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  DeckPresets:
+  - {fileID: 11400000, guid: c693586bb621fa94c91e1ae20219f8a2, type: 2}
+  decks: []
+  hand: []
+  playedCards: []
+  maxHP: 150
+  hp: 0
+  shld: 0
+  energy: 0
+  maxBaseEnergy: 3
+  money: 3
+  CardBuyMax: 5
+  baseDamage: 6
+  baseShieldGain: 5
+  baseDamageTaken: 100
+  DamageModifiers: []
+  ShieldModifiers: []
+  DamageReductionModifiers: []
+  Damaged:
+    m_PersistentCalls:
+      m_Calls: []
+  Wounded:
+    m_PersistentCalls:
+      m_Calls: []
+  DamageBlocked:
+    m_PersistentCalls:
+      m_Calls: []
+  ShieldBreak:
+    m_PersistentCalls:
+      m_Calls: []
+  GainedShield:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayedCard:
+    m_PersistentCalls:
+      m_Calls: []
+  canPlayCards: 0
+  combatSpace: {fileID: 0}
+  hpText: {fileID: 1991594902}
+  shieldText: {fileID: 343960610}
+  energyText: {fileID: 1215672137}
+  hpCircle: {fileID: 1932448058}
+  exausted: []
+  anim: {fileID: 1462765976}
+  model: {fileID: 1462765975}
+  size: 2
 --- !u!1001 &1555042804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30490,7 +31232,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1120228319}
+    m_TransformParent: {fileID: 928584687}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 4afe8cfe19fe2d74a91ed6505ebe6a2b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30498,11 +31240,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4afe8cfe19fe2d74a91ed6505ebe6a2b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -21.090841
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4afe8cfe19fe2d74a91ed6505ebe6a2b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 20.9384
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4afe8cfe19fe2d74a91ed6505ebe6a2b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -30510,7 +31252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4afe8cfe19fe2d74a91ed6505ebe6a2b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4afe8cfe19fe2d74a91ed6505ebe6a2b, type: 3}
       propertyPath: m_LocalRotation.y
@@ -30518,7 +31260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4afe8cfe19fe2d74a91ed6505ebe6a2b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4afe8cfe19fe2d74a91ed6505ebe6a2b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -30552,6 +31294,16 @@ PrefabInstance:
 --- !u!4 &1641493832 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4afe8cfe19fe2d74a91ed6505ebe6a2b, type: 3}
+  m_PrefabInstance: {fileID: 1641493831}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1641493833 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4afe8cfe19fe2d74a91ed6505ebe6a2b, type: 3}
+  m_PrefabInstance: {fileID: 1641493831}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1641493834 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 4afe8cfe19fe2d74a91ed6505ebe6a2b, type: 3}
   m_PrefabInstance: {fileID: 1641493831}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1648378706
@@ -31978,6 +32730,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1771010378}
+  - component: {fileID: 1771010379}
   m_Layer: 0
   m_Name: AztecWarrior
   m_TagString: Untagged
@@ -32001,6 +32754,65 @@ Transform:
   - {fileID: 1273533}
   m_Father: {fileID: 1636932032}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1771010379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771010377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef8394d76fca764fbbc7af354477e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  DeckPresets:
+  - {fileID: 11400000, guid: 74838c7ecd1d5cc4cb1aa7bdf6057929, type: 2}
+  decks: []
+  hand: []
+  playedCards: []
+  maxHP: 40
+  hp: 0
+  shld: 0
+  energy: 0
+  maxBaseEnergy: 3
+  money: 3
+  CardBuyMax: 5
+  baseDamage: 6
+  baseShieldGain: 7
+  baseDamageTaken: 100
+  DamageModifiers: []
+  ShieldModifiers: []
+  DamageReductionModifiers: []
+  Damaged:
+    m_PersistentCalls:
+      m_Calls: []
+  Wounded:
+    m_PersistentCalls:
+      m_Calls: []
+  DamageBlocked:
+    m_PersistentCalls:
+      m_Calls: []
+  ShieldBreak:
+    m_PersistentCalls:
+      m_Calls: []
+  GainedShield:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayedCard:
+    m_PersistentCalls:
+      m_Calls: []
+  canPlayCards: 0
+  combatSpace: {fileID: 0}
+  hpText: {fileID: 1991594902}
+  shieldText: {fileID: 343960610}
+  energyText: {fileID: 1215672137}
+  hpCircle: {fileID: 1932448058}
+  exausted: []
+  anim: {fileID: 1273535}
+  model: {fileID: 1273534}
+  size: 0
 --- !u!4 &1779546935 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: edc1b0e902e653344a83337943decdd6, type: 3}
@@ -34231,6 +35043,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 669e05db1887c7d47a5c03a9ff67d9c3, type: 3}
   m_PrefabInstance: {fileID: 1961797302}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1961797304 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 669e05db1887c7d47a5c03a9ff67d9c3, type: 3}
+  m_PrefabInstance: {fileID: 1961797302}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1961797305 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 669e05db1887c7d47a5c03a9ff67d9c3, type: 3}
+  m_PrefabInstance: {fileID: 1961797302}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1972194566 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6007365131236613459, guid: 9206a2269951ccc47a507bdb1b2de468, type: 3}
@@ -35592,6 +36414,98 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 3e6408557a678184699bd3e65e16848a, type: 3}
   m_PrefabInstance: {fileID: 2046547042}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2049845126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2049845127}
+  - component: {fileID: 2049845128}
+  m_Layer: 0
+  m_Name: LasquitaCrystal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2049845127
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049845126}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 361981470}
+  m_Father: {fileID: 1419871205}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2049845128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049845126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef8394d76fca764fbbc7af354477e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  DeckPresets:
+  - {fileID: 11400000, guid: 3600bdc6ba4a6a9438e9bcd15f3411c5, type: 2}
+  decks: []
+  hand: []
+  playedCards: []
+  maxHP: 40
+  hp: 0
+  shld: 0
+  energy: 0
+  maxBaseEnergy: 3
+  money: 3
+  CardBuyMax: 5
+  baseDamage: 6
+  baseShieldGain: 5
+  baseDamageTaken: 100
+  DamageModifiers: []
+  ShieldModifiers: []
+  DamageReductionModifiers: []
+  Damaged:
+    m_PersistentCalls:
+      m_Calls: []
+  Wounded:
+    m_PersistentCalls:
+      m_Calls: []
+  DamageBlocked:
+    m_PersistentCalls:
+      m_Calls: []
+  ShieldBreak:
+    m_PersistentCalls:
+      m_Calls: []
+  GainedShield:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayedCard:
+    m_PersistentCalls:
+      m_Calls: []
+  canPlayCards: 0
+  combatSpace: {fileID: 0}
+  hpText: {fileID: 1991594902}
+  shieldText: {fileID: 343960610}
+  energyText: {fileID: 1215672137}
+  hpCircle: {fileID: 1932448058}
+  exausted: []
+  anim: {fileID: 361981472}
+  model: {fileID: 361981471}
+  size: 0
 --- !u!4 &2058516766 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a1f0bc17fd15d47419ee74c677022761, type: 3}

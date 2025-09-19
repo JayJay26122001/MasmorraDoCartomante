@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d1a39dfc1f14914194bdd1ce1b68008, type: 3}
+  m_Name: CorruptorDeck
+  m_EditorClassIdentifier: 
+  Owner: {fileID: 0}
+  CardPresets:
+  - {fileID: 11400000, guid: 8da43459965ba804f8351fcedc5b7690, type: 2}
+  - {fileID: 11400000, guid: dea0c7e26d5705f40afe0c9e2f58eaf3, type: 2}
+  - {fileID: 11400000, guid: 5f9ebffd98acc504f880de1c4dd72584, type: 2}
+  - {fileID: 11400000, guid: 2f085d38fd8b9a942a451bdf4fa0beca, type: 2}
+  cards: []
+  BuyingPile:
+    Stack: []
+  DiscardPile:
+    Stack: []
