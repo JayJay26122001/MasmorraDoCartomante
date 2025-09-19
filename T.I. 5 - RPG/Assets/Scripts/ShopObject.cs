@@ -5,10 +5,18 @@ public class ShopObject : MonoBehaviour
 {
     Vector3 startPos;
     [TextArea] public string objectDescription;
-
+    bool firstTimeMoving;
+    private void Start()
+    {
+        firstTimeMoving = true;
+    }
     public void MoveUp()
     {
-        startPos = transform.localPosition;
+        if(firstTimeMoving)
+        {
+            startPos = transform.localPosition;
+            firstTimeMoving = false;
+        }
         LeanTween.moveLocal(gameObject, startPos + Vector3.up * 0.5f, 0.25f);
     }
 
