@@ -12351,7 +12351,7 @@ MonoBehaviour:
   shld: 0
   energy: 0
   maxBaseEnergy: 3
-  money: 3
+  money: 8
   CardBuyMax: 5
   baseDamage: 6
   baseShieldGain: 5
@@ -31556,7 +31556,7 @@ MonoBehaviour:
   shld: 0
   energy: 0
   maxBaseEnergy: 3
-  money: 3
+  money: 8
   CardBuyMax: 5
   baseDamage: 6
   baseShieldGain: 5
@@ -32987,7 +32987,7 @@ MonoBehaviour:
   shld: 0
   energy: 0
   maxBaseEnergy: 3
-  money: 3
+  money: 8
   CardBuyMax: 5
   baseDamage: 6
   baseShieldGain: 7
@@ -33535,7 +33535,7 @@ MonoBehaviour:
   shld: 0
   energy: 0
   maxBaseEnergy: 3
-  money: 3
+  money: 8
   CardBuyMax: 5
   baseDamage: 6
   baseShieldGain: 5
@@ -33788,7 +33788,7 @@ MonoBehaviour:
   shld: 0
   energy: 0
   maxBaseEnergy: 3
-  money: 500
+  money: 5
   CardBuyMax: 5
   baseDamage: 6
   baseShieldGain: 5
