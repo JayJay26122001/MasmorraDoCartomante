@@ -7,6 +7,21 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: DragonHurt
+    second: {fileID: 2100000, guid: 6c8567b28ae3b7245927f6d332924995, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DragonMat
+    second: {fileID: 2100000, guid: d95ea43d9f7357e49a226a10ff4ffc26, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DragonsCard
+    second: {fileID: 2100000, guid: 3afe713bcc83f664680da88feeeab419, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Var3
     second: {fileID: 2100000, guid: 916e193a67c75764595316799bce45c2, type: 2}
   materials:
@@ -27,7 +42,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5

@@ -7,6 +7,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: DragonJewels
+    second: {fileID: 2100000, guid: 077b3bda59971604c98e8ff532ca2ddd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DragonMat
+    second: {fileID: 2100000, guid: d95ea43d9f7357e49a226a10ff4ffc26, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Var1
     second: {fileID: 2100000, guid: aad027a48068488498f8e9ab3b545f61, type: 2}
   - first:
