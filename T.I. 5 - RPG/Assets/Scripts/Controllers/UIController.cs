@@ -791,6 +791,8 @@ public class UIController : MonoBehaviour
     {
         var text = popup.GetComponentInChildren<TextMeshProUGUI>();
         text.text = PopUpText(card)[index];
+        LayoutRebuilder.ForceRebuildLayoutImmediate(text.rectTransform);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(popup.GetComponent<RectTransform>());
     }
 
     public List<string> PopUpText(CardDisplay card)

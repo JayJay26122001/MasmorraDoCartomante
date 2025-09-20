@@ -17,7 +17,6 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Razor Dagger
-  hidden: 0
   limited: 0
   instantaneous: 0
   cost: 1
@@ -25,6 +24,7 @@ MonoBehaviour:
   Pack: 0
   Rarity: 0
   Description: Deals v[0]{Damage} Damage.
+  extraDescription: 
   references:
     version: 2
     RefIds:
@@ -36,6 +36,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseDamage: 1
         DamageMultiplier:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -56,7 +57,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 1
           min: 0
           max: 0

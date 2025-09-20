@@ -19,7 +19,6 @@ MonoBehaviour:
   Name: Impenetrable Barrier
   limited: 0
   instantaneous: 0
-  extraDesc: 0
   cost: 2
   Type: 1
   Pack: 0
