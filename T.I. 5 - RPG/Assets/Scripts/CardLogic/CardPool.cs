@@ -22,6 +22,7 @@ public class CardPool : ScriptableObject
     public void SetPool()
     {
         pool.Clear();
+        probabilities.Clear();
         List<int> selectedTypes = DrawerAttribute.GetSelectedIndexes(type);
         List<int> selectedRarities = DrawerAttribute.GetSelectedIndexes(rarity);
         List<int> selectedSets = DrawerAttribute.GetSelectedIndexes(packSet);
@@ -32,36 +33,41 @@ public class CardPool : ScriptableObject
             if (selectedTypes.Contains((int)aux[i].Type) && selectedRarities.Contains((int)aux[i].Rarity) && selectedSets.Contains((int)aux[i].Pack))
             {
                 pool.Add(aux[i]);
+                probabilities.Add(GetProbability(aux[i]));
             }
         }
     }
+
+    int GetProbability(Card card)
+    {
+        int prob = 0;
+        switch (card.Rarity)
+        {
+            case Card.CardRarity.Common:
+                prob = 30;
+                break;
+
+            case Card.CardRarity.Uncommon:
+                prob = 20;
+                break;
+
+            case Card.CardRarity.Rare:
+                prob = 10;
+                break;
+
+            case Card.CardRarity.Epic:
+                prob = 5;
+                break;
+
+            case Card.CardRarity.Legendary:
+                prob = 1;
+                break;
+        }
+        return prob;
+    }
+
     public List<Card> SelectCards(int quantity)
     {
-        for(int i = 0; i < pool.Count; i++)
-        {
-            switch(pool[i].Rarity)
-            {
-                case Card.CardRarity.Common:
-                    probabilities[i] = 30;
-                    break;
-                    
-                case Card.CardRarity.Uncommon:
-                    probabilities[i] = 20;
-                    break;
-                    
-                case Card.CardRarity.Rare:
-                    probabilities[i] = 10;
-                    break;
-                    
-                case Card.CardRarity.Epic:
-                    probabilities[i] = 5;
-                    break;
-                    
-                case Card.CardRarity.Legendary:
-                    probabilities[i] = 1;
-                    break;
-            }
-        }
         List<Card> auxList = new List<Card>();
         int sum = 0;
         foreach(int s in probabilities)
