@@ -18,15 +18,15 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Jagged Crystals
-  hidden: 0
   limited: 0
   instantaneous: 0
   cost: 0
   Type: 2
-  Pack: 0
+  Pack: 2
   Rarity: 0
   Description: Deal v[0]{Damage} Damage for each Attack Card the Opponent plays Next
     Turn
+  extraDescription: 
   references:
     version: 2
     RefIds:
@@ -39,6 +39,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseDamage: 1
         DamageMultiplier:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -59,7 +60,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 0.6
           min: 0
           max: 0
@@ -87,6 +87,7 @@ MonoBehaviour:
         Repeatable: 0
         TurnOwner: 1
         TurnsFromNow:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -107,7 +108,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 0
           min: 0
           max: 0
