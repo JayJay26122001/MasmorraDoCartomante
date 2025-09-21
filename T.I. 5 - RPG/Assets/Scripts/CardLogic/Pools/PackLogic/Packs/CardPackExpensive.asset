@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc34c8df5d555f240974463181e925c0, type: 3}
-  m_Name: CardPackSO 1
+  m_Name: CardPackExpensive
   m_EditorClassIdentifier: 
-  possibleCards: {fileID: 11400000, guid: f103e70648d0fe74280a2c550f4fb094, type: 2}
-  price: 3
-  cardQuantity: 2
+  possibleCards: {fileID: 11400000, guid: 32939556a2424a341a3c4f5fb867ba7b, type: 2}
+  price: 6
+  cardQuantity: 3
   selectableCardsQuantity: 1
-  packDescription: Simple Pack, you can choose 1 card between 2!
+  packDescription: An Expensive but Valuable Pack, you can choose 1 card between
+    3 Rare cards or Above!

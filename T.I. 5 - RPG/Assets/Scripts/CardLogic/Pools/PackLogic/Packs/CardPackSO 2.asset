@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CardPackSO 2
   m_EditorClassIdentifier: 
   possibleCards: {fileID: 11400000, guid: 901ca9de920ade0419869804fd32bb50, type: 2}
-  price: 3
+  price: 4
   cardQuantity: 2
   selectableCardsQuantity: 1
   packDescription: Medium Pack, you can choose 1 card between 2!

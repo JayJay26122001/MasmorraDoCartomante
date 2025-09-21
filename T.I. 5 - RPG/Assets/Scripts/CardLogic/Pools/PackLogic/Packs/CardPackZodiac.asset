@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc34c8df5d555f240974463181e925c0, type: 3}
-  m_Name: CardPackSO 1
+  m_Name: CardPackZodiac
   m_EditorClassIdentifier: 
   possibleCards: {fileID: 11400000, guid: f103e70648d0fe74280a2c550f4fb094, type: 2}
-  price: 3
-  cardQuantity: 2
+  price: 4
+  cardQuantity: 3
   selectableCardsQuantity: 1
-  packDescription: Simple Pack, you can choose 1 card between 2!
+  packDescription: Celestial Pack, seek through the stars and choose 1 Zodiac card
+    between 3!
