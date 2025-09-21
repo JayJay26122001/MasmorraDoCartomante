@@ -30,6 +30,10 @@ public abstract class ModularVar : ISerializationCallbackReceiver
     protected virtual void OnSetCard() { }
     protected int GetStat()
     {
+        if (!GameplayManager.instance.CombatActive)
+        {
+            return 0;
+        }
         int value;
         Creature t = null;
         switch (target)
@@ -61,7 +65,14 @@ public abstract class ModularVar : ISerializationCallbackReceiver
     }
     protected int GetCardNum()
     {
-        return ObservedCards.GetCardsWithStats(card.deck.Owner).Count;
+        if (GameplayManager.instance.CombatActive)
+        {
+            return ObservedCards.GetCardsWithStats(card.deck.Owner).Count;
+        }
+        else
+        {
+            return 0;
+        }
         /*Creature t = null;
         switch (target)
         {
