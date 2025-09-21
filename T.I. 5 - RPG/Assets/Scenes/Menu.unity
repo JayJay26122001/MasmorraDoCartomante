@@ -11651,14 +11651,14 @@ MonoBehaviour:
   m_text: "Game Director\n-Lucas Matuck de Miranda\n\nArt Director\n-Henrique Chagas
     Brandao\n\nProgramming Director\n-Lucas Matuck de Miranda\n\n3D Game Art\n-Alice
     Andrade Santos\n-Andrew Teodoro Vieira\n-Henrique Chagas Brandao\n-Pedro Henrique
-    de Sousa Franca\n-Zenny Lovelace Abreu de Aquino\n\n2D Game Art\n-V\xEDtor Varela
-    Chausson\n\nShaders\n-Alice Andrade Santos\n\nVisual Effects\n-Alice Andrade
-    Santos\n-Henrique Chagas Brandao\n\nMusic and Sound Effects\n-Henrique Chagas
-    Brandao\n\nGame Design/Documentation\n-Arthur Minassa Abelha\n\nGame Programming\n-Lucas
-    Matuck de Miranda\n-Matheus Jacoby Costa Oliveira Hahn\n-Rafael Teixeira Dilascio
-    \n\nGame Tester\n-Arthur Minassa Abelha\n\nFont\n-Kreon Regular and Kreon Bold
-    from Julia Petretta\n\nA special thanks to alll the teachers and PUC Minas, who
-    helped us during this game development."
+    de Sousa Franca\n-Zenny Lovelace Abreu de Aquino\n-Paulo Campos Dias\n-Hugo Tales
+    Monteiro\n\n2D Game Art\n-V\xEDtor Varela Chausson\n\nShaders\n-Alice Andrade
+    Santos\n\nVisual Effects\n-Alice Andrade Santos\n-Henrique Chagas Brandao\n\nMusic
+    and Sound Effects\n-Henrique Chagas Brandao\n\nGame Design/Documentation\n-Arthur
+    Minassa Abelha\n\nGame Programming\n-Lucas Matuck de Miranda\n-Matheus Jacoby
+    Costa Oliveira Hahn\n-Rafael Teixeira Dilascio \n\nGame Tester\n-Arthur Minassa
+    Abelha\n\nFont\n-Kreon Regular and Kreon Bold from Julia Petretta\n\nA special
+    thanks to alll the teachers and PUC Minas, who helped us during this game development."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
   m_sharedMaterial: {fileID: 1623889163624291708, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
