@@ -12413,7 +12413,7 @@ MonoBehaviour:
   shld: 0
   energy: 0
   maxBaseEnergy: 3
-  money: 8
+  money: 3
   CardBuyMax: 5
   baseDamage: 6
   baseShieldGain: 5
@@ -28112,7 +28112,7 @@ MonoBehaviour:
   decks: []
   hand: []
   playedCards: []
-  maxHP: 200
+  maxHP: 130
   hp: 0
   shld: 0
   energy: 0
@@ -31246,7 +31246,7 @@ MonoBehaviour:
   decks: []
   hand: []
   playedCards: []
-  maxHP: 150
+  maxHP: 100
   hp: 0
   shld: 0
   energy: 0
@@ -32182,7 +32182,7 @@ MonoBehaviour:
   shld: 0
   energy: 0
   maxBaseEnergy: 3
-  money: 8
+  money: 3
   CardBuyMax: 5
   baseDamage: 6
   baseShieldGain: 5
@@ -33613,7 +33613,7 @@ MonoBehaviour:
   shld: 0
   energy: 0
   maxBaseEnergy: 3
-  money: 8
+  money: 3
   CardBuyMax: 5
   baseDamage: 6
   baseShieldGain: 7
@@ -34161,7 +34161,7 @@ MonoBehaviour:
   shld: 0
   energy: 0
   maxBaseEnergy: 3
-  money: 8
+  money: 3
   CardBuyMax: 5
   baseDamage: 6
   baseShieldGain: 5
