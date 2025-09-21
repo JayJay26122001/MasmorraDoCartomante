@@ -12408,7 +12408,7 @@ MonoBehaviour:
   decks: []
   hand: []
   playedCards: []
-  maxHP: 40
+  maxHP: 50
   hp: 0
   shld: 0
   energy: 0
@@ -26789,7 +26789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: df6088e1f79e9e748aef2443b905929f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -68.46
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: df6088e1f79e9e748aef2443b905929f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -39258,6 +39258,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 388504668}
     m_Modifications:
+    - target: {fileID: 6413130853076559439, guid: 6c6268aba7826ef46922af65cbd0d70c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6586852128938715685, guid: 6c6268aba7826ef46922af65cbd0d70c, type: 3}
       propertyPath: m_Name
       value: GreekTable
