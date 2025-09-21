@@ -20,12 +20,12 @@ MonoBehaviour:
   Name: Cetus
   limited: 1
   instantaneous: 0
-  extraDesc: 0
   cost: 3
   Type: 1
   Pack: 1
   Rarity: 4
   Description: Gain v[0]{Shield} Shield. Gain +3 for each Zodiac Card in the Deck(v[1]{Shield}).
+  extraDescription: 
   references:
     version: 2
     RefIds:
@@ -97,58 +97,6 @@ MonoBehaviour:
           max: 0
           modifiers:
           - operation: 1
-            Type: 1
-            IntValue:
-              type: 0
-              target: 0
-              ObservedCards:
-                target: 0
-                pile: 0
-                type: 0
-                rarity: 0
-                pack: 0
-                MaxReturnedNumber:
-                  type: 2
-                  value: 0
-                  min: 0
-                  max: 0
-                initialized: 1
-              MaxReturnedNumber:
-                type: 2
-                value: 0
-                min: 0
-                max: 0
-              ObservedStat: 0
-              initialized: 1
-              value: 0
-              min: 0
-              max: 0
-            FloatValue:
-              type: 0
-              target: 0
-              ObservedCards:
-                target: 0
-                pile: 0
-                type: 0
-                rarity: 0
-                pack: 0
-                MaxReturnedNumber:
-                  type: 2
-                  value: 0
-                  min: 0
-                  max: 0
-                initialized: 1
-              MaxReturnedNumber:
-                type: 2
-                value: 0
-                min: 0
-                max: 0
-              ObservedStat: 0
-              initialized: 1
-              value: 3
-              min: 0
-              max: 0
-          - operation: 3
             Type: 1
             IntValue:
               type: 0
