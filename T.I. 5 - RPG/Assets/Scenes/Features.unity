@@ -1309,15 +1309,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Vis\xEDveis em jogo:\n\u20222 inimigos comuns (golenzinho e kobold) e
-    1 boss (golem) com anima\xE7\xF5es\n\u20221 \xE1rea (templo maia)\n\u202217 cartas
-    diferentes (2 especiais de inimigos, 4 especiais do boss e o restante obt\xEDvel
-    pelo jogador por pacotes de cartas)\n\u20224 tipos de sala no mapa (come\xE7o,
-    batalha, loja e boss)\n\u20223 tipos de pacote de carta diferentes (pre\xE7os
-    e poss\xEDveis cartas diferentes)\n\u20225 m\xFAsicas (menu, mapa, batalha comum,
-    loja e boss)\n\u2022SFX de intera\xE7\xE3o com bot\xF5es, cartas e sinos\n\u2022VFX
-    de efeitos/movimento de cartas e itens de decora\xE7\xE3o do cen\xE1rio\n\u2022Gameplay
-    base funcional"
+  m_text: "Vis\xEDveis em jogo:\r\n\u20222 inimigos comuns (golenzinho e kobold)
+    e 1 boss (golem) com anima\xE7\xF5es\r\n\u20221 \xE1rea (templo maia)\r\n\u202217
+    cartas diferentes (2 especiais de inimigos, 4 especiais do boss e o restante
+    obt\xEDvel pelo jogador por pacotes de cartas)\r\n\u20224 tipos de sala no mapa
+    (come\xE7o, batalha, loja e boss)\r\n\u20223 tipos de pacote de carta diferentes
+    (pre\xE7os e poss\xEDveis cartas diferentes)\r\n\u20225 m\xFAsicas (menu, mapa,
+    batalha comum, loja e boss)\r\n\u2022SFX de intera\xE7\xE3o com bot\xF5es, cartas
+    e sinos\r\n\u2022VFX de efeitos/movimento de cartas e itens de decora\xE7\xE3o
+    do cen\xE1rio\r\n\u2022Gameplay base funcional"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2154,6 +2154,7 @@ MonoBehaviour:
   playPanel: {fileID: 0}
   settingsPanel: {fileID: 0}
   creditsPanel: {fileID: 0}
+  changeLogPanel: {fileID: 0}
   quitPanel: {fileID: 0}
   pausePanel: {fileID: 0}
   tutorialPanel: {fileID: 0}

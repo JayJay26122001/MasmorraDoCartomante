@@ -42,6 +42,7 @@ public class UIController : MonoBehaviour
     public GameObject playPanel;
     public GameObject settingsPanel;
     public GameObject creditsPanel;
+    public GameObject changeLogPanel;
     public GameObject quitPanel;
     public GameObject pausePanel;
     public GameObject tutorialPanel;
@@ -234,6 +235,7 @@ public class UIController : MonoBehaviour
             {
                 if (panel == tutorialPanel) { InternPanel(playPanel, tutorialPanel); }
                 else if (panel == creditsPanel) { InternPanel(settingsPanel, creditsPanel); }
+                else if(panel == changeLogPanel) { InternPanel(settingsPanel, changeLogPanel); }
             }
         }
         else
@@ -259,10 +261,11 @@ public class UIController : MonoBehaviour
         }
         else
         {
-            if (panel == tutorialPanel || panel == creditsPanel)
+            if (panel == tutorialPanel || panel == creditsPanel || panel == changeLogPanel)
             {
                 if (panel == tutorialPanel) { InternPanel(tutorialPanel, playPanel); }
                 else if (panel == creditsPanel) { InternPanel(creditsPanel, settingsPanel); }
+                else if (panel == changeLogPanel) { InternPanel(changeLogPanel, settingsPanel); }
             }
             else
             {
@@ -376,6 +379,10 @@ public class UIController : MonoBehaviour
         if (creditsPanel != null)
         {
             creditsPanel.SetActive(false);
+        }
+        if (changeLogPanel != null)
+        {
+            changeLogPanel.SetActive(false);
         }
         if (tutorialPanel != null)
         {
