@@ -572,4 +572,9 @@ public class GameplayManager : MonoBehaviour
             }
         }
     }
+
+    public void SceneFadeOut()
+    {
+        SceneFadeController.instance.FadeOutToArea();
+    }
 }

@@ -943,11 +943,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: dc8faca0-6ff4-432e-aa63-057173c0dc8f
+  cloudProjectId: cad3d29a-9d00-435d-accb-4d4ec9fdd8e3
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: T.I. 5 - RPG
-  organizationId: matucao
+  projectName: Cartomancer`s Stronghold (1)
+  organizationId: qulaquer_nick
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
