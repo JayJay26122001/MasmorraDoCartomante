@@ -12408,7 +12408,7 @@ MonoBehaviour:
   decks: []
   hand: []
   playedCards: []
-  maxHP: 1
+  maxHP: 50
   hp: 0
   shld: 0
   energy: 0
@@ -32297,7 +32297,7 @@ MonoBehaviour:
   decks: []
   hand: []
   playedCards: []
-  maxHP: 1
+  maxHP: 70
   hp: 0
   shld: 0
   energy: 0
@@ -33728,7 +33728,7 @@ MonoBehaviour:
   decks: []
   hand: []
   playedCards: []
-  maxHP: 1
+  maxHP: 40
   hp: 0
   shld: 0
   energy: 0
@@ -34276,7 +34276,7 @@ MonoBehaviour:
   decks: []
   hand: []
   playedCards: []
-  maxHP: 1
+  maxHP: 30
   hp: 0
   shld: 0
   energy: 0
