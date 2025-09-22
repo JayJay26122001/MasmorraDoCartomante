@@ -428,7 +428,14 @@ public class TurnStart : TurnPhase
     public override void StartPhase()
     {
         base.StartPhase();
-        ActionController.instance.InvokeTimer(GameplayManager.currentCombat.SetBellActive, true, 1f);
+        if (owner is Player)
+        {
+            ActionController.instance.InvokeTimer(GameplayManager.currentCombat.SetBellActive, true, 1f);
+        }
+        else if (owner is Enemy e)
+        {
+            e.FinishedPlaying.AddListener(() => GameplayManager.currentCombat.SetBellActive(true));
+        }
     }
 
     public override void PhaseEffect()

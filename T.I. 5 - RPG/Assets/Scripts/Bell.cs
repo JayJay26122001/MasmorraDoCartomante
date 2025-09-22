@@ -13,6 +13,13 @@ public class Bell : MonoBehaviour
         anim = GetComponent<Animation>();
         sfxSource = this.GetComponent<AudioSource>();
     }
+    public void NextTurn()
+    {
+        GameplayManager.currentCombat.SetBellActive(false);
+        GameplayManager.currentCombat.EndTurn();
+        PlayBellSFX();
+        Turn();
+    }
 
     public void PlayBellSFX()
     {

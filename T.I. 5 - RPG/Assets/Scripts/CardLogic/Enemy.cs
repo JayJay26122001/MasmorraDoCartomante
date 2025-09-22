@@ -1,11 +1,13 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 public class Enemy : Creature
 {
     public Animator anim;
     public GameObject model;
     public enum EnemySize { Small, Medium, Large };
     public EnemySize size;
+    public UnityEvent FinishedPlaying;
     protected override void Awake()
     {
         base.Awake();
@@ -40,10 +42,12 @@ public class Enemy : Creature
         {
             if (hand[i].cost <= energy)
             {
-                EnemyPlayCard anim = new EnemyPlayCard(this, hand[i], playanim);
+                Card played = hand[i];
+                EnemyPlayCard anim = new EnemyPlayCard(this, played, playanim);
                 ActionController.instance.AddToQueue(anim);
                 playanim = false;
-                yield return new WaitForSeconds(anim.time+1);
+                yield return new WaitUntil(() => !hand.Contains(played));
+                yield return new WaitForSeconds(0.5f);
                 i = 0;
             }
             else
@@ -52,6 +56,8 @@ public class Enemy : Creature
             }
 
         }
+        yield return new WaitForSeconds(1f);
+        FinishedPlaying.Invoke();
     }
 
     /*void TurnActionsDelayed()

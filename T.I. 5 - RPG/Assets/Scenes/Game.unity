@@ -10652,33 +10652,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 713266985}
-          m_TargetAssemblyTypeName: Combat, Assembly-CSharp
-          m_MethodName: EndTurn
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 435492733}
           m_TargetAssemblyTypeName: Bell, Assembly-CSharp
-          m_MethodName: PlayBellSFX
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 435492733}
-          m_TargetAssemblyTypeName: Bell, Assembly-CSharp
-          m_MethodName: Turn
+          m_MethodName: NextTurn
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -12449,6 +12425,9 @@ MonoBehaviour:
   anim: {fileID: 2001305426}
   model: {fileID: 2001305425}
   size: 0
+  FinishedPlaying:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!136 &509029436
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -15816,6 +15795,9 @@ MonoBehaviour:
   anim: {fileID: 1124749327}
   model: {fileID: 1124749326}
   size: 1
+  FinishedPlaying:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!136 &786645942
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -21548,6 +21530,9 @@ MonoBehaviour:
   anim: {fileID: 1390083257}
   model: {fileID: 1390083256}
   size: 0
+  FinishedPlaying:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!136 &916723817
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -21811,6 +21796,9 @@ MonoBehaviour:
   anim: {fileID: 1641493834}
   model: {fileID: 1641493833}
   size: 0
+  FinishedPlaying:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!136 &928584689
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -23753,6 +23741,9 @@ MonoBehaviour:
   anim: {fileID: 209104458}
   model: {fileID: 209104456}
   size: 0
+  FinishedPlaying:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!136 &1120228321
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -26753,6 +26744,9 @@ MonoBehaviour:
   anim: {fileID: 1289391191}
   model: {fileID: 1289391190}
   size: 0
+  FinishedPlaying:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!136 &1288769832
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -28274,6 +28268,9 @@ MonoBehaviour:
   anim: {fileID: 1961797305}
   model: {fileID: 1961797304}
   size: 1
+  FinishedPlaying:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!136 &1351723674
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -30598,6 +30595,9 @@ MonoBehaviour:
   anim: {fileID: 461322265}
   model: {fileID: 461322264}
   size: 0
+  FinishedPlaying:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!136 &1472330960
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -31408,6 +31408,9 @@ MonoBehaviour:
   anim: {fileID: 1462765976}
   model: {fileID: 1462765975}
   size: 2
+  FinishedPlaying:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!136 &1551659759
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -32339,6 +32342,9 @@ MonoBehaviour:
   anim: {fileID: 955819056}
   model: {fileID: 401544285}
   size: 2
+  FinishedPlaying:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1648378709
 Transform:
   m_ObjectHideFlags: 0
@@ -33770,6 +33776,9 @@ MonoBehaviour:
   anim: {fileID: 1273535}
   model: {fileID: 1273534}
   size: 0
+  FinishedPlaying:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!136 &1771010380
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -34318,6 +34327,9 @@ MonoBehaviour:
   anim: {fileID: 2046547044}
   model: {fileID: 1900122466}
   size: 0
+  FinishedPlaying:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1848926785
 Transform:
   m_ObjectHideFlags: 0
@@ -37516,6 +37528,9 @@ MonoBehaviour:
   anim: {fileID: 361981472}
   model: {fileID: 361981471}
   size: 0
+  FinishedPlaying:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!136 &2049845129
 CapsuleCollider:
   m_ObjectHideFlags: 0
