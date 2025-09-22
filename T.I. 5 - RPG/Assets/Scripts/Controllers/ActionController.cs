@@ -109,8 +109,8 @@ public class ActionController : MonoBehaviour
     }
     public void AdvanceQueue()
     {
-        CardUIController.AttCardDescription(GameplayManager.currentCombat.combatents[0]);    
-        CardUIController.AttCardDescription(GameplayManager.currentCombat.combatents[1]);    
+        CardUIController.AttCardDescription(GameplayManager.currentCombat.combatents[0]);
+        CardUIController.AttCardDescription(GameplayManager.currentCombat.combatents[1]);
         Debug.Log("-------------NextEffect-------------");
         if (ActionQueue.Count <= 0) return;
         ActionQueue[0].isPlaying = false;
@@ -199,32 +199,49 @@ public class EnemyPlayCard : SceneAction
 {
     Enemy enemy;
     Card card;
-    public EnemyPlayCard(Enemy e, Card c)
+    bool playAnim;
+    public EnemyPlayCard(Enemy e, Card c, bool PlayAnimation)
     {
         enemy = e;
         card = c;
+        playAnim = PlayAnimation;
         foreach (AnimationClip a in enemy.anim.runtimeAnimatorController.animationClips)
         {
             if (a.name == "PlayCard")
             {
-                time = a.length;
+                if (playAnim)
+                {
+                    time = a.length;
+                }
+                else
+                {
+                    time = 1;
+                }
             }
         }
     }
     public override void PerformAction()
     {
-        enemy.anim.SetTrigger("PlayCard");
-        GameplayManager.instance.PauseInput(time);
-        AnimStarted.Invoke();
-        CameraController.instance.ChangeCamera(1);
-        ActionController.instance.InvokeTimer(CameraController.instance.ChangeCamera, 0, time);
-        //ActionController.instance.InvokeTimer(AnimEnded.Invoke, time);
-        //AnimEnded.AddListener(() => Debug.Log(Time.time));
+        if (playAnim)
+        {
+            enemy.anim.SetTrigger("PlayCard");
+            GameplayManager.instance.PauseInput(time);
+            AnimStarted.Invoke();
+            CameraController.instance.ChangeCamera(1);
+            ActionController.instance.InvokeTimer(CameraController.instance.ChangeCamera, 0, time);
 
-        WaitAction enemyCardAnim = new WaitAction(1f);
-        enemyCardAnim.AnimStarted.AddListener(() => enemy.PlayCard(card));
-        enemyCardAnim.AnimStarted.AddListener(() => CardUIController.OrganizeEnemyPlayedCards(enemy));
-        ActionController.instance.AddToQueue(enemyCardAnim, QueueIndex + 1);
+
+            WaitAction enemyCardAnim = new WaitAction(1f);
+            enemyCardAnim.AnimStarted.AddListener(() => enemy.PlayCard(card));
+            enemyCardAnim.AnimStarted.AddListener(() => CardUIController.OrganizeEnemyPlayedCards(enemy));
+            ActionController.instance.AddToQueue(enemyCardAnim, QueueIndex + 1);
+        }
+        else
+        {
+            enemy.PlayCard(card);
+            CardUIController.OrganizeEnemyPlayedCards(enemy);
+        }
+
     }
 }
 public class DamageAction : SceneAction
@@ -248,7 +265,7 @@ public class DamageAction : SceneAction
     }
     public override void StartAction()
     {
-        
+
         ActionController.DebugAction(this);
         PerformAction();
     }
@@ -338,7 +355,7 @@ public class BossDefeat : SceneAction
 }
 public interface ICombatTurnActions
 {
-    
+
 }
 public class AdvanceCombatAction : SceneAction, ICombatTurnActions
 {

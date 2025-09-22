@@ -8,10 +8,10 @@ public class Player : Creature
     public Card SelectedCard;
     public MeshFilter moneyBag;
     public Mesh[] bagMeshes = new Mesh[4];
-    public override void TurnAction()
+    /*public override void TurnAction()
     {
-        BuyCards(5 - hand.Count);
-    }
+        BuyCards(CardBuyMax - hand.Count);
+    }*/
 
     public void PlaySelectedCard()
     {

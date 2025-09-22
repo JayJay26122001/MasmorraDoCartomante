@@ -22,15 +22,15 @@ public class Enemy : Creature
     public override void TurnAction()
     {
         if (!GameplayManager.instance.CombatActive) return;
-        /*if (hand[0].Type == Card.CardType.Mind)
+        base.TurnAction();
+        bool playanim = true;
+        for (int i = 0; i < hand.Count; i++)
         {
-            hand[0].hidden = true;
-        }*/
-        EnemyPlayCard anim = new EnemyPlayCard(this, hand[0]);
-        //EnemyCardAnimation playCardAnim = new EnemyCardAnimation(this);
-        //anim.AnimEnded.AddListener(TurnActionsDelayed);
-        ActionController.instance.AddToQueue(anim);
-        //SceneAnimationController.instance.AddToQueue(playCardAnim);
+            EnemyPlayCard anim = new EnemyPlayCard(this, hand[i], playanim);
+            ActionController.instance.AddToQueue(anim);
+            playanim = false;
+        }
+        
     }
 
     /*void TurnActionsDelayed()

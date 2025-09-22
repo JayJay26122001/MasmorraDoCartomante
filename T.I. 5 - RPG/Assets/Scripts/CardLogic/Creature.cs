@@ -17,26 +17,31 @@ public class Creature : MonoBehaviour
         //decks[0].AddCard(decks[1].cards[1]);
     }
     public Creature enemy;
+    [Header("Deck Lists")]
     [SerializeField] List<Deck> DeckPresets = new List<Deck>();
     [SerializeField] public List<Deck> decks = new List<Deck>();
     public List<Card> hand = new List<Card>();
     public List<Card> playedCards = new List<Card>();
+    public List<Card> exausted = new List<Card>();
+    [Header("Stats")]
     [SerializeField] protected int maxHP;
     [SerializeField] protected int hp, shld, energy, maxBaseEnergy = 3, money;
     public int CardBuyMax = 5;
     [SerializeField] int baseDamage = 6, baseShieldGain = 5;
     [Range(0, 200)][SerializeField] float baseDamageTaken = 100;
+    [Header("Modifiers")]
     public List<StatModifier> DamageModifiers, ShieldModifiers, DamageReductionModifiers;
     //public float BaseDamageMultiplier = 1, BaseDefenseMultiplier = 1;
+    [Header("Events")]
     public UnityEvent<DealDamage> Damaged = new UnityEvent<DealDamage>(), Wounded = new UnityEvent<DealDamage>(), DamageBlocked = new UnityEvent<DealDamage>();
     public UnityEvent ShieldBreak = new UnityEvent(), GainedShield = new UnityEvent();
     public UnityEvent<Card> PlayedCard = new UnityEvent<Card>();
+    [Header("Other")]
     public bool canPlayCards;
     public CardCombatSpaces combatSpace;
 
     public TextMeshPro hpText, shieldText, energyText;  //Ui das criaturas na batalha
     public UnityEngine.UI.Image hpCircle;
-    public List<Card> exausted = new List<Card>();
 
     public int Money
     {
@@ -164,7 +169,7 @@ public class Creature : MonoBehaviour
 
     public virtual void TurnAction() //o que essa criatura faz em seu turno
     {
-        BuyCards(CardBuyMax);
+        BuyCards(CardBuyMax - hand.Count);
     }
     public virtual void CombatStartAction()
     {
