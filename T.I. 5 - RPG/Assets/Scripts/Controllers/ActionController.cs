@@ -427,6 +427,8 @@ public class ApplyEffectAction : SceneAction
     }
     public override void PerformAction()
     {
+        GameplayManager.instance.PauseInput();
+        AnimEnded.AddListener(GameplayManager.instance.ResumeInput);
         AnimStarted.Invoke();
         /*if (e is ActionEffect)
         {
