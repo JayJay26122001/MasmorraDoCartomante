@@ -18,7 +18,7 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Aries
-  limited: 0
+  limited: 1
   instantaneous: 0
   cost: 2
   Type: 0
@@ -26,6 +26,7 @@ MonoBehaviour:
   Rarity: 4
   Description: Deals v[0]{Damage} Damage and Destroys the Card on Top of the Opponent's
     Buying Pile.
+  extraDescription: 
   references:
     version: 2
     RefIds:

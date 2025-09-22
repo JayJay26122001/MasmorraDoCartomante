@@ -19,12 +19,12 @@ MonoBehaviour:
   Name: Rotten Core
   limited: 0
   instantaneous: 1
-  extraDesc: 0
   cost: 0
   Type: 2
   Pack: 0
   Rarity: 0
   Description: 25% Chance to Heal 2 Health.
+  extraDescription: 
   references:
     version: 2
     RefIds:
@@ -65,4 +65,4 @@ MonoBehaviour:
     - rid: 6721762298113032266
       type: {class: RandomChance, ns: , asm: Assembly-CSharp}
       data:
-        percentageChance: 75
+        percentageChance: 25

@@ -19,12 +19,12 @@ MonoBehaviour:
   Name: Mind Over Matter
   limited: 0
   instantaneous: 0
-  extraDesc: 0
   cost: 2
   Type: 2
   Pack: 2
   Rarity: 3
-  Description: Deals 3 Piercing Damage foreach Mind Card the Opponent have in Hand(v[0]{Damage}).
+  Description: Deals 3 Piercing Damage for each Mind Card the Opponent have in Hand(v[0]{Damage}).
+  extraDescription: 
   references:
     version: 2
     RefIds:

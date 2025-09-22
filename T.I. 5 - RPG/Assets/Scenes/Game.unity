@@ -12408,7 +12408,8 @@ MonoBehaviour:
   decks: []
   hand: []
   playedCards: []
-  maxHP: 50
+  exausted: []
+  maxHP: 40
   hp: 0
   shld: 0
   energy: 0
@@ -12445,7 +12446,6 @@ MonoBehaviour:
   shieldText: {fileID: 343960610}
   energyText: {fileID: 1215672137}
   hpCircle: {fileID: 1932448058}
-  exausted: []
   anim: {fileID: 2001305426}
   model: {fileID: 2001305425}
   size: 0
@@ -14809,6 +14809,7 @@ MonoBehaviour:
   playPanel: {fileID: 0}
   settingsPanel: {fileID: 1486701015}
   creditsPanel: {fileID: 0}
+  changeLogPanel: {fileID: 0}
   quitPanel: {fileID: 0}
   pausePanel: {fileID: 1084934152}
   tutorialPanel: {fileID: 0}
@@ -15774,6 +15775,7 @@ MonoBehaviour:
   decks: []
   hand: []
   playedCards: []
+  exausted: []
   maxHP: 250
   hp: 0
   shld: 0
@@ -15811,7 +15813,6 @@ MonoBehaviour:
   shieldText: {fileID: 343960610}
   energyText: {fileID: 1215672137}
   hpCircle: {fileID: 1932448058}
-  exausted: []
   anim: {fileID: 1124749327}
   model: {fileID: 1124749326}
   size: 1
@@ -21506,6 +21507,7 @@ MonoBehaviour:
   decks: []
   hand: []
   playedCards: []
+  exausted: []
   maxHP: 50
   hp: 0
   shld: 0
@@ -21543,7 +21545,6 @@ MonoBehaviour:
   shieldText: {fileID: 343960610}
   energyText: {fileID: 1215672137}
   hpCircle: {fileID: 1932448058}
-  exausted: []
   anim: {fileID: 1390083257}
   model: {fileID: 1390083256}
   size: 0
@@ -21769,6 +21770,7 @@ MonoBehaviour:
   decks: []
   hand: []
   playedCards: []
+  exausted: []
   maxHP: 50
   hp: 0
   shld: 0
@@ -21806,7 +21808,6 @@ MonoBehaviour:
   shieldText: {fileID: 343960610}
   energyText: {fileID: 1215672137}
   hpCircle: {fileID: 1932448058}
-  exausted: []
   anim: {fileID: 1641493834}
   model: {fileID: 1641493833}
   size: 0
@@ -23711,6 +23712,7 @@ MonoBehaviour:
   decks: []
   hand: []
   playedCards: []
+  exausted: []
   maxHP: 50
   hp: 0
   shld: 0
@@ -23748,7 +23750,6 @@ MonoBehaviour:
   shieldText: {fileID: 343960610}
   energyText: {fileID: 1215672137}
   hpCircle: {fileID: 1932448058}
-  exausted: []
   anim: {fileID: 209104458}
   model: {fileID: 209104456}
   size: 0
@@ -26711,6 +26712,7 @@ MonoBehaviour:
   decks: []
   hand: []
   playedCards: []
+  exausted: []
   maxHP: 45
   hp: 0
   shld: 0
@@ -26748,7 +26750,6 @@ MonoBehaviour:
   shieldText: {fileID: 343960610}
   energyText: {fileID: 1215672137}
   hpCircle: {fileID: 1932448058}
-  exausted: []
   anim: {fileID: 1289391191}
   model: {fileID: 1289391190}
   size: 0
@@ -28232,6 +28233,7 @@ MonoBehaviour:
   decks: []
   hand: []
   playedCards: []
+  exausted: []
   maxHP: 130
   hp: 0
   shld: 0
@@ -28269,7 +28271,6 @@ MonoBehaviour:
   shieldText: {fileID: 343960610}
   energyText: {fileID: 1215672137}
   hpCircle: {fileID: 1932448058}
-  exausted: []
   anim: {fileID: 1961797305}
   model: {fileID: 1961797304}
   size: 1
@@ -30556,6 +30557,7 @@ MonoBehaviour:
   decks: []
   hand: []
   playedCards: []
+  exausted: []
   maxHP: 35
   hp: 0
   shld: 0
@@ -30593,7 +30595,6 @@ MonoBehaviour:
   shieldText: {fileID: 343960610}
   energyText: {fileID: 1215672137}
   hpCircle: {fileID: 1932448058}
-  exausted: []
   anim: {fileID: 461322265}
   model: {fileID: 461322264}
   size: 0
@@ -31366,6 +31367,7 @@ MonoBehaviour:
   decks: []
   hand: []
   playedCards: []
+  exausted: []
   maxHP: 100
   hp: 0
   shld: 0
@@ -31403,7 +31405,6 @@ MonoBehaviour:
   shieldText: {fileID: 343960610}
   energyText: {fileID: 1215672137}
   hpCircle: {fileID: 1932448058}
-  exausted: []
   anim: {fileID: 1462765976}
   model: {fileID: 1462765975}
   size: 2
@@ -32297,6 +32298,7 @@ MonoBehaviour:
   decks: []
   hand: []
   playedCards: []
+  exausted: []
   maxHP: 70
   hp: 0
   shld: 0
@@ -32334,7 +32336,6 @@ MonoBehaviour:
   shieldText: {fileID: 343960610}
   energyText: {fileID: 1215672137}
   hpCircle: {fileID: 1932448058}
-  exausted: []
   anim: {fileID: 955819056}
   model: {fileID: 401544285}
   size: 2
@@ -33728,6 +33729,7 @@ MonoBehaviour:
   decks: []
   hand: []
   playedCards: []
+  exausted: []
   maxHP: 40
   hp: 0
   shld: 0
@@ -33765,7 +33767,6 @@ MonoBehaviour:
   shieldText: {fileID: 343960610}
   energyText: {fileID: 1215672137}
   hpCircle: {fileID: 1932448058}
-  exausted: []
   anim: {fileID: 1273535}
   model: {fileID: 1273534}
   size: 0
@@ -34276,13 +34277,14 @@ MonoBehaviour:
   decks: []
   hand: []
   playedCards: []
+  exausted: []
   maxHP: 30
   hp: 0
   shld: 0
   energy: 0
   maxBaseEnergy: 3
   money: 3
-  CardBuyMax: 5
+  CardBuyMax: 3
   baseDamage: 6
   baseShieldGain: 5
   baseDamageTaken: 100
@@ -34313,7 +34315,6 @@ MonoBehaviour:
   shieldText: {fileID: 343960610}
   energyText: {fileID: 1215672137}
   hpCircle: {fileID: 1932448058}
-  exausted: []
   anim: {fileID: 2046547044}
   model: {fileID: 1900122466}
   size: 0
@@ -34529,6 +34530,7 @@ MonoBehaviour:
   decks: []
   hand: []
   playedCards: []
+  exausted: []
   maxHP: 50
   hp: 50
   shld: 0
@@ -34578,7 +34580,6 @@ MonoBehaviour:
   shieldText: {fileID: 1176796264}
   energyText: {fileID: 1323262171}
   hpCircle: {fileID: 1140556359}
-  exausted: []
   SelectedCard: {fileID: 0}
   moneyBag: {fileID: 1928266334}
   bagMeshes:
@@ -37474,6 +37475,7 @@ MonoBehaviour:
   decks: []
   hand: []
   playedCards: []
+  exausted: []
   maxHP: 40
   hp: 0
   shld: 0
@@ -37511,7 +37513,6 @@ MonoBehaviour:
   shieldText: {fileID: 343960610}
   energyText: {fileID: 1215672137}
   hpCircle: {fileID: 1932448058}
-  exausted: []
   anim: {fileID: 361981472}
   model: {fileID: 361981471}
   size: 0

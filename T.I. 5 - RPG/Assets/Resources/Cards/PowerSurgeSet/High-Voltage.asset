@@ -20,13 +20,13 @@ MonoBehaviour:
   Name: High-Voltage
   limited: 0
   instantaneous: 0
-  extraDesc: 0
   cost: 3
   Type: 0
   Pack: 6
   Rarity: 3
   Description: Deals v[0]{Damage} Piercing Damage, adding 10 Non-Piercing Damage
     for every Energy remaining(v[1]{Damage}).
+  extraDescription: 
   references:
     version: 2
     RefIds:
@@ -115,7 +115,7 @@ MonoBehaviour:
               value: 10
               min: 0
               max: 0
-        IgnoreDefense: 1
+        IgnoreDefense: 0
         target: 0
     - rid: 7391437407230361702
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}

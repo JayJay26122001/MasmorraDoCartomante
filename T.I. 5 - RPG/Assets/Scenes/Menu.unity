@@ -12761,7 +12761,7 @@ MonoBehaviour:
     Minassa Abelha\n\nGame Programming\n-Lucas Matuck de Miranda\n-Matheus Jacoby
     Costa Oliveira Hahn\n-Rafael Teixeira Dilascio \n\nGame Tester\n-Arthur Minassa
     Abelha\n\nFont\n-Kreon Regular and Kreon Bold from Julia Petretta\n\nA special
-    thanks to alll the teachers and PUC Minas, who helped us during this game development."
+    thanks to all the teachers and PUC Minas, who helped us during this game development."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
   m_sharedMaterial: {fileID: 1623889163624291708, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}

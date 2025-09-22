@@ -26,6 +26,7 @@ MonoBehaviour:
   Rarity: 2
   Description: Deals v[0]{Damage} Damage. In the Opponent's Next Turn, reduces by
     half Shield gains.
+  extraDescription: 
   references:
     version: 2
     RefIds:
@@ -71,7 +72,7 @@ MonoBehaviour:
         Conditions:
         - rid: 6961742135542415437
         ConfirmationConditions: []
-        BuffTarget: 0
+        BuffTarget: 1
         StatToBuff: 1
         Modifier:
           type: 0
