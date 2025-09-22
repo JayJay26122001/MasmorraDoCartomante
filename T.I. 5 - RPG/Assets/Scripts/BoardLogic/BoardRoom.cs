@@ -56,7 +56,7 @@ public class ControlledProbability
 
     public void ModifyProbability(int value)
     {
-        probability = (int)((float)value * multiplier);
+        probability = (int)Mathf.Clamp(((float)value * multiplier), 2, float.MaxValue);
     }
 
     public void ModifyMultiplier(float diff)
