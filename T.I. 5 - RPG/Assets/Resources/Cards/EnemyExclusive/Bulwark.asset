@@ -20,7 +20,7 @@ MonoBehaviour:
   Name: Bulwark
   limited: 0
   instantaneous: 0
-  cost: 0
+  cost: 2
   Type: 2
   Pack: 2
   Rarity: 2

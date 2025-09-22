@@ -19,11 +19,12 @@ MonoBehaviour:
   Name: "VII \u2013 The Chariot"
   limited: 1
   instantaneous: 0
-  cost: 0
+  cost: 2
   Type: 1
   Pack: 4
   Rarity: 4
   Description: 'Gain v[0]{Shield}  Shield. '
+  extraDescription: 
   references:
     version: 2
     RefIds:

@@ -21,12 +21,13 @@ MonoBehaviour:
   Name: "II \u2013 The High Priestess"
   limited: 1
   instantaneous: 0
-  cost: 0
+  cost: 1
   Type: 1
   Pack: 4
   Rarity: 4
   Description: 'Gain v[0]{Shield}  Shield. Until the user''s next turn, if an incoming
     damage is fully blocked, heal 10 health. '
+  extraDescription: 
   references:
     version: 2
     RefIds:
