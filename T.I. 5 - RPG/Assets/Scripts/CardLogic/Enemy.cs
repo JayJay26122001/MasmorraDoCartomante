@@ -23,14 +23,35 @@ public class Enemy : Creature
     {
         if (!GameplayManager.instance.CombatActive) return;
         base.TurnAction();
-        bool playanim = true;
+        StartCoroutine(PlayAllCardsBehaviour());
+        /*bool playanim = true;
         for (int i = 0; i < hand.Count; i++)
         {
             EnemyPlayCard anim = new EnemyPlayCard(this, hand[i], playanim);
             ActionController.instance.AddToQueue(anim);
             playanim = false;
+        }*/
+
+    }
+    IEnumerator PlayAllCardsBehaviour()
+    {
+        bool playanim = true;
+        for (int i = 0; i < hand.Count;)
+        {
+            if (hand[i].cost <= energy)
+            {
+                EnemyPlayCard anim = new EnemyPlayCard(this, hand[i], playanim);
+                ActionController.instance.AddToQueue(anim);
+                playanim = false;
+                yield return new WaitForSeconds(anim.time+1);
+                i = 0;
+            }
+            else
+            {
+                i++;
+            }
+
         }
-        
     }
 
     /*void TurnActionsDelayed()
@@ -45,7 +66,7 @@ public class Enemy : Creature
             int damage = dmg.GetDamage();
             bool IgnoreDefense = dmg.IgnoreDefense;
             //damage -= (int)(BaseDamageTaken/100 * damage);
-            damage = (int)(damage* (BaseDamageTaken / 100));
+            damage = (int)(damage * (BaseDamageTaken / 100));
             if (damage <= 0) { return; }
             int trueDamage;
             if (IgnoreDefense)
@@ -81,7 +102,7 @@ public class Enemy : Creature
             Damaged.Invoke(dmg);
             if (Health <= 0)
             {
-                if(!GameplayManager.instance.figtingBoss)
+                if (!GameplayManager.instance.figtingBoss)
                 {
                     ActionController.instance.AddToQueue(new EnemyDefeat(this));
                 }
