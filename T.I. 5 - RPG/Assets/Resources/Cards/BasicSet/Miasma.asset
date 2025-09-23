@@ -10,31 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Scorpio
+  m_Name: Miasma
   m_EditorClassIdentifier: 
   Effects:
   - rid: 6961742135542415360
-  - rid: 6961742135542415429
+  - rid: 6721762615156277314
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Scorpio
+  Name: Miasma
   limited: 0
   instantaneous: 0
-  cost: 1
+  cost: 2
   Type: 0
-  Pack: 1
+  Pack: 0
   Rarity: 1
-  Description: Deals v[0]{Damage} Damage for 3 Turns on the End of the User's Turn.
+  Description: Deals v[0]{Damage} Damage on both sides until the end of the Duel.
   extraDescription: 
   references:
     version: 2
     RefIds:
-    - rid: 6961742135542415360
+    - rid: 6721762615156277314
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions:
-        - rid: 6961742135542415431
+        - rid: 6721762615156277315
         ConfirmationConditions: []
         MultipliedByBaseDamage: 1
         DamageMultiplier:
@@ -59,54 +59,13 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          value: 0.6
+          value: 0.5
           min: 0
           max: 0
           modifiers: []
         IgnoreDefense: 0
-        target: 0
-    - rid: 6961742135542415429
-      type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
-      data:
-        DiscardIfAcomplished: 0
-        Conditions:
-        - rid: 6961742135542415430
-        ConfirmationConditions: []
-        SetAsDiscardTime: 0
-    - rid: 6961742135542415430
-      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
-      data:
-        Repeatable: 0
-        TurnOwner: 0
-        TurnsFromNow:
-          type: 0
-          target: 0
-          ObservedCards:
-            target: 0
-            pile: 0
-            type: 0
-            rarity: 0
-            pack: 0
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-            initialized: 1
-          MaxReturnedNumber:
-            type: 2
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          initialized: 1
-          value: 2
-          min: 0
-          max: 0
-          modifiers: []
-        TurnPhase: 0
-        PhaseTime: 0
-    - rid: 6961742135542415431
+        target: 1
+    - rid: 6721762615156277315
       type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
       data:
         Repeatable: 1
@@ -138,4 +97,73 @@ MonoBehaviour:
           max: 0
           modifiers: []
         TurnPhase: 1
-        PhaseTime: 1
+        PhaseTime: 0
+    - rid: 6961742135542415360
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 6961742135542415431
+        ConfirmationConditions: []
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0.5
+          min: 0
+          max: 0
+          modifiers: []
+        IgnoreDefense: 0
+        target: 0
+    - rid: 6961742135542415431
+      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 1
+        TurnOwner: 1
+        TurnsFromNow:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+        TurnPhase: 1
+        PhaseTime: 0

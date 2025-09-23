@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
+  m_Name: Golden Staff
+  m_EditorClassIdentifier: 
+  Effects:
+  - rid: 7391437407230361702
+  cardDisplay: {fileID: 0}
+  deck: {fileID: 0}
+  Name: Golden Staff
+  limited: 0
+  instantaneous: 0
+  cost: 2
+  Type: 0
+  Pack: 0
+  Rarity: 1
+  Description: Deals Damage based on the User's Coins multiplied by 2 (v[0]{Damage}).
+  extraDescription: 
+  references:
+    version: 2
+    RefIds:
+    - rid: 7391437407230361702
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        MultipliedByBaseDamage: 0
+        DamageMultiplier:
+          type: 3
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 3
+          initialized: 1
+          value: 1
+          min: 0
+          max: 0
+          modifiers:
+          - operation: 1
+            Type: 0
+            IntValue:
+              type: 0
+              target: 0
+              ObservedCards:
+                target: 0
+                pile: 0
+                type: 0
+                rarity: 0
+                pack: 0
+                MaxReturnedNumber:
+                  type: 2
+                  value: 0
+                  min: 0
+                  max: 0
+                initialized: 1
+              MaxReturnedNumber:
+                type: 2
+                value: 0
+                min: 0
+                max: 0
+              ObservedStat: 0
+              initialized: 1
+              value: 2
+              min: 0
+              max: 0
+            FloatValue:
+              type: 0
+              target: 0
+              ObservedCards:
+                target: 0
+                pile: 0
+                type: 0
+                rarity: 0
+                pack: 0
+                MaxReturnedNumber:
+                  type: 2
+                  value: 0
+                  min: 0
+                  max: 0
+                initialized: 1
+              MaxReturnedNumber:
+                type: 2
+                value: 0
+                min: 0
+                max: 0
+              ObservedStat: 0
+              initialized: 1
+              value: 0
+              min: 0
+              max: 0
+        IgnoreDefense: 0
+        target: 0

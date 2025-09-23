@@ -10,26 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Virgo
+  m_Name: Khepri's Renewal
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 1148618374694568010
+  - rid: 6721762478525775942
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Virgo
+  Name: Khepri's Renewal
   limited: 1
   instantaneous: 1
-  cost: 1
+  cost: 3
   Type: 2
-  Pack: 1
-  Rarity: 3
-  Description: Transform the First Card the User played on the Table into an Instantaneous
-    Card.
+  Pack: 5
+  Rarity: 4
+  Description: Converts All Limited Cards in the User's Buying Pile into Normal Cards.
   extraDescription: 
   references:
     version: 2
     RefIds:
-    - rid: 1148618374694568010
+    - rid: 6721762478525775942
       type: {class: SetCardBoolProperty, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
@@ -37,16 +36,16 @@ MonoBehaviour:
         ConfirmationConditions: []
         AffectedCards:
           target: 0
-          pile: 2
+          pile: 4
           type: -1
           rarity: -1
           pack: -1
           MaxReturnedNumber:
-            type: 0
-            value: 1
+            type: 2
+            value: 0
             min: 0
             max: 0
           initialized: 1
           CountThisCard: 0
-        SelectedBoolean: 1
-        booleanValue: 1
+        SelectedBoolean: 0
+        booleanValue: 0
