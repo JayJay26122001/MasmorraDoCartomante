@@ -219,7 +219,8 @@ public class GameplayManager : MonoBehaviour
     }
     public void MovePiece(Action act, Vector3 pos)
     {
-        LeanTween.move(bg.playerPiece, pos, 0.75f).setOnComplete(act);
+        bg.pieceAux.GetComponent<Animation>().Play();
+        LeanTween.moveLocal(bg.playerPiece, pos, 0.75f).setOnComplete(act);
     }
 
     public void ChangeArea()

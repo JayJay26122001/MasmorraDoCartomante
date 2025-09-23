@@ -14,7 +14,7 @@ public class BoardGenerator : MonoBehaviour
     //float battlePModifier = 1, mimicPModifier = 1, shopPModifier = 1, branchPModifier = 1, mergePModifier = 1, proceedPModifier = 1;
     bool willMerge;
     BoardRoom newRoom;
-    public GameObject roomTest, boardBase, playerPiece;
+    public GameObject roomTest, boardBase, playerPiece, pieceAux;
     public LineRenderer lineRenderer;
     public Material shaderMat;
     float zOffset, xOffset;
