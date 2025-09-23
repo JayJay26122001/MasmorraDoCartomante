@@ -1,11 +1,13 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 public class Enemy : Creature
 {
     public Animator anim;
     public GameObject model;
     public enum EnemySize { Small, Medium, Large };
     public EnemySize size;
+    public UnityEvent FinishedPlaying;
     protected override void Awake()
     {
         base.Awake();
@@ -23,14 +25,40 @@ public class Enemy : Creature
     {
         if (!GameplayManager.instance.CombatActive) return;
         base.TurnAction();
-        bool playanim = true;
+        StartCoroutine(PlayAllCardsBehaviour());
+        /*bool playanim = true;
         for (int i = 0; i < hand.Count; i++)
         {
             EnemyPlayCard anim = new EnemyPlayCard(this, hand[i], playanim);
             ActionController.instance.AddToQueue(anim);
             playanim = false;
+        }*/
+
+    }
+    IEnumerator PlayAllCardsBehaviour()
+    {
+        yield return new WaitUntil(() => ActionController.instance.NumberOfActionsInQueue() <= 0);
+        bool playanim = true;
+        for (int i = 0; i < hand.Count;)
+        {
+            if (hand[i].cost <= energy)
+            {
+                Card played = hand[i];
+                EnemyPlayCard anim = new EnemyPlayCard(this, played, playanim);
+                ActionController.instance.AddToQueue(anim);
+                playanim = false;
+                yield return new WaitUntil(() => !hand.Contains(played));
+                yield return new WaitForSeconds(0.5f);
+                i = 0;
+            }
+            else
+            {
+                i++;
+            }
+
         }
-        
+        yield return new WaitForSeconds(1f);
+        FinishedPlaying.Invoke();
     }
 
     /*void TurnActionsDelayed()
@@ -45,7 +73,7 @@ public class Enemy : Creature
             int damage = dmg.GetDamage();
             bool IgnoreDefense = dmg.IgnoreDefense;
             //damage -= (int)(BaseDamageTaken/100 * damage);
-            damage = (int)(damage* (BaseDamageTaken / 100));
+            damage = (int)(damage * (BaseDamageTaken / 100));
             if (damage <= 0) { return; }
             int trueDamage;
             if (IgnoreDefense)
@@ -81,7 +109,7 @@ public class Enemy : Creature
             Damaged.Invoke(dmg);
             if (Health <= 0)
             {
-                if(!GameplayManager.instance.figtingBoss)
+                if (!GameplayManager.instance.figtingBoss)
                 {
                     ActionController.instance.AddToQueue(new EnemyDefeat(this));
                 }

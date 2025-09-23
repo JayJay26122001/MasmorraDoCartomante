@@ -22,7 +22,7 @@ MonoBehaviour:
   Name: Brute Force
   limited: 0
   instantaneous: 0
-  cost: 0
+  cost: 2
   Type: 0
   Pack: 2
   Rarity: 2

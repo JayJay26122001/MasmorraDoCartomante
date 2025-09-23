@@ -18,6 +18,10 @@ public class ActionController : MonoBehaviour
         //director = GetComponent<PlayableDirector>();
         instance = this;
     }
+    public int NumberOfActionsInQueue()
+    {
+        return ActionQueue.Count;
+    }
     public static void DebugAction(SceneAction action)
     {
         string actionName;
@@ -215,7 +219,7 @@ public class EnemyPlayCard : SceneAction
                 }
                 else
                 {
-                    time = 1;
+                    time = 1.5f;
                 }
             }
         }
@@ -231,7 +235,7 @@ public class EnemyPlayCard : SceneAction
             ActionController.instance.InvokeTimer(CameraController.instance.ChangeCamera, 0, time);
 
 
-            WaitAction enemyCardAnim = new WaitAction(1f);
+            WaitAction enemyCardAnim = new WaitAction(1.5f);
             enemyCardAnim.AnimStarted.AddListener(() => enemy.PlayCard(card));
             enemyCardAnim.AnimStarted.AddListener(() => CardUIController.OrganizeEnemyPlayedCards(enemy));
             ActionController.instance.AddToQueue(enemyCardAnim, QueueIndex + 1);
