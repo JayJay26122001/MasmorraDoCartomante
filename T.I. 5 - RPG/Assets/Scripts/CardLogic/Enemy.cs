@@ -56,6 +56,7 @@ public class Enemy : Creature
             }
 
         }
+        Debug.Log("Chamada");
         yield return new WaitForSeconds(1f);
         FinishedPlaying.Invoke();
     }
