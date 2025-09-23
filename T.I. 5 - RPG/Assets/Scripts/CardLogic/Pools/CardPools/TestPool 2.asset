@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 995504db228d6014d9164719d5738eda, type: 3}
   m_Name: TestPool 2
   m_EditorClassIdentifier: 
-  pool:
-  - {fileID: 11400000, guid: 86df2bc4e2f5b8b40a967184fcd08235, type: 2}
-  - {fileID: 11400000, guid: 9b4e031e6f8cab54a83bddb6fa9cf491, type: 2}
-  - {fileID: 11400000, guid: f5df698fa3947074ebb31b07fdb255cd, type: 2}
-  - {fileID: 11400000, guid: c41fc99022ecc1e4bb52aa97bde67b79, type: 2}
-  probabilities: 0f00000014000000230000001e000000
+  pool: []
+  type: 0
+  rarity: 0
+  packSet: 0

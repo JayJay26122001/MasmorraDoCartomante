@@ -9,7 +9,7 @@ using System;
 public class CardPool : ScriptableObject
 {
     public List<Card> pool = new List<Card>();
-    public List<int> probabilities = new List<int>();
+    List<float> probabilities = new List<float>();
 
     [DrawerAttribute]
     public Card.CardType type;
@@ -22,23 +22,23 @@ public class CardPool : ScriptableObject
     public void SetPool()
     {
         pool.Clear();
-        probabilities.Clear();
+        //probabilities.Clear();
         List<int> selectedTypes = DrawerAttribute.GetSelectedIndexes(type);
         List<int> selectedRarities = DrawerAttribute.GetSelectedIndexes(rarity);
         List<int> selectedSets = DrawerAttribute.GetSelectedIndexes(packSet);
         Card[] aux = Resources.LoadAll<Card>("");
-        //Debug.Log(aux.Length);
         for(int i = 0; i < aux.Length; i++)
         {
             if (selectedTypes.Contains((int)aux[i].Type) && selectedRarities.Contains((int)aux[i].Rarity) && selectedSets.Contains((int)aux[i].Pack))
             {
                 pool.Add(aux[i]);
-                probabilities.Add(GetProbability(aux[i]));
+                //probabilities.Add(GetProbability(aux[i]));
             }
         }
+        AdaptProbabilities();
     }
 
-    int GetProbability(Card card)
+    /*int GetProbability(Card card)
     {
         int prob = 0;
         switch (card.Rarity)
@@ -64,9 +64,76 @@ public class CardPool : ScriptableObject
                 break;
         }
         return prob;
+    }*/
+
+    public void AdaptProbabilities()
+    {
+        probabilities = new List<float>{40, 30, 15, 10, 5};
+        List<int> rarities = DrawerAttribute.GetSelectedIndexes(rarity);
+        float aux;
+        for (int i = 0; i < probabilities.Count; i++)
+        {
+            if (!rarities.Contains(i))
+            {
+                aux = 100 - probabilities[i];
+                for (int j = 0; j < probabilities.Count; j++)
+                {
+                    if (j != i)
+                    {
+                        probabilities[j] = (probabilities[j] / aux) * 100;
+                    }
+                }
+                probabilities[i] = 0;
+            }
+        }
+    }
+
+    public int SelectRarity()
+    {
+        float rand = UnityEngine.Random.Range(0, 100);
+        float aux = 0;
+        int result = 0;
+        for (int i = 0; i < probabilities.Count; i++)
+        {
+            aux += probabilities[i];
+            if(rand < aux)
+            {
+                result = i;
+                i = probabilities.Count;
+            }
+        }
+        return result;
     }
 
     public List<Card> SelectCards(int quantity)
+    {
+        List<Card> cards = new List<Card>();
+        List<Card> auxList = new List<Card>();
+        while(cards.Count < quantity)
+        {
+            bool success = false;
+            while(!success)
+            {
+                auxList.Clear();
+                int chosenRarity = SelectRarity();
+                foreach (Card c in pool)
+                {
+                    if ((int)c.Rarity == chosenRarity)
+                    {
+                        auxList.Add(c);
+                    }
+                }
+                int rand = UnityEngine.Random.Range(0, auxList.Count);
+                if (!cards.Contains(auxList[rand]))
+                {
+                    cards.Add(auxList[rand]);
+                    success = true;
+                }
+            }
+        }
+        return cards;
+    }
+    /*public List<Card> SelectCards(int quantity)
     {
         List<Card> auxList = new List<Card>();
         int sum = 0;
@@ -97,7 +164,7 @@ public class CardPool : ScriptableObject
             }
         }
         return auxList;
-    }
+    }*/
 }
 public class DrawerAttribute: PropertyAttribute
 {
