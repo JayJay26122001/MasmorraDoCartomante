@@ -37,6 +37,7 @@ public class Enemy : Creature
     }
     IEnumerator PlayAllCardsBehaviour()
     {
+        yield return new WaitUntil(() => ActionController.instance.NumberOfActionsInQueue() <= 0);
         bool playanim = true;
         for (int i = 0; i < hand.Count;)
         {
@@ -56,7 +57,6 @@ public class Enemy : Creature
             }
 
         }
-        Debug.Log("Chamada");
         yield return new WaitForSeconds(1f);
         FinishedPlaying.Invoke();
     }

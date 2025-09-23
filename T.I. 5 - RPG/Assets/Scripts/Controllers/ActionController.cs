@@ -18,6 +18,10 @@ public class ActionController : MonoBehaviour
         //director = GetComponent<PlayableDirector>();
         instance = this;
     }
+    public int NumberOfActionsInQueue()
+    {
+        return ActionQueue.Count;
+    }
     public static void DebugAction(SceneAction action)
     {
         string actionName;
