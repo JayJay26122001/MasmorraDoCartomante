@@ -10,38 +10,65 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Steam Engine(W.I.P)
+  m_Name: Philosopher's Stone
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 7391437407230361702
-  - rid: 6721762321394565199
+  - rid: 6721762637576405067
+  - rid: 6721762637576405068
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Steam Engine(W.I.P)
+  Name: Philosopher's Stone
   limited: 1
-  instantaneous: 0
-  extraDesc: 0
-  cost: 3
-  Type: 0
+  instantaneous: 1
+  cost: 1
+  Type: 2
   Pack: 6
   Rarity: 2
-  Description: beta Steam Engine
+  Description: Deals v[0]{Damage} Damage to the User, but in return, Gain +3 Energy.
+  extraDescription: 
   references:
     version: 2
     RefIds:
-    - rid: 6721762321394565198
-      type: {class: DamageBlocked, ns: , asm: Assembly-CSharp}
+    - rid: 6721762637576405067
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
-        Repeatable: 1
-        BlockedBy: 1
-        FailIfDamaged: 1
-        DamageCameFromCard: 1
-    - rid: 6721762321394565199
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        MultipliedByBaseDamage: 0
+        DamageMultiplier:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 10
+          min: 0
+          max: 0
+          modifiers: []
+        IgnoreDefense: 0
+        target: 1
+    - rid: 6721762637576405068
       type: {class: GainEnergy, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
-        Conditions:
-        - rid: 6721762321394565200
+        Conditions: []
         ConfirmationConditions: []
         Amount:
           type: 0
@@ -65,51 +92,8 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          value: 1
+          value: 3
           min: 0
           max: 0
           modifiers: []
-        target: 0
-    - rid: 6721762321394565200
-      type: {class: DamageBlocked, ns: , asm: Assembly-CSharp}
-      data:
-        Repeatable: 1
-        BlockedBy: 1
-        FailIfDamaged: 0
-        DamageCameFromCard: 0
-    - rid: 7391437407230361702
-      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
-      data:
-        DiscardIfAcomplished: 0
-        Conditions:
-        - rid: 6721762321394565198
-        ConfirmationConditions: []
-        MultipliedByBaseDamage: 1
-        DamageMultiplier:
-          type: 0
-          target: 0
-          ObservedCards:
-            target: 0
-            pile: 0
-            type: 0
-            rarity: 0
-            pack: 0
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-            initialized: 1
-          MaxReturnedNumber:
-            type: 2
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          initialized: 1
-          value: 0.6
-          min: 0
-          max: 0
-          modifiers: []
-        IgnoreDefense: 0
         target: 0

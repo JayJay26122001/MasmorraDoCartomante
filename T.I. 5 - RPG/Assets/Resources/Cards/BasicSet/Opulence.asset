@@ -10,35 +10,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Poor Man's Downfall
+  m_Name: Opulence
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 6721762298113032267
-  - rid: 6721762637576405078
+  - rid: 6721762637576405065
+  - rid: 6721762637576405081
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Poor Man's Downfall
-  limited: 0
+  Name: Opulence
+  limited: 1
   instantaneous: 0
-  cost: 0
+  cost: 1
   Type: 2
   Pack: 0
-  Rarity: 1
-  Description: Give 3 Coins to the Opponent, if the User doesn't have enough Coins,
-    take v[0]{Damage} Damage.
+  Rarity: 2
+  Description: Gain 2 Coins. Doubles the amount if the User have 20 or more Coins.
   extraDescription: 
   references:
     version: 2
     RefIds:
-    - rid: 6721762298113032267
-      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+    - rid: 6721762637576405065
+      type: {class: GainCoins, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions:
-        - rid: 6721762298113032268
-        MultipliedByBaseDamage: 1
-        DamageMultiplier:
+        - rid: 6721762637576405073
+        target: 0
+        Origin: 0
+        amount:
           type: 0
           target: 0
           ObservedCards:
@@ -60,13 +60,11 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          value: 1
+          value: 4
           min: 0
           max: 0
           modifiers: []
-        IgnoreDefense: 0
-        target: 1
-    - rid: 6721762298113032268
+    - rid: 6721762637576405073
       type: {class: ComparativeConfirmation, ns: , asm: Assembly-CSharp}
       data:
         ObservedValue:
@@ -95,7 +93,7 @@ MonoBehaviour:
           min: 0
           max: 0
           modifiers: []
-        Equation: 2
+        Equation: 3
         Amount:
           type: 0
           target: 0
@@ -118,18 +116,19 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          value: 0
+          value: 20
           min: 0
           max: 0
           modifiers: []
-    - rid: 6721762637576405078
+    - rid: 6721762637576405081
       type: {class: GainCoins, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions: []
-        ConfirmationConditions: []
-        target: 1
-        Origin: 1
+        ConfirmationConditions:
+        - rid: 6721762637576405082
+        target: 0
+        Origin: 0
         amount:
           type: 0
           target: 0
@@ -152,7 +151,63 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          value: 3
+          value: 2
+          min: 0
+          max: 0
+          modifiers: []
+    - rid: 6721762637576405082
+      type: {class: ComparativeConfirmation, ns: , asm: Assembly-CSharp}
+      data:
+        ObservedValue:
+          type: 3
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 3
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+        Equation: 1
+        Amount:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 20
           min: 0
           max: 0
           modifiers: []
