@@ -1,0 +1,255 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
+  m_Name: Magic Missile
+  m_EditorClassIdentifier: 
+  Effects:
+  - rid: 7391437407230361702
+  - rid: 6721762660502470656
+  - rid: 6721762660502470729
+  - rid: 6721762660502470732
+  - rid: 6721762660502470735
+  cardDisplay: {fileID: 0}
+  deck: {fileID: 0}
+  Name: Magic Missile
+  limited: 0
+  instantaneous: 1
+  cost: 1
+  Type: 0
+  Pack: 0
+  Rarity: 1
+  Description: Deals v[0]{Damage} Damage. Having 1/5 Chance to Retrigger for each
+    Card the User plays after it during this Turn.
+  extraDescription: 
+  references:
+    version: 2
+    RefIds:
+    - rid: 6721762660502470656
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 6721762660502470657
+        ConfirmationConditions:
+        - rid: 6721762660502470660
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0.5
+          min: 0
+          max: 0
+          modifiers: []
+        IgnoreDefense: 0
+        target: 0
+    - rid: 6721762660502470657
+      type: {class: CreaturePlayedCardType, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 1
+        target: 1
+        expectedType: 0
+        mustBeFirst: 0
+    - rid: 6721762660502470660
+      type: {class: RandomChance, ns: , asm: Assembly-CSharp}
+      data:
+        percentageChance: 20
+    - rid: 6721762660502470729
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 6721762660502470730
+        ConfirmationConditions:
+        - rid: 6721762660502470731
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0.5
+          min: 0
+          max: 0
+          modifiers: []
+        IgnoreDefense: 0
+        target: 0
+    - rid: 6721762660502470730
+      type: {class: CreaturePlayedCardType, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 1
+        target: 1
+        expectedType: 1
+        mustBeFirst: 0
+    - rid: 6721762660502470731
+      type: {class: RandomChance, ns: , asm: Assembly-CSharp}
+      data:
+        percentageChance: 20
+    - rid: 6721762660502470732
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 6721762660502470733
+        ConfirmationConditions:
+        - rid: 6721762660502470734
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0.5
+          min: 0
+          max: 0
+          modifiers: []
+        IgnoreDefense: 0
+        target: 0
+    - rid: 6721762660502470733
+      type: {class: CreaturePlayedCardType, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 1
+        target: 1
+        expectedType: 2
+        mustBeFirst: 0
+    - rid: 6721762660502470734
+      type: {class: RandomChance, ns: , asm: Assembly-CSharp}
+      data:
+        percentageChance: 20
+    - rid: 6721762660502470735
+      type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 6721762660502470736
+        ConfirmationConditions: []
+        SetAsDiscardTime: 0
+    - rid: 6721762660502470736
+      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        TurnOwner: 0
+        TurnsFromNow:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+        TurnPhase: 1
+        PhaseTime: 0
+    - rid: 7391437407230361702
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0.5
+          min: 0
+          max: 0
+          modifiers: []
+        IgnoreDefense: 0
+        target: 0
