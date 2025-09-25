@@ -18,9 +18,12 @@ public class CardPool : ScriptableObject
     [DrawerAttribute]
     public Card.CardPack packSet;
 
+    List<int> rarityAux = new List<int>();
+
     [ContextMenu("Set Pool")]
     public void SetPool()
     {
+        rarityAux.Clear();
         pool.Clear();
         //probabilities.Clear();
         List<int> selectedTypes = DrawerAttribute.GetSelectedIndexes(type);
@@ -32,6 +35,7 @@ public class CardPool : ScriptableObject
             if (selectedTypes.Contains((int)aux[i].Type) && selectedRarities.Contains((int)aux[i].Rarity) && selectedSets.Contains((int)aux[i].Pack))
             {
                 pool.Add(aux[i]);
+                rarityAux.Add((int)aux[i].Rarity);
                 //probabilities.Add(GetProbability(aux[i]));
             }
         }
@@ -69,11 +73,11 @@ public class CardPool : ScriptableObject
     public void AdaptProbabilities()
     {
         probabilities = new List<float>{40, 30, 15, 10, 5};
-        List<int> rarities = DrawerAttribute.GetSelectedIndexes(rarity);
+        //List<int> rarities = DrawerAttribute.GetSelectedIndexes(rarity);
         float aux;
         for (int i = 0; i < probabilities.Count; i++)
         {
-            if (!rarities.Contains(i))
+            if (!rarityAux.Contains(i))
             {
                 aux = 100 - probabilities[i];
                 for (int j = 0; j < probabilities.Count; j++)
