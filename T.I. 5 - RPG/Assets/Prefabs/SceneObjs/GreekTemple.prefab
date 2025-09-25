@@ -14,8 +14,8 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
 --- !u!4 &6007365131236613459
 Transform:
   m_ObjectHideFlags: 0
@@ -80,9 +80,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2481876906726066643, guid: 1124d2a7001a6d041a80a78b3012638b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 71466032852271192, guid: 1124d2a7001a6d041a80a78b3012638b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1124d2a7001a6d041a80a78b3012638b, type: 3}
       propertyPath: m_Name
       value: GreekTempleFBX
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1124d2a7001a6d041a80a78b3012638b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3075992891389137782, guid: 1124d2a7001a6d041a80a78b3012638b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165824686845033868, guid: 1124d2a7001a6d041a80a78b3012638b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819875028422888693, guid: 1124d2a7001a6d041a80a78b3012638b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8247505047235118425, guid: 1124d2a7001a6d041a80a78b3012638b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
