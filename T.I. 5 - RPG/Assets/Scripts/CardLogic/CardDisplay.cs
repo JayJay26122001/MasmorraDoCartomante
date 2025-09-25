@@ -87,6 +87,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         UpdateCardCost();
         cardName.text = cardData.Name;
         cardDescription.text = cardData.Description;
+        image.sprite = cardData.CardImage;
         rarity.sprite = cardsUI.cardRarity[(int)cardData.Rarity];
         background.sprite = cardsUI.cardRarityBackground[(int)cardData.Rarity];
         if (cardData.Rarity == Card.CardRarity.Legendary)
