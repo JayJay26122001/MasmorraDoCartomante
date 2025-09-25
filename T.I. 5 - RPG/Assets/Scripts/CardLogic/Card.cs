@@ -28,6 +28,7 @@ public class Card : ScriptableObject
     public CardRarity Rarity;
     [NonSerialized] public bool Temporary = false;
     [TextArea] public string Description, extraDescription;
+    public Sprite CardImage;
     //public List<Condition.condition> conditions = new List<Condition.condition>();
     //List<Condition> conds = new List<Condition>();
     public void Setup() // chamado quando uma carta é adicionada ao deck
