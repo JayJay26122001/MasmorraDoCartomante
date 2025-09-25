@@ -99,11 +99,14 @@ public class CardPool : ScriptableObject
         int result = 0;
         for (int i = 0; i < probabilities.Count; i++)
         {
-            aux += probabilities[i];
-            if(rand < aux)
+            if (rarityAux.Contains(i))
             {
-                result = i;
-                i = probabilities.Count;
+                aux += probabilities[i];
+                if(rand < aux)
+                {
+                    result = i;
+                    i = probabilities.Count;
+                }
             }
         }
         return result;
