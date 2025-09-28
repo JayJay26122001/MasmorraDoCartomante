@@ -54,6 +54,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c7f60a2f1a0828c4e8347c324b5c5e68, type: 2}
   - {fileID: 11400000, guid: 260db52267a3e184984479fe7c570ff0, type: 2}
   - {fileID: 11400000, guid: 2e0247bea243e5e4fbc1e45acb2fbfe2, type: 2}
+  baseProbabilities:
+  - 40
+  - 30
+  - 15
+  - 10
+  - 5
   type: -1
   rarity: 28
   packSet: 107

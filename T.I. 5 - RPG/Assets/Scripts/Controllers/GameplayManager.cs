@@ -269,7 +269,7 @@ public class GameplayManager : MonoBehaviour
     }
     public void DiscardBoughtCards(DiscardBell bell)
     {
-        bell.pack.DestroyBoughtCards();
+        bell.pack.DestroyBoughtCards(null);
     }
 
     public void RemovingCards(GameObject go)

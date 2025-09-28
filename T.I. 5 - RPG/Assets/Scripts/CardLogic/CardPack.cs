@@ -10,6 +10,7 @@ public class CardPack : MonoBehaviour
     public DiscardBell discardBell;
     public Material mat;
     [HideInInspector]public bool bought;
+    int selectedQuantity;
     private void Start()
     {
         mat = GetComponent<MeshRenderer>().material;
@@ -37,6 +38,7 @@ public class CardPack : MonoBehaviour
         {
             if (GameplayManager.instance.player.ChangeMoney(-data.price))
             {
+                selectedQuantity = 0;
                 GameplayManager.instance.ExplodeCoins(this.transform.position);
                 GameplayManager.instance.canBuy = false;
                 GameplayManager.instance.PlayCutscene(4);
@@ -59,20 +61,40 @@ public class CardPack : MonoBehaviour
         }
     }
 
-    public void DestroyBoughtCards()
+    public void DestroyBoughtCards(Card selected)
     {
-        GameplayManager.instance.PlayCutscene(5);
-        discardBell.pack = null;
-        GameplayManager.instance.canBuy = true;
-        foreach (Card c in cardsInstances)
+        if(selected != null)
         {
-            var moveTween = LeanTween.move(c.cardDisplay.gameObject, c.cardDisplay.gameObject.transform.position + Vector3.up * 25, 0.05f);
+            selectedQuantity++;
+        }
+        else
+        {
+            selectedQuantity = data.selectableCardsQuantity;
+        }
+        if(selectedQuantity == data.selectableCardsQuantity)
+        {
+            GameplayManager.instance.PlayCutscene(5);
+            discardBell.pack = null;
+            GameplayManager.instance.canBuy = true;
+            foreach (Card c in cardsInstances)
+            {
+                var moveTween = LeanTween.move(c.cardDisplay.gameObject, c.cardDisplay.gameObject.transform.position + Vector3.up * 25, 0.05f);
+                moveTween.setOnComplete(() =>
+                {
+                    Destroy(c.cardDisplay.gameObject);
+                });
+            }
+            cardsInstances.Clear();
+        }
+        else
+        {
+            var moveTween = LeanTween.move(selected.cardDisplay.gameObject, selected.cardDisplay.gameObject.transform.position + Vector3.up * 25, 0.05f);
             moveTween.setOnComplete(() =>
             {
-                Destroy(c.cardDisplay.gameObject);
+                cardsInstances.Remove(selected);
+                Destroy(selected.cardDisplay.gameObject);
             });
         }
-        cardsInstances.Clear();
     }
 
     float animTimeStart;

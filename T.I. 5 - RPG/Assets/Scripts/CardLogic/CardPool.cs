@@ -9,6 +9,7 @@ using System;
 public class CardPool : ScriptableObject
 {
     public List<Card> pool = new List<Card>();
+    public List<float> baseProbabilities = new List<float>();
     List<float> probabilities = new List<float>();
 
     [DrawerAttribute]
@@ -72,7 +73,11 @@ public class CardPool : ScriptableObject
 
     public void AdaptProbabilities()
     {
-        probabilities = new List<float>{40, 30, 15, 10, 5};
+        probabilities.Clear();
+        for(int i = 0; i < baseProbabilities.Count; i++)
+        {
+            probabilities.Insert(i, baseProbabilities[i]);
+        }
         //List<int> rarities = DrawerAttribute.GetSelectedIndexes(rarity);
         float aux;
         for (int i = 0; i < probabilities.Count; i++)
@@ -89,6 +94,11 @@ public class CardPool : ScriptableObject
                 }
                 probabilities[i] = 0;
             }
+        }
+
+        for(int i = 0; i < probabilities.Count; i++)
+        {
+            Debug.Log("Probabilidade de carta " + (Card.CardRarity)i + ": " +  probabilities[i]);
         }
     }
 
@@ -114,6 +124,7 @@ public class CardPool : ScriptableObject
 
     public List<Card> SelectCards(int quantity)
     {
+        AdaptProbabilities();
         List<Card> cards = new List<Card>();
         List<Card> auxList = new List<Card>();
         while(cards.Count < quantity)

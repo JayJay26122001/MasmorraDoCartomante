@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: GolemPool
   m_EditorClassIdentifier: 
   pool: []
-  type: 0
-  rarity: 0
-  packSet: 0
+  baseProbabilities:
+  - 40
+  - 30
+  - 15
+  - 10
+  - 5
+  type: -1
+  rarity: 28
+  packSet: 107

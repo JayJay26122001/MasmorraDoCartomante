@@ -138,7 +138,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
             else
             {
                 GameplayManager.instance.player.decks[0].AddCard(cardData);
-                pack.DestroyBoughtCards();
+                pack.DestroyBoughtCards(this.cardData);
                 pack = null;
             }
         }
