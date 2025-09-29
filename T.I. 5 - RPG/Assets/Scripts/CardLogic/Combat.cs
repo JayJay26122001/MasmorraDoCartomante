@@ -80,6 +80,8 @@ public class Combat : MonoBehaviour
         CardUIController.AttDeckCard(combatents[1]);
         CardUIController.CardsOrganizer(combatents[0]);
         CardUIController.CardsOrganizer(combatents[1]);
+        ActionController.instance.InvokeTimer(CardUIController.instance.ActivateCardTextValues, 2f);
+        //CardUIController.instance.ActivateCardTextValues();
         //CombatUI();
         if(TurnIndex == 0)
         {

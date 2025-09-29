@@ -3,6 +3,8 @@ using Unity.Cinemachine;
 using UnityEngine;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using static UnityEngine.Splines.SplineInstantiate;
+using TMPro;
 //using static UnityEditor.PlayerSettings;
 
 public class CardUIController : MonoBehaviour
@@ -13,6 +15,8 @@ public class CardUIController : MonoBehaviour
     public float maxTotalWidth = 12.0f;
     public float instantTimeAnim, smallTimeAnim, mediumTimeAnim, bigTimeAnim, highlightTimeAnim, delayTimeAnim, rotHandTimeAnim;
     public GameObject enemyCardAppearVfx, puffVfx;
+    public TextMeshPro buyingPileText, discardPileText;
+    public Transform buyingPilePos, discardPilePos;
     public Card highlightedCard { get; protected set; }
 
     public void SetHighlightedCard(Card card)
@@ -418,7 +422,8 @@ public class CardUIController : MonoBehaviour
             GameObject cardObject = card.cardDisplay.gameObject;
             Vector3 pos = (space.up * posY) + space.position;
             Vector3 rot = space.rotation.eulerAngles + new Vector3(-90f, 0f, 180f);
-            if(card.deck.Owner != GameplayManager.instance.player)
+            //instance.ChangeDiscardPileTextValue();
+            if (card.deck.Owner != GameplayManager.instance.player)
             {
                 cardObject.GetComponent<CardDisplay>().AnimateEnemyCard(true);
                 LeanTween.move(cardObject, pos, instance.smallTimeAnim).setDelay(instance.delayTimeAnim);
@@ -431,6 +436,7 @@ public class CardUIController : MonoBehaviour
             }
             cardObject.transform.SetParent(space);
         }
+        instance.ChangeDiscardPileTextValue();
     }
     public static void OrganizeStack(SerializableStack<Card> pile, Transform space)
     {
@@ -447,8 +453,16 @@ public class CardUIController : MonoBehaviour
             {
                 Vector3 upPos = cardObject.transform.position + Vector3.up * 20f;
                 Vector3 horizontalPos = new Vector3(finalPos.x, upPos.y, finalPos.z);
-
-                LeanTween.move(cardObject, upPos, instance.smallTimeAnim + i*0.02f).setEaseInOutSine().setOnComplete(() =>
+                /*if(pile == GameplayManager.currentCombat.combatents[0].decks[0].BuyingPile)
+                {
+                    ChangePileTextValues(buyingPilePos);
+                }
+                else if(pile == GameplayManager.currentCombat.combatents[0].decks[0].DiscardPile)
+                {
+                    ChangePileTextValues(discardPilePos);
+                }*/
+                instance.ChangeBuyingPileTextValue();
+                LeanTween.move(cardObject, upPos, instance.smallTimeAnim + i * 0.02f).setEaseInOutSine().setOnComplete(() =>
                 {
                     cardObject.transform.position = upPos;
                     LeanTween.rotate(cardObject, finalRot, instance.smallTimeAnim).setEaseInOutSine();
@@ -462,5 +476,62 @@ public class CardUIController : MonoBehaviour
                 });
             }
         }
+        instance.ChangeBuyingPileTextValue();
+        instance.ChangeDiscardPileTextValue();
     }
+    public void ChangeBuyingPileTextValue()
+    {
+        int pileCount = GameplayManager.currentCombat.combatents[0].decks[0].BuyingPile.Count;
+        if (pileCount == 0)
+        {
+            buyingPileText.gameObject.SetActive(false);
+        }
+        else
+        {
+            buyingPileText.text = pileCount.ToString();
+            //buyingPileText.gameObject.SetActive(true);
+        }
+        float cardHeight = 0.03f;
+        float yOffset = ((pileCount - 1) * cardHeight) + 0.01f;
+        buyingPileText.transform.position = buyingPilePos.position + Vector3.forward * 1.75f + Vector3.up * yOffset;
+    }
+
+    public void ChangeDiscardPileTextValue()
+    {
+        int pileCount = GameplayManager.currentCombat.combatents[0].decks[0].DiscardPile.Count;
+        if (pileCount == 0)
+        {
+            discardPileText.gameObject.SetActive(false);
+        }
+        else
+        {
+            discardPileText.text = pileCount.ToString();
+            discardPileText.gameObject.SetActive(true);
+        }
+        float cardHeight = 0.1f;
+        float yOffset = ((pileCount - 1) * cardHeight) + 0.01f;
+        discardPileText.transform.position = discardPilePos.position + Vector3.forward * 1.75f + Vector3.up * yOffset;
+    }
+
+    public void ActivateCardTextValues()
+    {
+        buyingPileText.gameObject.SetActive(true);
+        discardPileText.gameObject.SetActive(true);
+    }
+
+    /*public void ChangePileTextValues(Transform space)
+    {
+        if (space == buyingPilePos)
+        {
+            //buyingPileText.text = pile.Count.ToString();
+            buyingPileText.text = GameplayManager.currentCombat.combatents[0].decks[0].BuyingPile.Count.ToString();
+            buyingPileText.transform.position = buyingPilePos.position + Vector3.forward * 1.75f + Vector3.up * 0.25f;
+        }
+        else if (space == discardPilePos)
+        {
+            //discardPileText.text = pile.Count.ToString();
+            discardPileText.text = GameplayManager.currentCombat.combatents[0].decks[0].DiscardPile.Count.ToString();
+            discardPileText.transform.position = discardPilePos.position + Vector3.up * 0.25f;
+        }
+    }*/
 }

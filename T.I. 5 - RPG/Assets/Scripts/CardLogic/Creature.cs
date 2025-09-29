@@ -188,6 +188,7 @@ public class Creature : MonoBehaviour
         }
         CardUIController.OrganizeHandCards(this);
         CardUIController.OrganizeStack(decks[0].BuyingPile, combatSpace.buyingPileSpace);
+        //CardUIController.instance.ChangePileTextValues(decks[0].BuyingPile, CardUIController.instance.buyingPilePos);   
     }
     public void BuyCards(int quantity, int deck)
     {
@@ -202,6 +203,7 @@ public class Creature : MonoBehaviour
         }
         CardUIController.OrganizeHandCards(this);
         CardUIController.OrganizeStack(decks[deck].BuyingPile, combatSpace.buyingPileSpace);
+        //CardUIController.instance.ChangePileTextValues(decks[0].BuyingPile, CardUIController.instance.buyingPilePos);
     }
     public virtual void PlayCard(Card c)
     {
@@ -257,6 +259,7 @@ public class Creature : MonoBehaviour
         CardUIController.OrganizePlayedCards(this);
         //if(card.deck.Owner != Player)
         CardUIController.OrganizeStackFlat(card.deck.DiscardPile, combatSpace.discardPileSpace);
+        //CardUIController.instance.ChangePileTextValues(card.deck.DiscardPile, CardUIController.instance.discardPilePos);
     }
     public void ExaustCard(Card card)
     {
