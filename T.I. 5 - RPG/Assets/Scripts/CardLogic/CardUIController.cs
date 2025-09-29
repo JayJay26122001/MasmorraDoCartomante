@@ -368,34 +368,32 @@ public class CardUIController : MonoBehaviour
         for (int i = 0; i < totalCardsPlayed; i++)
         {
             float posX = (i - ((totalCardsPlayed - 1) / 2f)) * playedEnemyCardsSpacing;
-            GameObject cardObject = c.playedCards[i].cardDisplay.gameObject;
             Vector3 finalPos = (c.combatSpace.playedCardSpace.right * posX) + c.combatSpace.playedCardSpace.position;
             Vector3 spawnPos = finalPos + Vector3.up * 5f;
             Vector3 upPos = spawnPos + Vector3.up * 1.5f;
-            Vector3 rot;
-            /*if (!c.playedCards[i].hidden)
+            Vector3 rot = c.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(90f, 0f, 0f);
+            GameObject cardObject = c.playedCards[i].cardDisplay.gameObject;
+            if(i == totalCardsPlayed - 1)
             {
-                rot = c.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(90f, 0f, 0f);
+                cardObject.transform.position = spawnPos;
+                cardObject.GetComponent<CardDisplay>().AnimateEnemyCard(false);
+                LeanTween.rotate(cardObject, rot, instance.instantTimeAnim).setEaseInOutSine();
+                LeanTween.delayedCall(cardObject, instance.mediumTimeAnim, () =>
+                {
+                    LeanTween.move(cardObject, upPos, instance.bigTimeAnim).setEaseOutCubic().setOnComplete(() =>
+                    {
+                        LeanTween.move(cardObject, finalPos, instance.mediumTimeAnim).setEaseInCubic().setOnComplete(() =>
+                        {
+                            //PlayCardVFX(instance.puffVfx, finalPos, rot, 0.5f);
+                        });
+                    });
+                });
+                cardObject.transform.SetParent(c.combatSpace.playedCardSpace);
             }
             else
             {
-                rot = c.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(-90f, 180f, 0);
-            }*/
-            rot = c.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(90f, 0f, 0f);
-            cardObject.transform.position = spawnPos;
-            cardObject.GetComponent<CardDisplay>().AnimateEnemyCard(false);
-            LeanTween.rotate(cardObject, rot, instance.instantTimeAnim).setEaseInOutSine();
-            LeanTween.delayedCall(cardObject, instance.mediumTimeAnim, () =>
-            {
-                LeanTween.move(cardObject, upPos, instance.bigTimeAnim).setEaseOutCubic().setOnComplete(() =>
-                {
-                    LeanTween.move(cardObject, finalPos, instance.mediumTimeAnim).setEaseInCubic().setOnComplete(() =>
-                    {
-                        //PlayCardVFX(instance.puffVfx, finalPos, rot, 0.5f);
-                    });
-                });
-            });
-            cardObject.transform.SetParent(c.combatSpace.playedCardSpace);
+                LeanTween.move(cardObject, finalPos, instance.mediumTimeAnim).setEaseInOutSine();
+            }
         }
     }
 
