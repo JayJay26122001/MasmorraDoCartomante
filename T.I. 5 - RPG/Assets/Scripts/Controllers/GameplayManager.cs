@@ -35,7 +35,7 @@ public class GameplayManager : MonoBehaviour
 
     public List<CardPack> packs = new List<CardPack>();
     public List<PackPool> packPools = new List<PackPool>();
-    public bool canBuy, removingCards = false, figtingBoss;
+    public bool canBuy, removingCards = false, figtingBoss, atShop = false;
     public int rerollPrice, rerollBasePrice, potionBasePrice;
     public TextMeshPro rerollText, potionText;
     public DisappearingObject potion;
@@ -235,6 +235,7 @@ public class GameplayManager : MonoBehaviour
 
     public void DefineShop()
     {
+        atShop = true;
         potion.mat.SetFloat("_DisappearTime", 0);
         potion.gameObject.GetComponent<BoxCollider>().enabled = true;
         potionText.gameObject.SetActive(true);
@@ -298,9 +299,30 @@ public class GameplayManager : MonoBehaviour
         }
     }
 
+    public void RemovingCards()
+    {
+        removingCards = true;
+        PlayCutscene(4);
+        List<CardDisplay> cds = new List<CardDisplay>();
+        foreach (Card c in player.decks[0].cards)
+        {
+            CardDisplay cd = CardUIController.instance.InstantiateCard(c);
+            cds.Add(cd);
+            cd.UpdateCard();
+            CardUIController.OrganizeRemovingCards(cds);
+        }
+    }
+
     public void DestroyRemovingCards()
     {
-        PlayCutscene(5);
+        if(atShop)
+        {
+            PlayCutscene(5);
+        }
+        else
+        {
+            PlayCutscene(11);
+        }
         foreach (Transform t in player.combatSpace.playedCardSpace.transform)
         {
             var moveTween = LeanTween.move(t.gameObject, t.position + Vector3.up * 25, 0.05f);
@@ -311,6 +333,11 @@ public class GameplayManager : MonoBehaviour
         }
         removingCards = false;
         canBuy = true;
+    }
+
+    public void ExitShop()
+    {
+        atShop = false;
     }
 
     public void RerollPacks(GameObject go)
@@ -557,6 +584,11 @@ public class GameplayManager : MonoBehaviour
     public void AppearOnlyPlayerHealth()
     {
         uiObjects[0].AnimateObject(false);
+    }
+
+    public void DisappearOnlyPlayerHealth()
+    {
+        uiObjects[0].AnimateObject(true);
     }
 
     public void SwitchArea()

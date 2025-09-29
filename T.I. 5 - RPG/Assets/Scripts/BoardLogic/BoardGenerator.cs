@@ -298,13 +298,13 @@ public class BoardGenerator : MonoBehaviour
             typeProbabilities[i].ModifyProbability(r.baseProbabilities[i].probability);
             if(string.Compare(r.roomName, typeProbabilities[i].type) == 0)
             {
-                if(string.Compare(r.roomName, "Shop") == 0)
+                if(string.Compare(r.roomName, "Battle") == 0)
                 {
-                    typeProbabilities[i].ModifyMultiplier(-typeProbabilities[i].multiplier);
+                    typeProbabilities[i].ModifyMultiplier(-0.1f);
                 }
                 else
                 {
-                    typeProbabilities[i].ModifyMultiplier(-0.1f);
+                    typeProbabilities[i].ModifyMultiplier(-typeProbabilities[i].multiplier);
                 }
             }
             else

@@ -39,6 +39,12 @@ public class RoomObject : MonoBehaviour
                 case "Shop":
                     act = new Action(() => { SwitchToShop(); });
                     break;
+                case "Heal":
+                    act = new Action(() => { SwitchToHeal(); });
+                    break;
+                case "Trash":
+                    act = new Action(() => { SwitchToTrash(); });
+                    break;
             }
             //GameplayManager.instance.MoveBoard(act);
             GameplayManager.instance.MovePiece(act, this.transform.position + Vector3.up * 0.2f);
@@ -53,5 +59,13 @@ public class RoomObject : MonoBehaviour
     public void SwitchToShop()
     {
         GameplayManager.instance.PlayCutscene(2);
+    }
+    public void SwitchToHeal()
+    {
+        GameplayManager.instance.PlayCutscene(8);
+    }
+    public void SwitchToTrash()
+    {
+        GameplayManager.instance.PlayCutscene(10);
     }
 }

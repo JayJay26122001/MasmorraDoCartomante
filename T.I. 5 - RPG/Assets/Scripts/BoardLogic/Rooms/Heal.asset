@@ -10,31 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10548cab3075f8741a3bfbd1ea544566, type: 3}
-  m_Name: Mimic
+  m_Name: Heal
   m_EditorClassIdentifier: 
-  roomName: Mimic
+  roomName: Heal
   baseProbabilities:
   - type: Battle
-    probability: 45
+    probability: 60
     multiplier: 0
     minMult: 0
     maxMult: 0
   - type: Heal
-    probability: 10
+    probability: 0
     multiplier: 0
     minMult: 0
     maxMult: 0
   - type: Shop
-    probability: 45
+    probability: 10
     multiplier: 0
     minMult: 0
     maxMult: 0
   - type: Trash
-    probability: 45
+    probability: 20
     multiplier: 0
     minMult: 0
     maxMult: 0
   testColor:
     serializedVersion: 2
-    rgba: 255
-  iconMesh: {fileID: 7569444035333010539, guid: 0e469a00f86cc7a47b7d7ad16c2c2840, type: 3}
+    rgba: 65280
+  iconMesh: {fileID: -672876521090725945, guid: 928da2a137d82d6479325d9290aec8e3, type: 3}

@@ -15,17 +15,22 @@ MonoBehaviour:
   roomName: Shop
   baseProbabilities:
   - type: Battle
-    probability: 55
+    probability: 60
     multiplier: 0
     minMult: 0
     maxMult: 0
-  - type: Mimic
-    probability: 45
+  - type: Heal
+    probability: 10
     multiplier: 0
     minMult: 0
     maxMult: 0
   - type: Shop
     probability: 0
+    multiplier: 0
+    minMult: 0
+    maxMult: 0
+  - type: Trash
+    probability: 10
     multiplier: 0
     minMult: 0
     maxMult: 0
