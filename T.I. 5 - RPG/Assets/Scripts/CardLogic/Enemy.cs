@@ -42,7 +42,7 @@ public class Enemy : Creature
         }*/
 
     }
-    IEnumerator PlayAllCardsBehaviour()
+    protected virtual IEnumerator PlayAllCardsBehaviour()
     {
         yield return new WaitUntil(() => ActionController.instance.NumberOfActionsInQueue() <= 0);
         bool playanim = true;

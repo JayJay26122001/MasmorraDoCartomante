@@ -198,7 +198,12 @@ public class Creature : MonoBehaviour
         {
             if (decks[0].BuyingPile.Count == 0)
             {
-                if (decks[0].DiscardPile.Count == 0) { return; }
+                if (decks[0].DiscardPile.Count == 0) 
+                {
+                    CardUIController.OrganizeHandCards(this);
+                    CardUIController.OrganizeStack(decks[0].BuyingPile, combatSpace.buyingPileSpace);
+                    return; 
+                }
                 decks[0].ShuffleDeck();
             }
             hand.Add(decks[0].BuyingPile.GetTop());
