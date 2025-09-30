@@ -36,7 +36,6 @@ public class CardPool : ScriptableObject
             if (selectedTypes.Contains((int)aux[i].Type) && selectedRarities.Contains((int)aux[i].Rarity) && selectedSets.Contains((int)aux[i].Pack))
             {
                 pool.Add(aux[i]);
-                rarityAux.Add((int)aux[i].Rarity);
                 //probabilities.Add(GetProbability(aux[i]));
             }
         }
@@ -73,6 +72,11 @@ public class CardPool : ScriptableObject
 
     public void AdaptProbabilities()
     {
+        rarityAux.Clear();
+        for (int i = 0; i < pool.Count; i++)
+        {
+            rarityAux.Add((int)pool[i].Rarity);
+        }
         probabilities.Clear();
         for(int i = 0; i < baseProbabilities.Count; i++)
         {
