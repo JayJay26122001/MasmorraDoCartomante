@@ -25,6 +25,13 @@ public class Enemy : Creature
     {
         if (!GameplayManager.instance.CombatActive) return;
         base.TurnAction();
+        if (skipTurn > 0)
+        {
+            skipTurn--;
+            FinishedPlaying.Invoke();
+            GameplayManager.TurnArrow.NextTurn();
+            return;
+        }
         StartCoroutine(PlayAllCardsBehaviour());
         /*bool playanim = true;
         for (int i = 0; i < hand.Count; i++)
