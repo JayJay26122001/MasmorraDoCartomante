@@ -120,6 +120,16 @@ public class CardUIController : MonoBehaviour
                 }
             }
         }
+        if (creature is Boss b)
+        {
+            foreach (Card c in b.BonusDeck.cards)
+            {
+                if (c.cardDisplay != null)
+                {
+                    c.cardDisplay.UpdateCard();
+                }
+            }
+        }
     }
 
     public static void CardsOrganizer(Creature c) //mudan�a futura

@@ -7,7 +7,7 @@ public class Boss : Enemy
 {
     public ModularInt BonusCardsPerTurn;
     public Deck BonusDeckPrefab;
-    [NonSerialized]public Deck BonusDeck;
+    public Deck BonusDeck;
     protected override void Awake()
     {
         base.Awake();
@@ -28,15 +28,21 @@ public class Boss : Enemy
         //StartCoroutine(PlayBonusCardsBehaviour());
 
     }*/
+    public override void CombatStartAction()
+    {
+        base.CombatStartAction();
+        BonusDeck.StartShuffle();
+    }
     protected void InstanceBonusDeck()
     {
         Deck bonus = Instantiate(BonusDeckPrefab);
         BonusDeck = bonus;
         bonus.Owner = this;
         bonus.Setup();
-        foreach(Card c in BonusDeck.cards)
+        foreach (Card c in BonusDeck.cards)
         {
             c.cost = 0;
+            c.cardDisplay.UpdateCardCost();
         }
     }
     protected override IEnumerator PlayAllCardsBehaviour()

@@ -256,9 +256,9 @@ public class DamageAction : SceneAction
     {
         c = creature;
         dmg = damage;
-        if (c.GetType() == typeof(Enemy))
+        if (c is Enemy e)
         {
-            foreach (AnimationClip a in c.GetComponent<Enemy>().anim.runtimeAnimatorController.animationClips)
+            foreach (AnimationClip a in e.anim.runtimeAnimatorController.animationClips)
             {
                 if (a.name == "TakeDamage")
                 {
@@ -287,9 +287,9 @@ public class DamageAction : SceneAction
             };
             ActionController.instance.InvokeTimer(finishAction, time);
             c.TakeDamage(dmg);
-            if (c.GetType() == typeof(Enemy))
+            if (c is Enemy e)
             {
-                c.GetComponent<Enemy>().anim.SetTrigger("TakeDamage");
+                e.anim.SetTrigger("TakeDamage");
                 GameplayManager.instance.PauseInput(time);
                 AnimStarted.Invoke();
                 //CameraController.instance.ChangeCamera(1);

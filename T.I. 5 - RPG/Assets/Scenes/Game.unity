@@ -15523,7 +15523,6 @@ MonoBehaviour:
   vsyncConfirm: {fileID: 482381591, guid: fd5e8395d3ea14e478ffe600f2325146, type: 3}
   vsyncDeny: {fileID: -2110227622, guid: fd5e8395d3ea14e478ffe600f2325146, type: 3}
   combatHUD: {fileID: 1836948287}
-  enemyName: {fileID: 1618065893}
   shopObjectHUD: {fileID: 60692913}
   shopObjectDescription: {fileID: 687015218}
   ingamePopup: {fileID: 1448328671}
@@ -15539,6 +15538,15 @@ MonoBehaviour:
     music: 0
     sfx: 0
     vsyncEnabled: 0
+  enemyName: {fileID: 1618065893}
+  enemyHp: {fileID: 0}
+  enemyShield: {fileID: 0}
+  enemydamageTaken: {fileID: 0}
+  enemyBaseDamage: {fileID: 0}
+  enemyShieldGain: {fileID: 0}
+  enemyCardsInHand: {fileID: 0}
+  enemyCardsInDiscard: {fileID: 0}
+  enemyCardsInBuying: {fileID: 0}
 --- !u!4 &672682254 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 961325641466372147, guid: 95c5796e80d83424d942710aff6f3d78, type: 3}
@@ -16547,9 +16555,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
-  DeckPresets: []
-  decks:
+  DeckPresets:
   - {fileID: 11400000, guid: fb34069793a4fac4a8acdbd389a9ca30, type: 2}
+  decks: []
   hand: []
   playedCards: []
   exausted: []
@@ -16562,7 +16570,7 @@ MonoBehaviour:
   CardBuyMax: 1
   baseDamage: 6
   baseShieldGain: 5
-  baseDamageTaken: 0
+  baseDamageTaken: 100
   DamageModifiers: []
   ShieldModifiers: []
   DamageReductionModifiers: []
@@ -16624,6 +16632,7 @@ MonoBehaviour:
     max: 0
     modifiers: []
   BonusDeckPrefab: {fileID: 11400000, guid: be47e7c2478b6304e9fd63b5dcd27c7f, type: 2}
+  BonusDeck: {fileID: 0}
 --- !u!1001 &790105379
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29714,9 +29723,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
-  DeckPresets: []
-  decks:
+  DeckPresets:
   - {fileID: 11400000, guid: e17ec550c4dbdae4fbd9175b0c419194, type: 2}
+  decks: []
   hand: []
   playedCards: []
   exausted: []
@@ -29729,7 +29738,7 @@ MonoBehaviour:
   CardBuyMax: 1
   baseDamage: 6
   baseShieldGain: 5
-  baseDamageTaken: 0
+  baseDamageTaken: 100
   DamageModifiers: []
   ShieldModifiers: []
   DamageReductionModifiers: []
@@ -29791,6 +29800,7 @@ MonoBehaviour:
     max: 0
     modifiers: []
   BonusDeckPrefab: {fileID: 11400000, guid: 69a86362d1be1c04eb5e195fee595358, type: 2}
+  BonusDeck: {fileID: 0}
 --- !u!1001 &1358389549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33088,9 +33098,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
-  DeckPresets: []
-  decks:
+  DeckPresets:
   - {fileID: 11400000, guid: c693586bb621fa94c91e1ae20219f8a2, type: 2}
+  decks: []
   hand: []
   playedCards: []
   exausted: []
@@ -33103,7 +33113,7 @@ MonoBehaviour:
   CardBuyMax: 1
   baseDamage: 6
   baseShieldGain: 5
-  baseDamageTaken: 0
+  baseDamageTaken: 100
   DamageModifiers: []
   ShieldModifiers: []
   DamageReductionModifiers: []
@@ -33165,6 +33175,7 @@ MonoBehaviour:
     max: 0
     modifiers: []
   BonusDeckPrefab: {fileID: 11400000, guid: fcf1bcf24c05c974688dda5cef831baa, type: 2}
+  BonusDeck: {fileID: 0}
 --- !u!1001 &1555042804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34068,9 +34079,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
-  DeckPresets: []
-  decks:
+  DeckPresets:
   - {fileID: 11400000, guid: 646b18cfdf878424897bdef708cce818, type: 2}
+  decks: []
   hand: []
   playedCards: []
   exausted: []
@@ -34083,7 +34094,7 @@ MonoBehaviour:
   CardBuyMax: 1
   baseDamage: 6
   baseShieldGain: 5
-  baseDamageTaken: 0
+  baseDamageTaken: 100
   DamageModifiers: []
   ShieldModifiers: []
   DamageReductionModifiers: []
@@ -34145,6 +34156,7 @@ MonoBehaviour:
     max: 0
     modifiers: []
   BonusDeckPrefab: {fileID: 11400000, guid: 4ffa88d0a14402948b1b057b2a5b050a, type: 2}
+  BonusDeck: {fileID: 0}
 --- !u!1 &1650270297
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,7 +18,7 @@ public class Enemy : Creature
     public override void CombatStartAction()
     {
         base.CombatStartAction();
-        BuyCards(1);
+        //BuyCards(1);
         SetModel();
     }
     public override void TurnAction()
@@ -138,10 +138,10 @@ public class Enemy : Creature
         if (!GameplayManager.instance.CombatActive) return;
         base.PlayCard(c);
 
-        if (hand.Count == 0)
+        /*if (hand.Count == 0)
         {
             BuyCards(1);
-        }
+        }*/
     }
     public override void Die()
     {
