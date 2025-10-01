@@ -61,7 +61,6 @@ public class UIController : MonoBehaviour
     public Sprite vsyncDeny;
     [Header("Game Combat HUD")]
     public GameObject combatHUD;
-    public TextMeshPro enemyName;
     [Header("ShopUI")]
     public GameObject shopObjectHUD;
     public TextMeshProUGUI shopObjectDescription;
@@ -81,6 +80,17 @@ public class UIController : MonoBehaviour
     GameObject activeMask;
     int currentMaskIndex = 0;
     bool isMaskRotating = false;
+
+    [Header("Enemy Description")]
+    public TextMeshPro enemyName;
+    public TextMeshPro enemyHp;
+    public TextMeshPro enemyShield;
+    public TextMeshPro enemydamageTaken;
+    public TextMeshPro enemyBaseDamage;
+    public TextMeshPro enemyShieldGain;
+    public TextMeshPro enemyCardsInHand;
+    public TextMeshPro enemyCardsInDiscard;
+    public TextMeshPro enemyCardsInBuying;
 
     /*bool gameStarted, gamePaused;
     public GameObject pausePanel, confirmReturnRoomPanel, confirmReturnMenuPanel, collectablesPanel;
@@ -841,5 +851,27 @@ public class UIController : MonoBehaviour
         {
             vsyncToggleImage.sprite = vsyncDeny;
         }
+    }
+
+    public void EnemyDescription()  //not tested yet
+    {
+        var activeEnemy = GameplayManager.currentCombat.combatents[1];
+        float multiplier = activeEnemy.BaseDamageTaken / 100f;
+        int totalBuying = 0, totalDiscard = 0;
+
+        enemyName.text = activeEnemy.name;
+        enemyHp.text = "HP: " + activeEnemy.Health + "/" + activeEnemy.MaxHP;
+        enemyShield.text = "Shield: " + activeEnemy.Shield.ToString();
+        enemyBaseDamage.text = "Base Damage: " + activeEnemy.BaseDamage.ToString();
+        enemyShieldGain.text = "Shield Gain: " + activeEnemy.BaseShieldGain.ToString();
+        enemydamageTaken.text = "Damage Taken: x" + multiplier.ToString("0.##");
+        enemyCardsInHand.text = activeEnemy.hand.Count.ToString();
+        foreach (var deck in activeEnemy.decks)
+        {
+            totalBuying += deck.BuyingPile.Count;
+            totalDiscard += deck.DiscardPile.Count;
+        }
+        enemyCardsInBuying.text = totalBuying.ToString();
+        enemyCardsInDiscard.text = totalDiscard.ToString();
     }
 }
