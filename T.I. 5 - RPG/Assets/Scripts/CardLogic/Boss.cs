@@ -63,15 +63,14 @@ public class Boss : Enemy
         }
         yield return new WaitForSeconds(1f);
         StartCoroutine(PlayBonusCardsBehaviour());
-        FinishedPlaying.Invoke();
     }
     IEnumerator PlayBonusCardsBehaviour()
     {
         yield return new WaitUntil(() => ActionController.instance.NumberOfActionsInQueue() <= 0);
         bool playanim = true;
         int num = BonusCardsPerTurn.GetValue();
-        List<Card> bonusCards =  BuyBonusCards(num);
-        foreach(Card c in bonusCards)
+        List<Card> bonusCards = BuyBonusCards(num);
+        foreach (Card c in bonusCards)
         {
             EnemyPlayCard anim = new EnemyPlayCard(this, c, playanim);
             ActionController.instance.AddToQueue(anim);
@@ -80,6 +79,7 @@ public class Boss : Enemy
             yield return new WaitForSeconds(0.5f);
         }
         yield return new WaitForSeconds(1f);
+        FinishedPlaying.Invoke();
     }
     public List<Card> BuyBonusCards(int quantity)
     {
