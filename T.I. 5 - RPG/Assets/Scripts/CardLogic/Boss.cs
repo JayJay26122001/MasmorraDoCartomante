@@ -13,7 +13,7 @@ public class Boss : Enemy
         base.Awake();
         InstanceBonusDeck();
     }
-    public override void TurnAction()
+    /*public override void TurnAction()
     {
         if (!GameplayManager.instance.CombatActive) return;
         BuyCardAction();
@@ -25,9 +25,9 @@ public class Boss : Enemy
             return;
         }
         StartCoroutine(PlayAllCardsBehaviour());
-        StartCoroutine(PlayBonusCardsBehaviour());
+        //StartCoroutine(PlayBonusCardsBehaviour());
 
-    }
+    }*/
     protected void InstanceBonusDeck()
     {
         Deck bonus = Instantiate(BonusDeckPrefab);
@@ -62,6 +62,8 @@ public class Boss : Enemy
 
         }
         yield return new WaitForSeconds(1f);
+        StartCoroutine(PlayBonusCardsBehaviour());
+        FinishedPlaying.Invoke();
     }
     IEnumerator PlayBonusCardsBehaviour()
     {
@@ -78,7 +80,6 @@ public class Boss : Enemy
             yield return new WaitForSeconds(0.5f);
         }
         yield return new WaitForSeconds(1f);
-        FinishedPlaying.Invoke();
     }
     public List<Card> BuyBonusCards(int quantity)
     {
