@@ -63,6 +63,11 @@ public class Creature : MonoBehaviour
             hp = value;
         }
     }
+    public int MaxHP
+    {
+        get { return maxHP; }
+        protected set { maxHP = value; }
+    }
     public int Shield
     {
         get { return shld; }
