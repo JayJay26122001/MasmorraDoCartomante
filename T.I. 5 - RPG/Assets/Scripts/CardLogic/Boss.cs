@@ -6,8 +6,8 @@ using UnityEngine;
 public class Boss : Enemy
 {
     public ModularInt BonusCardsPerTurn;
-    public Deck BonusDeckPrefab = new Deck();
-    [NonSerialized]public Deck BonusDeck = new Deck();
+    public Deck BonusDeckPrefab;
+    [NonSerialized]public Deck BonusDeck;
     protected override void Awake()
     {
         base.Awake();

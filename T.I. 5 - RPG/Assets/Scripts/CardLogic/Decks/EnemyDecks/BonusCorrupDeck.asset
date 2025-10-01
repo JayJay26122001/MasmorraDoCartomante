@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d1a39dfc1f14914194bdd1ce1b68008, type: 3}
-  m_Name: CorruptorDeck
+  m_Name: BonusCorrupDeck
   m_EditorClassIdentifier: 
   Owner: {fileID: 0}
   CardPresets:
-  - {fileID: 11400000, guid: 8da43459965ba804f8351fcedc5b7690, type: 2}
-  - {fileID: 11400000, guid: dea0c7e26d5705f40afe0c9e2f58eaf3, type: 2}
-  - {fileID: 11400000, guid: 5f9ebffd98acc504f880de1c4dd72584, type: 2}
-  - {fileID: 11400000, guid: 2f085d38fd8b9a942a451bdf4fa0beca, type: 2}
-  - {fileID: 11400000, guid: 95f5193fe3c47ab4b9cc8d9f74100b1f, type: 2}
+  - {fileID: 11400000, guid: 694481bd872dc3d488fe2df2fa057587, type: 2}
+  - {fileID: 11400000, guid: 9b4e031e6f8cab54a83bddb6fa9cf491, type: 2}
+  - {fileID: 11400000, guid: e9d5248e3d58f1a4aa044bde79d50464, type: 2}
+  - {fileID: 11400000, guid: 535bbb4c65fb3d24fb8dae31ce74c4b6, type: 2}
+  - {fileID: 11400000, guid: 53e45334c7d15b24aacc0d89f84335b6, type: 2}
   cards: []
   BuyingPile:
     Stack: []

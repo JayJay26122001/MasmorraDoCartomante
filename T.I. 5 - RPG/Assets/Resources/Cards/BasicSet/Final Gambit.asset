@@ -10,22 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Impenetrable Barrier
+  m_Name: Final Gambit
   m_EditorClassIdentifier: 
   Effects:
   - rid: 1178401998732263513
+  - rid: 7085201287857569861
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Impenetrable Barrier
+  Name: Final Gambit
   limited: 0
   instantaneous: 0
-  cost: 2
+  cost: 3
   Type: 1
   Pack: 0
-  Rarity: 0
-  Description: Gain v[0]{Shield} Shield.
+  Rarity: 4
+  Description: Gain v[0]{Shield} Shield, but makes the User Skip its Next Turn.
   extraDescription: 
-  CardImage: {fileID: 21300000, guid: fb6b200ca31481f4db4c90a18b4c8459, type: 3}
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:
@@ -58,8 +59,41 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          value: 2.6
+          value: 5
           min: 0
           max: 0
           modifiers: []
         target: 0
+    - rid: 7085201287857569861
+      type: {class: SkipTurn, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        AmountOfTurns:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 1
+          min: 0
+          max: 0
+          modifiers: []
+        target: 1
