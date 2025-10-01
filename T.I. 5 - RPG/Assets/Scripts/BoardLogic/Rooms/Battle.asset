@@ -35,7 +35,7 @@ MonoBehaviour:
     minMult: 0
     maxMult: 0
   - type: Stamp
-    probability: 10000000
+    probability: 10
     multiplier: 0
     minMult: 0
     maxMult: 0
