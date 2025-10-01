@@ -16,7 +16,7 @@ public class Boss : Enemy
     public override void TurnAction()
     {
         if (!GameplayManager.instance.CombatActive) return;
-        ((Creature)this).TurnAction();
+        BuyCardAction();
         if (skipTurn > 0)
         {
             skipTurn--;

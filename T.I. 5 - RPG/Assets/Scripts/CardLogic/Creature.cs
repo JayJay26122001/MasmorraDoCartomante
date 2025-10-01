@@ -186,6 +186,10 @@ public class Creature : MonoBehaviour
 
     public virtual void TurnAction() //o que essa criatura faz em seu turno
     {
+        BuyCardAction();
+    }
+    protected void BuyCardAction()
+    {
         if (skipCardBuy > 0)
         {
             skipCardBuy--;
