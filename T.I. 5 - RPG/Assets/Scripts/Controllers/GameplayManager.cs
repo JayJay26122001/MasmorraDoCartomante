@@ -35,10 +35,11 @@ public class GameplayManager : MonoBehaviour
 
     public List<CardPack> packs = new List<CardPack>();
     public List<PackPool> packPools = new List<PackPool>();
-    public bool canBuy, removingCards = false, figtingBoss, atShop = false;
+    public bool canBuy, removingCards = false, duplicatingCards = false, figtingBoss, atShop = false;
     public int rerollPrice, rerollBasePrice, potionBasePrice;
     public TextMeshPro rerollText, potionText;
     public DisappearingObject potion;
+    public Stamp stamp;
 
     public ParticleSystem coinExplosion;
     public List<CardAttack> attacksPool = new List<CardAttack>();
@@ -264,8 +265,20 @@ public class GameplayManager : MonoBehaviour
         }
         else
         {
-            player.ChangeMoney(3);
-            DestroyRemovingCards();
+            if(removingCards)
+            {
+                if(atShop)
+                {
+                    player.ChangeMoney(3);
+                }
+                DestroyRemovingCards();
+            }
+            else if(duplicatingCards)
+            {
+                CameraController.instance.DeActivateZoomedCamera();
+                CameraController.instance.ChangeCamera(0);
+                DestroyDuplicatingCards();
+            }
         }
     }
     public void DiscardBoughtCards(DiscardBell bell)
@@ -289,7 +302,7 @@ public class GameplayManager : MonoBehaviour
                     CardDisplay cd = CardUIController.instance.InstantiateCard(c);
                     cds.Add(cd);
                     cd.UpdateCard();
-                    CardUIController.OrganizeRemovingCards(cds);
+                    CardUIController.OrganizeAllDeckCards(cds);
                 }
             }
             else
@@ -309,7 +322,21 @@ public class GameplayManager : MonoBehaviour
             CardDisplay cd = CardUIController.instance.InstantiateCard(c);
             cds.Add(cd);
             cd.UpdateCard();
-            CardUIController.OrganizeRemovingCards(cds);
+            CardUIController.OrganizeAllDeckCards(cds);
+        }
+    }
+
+    public void DuplicatingCards()
+    {
+        duplicatingCards = true;
+        PlayCutscene(4);
+        List<CardDisplay> cds = new List<CardDisplay>();
+        foreach (Card c in player.decks[0].cards)
+        {
+            CardDisplay cd = CardUIController.instance.InstantiateCard(c);
+            cds.Add(cd);
+            cd.UpdateCard();
+            CardUIController.OrganizeAllDeckCards(cds);
         }
     }
 
@@ -318,6 +345,7 @@ public class GameplayManager : MonoBehaviour
         if(atShop)
         {
             PlayCutscene(5);
+            canBuy = true;
         }
         else
         {
@@ -332,9 +360,25 @@ public class GameplayManager : MonoBehaviour
             });
         }
         removingCards = false;
-        canBuy = true;
     }
 
+    public void DestroyDuplicatingCards()
+    {
+        PlayCutscene(13);
+        foreach (Transform t in player.combatSpace.playedCardSpace.transform)
+        {
+            var moveTween = LeanTween.move(t.gameObject, t.position + Vector3.up * 25, 0.05f);
+            moveTween.setOnComplete(() =>
+            {
+                Destroy(t.gameObject);
+            });
+        }
+        LeanTween.move(stamp.emptyCard, stamp.emptyCard.transform.position + Vector3.up * 25, 0.05f).setOnComplete(() =>
+        {
+            stamp.emptyCard.SetActive(false);
+        });
+        duplicatingCards = false;
+    }
     public void ExitShop()
     {
         atShop = false;

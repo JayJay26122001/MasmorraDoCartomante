@@ -20,7 +20,7 @@ MonoBehaviour:
     minMult: 0
     maxMult: 0
   - type: Heal
-    probability: 15
+    probability: 10
     multiplier: 0
     minMult: 0
     maxMult: 0
@@ -30,6 +30,11 @@ MonoBehaviour:
     minMult: 0
     maxMult: 0
   - type: Trash
+    probability: 5
+    multiplier: 0
+    minMult: 0
+    maxMult: 0
+  - type: Stamp
     probability: 5
     multiplier: 0
     minMult: 0

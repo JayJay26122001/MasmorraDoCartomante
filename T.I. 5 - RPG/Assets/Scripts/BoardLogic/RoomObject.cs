@@ -45,6 +45,9 @@ public class RoomObject : MonoBehaviour
                 case "Trash":
                     act = new Action(() => { SwitchToTrash(); });
                     break;
+                case "Stamp":
+                    act = new Action(() => { SwitchToStamp(); });
+                    break;
             }
             //GameplayManager.instance.MoveBoard(act);
             GameplayManager.instance.MovePiece(act, this.transform.position + Vector3.up * 0.2f);
@@ -67,5 +70,9 @@ public class RoomObject : MonoBehaviour
     public void SwitchToTrash()
     {
         GameplayManager.instance.PlayCutscene(10);
+    }
+    public void SwitchToStamp()
+    {
+        GameplayManager.instance.PlayCutscene(12);
     }
 }

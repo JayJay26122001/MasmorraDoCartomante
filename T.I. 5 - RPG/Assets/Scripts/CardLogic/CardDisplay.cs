@@ -75,7 +75,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
     public void SetCard(Card card)
     {
         cardData = card;
-        if (!GameplayManager.instance.removingCards)
+        if (!GameplayManager.instance.removingCards && !GameplayManager.instance.duplicatingCards)
         {
             card.cardDisplay = this;
         }
@@ -125,9 +125,27 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
             {
                 if (!GameplayManager.instance.removingCards)
                 {
-                    LeanTween.scale(gameObject, originalScale, 0.15f).setEaseOutQuad();
-                    cardData.deck.Owner.PlayCard(cardData);
-                    GameplayManager.currentCombat.CombatUI();
+                    if(!GameplayManager.instance.duplicatingCards)
+                    {
+                        LeanTween.scale(gameObject, originalScale, 0.15f).setEaseOutQuad();
+                        cardData.deck.Owner.PlayCard(cardData);
+                        GameplayManager.currentCombat.CombatUI();
+                    }
+                    else
+                    {
+                        if(!GameplayManager.instance.stamp.stamping)
+                        {
+                            if(GameplayManager.instance.player.ChangeMoney(-GameplayManager.instance.stamp.price))
+                            {
+                                CameraController.instance.DeActivateZoomedCamera();
+                                CameraController.instance.ChangeCamera(0);
+                                GameplayManager.instance.duplicatingCards = false;
+                                GameplayManager.instance.player.decks[0].AddCard(cardData);
+                                GameplayManager.instance.duplicatingCards = true;
+                                GameplayManager.instance.stamp.StartStampCards(cardData, this.gameObject);
+                            }
+                        }
+                    }
                 }
                 else
                 {
@@ -138,7 +156,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
             else
             {
                 GameplayManager.instance.player.decks[0].AddCard(cardData);
-                pack.DestroyBoughtCards(this.cardData);
+                pack.DestroyBoughtCards(cardData);
                 pack = null;
             }
         }
@@ -169,6 +187,10 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         if(!string.IsNullOrEmpty(cardData.extraDescription)) 
         {
             UpdateCardExtraDescription();
+        }
+        if(GameplayManager.instance.duplicatingCards && !GameplayManager.instance.stamp.stamping)
+        {
+            GameplayManager.instance.stamp.SetPrice(this.cardData);
         }
     }
 

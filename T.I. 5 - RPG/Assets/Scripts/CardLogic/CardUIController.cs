@@ -325,7 +325,7 @@ public class CardUIController : MonoBehaviour
             }
         }
     }
-    public static void OrganizeRemovingCards(List<CardDisplay> cards)
+    public static void OrganizeAllDeckCards(List<CardDisplay> cards)
     {
         /*int totalCardsPlayed = cards.Count();
         float playedCardsSpacing = 3f;

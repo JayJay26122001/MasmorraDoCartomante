@@ -34,6 +34,11 @@ MonoBehaviour:
     multiplier: 0
     minMult: 0
     maxMult: 0
+  - type: Stamp
+    probability: 5
+    multiplier: 0
+    minMult: 0
+    maxMult: 0
   testColor:
     serializedVersion: 2
     rgba: 65280
