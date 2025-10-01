@@ -12,6 +12,7 @@ using UnityEngine.Timeline;
 //using static UnityEditor.PlayerSettings;
 public class GameplayManager : MonoBehaviour
 {
+    public static Bell TurnArrow;
     public static Combat currentCombat;
     public static GameplayManager instance;
     public PlayableDirector timeline;

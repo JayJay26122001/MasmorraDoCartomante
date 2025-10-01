@@ -610,3 +610,43 @@ public class ResetProperties : Effect
 
     }
 }
+public class SkipTurn : Effect
+{
+    enum Target { Opponent, User }
+    public ModularInt AmountOfTurns;
+    [SerializeField] Target target;
+    public override void Apply()
+    {
+        base.Apply();
+        switch (target)
+        {
+            case Target.Opponent:
+                card.deck.Owner.enemy.SetToSkipTurn(AmountOfTurns.GetValue());
+                break;
+            case Target.User:
+                card.deck.Owner.SetToSkipTurn(AmountOfTurns.GetValue());
+                break;
+        }
+        EffectEnded();
+    }
+}
+public class SkipBuyCard : Effect
+{
+    enum Target { Opponent, User }
+    public ModularInt AmountOfTurns;
+    [SerializeField] Target target;
+    public override void Apply()
+    {
+        base.Apply();
+        switch (target)
+        {
+            case Target.Opponent:
+                card.deck.Owner.enemy.SetToSkipBuyCard(AmountOfTurns.GetValue());
+                break;
+            case Target.User:
+                card.deck.Owner.SetToSkipBuyCard(AmountOfTurns.GetValue());
+                break;
+        }
+        EffectEnded();
+    }
+}

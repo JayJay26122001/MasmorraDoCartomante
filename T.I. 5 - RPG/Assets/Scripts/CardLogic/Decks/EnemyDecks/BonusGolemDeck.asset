@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d1a39dfc1f14914194bdd1ce1b68008, type: 3}
-  m_Name: CorruptorDeck
+  m_Name: BonusGolemDeck
   m_EditorClassIdentifier: 
   Owner: {fileID: 0}
   CardPresets:
-  - {fileID: 11400000, guid: 8da43459965ba804f8351fcedc5b7690, type: 2}
-  - {fileID: 11400000, guid: dea0c7e26d5705f40afe0c9e2f58eaf3, type: 2}
-  - {fileID: 11400000, guid: 5f9ebffd98acc504f880de1c4dd72584, type: 2}
-  - {fileID: 11400000, guid: 2f085d38fd8b9a942a451bdf4fa0beca, type: 2}
-  - {fileID: 11400000, guid: 95f5193fe3c47ab4b9cc8d9f74100b1f, type: 2}
+  - {fileID: 11400000, guid: f5df698fa3947074ebb31b07fdb255cd, type: 2}
+  - {fileID: 11400000, guid: f5df698fa3947074ebb31b07fdb255cd, type: 2}
+  - {fileID: 11400000, guid: b4f1c9213ec94944fbb3140dc70fd316, type: 2}
+  - {fileID: 11400000, guid: f5f954a6ebac63d48a5edf883dff707d, type: 2}
+  - {fileID: 11400000, guid: 879c9dd8166f4914db3a33cb3d18a255, type: 2}
   cards: []
   BuyingPile:
     Stack: []

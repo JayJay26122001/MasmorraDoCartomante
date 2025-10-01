@@ -7,7 +7,10 @@ public class Bell : MonoBehaviour
     public float turnSpeed;
     public AnimationClip turnToPlayer, turnToEnemy;
     public Animation anim;
-
+    void Awake()
+    {
+        GameplayManager.TurnArrow = this;
+    }
     void Start()
     {
         anim = GetComponent<Animation>();

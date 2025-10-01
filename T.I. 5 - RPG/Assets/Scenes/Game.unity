@@ -16484,7 +16484,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 786645940}
-  - component: {fileID: 786645941}
+  - component: {fileID: 786645943}
   - component: {fileID: 786645942}
   m_Layer: 0
   m_Name: Corruptor
@@ -16511,7 +16511,30 @@ Transform:
   - {fileID: 1592096500}
   m_Father: {fileID: 835108580}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &786645941
+--- !u!136 &786645942
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786645939}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.74
+  m_Height: 38.18
+  m_Direction: 1
+  m_Center: {x: 0, y: 16.13, z: 0}
+--- !u!114 &786645943
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16520,26 +16543,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 786645939}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ef8394d76fca764fbbc7af354477e00, type: 3}
+  m_Script: {fileID: 11500000, guid: 48683f05d5e617e4f9f6427d9efc7b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
-  DeckPresets:
+  DeckPresets: []
+  decks:
   - {fileID: 11400000, guid: fb34069793a4fac4a8acdbd389a9ca30, type: 2}
-  decks: []
   hand: []
   playedCards: []
   exausted: []
-  maxHP: 250
+  maxHP: 170
   hp: 0
   shld: 0
   energy: 0
   maxBaseEnergy: 3
   money: 3
-  CardBuyMax: 5
+  CardBuyMax: 1
   baseDamage: 6
   baseShieldGain: 5
-  baseDamageTaken: 100
+  baseDamageTaken: 0
   DamageModifiers: []
   ShieldModifiers: []
   DamageReductionModifiers: []
@@ -16566,7 +16589,7 @@ MonoBehaviour:
   hpText: {fileID: 1991594902}
   shieldText: {fileID: 343960610}
   energyText: {fileID: 1215672137}
-  damageTakenText: {fileID: 0}
+  damageTakenText: {fileID: 1881288783}
   hpCircle: {fileID: 1932448058}
   anim: {fileID: 1124749327}
   model: {fileID: 1124749326}
@@ -16574,29 +16597,33 @@ MonoBehaviour:
   FinishedPlaying:
     m_PersistentCalls:
       m_Calls: []
---- !u!136 &786645942
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 786645939}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2.74
-  m_Height: 38.18
-  m_Direction: 1
-  m_Center: {x: 0, y: 16.13, z: 0}
+  BonusCardsPerTurn:
+    type: 0
+    target: 0
+    ObservedCards:
+      target: 0
+      pile: 0
+      type: 0
+      rarity: 0
+      pack: 0
+      MaxReturnedNumber:
+        type: 2
+        value: 0
+        min: 0
+        max: 0
+      initialized: 1
+    MaxReturnedNumber:
+      type: 2
+      value: 0
+      min: 0
+      max: 0
+    ObservedStat: 0
+    initialized: 1
+    value: 1
+    min: 0
+    max: 0
+    modifiers: []
+  BonusDeckPrefab: {fileID: 11400000, guid: be47e7c2478b6304e9fd63b5dcd27c7f, type: 2}
 --- !u!1001 &790105379
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29624,7 +29651,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1351723672}
-  - component: {fileID: 1351723673}
+  - component: {fileID: 1351723675}
   - component: {fileID: 1351723674}
   m_Layer: 0
   m_Name: Immaculatus
@@ -29651,7 +29678,30 @@ Transform:
   - {fileID: 961927582}
   m_Father: {fileID: 1419871205}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &1351723673
+--- !u!136 &1351723674
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351723671}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4.57
+  m_Height: 45.58
+  m_Direction: 1
+  m_Center: {x: 0, y: 17.27, z: 0}
+--- !u!114 &1351723675
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -29660,13 +29710,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1351723671}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ef8394d76fca764fbbc7af354477e00, type: 3}
+  m_Script: {fileID: 11500000, guid: 48683f05d5e617e4f9f6427d9efc7b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
-  DeckPresets:
+  DeckPresets: []
+  decks:
   - {fileID: 11400000, guid: e17ec550c4dbdae4fbd9175b0c419194, type: 2}
-  decks: []
   hand: []
   playedCards: []
   exausted: []
@@ -29679,7 +29729,7 @@ MonoBehaviour:
   CardBuyMax: 1
   baseDamage: 6
   baseShieldGain: 5
-  baseDamageTaken: 100
+  baseDamageTaken: 0
   DamageModifiers: []
   ShieldModifiers: []
   DamageReductionModifiers: []
@@ -29706,7 +29756,7 @@ MonoBehaviour:
   hpText: {fileID: 1991594902}
   shieldText: {fileID: 343960610}
   energyText: {fileID: 1215672137}
-  damageTakenText: {fileID: 0}
+  damageTakenText: {fileID: 1881288783}
   hpCircle: {fileID: 1932448058}
   anim: {fileID: 1961797305}
   model: {fileID: 1961797304}
@@ -29714,29 +29764,33 @@ MonoBehaviour:
   FinishedPlaying:
     m_PersistentCalls:
       m_Calls: []
---- !u!136 &1351723674
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1351723671}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 4.57
-  m_Height: 45.58
-  m_Direction: 1
-  m_Center: {x: 0, y: 17.27, z: 0}
+  BonusCardsPerTurn:
+    type: 0
+    target: 0
+    ObservedCards:
+      target: 0
+      pile: 0
+      type: 0
+      rarity: 0
+      pack: 0
+      MaxReturnedNumber:
+        type: 2
+        value: 0
+        min: 0
+        max: 0
+      initialized: 1
+    MaxReturnedNumber:
+      type: 2
+      value: 0
+      min: 0
+      max: 0
+    ObservedStat: 0
+    initialized: 1
+    value: 1
+    min: 0
+    max: 0
+    modifiers: []
+  BonusDeckPrefab: {fileID: 11400000, guid: 69a86362d1be1c04eb5e195fee595358, type: 2}
 --- !u!1001 &1358389549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30572,10 +30626,10 @@ MonoBehaviour:
   - {fileID: 928584688}
   - {fileID: 916723816}
   bosses:
-  - {fileID: 1648378708}
-  - {fileID: 1551659758}
-  - {fileID: 1351723673}
-  - {fileID: 786645941}
+  - {fileID: 1648378711}
+  - {fileID: 1551659760}
+  - {fileID: 1351723675}
+  - {fileID: 786645943}
   enemyPools:
     matrix:
     - value: {fileID: 11400000, guid: 9f71a1fdb7ccd7d4db16a2595f34a95c, type: 2}
@@ -32971,7 +33025,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1551659757}
-  - component: {fileID: 1551659758}
+  - component: {fileID: 1551659760}
   - component: {fileID: 1551659759}
   m_Layer: 0
   m_Name: Dragon
@@ -32998,7 +33052,30 @@ Transform:
   - {fileID: 867860073}
   m_Father: {fileID: 322468179}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &1551659758
+--- !u!136 &1551659759
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551659756}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 81.48
+  m_Height: 255.62
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1551659760
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -33007,13 +33084,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1551659756}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ef8394d76fca764fbbc7af354477e00, type: 3}
+  m_Script: {fileID: 11500000, guid: 48683f05d5e617e4f9f6427d9efc7b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
-  DeckPresets:
+  DeckPresets: []
+  decks:
   - {fileID: 11400000, guid: c693586bb621fa94c91e1ae20219f8a2, type: 2}
-  decks: []
   hand: []
   playedCards: []
   exausted: []
@@ -33026,7 +33103,7 @@ MonoBehaviour:
   CardBuyMax: 1
   baseDamage: 6
   baseShieldGain: 5
-  baseDamageTaken: 100
+  baseDamageTaken: 0
   DamageModifiers: []
   ShieldModifiers: []
   DamageReductionModifiers: []
@@ -33053,7 +33130,7 @@ MonoBehaviour:
   hpText: {fileID: 1991594902}
   shieldText: {fileID: 343960610}
   energyText: {fileID: 1215672137}
-  damageTakenText: {fileID: 0}
+  damageTakenText: {fileID: 1881288783}
   hpCircle: {fileID: 1932448058}
   anim: {fileID: 1462765976}
   model: {fileID: 1462765975}
@@ -33061,29 +33138,33 @@ MonoBehaviour:
   FinishedPlaying:
     m_PersistentCalls:
       m_Calls: []
---- !u!136 &1551659759
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1551659756}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 81.48
-  m_Height: 255.62
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  BonusCardsPerTurn:
+    type: 0
+    target: 0
+    ObservedCards:
+      target: 0
+      pile: 0
+      type: 0
+      rarity: 0
+      pack: 0
+      MaxReturnedNumber:
+        type: 2
+        value: 0
+        min: 0
+        max: 0
+      initialized: 1
+    MaxReturnedNumber:
+      type: 2
+      value: 0
+      min: 0
+      max: 0
+    ObservedStat: 0
+    initialized: 1
+    value: 1
+    min: 0
+    max: 0
+    modifiers: []
+  BonusDeckPrefab: {fileID: 11400000, guid: fcf1bcf24c05c974688dda5cef831baa, type: 2}
 --- !u!1001 &1555042804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33924,7 +34005,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1648378709}
-  - component: {fileID: 1648378708}
+  - component: {fileID: 1648378711}
   - component: {fileID: 1648378710}
   m_Layer: 0
   m_Name: Golem
@@ -33933,69 +34014,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &1648378708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1648378706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ef8394d76fca764fbbc7af354477e00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
-  DeckPresets:
-  - {fileID: 11400000, guid: 646b18cfdf878424897bdef708cce818, type: 2}
-  decks: []
-  hand: []
-  playedCards: []
-  exausted: []
-  maxHP: 70
-  hp: 0
-  shld: 0
-  energy: 0
-  maxBaseEnergy: 3
-  money: 3
-  CardBuyMax: 1
-  baseDamage: 6
-  baseShieldGain: 5
-  baseDamageTaken: 100
-  DamageModifiers: []
-  ShieldModifiers: []
-  DamageReductionModifiers: []
-  Damaged:
-    m_PersistentCalls:
-      m_Calls: []
-  Wounded:
-    m_PersistentCalls:
-      m_Calls: []
-  DamageBlocked:
-    m_PersistentCalls:
-      m_Calls: []
-  ShieldBreak:
-    m_PersistentCalls:
-      m_Calls: []
-  GainedShield:
-    m_PersistentCalls:
-      m_Calls: []
-  PlayedCard:
-    m_PersistentCalls:
-      m_Calls: []
-  canPlayCards: 0
-  combatSpace: {fileID: 0}
-  hpText: {fileID: 1991594902}
-  shieldText: {fileID: 343960610}
-  energyText: {fileID: 1215672137}
-  damageTakenText: {fileID: 1881288783}
-  hpCircle: {fileID: 1932448058}
-  anim: {fileID: 955819056}
-  model: {fileID: 401544285}
-  size: 2
-  FinishedPlaying:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &1648378709
 Transform:
   m_ObjectHideFlags: 0
@@ -34037,6 +34055,96 @@ CapsuleCollider:
   m_Height: 77.20007
   m_Direction: 1
   m_Center: {x: -0, y: 38.100037, z: 0}
+--- !u!114 &1648378711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648378706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48683f05d5e617e4f9f6427d9efc7b21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  DeckPresets: []
+  decks:
+  - {fileID: 11400000, guid: 646b18cfdf878424897bdef708cce818, type: 2}
+  hand: []
+  playedCards: []
+  exausted: []
+  maxHP: 70
+  hp: 0
+  shld: 0
+  energy: 0
+  maxBaseEnergy: 3
+  money: 3
+  CardBuyMax: 1
+  baseDamage: 6
+  baseShieldGain: 5
+  baseDamageTaken: 0
+  DamageModifiers: []
+  ShieldModifiers: []
+  DamageReductionModifiers: []
+  Damaged:
+    m_PersistentCalls:
+      m_Calls: []
+  Wounded:
+    m_PersistentCalls:
+      m_Calls: []
+  DamageBlocked:
+    m_PersistentCalls:
+      m_Calls: []
+  ShieldBreak:
+    m_PersistentCalls:
+      m_Calls: []
+  GainedShield:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayedCard:
+    m_PersistentCalls:
+      m_Calls: []
+  canPlayCards: 0
+  combatSpace: {fileID: 0}
+  hpText: {fileID: 1991594902}
+  shieldText: {fileID: 343960610}
+  energyText: {fileID: 1215672137}
+  damageTakenText: {fileID: 1881288783}
+  hpCircle: {fileID: 1932448058}
+  anim: {fileID: 955819056}
+  model: {fileID: 401544285}
+  size: 2
+  FinishedPlaying:
+    m_PersistentCalls:
+      m_Calls: []
+  BonusCardsPerTurn:
+    type: 0
+    target: 0
+    ObservedCards:
+      target: 0
+      pile: 0
+      type: 0
+      rarity: 0
+      pack: 0
+      MaxReturnedNumber:
+        type: 2
+        value: 0
+        min: 0
+        max: 0
+      initialized: 1
+    MaxReturnedNumber:
+      type: 2
+      value: 0
+      min: 0
+      max: 0
+    ObservedStat: 0
+    initialized: 1
+    value: 1
+    min: 0
+    max: 0
+    modifiers: []
+  BonusDeckPrefab: {fileID: 11400000, guid: 4ffa88d0a14402948b1b057b2a5b050a, type: 2}
 --- !u!1 &1650270297
 GameObject:
   m_ObjectHideFlags: 0

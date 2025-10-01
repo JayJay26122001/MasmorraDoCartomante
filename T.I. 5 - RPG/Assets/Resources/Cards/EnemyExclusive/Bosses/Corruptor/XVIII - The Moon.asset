@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
+  m_Name: XVIII - The Moon
+  m_EditorClassIdentifier: 
+  Effects:
+  - rid: 6721762140899246080
+  - rid: 7085201287857569792
+  cardDisplay: {fileID: 0}
+  deck: {fileID: 0}
+  Name: XVIII - The Moon
+  limited: 0
+  instantaneous: 0
+  cost: 1
+  Type: 0
+  Pack: 4
+  Rarity: 4
+  Description: Deals v[0]{Damage} Damage. After played, 1/2 chances the Opponent
+    will be unable to Buy Cards during the Next Turn.
+  extraDescription: 
+  CardImage: {fileID: 21300000, guid: a230f2f17deaa6e4bb41021616c189ba, type: 3}
+  references:
+    version: 2
+    RefIds:
+    - rid: 6721762140899246080
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 1
+          min: 0
+          max: 0
+          modifiers: []
+        IgnoreDefense: 0
+        target: 0
+    - rid: 7085201287857569792
+      type: {class: SkipBuyCard, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 7085201287857569793
+        ConfirmationConditions:
+        - rid: 7085201287857569794
+        AmountOfTurns:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 1
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0
+    - rid: 7085201287857569793
+      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        TurnOwner: 0
+        TurnsFromNow:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+        TurnPhase: 1
+        PhaseTime: 1
+    - rid: 7085201287857569794
+      type: {class: RandomChance, ns: , asm: Assembly-CSharp}
+      data:
+        percentageChance: 50
