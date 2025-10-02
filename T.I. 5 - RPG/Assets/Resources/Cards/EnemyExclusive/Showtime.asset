@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
+  m_Name: Showtime
+  m_EditorClassIdentifier: 
+  Effects:
+  - rid: 7085201310277959765
+  - rid: 7085201310277959766
+  - rid: 7085201310277959767
+  cardDisplay: {fileID: 0}
+  deck: {fileID: 0}
+  Name: Mind Over Matter
+  limited: 1
+  instantaneous: 1
+  cost: 1
+  Type: 2
+  Pack: 2
+  Rarity: 1
+  Description: Instance 3 Copies of Magic Missle in the User's Buying Pile.
+  extraDescription: 
+  CardImage: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 7085201310277959765
+      type: {class: CreateCard, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        target: 0
+        AddToPile: 1
+        CardPrefab: {fileID: 11400000, guid: 69fbe8e172b3dd846ae8cd853dda4b28, type: 2}
+    - rid: 7085201310277959766
+      type: {class: CreateCard, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        target: 0
+        AddToPile: 1
+        CardPrefab: {fileID: 11400000, guid: 69fbe8e172b3dd846ae8cd853dda4b28, type: 2}
+    - rid: 7085201310277959767
+      type: {class: CreateCard, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        target: 0
+        AddToPile: 1
+        CardPrefab: {fileID: 11400000, guid: 69fbe8e172b3dd846ae8cd853dda4b28, type: 2}
