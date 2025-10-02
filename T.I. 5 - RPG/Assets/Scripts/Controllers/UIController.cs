@@ -86,8 +86,9 @@ public class UIController : MonoBehaviour
     public GameObject enemyDesc;
     public TextMeshPro enemyDescName;
     public TextMeshPro enemyHp;
-    public TextMeshPro enemyMaxHp;
+    //public TextMeshPro enemyMaxHp;
     public TextMeshPro enemyShield;
+    public TextMeshPro enemyEnergy;
     public TextMeshPro enemyDamageTaken;
     public TextMeshPro enemyBaseDamage;
     public TextMeshPro enemyShieldGain;
@@ -867,9 +868,10 @@ public class UIController : MonoBehaviour
         /*enemyHp.text = "Health\n" + activeEnemy.Health;
         enemyMaxHp.text = "Max Health\n" + activeEnemy.MaxHP;
         enemyShield.text = "Shield\n" + activeEnemy.Shield.ToString();*/
-        enemyHp.text = "<color=#FF5555>" + activeEnemy.Health + "</color>";
-        enemyMaxHp.text = "<color=#FF5555>" + activeEnemy.MaxHP + "</color>";
-        enemyShield.text = "<color=#55AAFF>" + activeEnemy.Shield.ToString() + "</color>";
+        enemyHp.text = "<color=#FF5555>" + activeEnemy.Health + "/" + activeEnemy.MaxHP + "</color>";
+        //enemyMaxHp.text = "<color=#FF5555>" + activeEnemy.MaxHP + "</color>";
+        enemyShield.text = "<color=#55AAFF>" + activeEnemy.Shield + "</color>";
+        enemyEnergy.text  = "<color=#00A400>" + activeEnemy.Energy + "</color>";
         enemyBaseDamage.text = activeEnemy.BaseDamage.ToString();
         enemyShieldGain.text =activeEnemy.BaseShieldGain.ToString();
         enemyDamageTaken.text = "x" + multiplier.ToString("0.##");

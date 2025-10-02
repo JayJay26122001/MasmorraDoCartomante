@@ -494,16 +494,18 @@ public class CardUIController : MonoBehaviour
         int pileCount = GameplayManager.currentCombat.combatents[0].decks[0].BuyingPile.Count;
         if (pileCount == 0)
         {
-            buyingPileText.gameObject.SetActive(false);
+            buyingPileText.text = "";
         }
         else
         {
+            //GameObject g = GameplayManager.currentCombat.combatents[0].decks[0].BuyingPile.GetTop().cardDisplay.gameObject;
             buyingPileText.text = pileCount.ToString();
+            float cardHeight = 0.03f;
+            float yOffset = Mathf.Abs(((pileCount - 1) * cardHeight) + 0.01f);
+            ///float yOffset = g.transform.position.y + 0.01f;
+            buyingPileText.transform.position = buyingPilePos.position + Vector3.forward * 1.75f + Vector3.up * yOffset;
             //buyingPileText.gameObject.SetActive(true);
         }
-        float cardHeight = 0.03f;
-        float yOffset = ((pileCount - 1) * cardHeight) + 0.01f;
-        buyingPileText.transform.position = buyingPilePos.position + Vector3.forward * 1.75f + Vector3.up * yOffset;
     }
 
     public void ChangeDiscardPileTextValue()
@@ -511,12 +513,12 @@ public class CardUIController : MonoBehaviour
         int pileCount = GameplayManager.currentCombat.combatents[0].decks[0].DiscardPile.Count;
         if (pileCount == 0)
         {
-            discardPileText.gameObject.SetActive(false);
+            discardPileText.text = "";
         }
         else
         {
             discardPileText.text = pileCount.ToString();
-            discardPileText.gameObject.SetActive(true);
+            //discardPileText.gameObject.SetActive(true);
         }
         float cardHeight = 0.1f;
         float yOffset = ((pileCount - 1) * cardHeight) + 0.01f;
