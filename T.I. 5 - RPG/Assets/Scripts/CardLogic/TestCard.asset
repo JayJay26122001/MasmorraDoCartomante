@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: TestCard
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 2892744785418518618
+  - rid: 2892744785418518654
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Test
   limited: 0
-  instantaneous: 0
+  instantaneous: 1
   cost: 0
   Type: 2
   Pack: 0
@@ -29,13 +29,14 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 2892744785418518618
-      type: {class: SkipTurn, ns: , asm: Assembly-CSharp}
+    - rid: 2892744785418518654
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
-        AmountOfTurns:
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
           type: 0
           target: 0
           ObservedCards:
@@ -57,8 +58,9 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          value: 1
+          value: 999
           min: 0
           max: 0
           modifiers: []
-        target: 1
+        IgnoreDefense: 0
+        target: 0

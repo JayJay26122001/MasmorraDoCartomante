@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -117,6 +118,11 @@ public class Deck : ScriptableObject
     {
         BuyingPile.Clear();
         DiscardPile.Clear();
+        foreach (Card c in cards)
+        {
+            c.cardDisplay.transform.position = UnityEngine.Vector3.up * 25;
+            c.cardDisplay.transform.SetParent(Owner.transform);
+        }
     }
     
 }
