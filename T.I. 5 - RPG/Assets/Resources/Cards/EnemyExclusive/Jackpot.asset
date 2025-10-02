@@ -25,9 +25,14 @@ MonoBehaviour:
   Type: 2
   Pack: 2
   Rarity: 2
-  Description: 'This Card can Activate 1 of 3 Effects: v[0]{Damage} Piercing Damage,
-    v[1]{Shield} Shield or Heal 7 Health.'
-  extraDescription: 
+  Description: 'This Card can Activate 1 of 3 Effects. '
+  extraDescription: '1- v[0]{Damage} Piercing Damage to the Opponent
+
+    2- v[1]{Shield}
+    Shield to the User
+
+    3- Heal 7 of the User''s Health'
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:
