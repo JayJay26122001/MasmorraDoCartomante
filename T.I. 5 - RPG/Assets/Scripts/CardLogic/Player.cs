@@ -11,7 +11,6 @@ public class Player : Creature
     public override void TurnAction()
     {
         if (!GameplayManager.instance.CombatActive) return;
-        Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAA");
         base.TurnAction();
         if (skipTurn > 0)
         {

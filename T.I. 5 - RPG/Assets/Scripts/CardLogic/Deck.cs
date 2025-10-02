@@ -64,7 +64,7 @@ public class Deck : ScriptableObject
                 Owner.hand.Add(card);
                 break;
         }
-        
+
         CardUIController.instance.InstantiateCard(card);
         CardUIController.AttCardDescription(Owner);
         CardUIController.CardsOrganizer(Owner);
@@ -118,8 +118,13 @@ public class Deck : ScriptableObject
     {
         BuyingPile.Clear();
         DiscardPile.Clear();
+        ResetCardsPos();
+    }
+    void ResetCardsPos()
+    {
         foreach (Card c in cards)
         {
+            LeanTween.cancel(c.cardDisplay.gameObject);
             c.cardDisplay.transform.position = UnityEngine.Vector3.up * 25;
             c.cardDisplay.transform.SetParent(Owner.transform);
         }

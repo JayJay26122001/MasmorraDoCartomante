@@ -300,6 +300,29 @@ public class Creature : MonoBehaviour
         CardUIController.OrganizeStackFlat(card.deck.DiscardPile, combatSpace.discardPileSpace);
         //CardUIController.instance.ChangePileTextValues(card.deck.DiscardPile, CardUIController.instance.discardPilePos);
     }
+    void discardCardWithNoOrganizer(Card card)
+    {
+        if (card.deck.DiscardPile.Contains(card))
+        {
+            return;
+        }
+        card.deck.DiscardPile.Add(card);
+        hand.Remove(card);
+        playedCards.Remove(card);
+        card.deck.BuyingPile.Remove(card);
+        foreach (Effect e in card.Effects)
+        {
+            if (/*e.effectStarted &&*/ !e.EffectAcomplished)
+            {
+                e.EffectEnded();
+            }
+            e.resetEffect();
+        }
+        if (card.limited)
+        {
+            ExaustCard(card);
+        }
+    }
     public void ExaustCard(Card card)
     {
         card.cardDisplay.gameObject.SetActive(false);
