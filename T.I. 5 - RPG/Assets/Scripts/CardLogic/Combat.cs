@@ -429,8 +429,7 @@ public class TurnStart : TurnPhase
     public TurnStart(Creature owner) : base(owner) { }
     public override void StartPhase()
     {
-        base.StartPhase();
-        if (owner is Player)
+        if (owner is Player && owner.SkipTurn <= 0)
         {
             ActionController.instance.InvokeTimer(GameplayManager.currentCombat.SetBellActive, true, 1f);
         }
@@ -438,6 +437,7 @@ public class TurnStart : TurnPhase
         {
             e.FinishedPlaying.AddListener(() => GameplayManager.currentCombat.SetBellActive(true));
         }
+        base.StartPhase();
     }
 
     public override void PhaseEffect()

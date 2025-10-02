@@ -13,65 +13,29 @@ MonoBehaviour:
   m_Name: TestCard
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 1178401817022169202
+  - rid: 2892744785418518618
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Test
   limited: 0
   instantaneous: 0
   cost: 0
-  Type: 0
+  Type: 2
   Pack: 0
   Rarity: 4
-  Description: every turn deal damage equal to the number of cards in the oponent
-    buying pile
+  Description: skip player next turn
   extraDescription: 
   CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:
-    - rid: 1178401817022169202
-      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+    - rid: 2892744785418518618
+      type: {class: SkipTurn, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
-        Conditions:
-        - rid: 1178401817022169203
+        Conditions: []
         ConfirmationConditions: []
-        MultipliedByBaseDamage: 0
-        DamageMultiplier:
-          type: 2
-          target: 1
-          ObservedCards:
-            target: 1
-            pile: 4
-            type: -1
-            rarity: -1
-            pack: -1
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-            initialized: 1
-          MaxReturnedNumber:
-            type: 2
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          initialized: 1
-          value: 0
-          min: 0
-          max: 0
-          modifiers: []
-        IgnoreDefense: 0
-        target: 0
-    - rid: 1178401817022169203
-      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
-      data:
-        Repeatable: 1
-        TurnOwner: 0
-        TurnsFromNow:
+        AmountOfTurns:
           type: 0
           target: 0
           ObservedCards:
@@ -93,9 +57,8 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          value: 0
+          value: 1
           min: 0
           max: 0
           modifiers: []
-        TurnPhase: 1
-        PhaseTime: 0
+        target: 1

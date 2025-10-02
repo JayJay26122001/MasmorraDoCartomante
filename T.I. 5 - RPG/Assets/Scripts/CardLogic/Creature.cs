@@ -49,6 +49,14 @@ public class Creature : MonoBehaviour
     public UnityEngine.UI.Image hpCircle;
 
     protected int skipTurn = 0, skipCardBuy = 0;
+    public int SkipTurn
+    {
+        get{ return skipTurn; }
+    }
+    public int SkipCardBuy
+    {
+        get{ return skipCardBuy; }
+    }
 
     public int Money
     {
