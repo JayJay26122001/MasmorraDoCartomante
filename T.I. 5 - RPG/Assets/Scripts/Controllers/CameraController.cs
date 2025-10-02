@@ -52,6 +52,10 @@ public class CameraController : MonoBehaviour
         {
             activeCamIndex++;
             ChangeActiveCamera();
+            if(activeCamIndex == 3)
+            {
+                GameManager.instance.uiController.ActivateEnemyDesc();
+            }
         }
     }
     public void SwitchDownInput(InputAction.CallbackContext context)
@@ -60,6 +64,7 @@ public class CameraController : MonoBehaviour
         {
             activeCamIndex--;
             ChangeActiveCamera();
+            GameManager.instance.uiController.HideEnemyDesc();
         }
     }
 
