@@ -118,33 +118,14 @@ public abstract class Effect
                 return;
             }
         }
-        /*foreach (ConfirmationCondition c in ConfirmationConditions)
-        {
-            if (!c.Confirm())
-            {
-                state = EffectState.Failled;
-                EffectEnded();
-                return;
-            }
-        }*/
-        state = EffectState.InProgress;
+        //state = EffectState.InProgress;
         ActionController.instance.AddToQueueBeforeAdvance(new ApplyEffectAction(this));
     }
     public void ApplyIfNoCondition()
     {
         if (Conditions.Count <= 0 && !effectStarted && !EffectAcomplished)
         {
-            //Apply();
-            /*foreach (ConfirmationCondition c in ConfirmationConditions)
-            {
-                if (!c.Confirm())
-                {
-                    state = EffectState.Failled;
-                    EffectEnded();
-                    return;
-                }
-            }*/
-            state = EffectState.InProgress;
+            //state = EffectState.InProgress;
             ActionController.instance.AddToQueueBeforeAdvance(new ApplyEffectAction(this));
         }
     }

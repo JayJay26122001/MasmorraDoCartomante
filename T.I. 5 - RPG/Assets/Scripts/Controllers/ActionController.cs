@@ -430,6 +430,7 @@ public class ApplyEffectAction : SceneAction
     }
     public override void StartAction()
     {
+        e.state = EffectState.InProgress;
         foreach (ConfirmationCondition c in e.ConfirmationConditions)
         {
             if (!c.Confirm())
