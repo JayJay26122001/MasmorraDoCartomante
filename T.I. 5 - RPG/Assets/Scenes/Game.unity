@@ -12941,7 +12941,7 @@ MonoBehaviour:
   energy: 0
   maxBaseEnergy: 3
   money: 3
-  CardBuyMax: 5
+  CardBuyMax: 2
   baseDamage: 6
   baseShieldGain: 5
   baseDamageTaken: 100
@@ -26999,8 +26999,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 1016935894}
     m_Modifications:
     - target: {fileID: 549710575823889794, guid: 16c60fd074451384f9ee56428634ff66, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 549710575823889794, guid: 16c60fd074451384f9ee56428634ff66, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 549710575823889794, guid: 16c60fd074451384f9ee56428634ff66, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 549710575823889794, guid: 16c60fd074451384f9ee56428634ff66, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 549710575823889794, guid: 16c60fd074451384f9ee56428634ff66, type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2410163987349591978, guid: 16c60fd074451384f9ee56428634ff66, type: 3}
       propertyPath: m_Name
@@ -38454,9 +38470,9 @@ MonoBehaviour:
   hp: 0
   shld: 0
   energy: 0
-  maxBaseEnergy: 3
+  maxBaseEnergy: 2
   money: 3
-  CardBuyMax: 5
+  CardBuyMax: 2
   baseDamage: 6
   baseShieldGain: 7
   baseDamageTaken: 100
@@ -39058,7 +39074,7 @@ MonoBehaviour:
   energy: 0
   maxBaseEnergy: 3
   money: 3
-  CardBuyMax: 3
+  CardBuyMax: 2
   baseDamage: 6
   baseShieldGain: 5
   baseDamageTaken: 100
