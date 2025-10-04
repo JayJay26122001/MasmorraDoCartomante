@@ -86,7 +86,6 @@ public class UIController : MonoBehaviour
     public GameObject enemyDesc;
     public TextMeshPro enemyDescName;
     public TextMeshPro enemyHp;
-    //public TextMeshPro enemyMaxHp;
     public TextMeshPro enemyShield;
     public TextMeshPro enemyEnergy;
     public TextMeshPro enemyDamageTaken;
@@ -881,7 +880,7 @@ public class UIController : MonoBehaviour
             totalBuying += deck.BuyingPile.Count;
             totalDiscard += deck.DiscardPile.Count;
         }
-        enemyCardsInBuying.text = totalBuying.ToString() + "  Cards";
+        enemyCardsInBuying.text = totalBuying.ToString() + " Cards";
         enemyCardsInDiscard.text = totalDiscard.ToString() + " Cards";
     }
 

@@ -10581,7 +10581,7 @@ GameObject:
   - component: {fileID: 393722784}
   - component: {fileID: 393722783}
   m_Layer: 0
-  m_Name: T_ShieldText
+  m_Name: T_HpText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10626,7 +10626,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Shield
+  m_text: 'Health
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
   m_sharedMaterial: {fileID: 1623889163624291708, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
@@ -15058,7 +15060,7 @@ GameObject:
   - component: {fileID: 602774723}
   - component: {fileID: 602774722}
   m_Layer: 0
-  m_Name: T_HpText
+  m_Name: T_ShieldText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15103,7 +15105,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hp
+  m_text: Shield
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
   m_sharedMaterial: {fileID: 1623889163624291708, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
@@ -16199,9 +16201,9 @@ MonoBehaviour:
     vsyncEnabled: 0
   enemyDesc: {fileID: 76892535}
   enemyDescName: {fileID: 2095765253}
-  enemyHp: {fileID: 1537941328}
-  enemyShield: {fileID: 2052811306}
-  enemyEnergy: {fileID: 0}
+  enemyHp: {fileID: 2052811306}
+  enemyShield: {fileID: 1537941328}
+  enemyEnergy: {fileID: 1209083257}
   enemyDamageTaken: {fileID: 1491195436}
   enemyBaseDamage: {fileID: 1372505374}
   enemyShieldGain: {fileID: 1278324453}
@@ -27505,7 +27507,7 @@ GameObject:
   - component: {fileID: 1209083258}
   - component: {fileID: 1209083257}
   m_Layer: 0
-  m_Name: T_MaxHp
+  m_Name: T_Energy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27577,8 +27579,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -34836,7 +34838,7 @@ GameObject:
   - component: {fileID: 1537941329}
   - component: {fileID: 1537941328}
   m_Layer: 0
-  m_Name: T_Hp
+  m_Name: T_Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34908,8 +34910,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -35335,7 +35337,7 @@ GameObject:
   - component: {fileID: 1555993501}
   - component: {fileID: 1555993500}
   m_Layer: 0
-  m_Name: T_MaxHpText
+  m_Name: T_EnergyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35380,7 +35382,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Max Hp
+  m_text: Energy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
   m_sharedMaterial: {fileID: 1623889163624291708, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
@@ -42940,7 +42942,7 @@ GameObject:
   - component: {fileID: 2052811307}
   - component: {fileID: 2052811306}
   m_Layer: 0
-  m_Name: T_Shield
+  m_Name: T_Hp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43012,8 +43014,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -43507,12 +43509,12 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2095765251}
+  - {fileID: 393722782}
+  - {fileID: 2052811305}
   - {fileID: 602774721}
   - {fileID: 1537941327}
   - {fileID: 1555993499}
   - {fileID: 1209083256}
-  - {fileID: 393722782}
-  - {fileID: 2052811305}
   - {fileID: 716061009}
   - {fileID: 1372505373}
   - {fileID: 1692080841}
