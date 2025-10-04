@@ -3,7 +3,12 @@ guid: 67271ac38fbd2084aaa9802643714344
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TempleTableMat
+    second: {fileID: 2100000, guid: 150232d06265fb649b2eb9926229cfb3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -88,7 +93,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.098
+    globalScale: 9.8
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

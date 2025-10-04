@@ -3,7 +3,12 @@ guid: 98d75b70034e0094485e368e59b72820
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DungeonTEMP
+    second: {fileID: 2100000, guid: 582ac27dde128c44db9c2661a9946512, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -88,7 +93,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.098
+    globalScale: 9.8
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
