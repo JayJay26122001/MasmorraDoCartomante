@@ -10,36 +10,41 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10548cab3075f8741a3bfbd1ea544566, type: 3}
-  m_Name: Trash
+  m_Name: Heal
   m_EditorClassIdentifier: 
-  roomName: Trash
+  roomName: Heal
   baseProbabilities:
   - type: Battle
     probability: 60
-    multiplier: 0
-    minMult: 0
-    maxMult: 0
+    multiplier: 1
+    minMult: 0.1
+    maxMult: 2
+    canBeZero: 1
   - type: Heal
-    probability: 10
-    multiplier: 0
+    probability: 0
+    multiplier: 1
     minMult: 0
-    maxMult: 0
+    maxMult: 1.5
+    canBeZero: 1
   - type: Shop
-    probability: 15
-    multiplier: 0
+    probability: 10
+    multiplier: 1
     minMult: 0
-    maxMult: 0
+    maxMult: 1.5
+    canBeZero: 1
   - type: Trash
-    probability: 5
-    multiplier: 0
+    probability: 20
+    multiplier: 1
     minMult: 0
-    maxMult: 0
+    maxMult: 1.5
+    canBeZero: 1
   - type: Stamp
     probability: 5
-    multiplier: 0
+    multiplier: 1
     minMult: 0
-    maxMult: 0
+    maxMult: 1.5
+    canBeZero: 1
   testColor:
     serializedVersion: 2
-    rgba: 39423
-  iconMesh: {fileID: -6752332527769912809, guid: 64df6bd85a3659e4b829047f13c2ec0e, type: 3}
+    rgba: 65280
+  iconMesh: {fileID: -672876521090725945, guid: 928da2a137d82d6479325d9290aec8e3, type: 3}

@@ -13,7 +13,7 @@ public class EnemyPool : ScriptableObject
         probabilities.Clear();
         foreach(ControlledProbability p in baseProbabilities)
         {
-            probabilities.Add(new ControlledProbability(p.type, p.probability, p.multiplier, p.minMult, p.maxMult));
+            probabilities.Add(new ControlledProbability(p.type, p.probability, p.multiplier, p.minMult, p.maxMult, false));
         }
     }
 

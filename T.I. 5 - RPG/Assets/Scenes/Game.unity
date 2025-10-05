@@ -9156,58 +9156,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76732fbb8eaa6f84ca59334d1b8f69b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelsCount: 8
-  maxBranches: 3
-  startRoom: {fileID: 11400000, guid: 360091fc7cea3ed4d8292376c8805d53, type: 2}
-  bossRoom: {fileID: 11400000, guid: 6a701e2991ee8754b8cddb158e431ad2, type: 2}
-  roomList:
-  - {fileID: 11400000, guid: 502a13dcbc6c90a4ebe32af84743f161, type: 2}
-  - {fileID: 11400000, guid: a2c7eab4e586d594aa66f67f58dc9ed7, type: 2}
-  - {fileID: 11400000, guid: e9fb53d20fe3755498b5c6ed648a0b74, type: 2}
-  - {fileID: 11400000, guid: 4cb6691f8ba00904cb0b3d7f34e3686f, type: 2}
-  - {fileID: 11400000, guid: 20512925a16f1d04b94fc672b8e3acb8, type: 2}
+  boards:
+  - {fileID: 11400000, guid: 0a65d3e7aff2bdb449c29087574dbbde, type: 2}
+  - {fileID: 11400000, guid: b6d65c70d41c47b4ebd1c1acbcb99142, type: 2}
+  - {fileID: 11400000, guid: 0deed17538513684d91fcf6af5f8a48f, type: 2}
+  - {fileID: 11400000, guid: db107766f7ee3eb4e9093df116c238c0, type: 2}
+  - {fileID: 11400000, guid: 1596020848a1fea4fa8353d44a0d5e2f, type: 2}
   typeProbabilities:
   - type: Battle
     probability: 100
     multiplier: 1
     minMult: 0.1
     maxMult: 2
+    canBeZero: 1
   - type: Heal
     probability: 0
     multiplier: 1
     minMult: 0
     maxMult: 1.5
+    canBeZero: 1
   - type: Shop
     probability: 0
     multiplier: 1
     minMult: 0
     maxMult: 1.5
+    canBeZero: 1
   - type: Trash
     probability: 0
     multiplier: 1
     minMult: 0
     maxMult: 1.5
+    canBeZero: 1
   - type: Stamp
     probability: 0
     multiplier: 1
     minMult: 0
     maxMult: 1.5
+    canBeZero: 1
   levelProbabilities:
   - type: Merge
     probability: 0
     multiplier: 1
     minMult: 0
     maxMult: 1.5
+    canBeZero: 1
   - type: Proceed
     probability: 20
     multiplier: 1
     minMult: 0.1
     maxMult: 1.5
+    canBeZero: 1
   - type: Branch
     probability: 80
     multiplier: 1
     minMult: 0
     maxMult: 2
+    canBeZero: 1
   roomTest: {fileID: 7463732538441254492, guid: 99a261ab24e2cec4e8e734aff19bfda6, type: 3}
   boardBase: {fileID: 902547673}
   playerPiece: {fileID: 122188052}

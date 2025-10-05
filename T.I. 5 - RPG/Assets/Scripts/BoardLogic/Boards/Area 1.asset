@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8033803678fd02147abe7d7f3da4a749, type: 3}
+  m_Name: Area 1
+  m_EditorClassIdentifier: 
+  levelsCount: 9
+  maxBranches: 3
+  startRoom: {fileID: 11400000, guid: b75946d1ddcbd1840b2e0282e94d97d7, type: 2}
+  bossRoom: {fileID: 11400000, guid: 706d2e91abf6a414997c6caf2198bc85, type: 2}
+  roomList:
+  - {fileID: 11400000, guid: dd958303d8531184fb6ac317e4185b19, type: 2}
+  - {fileID: 11400000, guid: b772f99f188dd804bb5d735ef4871084, type: 2}
+  - {fileID: 11400000, guid: c6e9f14075ef3cc45bed45018673d060, type: 2}
+  - {fileID: 11400000, guid: 09389cf98c837164ca56087f7f03d2b8, type: 2}
+  - {fileID: 11400000, guid: b99f11bcf638b3e4a8cdbc57f71accf4, type: 2}

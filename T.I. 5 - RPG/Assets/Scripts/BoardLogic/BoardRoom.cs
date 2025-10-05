@@ -44,19 +44,28 @@ public class ControlledProbability
     public string type;
     public int probability;
     public float multiplier = 1, minMult, maxMult;
+    public bool canBeZero = true;
 
-    public ControlledProbability(string type, int probability, float multiplier, float minMult, float maxMult)
+    public ControlledProbability(string type, int probability, float multiplier, float minMult, float maxMult, bool canBeZero)
     {
         this.type = type;
         this.probability = probability;
         this.multiplier = multiplier;
         this.minMult = minMult;
         this.maxMult = maxMult;
+        this.canBeZero = canBeZero;
     }
 
     public void ModifyProbability(int value)
     {
-        probability = (int)Mathf.Clamp(((float)value * multiplier), 2, float.MaxValue);
+        if(canBeZero)
+        {
+            probability = (int)Mathf.Clamp(((float)value * multiplier), 0, float.MaxValue);
+        }
+        else
+        {
+            probability = (int)Mathf.Clamp(((float)value * multiplier), 2, float.MaxValue);
+        }
     }
 
     public void ModifyMultiplier(float diff)

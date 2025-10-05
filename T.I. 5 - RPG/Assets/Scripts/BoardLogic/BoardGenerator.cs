@@ -3,9 +3,10 @@ using System.Collections.Generic;
 public class BoardGenerator : MonoBehaviour
 {
     public List<List<BoardRoom>> board = new List<List<BoardRoom>>();
-    public int levelsCount, maxBranches;
-    public BoardRoomSO startRoom, bossRoom;
-    public List<BoardRoomSO> roomList = new List<BoardRoomSO>();
+    //public int levelsCount, maxBranches;
+    //public BoardRoomSO startRoom, bossRoom;
+    //public List<BoardRoomSO> roomList = new List<BoardRoomSO>();
+    public List<BoardSO> boards = new List<BoardSO>();
     public List<ControlledProbability> typeProbabilities = new List<ControlledProbability>();
     public List<ControlledProbability> levelProbabilities = new List<ControlledProbability>();
     List<ControlledProbability> auxProb = new List<ControlledProbability>();
@@ -54,10 +55,10 @@ public class BoardGenerator : MonoBehaviour
         {
             Destroy(c.gameObject);
         }
-        foreach(ControlledProbability p in typeProbabilities)
+        /*foreach(ControlledProbability p in typeProbabilities)
         {
             p.ModifyMultiplier(1 - p.multiplier);
-        }
+        }*/
         foreach(ControlledProbability p in levelProbabilities)
         {
             p.ModifyMultiplier(1 - p.multiplier);
@@ -73,11 +74,17 @@ public class BoardGenerator : MonoBehaviour
         board.Clear();
         branchLevel = 1;
         //ChangeProbabilities(startRoom.roomName);
-        newRoom = new BoardRoom(startRoom, typeProbabilities, 1, 1, false);
+        typeProbabilities.Clear();
+        int area = GameplayManager.instance.areaIndex;
+        for (int i = 0; i < boards[area].startRoom.baseProbabilities.Count; i++)
+        {
+            typeProbabilities.Add(new ControlledProbability(boards[area].startRoom.baseProbabilities[i].type, boards[area].startRoom.baseProbabilities[i].probability, boards[area].startRoom.baseProbabilities[i].multiplier, boards[area].startRoom.baseProbabilities[i].minMult, boards[area].startRoom.baseProbabilities[i].maxMult, true));
+        }
+        newRoom = new BoardRoom(boards[area].startRoom, typeProbabilities, 1, 1, false);
         board.Insert(0, new List<BoardRoom>());
         board[0].Add(newRoom);
         GameplayManager.instance.currentRoom = newRoom;
-        for(int i = 1; i < levelsCount - 1; i++)
+        for(int i = 1; i < boards[area].levelsCount - 1; i++)
         {
             board.Insert(i, new List<BoardRoom>());
             for (int j = 0; j < board[i - 1].Count; j++)
@@ -101,7 +108,7 @@ public class BoardGenerator : MonoBehaviour
                                 aux += board[i - 1][j].nextRoomsProbabilities[k].probability;
                                 if (rand < aux)
                                 {
-                                    if (!board[i - 1][j].CheckNextRooms(roomList[k]) /*board[i - 1][j].type.possibleNextRooms[k]*/ )
+                                    if (!board[i - 1][j].CheckNextRooms(boards[area].roomList[k]) /*board[i - 1][j].type.possibleNextRooms[k]*/ )
                                     {
                                         if(board[i - 1][j].nextRoomsCount > 1)
                                         {
@@ -111,8 +118,13 @@ public class BoardGenerator : MonoBehaviour
                                         {
                                             branchLevel = board[i - 1][j].branchLevel;
                                         }
-                                        ChangeProbabilities(roomList[k] /*board[i - 1][j].type.possibleNextRooms[k]*/ );
-                                        newRoom = new BoardRoom(/*board[i - 1][j].type.possibleNextRooms[k]*/ roomList[k], typeProbabilities, nextRoomsCount, branchLevel, willMerge);
+                                        for(int l = 0; l < typeProbabilities.Count; l++)
+                                        {
+                                            typeProbabilities[l].ModifyProbability(board[i - 1][j].nextRoomsProbabilities[l].probability);
+                                            typeProbabilities[l].ModifyMultiplier(board[i - 1][j].nextRoomsProbabilities[l].multiplier - typeProbabilities[l].multiplier);
+                                        }
+                                        ChangeProbabilities(boards[area].roomList[k] /*board[i - 1][j].type.possibleNextRooms[k]*/ );
+                                        newRoom = new BoardRoom(/*board[i - 1][j].type.possibleNextRooms[k]*/ boards[area].roomList[k], typeProbabilities, nextRoomsCount, branchLevel, willMerge);
                                         board[i - 1][j].nextRooms.Add(newRoom);
                                         board[i].Add(newRoom);
                                         success = true;
@@ -129,7 +141,7 @@ public class BoardGenerator : MonoBehaviour
                     //nrProbabilities = new List<int> { board[i - 1][j].nextRoomsProbabilities[0].probability + board[i - 1][j + 1].nextRoomsProbabilities[0].probability, board[i - 1][j].nextRoomsProbabilities[1].probability + board[i - 1][j + 1].nextRoomsProbabilities[1].probability, board[i - 1][j].nextRoomsProbabilities[2] + board[i - 1][j + 1].nextRoomsProbabilities[2] };
                     for(int k = 0; k < typeProbabilities.Count; k++)
                     {
-                        auxProb.Add(new ControlledProbability(typeProbabilities[k].type, board[i - 1][j].nextRoomsProbabilities[k].probability + board[i - 1][j + 1].nextRoomsProbabilities[k].probability, (board[i - 1][j].nextRoomsProbabilities[k].multiplier + board[i - 1][j + 1].nextRoomsProbabilities[k].multiplier) / 2, typeProbabilities[k].minMult, typeProbabilities[k].maxMult));
+                        auxProb.Add(new ControlledProbability(typeProbabilities[k].type, board[i - 1][j].nextRoomsProbabilities[k].probability + board[i - 1][j + 1].nextRoomsProbabilities[k].probability, (board[i - 1][j].nextRoomsProbabilities[k].multiplier + board[i - 1][j + 1].nextRoomsProbabilities[k].multiplier) / 2, typeProbabilities[k].minMult, typeProbabilities[k].maxMult, true));
                     }
                     int sum = 0;
                     foreach (ControlledProbability s in auxProb)
@@ -144,8 +156,13 @@ public class BoardGenerator : MonoBehaviour
                         if (rand < aux)
                         {
                             branchLevel = board[i - 1][j].branchLevel - 1;
-                            ChangeProbabilities(roomList[k] /*board[i - 1][j].type.possibleNextRooms[k]*/);
-                            newRoom = new BoardRoom(roomList[k] /*board[i - 1][j].type.possibleNextRooms[k]*/, typeProbabilities, nextRoomsCount, branchLevel, willMerge);
+                            for (int l = 0; l < typeProbabilities.Count; l++)
+                            {
+                                typeProbabilities[l].ModifyProbability(board[i - 1][j].nextRoomsProbabilities[l].probability);
+                                typeProbabilities[l].ModifyMultiplier(board[i - 1][j].nextRoomsProbabilities[l].multiplier - typeProbabilities[l].multiplier);
+                            }
+                            ChangeProbabilities(boards[area].roomList[k] /*board[i - 1][j].type.possibleNextRooms[k]*/);
+                            newRoom = new BoardRoom(boards[area].roomList[k] /*board[i - 1][j].type.possibleNextRooms[k]*/, typeProbabilities, nextRoomsCount, branchLevel, willMerge);
                             board[i - 1][j].nextRooms.Add(newRoom);
                             board[i - 1][j + 1].nextRooms.Add(newRoom);
                             board[i].Add(newRoom);
@@ -156,14 +173,14 @@ public class BoardGenerator : MonoBehaviour
                 }
             }
         }
-        board.Insert(levelsCount - 1, new List<BoardRoom>());
-        newRoom = new BoardRoom(bossRoom);
-        foreach(BoardRoom r in board[levelsCount - 2])
+        board.Insert(boards[area].levelsCount - 1, new List<BoardRoom>());
+        newRoom = new BoardRoom(boards[area].bossRoom);
+        foreach(BoardRoom r in board[boards[area].levelsCount - 2])
         {
             r.nextRoomsCount = 1;
             r.nextRooms.Add(newRoom);
         }
-        board[levelsCount - 1].Add(newRoom);
+        board[boards[area].levelsCount - 1].Add(newRoom);
         InstantiateBoard();
     }
 
@@ -318,7 +335,7 @@ public class BoardGenerator : MonoBehaviour
             levelProbabilities[1].ModifyProbability(25);
             levelProbabilities[2].ModifyProbability(75);
         }
-        else if(branchLevel == maxBranches)
+        else if(branchLevel == boards[GameplayManager.instance.areaIndex].maxBranches)
         {
             levelProbabilities[0].ModifyProbability(35);
             levelProbabilities[1].ModifyProbability(65);
@@ -459,7 +476,7 @@ public class BoardGenerator : MonoBehaviour
             }
             boardBase.GetComponent<MeshRenderer>().material.SetFloat("_DisappearTime", t);
             playerPiece.GetComponent<MeshRenderer>().material.SetFloat("_DisappearTime", t);
-            for (int i = 0; i < levelsCount; i++)
+            for (int i = 0; i < boards[GameplayManager.instance.areaIndex].levelsCount; i++)
             {
                 foreach (BoardRoom r in board[i])
                 {
