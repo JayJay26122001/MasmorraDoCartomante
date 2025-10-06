@@ -1,10 +1,13 @@
 using Unity.VisualScripting;
+using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public UIController uiController;
+    public List<Card> GameCards;
 
     private void Awake()
     {
@@ -16,21 +19,13 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        //DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(this.gameObject);
     }
 
-    void Start()
+    [ContextMenu("Update Cards")]
+    void UpdateCards()
     {
+        Card[] aux = Resources.LoadAll<Card>("");
+        GameCards = aux.ToList();
     }
-    /*public CardVar card = new CardVar();
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            foreach (Card c in card.GetCardsWithStats(GameplayManager.currentCombat.combatents[0])) {
-                Debug.Log(c.name);
-            }
-            
-        }
-    }*/
 }
