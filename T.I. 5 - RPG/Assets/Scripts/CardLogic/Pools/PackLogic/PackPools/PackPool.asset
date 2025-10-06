@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: PackPool
   m_EditorClassIdentifier: 
   pool:
-  - {fileID: 11400000, guid: 6d3489f8feac3974387da655f59f8889, type: 2}
+  - {fileID: 11400000, guid: c102839f6cc2e994198f8a38232ab61e, type: 2}
+  - {fileID: 11400000, guid: ea9c59a835ebc1c469eba533e188f782, type: 2}
+  - {fileID: 11400000, guid: 3de422ae60fbcae4db954ce1dd72236f, type: 2}
+  - {fileID: 11400000, guid: 4e888ea5b9a798340aa16806914d2647, type: 2}
   - {fileID: 11400000, guid: 8c77827d95f72ab438aa1f0ac310f235, type: 2}
+  - {fileID: 11400000, guid: 6d3489f8feac3974387da655f59f8889, type: 2}
   - {fileID: 11400000, guid: bff8d6e8b77c9be4e847d4aa74b06bda, type: 2}
-  probabilities: 32000000230000000f000000
+  probabilities: 16000000140000000d0000000c000000080000001200000007000000

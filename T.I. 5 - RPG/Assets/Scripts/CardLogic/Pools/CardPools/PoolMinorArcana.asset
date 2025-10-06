@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995504db228d6014d9164719d5738eda, type: 3}
+  m_Name: PoolMinorArcana
+  m_EditorClassIdentifier: 
+  pool:
+  - {fileID: 11400000, guid: 53e45334c7d15b24aacc0d89f84335b6, type: 2}
+  - {fileID: 11400000, guid: 32e259abb85f05f4ab722e846f9088ec, type: 2}
+  - {fileID: 11400000, guid: d900c7b950b4e2845bcbd88b6153b991, type: 2}
+  - {fileID: 11400000, guid: 879c9dd8166f4914db3a33cb3d18a255, type: 2}
+  - {fileID: 11400000, guid: 4341c4807aeb43c438237e67bfdca339, type: 2}
+  - {fileID: 11400000, guid: 9b2e701fa98eb4f4e9da49546a8324a7, type: 2}
+  - {fileID: 11400000, guid: 39746dc6d1929b14e88f1e4cc517c61f, type: 2}
+  - {fileID: 11400000, guid: 2d45cb0e70b6c294099221aa4e9134c5, type: 2}
+  - {fileID: 11400000, guid: 4e53e5f51f834844e83029cab2cd2358, type: 2}
+  - {fileID: 11400000, guid: f8af5cbb665f7b442be2085e47e7e6eb, type: 2}
+  baseProbabilities:
+  - 60
+  - 30
+  - 10
+  - 0
+  - 0
+  type: -1
+  rarity: -1
+  packSet: 8

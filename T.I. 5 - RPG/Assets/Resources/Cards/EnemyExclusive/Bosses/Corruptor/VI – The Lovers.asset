@@ -17,7 +17,6 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: "VI \u2013 The Lovers"
-  hidden: 0
   limited: 0
   instantaneous: 0
   cost: 1
@@ -25,6 +24,8 @@ MonoBehaviour:
   Pack: 4
   Rarity: 4
   Description: Heal 2 -12 random Health.
+  extraDescription: 
+  CardImage: {fileID: 21300000, guid: 3d68242397cfdf3458c1dcdba30371e3, type: 3}
   references:
     version: 2
     RefIds:
@@ -35,6 +36,7 @@ MonoBehaviour:
         Conditions: []
         ConfirmationConditions: []
         AmountHealled:
+          type: 1
           target: 0
           ObservedCards:
             target: 0
@@ -47,13 +49,14 @@ MonoBehaviour:
               value: 0
               min: 0
               max: 0
+            initialized: 1
           MaxReturnedNumber:
-            type: 0
+            type: 2
             value: 0
             min: 0
             max: 0
           ObservedStat: 0
-          type: 1
+          initialized: 1
           value: 0
           min: 2
           max: 12

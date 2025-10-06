@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995504db228d6014d9164719d5738eda, type: 3}
+  m_Name: PoolSandsOfTime
+  m_EditorClassIdentifier: 
+  pool:
+  - {fileID: 11400000, guid: 90fa8831806778e4fb32ae188df74e57, type: 2}
+  - {fileID: 11400000, guid: 073a4f88e431ee648b547aed814760fc, type: 2}
+  - {fileID: 11400000, guid: 2486b48525d85cb41a462d882b15c77b, type: 2}
+  - {fileID: 11400000, guid: e657f95c67ccdbb4ebd9b25de65596cc, type: 2}
+  - {fileID: 11400000, guid: 1aa80c3bb6c0fc04e9fea48c0145e83f, type: 2}
+  - {fileID: 11400000, guid: 3aa5ae1942f10434eb3888cb3242056e, type: 2}
+  - {fileID: 11400000, guid: c50a1d7cf7f7d2948824bb44c3958e4e, type: 2}
+  - {fileID: 11400000, guid: 48874d1fd85d78142b3d0d81ca1482e2, type: 2}
+  - {fileID: 11400000, guid: 694481bd872dc3d488fe2df2fa057587, type: 2}
+  - {fileID: 11400000, guid: 2d45cb0e70b6c294099221aa4e9134c5, type: 2}
+  - {fileID: 11400000, guid: 43dc85989e8829547899652aa0f5991e, type: 2}
+  - {fileID: 11400000, guid: fef2e4abbf70cb34cb049f97182832fe, type: 2}
+  - {fileID: 11400000, guid: bb67cac583b725947b07ce815a51b0ae, type: 2}
+  - {fileID: 11400000, guid: f5df698fa3947074ebb31b07fdb255cd, type: 2}
+  - {fileID: 11400000, guid: 9b4e031e6f8cab54a83bddb6fa9cf491, type: 2}
+  - {fileID: 11400000, guid: 584813ab50185e54aad3f50e0917a721, type: 2}
+  - {fileID: 11400000, guid: d900c7b950b4e2845bcbd88b6153b991, type: 2}
+  baseProbabilities:
+  - 40
+  - 29
+  - 20
+  - 10
+  - 1
+  type: -1
+  rarity: -1
+  packSet: 32

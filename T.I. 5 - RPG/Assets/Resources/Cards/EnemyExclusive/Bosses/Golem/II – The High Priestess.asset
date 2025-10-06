@@ -28,6 +28,7 @@ MonoBehaviour:
   Description: 'Gain v[0]{Shield}  Shield. Until the user''s next turn, if an incoming
     damage is fully blocked, heal 10 health. '
   extraDescription: 
+  CardImage: {fileID: 21300000, guid: fd770e5770968e64ea826c3a443214d7, type: 3}
   references:
     version: 2
     RefIds:

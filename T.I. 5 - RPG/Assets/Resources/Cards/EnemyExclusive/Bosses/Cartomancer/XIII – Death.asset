@@ -25,6 +25,8 @@ MonoBehaviour:
   Pack: 4
   Rarity: 4
   Description: Deals v[0]{Damage}  Damage and Destroys the Opponent's Discard Pile
+  extraDescription: 
+  CardImage: {fileID: 21300000, guid: 4933f75000a89eb46b9c496ebac3227b, type: 3}
   references:
     version: 2
     RefIds:

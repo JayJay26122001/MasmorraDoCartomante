@@ -26,6 +26,8 @@ MonoBehaviour:
   Rarity: 4
   Description: Deals Piercing Damage Equal half the Opponent's Current Health and
     receive Half of its Shield (v[0]{Damage}) (v[1]{Shield}).
+  extraDescription: 
+  CardImage: {fileID: 21300000, guid: 50b841e8652519c448503135ac419df3, type: 3}
   references:
     version: 2
     RefIds:

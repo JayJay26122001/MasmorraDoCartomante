@@ -20,12 +20,13 @@ MonoBehaviour:
   Name: "I \u2013 The Magician"
   limited: 0
   instantaneous: 0
-  extraDesc: 0
   cost: 1
   Type: 0
   Pack: 4
   Rarity: 4
   Description: Deals v[0]{Damage} Damage and makes the Opponent Discard the Hand
+  extraDescription: 
+  CardImage: {fileID: 21300000, guid: 9c887158b4aafc04eb2220826e9f82aa, type: 3}
   references:
     version: 2
     RefIds:

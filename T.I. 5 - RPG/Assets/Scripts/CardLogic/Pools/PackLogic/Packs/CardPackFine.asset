@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CardPackFine
   m_EditorClassIdentifier: 
   possibleCards: {fileID: 11400000, guid: 5419e331d782d9f44b3761f4e9ecb7fa, type: 2}
-  price: 2
-  cardQuantity: 2
+  price: 5
+  cardQuantity: 5
   selectableCardsQuantity: 1
-  packDescription: a Fine Pack, you can choose 1 card between 2 low rarity Cards!
+  packDescription: Fine Pack, you can choose 1 card between 5 low rarity Cards!

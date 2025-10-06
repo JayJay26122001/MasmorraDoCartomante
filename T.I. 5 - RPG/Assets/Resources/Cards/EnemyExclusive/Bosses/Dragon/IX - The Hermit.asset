@@ -19,12 +19,13 @@ MonoBehaviour:
   Name: IX - The Hermit
   limited: 1
   instantaneous: 0
-  extraDesc: 0
   cost: 1
   Type: 1
   Pack: 4
   Rarity: 4
   Description: '60% Damage Reduction to the User this Turn. '
+  extraDescription: 
+  CardImage: {fileID: 21300000, guid: 938ec6210800a4b4d9d2d51db513d1be, type: 3}
   references:
     version: 2
     RefIds:

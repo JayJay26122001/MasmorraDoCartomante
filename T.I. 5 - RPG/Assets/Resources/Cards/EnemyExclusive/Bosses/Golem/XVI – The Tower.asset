@@ -26,6 +26,8 @@ MonoBehaviour:
   Rarity: 4
   Description: Deals v[0]{Damage}  Damage. Reduces by half the Damage Taken until
     the start of the User's next turn.
+  extraDescription: 
+  CardImage: {fileID: 21300000, guid: 468288f62ebf88246883079410febe7b, type: 3}
   references:
     version: 2
     RefIds:

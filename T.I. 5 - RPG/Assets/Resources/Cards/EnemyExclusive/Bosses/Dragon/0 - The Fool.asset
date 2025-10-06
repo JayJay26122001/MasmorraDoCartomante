@@ -27,6 +27,7 @@ MonoBehaviour:
   Description: Having 20 Coins or higher, the User Instances Poor Man's Downfall
     in the Opponent's Buying Pile. If is insufficient, the User gain 5 Coins.
   extraDescription: 
+  CardImage: {fileID: 21300000, guid: 83e8e2496243810448c211b58e7ea098, type: 3}
   references:
     version: 2
     RefIds:

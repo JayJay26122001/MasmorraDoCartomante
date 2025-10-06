@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pool:
   - {fileID: 11400000, guid: e03c0bac8c55c1448974705ea21b87f9, type: 2}
-  - {fileID: 11400000, guid: d55365f6f790eea4fbd4163e789bfcad, type: 2}
   - {fileID: 11400000, guid: 4073b9bd813c74840b7685c79df03a55, type: 2}
   - {fileID: 11400000, guid: f2a126ac55214694492e69e021ac89c6, type: 2}
   - {fileID: 11400000, guid: 86df2bc4e2f5b8b40a967184fcd08235, type: 2}
@@ -55,10 +54,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 260db52267a3e184984479fe7c570ff0, type: 2}
   - {fileID: 11400000, guid: 2e0247bea243e5e4fbc1e45acb2fbfe2, type: 2}
   baseProbabilities:
-  - 40
-  - 30
-  - 15
-  - 10
+  - 0
+  - 0
+  - 60
+  - 35
   - 5
   type: -1
   rarity: 28

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Golden Staff
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 7391437407230361702
+  - rid: 7085201401765691458
+  - rid: 7085201401765691459
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Golden Staff
@@ -23,12 +24,49 @@ MonoBehaviour:
   Type: 0
   Pack: 0
   Rarity: 1
-  Description: Deals Damage based on the User's Coins multiplied by 2 (v[0]{Damage}).
+  Description: Deals v[0]{Damage} Damage, adding on based on the number of the User's
+    Coins (v[1]{Damage}).
   extraDescription: 
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:
-    - rid: 7391437407230361702
+    - rid: 7085201401765691458
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0.7
+          min: 0
+          max: 0
+          modifiers: []
+        IgnoreDefense: 0
+        target: 0
+    - rid: 7085201401765691459
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
@@ -57,61 +95,9 @@ MonoBehaviour:
             max: 0
           ObservedStat: 3
           initialized: 1
-          value: 1
+          value: 0
           min: 0
           max: 0
-          modifiers:
-          - operation: 1
-            Type: 0
-            IntValue:
-              type: 0
-              target: 0
-              ObservedCards:
-                target: 0
-                pile: 0
-                type: 0
-                rarity: 0
-                pack: 0
-                MaxReturnedNumber:
-                  type: 2
-                  value: 0
-                  min: 0
-                  max: 0
-                initialized: 1
-              MaxReturnedNumber:
-                type: 2
-                value: 0
-                min: 0
-                max: 0
-              ObservedStat: 0
-              initialized: 1
-              value: 2
-              min: 0
-              max: 0
-            FloatValue:
-              type: 0
-              target: 0
-              ObservedCards:
-                target: 0
-                pile: 0
-                type: 0
-                rarity: 0
-                pack: 0
-                MaxReturnedNumber:
-                  type: 2
-                  value: 0
-                  min: 0
-                  max: 0
-                initialized: 1
-              MaxReturnedNumber:
-                type: 2
-                value: 0
-                min: 0
-                max: 0
-              ObservedStat: 0
-              initialized: 1
-              value: 0
-              min: 0
-              max: 0
+          modifiers: []
         IgnoreDefense: 0
         target: 0

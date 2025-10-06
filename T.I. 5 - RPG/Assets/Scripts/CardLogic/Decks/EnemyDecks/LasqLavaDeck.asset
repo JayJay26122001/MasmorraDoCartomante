@@ -18,6 +18,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c48524a5a8985764a83e220c5a6193eb, type: 2}
   - {fileID: 11400000, guid: 64fd16d97b8342c42927177fdd16e6ae, type: 2}
   - {fileID: 11400000, guid: 5119bb34a760d184eaad134abb942e00, type: 2}
+  - {fileID: 11400000, guid: 43dc85989e8829547899652aa0f5991e, type: 2}
+  - {fileID: 11400000, guid: 9b4e031e6f8cab54a83bddb6fa9cf491, type: 2}
+  - {fileID: 11400000, guid: 64fd16d97b8342c42927177fdd16e6ae, type: 2}
+  - {fileID: 11400000, guid: c48524a5a8985764a83e220c5a6193eb, type: 2}
   cards: []
   BuyingPile:
     Stack: []

@@ -26,6 +26,8 @@ MonoBehaviour:
   Rarity: 4
   Description: Buy 6 Cards. After played, 50% Chance the User takes double Damage
     on the Opponent's Next Turn.
+  extraDescription: 
+  CardImage: {fileID: 21300000, guid: bece3672533acdd4a99aac7e98f1ad48, type: 3}
   references:
     version: 2
     RefIds:
