@@ -588,7 +588,7 @@ public class GameplayManager : MonoBehaviour
         {
             if (!damageVFXUsed.Contains(damageVFXPool[i]))
             {
-                damageVFXPool[i].SetDamage(damage);
+                damageVFXPool[i].SetText("-" + damage, DamageVFX.VFXType.Damage);
                 damageVFXUsed.Add(damageVFXPool[i]);
                 i = damageVFXPool.Count;
             }

@@ -1,15 +1,20 @@
 using UnityEngine;
+using System.Collections.Generic;
 using TMPro;
 public class DamageVFX : MonoBehaviour
 {
     TextMeshPro text;
     float t;
     public float speed;
+    bool goingUp;
     bool moving = false;
-    Vector3 startPos;
+    //Vector3 startPos;
+    public enum VFXType { Damage, PlayerHP, EnemyHP, PlayerShield, EnemyShield, PlayerEnergy, EnemyEnergy, Money, Other };
+    public List<Vector3> positions = new List<Vector3>();
+    public List<Quaternion> rotations = new List<Quaternion>();
     void Start()
     {
-        startPos = transform.position;
+        //startPos = transform.position;
         text = GetComponent<TextMeshPro>();
         text.color = new Color(text.color.r, text.color.g, text.color.b, 0);
         text.text = "";
@@ -20,16 +25,74 @@ public class DamageVFX : MonoBehaviour
     {
         if (moving)
         {
-            transform.Translate(Vector3.up * speed * Time.deltaTime, Space.Self);
+            if(goingUp)
+            {
+                transform.Translate(Vector3.up * speed * Time.deltaTime, Space.Self);
+            }
+            else
+            {
+                transform.Translate(-Vector3.up * speed * Time.deltaTime, Space.Self);
+            }
         }
     }
 
-    public void SetDamage(int damage)
+    //For any VFXType except Other
+    public void SetText(string tex, VFXType vfxType)
     {
-        transform.position = startPos;
+        transform.position = positions[(int)vfxType];
+        transform.rotation = rotations[(int)vfxType];
+        switch (vfxType)
+        {
+            case VFXType.Damage:
+                goingUp = true;
+                text.color = Color.red * 0.8f;
+                break;
+            case VFXType.PlayerHP:
+                goingUp = false;
+                text.color = Color.red * 0.8f;
+                break;
+            case VFXType.EnemyHP:
+                goingUp = false;
+                text.color = Color.red * 0.8f;
+                break;
+            case VFXType.PlayerShield:
+                goingUp = false;
+                text.color = Color.blue * 0.8f + Color.green * 0.2f;
+                break;
+            case VFXType.EnemyShield:
+                goingUp = false;
+                text.color = Color.blue * 0.8f + Color.green * 0.2f;
+                break;
+            case VFXType.PlayerEnergy:
+                goingUp = false;
+                text.color = Color.green * 0.65f;
+                break;
+            case VFXType.EnemyEnergy:
+                goingUp = false;
+                text.color = Color.green * 0.65f;
+                break;
+            case VFXType.Money:
+                goingUp = false;
+                text.color = Color.yellow * 0.8f;
+                break;
+        }
         t = 0;
         text.color = new Color(text.color.r, text.color.g, text.color.b, 0);
-        text.text = damage.ToString();
+        text.text = tex;
+        moving = true;
+        Appear();
+    }
+
+    //Only for VFXType.Other
+    public void SetText(string tex, VFXType vfxType, Color c, bool up, Vector3 pos, Quaternion rot)
+    {
+        transform.position = pos;
+        transform.rotation = rot;
+        goingUp = up;
+        t = 0;
+        text.color = c;
+        text.color = new Color(text.color.r, text.color.g, text.color.b, 0);
+        text.text = tex;
         moving = true;
         Appear();
     }
@@ -57,6 +120,7 @@ public class DamageVFX : MonoBehaviour
         }
         else
         {
+            moving = false;
             GameplayManager.instance.damageVFXUsed.Remove(this);
         }
     }

@@ -28295,8 +28295,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278232064
-  m_fontColor: {r: 0, g: 0.6415094, b: 0, a: 1}
+    rgba: 4278232576
+  m_fontColor: {r: 0, g: 0.65, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -30874,8 +30874,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278232064
-  m_fontColor: {r: 0, g: 0.6415094, b: 0, a: 1}
+    rgba: 4278232576
+  m_fontColor: {r: 0, g: 0.65, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -32464,13 +32464,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4795285943631049460, guid: 7d1b08cdd17bdfe469f03578c3e0d327, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: b2520514044891446a89dc774c530aad, type: 2}
+    - target: {fileID: 4795285943631049460, guid: 7d1b08cdd17bdfe469f03578c3e0d327, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 1549597524460503744, guid: 89f0997d9a53d184d859a74ecc6874b5, type: 2}
+      objectReference: {fileID: 1549597524460503744, guid: b2520514044891446a89dc774c530aad, type: 2}
+    - target: {fileID: 4795285943631049460, guid: 7d1b08cdd17bdfe469f03578c3e0d327, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284963583542628573, guid: 7d1b08cdd17bdfe469f03578c3e0d327, type: 3}
+      propertyPath: goingUp
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8338555351441099056, guid: 7d1b08cdd17bdfe469f03578c3e0d327, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 1549597524460503744, guid: 89f0997d9a53d184d859a74ecc6874b5, type: 2}
+      objectReference: {fileID: 1549597524460503744, guid: b2520514044891446a89dc774c530aad, type: 2}
     - target: {fileID: 8367927032789553607, guid: 7d1b08cdd17bdfe469f03578c3e0d327, type: 3}
       propertyPath: m_Name
       value: DamageVFX (1)
@@ -41998,15 +42010,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8925149681261779525, guid: 4a0b3dda025c1d549bffbad4345d8a11, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3965608
+      value: 1.3965619
       objectReference: {fileID: 0}
     - target: {fileID: 8925149681261779525, guid: 4a0b3dda025c1d549bffbad4345d8a11, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.34876218
+      value: -0.1410681
       objectReference: {fileID: 0}
     - target: {fileID: 8925149681261779525, guid: 4a0b3dda025c1d549bffbad4345d8a11, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.0703454
+      value: 2.4983947
       objectReference: {fileID: 0}
     - target: {fileID: 9031338032071094502, guid: 4a0b3dda025c1d549bffbad4345d8a11, type: 3}
       propertyPath: m_LocalPosition.x
@@ -46538,13 +46550,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4795285943631049460, guid: 7d1b08cdd17bdfe469f03578c3e0d327, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: b2520514044891446a89dc774c530aad, type: 2}
+    - target: {fileID: 4795285943631049460, guid: 7d1b08cdd17bdfe469f03578c3e0d327, type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 1549597524460503744, guid: b2520514044891446a89dc774c530aad, type: 2}
+    - target: {fileID: 4795285943631049460, guid: 7d1b08cdd17bdfe469f03578c3e0d327, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284963583542628573, guid: 7d1b08cdd17bdfe469f03578c3e0d327, type: 3}
+      propertyPath: goingUp
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8338555351441099056, guid: 7d1b08cdd17bdfe469f03578c3e0d327, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 1549597524460503744, guid: 89f0997d9a53d184d859a74ecc6874b5, type: 2}
+      objectReference: {fileID: 1549597524460503744, guid: b2520514044891446a89dc774c530aad, type: 2}
     - target: {fileID: 8367927032789553607, guid: 7d1b08cdd17bdfe469f03578c3e0d327, type: 3}
       propertyPath: m_Name
       value: DamageVFX
