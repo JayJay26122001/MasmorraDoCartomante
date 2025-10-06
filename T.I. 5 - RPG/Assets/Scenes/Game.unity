@@ -15416,7 +15416,7 @@ PlayableDirector:
   m_GameObject: {fileID: 626271299}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: c5fae22c0c332eb4d8affc9b2c448ea0, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 2a7e4992c54b9f740b7b088fe4db51e5, type: 2}
   m_InitialState: 0
   m_WrapMode: 0
   m_DirectorUpdateMode: 1
@@ -15520,14 +15520,10 @@ PlayableDirector:
     value: {fileID: 1196482000}
   - key: {fileID: -5910935174065208885, guid: 229bd1c6a57556f45ac1911797a033bb, type: 2}
     value: {fileID: 3419473715425861287}
-  - key: {fileID: -2446657547634861056, guid: 3b957b7ff9a6fa248994e3624e08a010, type: 2}
-    value: {fileID: 1928266331}
   - key: {fileID: 1536477529606655976, guid: 3b957b7ff9a6fa248994e3624e08a010, type: 2}
-    value: {fileID: 1928266336}
-  - key: {fileID: -198309621229265537, guid: 229bd1c6a57556f45ac1911797a033bb, type: 2}
-    value: {fileID: 1928266331}
+    value: {fileID: 1282407754}
   - key: {fileID: 5198932616378844050, guid: 229bd1c6a57556f45ac1911797a033bb, type: 2}
-    value: {fileID: 1928266336}
+    value: {fileID: 1282407754}
   - key: {fileID: 8333089501784293575, guid: 98527c94a53592043a030db29e352ede, type: 2}
     value: {fileID: 566439125}
   - key: {fileID: 5209784713849997534, guid: 98527c94a53592043a030db29e352ede, type: 2}
@@ -15826,10 +15822,8 @@ PlayableDirector:
     value: {fileID: 119323442416945964}
   - key: {fileID: -391723854727954733, guid: c5fae22c0c332eb4d8affc9b2c448ea0, type: 2}
     value: {fileID: 2100974891241921840}
-  - key: {fileID: -846265989350813783, guid: c5fae22c0c332eb4d8affc9b2c448ea0, type: 2}
-    value: {fileID: 1928266331}
   - key: {fileID: 4065082564543062693, guid: c5fae22c0c332eb4d8affc9b2c448ea0, type: 2}
-    value: {fileID: 1928266336}
+    value: {fileID: 1282407754}
   - key: {fileID: -55786418827208183, guid: d232a5683755b624f882ec8a42e647d2, type: 2}
     value: {fileID: 30614218}
   - key: {fileID: -2502309259076361859, guid: d232a5683755b624f882ec8a42e647d2, type: 2}
@@ -15866,14 +15860,40 @@ PlayableDirector:
     value: {fileID: 1735145632519988437}
   - key: {fileID: 7577269999877932131, guid: d232a5683755b624f882ec8a42e647d2, type: 2}
     value: {fileID: 1516939211}
-  - key: {fileID: 1827374687362405897, guid: d232a5683755b624f882ec8a42e647d2, type: 2}
-    value: {fileID: 1928266331}
   - key: {fileID: -8651805688801731333, guid: d232a5683755b624f882ec8a42e647d2, type: 2}
-    value: {fileID: 1928266336}
+    value: {fileID: 1282407754}
   - key: {fileID: 8995264198844119477, guid: d232a5683755b624f882ec8a42e647d2, type: 2}
     value: {fileID: 1866734915}
   - key: {fileID: 8389898239623287569, guid: c5fae22c0c332eb4d8affc9b2c448ea0, type: 2}
     value: {fileID: 1866734915}
+  - key: {fileID: 5415670517848829241, guid: c6d5144740e9b284aa29af9da6b7909e, type: 2}
+    value: {fileID: 1282407754}
+  - key: {fileID: -5439162513739158139, guid: fbef68baeb48bff439b5d4200d5387fa, type: 2}
+    value: {fileID: 1282407754}
+  - key: {fileID: 4125453572739870722, guid: cef1c4e7d8ce2654993a63936f832152, type: 2}
+    value: {fileID: 1282407752}
+  - key: {fileID: -5535374718615508762, guid: cef1c4e7d8ce2654993a63936f832152, type: 2}
+    value: {fileID: 1282407754}
+  - key: {fileID: -4463839932638342918, guid: 0053af99cd0d3f74b82e49d2aec97406, type: 2}
+    value: {fileID: 1282407754}
+  - key: {fileID: 4381538269878173680, guid: 0053af99cd0d3f74b82e49d2aec97406, type: 2}
+    value: {fileID: 1282407752}
+  - key: {fileID: 1326706403578369172, guid: 25e1438f16e9fb64992f33406c7835dc, type: 2}
+    value: {fileID: 1282407752}
+  - key: {fileID: -3553127120311805417, guid: 25e1438f16e9fb64992f33406c7835dc, type: 2}
+    value: {fileID: 1282407754}
+  - key: {fileID: 2118452759158238230, guid: 3a121f42f84a6a54e81db37610b8883c, type: 2}
+    value: {fileID: 1282407754}
+  - key: {fileID: -279144276370253820, guid: 3a121f42f84a6a54e81db37610b8883c, type: 2}
+    value: {fileID: 1282407752}
+  - key: {fileID: 8676994871424739298, guid: 6cec0d43329dc7d4ab3a00bca590b285, type: 2}
+    value: {fileID: 1282407752}
+  - key: {fileID: -1929701771908552876, guid: 6cec0d43329dc7d4ab3a00bca590b285, type: 2}
+    value: {fileID: 1282407754}
+  - key: {fileID: 7299421367854636793, guid: 2a7e4992c54b9f740b7b088fe4db51e5, type: 2}
+    value: {fileID: 1282407752}
+  - key: {fileID: -1836956533454885775, guid: 2a7e4992c54b9f740b7b088fe4db51e5, type: 2}
+    value: {fileID: 1282407754}
   m_ExposedReferences:
     m_References:
     - 8d55506c3722da14a847503b3a17bb7b: {fileID: 1240816932}
@@ -29837,6 +29857,61 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
+--- !u!1 &1282407752
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1282407753}
+  - component: {fileID: 1282407754}
+  m_Layer: 0
+  m_Name: Money
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1282407753
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282407752}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.33, y: -0.015, z: -2.63}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1928266335}
+  m_Father: {fileID: 1348968611}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1282407754
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282407752}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1282487222 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: edc1b0e902e653344a83337943decdd6, type: 3}
@@ -31616,10 +31691,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1928266335}
   - {fileID: 1196481999}
   - {fileID: 566439124}
   - {fileID: 1972853266}
+  - {fileID: 1282407753}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1351723671
@@ -40154,12 +40229,6 @@ MonoBehaviour:
   damageTakenText: {fileID: 995080193}
   hpCircle: {fileID: 1140556359}
   SelectedCard: {fileID: 0}
-  moneyBag: {fileID: 1928266334}
-  bagMeshes:
-  - {fileID: -3727175721053665339, guid: f0df4cd3f13f3f64bb83aa29253582e4, type: 3}
-  - {fileID: -6884469053137424042, guid: f0df4cd3f13f3f64bb83aa29253582e4, type: 3}
-  - {fileID: -872260591340706888, guid: f0df4cd3f13f3f64bb83aa29253582e4, type: 3}
-  - {fileID: -963940353498162643, guid: f0df4cd3f13f3f64bb83aa29253582e4, type: 3}
 --- !u!136 &1866734919
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -41201,14 +41270,13 @@ GameObject:
   - component: {fileID: 1928266334}
   - component: {fileID: 1928266333}
   - component: {fileID: 1928266332}
-  - component: {fileID: 1928266336}
   m_Layer: 0
   m_Name: MoneyBag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1928266332
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41282,7 +41350,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1928266331}
-  m_Mesh: {fileID: -3727175721053665339, guid: f0df4cd3f13f3f64bb83aa29253582e4, type: 3}
+  m_Mesh: {fileID: 9175864813521721729, guid: 44e54185066d96045906521270c3d77f, type: 3}
 --- !u!4 &1928266335
 Transform:
   m_ObjectHideFlags: 0
@@ -41291,36 +41359,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1928266331}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.1, y: 24.985, z: 7.5}
+  m_LocalRotation: {x: 0, y: 0.49029544, z: 0, w: 0.87155634}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2023532460}
-  m_Father: {fileID: 1348968611}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1928266336
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1928266331}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_Father: {fileID: 1282407753}
+  m_LocalEulerAnglesHint: {x: 0, y: 58.72, z: 0}
 --- !u!1 &1932384790
 GameObject:
   m_ObjectHideFlags: 0
@@ -41952,15 +41998,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8925149681261779525, guid: 4a0b3dda025c1d549bffbad4345d8a11, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3965619
+      value: 1.3965608
       objectReference: {fileID: 0}
     - target: {fileID: 8925149681261779525, guid: 4a0b3dda025c1d549bffbad4345d8a11, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1410681
+      value: 0.34876218
       objectReference: {fileID: 0}
     - target: {fileID: 8925149681261779525, guid: 4a0b3dda025c1d549bffbad4345d8a11, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.4983947
+      value: 3.0703454
       objectReference: {fileID: 0}
     - target: {fileID: 9031338032071094502, guid: 4a0b3dda025c1d549bffbad4345d8a11, type: 3}
       propertyPath: m_LocalPosition.x

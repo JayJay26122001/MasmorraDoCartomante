@@ -6,8 +6,8 @@ using UnityEngine;
 public class Player : Creature
 {
     public Card SelectedCard;
-    public MeshFilter moneyBag;
-    public Mesh[] bagMeshes = new Mesh[4];
+    //public MeshFilter moneyBag;
+    //public Mesh[] bagMeshes = new Mesh[4];
     public override void TurnAction()
     {
         if (!GameplayManager.instance.CombatActive) return;
@@ -120,7 +120,7 @@ public class Player : Creature
         else
         {
             money += quantity;
-            moneyBag.mesh = bagMeshes[Mathf.Clamp(money / 5, 0, 3)];
+            //moneyBag.mesh = bagMeshes[Mathf.Clamp(money / 5, 0, 3)];
             GameManager.instance.uiController.UpdateMoney(money);
             return true;
         }
