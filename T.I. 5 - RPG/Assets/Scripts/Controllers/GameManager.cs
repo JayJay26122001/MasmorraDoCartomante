@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public UIController uiController;
-    public List<Card> GameCards;
+    public List<Card> GameCards, UnlockedCards;
 
     private void Awake()
     {
@@ -27,5 +27,12 @@ public class GameManager : MonoBehaviour
     {
         Card[] aux = Resources.LoadAll<Card>("");
         GameCards = aux.ToList();
+    }
+    public void UnlockCard(Card cardPreset)
+    {
+        if (!UnlockedCards.Contains(cardPreset))
+        {
+            UnlockedCards.Add(cardPreset);
+        }
     }
 }

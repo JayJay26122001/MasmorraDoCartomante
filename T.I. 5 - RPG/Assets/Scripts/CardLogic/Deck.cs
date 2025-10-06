@@ -23,6 +23,10 @@ public class Deck : ScriptableObject
 
     public void AddCard(Card preset)
     {
+        if (Owner is Player && !GameManager.instance.UnlockedCards.Contains(preset))
+        {
+            GameManager.instance.UnlockCard(preset);
+        }
         Card card = Instantiate(preset);
         card.Setup();
         card.deck = this;
