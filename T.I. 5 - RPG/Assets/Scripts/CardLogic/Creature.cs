@@ -259,7 +259,7 @@ public class Creature : MonoBehaviour
         {
             CardUIController.PlayCardVFX(CardUIController.instance.puffVfx, c.cardDisplay.transform.position);
             AudioController.instance.RandomizeSfx(AudioController.instance.sfxSource, AudioController.instance.playCardSfx);
-        }, CardUIController.instance.mediumTimeAnim * 2 + CardUIController.instance.bigTimeAnim);
+        }, CardUIController.instance.mediumTimeAnim * 2 + CardUIController.instance.bigTimeAnim * 2);
         //CardUIController.OrganizeEnemyPlayedCards(this);
         PlayedCard.Invoke(c);
         c.CardPlayed();

@@ -16,7 +16,7 @@ public class CardUIController : MonoBehaviour
     public float instantTimeAnim, smallTimeAnim, mediumTimeAnim, bigTimeAnim, highlightTimeAnim, delayTimeAnim, rotHandTimeAnim;
     public GameObject enemyCardAppearVfx, puffVfx;
     public TextMeshPro buyingPileText, discardPileText;
-    public Transform buyingPilePos, discardPilePos;
+    public Transform buyingPilePos, discardPilePos, cardLookPos;
     public Card highlightedCard { get; protected set; }
 
     public void SetHighlightedCard(Card card)
@@ -384,7 +384,8 @@ public class CardUIController : MonoBehaviour
             float posX = (i - ((totalCardsPlayed - 1) / 2f)) * playedEnemyCardsSpacing;
             Vector3 finalPos = (c.combatSpace.playedCardSpace.right * posX) + c.combatSpace.playedCardSpace.position;
             Vector3 spawnPos = finalPos + Vector3.up * 5f;
-            Vector3 upPos = spawnPos + Vector3.up * 1.5f;
+            Vector3 upPos = spawnPos + Vector3.forward * -25f;
+            Vector3 lookRot = c.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(20f, 0f, 0f);
             Vector3 rot = c.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(90f, 0f, 0f);
             GameObject cardObject = c.playedCards[i].cardDisplay.gameObject;
             if(i == totalCardsPlayed - 1)
@@ -394,11 +395,16 @@ public class CardUIController : MonoBehaviour
                 LeanTween.rotate(cardObject, rot, instance.instantTimeAnim).setEaseInOutSine();
                 LeanTween.delayedCall(cardObject, instance.mediumTimeAnim, () =>
                 {
-                    LeanTween.move(cardObject, upPos, instance.bigTimeAnim).setEaseOutCubic().setOnComplete(() =>
+                    LeanTween.rotate(cardObject, lookRot, instance.bigTimeAnim).setEaseInOutSine();
+                    LeanTween.move(cardObject, instance.cardLookPos, instance.bigTimeAnim).setEaseOutCubic().setOnComplete(() =>
                     {
-                        LeanTween.move(cardObject, finalPos, instance.mediumTimeAnim).setEaseInCubic().setOnComplete(() =>
-                        {
-                            //PlayCardVFX(instance.puffVfx, finalPos, rot, 0.5f);
+                        LeanTween.delayedCall(cardObject, instance.bigTimeAnim, () =>
+                        { 
+                            LeanTween.rotate(cardObject, rot, instance.mediumTimeAnim).setEaseInOutSine();
+                            LeanTween.move(cardObject, finalPos, instance.mediumTimeAnim).setEaseInCubic().setOnComplete(() =>
+                            {
+                                //PlayCardVFX(instance.puffVfx, finalPos, rot, 0.5f);
+                            });
                         });
                     });
                 });

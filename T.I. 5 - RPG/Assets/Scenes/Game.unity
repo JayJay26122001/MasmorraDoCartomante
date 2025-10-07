@@ -8981,6 +8981,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 244028020}
   m_CullTransparentMesh: 1
+--- !u!1 &257808388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 257808389}
+  m_Layer: 0
+  m_Name: CardLookPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &257808389
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257808388}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 9, z: -8.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 713266986}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &261045988
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17352,6 +17383,7 @@ Transform:
   - {fileID: 1699522178}
   - {fileID: 511052326}
   - {fileID: 167226755}
+  - {fileID: 257808389}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &713266987
@@ -29379,6 +29411,7 @@ MonoBehaviour:
   discardPileText: {fileID: 895300638}
   buyingPilePos: {fileID: 6942116713939042828}
   discardPilePos: {fileID: 6942116713939042827}
+  cardLookPos: {fileID: 257808389}
 --- !u!1001 &1240816930
 PrefabInstance:
   m_ObjectHideFlags: 0
