@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Events;
+using Unity.VisualScripting;
 public class Enemy : Creature
 {
     public Animator anim;
@@ -54,7 +55,13 @@ public class Enemy : Creature
                 EnemyPlayCard anim = new EnemyPlayCard(this, played, playanim);
                 ActionController.instance.AddToQueue(anim);
                 playanim = false;
-                yield return new WaitUntil(() => !hand.Contains(played));
+                //yield return new WaitUntil(() => !hand.Contains(played));
+                bool CardPlayed = false;
+                UnityAction<Card> check = (Card c) => CardPlayed = true;
+                PlayedCard.AddListener(check);
+                yield return new WaitUntil(() => CardPlayed);
+                PlayedCard.RemoveListener(check);
+                
                 yield return new WaitForSeconds(0.5f);
                 i = 0;
             }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Boss : Enemy
 {
@@ -57,7 +58,13 @@ public class Boss : Enemy
                 EnemyPlayCard anim = new EnemyPlayCard(this, played, playanim);
                 ActionController.instance.AddToQueue(anim);
                 playanim = false;
-                yield return new WaitUntil(() => !hand.Contains(played));
+                //yield return new WaitUntil(() => !hand.Contains(played));
+                bool CardPlayed = false;
+                UnityAction<Card> check = (Card c) => CardPlayed = true;
+                PlayedCard.AddListener(check);
+                yield return new WaitUntil(() => CardPlayed);
+                PlayedCard.RemoveListener(check);
+
                 yield return new WaitForSeconds(0.5f);
                 i = 0;
             }
@@ -81,7 +88,13 @@ public class Boss : Enemy
             EnemyPlayCard anim = new EnemyPlayCard(this, c, playanim);
             ActionController.instance.AddToQueue(anim);
             playanim = false;
-            yield return new WaitUntil(() => !hand.Contains(c));
+            //yield return new WaitUntil(() => !hand.Contains(c));
+            bool CardPlayed = false;
+            UnityAction<Card> check = (Card c) => CardPlayed = true;
+            PlayedCard.AddListener(check);
+            yield return new WaitUntil(() => CardPlayed);
+            PlayedCard.RemoveListener(check);
+
             yield return new WaitForSeconds(0.5f);
         }
         yield return new WaitForSeconds(1f);
@@ -94,11 +107,11 @@ public class Boss : Enemy
         {
             if (BonusDeck.BuyingPile.Count == 0)
             {
-                if (BonusDeck.DiscardPile.Count == 0) 
+                if (BonusDeck.DiscardPile.Count == 0)
                 {
                     CardUIController.OrganizeHandCards(this);
                     CardUIController.OrganizeStack(BonusDeck.BuyingPile, combatSpace.buyingPileSpace);
-                    return cards; 
+                    return cards;
                 }
                 BonusDeck.ShuffleDeck();
             }

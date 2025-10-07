@@ -675,6 +675,7 @@ public class DuplicateCard : Effect
                 if (SetCostToZero)
                 {
                     inst.cost = 0;
+                    inst.cardDisplay.UpdateCardCost();
                 }
                 if (SetInstantaneous)
                 {
