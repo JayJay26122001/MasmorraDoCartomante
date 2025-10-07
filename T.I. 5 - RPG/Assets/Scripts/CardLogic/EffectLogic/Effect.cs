@@ -650,7 +650,7 @@ public class DuplicateCard : Effect
     [SerializeField] Pile AddToPile;
     public CardVar CardsToCopy;
     public ModularInt AmountOfInstances;
-    public bool SetCostToZero = false;
+    public bool SetCostToZero = false, SetInstantaneous = false, SetLimited = false;
     public override void Apply()
     {
         base.Apply();
@@ -675,6 +675,14 @@ public class DuplicateCard : Effect
                 if (SetCostToZero)
                 {
                     inst.cost = 0;
+                }
+                if (SetInstantaneous)
+                {
+                    inst.instantaneous = true;
+                }
+                if (SetLimited)
+                {
+                    inst.limited = true;
                 }
             }
 
