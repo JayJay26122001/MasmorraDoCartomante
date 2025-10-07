@@ -489,6 +489,8 @@ public class CreateCard : Effect
     [SerializeField] Target target;
     [SerializeField] Pile AddToPile;
     public Card CardPrefab;
+    public ModularInt AmountOfInstances;
+    public bool SetCostToZero = false;
     public override void Apply()
     {
         base.Apply();
@@ -503,7 +505,16 @@ public class CreateCard : Effect
                 break;
         }
         //t.hand.Add(CardUIController.instance.InstantiateCard(CardPrefab).cardData);
-        t.decks[0].AddTemporaryCard(CardPrefab, AddToPile);
+        int aux = AmountOfInstances.GetValue();
+        for (int i = 0; i < aux; i++)
+        {
+            Card inst = t.decks[0].AddTemporaryCard(CardPrefab, AddToPile);
+            if (SetCostToZero)
+            {
+                inst.cost = 0;
+            }
+        }
+
         //CardUIController.OrganizeHandCards(t);
         EffectEnded();
     }

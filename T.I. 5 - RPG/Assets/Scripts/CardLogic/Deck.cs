@@ -21,7 +21,7 @@ public class Deck : ScriptableObject
         }
     }
 
-    public void AddCard(Card preset)
+    public Card AddCard(Card preset)
     {
         if (Owner is Player && !GameManager.instance.UnlockedCards.Contains(preset))
         {
@@ -33,8 +33,9 @@ public class Deck : ScriptableObject
         cards.Add(card);
         allCards.Add(card);
         CardUIController.instance.InstantiateCard(card);
+        return card;
     }
-    public void AddTemporaryCard(Card preset)
+    public Card AddTemporaryCard(Card preset)
     {
         Card card = Instantiate(preset);
         card.Temporary = true;
@@ -45,8 +46,9 @@ public class Deck : ScriptableObject
         CardUIController.instance.InstantiateCard(card);
         CardUIController.AttCardDescription(Owner);
         CardUIController.OrganizeHandCards(Owner);
+        return card;
     }
-    public void AddTemporaryCard(Card preset, CreateCard.Pile selectedPile)
+    public Card AddTemporaryCard(Card preset, CreateCard.Pile selectedPile)
     {
         Card card = Instantiate(preset);
         card.Temporary = true;
@@ -72,6 +74,7 @@ public class Deck : ScriptableObject
         CardUIController.instance.InstantiateCard(card);
         CardUIController.AttCardDescription(Owner);
         CardUIController.CardsOrganizer(Owner);
+        return card;
     }
 
     public void RemoveCard(CardDisplay c)
