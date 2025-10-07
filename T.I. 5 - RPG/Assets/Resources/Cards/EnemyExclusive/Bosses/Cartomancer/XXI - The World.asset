@@ -78,8 +78,8 @@ MonoBehaviour:
           max: 0
           modifiers: []
         SetCostToZero: 1
-        SetInstantaneous: 0
-        SetLimited: 1
+        SetInstantaneous: 1
+        SetLimited: 0
     - rid: 7085201424405495879
       type: {class: DiscardCard, ns: , asm: Assembly-CSharp}
       data:
