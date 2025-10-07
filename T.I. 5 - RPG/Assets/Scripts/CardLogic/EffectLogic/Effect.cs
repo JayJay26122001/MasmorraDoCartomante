@@ -485,7 +485,7 @@ public class GainCoins : Effect
 public class CreateCard : Effect
 {
     enum Target { User, Opponent }
-    public enum Pile { Hand, BuyingPile, DiscardPile}
+    public enum Pile { Hand, BuyingPile, DiscardPile }
     [SerializeField] Target target;
     [SerializeField] Pile AddToPile;
     public Card CardPrefab;
@@ -639,6 +639,48 @@ public class SkipBuyCard : Effect
                 card.deck.Owner.SetToSkipBuyCard(AmountOfTurns.GetValue());
                 break;
         }
+        EffectEnded();
+    }
+}
+public class DuplicateCard : Effect
+{
+    enum Target { User, Opponent }
+    public enum Pile { Hand, BuyingPile, DiscardPile }
+    [SerializeField] Target target;
+    [SerializeField] Pile AddToPile;
+    public CardVar CardsToCopy;
+    public ModularInt AmountOfInstances;
+    public bool SetCostToZero = false;
+    public override void Apply()
+    {
+        base.Apply();
+        Creature t = null;
+        switch (target)
+        {
+            case Target.User:
+                t = card.deck.Owner;
+                break;
+            case Target.Opponent:
+                t = card.deck.Owner.enemy;
+                break;
+        }
+        //t.hand.Add(CardUIController.instance.InstantiateCard(CardPrefab).cardData);
+        int aux = AmountOfInstances.GetValue();
+        List<Card> cardsToinstance = CardsToCopy.GetCardsWithStats(card.deck.Owner);
+        for (int i = 0; i < aux; i++)
+        {
+            foreach (Card c in cardsToinstance)
+            {
+                Card inst = t.decks[0].AddTemporaryCard(c, (CreateCard.Pile)AddToPile);
+                if (SetCostToZero)
+                {
+                    inst.cost = 0;
+                }
+            }
+
+        }
+
+        //CardUIController.OrganizeHandCards(t);
         EffectEnded();
     }
 }
