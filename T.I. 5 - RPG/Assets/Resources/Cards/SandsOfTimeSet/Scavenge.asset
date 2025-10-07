@@ -14,19 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Effects:
   - rid: 6721762298113032192
-  - rid: 6721762298113032193
-  - rid: 6721762298113032194
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Scavenge
   limited: 1
   instantaneous: 0
-  extraDesc: 0
   cost: 1
   Type: 2
   Pack: 5
   Rarity: 1
   Description: Instances 3 copies of Pile of Bones in Hand.
+  extraDescription: 
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:
@@ -37,20 +36,32 @@ MonoBehaviour:
         Conditions: []
         ConfirmationConditions: []
         target: 0
+        AddToPile: 0
         CardPrefab: {fileID: 11400000, guid: 3aa5ae1942f10434eb3888cb3242056e, type: 2}
-    - rid: 6721762298113032193
-      type: {class: CreateCard, ns: , asm: Assembly-CSharp}
-      data:
-        DiscardIfAcomplished: 0
-        Conditions: []
-        ConfirmationConditions: []
-        target: 0
-        CardPrefab: {fileID: 11400000, guid: 3aa5ae1942f10434eb3888cb3242056e, type: 2}
-    - rid: 6721762298113032194
-      type: {class: CreateCard, ns: , asm: Assembly-CSharp}
-      data:
-        DiscardIfAcomplished: 0
-        Conditions: []
-        ConfirmationConditions: []
-        target: 0
-        CardPrefab: {fileID: 11400000, guid: 3aa5ae1942f10434eb3888cb3242056e, type: 2}
+        AmountOfInstances:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 3
+          min: 0
+          max: 0
+          modifiers: []
+        SetCostToZero: 0

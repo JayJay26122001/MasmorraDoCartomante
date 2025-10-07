@@ -10,34 +10,48 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: "I \u2013 The Magician"
+  m_Name: XXI - The World
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 6721762140899246080
-  - rid: 6721762140899246148
+  - rid: 7085201424405495878
+  - rid: 7085201424405495879
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: "I \u2013 The Magician"
+  Name: XXI - The World
   limited: 0
-  instantaneous: 0
+  instantaneous: 1
   cost: 1
-  Type: 0
+  Type: 2
   Pack: 4
   Rarity: 4
-  Description: Deals v[0]{Damage} Damage and makes the Opponent Discard the Hand.
+  Description: The User creates an instantaneous, 0 Energy cost copy of every Card
+    in the Opponent's Hand. After that, the Opponent is forced to Discard its Hand.
   extraDescription: 
-  CardImage: {fileID: 21300000, guid: 9c887158b4aafc04eb2220826e9f82aa, type: 3}
+  CardImage: {fileID: 21300000, guid: 76efc4d02b172f6419c8eabf15f7c3ba, type: 3}
   references:
     version: 2
     RefIds:
-    - rid: 6721762140899246080
-      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+    - rid: 7085201424405495878
+      type: {class: DuplicateCard, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
-        MultipliedByBaseDamage: 1
-        DamageMultiplier:
+        target: 0
+        AddToPile: 0
+        CardsToCopy:
+          target: 1
+          pile: 1
+          type: -1
+          rarity: -1
+          pack: -1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          initialized: 1
+        AmountOfInstances:
           type: 0
           target: 0
           ObservedCards:
@@ -59,13 +73,14 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          value: 1.4
+          value: 1
           min: 0
           max: 0
           modifiers: []
-        IgnoreDefense: 0
-        target: 0
-    - rid: 6721762140899246148
+        SetCostToZero: 1
+        SetInstantaneous: 0
+        SetLimited: 1
+    - rid: 7085201424405495879
       type: {class: DiscardCard, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0

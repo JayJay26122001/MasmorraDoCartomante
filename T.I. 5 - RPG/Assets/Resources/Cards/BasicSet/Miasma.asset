@@ -26,6 +26,7 @@ MonoBehaviour:
   Rarity: 1
   Description: Deals v[0]{Damage} Damage on both sides until the end of the Duel.
   extraDescription: 
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:
@@ -97,7 +98,7 @@ MonoBehaviour:
           max: 0
           modifiers: []
         TurnPhase: 1
-        PhaseTime: 0
+        PhaseTime: 1
     - rid: 6961742135542415360
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
@@ -166,4 +167,4 @@ MonoBehaviour:
           max: 0
           modifiers: []
         TurnPhase: 1
-        PhaseTime: 0
+        PhaseTime: 1

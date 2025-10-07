@@ -26,6 +26,8 @@ MonoBehaviour:
   Rarity: 1
   Description: If the User's Shield Breaks this Turn. Create an instance of Cannon
     Barrage in Hand.
+  extraDescription: 
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:
@@ -37,7 +39,35 @@ MonoBehaviour:
         - rid: 6721762298113032264
         ConfirmationConditions: []
         target: 0
+        AddToPile: 0
         CardPrefab: {fileID: 11400000, guid: d55365f6f790eea4fbd4163e789bfcad, type: 2}
+        AmountOfInstances:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 1
+          min: 0
+          max: 0
+          modifiers: []
+        SetCostToZero: 0
     - rid: 6721762298113032262
       type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
       data:

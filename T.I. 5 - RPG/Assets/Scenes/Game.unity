@@ -30771,13 +30771,13 @@ MonoBehaviour:
   hand: []
   playedCards: []
   exausted: []
-  maxHP: 45
+  maxHP: 50
   hp: 0
   shld: 0
   energy: 0
-  maxBaseEnergy: 3
-  money: 3
-  CardBuyMax: 5
+  maxBaseEnergy: 2
+  money: 10
+  CardBuyMax: 3
   baseDamage: 7
   baseShieldGain: 8
   baseDamageTaken: 100
@@ -34867,13 +34867,13 @@ MonoBehaviour:
   hand: []
   playedCards: []
   exausted: []
-  maxHP: 40
+  maxHP: 35
   hp: 0
   shld: 0
   energy: 0
   maxBaseEnergy: 3
   money: 10
-  CardBuyMax: 5
+  CardBuyMax: 2
   baseDamage: 6
   baseShieldGain: 3
   baseDamageTaken: 100
@@ -44447,9 +44447,9 @@ MonoBehaviour:
   hp: 0
   shld: 0
   energy: 0
-  maxBaseEnergy: 3
-  money: 3
-  CardBuyMax: 5
+  maxBaseEnergy: 4
+  money: 15
+  CardBuyMax: 3
   baseDamage: 6
   baseShieldGain: 5
   baseDamageTaken: 100

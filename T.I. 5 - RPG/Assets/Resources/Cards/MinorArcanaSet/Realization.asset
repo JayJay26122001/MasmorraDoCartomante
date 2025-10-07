@@ -15,10 +15,10 @@ MonoBehaviour:
   Effects:
   - rid: 7391437407230361702
   - rid: 6721762162139988048
+  - rid: 7085201424405495877
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Realization
-  hidden: 0
   limited: 0
   instantaneous: 1
   cost: 2
@@ -26,6 +26,8 @@ MonoBehaviour:
   Pack: 3
   Rarity: 1
   Description: Deals v[0]{Damage} Damage. Retriggers if the Opponent loses Health.
+  extraDescription: 
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:
@@ -38,6 +40,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseDamage: 1
         DamageMultiplier:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -58,7 +61,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 1.4
           min: 0
           max: 0
@@ -72,6 +74,13 @@ MonoBehaviour:
         DamagedTarget: 1
         CountShieldedDamage: 0
         DamageCameFromCard: 1
+    - rid: 7085201424405495877
+      type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        SetAsDiscardTime: 0
     - rid: 7391437407230361702
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
@@ -80,6 +89,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseDamage: 1
         DamageMultiplier:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -100,7 +110,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 1.4
           min: 0
           max: 0

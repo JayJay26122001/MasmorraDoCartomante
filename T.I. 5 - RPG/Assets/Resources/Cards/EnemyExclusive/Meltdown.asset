@@ -20,13 +20,14 @@ MonoBehaviour:
   Name: Meltdown
   limited: 0
   instantaneous: 0
-  extraDesc: 0
   cost: 2
   Type: 0
   Pack: 2
   Rarity: 3
   Description: Deals v[0]{Damage} Damage and Transforms a Defense Card most near
     the top of the Opponent's Discard Pile into a Limited Card.
+  extraDescription: 
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:
@@ -80,7 +81,7 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          value: 2.6
+          value: 1.7
           min: 0
           max: 0
           modifiers: []

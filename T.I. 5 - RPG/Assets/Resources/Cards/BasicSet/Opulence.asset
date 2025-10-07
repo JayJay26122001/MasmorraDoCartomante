@@ -15,6 +15,7 @@ MonoBehaviour:
   Effects:
   - rid: 6721762637576405065
   - rid: 6721762637576405081
+  - rid: 7085201424405495876
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Opulence
@@ -26,6 +27,7 @@ MonoBehaviour:
   Rarity: 2
   Description: Gain 2 Coins. Doubles the amount if the User have 20 or more Coins.
   extraDescription: 
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:
@@ -211,3 +213,10 @@ MonoBehaviour:
           min: 0
           max: 0
           modifiers: []
+    - rid: 7085201424405495876
+      type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        SetAsDiscardTime: 0

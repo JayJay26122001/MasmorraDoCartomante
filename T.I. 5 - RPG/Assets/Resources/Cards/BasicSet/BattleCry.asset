@@ -19,12 +19,13 @@ MonoBehaviour:
   Name: Battle Cry
   limited: 0
   instantaneous: 1
-  extraDesc: 0
   cost: 1
   Type: 2
   Pack: 0
   Rarity: 2
-  Description: "This turn, All the User\u2019s Damage Sources gain +4."
+  Description: Until the User's Next Turn, All Damage Sources gain +4.
+  extraDescription: 
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:
