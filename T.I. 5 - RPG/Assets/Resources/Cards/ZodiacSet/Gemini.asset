@@ -13,13 +13,7 @@ MonoBehaviour:
   m_Name: Gemini
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 6721762615156277318
-  - rid: 6721762615156277319
-  - rid: 6721762615156277320
-  - rid: 6721762615156277321
-  - rid: 6721762615156277322
-  - rid: 6721762615156277323
-  - rid: 6721762615156277324
+  - rid: 7085201424405495884
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Gemini
@@ -29,98 +23,34 @@ MonoBehaviour:
   Type: 2
   Pack: 1
   Rarity: 4
-  Description: When played, instance an Random Epic Zodiac Card on the User's Hand.
-  extraDescription: 'Pool: Capricorn, Leo, Libra, Pisces, Taurus, Virgo, Astral Telescope.'
+  Description: Instances a Duplicate of the Card on Top of the User's Discard Pile
+    and adds it to its Hand.
+  extraDescription: 
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:
-    - rid: 6721762615156277318
-      type: {class: CreateCard, ns: , asm: Assembly-CSharp}
+    - rid: 7085201424405495884
+      type: {class: DuplicateCard, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions: []
-        ConfirmationConditions:
-        - rid: 6721762615156277333
-        - rid: 6721762615156277334
+        ConfirmationConditions: []
         target: 0
         AddToPile: 0
-        CardPrefab: {fileID: 11400000, guid: e02e0690cdb79404986ac48fea040d4c, type: 2}
-    - rid: 6721762615156277319
-      type: {class: CreateCard, ns: , asm: Assembly-CSharp}
-      data:
-        DiscardIfAcomplished: 0
-        Conditions: []
-        ConfirmationConditions:
-        - rid: 6721762615156277335
-        - rid: 6721762615156277336
-        target: 0
-        AddToPile: 0
-        CardPrefab: {fileID: 11400000, guid: 03f8826008d8f8442aa113cae50558ca, type: 2}
-    - rid: 6721762615156277320
-      type: {class: CreateCard, ns: , asm: Assembly-CSharp}
-      data:
-        DiscardIfAcomplished: 0
-        Conditions: []
-        ConfirmationConditions:
-        - rid: 6721762615156277337
-        - rid: 6721762615156277338
-        target: 0
-        AddToPile: 0
-        CardPrefab: {fileID: 11400000, guid: 260db52267a3e184984479fe7c570ff0, type: 2}
-    - rid: 6721762615156277321
-      type: {class: CreateCard, ns: , asm: Assembly-CSharp}
-      data:
-        DiscardIfAcomplished: 0
-        Conditions: []
-        ConfirmationConditions:
-        - rid: 6721762615156277339
-        - rid: 6721762615156277340
-        target: 0
-        AddToPile: 0
-        CardPrefab: {fileID: 11400000, guid: 42885b34e8832124180471f692adda25, type: 2}
-    - rid: 6721762615156277322
-      type: {class: CreateCard, ns: , asm: Assembly-CSharp}
-      data:
-        DiscardIfAcomplished: 0
-        Conditions: []
-        ConfirmationConditions:
-        - rid: 6721762615156277341
-        - rid: 6721762615156277342
-        target: 0
-        AddToPile: 0
-        CardPrefab: {fileID: 11400000, guid: b25decef69398d34baab05e906159592, type: 2}
-    - rid: 6721762615156277323
-      type: {class: CreateCard, ns: , asm: Assembly-CSharp}
-      data:
-        DiscardIfAcomplished: 0
-        Conditions: []
-        ConfirmationConditions:
-        - rid: 6721762615156277343
-        - rid: 6721762615156277344
-        target: 0
-        AddToPile: 0
-        CardPrefab: {fileID: 11400000, guid: 2e0247bea243e5e4fbc1e45acb2fbfe2, type: 2}
-    - rid: 6721762615156277324
-      type: {class: CreateCard, ns: , asm: Assembly-CSharp}
-      data:
-        DiscardIfAcomplished: 0
-        Conditions: []
-        ConfirmationConditions:
-        - rid: 6721762615156277345
-        - rid: 6721762615156277346
-        target: 0
-        AddToPile: 0
-        CardPrefab: {fileID: 11400000, guid: 111fbc3b57096f948b785008582f08c6, type: 2}
-    - rid: 6721762615156277333
-      type: {class: RandomChance, ns: , asm: Assembly-CSharp}
-      data:
-        percentageChance: 14
-    - rid: 6721762615156277334
-      type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
-      data:
-        CountThisEffect: 0
-        Equation: 2
-        Amount:
+        CardsToCopy:
+          target: 0
+          pile: 3
+          type: -1
+          rarity: -1
+          pack: -1
+          MaxReturnedNumber:
+            type: 0
+            value: 1
+            min: 0
+            max: 0
+          initialized: 1
+        AmountOfInstances:
           type: 0
           target: 0
           ObservedCards:
@@ -142,224 +72,10 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          value: 0
+          value: 1
           min: 0
           max: 0
           modifiers: []
-        EffectStates: 6
-    - rid: 6721762615156277335
-      type: {class: RandomChance, ns: , asm: Assembly-CSharp}
-      data:
-        percentageChance: 28
-    - rid: 6721762615156277336
-      type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
-      data:
-        CountThisEffect: 0
-        Equation: 2
-        Amount:
-          type: 0
-          target: 0
-          ObservedCards:
-            target: 0
-            pile: 0
-            type: 0
-            rarity: 0
-            pack: 0
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-            initialized: 1
-          MaxReturnedNumber:
-            type: 2
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          initialized: 1
-          value: 0
-          min: 0
-          max: 0
-          modifiers: []
-        EffectStates: 6
-    - rid: 6721762615156277337
-      type: {class: RandomChance, ns: , asm: Assembly-CSharp}
-      data:
-        percentageChance: 42
-    - rid: 6721762615156277338
-      type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
-      data:
-        CountThisEffect: 0
-        Equation: 2
-        Amount:
-          type: 0
-          target: 0
-          ObservedCards:
-            target: 0
-            pile: 0
-            type: 0
-            rarity: 0
-            pack: 0
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-            initialized: 1
-          MaxReturnedNumber:
-            type: 2
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          initialized: 1
-          value: 0
-          min: 0
-          max: 0
-          modifiers: []
-        EffectStates: 6
-    - rid: 6721762615156277339
-      type: {class: RandomChance, ns: , asm: Assembly-CSharp}
-      data:
-        percentageChance: 57
-    - rid: 6721762615156277340
-      type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
-      data:
-        CountThisEffect: 0
-        Equation: 2
-        Amount:
-          type: 0
-          target: 0
-          ObservedCards:
-            target: 0
-            pile: 0
-            type: 0
-            rarity: 0
-            pack: 0
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-            initialized: 1
-          MaxReturnedNumber:
-            type: 2
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          initialized: 1
-          value: 0
-          min: 0
-          max: 0
-          modifiers: []
-        EffectStates: 6
-    - rid: 6721762615156277341
-      type: {class: RandomChance, ns: , asm: Assembly-CSharp}
-      data:
-        percentageChance: 71
-    - rid: 6721762615156277342
-      type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
-      data:
-        CountThisEffect: 0
-        Equation: 2
-        Amount:
-          type: 0
-          target: 0
-          ObservedCards:
-            target: 0
-            pile: 0
-            type: 0
-            rarity: 0
-            pack: 0
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-            initialized: 1
-          MaxReturnedNumber:
-            type: 2
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          initialized: 1
-          value: 0
-          min: 0
-          max: 0
-          modifiers: []
-        EffectStates: 6
-    - rid: 6721762615156277343
-      type: {class: RandomChance, ns: , asm: Assembly-CSharp}
-      data:
-        percentageChance: 85
-    - rid: 6721762615156277344
-      type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
-      data:
-        CountThisEffect: 0
-        Equation: 2
-        Amount:
-          type: 0
-          target: 0
-          ObservedCards:
-            target: 0
-            pile: 0
-            type: 0
-            rarity: 0
-            pack: 0
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-            initialized: 1
-          MaxReturnedNumber:
-            type: 2
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          initialized: 1
-          value: 0
-          min: 0
-          max: 0
-          modifiers: []
-        EffectStates: 6
-    - rid: 6721762615156277345
-      type: {class: RandomChance, ns: , asm: Assembly-CSharp}
-      data:
-        percentageChance: 99
-    - rid: 6721762615156277346
-      type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
-      data:
-        CountThisEffect: 0
-        Equation: 2
-        Amount:
-          type: 0
-          target: 0
-          ObservedCards:
-            target: 0
-            pile: 0
-            type: 0
-            rarity: 0
-            pack: 0
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-            initialized: 1
-          MaxReturnedNumber:
-            type: 2
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          initialized: 1
-          value: 0
-          min: 0
-          max: 0
-          modifiers: []
-        EffectStates: 6
+        SetCostToZero: 0
+        SetInstantaneous: 0
+        SetLimited: 0

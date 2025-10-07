@@ -24,7 +24,8 @@ MonoBehaviour:
   Type: 0
   Pack: 0
   Rarity: 1
-  Description: Deals v[0]{Damage} Damage on both sides until the end of the Duel.
+  Description: Deals v[0]{Damage} Damage on the End of the Turn of both sides until
+    the End of the Duel.
   extraDescription: 
   CardImage: {fileID: 0}
   references:

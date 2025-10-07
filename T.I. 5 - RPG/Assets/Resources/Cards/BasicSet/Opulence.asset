@@ -217,6 +217,40 @@ MonoBehaviour:
       type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
-        Conditions: []
+        Conditions:
+        - rid: 7085201424405495886
         ConfirmationConditions: []
         SetAsDiscardTime: 0
+    - rid: 7085201424405495886
+      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        TurnOwner: 0
+        TurnsFromNow:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+        TurnPhase: 1
+        PhaseTime: 1
