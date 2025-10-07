@@ -2,7 +2,8 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.Events;
 using Unity.VisualScripting;
-public class Enemy : Creature
+using UnityEngine.EventSystems;
+public class Enemy : Creature, IPointerClickHandler
 {
     public Animator anim;
     public GameObject model;
@@ -43,6 +44,12 @@ public class Enemy : Creature
         }*/
 
     }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        GameManager.instance.uiController.ShowEnemyDescription();
+    }
+
     protected virtual IEnumerator PlayAllCardsBehaviour()
     {
         yield return new WaitUntil(() => ActionController.instance.NumberOfActionsInQueue() <= 0);
