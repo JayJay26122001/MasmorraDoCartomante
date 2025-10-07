@@ -94,6 +94,8 @@ public class UIController : MonoBehaviour
     public TextMeshPro enemyCardsInHand;
     public TextMeshPro enemyCardsInDiscard;
     public TextMeshPro enemyCardsInBuying;
+    public Transform enemyDescPos;
+    public Transform enemyDescOutPos;
     bool isEnemyDescOn = false;
 
     /*bool gameStarted, gamePaused;
@@ -864,11 +866,7 @@ public class UIController : MonoBehaviour
         int totalBuying = 0, totalDiscard = 0;
 
         enemyDescName.text = activeEnemy.name;
-        /*enemyHp.text = "Health\n" + activeEnemy.Health;
-        enemyMaxHp.text = "Max Health\n" + activeEnemy.MaxHP;
-        enemyShield.text = "Shield\n" + activeEnemy.Shield.ToString();*/
         enemyHp.text = "<color=#FF5555>" + activeEnemy.Health + "/" + activeEnemy.MaxHP + "</color>";
-        //enemyMaxHp.text = "<color=#FF5555>" + activeEnemy.MaxHP + "</color>";
         enemyShield.text = "<color=#55AAFF>" + activeEnemy.Shield + "</color>";
         enemyEnergy.text  = "<color=#00A400>" + activeEnemy.Energy + "</color>";
         enemyBaseDamage.text = activeEnemy.BaseDamage.ToString();
@@ -886,14 +884,18 @@ public class UIController : MonoBehaviour
 
     public void ActivateEnemyDesc()
     {
-        enemyDesc.SetActive(true);
         isEnemyDescOn = true;
+        enemyDesc.SetActive(true);
+        LeanTween.move(enemyDesc, enemyDescPos, 0.2f);
     }
 
     public void HideEnemyDesc()
     {
-        enemyDesc.SetActive(false);
         isEnemyDescOn = false;
+        LeanTween.move(enemyDesc, enemyDescOutPos, 0.2f).setOnComplete(() =>
+        {
+            enemyDesc.SetActive(false);
+        });
     }
 
     public void ShowEnemyDescription()
@@ -901,7 +903,7 @@ public class UIController : MonoBehaviour
         EnemyDescription();
         if(isEnemyDescOn)
         {
-            CameraController.instance.ChangeCamera(0);
+            ActionController.instance.InvokeTimer<int>(CameraController.instance.ChangeCamera, 0, 0.05f);
             HideEnemyDesc();
         }
         else
