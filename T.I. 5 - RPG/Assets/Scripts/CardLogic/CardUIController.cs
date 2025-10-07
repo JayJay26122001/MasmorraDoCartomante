@@ -531,6 +531,12 @@ public class CardUIController : MonoBehaviour
         discardPileText.gameObject.SetActive(true);
     }
 
+    public void DeactivateCardTextValues()
+    {
+        buyingPileText.gameObject.SetActive(false);
+        discardPileText.gameObject.SetActive(false);
+    }
+
     /*public void ChangePileTextValues(Transform space)
     {
         if (space == buyingPilePos)

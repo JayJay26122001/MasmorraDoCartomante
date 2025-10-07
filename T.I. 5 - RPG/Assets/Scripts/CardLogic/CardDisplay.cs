@@ -183,7 +183,10 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         {
             CardUIController.instance.SetHighlightedCard(null);
         }
-        GameManager.instance.uiController.ShowPopups(this);
+        if (cardData.deck.Owner.hand.Contains(this.cardData) || cardData.deck.Owner.playedCards.Contains(this.cardData))
+        {
+            GameManager.instance.uiController.ShowPopups(this);
+        }
         if(!string.IsNullOrEmpty(cardData.extraDescription)) 
         {
             UpdateCardExtraDescription();
