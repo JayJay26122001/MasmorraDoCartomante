@@ -65,7 +65,7 @@ public class Boss : Enemy
                 yield return new WaitUntil(() => CardPlayed);
                 PlayedCard.RemoveListener(check);
 
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.8f);
                 i = 0;
             }
             else
@@ -95,7 +95,7 @@ public class Boss : Enemy
             yield return new WaitUntil(() => CardPlayed);
             PlayedCard.RemoveListener(check);
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.8f);
         }
         yield return new WaitForSeconds(1f);
         FinishedPlaying.Invoke();

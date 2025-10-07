@@ -61,8 +61,8 @@ public class Enemy : Creature
                 PlayedCard.AddListener(check);
                 yield return new WaitUntil(() => CardPlayed);
                 PlayedCard.RemoveListener(check);
-                
-                yield return new WaitForSeconds(0.5f);
+
+                yield return new WaitForSeconds(0.8f);
                 i = 0;
             }
             else
