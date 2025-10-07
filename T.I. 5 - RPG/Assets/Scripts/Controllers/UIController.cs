@@ -782,6 +782,9 @@ public class UIController : MonoBehaviour
         {
             float width = 400f;
             float gap = 25f;
+            RectTransform baseRect = ingamePopup.GetComponent<RectTransform>();
+            float baseY = baseRect.anchoredPosition.y;
+            float baseX = baseRect.anchoredPosition.x;
             for (int i = 0; i < quantity; i++)
             {
                 if(i < popups.Count)
@@ -792,8 +795,11 @@ public class UIController : MonoBehaviour
                 else
                 {
                     float offsetX = - (i * (width + gap));
-                    GameObject newPopup = Instantiate(ingamePopup, ingamePopup.GetComponent<RectTransform>().position + new Vector3(offsetX, 0, 0), Quaternion.identity);
-                    newPopup.transform.SetParent(canvas);
+                    //GameObject newPopup = Instantiate(ingamePopup, ingamePopup.GetComponent<RectTransform>().position + new Vector2(offsetX, 0), Quaternion.identity);
+                    //newPopup.transform.SetParent(canvas);
+                    GameObject newPopup = Instantiate(ingamePopup, canvas);
+                    RectTransform popupRect = newPopup.GetComponent<RectTransform>();
+                    popupRect.anchoredPosition = new Vector2(baseX + offsetX, baseY);
                     popups.Add(newPopup);
                     UpdatePopupUI(newPopup, card, i);
                 }
