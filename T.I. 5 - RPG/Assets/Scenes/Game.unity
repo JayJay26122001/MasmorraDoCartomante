@@ -22941,7 +22941,7 @@ MonoBehaviour:
       max: 0
     ObservedStat: 0
     initialized: 1
-    value: 1
+    value: 2
     min: 0
     max: 0
     modifiers: []
@@ -37201,7 +37201,7 @@ MonoBehaviour:
       max: 0
     ObservedStat: 0
     initialized: 1
-    value: 1
+    value: 2
     min: 0
     max: 0
     modifiers: []

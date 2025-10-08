@@ -25,9 +25,10 @@ MonoBehaviour:
   Type: 1
   Pack: 3
   Rarity: 0
-  Description: Gains v[0]{Shield} Shield. Retriggers if an Attack Card is played
-    after it.
+  Description: Gain v[0]{Shield} Shield. Retriggers if an Attack Card is played after
+    it.
   extraDescription: 
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:

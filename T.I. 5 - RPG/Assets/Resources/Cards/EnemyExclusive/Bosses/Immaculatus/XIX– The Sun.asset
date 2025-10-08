@@ -13,65 +13,34 @@ MonoBehaviour:
   m_Name: "XIX\u2013 The Sun"
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 6721762298113032273
-  - rid: 6721762298113032274
+  - rid: 7085201447241383936
+  - rid: 7085201447241384009
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: "XIX\u2013 The Sun"
   limited: 0
-  instantaneous: 1
+  instantaneous: 0
   cost: 0
   Type: 2
   Pack: 4
   Rarity: 4
-  Description: Buy 6 Cards. After played, 50% Chance the User takes double Damage
-    on the Opponent's Next Turn.
+  Description: By the end of the Opponent's Next Turn, if its Energy is Depleted,
+    boost the User's Damage by x1.3 in the User's Turn after that.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: bece3672533acdd4a99aac7e98f1ad48, type: 3}
   references:
     version: 2
     RefIds:
-    - rid: 6721762298113032273
-      type: {class: BuyCards, ns: , asm: Assembly-CSharp}
-      data:
-        DiscardIfAcomplished: 0
-        Conditions: []
-        ConfirmationConditions: []
-        BuyCardNumber:
-          type: 0
-          target: 0
-          ObservedCards:
-            target: 0
-            pile: 0
-            type: 0
-            rarity: 0
-            pack: 0
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-            initialized: 1
-          MaxReturnedNumber:
-            type: 2
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          initialized: 1
-          value: 6
-          min: 0
-          max: 0
-          modifiers: []
-    - rid: 6721762298113032274
+    - rid: 7085201447241383936
       type: {class: BuffStat, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
-        Conditions: []
+        Conditions:
+        - rid: 7085201447241384007
         ConfirmationConditions:
-        - rid: 6721762298113032275
+        - rid: 7085201447241383938
         BuffTarget: 0
-        StatToBuff: 2
+        StatToBuff: 0
         Modifier:
           type: 0
           value:
@@ -96,7 +65,7 @@ MonoBehaviour:
               max: 0
             ObservedStat: 0
             initialized: 1
-            value: 2
+            value: 1.3
             min: 0
             max: 0
             modifiers: []
@@ -104,7 +73,133 @@ MonoBehaviour:
         TurnsFromNow: 0
         TurnPhaseToStop: 0
         StopAtPhase: 0
-    - rid: 6721762298113032275
-      type: {class: RandomChance, ns: , asm: Assembly-CSharp}
+    - rid: 7085201447241383938
+      type: {class: ComparativeConfirmation, ns: , asm: Assembly-CSharp}
       data:
-        percentageChance: 50
+        ObservedValue:
+          type: 3
+          target: 1
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 2
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+        Equation: 4
+        Amount:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+    - rid: 7085201447241384007
+      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        TurnOwner: 0
+        TurnsFromNow:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+        TurnPhase: 0
+        PhaseTime: 0
+    - rid: 7085201447241384009
+      type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 7085201447241384010
+        ConfirmationConditions: []
+        SetAsDiscardTime: 0
+    - rid: 7085201447241384010
+      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        TurnOwner: 0
+        TurnsFromNow:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 1
+          min: 0
+          max: 0
+          modifiers: []
+        TurnPhase: 0
+        PhaseTime: 0
