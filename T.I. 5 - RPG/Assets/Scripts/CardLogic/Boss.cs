@@ -124,4 +124,9 @@ public class Boss : Enemy
         return cards;
         //CardUIController.instance.ChangePileTextValues(decks[0].BuyingPile, CardUIController.instance.buyingPilePos);   
     }
+    public override void ShuffleAllDecks()
+    {
+        base.ShuffleAllDecks();
+        BonusDeck.ShuffleDeck();
+    }
 }

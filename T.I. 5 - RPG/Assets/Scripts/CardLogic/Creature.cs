@@ -470,7 +470,14 @@ public class Creature : MonoBehaviour
             RevertExaust(c);
             DiscardCard(c);
         }
-        decks[0].ShuffleDeck();
+        ShuffleAllDecks();
+    }
+    public virtual void ShuffleAllDecks()
+    {
+        foreach (Deck d in decks)
+        {
+            d.ShuffleDeck();
+        }
     }
     public void SetToSkipTurn(int TurnAmount)
     {
