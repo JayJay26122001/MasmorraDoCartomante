@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 5, y: 5}
+  m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8338555351441099056
 MeshRenderer:
@@ -132,8 +132,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -194,19 +194,17 @@ MonoBehaviour:
   speed: 5
   positions:
   - {x: -6.34, y: 4.2, z: 11.47}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: -14.6, y: 11, z: -2}
+  - {x: 18.2, y: 11, z: 8.8}
+  - {x: -18, y: 10, z: -3.8}
+  - {x: 13.85, y: 10, z: 11.1}
+  - {x: -12.65, y: 10, z: 0.7}
+  - {x: 22.95, y: 10, z: 6.3}
   rotations:
   - {x: 0, y: -0.34202012, z: 0, w: 0.9396926}
-  - {x: 0, y: 0, z: 0, w: 0}
-  - {x: 0, y: 0, z: 0, w: 0}
-  - {x: 0, y: 0, z: 0, w: 0}
-  - {x: 0, y: 0, z: 0, w: 0}
-  - {x: 0, y: 0, z: 0, w: 0}
-  - {x: 0, y: 0, z: 0, w: 0}
-  - {x: 0, y: 0, z: 0, w: 0}
+  - {x: 0, y: -0.34202012, z: 0, w: 0.9396926}
+  - {x: 0, y: 0.23768589, z: 0, w: 0.9713421}
+  - {x: 0, y: -0.34202012, z: 0, w: 0.9396926}
+  - {x: 0, y: 0.23768589, z: 0, w: 0.9713421}
+  - {x: 0, y: -0.34202012, z: 0, w: 0.9396926}
+  - {x: 0, y: 0.23768589, z: 0, w: 0.9713421}

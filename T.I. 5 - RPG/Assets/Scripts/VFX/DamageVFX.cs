@@ -9,7 +9,7 @@ public class DamageVFX : MonoBehaviour
     bool goingUp;
     bool moving = false;
     //Vector3 startPos;
-    public enum VFXType { Damage, PlayerHP, EnemyHP, PlayerShield, EnemyShield, PlayerEnergy, EnemyEnergy, Money, Other };
+    public enum VFXType { Damage, PlayerHP, EnemyHP, PlayerShield, EnemyShield, PlayerEnergy, EnemyEnergy, /*Money,*/ Other };
     public List<Vector3> positions = new List<Vector3>();
     public List<Quaternion> rotations = new List<Quaternion>();
     void Start()
@@ -18,7 +18,7 @@ public class DamageVFX : MonoBehaviour
         text = GetComponent<TextMeshPro>();
         text.color = new Color(text.color.r, text.color.g, text.color.b, 0);
         text.text = "";
-        //SetDamage(99);
+        //SetText("CU", VFXType.Other, Color.yellow, true, -Vector3.up * 5, Quaternion.identity, 40);
     }
 
     private void Update()
@@ -46,35 +46,43 @@ public class DamageVFX : MonoBehaviour
             case VFXType.Damage:
                 goingUp = true;
                 text.color = Color.red * 0.8f;
+                text.fontSize = 36;
                 break;
             case VFXType.PlayerHP:
                 goingUp = false;
                 text.color = Color.red * 0.8f;
+                text.fontSize = 20;
                 break;
             case VFXType.EnemyHP:
                 goingUp = false;
                 text.color = Color.red * 0.8f;
+                text.fontSize = 20;
                 break;
             case VFXType.PlayerShield:
                 goingUp = false;
                 text.color = Color.blue * 0.8f + Color.green * 0.2f;
+                text.fontSize = 20;
                 break;
             case VFXType.EnemyShield:
                 goingUp = false;
                 text.color = Color.blue * 0.8f + Color.green * 0.2f;
+                text.fontSize = 20;
                 break;
             case VFXType.PlayerEnergy:
                 goingUp = false;
                 text.color = Color.green * 0.65f;
+                text.fontSize = 20;
                 break;
             case VFXType.EnemyEnergy:
                 goingUp = false;
                 text.color = Color.green * 0.65f;
+                text.fontSize = 20;
                 break;
-            case VFXType.Money:
+            /*case VFXType.Money:
                 goingUp = false;
                 text.color = Color.yellow * 0.8f;
-                break;
+                text.fontSize = 20;
+                break;*/
         }
         t = 0;
         text.color = new Color(text.color.r, text.color.g, text.color.b, 0);
@@ -84,7 +92,7 @@ public class DamageVFX : MonoBehaviour
     }
 
     //Only for VFXType.Other
-    public void SetText(string tex, VFXType vfxType, Color c, bool up, Vector3 pos, Quaternion rot)
+    public void SetText(string tex, VFXType vfxType, Color c, bool up, Vector3 pos, Quaternion rot, float size)
     {
         transform.position = pos;
         transform.rotation = rot;
