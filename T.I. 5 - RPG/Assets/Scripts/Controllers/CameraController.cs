@@ -54,7 +54,8 @@ public class CameraController : MonoBehaviour
             ChangeActiveCamera();
             if(activeCamIndex == 3)
             {
-                GameManager.instance.uiController.ActivateEnemyDesc();
+                GameManager.instance.uiController.ShowEnemyDescription();
+                //GameManager.instance.uiController.ActivateEnemyDesc();
             }
         }
     }
