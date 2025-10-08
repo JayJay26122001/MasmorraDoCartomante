@@ -111,6 +111,7 @@ public class Deck : ScriptableObject
         }
         ShufflePile(ref BuyingPile);
         CardUIController.OrganizeStack(BuyingPile, Owner.combatSpace.buyingPileSpace);
+        CardUIController.AttCardDescription(Owner);
     }
     public void ShufflePile(ref SerializableStack<Card> pile) // embaralha apenas uma pilha (descarte ou compra)
     {

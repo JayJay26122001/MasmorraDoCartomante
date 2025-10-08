@@ -332,7 +332,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         cardDescription.text = desc;
     }*/
 
-    //DESCRIÇÃO MODULAR
+    //DESCRIï¿½ï¿½O MODULAR
     public void UpdateCardCost()
     {
         cardCost.text = cardData.cost.ToString();
@@ -360,6 +360,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
             desc += " LIMITED";
         }
         cardDescription.text = desc;
+        UpdateCardCost();
     }
 
     public void UpdateCardExtraDescription()

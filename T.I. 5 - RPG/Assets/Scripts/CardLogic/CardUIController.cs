@@ -181,6 +181,7 @@ public class CardUIController : MonoBehaviour
                 currentCard.cardDisplay.UpdatePosition();
             });
         }
+        AttCardDescription(c);
     }
 
     public static void OrganizeHandCardsWhenHighlighted(Creature c)
@@ -319,6 +320,7 @@ public class CardUIController : MonoBehaviour
                 CardDisplay cardDisplay = cardObject.GetComponent<CardDisplay>();
             }
         }
+        AttCardDescription(c);
     }
 
     public static void OrganizeBoughtPackCards(CardPack pack)
