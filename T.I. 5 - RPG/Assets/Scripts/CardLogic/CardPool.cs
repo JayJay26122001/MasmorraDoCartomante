@@ -12,12 +12,19 @@ public class CardPool : ScriptableObject
     public List<float> baseProbabilities = new List<float>();
     List<float> probabilities = new List<float>();
 
+    [System.Flags]
+    public enum CardType { Attack, Defense, Mind }
+    [System.Flags]
+    public enum CardPack { Normal, Zodiac, EnemyExclusive, MinorArcana, MajorArcana, SandsOfTime, PowerSurge }
+    [System.Flags]
+    public enum CardRarity { Common, Uncommon, Rare, Epic, Legendary }
+
     [DrawerAttribute]
-    public Card.CardType type;
+    public CardType type;
     [DrawerAttribute]
-    public Card.CardRarity rarity;
+    public CardRarity rarity;
     [DrawerAttribute]
-    public Card.CardPack packSet;
+    public CardPack packSet;
 
     List<int> rarityAux = new List<int>();
 

@@ -16,11 +16,8 @@ public class Card : ScriptableObject
     public string Name;
     public bool /*hidden,*/ limited, instantaneous;
     public int cost;
-    [System.Flags]
     public enum CardType { Attack, Defense, Mind }
-    [System.Flags]
     public enum CardPack { Normal, Zodiac, EnemyExclusive, MinorArcana, MajorArcana, SandsOfTime, PowerSurge }
-    [System.Flags]
     public enum CardRarity { Common, Uncommon, Rare, Epic, Legendary }
 
     public CardType Type;
