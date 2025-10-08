@@ -21,7 +21,7 @@ public class CardUIController : MonoBehaviour
 
     public void SetHighlightedCard(Card card)
     {
-        if(highlightedCard != card)
+        if (highlightedCard != card)
         {
             if (highlightedCard != null)
             {
@@ -41,7 +41,7 @@ public class CardUIController : MonoBehaviour
 
     public CardDisplay InstantiateCard(Card card)
     {
-        CardDisplay temp = Instantiate(cardPrefab.gameObject, new Vector3(0,25,0), Quaternion.identity).GetComponent<CardDisplay>();
+        CardDisplay temp = Instantiate(cardPrefab.gameObject, new Vector3(0, 25, 0), Quaternion.identity).GetComponent<CardDisplay>();
         temp.SetCard(card);
         if (card.deck != null && card.deck.Owner != null)
         {
@@ -138,6 +138,11 @@ public class CardUIController : MonoBehaviour
         OrganizePlayedCards(c);
         OrganizeStackFlat(c.decks[0].DiscardPile, c.combatSpace.discardPileSpace);
         OrganizeStack(c.decks[0].BuyingPile, c.combatSpace.buyingPileSpace);
+        if (c is Boss b)
+        {
+            OrganizeStackFlat(b.BonusDeck.DiscardPile, c.combatSpace.discardPileSpace);
+            OrganizeStack(b.BonusDeck.BuyingPile, c.combatSpace.buyingPileSpace);
+        }
     }
 
     public static void OrganizeHandCards(Creature c)
@@ -146,7 +151,7 @@ public class CardUIController : MonoBehaviour
         if (totalHandCards == 0) return;
         float fixedSpacing = 2f;
         float spacing = instance.maxTotalWidth / (totalHandCards - 1);
-        if(spacing > fixedSpacing)
+        if (spacing > fixedSpacing)
         {
             spacing = fixedSpacing;
         }
@@ -210,14 +215,14 @@ public class CardUIController : MonoBehaviour
             Vector3 pos = (c.combatSpace.playerHandSpace.right * posX) + (c.combatSpace.playerHandSpace.up) * posY + (-c.combatSpace.playerHandSpace.forward) * posZ + c.combatSpace.playerHandSpace.position;
             LeanTween.move(cardObject, pos, instance.highlightTimeAnim).setEaseInOutSine();
         }
-        
+
     }
     public static int[] GetOffsetMultipliers(int cardCount, int selectedIndex)
     {
         int[] result = new int[cardCount];
         int maxValue = cardCount - 1;
         List<int> lower = new List<int>(), higher = new List<int>();
-    
+
         for (int i = 0; i < cardCount; i++)
         {
             if (i < selectedIndex)
@@ -227,7 +232,7 @@ public class CardUIController : MonoBehaviour
             }
             else if (i > selectedIndex)
             {
-                result[i] =  Mathf.Abs(i - maxValue);
+                result[i] = Mathf.Abs(i - maxValue);
                 higher.Add(result[i]);
             }
         }
@@ -235,7 +240,7 @@ public class CardUIController : MonoBehaviour
         if (higher.Count > greatest) greatest = higher.Count;
 
         result[selectedIndex] = greatest;
-    
+
         return result;
     }
     /*public static int[] GetOffsetMultipliers(int cardCount, int selectedIndex)
@@ -292,7 +297,7 @@ public class CardUIController : MonoBehaviour
             GameObject cardObject = c.playedCards[i].cardDisplay.gameObject;
             Vector3 pos = (c.combatSpace.playedCardSpace.right * posX) + c.combatSpace.playedCardSpace.position;
             Vector3 rot = c.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(90f, 0f, 0f);
-            if(c.GetComponent<Player>() != null)
+            if (c.GetComponent<Player>() != null)
             {
                 LeanTween.rotate(cardObject, rot, instance.smallTimeAnim).setEaseInOutSine();
                 if (i == totalCardsPlayed - 1)
@@ -388,7 +393,7 @@ public class CardUIController : MonoBehaviour
             Vector3 lookRot = c.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(20f, 0f, 0f);
             Vector3 rot = c.combatSpace.playedCardSpace.rotation.eulerAngles + new Vector3(90f, 0f, 0f);
             GameObject cardObject = c.playedCards[i].cardDisplay.gameObject;
-            if(i == totalCardsPlayed - 1)
+            if (i == totalCardsPlayed - 1)
             {
                 cardObject.transform.position = spawnPos;
                 cardObject.GetComponent<CardDisplay>().AnimateEnemyCard(false);
@@ -399,7 +404,7 @@ public class CardUIController : MonoBehaviour
                     LeanTween.move(cardObject, instance.cardLookPos, instance.bigTimeAnim).setEaseOutCubic().setOnComplete(() =>
                     {
                         LeanTween.delayedCall(cardObject, instance.bigTimeAnim, () =>
-                        { 
+                        {
                             LeanTween.rotate(cardObject, rot, instance.mediumTimeAnim).setEaseInOutSine();
                             LeanTween.move(cardObject, finalPos, instance.mediumTimeAnim).setEaseInCubic().setOnComplete(() =>
                             {
@@ -422,7 +427,7 @@ public class CardUIController : MonoBehaviour
         if (cardVfx != null)
         {
             Quaternion rotation = Quaternion.Euler(cardVfx.transform.rotation.eulerAngles);
-            GameObject vfx = Instantiate(cardVfx, pos + Vector3.forward*1f +Vector3.up*0.5f, rotation);
+            GameObject vfx = Instantiate(cardVfx, pos + Vector3.forward * 1f + Vector3.up * 0.5f, rotation);
             Destroy(vfx, 0.5f);
         }
     }
