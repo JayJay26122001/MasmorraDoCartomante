@@ -20,7 +20,7 @@ MonoBehaviour:
   deck: {fileID: 0}
   Name: Opulence
   limited: 1
-  instantaneous: 0
+  instantaneous: 1
   cost: 1
   Type: 2
   Pack: 0
@@ -252,5 +252,5 @@ MonoBehaviour:
           min: 0
           max: 0
           modifiers: []
-        TurnPhase: 1
+        TurnPhase: 0
         PhaseTime: 1

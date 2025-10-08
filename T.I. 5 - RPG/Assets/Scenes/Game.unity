@@ -41103,7 +41103,7 @@ MonoBehaviour:
   shld: 0
   energy: 0
   maxBaseEnergy: 3
-  money: 3
+  money: 5
   CardBuyMax: 1
   baseDamage: 6
   baseShieldGain: 5
