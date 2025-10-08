@@ -24890,7 +24890,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1, y: 1, z: 1}
+    m_Scale: {x: 0.5, y: 0.5, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -25088,7 +25088,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 15
+      scalar: 10
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -51412,10 +51412,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CorruptorCandle
       objectReference: {fileID: 0}
-    - target: {fileID: 2255163282206678305, guid: 459d79b77d3def449a74e32f600683bc, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -51496,9 +51492,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 322425107}
     m_Modifications:
+    - target: {fileID: 2636644216469464598, guid: fc31ca6be1250c64bb3a81df3f94047b, type: 3}
+      propertyPath: m_AdditionalLightsShadowResolutionTier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227015640389956891, guid: fc31ca6be1250c64bb3a81df3f94047b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227015640389956891, guid: fc31ca6be1250c64bb3a81df3f94047b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.197
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567837573200492599, guid: fc31ca6be1250c64bb3a81df3f94047b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.384
+      objectReference: {fileID: 0}
     - target: {fileID: 6658485986305882312, guid: fc31ca6be1250c64bb3a81df3f94047b, type: 3}
       propertyPath: m_Name
       value: VelaComSuporte
+      objectReference: {fileID: 0}
+    - target: {fileID: 6658485986305882312, guid: fc31ca6be1250c64bb3a81df3f94047b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6793863693916366046, guid: fc31ca6be1250c64bb3a81df3f94047b, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6793863693916366046, guid: fc31ca6be1250c64bb3a81df3f94047b, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6793863693916366046, guid: fc31ca6be1250c64bb3a81df3f94047b, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9159233394326573070, guid: fc31ca6be1250c64bb3a81df3f94047b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -51541,7 +51569,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6067856265076902198, guid: fc31ca6be1250c64bb3a81df3f94047b, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc31ca6be1250c64bb3a81df3f94047b, type: 3}
@@ -52087,7 +52116,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8971539244129358926, guid: a624b77b7c407f5488a4abb93159e8cf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -18
+      value: -17.31
       objectReference: {fileID: 0}
     - target: {fileID: 8971539244129358926, guid: a624b77b7c407f5488a4abb93159e8cf, type: 3}
       propertyPath: m_LocalPosition.z
