@@ -25,7 +25,9 @@ MonoBehaviour:
   Pack: 1
   Rarity: 1
   Description: Gain v[0]{Shield} Shield. Start the Next Turn with already v[0]{Shield}
-    Shield
+    Shield.
+  extraDescription: 
+  CardImage: {fileID: 21300000, guid: 011c314d610390c4dbf23b17ffc4a6cf, type: 3}
   references:
     version: 2
     RefIds:

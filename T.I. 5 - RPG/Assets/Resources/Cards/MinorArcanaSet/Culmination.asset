@@ -19,12 +19,14 @@ MonoBehaviour:
   Name: Culmination
   limited: 0
   instantaneous: 1
-  cost: 2
+  cost: 1
   Type: 0
   Pack: 3
   Rarity: 2
   Description: Deals 1 Piercing Damage based on the number of Cards in the Discard
     Pile(v[0]{Damage}).
+  extraDescription: 
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:

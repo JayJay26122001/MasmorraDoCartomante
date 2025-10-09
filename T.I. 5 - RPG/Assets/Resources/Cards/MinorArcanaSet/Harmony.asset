@@ -19,14 +19,15 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Harmony
-  hidden: 0
   limited: 0
   instantaneous: 0
   cost: 1
   Type: 2
   Pack: 3
   Rarity: 1
-  Description: Heals 3 Health both sides Every Turn until the end of the battle.
+  Description: Heals 3 Health both sides Every Turn until the End of the Duel.
+  extraDescription: 
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:
@@ -38,6 +39,7 @@ MonoBehaviour:
         - rid: 6721762162139987970
         ConfirmationConditions: []
         AmountHealled:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -58,7 +60,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 3
           min: 0
           max: 0
@@ -72,6 +73,7 @@ MonoBehaviour:
         - rid: 6721762162139987971
         ConfirmationConditions: []
         AmountHealled:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -92,7 +94,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 3
           min: 0
           max: 0
@@ -104,6 +105,7 @@ MonoBehaviour:
         Repeatable: 1
         TurnOwner: 0
         TurnsFromNow:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -124,7 +126,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 0
           min: 0
           max: 0
@@ -137,6 +138,7 @@ MonoBehaviour:
         Repeatable: 1
         TurnOwner: 1
         TurnsFromNow:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -157,7 +159,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 0
           min: 0
           max: 0
@@ -190,6 +191,7 @@ MonoBehaviour:
         Repeatable: 0
         TurnOwner: 0
         TurnsFromNow:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -210,7 +212,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 99
           min: 0
           max: 0
