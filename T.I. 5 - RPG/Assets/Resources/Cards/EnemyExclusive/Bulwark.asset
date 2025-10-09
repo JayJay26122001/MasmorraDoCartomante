@@ -27,6 +27,7 @@ MonoBehaviour:
   Description: If the Opponent plays an Attack Card in their Next Turn, gain v[0]{Shield}
     Shield.
   extraDescription: 
+  CardImage: {fileID: 21300000, guid: 4667f36e4fa72b149ba55eb30dc3c13f, type: 3}
   references:
     version: 2
     RefIds:
