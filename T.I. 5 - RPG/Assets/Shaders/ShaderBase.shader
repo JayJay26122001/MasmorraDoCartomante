@@ -6,7 +6,8 @@ Shader "Unlit/ShaderBase"
         _BaseTex("Base Texture", 2D) = "white" {}
         _MetallicTex("Metallic Map", 2D) = "white" {}
         _MetallicStrength("Metallic Strength", Range(0, 1)) = 0
-        _Smoothness("Smoothness", Range(0, 1)) = 0.5
+        _RoughnessTex("Roughness Map", 2D) = "white" {}
+        _Roughness("Roughness Strength", Range(0, 1)) = 0.5
         _NormalTex("Normal Map", 2D) = "bump" {}
         _NormalStrength("Normal Strength", Float) = 1
         [Toggle(USE_EMISSION_ON)] _EmissionOn("Use Emission?", Float) = 0
@@ -64,6 +65,7 @@ Shader "Unlit/ShaderBase"
             };
             sampler2D _BaseTex;
             sampler2D _MetallicTex;
+            sampler2D _RoughnessTex;
             sampler2D _NormalTex;
             sampler2D _EmissionTex;
             sampler2D _AOTex;
@@ -71,7 +73,7 @@ Shader "Unlit/ShaderBase"
             float4 _BaseColor;
             float4 _BaseTex_ST;
             float _MetallicStrength;
-            float _Smoothness;
+            float _Roughness;
             float _NormalStrength;
             float4 _EmissionColor;
             CBUFFER_END
@@ -143,7 +145,8 @@ Shader "Unlit/ShaderBase"
                 float4 metallicSample = tex2D(_MetallicTex, i.uv);
                 surfaceData.metallic = metallicSample * _MetallicStrength;
                 // Smoothness output.
-                surfaceData.smoothness = _Smoothness;
+                float4 roughnessSample = tex2D(_RoughnessTex, i.uv);
+                surfaceData.smoothness = 1 - (roughnessSample * _Roughness);
                 // Normal output.
                 float3 normalSample = UnpackNormal(tex2D(_NormalTex,
                 i.uv));
