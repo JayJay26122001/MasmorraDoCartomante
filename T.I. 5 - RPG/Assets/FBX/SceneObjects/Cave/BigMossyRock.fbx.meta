@@ -3,7 +3,12 @@ guid: 65edbb92ebb0d6c439bb8a1f08cf5213
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PedraMusgo
+    second: {fileID: 2100000, guid: f83f61c6c0ed0684fbc7c0ac52fa637a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -88,7 +93,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.19999999
+    globalScale: 20
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
