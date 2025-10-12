@@ -137,6 +137,7 @@ public class Combat : MonoBehaviour
     }
     public void SetBellActive(bool active)
     {
+        BellColider.gameObject.GetComponent<Bell>().outline.SetActive(active);
         BellColider.enabled = active;
         if (active)
         {

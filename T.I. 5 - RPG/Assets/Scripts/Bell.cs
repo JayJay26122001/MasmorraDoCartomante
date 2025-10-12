@@ -7,8 +7,14 @@ public class Bell : MonoBehaviour
     public float turnSpeed;
     public AnimationClip turnToPlayer, turnToEnemy;
     public Animation anim;
+    public GameObject outline;
     void Awake()
     {
+        outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.green);
+        outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeX", 0.25f);
+        outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeY", 0.25f);
+        outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeZ", 0.1f);
+        outline.SetActive(false);
         GameplayManager.TurnArrow = this;
     }
     void Start()
@@ -34,12 +40,15 @@ public class Bell : MonoBehaviour
         if (pointedToPlayer)
         {
             anim.clip = turnToEnemy;
+            outline.GetComponent<Animation>().clip = turnToEnemy;
         }
         else
         {
             anim.clip = turnToPlayer;
+            outline.GetComponent<Animation>().clip = turnToPlayer;
         }
         anim.Play();
+        outline.GetComponent<Animation>().Play();
         pointedToPlayer = !pointedToPlayer;
     }
 }
