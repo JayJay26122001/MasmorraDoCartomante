@@ -30,7 +30,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
     bool inAnimation = false, disappearing;
     float animTimeStart;
     public float shaderAnimSpeed;
-
+    public GameObject outline;
     public struct Token
     {
         public int index;
@@ -47,6 +47,25 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         if (cardData.deck != null && cardData.deck.Owner != GameplayManager.instance.player)
         {
             SetupShader();
+        }
+        if (outline != null)
+        {
+            outline.SetActive(false);
+            switch(cardData.Type)
+            {
+                case Card.CardType.Attack:
+                    outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.red);
+                    break;
+                case Card.CardType.Defense:
+                    outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.blue);
+                    break;
+                case Card.CardType.Mind:
+                    outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.green);
+                    break;
+            }
+            outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeX", 0.1f);
+            outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeY", 0.1f);
+            outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeZ", 0.01f);
         }
     }
 
@@ -162,7 +181,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            if (pack != null || GameplayManager.instance.removingCards || cardData.deck.Owner.playedCards.Contains(cardData))
+            if (pack != null || GameplayManager.instance.duplicatingCards || GameplayManager.instance.removingCards || cardData.deck.Owner.playedCards.Contains(cardData))
             {
                 CameraController.instance.HighlightCard(gameObject.GetComponentsInChildren<Transform>()[1].position);
             }
@@ -195,6 +214,10 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         {
             GameplayManager.instance.stamp.SetPrice(this.cardData);
         }
+        if (pack != null || GameplayManager.instance.duplicatingCards || GameplayManager.instance.removingCards || cardData.deck.Owner.playedCards.Contains(cardData))
+        {
+            outline.SetActive(true);
+        }
     }
 
     public void OnMouseExit()
@@ -203,7 +226,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         {
             CardUIController.instance.SetHighlightedCard(null);
         }
-
+        outline.SetActive(false);
         GameManager.instance.uiController.HidePopups();
     }
 
