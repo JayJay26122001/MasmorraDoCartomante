@@ -162,6 +162,7 @@ public class Combat : MonoBehaviour
     }
     public void EndCombat()
     {
+        BellColider.gameObject.GetComponent<Bell>().outline.SetActive(false);
         ActionController.instance.InvokeTimer(CardUIController.instance.DeactivateCardTextValues, 0.5f);
         foreach (Turn t in Round)
         {

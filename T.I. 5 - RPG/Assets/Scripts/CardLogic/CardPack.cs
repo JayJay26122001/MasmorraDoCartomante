@@ -38,6 +38,7 @@ public class CardPack : MonoBehaviour
         {
             if (GameplayManager.instance.player.ChangeMoney(-data.price))
             {
+                this.gameObject.GetComponent<BoxCollider>().enabled = false;
                 selectedQuantity = 0;
                 GameplayManager.instance.ExplodeCoins(this.transform.position);
                 GameplayManager.instance.canBuy = false;

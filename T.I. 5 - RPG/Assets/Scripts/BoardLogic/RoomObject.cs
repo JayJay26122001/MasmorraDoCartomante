@@ -4,9 +4,14 @@ public class RoomObject : MonoBehaviour
 {
     public BoardRoom roomRef;
     public MeshFilter icon;
-
+    public GameObject outline;
     private void Start()
     {
+        outline = this.transform.GetChild(1).gameObject;
+        outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeX", 0.5f);
+        outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeY", 0.5f);
+        outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeZ", 0f);
+        outline.SetActive(false);
         icon = this.transform.GetChild(0).gameObject.GetComponent<MeshFilter>();
         if(roomRef.type.iconMesh != null)
         {
@@ -24,6 +29,7 @@ public class RoomObject : MonoBehaviour
         if(GameplayManager.instance.currentRoom.nextRooms.Contains(roomRef) && GameplayManager.instance.InputActive && !GameManager.instance.uiController.gamePaused && !GameplayManager.instance.bg.inMovement)
         {
             GameplayManager.instance.PauseInput(2);
+            outline.SetActive(false);
             Action act = new Action(() => { return; });
             switch(roomRef.type.roomName)
             {
@@ -53,6 +59,18 @@ public class RoomObject : MonoBehaviour
             GameplayManager.instance.MovePiece(act, this.transform.position + Vector3.up * 0.2f);
             GameplayManager.instance.currentRoom = roomRef;
         }
+    }
+    public void OnMouseOver()
+    {
+        if (GameplayManager.instance.currentRoom.nextRooms.Contains(roomRef) && GameplayManager.instance.InputActive && !GameManager.instance.uiController.gamePaused && !GameplayManager.instance.bg.inMovement)
+        {
+            outline.SetActive(true);
+        }
+    }
+
+    public void OnMouseExit()
+    {
+        outline.SetActive(false);
     }
 
     public void SwitchToBattle()

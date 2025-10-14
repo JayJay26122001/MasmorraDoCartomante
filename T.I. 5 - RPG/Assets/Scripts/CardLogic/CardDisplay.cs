@@ -197,6 +197,11 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         if (GameplayManager.instance.InputActive)
         {
             CardUIController.instance.SetHighlightedCard(cardData);
+
+            if (pack != null || GameplayManager.instance.duplicatingCards || GameplayManager.instance.removingCards || cardData.deck.Owner.playedCards.Contains(cardData))
+            {
+                outline.SetActive(true);
+            }
         }
         else if (highlighted)
         {
@@ -213,10 +218,6 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         if(GameplayManager.instance.duplicatingCards && !GameplayManager.instance.stamp.stamping)
         {
             GameplayManager.instance.stamp.SetPrice(this.cardData);
-        }
-        if (pack != null || GameplayManager.instance.duplicatingCards || GameplayManager.instance.removingCards || cardData.deck.Owner.playedCards.Contains(cardData))
-        {
-            outline.SetActive(true);
         }
     }
 

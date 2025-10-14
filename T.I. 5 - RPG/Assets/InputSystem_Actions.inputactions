@@ -492,17 +492,6 @@
                     "action": "MouseClick",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d42460e7-c052-461b-a75f-3aa42a7f06d4",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MouseClick",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         },
