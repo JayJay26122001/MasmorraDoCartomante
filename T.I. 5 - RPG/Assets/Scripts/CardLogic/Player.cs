@@ -39,8 +39,14 @@ public class Player : Creature
     }
     public override void PlayCard(Card c)
     {
-        if (Energy < c.cost || !hand.Contains(c) || !canPlayCards)
+        if (!hand.Contains(c) || !canPlayCards)
         {
+            return;
+        }
+        if(Energy < c.cost)
+        {
+            c.cardDisplay.ChangeCostColor();
+            ChangeEnergyColor();
             return;
         }
         Energy -= c.cost;
@@ -65,6 +71,16 @@ public class Player : Creature
         ActionController.instance.InvokeTimer(AudioController.instance.RandomizeSfx, AudioController.instance.sfxSource, AudioController.instance.playCardSfx, 0.2f);*/
     }
 
+    public void ChangeEnergyColor()
+    {
+        energyText.color = Color.red;
+        Invoke("ReturnEnergyColor", 1);
+    }
+
+    public void ReturnEnergyColor()
+    {
+        energyText.color = new Color(0, 0.65f, 0, 1);
+    }
     public override void BuyCards(int quantity)
     {
         if (quantity <= 0) return;
