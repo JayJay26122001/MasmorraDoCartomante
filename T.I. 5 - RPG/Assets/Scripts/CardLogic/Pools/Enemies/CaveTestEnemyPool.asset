@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pool: 03000000
   baseProbabilities:
-  - type: Lava Lasquita
+  - type: Vulquita
     probability: 50
     multiplier: 1
     minMult: 0.25
     maxMult: 2
+    canBeZero: 0

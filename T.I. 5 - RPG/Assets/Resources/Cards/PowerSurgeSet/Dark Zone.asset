@@ -19,13 +19,14 @@ MonoBehaviour:
   Name: Dark Zone
   limited: 0
   instantaneous: 0
-  extraDesc: 0
-  cost: 1
+  cost: 0
   Type: 1
   Pack: 6
   Rarity: 1
   Description: 20% Damage Reduction if the User have no Energy left on the End of
     its Turn.
+  extraDescription: 
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:

@@ -15,17 +15,20 @@ MonoBehaviour:
   pool: 000000000100000002000000
   baseProbabilities:
   - type: Lasquita
-    probability: 50
+    probability: 40
     multiplier: 1
     minMult: 0.25
     maxMult: 2
+    canBeZero: 0
   - type: Kobold
     probability: 50
     multiplier: 1
     minMult: 0.25
     maxMult: 2
+    canBeZero: 0
   - type: Aztec Warrior
-    probability: 50
+    probability: 30
     multiplier: 1
     minMult: 0.25
     maxMult: 2
+    canBeZero: 0

@@ -14,13 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pool: 0400000005000000
   baseProbabilities:
-  - type: Crystal Lasquita
+  - type: Quartita
     probability: 50
     multiplier: 1
     minMult: 0.25
     maxMult: 2
+    canBeZero: 0
   - type: Diplomat
     probability: 50
     multiplier: 1
     minMult: 0.25
     maxMult: 2
+    canBeZero: 0

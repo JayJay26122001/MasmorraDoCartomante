@@ -46416,7 +46416,7 @@ GameObject:
   - component: {fileID: 1472330960}
   - component: {fileID: 1472330961}
   m_Layer: 0
-  m_Name: Lava Lasquita
+  m_Name: Vulquita
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56627,7 +56627,7 @@ GameObject:
   - component: {fileID: 2049845129}
   - component: {fileID: 2049845130}
   m_Layer: 0
-  m_Name: Crystal Lasquita
+  m_Name: Quartita
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -24,7 +24,7 @@ MonoBehaviour:
   Type: 0
   Pack: 0
   Rarity: 1
-  Description: Deals v[0]{Damage} Damage on whose Turn is, on the End of the Turn
+  Description: Deals v[0]{Damage} Damage on whose Turn is, on the End of its Turn,
     until the End of the Duel.
   extraDescription: 
   CardImage: {fileID: 0}
