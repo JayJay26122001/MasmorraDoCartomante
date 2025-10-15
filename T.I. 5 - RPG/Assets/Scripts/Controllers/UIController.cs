@@ -116,11 +116,11 @@ public class UIController : MonoBehaviour
     private void Awake()
     {
         UiSetup();
-        if(!popups.Contains(ingamePopup))
+        if(!popups.Contains(ingamePopup) && ingamePopup != null)
         {
             popups.Add(ingamePopup);
         }
-        if(!commands.Contains(commandPopup))
+        if(!commands.Contains(commandPopup) && commandPopup != null)
         {
             basePos = commandPopup.GetComponent<RectTransform>().anchoredPosition;
             commands.Add(commandPopup);
