@@ -14,6 +14,7 @@ using UnityEditor;
 
 public class UIController : MonoBehaviour
 {
+    string url = "https://docs.google.com/forms/d/e/1FAIpQLSe1sb1dvxVZLIG0wdQMp0D78u4RJpcvYDlaWjs45Ud-K78l1w/viewform";
     [HideInInspector] public bool gamePaused;
     [HideInInspector] public float panelAnimTime = 0.5f;
     [Header("Player Money Text")]
@@ -223,6 +224,11 @@ public class UIController : MonoBehaviour
             gamePaused = false;
         }*/
         //SceneManager.LoadScene(scene);
+    }
+
+    public void OpenFeedbackLink()
+    {
+        Application.OpenURL(url);
     }
 
     public void QuitGame()
