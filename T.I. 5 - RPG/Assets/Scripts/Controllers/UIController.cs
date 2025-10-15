@@ -69,6 +69,11 @@ public class UIController : MonoBehaviour
     public GameObject ingamePopup;
     public TextMeshProUGUI ingamePopupDescription;
     List<GameObject> popups = new List<GameObject>();
+    [Header("Command Popup")]
+    public GameObject commandPopup;
+    List<GameObject> commands = new List<GameObject>();
+    int shownCommandsCount = 0;
+    Vector2 basePos;
     [Header("Resolution and ScreenMode")]
     public TMP_Dropdown resDropdown, screenModeDropdown;
     [Header("Camera")]
@@ -113,6 +118,11 @@ public class UIController : MonoBehaviour
         if(!popups.Contains(ingamePopup))
         {
             popups.Add(ingamePopup);
+        }
+        if(!commands.Contains(commandPopup))
+        {
+            basePos = commandPopup.GetComponent<RectTransform>().anchoredPosition;
+            commands.Add(commandPopup);
         }
     }
 
@@ -752,6 +762,74 @@ public class UIController : MonoBehaviour
     {
         shopObjectHUD.SetActive(active);
         shopObjectDescription.text = s;
+    }
+
+    public void ShowCommandPopup(ControlUI cUI)
+    {
+        if(shownCommandsCount >= commands.Count)
+        {
+            GameObject aux = Instantiate(commandPopup, canvas);
+            commands.Add(aux);
+        }
+        commands[shownCommandsCount].SetActive(true);
+        commands[shownCommandsCount].GetComponentInChildren<TextMeshProUGUI>().text = cUI.command;
+        GameObject img = commands[shownCommandsCount].transform.GetChild(0).gameObject;
+        img.GetComponent<Image>().sprite = cUI.image;
+        img.GetComponent<RectTransform>().sizeDelta = new Vector2((cUI.image.bounds.size.x * 50) / cUI.image.bounds.size.y, 50);
+        shownCommandsCount++;
+        AdjustCommandsPositions();
+    }
+
+    public void HideCommandPopup(ControlUI cUI)
+    {
+        if (shownCommandsCount > 0)
+        {
+            bool found = false;
+            for(int i = 0; i < shownCommandsCount - 1; i++)
+            {
+                if (!found)
+                {
+                    if (String.Compare(commands[i].GetComponentInChildren<TextMeshProUGUI>().text, cUI.command) == 0)
+                    {
+                        found = true;
+                    }
+                }
+                if(found)
+                {
+                    commands[i].GetComponentInChildren<TextMeshProUGUI>().text = commands[i + 1].GetComponentInChildren<TextMeshProUGUI>().text;
+                    GameObject img = commands[i].transform.GetChild(0).gameObject;
+                    Sprite aux = commands[i + 1].transform.GetChild(0).gameObject.GetComponent<Image>().sprite;
+                    img.GetComponent<Image>().sprite = aux;
+                    img.GetComponent<RectTransform>().sizeDelta = new Vector2((aux.bounds.size.x * 50) / aux.bounds.size.y, 50);
+                }
+            }
+            if (found || String.Compare(commands[shownCommandsCount - 1].GetComponentInChildren<TextMeshProUGUI>().text, cUI.command) == 0)
+            {
+                shownCommandsCount--;
+                AdjustCommandsPositions();
+            }
+        }
+    }
+
+    void AdjustCommandsPositions()
+    {
+        commands[0].SetActive(shownCommandsCount != 0);
+        float gap = 25;
+        RectTransform aux;
+        for (int i = 1; i < commands.Count; i++)
+        {
+            if(i < shownCommandsCount)
+            { 
+                aux = commands[i - 1].GetComponent<RectTransform>();
+                commands[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(aux.anchoredPosition.x - aux.sizeDelta.x - gap, basePos.y);
+                commands[i].SetActive(true);
+            }
+            else
+            {
+                commands[i].GetComponentInChildren<TextMeshProUGUI>().text = "";
+                commands[i].SetActive(false);
+            }
+        }
     }
 
     public void ShowPopups(CardDisplay card)
