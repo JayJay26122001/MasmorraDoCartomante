@@ -284,7 +284,7 @@ public class UIController : MonoBehaviour
             ActivateChildrens(combatHUD);
             Time.timeScale = 1.0f;
             gamePaused = false;
-            GameplayManager.instance.ResumeInput();
+            GameplayManager.instance.IResumeInput();
             Button[] buttons = panel.GetComponentsInChildren<Button>();
             foreach (Button btn in buttons)
             {
@@ -346,7 +346,7 @@ public class UIController : MonoBehaviour
         if (gameNameDown != null) gameNameDown.SetActive(false);
     }
 
-    public void CheckActiveMask() //verificar qual máscara está ativa antes de esconder os objetos do menu
+    public void CheckActiveMask() //verificar qual mï¿½scara estï¿½ ativa antes de esconder os objetos do menu
     {
         if (masks[0] != null && masks[0].activeSelf) activeMask = masks[0];
         else if (masks[1] != null && masks[1].activeSelf) activeMask = masks[1];
@@ -362,7 +362,7 @@ public class UIController : MonoBehaviour
         if (quitButton != null) quitButton.SetActive(true);
         if (tutorialButton != null) tutorialButton.SetActive(true);
         if (featuresButton != null) featuresButton.SetActive(true);*/
-        if (activeMask != null) activeMask.SetActive(true); //ativar a máscara correta
+        if (activeMask != null) activeMask.SetActive(true); //ativar a mï¿½scara correta
         if (rightArrow != null) rightArrow.SetActive(true);
         if (leftArrow != null) leftArrow.SetActive(true);
         if (gameNameUp != null) gameNameUp.SetActive(true);
@@ -649,7 +649,7 @@ public class UIController : MonoBehaviour
                     Time.timeScale = 1.0f;
                     ClosePanel(pausePanel);
                     gamePaused = false;
-                    GameplayManager.instance.ResumeInput();
+                    GameplayManager.instance.IResumeInput();
                 }
                 else
                 {
@@ -659,7 +659,7 @@ public class UIController : MonoBehaviour
                     DeactivateChildrens(combatHUD);
                     OpenPanel(pausePanel);
                     gamePaused = true;
-                    GameplayManager.instance.PauseInput();
+                    GameplayManager.instance.IPauseInput();
                 }
             }
         }

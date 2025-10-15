@@ -101,7 +101,7 @@ public class GameplayManager : MonoBehaviour
         ManualPause = false;
     }
 
-    void IPauseInput()
+    public void IPauseInput()
     {
         PauseInstances++;
         InputBlocker.SetActive(true);
@@ -109,7 +109,7 @@ public class GameplayManager : MonoBehaviour
         //Camera.main.GetComponent<PlayerInput>().actions.Disable();
         InputActive = false;
     }
-    void IResumeInput()
+    public void IResumeInput()
     {
         PauseInstances--;
         if (PauseInstances > 0)

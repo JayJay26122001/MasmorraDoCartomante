@@ -369,13 +369,13 @@ public class AdvanceCombatAction : SceneAction, ICombatTurnActions
     }
     public override void PerformAction()
     {
-        GameplayManager.instance.PauseInput();
+        GameplayManager.instance.IPauseInput();
         AnimStarted.Invoke();
         UnityAction action = () =>
         {
             GameplayManager.currentCombat.AdvanceCombat();
             //AnimEnded.Invoke();
-            GameplayManager.instance.ResumeInput();
+            GameplayManager.instance.IResumeInput();
         };
         //ActionController.instance.InvokeTimer(action, time);
         AnimEnded.AddListener(action);
@@ -390,11 +390,11 @@ public class EndTurnAction : SceneAction, ICombatTurnActions
     }
     public override void PerformAction()
     {
-        GameplayManager.instance.PauseInput();
+        GameplayManager.instance.IPauseInput();
         AnimStarted.Invoke();
         GameplayManager.currentCombat.ActiveTurn.currentPhase.EndPhase();
         AnimEnded.Invoke();
-        GameplayManager.instance.ResumeInput();
+        GameplayManager.instance.IResumeInput();
         if (IsInQueue)
         {
             ActionController.instance.AdvanceQueue();
@@ -409,7 +409,7 @@ public class WaitAction : SceneAction
     }
     public override void PerformAction()
     {
-        GameplayManager.instance.PauseInput();
+        GameplayManager.instance.IPauseInput();
         AnimStarted.Invoke();
         /*UnityAction action = () =>
         {
@@ -417,7 +417,7 @@ public class WaitAction : SceneAction
             GameplayManager.instance.ResumeInput();
         };
         ActionController.instance.InvokeTimer(action, time);*/
-        AnimEnded.AddListener(GameplayManager.instance.ResumeInput);
+        AnimEnded.AddListener(GameplayManager.instance.IResumeInput);
     }
 }
 public class ApplyEffectAction : SceneAction
@@ -449,8 +449,8 @@ public class ApplyEffectAction : SceneAction
     }
     public override void PerformAction()
     {
-        GameplayManager.instance.PauseInput();
-        AnimEnded.AddListener(GameplayManager.instance.ResumeInput);
+        GameplayManager.instance.IPauseInput();
+        AnimEnded.AddListener(GameplayManager.instance.IResumeInput);
         AnimStarted.Invoke();
         /*if (e is ActionEffect)
         {

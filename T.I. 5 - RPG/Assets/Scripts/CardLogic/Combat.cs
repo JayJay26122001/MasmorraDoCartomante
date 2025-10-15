@@ -142,11 +142,14 @@ public class Combat : MonoBehaviour
         if (active)
         {
             BellColider.gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
+            GameplayManager.instance.ResumeInput();
         }
         else
         {
             BellColider.gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
+            GameplayManager.instance.PauseInput();
         }
+        
     }
     public void ChangeTurn()
     {
