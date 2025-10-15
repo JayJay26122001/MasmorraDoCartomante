@@ -129,6 +129,14 @@ public class GameplayManager : MonoBehaviour
         //Camera.main.GetComponent<PlayerInput>().actions.Enable();
         InputActive = true;
     }
+    public void ResetPauseInstances()
+    {
+        PauseInstances = 0;
+    }
+    public void ResetManualPause()
+    {
+        ManualPause = false;
+    }
     void Update()
     {
         /*if (Input.GetKeyDown(KeyCode.Q))

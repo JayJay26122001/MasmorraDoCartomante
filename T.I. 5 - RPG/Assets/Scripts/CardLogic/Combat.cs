@@ -196,6 +196,7 @@ public class Combat : MonoBehaviour
         }
         GameplayManager.instance.CombatActive = false;
         GameManager.instance.uiController.HideEnemyDesc();
+        GameplayManager.instance.ResetManualPause();
     }
 
 
