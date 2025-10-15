@@ -27,19 +27,19 @@ MonoBehaviour:
     maxMult: 1.5
     canBeZero: 1
   - type: Shop
-    probability: 15
+    probability: 10
     multiplier: 1
     minMult: 0
     maxMult: 1.5
     canBeZero: 1
   - type: Trash
-    probability: 10
+    probability: 12
     multiplier: 1
     minMult: 0
     maxMult: 1.5
     canBeZero: 1
   - type: Stamp
-    probability: 10
+    probability: 13
     multiplier: 1
     minMult: 0
     maxMult: 1.5

@@ -21,19 +21,19 @@ MonoBehaviour:
     maxMult: 2
     canBeZero: 1
   - type: Heal
-    probability: 15
+    probability: 17
     multiplier: 1
     minMult: 0
     maxMult: 1.5
     canBeZero: 1
   - type: Shop
-    probability: 15
+    probability: 7
     multiplier: 1
     minMult: 0
     maxMult: 1.5
     canBeZero: 1
   - type: Trash
-    probability: 5
+    probability: 11
     multiplier: 1
     minMult: 0
     maxMult: 1.5

@@ -27,7 +27,7 @@ MonoBehaviour:
     maxMult: 1.5
     canBeZero: 1
   - type: Shop
-    probability: 10
+    probability: 5
     multiplier: 1
     minMult: 0
     maxMult: 1.5
@@ -39,7 +39,7 @@ MonoBehaviour:
     maxMult: 1.5
     canBeZero: 1
   - type: Stamp
-    probability: 5
+    probability: 10
     multiplier: 1
     minMult: 0
     maxMult: 1.5

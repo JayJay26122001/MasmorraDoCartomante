@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Area 3
   m_EditorClassIdentifier: 
   levelsCount: 11
-  maxBranches: 3
+  maxBranches: 4
   startRoom: {fileID: 11400000, guid: 6a2077509cb0084419e966f2c18c994a, type: 2}
   bossRoom: {fileID: 11400000, guid: 18ac9afcda235e44bab53de1628c27cf, type: 2}
   roomList:

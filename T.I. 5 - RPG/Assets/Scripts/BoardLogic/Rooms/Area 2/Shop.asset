@@ -15,13 +15,13 @@ MonoBehaviour:
   roomName: Shop
   baseProbabilities:
   - type: Battle
-    probability: 60
+    probability: 50
     multiplier: 1
     minMult: 0.1
     maxMult: 2
     canBeZero: 1
   - type: Heal
-    probability: 10
+    probability: 15
     multiplier: 1
     minMult: 0
     maxMult: 1.5
@@ -39,7 +39,7 @@ MonoBehaviour:
     maxMult: 1.5
     canBeZero: 1
   - type: Stamp
-    probability: 5
+    probability: 10
     multiplier: 1
     minMult: 0
     maxMult: 1.5

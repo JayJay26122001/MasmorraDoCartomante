@@ -21,13 +21,13 @@ MonoBehaviour:
     maxMult: 2
     canBeZero: 1
   - type: Heal
-    probability: 10
+    probability: 12
     multiplier: 1
     minMult: 0
     maxMult: 1.5
     canBeZero: 1
   - type: Shop
-    probability: 15
+    probability: 12
     multiplier: 1
     minMult: 0
     maxMult: 1.5
@@ -39,7 +39,7 @@ MonoBehaviour:
     maxMult: 1.5
     canBeZero: 1
   - type: Stamp
-    probability: 5
+    probability: 6
     multiplier: 1
     minMult: 0
     maxMult: 1.5
