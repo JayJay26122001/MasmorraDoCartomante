@@ -602,6 +602,90 @@ public class GameplayManager : MonoBehaviour
             }
         }
     }
+    public void SpawnVFX(string text,DamageVFX.VFXType type)
+    {
+        for (int i = 0; i < damageVFXPool.Count; i++)
+        {
+            if (!damageVFXUsed.Contains(damageVFXPool[i]))
+            {
+                damageVFXPool[i].SetText(text, type);
+                damageVFXUsed.Add(damageVFXPool[i]);
+                i = damageVFXPool.Count;
+            }
+        }
+    }
+    public void HealthModifiedVFX(Creature target, int Amount)
+    {
+        DamageVFX.VFXType Type;
+        if(target is Player)
+        {
+            Type = DamageVFX.VFXType.PlayerHP;
+        }
+        else if (target is Enemy)
+        {
+            Type = DamageVFX.VFXType.EnemyHP;
+        }
+        else return;
+        string sign;
+        if (Amount < 0)
+        {
+            sign = "-";
+        }
+        else if (Amount > 0)
+        {
+            sign = "+";
+        }
+        else return;
+        SpawnVFX(sign + Amount, Type);
+    }
+    public void ShieldModifiedVFX(Creature target, int Amount)
+    {
+        DamageVFX.VFXType Type;
+        if (target is Player)
+        {
+            Type = DamageVFX.VFXType.PlayerShield;
+        }
+        else if (target is Enemy)
+        {
+            Type = DamageVFX.VFXType.EnemyShield;
+        }
+        else return;
+        string sign;
+        if (Amount < 0)
+        {
+            sign = "-";
+        }
+        else if (Amount > 0)
+        {
+            sign = "+";
+        }
+        else return;
+        SpawnVFX(sign + Amount, Type);
+    }
+    public void EnergyModifiedVFX(Creature target, int Amount)
+    {
+        DamageVFX.VFXType Type;
+        if (target is Player)
+        {
+            Type = DamageVFX.VFXType.PlayerEnergy;
+        }
+        else if (target is Enemy)
+        {
+            Type = DamageVFX.VFXType.EnemyEnergy;
+        }
+        else return;
+        string sign;
+        if (Amount < 0)
+        {
+            sign = "-";
+        }
+        else if (Amount > 0)
+        {
+            sign = "+";
+        }
+        else return;
+        SpawnVFX(sign + Amount, Type);
+    }
 
     public void PrizeMoney()
     {
