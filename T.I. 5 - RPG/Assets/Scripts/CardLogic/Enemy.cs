@@ -108,6 +108,7 @@ public class Enemy : Creature, IPointerClickHandler
                 trueDamage = (int)Mathf.Clamp(damage - Shield, 0, Mathf.Infinity);
                 int OGshield = Shield;
                 Shield -= damage;
+                GameplayManager.instance.ShieldModifiedVFX(this, -Mathf.Clamp(damage, 0, OGshield));
                 if (OGshield > 0 && Shield == 0)
                 {
                     //GameplayManager.instance.EnemyFracturedShieldVFX();
@@ -127,6 +128,7 @@ public class Enemy : Creature, IPointerClickHandler
             Health -= trueDamage;
 
             GameplayManager.instance.DamageNumber(damage);
+            GameplayManager.instance.HealthModifiedVFX(this, -trueDamage);
             Damaged.Invoke(dmg);
             if (Health <= 0)
             {

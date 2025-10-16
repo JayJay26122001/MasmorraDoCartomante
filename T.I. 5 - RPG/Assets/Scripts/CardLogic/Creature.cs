@@ -1,12 +1,13 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System;
-using UnityEngine;
-using UnityEngine.Events;
 using TMPro;
 using Unity.VisualScripting;
-using UnityEngine.UIElements;
+using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
+using static UnityEngine.Rendering.DebugUI;
 
 public class Creature : MonoBehaviour
 {
@@ -251,6 +252,7 @@ public class Creature : MonoBehaviour
             return;
         }
         Energy -= c.cost;
+        GameplayManager.instance.EnergyModifiedVFX(this, -c.cost);
         hand.Remove(c);
         playedCards.Add(c);
         CardUIController.OrganizeHandCards(this);
@@ -387,6 +389,7 @@ public class Creature : MonoBehaviour
             trueDamage = (int)Mathf.Clamp(damage - Shield, 0, Mathf.Infinity);
             int OGshield = Shield;
             Shield -= damage;
+            GameplayManager.instance.ShieldModifiedVFX(this, -Mathf.Clamp(damage, 0, OGshield));
             if (OGshield > 0 && Shield == 0)
             {
                 ShieldBreak.Invoke();
@@ -401,6 +404,7 @@ public class Creature : MonoBehaviour
             }
         }
         Health -= trueDamage;
+        GameplayManager.instance.HealthModifiedVFX(this, -trueDamage);
         Damaged.Invoke(dmg);
         if (Health <= 0)
         {
@@ -412,12 +416,14 @@ public class Creature : MonoBehaviour
     {
         if (heal < 0) heal = 0;
         Health += heal;
+        GameplayManager.instance.HealthModifiedVFX(this, heal);
     }
 
     public void AddShield(int shield)
     {
         int OGshield = Shield;
         Shield += shield;
+        GameplayManager.instance.ShieldModifiedVFX(this, shield);
         if (OGshield > 0 && OGshield + shield <= 0)
         {
             ShieldBreak.Invoke();
@@ -442,6 +448,7 @@ public class Creature : MonoBehaviour
     public void GainEnergy(int energy)
     {
         Energy += energy;
+        GameplayManager.instance.EnergyModifiedVFX(this, energy);
     }
 
     public virtual void Die()

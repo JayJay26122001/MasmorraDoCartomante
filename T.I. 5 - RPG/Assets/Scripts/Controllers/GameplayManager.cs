@@ -629,7 +629,7 @@ public class GameplayManager : MonoBehaviour
         string sign;
         if (Amount < 0)
         {
-            sign = "-";
+            sign = "";
         }
         else if (Amount > 0)
         {
@@ -653,7 +653,7 @@ public class GameplayManager : MonoBehaviour
         string sign;
         if (Amount < 0)
         {
-            sign = "-";
+            sign = "";
         }
         else if (Amount > 0)
         {
@@ -677,7 +677,7 @@ public class GameplayManager : MonoBehaviour
         string sign;
         if (Amount < 0)
         {
-            sign = "-";
+            sign = "";
         }
         else if (Amount > 0)
         {

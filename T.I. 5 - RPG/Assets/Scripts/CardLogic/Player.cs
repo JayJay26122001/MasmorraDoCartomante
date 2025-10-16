@@ -50,6 +50,7 @@ public class Player : Creature
             return;
         }
         Energy -= c.cost;
+        GameplayManager.instance.EnergyModifiedVFX(this, -c.cost);
         hand.Remove(c);
         playedCards.Add(c);
         CardUIController.OrganizeHandCardsWhenHighlighted(this);
