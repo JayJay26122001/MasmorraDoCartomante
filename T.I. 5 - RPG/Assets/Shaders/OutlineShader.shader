@@ -7,6 +7,7 @@ Shader "Unlit/OutlineShader"
         _SizeX ("Outline Size X", Range (0, 1)) = 0.1
         _SizeY ("Outline Size Y", Range (0, 1)) = 0.1
         _SizeZ ("Outline Size Z", Range (0, 1)) = 0.1
+        _Offset ("Offset", Range (0, 1)) = 0.1
     }
     SubShader 
     {
@@ -32,10 +33,10 @@ Shader "Unlit/OutlineShader"
             sampler2D _MainTex;
             float4 _MainTex_ST;
             float4 _Color;
-            float _SizeX, _SizeY, _SizeZ;
+            float _SizeX, _SizeY, _SizeZ, _Offset;
             v2f vert (appdata v)
             {
-                v.vertex.xyz = v.vertex.xyz + float3(v.normal.x * saturate(sin(_Time.w) * 0.5 + 0.5) * _SizeX, v.normal.y * saturate(sin(_Time.w) * 0.5 + 0.5) * _SizeY, v.normal.z * saturate(sin(_Time.w) * 0.5 + 0.5) * _SizeZ);
+                v.vertex.xyz = v.vertex.xyz + float3(v.normal.x * (sin(_Time.w) * 0.5 + 0.5 + _Offset) * _SizeX, v.normal.y * (sin(_Time.w) * 0.5 + 0.5 + _Offset) * _SizeY, v.normal.z * (sin(_Time.w) * 0.5 + 0.5 + _Offset) * _SizeZ);
                 v2f o;
                 o.vertex = TransformObjectToHClip(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);

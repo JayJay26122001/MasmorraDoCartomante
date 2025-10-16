@@ -261,6 +261,7 @@ public class GameplayManager : MonoBehaviour
         for (int i = 0; i < packs.Count; i++)
         {
             packs[i].data = aux[i];
+            packs[i].gameObject.GetComponent<BoxCollider>().enabled = true;
             packs[i].DefineCards();
         }
         canBuy = true;

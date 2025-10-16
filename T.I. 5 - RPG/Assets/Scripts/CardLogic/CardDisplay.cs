@@ -57,7 +57,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
                     outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.red);
                     break;
                 case Card.CardType.Defense:
-                    outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.blue);
+                    outline.GetComponent<MeshRenderer>().material.SetColor("_Color", new Color(0, 0.3f, 1, 1));
                     break;
                 case Card.CardType.Mind:
                     outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.green);
@@ -66,6 +66,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
             outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeX", 0.1f);
             outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeY", 0.1f);
             outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeZ", 0.01f);
+            outline.GetComponent<MeshRenderer>().material.SetFloat("_Offset", 0.2f);
         }
     }
 

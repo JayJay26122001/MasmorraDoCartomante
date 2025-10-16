@@ -10,10 +10,11 @@ public class Bell : MonoBehaviour
     public GameObject outline;
     void Awake()
     {
-        outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.green);
+        outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.white);
         outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeX", 0.25f);
         outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeY", 0.25f);
         outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeZ", 0.1f);
+        outline.GetComponent<MeshRenderer>().material.SetFloat("_Offset", 0.2f);
         outline.SetActive(false);
         GameplayManager.TurnArrow = this;
     }
