@@ -30,7 +30,7 @@ MonoBehaviour:
   Rarity: 2
   Description: Deals v[1]{Damage} Damage if the Opponent have Shield. Upon Hit, go
     back and forth between Targets until someone can't Block. When taking Damage,
-    remove -3 Energy from who toke Damage on the Next Turn.
+    remove -3 Energy from who took Damage on the Next Turn.
   extraDescription: 
   CardImage: {fileID: 0}
   references:

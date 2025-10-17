@@ -27,9 +27,10 @@ MonoBehaviour:
   Type: 0
   Pack: 0
   Rarity: 1
-  Description: Deals v[0]{Damage} Damage. Having 1/5 Chance to Retrigger for each
+  Description: Deals v[0]{Damage} Damage. Having 20% Chance to Retrigger for each
     Card the User plays after it during this Turn.
   extraDescription: 
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:

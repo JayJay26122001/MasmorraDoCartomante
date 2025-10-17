@@ -25,6 +25,7 @@ MonoBehaviour:
   Rarity: 0
   Description: 25% Chance to Heal 2 Health.
   extraDescription: 
+  CardImage: {fileID: 21300000, guid: 345fd374f93833e469c187f35db0c589, type: 3}
   references:
     version: 2
     RefIds:

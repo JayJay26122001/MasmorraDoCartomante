@@ -17,15 +17,16 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Locust Swarm
-  limited: 1
+  limited: 0
   instantaneous: 0
-  extraDesc: 0
   cost: 1
   Type: 2
   Pack: 5
   Rarity: 2
   Description: 'Reduces the Opponent''s Shield by -3 for each Card on its Discard
     Pile (v[0]{Shield}). '
+  extraDescription: 
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:
