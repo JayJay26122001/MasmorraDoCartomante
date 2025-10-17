@@ -807,6 +807,9 @@ public class UIController : MonoBehaviour
                     Sprite aux = commands[i + 1].transform.GetChild(0).gameObject.GetComponent<Image>().sprite;
                     img.GetComponent<Image>().sprite = aux;
                     img.GetComponent<RectTransform>().sizeDelta = new Vector2((aux.bounds.size.x * 50) / aux.bounds.size.y, 50);
+                    Canvas.ForceUpdateCanvases();
+                    commands[i].GetComponent<HorizontalLayoutGroup>().enabled = false;
+                    commands[i].GetComponent<HorizontalLayoutGroup>().enabled = true;
                 }
             }
             if (found || String.Compare(commands[shownCommandsCount - 1].GetComponentInChildren<TextMeshProUGUI>().text, cUI.command) == 0)
