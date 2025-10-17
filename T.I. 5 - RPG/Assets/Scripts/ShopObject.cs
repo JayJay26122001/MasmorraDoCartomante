@@ -32,7 +32,7 @@ public class ShopObject : MonoBehaviour
         {
             case ObjectType.Shop:
                 outline.SetActive(false);
-                outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.white);
+                outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.yellow);
                 outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeX", 0.2f);
                 outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeY", 0.1f);
                 outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeZ", 0.1f);
@@ -40,7 +40,7 @@ public class ShopObject : MonoBehaviour
                 break;
             case ObjectType.Discard:
                 outline.SetActive(false);
-                outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.white);
+                outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.yellow);
                 outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeX", 0.2f);
                 outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeY", 0.2f);
                 outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeZ", 0f);
@@ -48,7 +48,7 @@ public class ShopObject : MonoBehaviour
                 break;
             case ObjectType.Bell:
                 outline.SetActive(false);
-                outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.white);
+                outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.yellow);
                 outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeX", 0.05f);
                 outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeY", 0.01f);
                 outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeZ", 0.01f);
@@ -56,8 +56,7 @@ public class ShopObject : MonoBehaviour
                 break;
             case ObjectType.Stamp:
                 outline.SetActive(true);
-                //outline.GetComponent<MeshRenderer>().material.SetColor("_Color", new Color(0, 0.3f, 1, 1));
-                outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.white);
+                outline.GetComponent<MeshRenderer>().material.SetColor("_Color", new Color(0, 0.3f, 1, 1));
                 outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeX", 0.15f);
                 outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeY", 0.25f);
                 outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeZ", 0.1f);
@@ -65,8 +64,7 @@ public class ShopObject : MonoBehaviour
                 break;
             case ObjectType.Shredder:
                 outline.SetActive(true);
-                //outline.GetComponent<MeshRenderer>().material.SetColor("_Color", new Color(1, 0.6f, 0, 1));
-                outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.white);
+                outline.GetComponent<MeshRenderer>().material.SetColor("_Color", new Color(1, 0.6f, 0, 1));
                 outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeX", 0.05f);
                 outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeY", 0.1f);
                 outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeZ", 0.1f);
@@ -74,7 +72,7 @@ public class ShopObject : MonoBehaviour
                 break;
             case ObjectType.Fountain:
                 outline.SetActive(true);
-                outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.white);
+                outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.green);
                 outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeX", 0.05f);
                 outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeY", 0.01f);
                 outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeZ", 0.2f);

@@ -141,7 +141,7 @@ public class Combat : MonoBehaviour
         BellColider.enabled = active;
         if (active)
         {
-            BellColider.gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
+            BellColider.gameObject.GetComponent<MeshRenderer>().material.color = new Color(0, 0.65f, 0, 1);
             GameplayManager.instance.ResumeInput();
         }
         else
