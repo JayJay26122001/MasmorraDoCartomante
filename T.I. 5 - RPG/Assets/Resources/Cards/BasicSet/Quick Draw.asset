@@ -24,8 +24,10 @@ MonoBehaviour:
   Type: 2
   Pack: 0
   Rarity: 1
-  Description: If the Opponent's Next Card is a Defense Card, deals v[0]{Damage}
+  Description: If the Opponent's Next Card is a Defense Card, Deals v[0]{Damage}
     Damage.
+  extraDescription: 
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:

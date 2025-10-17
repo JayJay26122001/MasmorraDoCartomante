@@ -31,7 +31,7 @@ MonoBehaviour:
   Description: 'A Random Effect is chosen to decide the Opponent''s fate. '
   extraDescription: '1- Destroy Cards in the Opponent''s Hand
 
-    2- Deal v[1]{Damage}
+    2- Deals v[1]{Damage}
     Damage to the Opponent
 
     3- Skip the Opponent''s Turn

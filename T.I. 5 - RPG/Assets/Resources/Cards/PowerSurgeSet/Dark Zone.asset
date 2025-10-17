@@ -19,7 +19,7 @@ MonoBehaviour:
   Name: Dark Zone
   limited: 0
   instantaneous: 0
-  cost: 0
+  cost: 1
   Type: 1
   Pack: 6
   Rarity: 1
