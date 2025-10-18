@@ -777,11 +777,14 @@ public class UIController : MonoBehaviour
             GameObject aux = Instantiate(commandPopup, canvas);
             commands.Add(aux);
         }
-        commands[shownCommandsCount].SetActive(true);
+        commands[shownCommandsCount].SetActive(false);
         commands[shownCommandsCount].GetComponentInChildren<TextMeshProUGUI>().text = cUI.command;
         GameObject img = commands[shownCommandsCount].transform.GetChild(0).gameObject;
         img.GetComponent<Image>().sprite = cUI.image;
         img.GetComponent<RectTransform>().sizeDelta = new Vector2((cUI.image.bounds.size.x * 50) / cUI.image.bounds.size.y, 50);
+        Canvas.ForceUpdateCanvases();
+        commands[shownCommandsCount].GetComponent<HorizontalLayoutGroup>().enabled = false;
+        commands[shownCommandsCount].GetComponent<HorizontalLayoutGroup>().enabled = true;
         shownCommandsCount++;
         AdjustCommandsPositions();
     }
@@ -820,9 +823,9 @@ public class UIController : MonoBehaviour
         }
     }
 
-    void AdjustCommandsPositions()
+    public void AdjustCommandsPositions()
     {
-        commands[0].SetActive(shownCommandsCount != 0);
+        commands[0].SetActive(shownCommandsCount != 0 && GameplayManager.instance.InputActive);
         float gap = 25;
         RectTransform aux;
         for (int i = 1; i < commands.Count; i++)
@@ -831,7 +834,7 @@ public class UIController : MonoBehaviour
             { 
                 aux = commands[i - 1].GetComponent<RectTransform>();
                 commands[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(aux.anchoredPosition.x - aux.sizeDelta.x - gap, basePos.y);
-                commands[i].SetActive(true);
+                commands[i].SetActive(GameplayManager.instance.InputActive);
             }
             else
             {
@@ -997,10 +1000,26 @@ public class UIController : MonoBehaviour
         if(isEnemyDescOn)
         {
             ActionController.instance.InvokeTimer<int>(CameraController.instance.ChangeCamera, 0, 0.05f);
+            if(GameplayManager.instance.player.enemy.gameObject.GetComponent<Enemy>() != null)
+            {
+                GameplayManager.instance.player.enemy.gameObject.GetComponent<Enemy>().ChangeInteraction(true);
+            }
+            else if(GameplayManager.instance.player.enemy.gameObject.GetComponent<Boss>() != null)
+            {
+                GameplayManager.instance.player.enemy.gameObject.GetComponent<Boss>().ChangeInteraction(true);
+            }
             HideEnemyDesc();
         }
         else
         {
+            if (GameplayManager.instance.player.enemy.gameObject.GetComponent<Enemy>() != null)
+            {
+                GameplayManager.instance.player.enemy.gameObject.GetComponent<Enemy>().ChangeInteraction(false);
+            }
+            else if (GameplayManager.instance.player.enemy.gameObject.GetComponent<Boss>() != null)
+            {
+                GameplayManager.instance.player.enemy.gameObject.GetComponent<Boss>().ChangeInteraction(false);
+            }
             CameraController.instance.ChangeCamera(3);
             ActionController.instance.InvokeTimer(ActivateEnemyDesc, 0.15f);
         }

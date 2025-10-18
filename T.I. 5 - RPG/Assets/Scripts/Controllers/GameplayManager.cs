@@ -89,6 +89,7 @@ public class GameplayManager : MonoBehaviour
         Camera.main.GetComponent<PlayerInput>().actions.FindActionMap("Camera").Disable();
         //Camera.main.GetComponent<PlayerInput>().actions.Disable();
         InputActive = false;
+        GameManager.instance.uiController.AdjustCommandsPositions();
         ManualPause = true;
     }
     public void ResumeInput()
@@ -98,6 +99,7 @@ public class GameplayManager : MonoBehaviour
         Camera.main.GetComponent<PlayerInput>().actions.FindActionMap("Camera").Enable();
         //Camera.main.GetComponent<PlayerInput>().actions.Enable();
         InputActive = true;
+        GameManager.instance.uiController.AdjustCommandsPositions();
         ManualPause = false;
     }
 
@@ -108,6 +110,7 @@ public class GameplayManager : MonoBehaviour
         Camera.main.GetComponent<PlayerInput>().actions.FindActionMap("Camera").Disable();
         //Camera.main.GetComponent<PlayerInput>().actions.Disable();
         InputActive = false;
+        GameManager.instance.uiController.AdjustCommandsPositions();
     }
     public void IResumeInput()
     {
@@ -128,6 +131,7 @@ public class GameplayManager : MonoBehaviour
         Camera.main.GetComponent<PlayerInput>().actions.FindActionMap("Camera").Enable();
         //Camera.main.GetComponent<PlayerInput>().actions.Enable();
         InputActive = true;
+        GameManager.instance.uiController.AdjustCommandsPositions();
     }
     public void ResetPauseInstances()
     {

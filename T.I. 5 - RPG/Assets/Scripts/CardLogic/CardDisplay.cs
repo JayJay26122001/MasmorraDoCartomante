@@ -31,6 +31,8 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
     float animTimeStart;
     public float shaderAnimSpeed;
     public GameObject outline;
+    Interactable interactable;
+    public ControlUI playCard, zoomIn, zoomOut, removeCard, cloneCard, addCard;
     public struct Token
     {
         public int index;
@@ -39,6 +41,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
 
     void Start()
     {
+        interactable = this.gameObject.GetComponent<Interactable>();
         if (!hasSetOriginalTransform)
         {
             originalScale = transform.localScale;
@@ -168,6 +171,10 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
                             if(GameplayManager.instance.player.ChangeMoney(-GameplayManager.instance.stamp.price))
                             {
                                 CameraController.instance.DeActivateZoomedCamera();
+                                if(CameraController.instance.highlightCardCamera.Priority == 2)
+                                {
+                                    CameraController.instance.HighlightCard(Vector3.zero, CameraController.instance.zoomedCard);
+                                }
                                 CameraController.instance.ChangeCamera(0);
                                 GameplayManager.instance.duplicatingCards = false;
                                 GameplayManager.instance.player.decks[0].AddCard(cardData);
@@ -179,12 +186,20 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
                 }
                 else
                 {
+                    if (CameraController.instance.highlightCardCamera.Priority == 2)
+                    {
+                        CameraController.instance.HighlightCard(Vector3.zero, CameraController.instance.zoomedCard);
+                    }
                     cardData.deck.RemoveCard(this);
                     GameplayManager.instance.DestroyRemovingCards();
                 }
             }
             else
             {
+                if (CameraController.instance.highlightCardCamera.Priority == 2)
+                {
+                    CameraController.instance.HighlightCard(Vector3.zero, CameraController.instance.zoomedCard);
+                }
                 GameplayManager.instance.player.decks[0].AddCard(cardData);
                 pack.DestroyBoughtCards(cardData);
                 pack = null;
@@ -194,11 +209,56 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         {
             if (pack != null || GameplayManager.instance.duplicatingCards || GameplayManager.instance.removingCards || cardData.deck.Owner.playedCards.Contains(cardData))
             {
-                CameraController.instance.HighlightCard(gameObject.GetComponentsInChildren<Transform>()[1].position);
+                CameraController.instance.HighlightCard(gameObject.GetComponentsInChildren<Transform>()[1].position, this);
+            }
+        }
+        ChangeInteractions();
+    }
+
+    public void ChangeInteractions()
+    {
+        if(interactable != null)
+        {
+            interactable.HideInteractions();
+            interactable.interactions.Clear();
+            if(cardData.deck != null && cardData.deck.Owner.hand.Contains(cardData))
+            {
+                interactable.interactions.Add(playCard);
+            }
+            else if(pack != null || GameplayManager.instance.duplicatingCards || GameplayManager.instance.removingCards || (cardData.deck != null && cardData.deck.Owner.playedCards.Contains(cardData)))
+            {
+                if(CameraController.instance.zoomedCard != this)
+                {
+                    interactable.interactions.Add(zoomIn);
+                }
+                else
+                {
+                    interactable.interactions.Add(zoomOut);
+                }
+
+                if(pack != null)
+                {
+                    interactable.interactions.Add(addCard);
+                }
+                else if(GameplayManager.instance.duplicatingCards)
+                {
+                    interactable.interactions.Add(cloneCard);
+                }
+                else if(GameplayManager.instance.removingCards)
+                {
+                    interactable.interactions.Add(removeCard);
+                }
             }
         }
     }
 
+    private void OnMouseEnter()
+    {
+        if (pack != null || GameplayManager.instance.duplicatingCards || GameplayManager.instance.removingCards)
+        {
+            ChangeInteractions();
+        }
+    }
     public void UpdatePosition()
     {
         originalPosition = transform.localPosition;

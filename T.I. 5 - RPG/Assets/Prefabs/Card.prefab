@@ -698,6 +698,7 @@ GameObject:
   - component: {fileID: 9116686077430768635}
   - component: {fileID: 5130134605042037181}
   - component: {fileID: 6768557760364114197}
+  - component: {fileID: 2228001990174999752}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -755,6 +756,24 @@ MonoBehaviour:
   pack: {fileID: 0}
   shaderAnimSpeed: 2
   outline: {fileID: 732395424709831101}
+  playCard:
+    image: {fileID: 21300000, guid: d1ba6b34064b9914b9bee8bbbf9af434, type: 3}
+    command: Play Card
+  zoomIn:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: Zoom In On Card
+  zoomOut:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: Zoom Out Of Card
+  removeCard:
+    image: {fileID: 21300000, guid: d1ba6b34064b9914b9bee8bbbf9af434, type: 3}
+    command: Remove Card From Deck
+  cloneCard:
+    image: {fileID: 21300000, guid: d1ba6b34064b9914b9bee8bbbf9af434, type: 3}
+    command: Duplicate Card
+  addCard:
+    image: {fileID: 21300000, guid: d1ba6b34064b9914b9bee8bbbf9af434, type: 3}
+    command: Add Card To Deck
 --- !u!65 &5130134605042037181
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -805,6 +824,19 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &2228001990174999752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4571134516105618399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d038c331c1efb1144a2a4e332c0ccc15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactions: []
 --- !u!1 &5569698946324196903
 GameObject:
   m_ObjectHideFlags: 0

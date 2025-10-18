@@ -4,18 +4,33 @@ using System;
 public class Interactable : MonoBehaviour
 {
     public List<ControlUI> interactions = new List<ControlUI>();
-
-    private void OnMouseEnter()
+    bool shown = false;
+    private void OnMouseOver()
     {
-        foreach(ControlUI c in interactions)
-        {
-            GameManager.instance.uiController.ShowCommandPopup(c);
-        }
+        ShowInteractions();
     }
 
     private void OnMouseExit()
     {
-        foreach(ControlUI c in interactions)
+        HideInteractions();
+    }
+
+    public void ShowInteractions()
+    {
+        if(!shown)
+        {
+            shown = true;
+            foreach (ControlUI c in interactions)
+            {
+                GameManager.instance.uiController.ShowCommandPopup(c);
+            }
+        }
+    }
+
+    public void HideInteractions()
+    {
+        shown = false;
+        foreach (ControlUI c in interactions)
         {
             GameManager.instance.uiController.HideCommandPopup(c);
         }

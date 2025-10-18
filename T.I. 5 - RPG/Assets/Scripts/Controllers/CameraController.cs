@@ -13,6 +13,7 @@ public class CameraController : MonoBehaviour
     bool inputActive;
     bool blockHighlight;
     public ControlUI upControl, downControl;
+    [HideInInspector]public CardDisplay zoomedCard;
     private void Awake()
     {
         //controller = this.GetComponent<CinemachineBrain>();
@@ -102,18 +103,38 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    public void HighlightCard(Vector3 pos)
+    public void HighlightCard(Vector3 pos, CardDisplay cd)
     {
         if(!blockHighlight)
         {
             if(highlightCardCamera.Priority == 0 )
             {
+                DisableCameraInputs();
                 highlightCardCamera.transform.position = new Vector3(pos.x, highlightCardCamera.transform.position.y, pos.z);
                 highlightCardCamera.Priority = 2;
+                zoomedCard = cd;
             }
             else
             {
-                highlightCardCamera.Priority = 0;
+                if(zoomedCard == cd)
+                {
+                    if(GameplayManager.instance.CombatActive)
+                    {
+                        EnableCameraInputs();
+                    }
+                    blockHighlight = true;
+                    highlightCardCamera.Priority = 0;
+                    Invoke("UnblockHighlight", 0.1f);
+                    zoomedCard = null;
+                }
+                else
+                {
+                    LeanTween.move(highlightCardCamera.gameObject, new Vector3(pos.x, highlightCardCamera.transform.position.y, pos.z), 0.1f);
+                    //highlightCardCamera.transform.position = new Vector3(pos.x, highlightCardCamera.transform.position.y, pos.z);
+                    CardDisplay aux = zoomedCard;
+                    zoomedCard = cd;
+                    aux.ChangeInteractions();
+                }
             }
         }
     }
@@ -193,7 +214,7 @@ public class CameraController : MonoBehaviour
         shopCamera.Priority = 0;
     }
 
-    public void RemoveHighlight(InputAction.CallbackContext context)
+    /*public void RemoveHighlight(InputAction.CallbackContext context)
     {
         if(context.phase == InputActionPhase.Canceled)
         {
@@ -204,7 +225,7 @@ public class CameraController : MonoBehaviour
                 Invoke("UnblockHighlight", 0.1f);
             }
         }
-    }
+    }*/
 
     public void UnblockHighlight()
     {

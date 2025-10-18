@@ -180,6 +180,7 @@ public class CardUIController : MonoBehaviour
             {
                 currentCard.cardDisplay.UpdatePosition();
             });
+            cardObject.GetComponent<CardDisplay>().ChangeInteractions();
         }
         AttCardDescription(c);
     }
@@ -215,6 +216,7 @@ public class CardUIController : MonoBehaviour
             cardObject.transform.SetParent(c.combatSpace.playerHandSpace);
             Vector3 pos = (c.combatSpace.playerHandSpace.right * posX) + (c.combatSpace.playerHandSpace.up) * posY + (-c.combatSpace.playerHandSpace.forward) * posZ + c.combatSpace.playerHandSpace.position;
             LeanTween.move(cardObject, pos, instance.highlightTimeAnim).setEaseInOutSine();
+            cardObject.GetComponent<CardDisplay>().ChangeInteractions();
         }
 
     }
@@ -319,6 +321,7 @@ public class CardUIController : MonoBehaviour
                 cardObject.transform.SetParent(c.combatSpace.playedCardSpace);
                 CardDisplay cardDisplay = cardObject.GetComponent<CardDisplay>();
             }
+            cardObject.GetComponent<CardDisplay>().ChangeInteractions();
         }
         AttCardDescription(c);
     }
@@ -421,6 +424,7 @@ public class CardUIController : MonoBehaviour
             {
                 LeanTween.move(cardObject, finalPos, instance.mediumTimeAnim).setEaseInOutSine();
             }
+            cardObject.GetComponent<CardDisplay>().ChangeInteractions();
         }
     }
 
@@ -458,6 +462,7 @@ public class CardUIController : MonoBehaviour
                 LeanTween.rotate(cardObject, rot, instance.smallTimeAnim);
             }
             cardObject.transform.SetParent(space);
+            cardObject.GetComponent<CardDisplay>().ChangeInteractions();
         }
         instance.ChangeDiscardPileTextValue();
     }
@@ -498,6 +503,7 @@ public class CardUIController : MonoBehaviour
                     });
                 });
             }
+            cardObject.GetComponent<CardDisplay>().ChangeInteractions();
         }
         instance.ChangeBuyingPileTextValue();
         instance.ChangeDiscardPileTextValue();

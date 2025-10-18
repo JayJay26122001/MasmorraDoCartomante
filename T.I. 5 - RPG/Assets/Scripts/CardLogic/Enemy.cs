@@ -10,18 +10,35 @@ public class Enemy : Creature, IPointerClickHandler
     public enum EnemySize { Small, Medium, Large };
     public EnemySize size;
     public UnityEvent FinishedPlaying;
+    Interactable interactable;
+    public ControlUI zoomIn, zoomOut;
     protected override void Awake()
     {
         base.Awake();
         Wounded.AddListener((DealDamage d) => GameplayManager.instance.EnemyHitVFX());
         DamageBlocked.AddListener((DealDamage d) => GameplayManager.instance.EnemyShieldVFX());
         ShieldBreak.AddListener(GameplayManager.instance.EnemyFracturedShieldVFX);
+        interactable = this.gameObject.GetComponent<Interactable>();
     }
     public override void CombatStartAction()
     {
         base.CombatStartAction();
         //BuyCards(1);
         SetModel();
+    }
+
+    public void ChangeInteraction(bool zoom)
+    {
+        interactable.HideInteractions();
+        interactable.interactions.Clear();
+        if(zoom)
+        {
+            interactable.interactions.Add(zoomIn);
+        }
+        else
+        {
+            interactable.interactions.Add(zoomOut);
+        }
     }
     public override void TurnAction()
     {
@@ -47,7 +64,10 @@ public class Enemy : Creature, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        GameManager.instance.uiController.ShowEnemyDescription();
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            GameManager.instance.uiController.ShowEnemyDescription();
+        }
     }
 
     protected virtual IEnumerator PlayAllCardsBehaviour()

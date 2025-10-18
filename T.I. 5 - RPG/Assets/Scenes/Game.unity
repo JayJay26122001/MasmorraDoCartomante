@@ -607,6 +607,7 @@ MonoBehaviour:
   downControl:
     image: {fileID: 21300000, guid: ebb5165c97c4dda4f81d66bb508d800c, type: 3}
     command: Switch Camera Down
+  zoomedCard: {fileID: 0}
 --- !u!114 &30614217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19577,6 +19578,12 @@ MonoBehaviour:
   FinishedPlaying:
     m_PersistentCalls:
       m_Calls: []
+  zoomIn:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Enemy Description
+  zoomOut:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Your Cards
 --- !u!136 &509029436
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -19614,7 +19621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactions:
   - image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Info Card
+    command: View Enemy Description
 --- !u!1001 &511052325
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29347,6 +29354,12 @@ MonoBehaviour:
   FinishedPlaying:
     m_PersistentCalls:
       m_Calls: []
+  zoomIn:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Enemy Description
+  zoomOut:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Your Cards
   BonusCardsPerTurn:
     type: 0
     target: 0
@@ -29389,7 +29402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactions:
   - image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Info Card
+    command: View Enemy Description
 --- !u!1001 &790105379
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35819,6 +35832,12 @@ MonoBehaviour:
   FinishedPlaying:
     m_PersistentCalls:
       m_Calls: []
+  zoomIn:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Enemy Description
+  zoomOut:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Your Cards
 --- !u!136 &916723817
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -35856,7 +35875,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactions:
   - image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Info Card
+    command: View Enemy Description
 --- !u!1 &921170255
 GameObject:
   m_ObjectHideFlags: 0
@@ -36102,6 +36121,12 @@ MonoBehaviour:
   FinishedPlaying:
     m_PersistentCalls:
       m_Calls: []
+  zoomIn:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Enemy Description
+  zoomOut:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Your Cards
 --- !u!136 &928584689
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -36139,7 +36164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactions:
   - image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Info Card
+    command: View Enemy Description
 --- !u!1001 &929844986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38883,6 +38908,12 @@ MonoBehaviour:
   FinishedPlaying:
     m_PersistentCalls:
       m_Calls: []
+  zoomIn:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Enemy Description
+  zoomOut:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Your Cards
 --- !u!136 &1120228321
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -38920,7 +38951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactions:
   - image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Info Card
+    command: View Enemy Description
 --- !u!1001 &1124749324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43366,6 +43397,12 @@ MonoBehaviour:
   FinishedPlaying:
     m_PersistentCalls:
       m_Calls: []
+  zoomIn:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Enemy Description
+  zoomOut:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Your Cards
 --- !u!136 &1288769832
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -43403,7 +43440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactions:
   - image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Info Card
+    command: View Enemy Description
 --- !u!1001 &1289391188
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44954,6 +44991,12 @@ MonoBehaviour:
   FinishedPlaying:
     m_PersistentCalls:
       m_Calls: []
+  zoomIn:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Enemy Description
+  zoomOut:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Your Cards
   BonusCardsPerTurn:
     type: 0
     target: 0
@@ -44996,7 +45039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactions:
   - image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Info Card
+    command: View Enemy Description
 --- !u!1001 &1358389549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48504,6 +48547,12 @@ MonoBehaviour:
   FinishedPlaying:
     m_PersistentCalls:
       m_Calls: []
+  zoomIn:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Enemy Description
+  zoomOut:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Your Cards
 --- !u!136 &1472330960
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -48541,7 +48590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactions:
   - image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Info Card
+    command: View Enemy Description
 --- !u!1 &1482523075 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 590599159121097882, guid: 6c6268aba7826ef46922af65cbd0d70c, type: 3}
@@ -49973,6 +50022,12 @@ MonoBehaviour:
   FinishedPlaying:
     m_PersistentCalls:
       m_Calls: []
+  zoomIn:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Enemy Description
+  zoomOut:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Your Cards
   BonusCardsPerTurn:
     type: 0
     target: 0
@@ -50015,7 +50070,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactions:
   - image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Info Card
+    command: View Enemy Description
 --- !u!1001 &1555042804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52490,6 +52545,12 @@ MonoBehaviour:
   FinishedPlaying:
     m_PersistentCalls:
       m_Calls: []
+  zoomIn:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Enemy Description
+  zoomOut:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Your Cards
   BonusCardsPerTurn:
     type: 0
     target: 0
@@ -52532,7 +52593,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactions:
   - image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Info Card
+    command: View Enemy Description
 --- !u!1 &1650270297
 GameObject:
   m_ObjectHideFlags: 0
@@ -54817,6 +54878,12 @@ MonoBehaviour:
   FinishedPlaying:
     m_PersistentCalls:
       m_Calls: []
+  zoomIn:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Enemy Description
+  zoomOut:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Your Cards
 --- !u!136 &1771010380
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -54854,7 +54921,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactions:
   - image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Info Card
+    command: View Enemy Description
 --- !u!4 &1779546935 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: edc1b0e902e653344a83337943decdd6, type: 3}
@@ -55675,6 +55742,12 @@ MonoBehaviour:
   FinishedPlaying:
     m_PersistentCalls:
       m_Calls: []
+  zoomIn:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Enemy Description
+  zoomOut:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Your Cards
 --- !u!4 &1848926785
 Transform:
   m_ObjectHideFlags: 0
@@ -55728,7 +55801,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactions:
   - image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Info Card
+    command: View Enemy Description
 --- !u!1 &1851282011
 GameObject:
   m_ObjectHideFlags: 0
@@ -60094,6 +60167,12 @@ MonoBehaviour:
   FinishedPlaying:
     m_PersistentCalls:
       m_Calls: []
+  zoomIn:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Enemy Description
+  zoomOut:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Your Cards
 --- !u!136 &2049845129
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -60131,7 +60210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactions:
   - image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Info Card
+    command: View Enemy Description
 --- !u!1 &2052811304
 GameObject:
   m_ObjectHideFlags: 0
