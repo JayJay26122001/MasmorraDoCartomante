@@ -925,12 +925,12 @@ public class UIController : MonoBehaviour
 
         if (card.cardData.instantaneous)
         {
-            popupTexts.Add("Instantaneous\n This card activates instantaneously when used!");
+            popupTexts.Add("<color=#FFD700>Instantaneous</color>\nThis card activates instantaneously when used!");
         }
 
         if (card.cardData.limited)
         {
-            popupTexts.Add("Limited\n This card can be used only once!");
+            popupTexts.Add("<color=#FFD700>Limited</color>\nThis card can be used only once!");
         }
 
         return popupTexts;

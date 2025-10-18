@@ -442,17 +442,18 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
             string pattern = $"v[{token.index}]{{{token.var}}}";
             desc = desc.Replace(pattern, value);
         }
+        cardDescription.richText = true;
         if (cardData.instantaneous && cardData.limited)
         {
-            desc += " INSTANTANEOUS & LIMITED";
+            desc += " <color=#FFD700>INSTANTANEOUS & LIMITED</color>";
         }
         else if (cardData.instantaneous && !cardData.limited)
         {
-            desc += " INSTANTANEOUS";
+            desc += " <color=#FFD700>INSTANTANEOUS</color>";
         }
         else if (!cardData.instantaneous && cardData.limited)
         {
-            desc += " LIMITED";
+            desc += " <color=#FFD700>LIMITED</color>";
         }
         cardDescription.text = desc;
         UpdateCardCost();
