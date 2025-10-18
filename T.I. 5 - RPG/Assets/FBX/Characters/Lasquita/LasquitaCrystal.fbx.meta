@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Var2Mat
-    second: {fileID: 2100000, guid: fe7d6d315e2e0334c98332aa6166327b, type: 2}
+    second: {fileID: 2100000, guid: f21ad0e589204264baf36a938d7cdd2d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -66,7 +66,7 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Intro
-      takeName: MiniGolemRig|MiniGolem_NEWARRIVE
+      takeName: MiniGolemRig|Intro
       internalID: -7121596077427084787
       firstFrame: 0
       lastFrame: 40
@@ -95,7 +95,7 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: PlayCard
-      takeName: MiniGolemRig|MiniGolem_NEWATTACK
+      takeName: MiniGolemRig|PlayCard
       internalID: -988219160094675889
       firstFrame: 0
       lastFrame: 30
@@ -124,7 +124,7 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Idle
-      takeName: MiniGolemRig|MiniGolem_NEWIDLE
+      takeName: MiniGolemRig|Idle
       internalID: 1336989776309409573
       firstFrame: 0
       lastFrame: 420
@@ -134,7 +134,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -153,7 +153,7 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: TakeDamage
-      takeName: MiniGolemRig|MiniGolem_NEWTAKEDAMAGE
+      takeName: MiniGolemRig|TakeDamage
       internalID: 2322121233251742213
       firstFrame: 0
       lastFrame: 30

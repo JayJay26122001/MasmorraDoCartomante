@@ -18,12 +18,22 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: JesterMaterial
-    second: {fileID: 2100000, guid: 60ffc7a0b8e876d49b891c05f32aa692, type: 2}
+    second: {fileID: 2100000, guid: 090342e22d5e24a438469f44fa358352, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LeatherBlue
+    second: {fileID: 2100000, guid: 9658ce41101cb40408e7573ae3d797be, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: MaskMaterial
     second: {fileID: 2100000, guid: 6ae9f8e73787e5b448b643683712a094, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SpringMaterial
+    second: {fileID: 2100000, guid: bbf056740dc1ca648a0b1fc7c1a54719, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

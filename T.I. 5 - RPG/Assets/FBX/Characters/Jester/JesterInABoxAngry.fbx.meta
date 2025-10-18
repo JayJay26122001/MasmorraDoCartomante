@@ -17,13 +17,33 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Gold
+    second: {fileID: 2100000, guid: 3607faf8e78e0774899fc050d7da236d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: JesterMaterial
     second: {fileID: 2100000, guid: 60ffc7a0b8e876d49b891c05f32aa692, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: LeatherBlue
+    second: {fileID: 2100000, guid: 51e78739fadb4a046864e79349af9cec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LeatherRed
+    second: {fileID: 2100000, guid: d23766c8f35821345b9df20a0a65404e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: MaskMaterial
     second: {fileID: 2100000, guid: 6ae9f8e73787e5b448b643683712a094, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SpringMaterial
+    second: {fileID: 2100000, guid: 598d8a1bf24fe504787086fca7ea57d5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -125,7 +145,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
