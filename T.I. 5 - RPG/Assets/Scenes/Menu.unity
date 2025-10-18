@@ -5621,7 +5621,8 @@ MonoBehaviour:
     Adi\xE7\xE3o de novos packs na loja\n\u2022 Implementa\xE7\xE3o das ultimas cartas\n\u2022
     Adi\xE7\xE3o de imagens nas cartas\n\u2022 Implementa\xE7\xE3o de um Infocard
     com informa\xE7\xF5es sobre os inimigos\n\u2022 Adi\xE7\xE3o de um bot\xE3o no
-    Menu para receber feedbacks"
+    Menu para receber feedbacks\n\u2022 Texturiza\xE7\xE3o do nivel grego/corruptor/caverna\r\n\u2022
+    Texturiza\xE7\xE3o de props do n\xEDvel grego/corruptor/caverna"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
   m_sharedMaterial: {fileID: 1623889163624291708, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
