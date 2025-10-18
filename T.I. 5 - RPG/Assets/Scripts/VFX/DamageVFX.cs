@@ -11,6 +11,8 @@ public class DamageVFX : MonoBehaviour
     //Vector3 startPos;
     public enum VFXType { Damage, PlayerHP, EnemyHP, PlayerShield, EnemyShield, PlayerEnergy, EnemyEnergy, /*Money,*/ Other };
     public List<Vector3> positions = new List<Vector3>();
+    public List<Vector3> vfxPos = new List<Vector3>();
+    public List<Vector3> objPos = new List<Vector3>();
     public List<Quaternion> rotations = new List<Quaternion>();
     void Start()
     {
@@ -29,17 +31,18 @@ public class DamageVFX : MonoBehaviour
             {
                 transform.Translate(Vector3.up * speed * Time.deltaTime, Space.Self);
             }
-            else
+            /*else
             {
                 transform.Translate(-Vector3.up * speed * Time.deltaTime, Space.Self);
-            }
+            }*/
         }
     }
 
     //For any VFXType except Other
     public void SetText(string tex, VFXType vfxType)
     {
-        transform.position = positions[(int)vfxType];
+        //transform.position = positions[(int)vfxType];
+        transform.position = vfxPos[(int)vfxType];
         transform.rotation = rotations[(int)vfxType];
         switch (vfxType)
         {
@@ -89,6 +92,31 @@ public class DamageVFX : MonoBehaviour
         text.text = tex;
         moving = true;
         Appear();
+        if (!goingUp)
+        {
+            Vector3 initialPos = transform.position;
+            Vector3 upTarget = initialPos + Vector3.up * 1f;
+            Vector3 downTarget = objPos[(int)vfxType];
+
+            float holdStart = 0.2f;
+            float holdTop = 0.1f;
+            float upTime = 0.25f;
+            float downTime = 0.2f;
+
+            LeanTween.move(gameObject, initialPos, holdStart).setOnComplete(() =>
+            {
+                LeanTween.move(gameObject, upTarget, upTime).setEase(LeanTweenType.linear).setOnComplete(() =>
+                {
+                    LeanTween.delayedCall(holdTop, () =>
+                    {
+                        LeanTween.move(gameObject, downTarget, downTime).setEase(LeanTweenType.easeInQuad).setOnComplete(() =>
+                        {
+                            GameplayManager.currentCombat.CombatUI();
+                        });
+                    });
+                });
+            });
+        }
     }
 
     //Only for VFXType.Other
@@ -103,6 +131,11 @@ public class DamageVFX : MonoBehaviour
         text.text = tex;
         moving = true;
         Appear();
+    }
+
+    public void AnimateVFX()
+    {
+
     }
 
     void Appear()

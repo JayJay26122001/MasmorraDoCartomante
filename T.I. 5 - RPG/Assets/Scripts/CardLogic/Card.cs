@@ -70,7 +70,7 @@ public class Card : ScriptableObject
         {
             ApplyUnconditionalEffects();
             CardUIController.CardsOrganizer(deck.Owner);
-            GameplayManager.currentCombat.CombatUI();
+            //GameplayManager.currentCombat.CombatUI();
         }
     }
     public void ApplyUnconditionalEffects() //aplica todos os efeitos que não tem condições

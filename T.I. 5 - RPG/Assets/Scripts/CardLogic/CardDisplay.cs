@@ -162,7 +162,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
                     {
                         LeanTween.scale(gameObject, originalScale, 0.15f).setEaseOutQuad();
                         cardData.deck.Owner.PlayCard(cardData);
-                        GameplayManager.currentCombat.CombatUI();
+                        //GameplayManager.currentCombat.CombatUI();
                     }
                     else
                     {

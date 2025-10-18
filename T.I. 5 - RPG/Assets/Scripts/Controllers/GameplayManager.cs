@@ -618,6 +618,8 @@ public class GameplayManager : MonoBehaviour
                 i = damageVFXPool.Count;
             }
         }
+        //currentCombat.CombatUI();
+        //ActionController.instance.InvokeTimer(currentCombat.CombatUI, 0.75f);
     }
     public void HealthModifiedVFX(Creature target, int Amount)
     {

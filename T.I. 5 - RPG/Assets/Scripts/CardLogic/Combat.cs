@@ -209,7 +209,7 @@ public class Combat : MonoBehaviour
     }
     void Update()
     {
-        CombatUI();
+        //CombatUI();
         /*if (Input.GetKeyDown(KeyCode.Space))
         {
             AdvanceCombat();
