@@ -1161,7 +1161,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1664020406}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.41728097
+  m_Size: 0.46030626
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5590,7 +5590,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -25, y: 628.41003}
+  m_SizeDelta: {x: -25, y: 527.61}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &608797158
 MonoBehaviour:
@@ -5612,17 +5612,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u2022 Adi\xE7\xE3o de multiplos efeitos e condi\xE7\xF5es para cartas\n\u2022
-    Implementa\xE7\xE3o de VFXs de combate\n\u2022 Implementa\xE7\xE3o da UI 3D de
-    combate\n\u2022 Implementa\xE7\xE3o do cen\xE1rio e assets da loja\n\u2022 Implementa\xE7\xE3o
-    de assets do mapa\n\u2022 Implementa\xE7\xE3o de popups explicativos no combate
-    e na loja\n\u2022 Implementa\xE7\xE3o de descri\xE7\xF5es adaptativas de cartas
-    no combate\n\u2022 Implementa\xE7\xE3o do menu 3D finalizado\n\u2022 Finaliza\xE7\xE3o
-    das configura\xE7\xF5es de jogo\n\u2022 Conserto de problemas envolvendo luzes
-    e sombras\n\u2022 Adi\xE7\xE3o de multiplos inimigos\n\u2022 Adi\xE7\xE3o parcial
-    de texturas\n\u2022 Adi\xE7\xE3o de mais de 60 cartas\n\u2022 Adi\xE7\xE3o de
-    2 novos niveis\n\u2022 Adi\xE7\xE3o de 2 novos bosses\n\u2022 Melhoria significativa
-    do sistema de gera\xE7\xE3o de mapas e de sele\xE7\xE3o de inimigos"
+  m_text: "\u2022 Adi\xE7\xE3o de vfx e de feedback visuais\n\u2022 Inimigos e bosses
+    conseguem jogar mais de uma carta\n\u2022 Bosses possuem um deck secund\xE1rio\n\u2022
+    \xDAltimos efeitos de carta implementados\n\u2022 Adi\xE7\xE3o de novas salas
+    na gera\xE7\xE3o de mapas\n\u2022 Adi\xE7\xE3o de texturas no nivel grego/corruptor/caverna\n\u2022
+    Adi\xE7\xE3o do nivel corruptor e cartomancer\n\u2022 Corre\xE7\xE3o de anima\xE7\xF5es
+    e mesh no mercador e lasquita\n\u2022 Adi\xE7\xE3o de textura para diversos personagens\n\u2022
+    Adi\xE7\xE3o de novos packs na loja\n\u2022 Implementa\xE7\xE3o das ultimas cartas\n\u2022
+    Adi\xE7\xE3o de imagens nas cartas\n\u2022 Implementa\xE7\xE3o de um Infocard
+    com informa\xE7\xF5es sobre os inimigos\n\u2022 Adi\xE7\xE3o de um bot\xE3o no
+    Menu para receber feedbacks"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
   m_sharedMaterial: {fileID: 1623889163624291708, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
@@ -19337,7 +19336,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1551777567}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.582719}
+  m_AnchorMin: {x: 0, y: 0.5396937}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 30, y: 20}
