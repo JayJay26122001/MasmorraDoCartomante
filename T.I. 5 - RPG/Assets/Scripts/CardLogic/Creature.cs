@@ -46,9 +46,6 @@ public class Creature : MonoBehaviour
     public bool canPlayCards;
     public CardCombatSpaces combatSpace;
 
-    public TextMeshPro hpText, shieldText, energyText, damageTakenText;  //Ui das criaturas na batalha
-    public UnityEngine.UI.Image hpCircle;
-
     protected int skipTurn = 0, skipCardBuy = 0;
     public int SkipTurn
     {
@@ -149,30 +146,6 @@ public class Creature : MonoBehaviour
     public void ResetShieldModifiers()
     {
         ShieldModifiers.Clear();
-    }
-    public void UpdateCreatureUI(Creature c)
-    {
-        if (hpText != null)
-        {
-            hpText.text = $"{c.Health}";
-        }
-        if (shieldText != null)
-        {
-            shieldText.text = $"{c.Shield}";
-        }
-        if (energyText != null)
-        {
-            energyText.text = $"{c.Energy}";
-        }
-        if (damageTakenText != null)
-        {
-            float multiplier = c.BaseDamageTaken / 100f;
-            damageTakenText.text = $"x{multiplier.ToString("0.##")}"; //duas casa decimais, se precisar
-        }
-        if (hpCircle != null)
-        {
-            hpCircle.fillAmount = (float)hp / (float)maxHP;
-        }
     }
 
     //DECK MANAGMENT METHODS

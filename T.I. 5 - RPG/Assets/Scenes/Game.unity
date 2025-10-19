@@ -49358,6 +49358,16 @@ MonoBehaviour:
     value: 0
     min: 3
     max: 5
+  hpText: {fileID: 865821724}
+  shieldText: {fileID: 1176796264}
+  energyText: {fileID: 1323262171}
+  damageTakenText: {fileID: 995080193}
+  enemyHpText: {fileID: 1991594902}
+  enemyShieldText: {fileID: 343960610}
+  enemyEnergyText: {fileID: 1215672137}
+  enemyDamageTakenText: {fileID: 1881288783}
+  hpCircle: {fileID: 1140556359}
+  enemyHpCircle: {fileID: 1932448058}
 --- !u!114 &1432303491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50861,7 +50871,7 @@ MonoBehaviour:
   hpText: {fileID: 1991594902}
   shieldText: {fileID: 343960610}
   energyText: {fileID: 1215672137}
-  damageTakenText: {fileID: 0}
+  damageTakenText: {fileID: 1881288783}
   hpCircle: {fileID: 1932448058}
   anim: {fileID: 461322265}
   model: {fileID: 461322264}

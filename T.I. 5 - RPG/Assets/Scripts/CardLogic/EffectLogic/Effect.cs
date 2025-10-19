@@ -373,6 +373,7 @@ public class BuffStat : Effect, IProlongedEffect
         StatBuffMod.Add(Modifier);
         Action = Combat.WaitForTurn(TurnsFromNow, phase, StopAtPhase, EffectEnded);
         CardUIController.AttCardDescription(buffTar);
+        GameplayManager.instance.UpdateStatsUI(buffTar);
         EffectApplied.Invoke();
     }
     public override void EffectEnded()

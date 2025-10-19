@@ -57,6 +57,8 @@ public class GameplayManager : MonoBehaviour
     public List<DisappearingObject> uiObjects = new List<DisappearingObject>();
     public List<GameObject> areas = new List<GameObject>();
     public SimpleInt moneyPrize;
+    public TextMeshPro hpText, shieldText, energyText, damageTakenText, enemyHpText, enemyShieldText, enemyEnergyText, enemyDamageTakenText;
+    public UnityEngine.UI.Image hpCircle, enemyHpCircle;
     private void Awake()
     {
         instance = this;
@@ -78,6 +80,79 @@ public class GameplayManager : MonoBehaviour
             p.gameObject.SetActive(false);
         }
     }
+
+    public void UpdateCreatureUI(Creature c)
+    {
+        if(c is Player)
+        {
+            if (hpText != null)
+            {
+                hpText.text = $"{c.Health}";
+            }
+            if (shieldText != null)
+            {
+                shieldText.text = $"{c.Shield}";
+            }
+            if (energyText != null)
+            {
+                energyText.text = $"{c.Energy}";
+            }
+            if (damageTakenText != null)
+            {
+                float multiplier = c.BaseDamageTaken / 100f;
+                damageTakenText.text = $"x{multiplier.ToString("0.##")}"; //duas casa decimais, se precisar
+            }
+            if (hpCircle != null)
+            {
+                hpCircle.fillAmount = (float)c.Health / (float)c.MaxHP;
+            }
+        }
+        else
+        {
+            if (enemyHpText != null)
+            {
+                enemyHpText.text = $"{c.Health}";
+            }
+            if (enemyShieldText != null)
+            {
+                enemyShieldText.text = $"{c.Shield}";
+            }
+            if (enemyEnergyText != null)
+            {
+                enemyEnergyText.text = $"{c.Energy}";
+            }
+            if (enemyDamageTakenText != null)
+            {
+                float multiplier = c.BaseDamageTaken / 100f;
+                enemyDamageTakenText.text = $"x{multiplier.ToString("0.##")}"; //duas casa decimais, se precisar
+            }
+            if (enemyHpCircle != null)
+            {
+                enemyHpCircle.fillAmount = (float)c.Health / (float)c.MaxHP;
+            }
+        }
+    }
+
+    public void UpdateStatsUI(Creature c)
+    {
+        if(c is Player)
+        {
+            if (damageTakenText != null)
+            {
+                float multiplier = c.BaseDamageTaken / 100f;
+                damageTakenText.text = $"x{multiplier.ToString("0.##")}"; //duas casa decimais, se precisar
+            }
+        }
+        else
+        {
+            if (enemyDamageTakenText != null)
+            {
+                float multiplier = c.BaseDamageTaken / 100f;
+                enemyDamageTakenText.text = $"x{multiplier.ToString("0.##")}"; //duas casa decimais, se precisar
+            }
+        }
+    }
+
     public void PauseInput(float time)
     {
         IPauseInput();

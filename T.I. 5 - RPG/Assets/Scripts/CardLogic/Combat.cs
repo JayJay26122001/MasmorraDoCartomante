@@ -75,14 +75,14 @@ public class Combat : MonoBehaviour
         TurnIndex = 0;
         ActiveTurn = Round[turnIndex];
         ActionController.instance.InvokeTimer(ActiveTurn.TurnStart, 1);
-        ActionController.instance.InvokeTimer(CombatUI, 1);
+        //ActionController.instance.InvokeTimer(CombatUI, 1);
         CardUIController.AttDeckCard(combatents[0]);
         CardUIController.AttDeckCard(combatents[1]);
         CardUIController.CardsOrganizer(combatents[0]);
         CardUIController.CardsOrganizer(combatents[1]);
         ActionController.instance.InvokeTimer(CardUIController.instance.ActivateCardTextValues, 2f);
+        CombatUI();
         //CardUIController.instance.ActivateCardTextValues();
-        //CombatUI();
         if(TurnIndex == 0)
         {
             turnText.text = $"Player {ActiveTurn.currentPhase}";
@@ -161,9 +161,10 @@ public class Combat : MonoBehaviour
 
     public void CombatUI()
     {
-        combatents[0].UpdateCreatureUI(combatents[0]);
-        combatents[1].UpdateCreatureUI(combatents[1]);
+        GameplayManager.instance.UpdateCreatureUI(combatents[0]);
+        GameplayManager.instance.UpdateCreatureUI(combatents[1]);
     }
+
     public void EndCombat()
     {
         BellColider.gameObject.GetComponent<Bell>().outline.SetActive(false);

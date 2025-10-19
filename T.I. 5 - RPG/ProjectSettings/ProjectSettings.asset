@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: Red Top Hat Studios
   productName: Cartomancer`s Stronghold
-  defaultCursor: {fileID: 2800000, guid: b88bc229ec5cede4ba485f0fea2f9110, type: 3}
+  defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_ShowUnitySplashScreen: 1
