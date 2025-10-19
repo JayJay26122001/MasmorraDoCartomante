@@ -40,10 +40,10 @@ public class Stamp : MonoBehaviour
                 price = 3;
                 break;
             case Card.CardRarity.Rare:
-                price = 10;
+                price = 6;
                 break;
             case Card.CardRarity.Epic:
-                price = 15;
+                price = 12;
                 break;
             case Card.CardRarity.Legendary:
                 price = 20;

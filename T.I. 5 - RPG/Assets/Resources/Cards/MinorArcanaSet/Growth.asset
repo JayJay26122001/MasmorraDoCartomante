@@ -24,7 +24,7 @@ MonoBehaviour:
   Type: 2
   Pack: 3
   Rarity: 0
-  Description: Cards gain +2 Attack and Shield this Turn.
+  Description: User Cards gain +2 Damage and Shield this Turn.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 13c00c302885c774194e811792a4787b, type: 3}
   references:
