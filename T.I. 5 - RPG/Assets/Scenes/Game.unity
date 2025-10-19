@@ -20514,11 +20514,6 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
-  hpText: {fileID: 1991594902}
-  shieldText: {fileID: 343960610}
-  energyText: {fileID: 1215672137}
-  damageTakenText: {fileID: 1881288783}
-  hpCircle: {fileID: 1932448058}
   anim: {fileID: 2001305426}
   model: {fileID: 2001305425}
   size: 0
@@ -30609,11 +30604,6 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
-  hpText: {fileID: 1991594902}
-  shieldText: {fileID: 343960610}
-  energyText: {fileID: 1215672137}
-  damageTakenText: {fileID: 1881288783}
-  hpCircle: {fileID: 1932448058}
   anim: {fileID: 1124749327}
   model: {fileID: 1124749326}
   size: 1
@@ -37369,11 +37359,6 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
-  hpText: {fileID: 1991594902}
-  shieldText: {fileID: 343960610}
-  energyText: {fileID: 1215672137}
-  damageTakenText: {fileID: 0}
-  hpCircle: {fileID: 1932448058}
   anim: {fileID: 1390083257}
   model: {fileID: 1390083256}
   size: 0
@@ -37658,11 +37643,6 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
-  hpText: {fileID: 1991594902}
-  shieldText: {fileID: 343960610}
-  energyText: {fileID: 1215672137}
-  damageTakenText: {fileID: 0}
-  hpCircle: {fileID: 1932448058}
   anim: {fileID: 1641493834}
   model: {fileID: 1641493833}
   size: 0
@@ -40199,7 +40179,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: texttexttext
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
   m_sharedMaterial: {fileID: 1623889163624291708, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
@@ -40226,8 +40206,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -40624,11 +40604,6 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
-  hpText: {fileID: 1991594902}
-  shieldText: {fileID: 343960610}
-  energyText: {fileID: 1215672137}
-  damageTakenText: {fileID: 0}
-  hpCircle: {fileID: 1932448058}
   anim: {fileID: 209104458}
   model: {fileID: 209104456}
   size: 0
@@ -45210,11 +45185,6 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
-  hpText: {fileID: 1991594902}
-  shieldText: {fileID: 343960610}
-  energyText: {fileID: 1215672137}
-  damageTakenText: {fileID: 0}
-  hpCircle: {fileID: 1932448058}
   anim: {fileID: 1289391191}
   model: {fileID: 1289391190}
   size: 0
@@ -46885,11 +46855,6 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
-  hpText: {fileID: 1991594902}
-  shieldText: {fileID: 343960610}
-  energyText: {fileID: 1215672137}
-  damageTakenText: {fileID: 1881288783}
-  hpCircle: {fileID: 1932448058}
   anim: {fileID: 1961797305}
   model: {fileID: 1961797304}
   size: 1
@@ -50868,11 +50833,6 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
-  hpText: {fileID: 1991594902}
-  shieldText: {fileID: 343960610}
-  energyText: {fileID: 1215672137}
-  damageTakenText: {fileID: 1881288783}
-  hpCircle: {fileID: 1932448058}
   anim: {fileID: 461322265}
   model: {fileID: 461322264}
   size: 0
@@ -52359,11 +52319,6 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
-  hpText: {fileID: 1991594902}
-  shieldText: {fileID: 343960610}
-  energyText: {fileID: 1215672137}
-  damageTakenText: {fileID: 1881288783}
-  hpCircle: {fileID: 1932448058}
   anim: {fileID: 1462765976}
   model: {fileID: 1462765975}
   size: 2
@@ -55115,11 +55070,6 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
-  hpText: {fileID: 1991594902}
-  shieldText: {fileID: 343960610}
-  energyText: {fileID: 1215672137}
-  damageTakenText: {fileID: 1881288783}
-  hpCircle: {fileID: 1932448058}
   anim: {fileID: 955819056}
   model: {fileID: 401544285}
   size: 2
@@ -57651,11 +57601,6 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
-  hpText: {fileID: 1991594902}
-  shieldText: {fileID: 343960610}
-  energyText: {fileID: 1215672137}
-  damageTakenText: {fileID: 1881288783}
-  hpCircle: {fileID: 1932448058}
   anim: {fileID: 1273535}
   model: {fileID: 1273534}
   size: 0
@@ -58531,11 +58476,6 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
-  hpText: {fileID: 1991594902}
-  shieldText: {fileID: 343960610}
-  energyText: {fileID: 1215672137}
-  damageTakenText: {fileID: 1881288783}
-  hpCircle: {fileID: 1932448058}
   anim: {fileID: 2046547044}
   model: {fileID: 1900122466}
   size: 0
@@ -58924,11 +58864,6 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
-  hpText: {fileID: 865821724}
-  shieldText: {fileID: 1176796264}
-  energyText: {fileID: 1323262171}
-  damageTakenText: {fileID: 995080193}
-  hpCircle: {fileID: 1140556359}
   SelectedCard: {fileID: 0}
 --- !u!136 &1866734919
 CapsuleCollider:
@@ -63298,11 +63233,6 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
-  hpText: {fileID: 1991594902}
-  shieldText: {fileID: 343960610}
-  energyText: {fileID: 1215672137}
-  damageTakenText: {fileID: 0}
-  hpCircle: {fileID: 1932448058}
   anim: {fileID: 361981472}
   model: {fileID: 361981471}
   size: 0

@@ -819,7 +819,7 @@ public class UIController : MonoBehaviour
     public void AdjustCommandsPositions()
     {
         commands[0].SetActive(shownCommandsCount != 0 && GameplayManager.instance.InputActive);
-        float gap = 25;
+        float gap = 10;
         RectTransform aux;
         for (int i = 1; i < commands.Count; i++)
         {
@@ -827,7 +827,8 @@ public class UIController : MonoBehaviour
             { 
                 aux = commands[i - 1].GetComponent<RectTransform>();
                 //Debug.LogWarning("numero " + i + ": " + commands[i].GetComponent<RectTransform>().sizeDelta);
-                commands[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(aux.anchoredPosition.x - aux.sizeDelta.x - gap, basePos.y);
+                //commands[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(aux.anchoredPosition.x - aux.sizeDelta.x - gap, basePos.y);
+                commands[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(basePos.x, aux.anchoredPosition.y + aux.sizeDelta.y + gap);
                 commands[i].SetActive(GameplayManager.instance.InputActive);
             }
             else
