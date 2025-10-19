@@ -154,11 +154,11 @@ public class Enemy : Creature, IPointerClickHandler
             {
                 if (!GameplayManager.instance.figtingBoss)
                 {
-                    ActionController.instance.AddToQueue(new EnemyDefeat(this));
+                    ActionController.instance.AddToQueueAsNext(new EnemyDefeat(this));
                 }
                 else
                 {
-                    ActionController.instance.AddToQueue(new BossDefeat(this));
+                    ActionController.instance.AddToQueueAsNext(new BossDefeat(this));
                 }
             }
         }

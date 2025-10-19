@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -50,13 +51,6 @@ public class ActionController : MonoBehaviour
     }
     public void AddToQueue(SceneAction action)
     {
-        //action.AnimEnded.AddListener(AdvanceQueue);
-        //DebugAction(action);
-        /*action.finishAction = () =>
-        {
-            action.AnimEnded.Invoke();
-            AdvanceQueue();
-        };*/
         action.IsInQueue = true;
         ActionQueue.Add(action);
         UpdateQueueIndexes();
@@ -68,15 +62,34 @@ public class ActionController : MonoBehaviour
     }
     public void AddToQueue(SceneAction action, int index)
     {
-        //DebugAction(action, index);
-        /*action.finishAction = () =>
-        {
-            action.AnimEnded.Invoke();
-            AdvanceQueue();
-        };*/
         action.IsInQueue = true;
         if (index > ActionQueue.Count) index = ActionQueue.Count;
         ActionQueue.Insert(index, action);
+        UpdateQueueIndexes();
+        if (ActionQueue.Count == 1)
+        {
+            action.isPlaying = true;
+            action.StartAction();
+        }
+    }
+    public void AddToQueueAsNext(SceneAction action)
+    {
+        action.IsInQueue = true;
+        bool inserted = false;
+        for (int i = 0; i < ActionQueue.Count; i++)
+        {
+            if (!ActionQueue[i].isPlaying)
+            {
+                ActionQueue.Insert(i, action);
+                i = ActionQueue.Count;
+                inserted = true;
+            }
+        }
+        if (!inserted)
+        {
+            AddToQueueBeforeAdvance(action);
+            return;
+        }
         UpdateQueueIndexes();
         if (ActionQueue.Count == 1)
         {
@@ -102,6 +115,28 @@ public class ActionController : MonoBehaviour
         else
         {
             AddToQueue(action);
+        }
+    }
+    public void RemoveFromQueue(SceneAction action)
+    {
+        if (action.isPlaying)
+        {
+            action.CancelAction();
+        }
+        else
+        {
+            ActionQueue.Remove(action);
+        }
+    }
+    public void RemoveAllActions(bool RemoveActive)
+    {
+        List<SceneAction> aux = ActionQueue.ToList();
+        foreach (SceneAction a in aux)
+        {
+            if(RemoveActive || !a.isPlaying)
+            {
+                RemoveFromQueue(a);
+            }
         }
     }
     public void UpdateQueueIndexes()
@@ -131,48 +166,46 @@ public class ActionController : MonoBehaviour
             //ActionQueue[0].StartAction();
         }
     }
+    public IEnumerator InvokeTimer(UnityAction action, float time)
+    {
+        IEnumerator aux = CallEvent(time, action);
+        StartCoroutine(aux);
+        return aux;
+    }
+    public IEnumerator InvokeTimer<T>(UnityAction<T> action, T arg, float time)
+    {
+        IEnumerator aux = CallEvent(time, () => action(arg));
+        StartCoroutine(aux);
+        return aux;
+    }
+    public IEnumerator InvokeTimer<T1, T2>(UnityAction<T1, T2> action, T1 arg1, T2 arg2, float time)
+    {
+        IEnumerator aux = CallEvent(time, () => action(arg1, arg2));
+        StartCoroutine(aux);
+        return aux;
+    }
 
-    /*public void PlayAnimation(PlayableAsset animation)
+    public IEnumerator InvokeTimer(UnityEvent action, float time)
     {
-        director.playableAsset = animation;
-        director.Play();
-    }*/
-    public void InvokeTimer(UnityAction action, float time)
-    {
-        StartCoroutine(CallEvent(time, action));
+        IEnumerator aux = CallEvent(time, action.Invoke);
+        StartCoroutine(aux);
+        return aux;
     }
-    public void InvokeTimer<T>(UnityAction<T> action, T arg, float time)
+    public IEnumerator InvokeTimer<T>(UnityEvent<T> action, T arg, float time)
     {
-        StartCoroutine(CallEvent(time, () => action(arg)));
-    }
-    public void InvokeTimer<T1, T2>(UnityAction<T1, T2> action, T1 arg1, T2 arg2, float time)
-    {
-        StartCoroutine(CallEvent(time, () => action(arg1, arg2)));
-    }
-
-    public void InvokeTimer(UnityEvent action, float time)
-    {
-        StartCoroutine(CallEvent(time, action.Invoke));
-    }
-    public void InvokeTimer<T>(UnityEvent<T> action, T arg, float time)
-    {
-        StartCoroutine(CallEvent(time, () => action.Invoke(arg)));
+        IEnumerator aux = CallEvent(time, () => action.Invoke(arg));
+        StartCoroutine(aux);
+        return aux;
     }
     IEnumerator CallEvent(float time, UnityAction action)
     {
         yield return new WaitForSeconds(time);
         action.Invoke();
     }
-    /*void Update()
+    public void CancelTimer(IEnumerator routine)
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            foreach (SceneAction a in ActionQueue)
-            {
-                Debug.Log($"{a.QueueIndex}: {a.GetType().Name}");
-            }
-        }
-    }*/
+        StopCoroutine(routine);
+    }
 }
 public abstract class SceneAction
 {
@@ -180,6 +213,7 @@ public abstract class SceneAction
     public int QueueIndex = 0;
     public bool IsInQueue;
     public bool isPlaying;
+    protected IEnumerator TimerRoutine;
     public virtual void StartAction()
     {
         UnityAction finishAction = () =>
@@ -192,10 +226,20 @@ public abstract class SceneAction
         };
         ActionController.DebugAction(this);
         PerformAction();
-        ActionController.instance.InvokeTimer(finishAction, time);
+        TimerRoutine = ActionController.instance.InvokeTimer(finishAction, time);
         //ActionController.instance.InvokeTimer(() => Debug.Log(Time.time), time);
     }
-
+    public virtual void CancelAction() //Cancela a ação se ela estiver em execução
+    {
+        if (TimerRoutine != null)
+        {
+            ActionController.instance.CancelTimer(TimerRoutine);
+            if (IsInQueue && isPlaying)
+            {
+                ActionController.instance.AdvanceQueue();
+            }
+        }
+    }
     public abstract void PerformAction();
     public UnityEvent AnimStarted = new UnityEvent(), AnimEnded = new UnityEvent();
 }
@@ -324,6 +368,7 @@ public class EnemyDefeat : SceneAction
     }
     public override void PerformAction()
     {
+        ActionController.instance.RemoveAllActions(false);
         c.Die();
         c.anim.SetTrigger("Defeat");
         GameplayManager.instance.PauseInput(time);
@@ -349,6 +394,7 @@ public class BossDefeat : SceneAction
     }
     public override void PerformAction()
     {
+        ActionController.instance.RemoveAllActions(false);
         c.Die();
         c.anim.SetTrigger("Defeat");
         GameplayManager.instance.PauseInput(time);
@@ -423,7 +469,7 @@ public class WaitAction : SceneAction
 public class ApplyEffectAction : SceneAction
 {
     public readonly Effect e;
-    UnityAction finishAction;
+    //UnityAction finishAction;
     public ApplyEffectAction(Effect effect)
     {
         e = effect;
@@ -452,32 +498,16 @@ public class ApplyEffectAction : SceneAction
         GameplayManager.instance.IPauseInput();
         AnimEnded.AddListener(GameplayManager.instance.IResumeInput);
         AnimStarted.Invoke();
-        /*if (e is ActionEffect)
-        {
-            e.Apply();
-            AnimEnded.Invoke();
-            ActionController.instance.AdvanceQueue();
-        }
-        else
-        {
-            e.EffectEnd.AddListener(AnimEnded.Invoke);
-            e.EffectEnd.AddListener(ActionController.instance.AdvanceQueue);
-            e.Apply();
-        }*/
         UnityAction endingAction = () =>
         {
             UnityEvent scribedEvent;
             if (e is IProlongedEffect)
             {
                 scribedEvent = e.ConvertTo<IProlongedEffect>().EffectApplied;
-                //e.ConvertTo<IProlongedEffect>().EffectApplied.AddListener(AnimEnded.Invoke);
-                //e.ConvertTo<IProlongedEffect>().EffectApplied.AddListener(ActionController.instance.AdvanceQueue);
             }
             else
             {
                 scribedEvent = e.EffectEnd;
-                //e.EffectEnd.AddListener(AnimEnded.Invoke);
-                //e.EffectEnd.AddListener(ActionController.instance.AdvanceQueue);
             }
             UnityAction finishAction = null;
             finishAction = () =>
@@ -518,6 +548,18 @@ public class ApplyEffectAction : SceneAction
         else
         {
             e.card.cardDisplay.PlayActivatedEffectOnce();
+        }
+    }
+    public override void CancelAction() //Cancela a ação se ela estiver em execução
+    {
+        if (TimerRoutine != null)
+        {
+            ActionController.instance.CancelTimer(TimerRoutine);
+            if (IsInQueue && isPlaying)
+            {
+                ActionController.instance.AdvanceQueue();
+            }
+            e.EffectEnded();
         }
     }
 }
