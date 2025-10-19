@@ -74,13 +74,13 @@ public class Player : Creature
 
     public void ChangeEnergyColor()
     {
-        energyText.color = Color.red;
+        GameplayManager.instance.energyText.color = Color.red;
         Invoke("ReturnEnergyColor", 1);
     }
 
     public void ReturnEnergyColor()
     {
-        energyText.color = new Color(0, 0.65f, 0, 1);
+        GameplayManager.instance.energyText.color = new Color(0, 0.65f, 0, 1);
     }
     public override void BuyCards(int quantity)
     {
