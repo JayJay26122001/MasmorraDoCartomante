@@ -8,6 +8,7 @@ public class CardAttack : MonoBehaviour
     float t;
     Vector3 aux, startPos, targetPos;
     public UnityEvent HitTarget;
+    public bool isCoin;
 
     public void SetTarget(Transform t)
     {
@@ -16,7 +17,15 @@ public class CardAttack : MonoBehaviour
     public void BezierCurve()
     {
         startPos = transform.position;
-        targetPos = new Vector3(target.position.x, startPos.y, target.position.z - target.gameObject.GetComponent<CapsuleCollider>().radius / 2);
+        if(!isCoin)
+        {
+            targetPos = new Vector3(target.position.x, startPos.y, target.position.z - target.gameObject.GetComponent<CapsuleCollider>().radius / 2);
+        }
+        else
+        {
+            targetPos = target.position;
+            transform.rotation = Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
+        }
         aux = new Vector3(startPos.x + (targetPos.x - startPos.x) / 2, startPos.y + Mathf.Abs((targetPos.z - startPos.z) / 2), startPos.z + (targetPos.z - startPos.z) / 2);
         t = 0;
         gameObject.SetActive(true);
@@ -41,7 +50,14 @@ public class CardAttack : MonoBehaviour
         {
             HitTarget.Invoke();
             HitTarget.RemoveAllListeners();
-            GameplayManager.instance.attacksUsed.Remove(this);
+            if(!isCoin)
+            {
+                GameplayManager.instance.attacksUsed.Remove(this);
+            }
+            else
+            {
+                GameplayManager.instance.coinsUsed.Remove(this);
+            }
             this.gameObject.SetActive(false);
             //Destroy(this.gameObject);
         }

@@ -17,12 +17,14 @@ public class Stamp : MonoBehaviour
         priceTag.text = "";
         emptyCard.SetActive(true);
         LeanTween.move(emptyCard, emptyCard.transform.position - Vector3.up * 25, 0.25f);
+        this.GetComponent<BoxCollider>().enabled = true;
     }
 
     public void Activate()
     {
         if(!GameplayManager.instance.duplicatingCards)
         {
+            this.GetComponent<BoxCollider>().enabled = false;
             GameplayManager.instance.DuplicatingCards();
         }
     }

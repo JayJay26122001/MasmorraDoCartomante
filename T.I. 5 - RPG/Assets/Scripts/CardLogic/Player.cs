@@ -158,7 +158,7 @@ public class Player : Creature
             if(ChangeMoney(-3))
             {
                 GameplayManager.instance.ExplodeCoins(go.transform.position);
-                ResetHP();
+                Heal(20);
             }
         }
     }

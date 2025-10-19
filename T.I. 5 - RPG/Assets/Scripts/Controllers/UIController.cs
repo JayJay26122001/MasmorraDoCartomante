@@ -782,9 +782,6 @@ public class UIController : MonoBehaviour
         GameObject img = commands[shownCommandsCount].transform.GetChild(0).gameObject;
         img.GetComponent<Image>().sprite = cUI.image;
         img.GetComponent<RectTransform>().sizeDelta = new Vector2((cUI.image.bounds.size.x * 50) / cUI.image.bounds.size.y, 50);
-        Canvas.ForceUpdateCanvases();
-        commands[shownCommandsCount].GetComponent<HorizontalLayoutGroup>().enabled = false;
-        commands[shownCommandsCount].GetComponent<HorizontalLayoutGroup>().enabled = true;
         shownCommandsCount++;
         AdjustCommandsPositions();
     }
@@ -810,9 +807,6 @@ public class UIController : MonoBehaviour
                     Sprite aux = commands[i + 1].transform.GetChild(0).gameObject.GetComponent<Image>().sprite;
                     img.GetComponent<Image>().sprite = aux;
                     img.GetComponent<RectTransform>().sizeDelta = new Vector2((aux.bounds.size.x * 50) / aux.bounds.size.y, 50);
-                    Canvas.ForceUpdateCanvases();
-                    commands[i].GetComponent<HorizontalLayoutGroup>().enabled = false;
-                    commands[i].GetComponent<HorizontalLayoutGroup>().enabled = true;
                 }
             }
             if (found || String.Compare(commands[shownCommandsCount - 1].GetComponentInChildren<TextMeshProUGUI>().text, cUI.command) == 0)
@@ -822,7 +816,6 @@ public class UIController : MonoBehaviour
             }
         }
     }
-
     public void AdjustCommandsPositions()
     {
         commands[0].SetActive(shownCommandsCount != 0 && GameplayManager.instance.InputActive);
@@ -833,6 +826,7 @@ public class UIController : MonoBehaviour
             if(i < shownCommandsCount)
             { 
                 aux = commands[i - 1].GetComponent<RectTransform>();
+                //Debug.LogWarning("numero " + i + ": " + commands[i].GetComponent<RectTransform>().sizeDelta);
                 commands[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(aux.anchoredPosition.x - aux.sizeDelta.x - gap, basePos.y);
                 commands[i].SetActive(GameplayManager.instance.InputActive);
             }

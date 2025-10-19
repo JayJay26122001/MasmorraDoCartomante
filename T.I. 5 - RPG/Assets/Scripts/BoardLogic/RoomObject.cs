@@ -5,8 +5,11 @@ public class RoomObject : MonoBehaviour
     public BoardRoom roomRef;
     public MeshFilter icon;
     public GameObject outline;
+    Interactable interactable;
+    public ControlUI advance;
     private void Start()
     {
+        interactable = GetComponent<Interactable>();
         outline = this.transform.GetChild(1).gameObject;
         outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeX", 0.5f);
         outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeY", 0.5f);
@@ -58,13 +61,27 @@ public class RoomObject : MonoBehaviour
             //GameplayManager.instance.MoveBoard(act);
             GameplayManager.instance.MovePiece(act, this.transform.position + Vector3.up * 0.2f);
             GameplayManager.instance.currentRoom = roomRef;
+            interactable.HideInteractions();
         }
     }
-    public void OnMouseOver()
+    public void OnMouseEnter()
     {
+        ChangeInteractions();
         if (GameplayManager.instance.currentRoom.nextRooms.Contains(roomRef) && GameplayManager.instance.InputActive && !GameManager.instance.uiController.gamePaused && !GameplayManager.instance.bg.inMovement)
         {
             outline.SetActive(true);
+        }
+    }
+
+
+
+    void ChangeInteractions()
+    {
+        interactable.HideInteractions();
+        interactable.interactions.Clear();
+        if (GameplayManager.instance.currentRoom.nextRooms.Contains(roomRef) && GameplayManager.instance.InputActive && !GameManager.instance.uiController.gamePaused && !GameplayManager.instance.bg.inMovement)
+        {
+            interactable.interactions.Add(advance);
         }
     }
 

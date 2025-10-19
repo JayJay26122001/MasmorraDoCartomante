@@ -8,8 +8,11 @@ public class Bell : MonoBehaviour
     public AnimationClip turnToPlayer, turnToEnemy;
     public Animation anim;
     public GameObject outline;
+    Interactable interactable;
+    public ControlUI passTurn;
     void Awake()
     {
+        interactable = GetComponent<Interactable>();
         outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.green);
         outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeX", 0.25f);
         outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeY", 0.25f);
@@ -22,6 +25,16 @@ public class Bell : MonoBehaviour
     {
         anim = GetComponent<Animation>();
         sfxSource = this.GetComponent<AudioSource>();
+    }
+
+    public void ChangeInteractions(bool active)
+    {
+        interactable.HideInteractions();
+        interactable.interactions.Clear();
+        if(active)
+        {
+            interactable.interactions.Add(passTurn);
+        }
     }
     public void NextTurn()
     {

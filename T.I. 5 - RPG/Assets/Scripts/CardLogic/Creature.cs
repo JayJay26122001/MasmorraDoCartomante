@@ -436,14 +436,17 @@ public class Creature : MonoBehaviour
     public void ResetShield()
     {
         Shield = 0;
+        GameplayManager.currentCombat.CombatUI();
     }
     public void ResetEnergy()
     {
         Energy = maxBaseEnergy;
+        GameplayManager.currentCombat.CombatUI();
     }
     public virtual void ResetHP()
     {
         hp = maxHP;
+        GameplayManager.currentCombat.CombatUI();
     }
     public void GainEnergy(int energy)
     {

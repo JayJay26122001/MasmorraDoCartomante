@@ -149,6 +149,7 @@ public class Combat : MonoBehaviour
             BellColider.gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
             GameplayManager.instance.PauseInput();
         }
+        BellColider.gameObject.GetComponent<Bell>().ChangeInteractions(active);
         
     }
     public void ChangeTurn()

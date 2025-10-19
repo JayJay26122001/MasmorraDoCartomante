@@ -45,6 +45,8 @@ public class GameplayManager : MonoBehaviour
     public ParticleSystem coinExplosion;
     public List<CardAttack> attacksPool = new List<CardAttack>();
     public List<CardAttack> attacksUsed = new List<CardAttack>();
+    public List<CardAttack> coinsPool = new List<CardAttack>();
+    public List<CardAttack> coinsUsed = new List<CardAttack>();
     public Volume hitVol, healVol;
     public GameObject shield, fracturedShield;
     public List<DamageVFX> damageVFXPool = new List<DamageVFX>();
@@ -497,6 +499,23 @@ public class GameplayManager : MonoBehaviour
                 attacksPool[i].BezierCurve();
                 attacksUsed.Add(attacksPool[i]);
                 i = attacksPool.Count;
+                return temp;
+            }
+        }
+        return null;
+    }
+
+    public UnityEvent ActivateCoin(Vector3 pos)
+    {
+        for (int i = 0; i < coinsPool.Count; i++)
+        {
+            if (!coinsUsed.Contains(coinsPool[i]))
+            {
+                UnityEvent temp = coinsPool[i].HitTarget;
+                coinsPool[i].transform.position = pos;
+                coinsPool[i].BezierCurve();
+                coinsUsed.Add(coinsPool[i]);
+                i = coinsPool.Count;
                 return temp;
             }
         }

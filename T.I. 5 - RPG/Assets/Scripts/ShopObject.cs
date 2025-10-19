@@ -25,6 +25,7 @@ public class ShopObject : MonoBehaviour
                 outline.SetActive(true);
                 break;
         }
+        this.gameObject.GetComponent<Collider>().enabled = true;
     }
     private void Start()
     {

@@ -52,6 +52,10 @@ public class DamageVFX : MonoBehaviour
                 text.fontSize = 36;
                 break;
             case VFXType.PlayerHP:
+                Transform t = GameplayManager.instance.player.hpText.transform.parent.parent;
+                transform.position = t.position + t.forward + Vector3.up * 11;
+                transform.rotation = t.rotation;
+                objPos[1] = t.position;
                 goingUp = false;
                 text.color = Color.red * 0.8f;
                 text.fontSize = 20;
