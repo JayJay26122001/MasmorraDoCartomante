@@ -66032,6 +66032,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 535bbb4c65fb3d24fb8dae31ce74c4b6, type: 2}
     - target: {fileID: 8600334532679669422, guid: 9bfcaa0b2dd516849ae3e04865d7955b, type: 3}
+      propertyPath: UnlockedCards.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600334532679669422, guid: 9bfcaa0b2dd516849ae3e04865d7955b, type: 3}
       propertyPath: 'GameCards.Array.data[100]'
       value: 
       objectReference: {fileID: 11400000, guid: 03f8826008d8f8442aa113cae50558ca, type: 2}
@@ -66075,6 +66079,66 @@ PrefabInstance:
       propertyPath: 'GameCards.Array.data[110]'
       value: 
       objectReference: {fileID: 11400000, guid: 2e0247bea243e5e4fbc1e45acb2fbfe2, type: 2}
+    - target: {fileID: 8600334532679669422, guid: 9bfcaa0b2dd516849ae3e04865d7955b, type: 3}
+      propertyPath: 'UnlockedCards.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b4f1c9213ec94944fbb3140dc70fd316, type: 2}
+    - target: {fileID: 8600334532679669422, guid: 9bfcaa0b2dd516849ae3e04865d7955b, type: 3}
+      propertyPath: 'UnlockedCards.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7c66cdac4dc851f4187bfad5a213ecb9, type: 2}
+    - target: {fileID: 8600334532679669422, guid: 9bfcaa0b2dd516849ae3e04865d7955b, type: 3}
+      propertyPath: 'UnlockedCards.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0e3077367c1c8484fa4a756dbde31831, type: 2}
+    - target: {fileID: 8600334532679669422, guid: 9bfcaa0b2dd516849ae3e04865d7955b, type: 3}
+      propertyPath: 'UnlockedCards.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 69fbe8e172b3dd846ae8cd853dda4b28, type: 2}
+    - target: {fileID: 8600334532679669422, guid: 9bfcaa0b2dd516849ae3e04865d7955b, type: 3}
+      propertyPath: 'UnlockedCards.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: fef2e4abbf70cb34cb049f97182832fe, type: 2}
+    - target: {fileID: 8600334532679669422, guid: 9bfcaa0b2dd516849ae3e04865d7955b, type: 3}
+      propertyPath: 'UnlockedCards.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: f5df698fa3947074ebb31b07fdb255cd, type: 2}
+    - target: {fileID: 8600334532679669422, guid: 9bfcaa0b2dd516849ae3e04865d7955b, type: 3}
+      propertyPath: 'UnlockedCards.Array.data[6]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 9b4e031e6f8cab54a83bddb6fa9cf491, type: 2}
+    - target: {fileID: 8600334532679669422, guid: 9bfcaa0b2dd516849ae3e04865d7955b, type: 3}
+      propertyPath: 'UnlockedCards.Array.data[7]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7498c4820b13f384bb9e9d12afe52c10, type: 2}
+    - target: {fileID: 8600334532679669422, guid: 9bfcaa0b2dd516849ae3e04865d7955b, type: 3}
+      propertyPath: 'UnlockedCards.Array.data[8]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 535bbb4c65fb3d24fb8dae31ce74c4b6, type: 2}
+    - target: {fileID: 8600334532679669422, guid: 9bfcaa0b2dd516849ae3e04865d7955b, type: 3}
+      propertyPath: 'UnlockedCards.Array.data[9]'
+      value: 
+      objectReference: {fileID: 11400000, guid: f5f954a6ebac63d48a5edf883dff707d, type: 2}
+    - target: {fileID: 8600334532679669422, guid: 9bfcaa0b2dd516849ae3e04865d7955b, type: 3}
+      propertyPath: 'UnlockedCards.Array.data[10]'
+      value: 
+      objectReference: {fileID: 11400000, guid: c41fc99022ecc1e4bb52aa97bde67b79, type: 2}
+    - target: {fileID: 8600334532679669422, guid: 9bfcaa0b2dd516849ae3e04865d7955b, type: 3}
+      propertyPath: 'UnlockedCards.Array.data[11]'
+      value: 
+      objectReference: {fileID: 11400000, guid: c1f47245640c3104b8533113e96b066d, type: 2}
+    - target: {fileID: 8600334532679669422, guid: 9bfcaa0b2dd516849ae3e04865d7955b, type: 3}
+      propertyPath: 'UnlockedCards.Array.data[12]'
+      value: 
+      objectReference: {fileID: 11400000, guid: bb67cac583b725947b07ce815a51b0ae, type: 2}
+    - target: {fileID: 8600334532679669422, guid: 9bfcaa0b2dd516849ae3e04865d7955b, type: 3}
+      propertyPath: 'UnlockedCards.Array.data[13]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 879c9dd8166f4914db3a33cb3d18a255, type: 2}
+    - target: {fileID: 8600334532679669422, guid: 9bfcaa0b2dd516849ae3e04865d7955b, type: 3}
+      propertyPath: 'UnlockedCards.Array.data[14]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 53daf724fea624347ba25f2db9eba285, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
