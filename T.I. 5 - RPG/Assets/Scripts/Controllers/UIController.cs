@@ -634,7 +634,36 @@ public class UIController : MonoBehaviour
 
     public void PauseGameInput(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Started && SceneManager.GetActiveScene().name == "Game")
+        if (context.phase != InputActionPhase.Started) return;
+        string currentScene = SceneManager.GetActiveScene().name;
+        if (settingsPanel.activeSelf)
+        {
+            SaveConfigs();
+            ClosePanel(settingsPanel);
+        }
+        if (currentScene == "Menu")
+        {
+            return;
+        }
+        if (currentScene == "Game")
+        {
+            if (gamePaused)
+            {
+                Time.timeScale = 1.0f;
+                ClosePanel(pausePanel);
+                gamePaused = false;
+                GameplayManager.instance.IResumeInput();
+            }
+            else
+            {
+                Time.timeScale = 0f;
+                DeactivateChildrens(combatHUD);
+                OpenPanel(pausePanel);
+                gamePaused = true;
+                GameplayManager.instance.IPauseInput();
+            }
+        }
+        /*if (context.phase == InputActionPhase.Started && SceneManager.GetActiveScene().name == "Game")
         {
             if (settingsPanel.activeSelf)
             {
@@ -663,6 +692,14 @@ public class UIController : MonoBehaviour
                 }
             }
         }
+        if(context.phase == InputActionPhase.Started && SceneManager.GetActiveScene().name == "Menu")
+        {
+            if (settingsPanel.activeSelf)
+            {
+                SaveConfigs();
+                ClosePanel(settingsPanel);
+            }
+        }*/
     }
 
     public void DeactivateChildrens(GameObject parent)
