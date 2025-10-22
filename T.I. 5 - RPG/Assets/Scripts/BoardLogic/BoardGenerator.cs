@@ -19,7 +19,7 @@ public class BoardGenerator : MonoBehaviour
     public LineRenderer lineRenderer;
     public Material shaderMat;
     float zOffset, xOffset;
-    List<GameObject> lineObjects = new List<GameObject>();
+    public List<GameObject> lineObjects = new List<GameObject>();
     float animTimeStart;
     bool inAnimation, disappearing;
     public float animSpeed;
@@ -184,6 +184,8 @@ public class BoardGenerator : MonoBehaviour
             r.nextRooms.Add(newRoom);
         }
         board[boards[area].levelsCount - 1].Add(newRoom);
+        SaveManager.SaveBoard();
+        SaveManager.SavePlayer();
         InstantiateBoard();
     }
 

@@ -758,19 +758,7 @@ MonoBehaviour:
     m_ActionId: bdf16f4b-86de-4ad9-95c0-b70e9daf39c8
     m_ActionName: 'UI/PauseGame[/Keyboard/escape]'
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 30614216}
-        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
-        m_MethodName: RemoveHighlight
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 8af2f461-6b71-446c-8a52-c624f4f91563
     m_ActionName: 'Player/MouseClick[/Mouse/rightButton,/Mouse/leftButton]'
   - m_PersistentCalls:
@@ -783,7 +771,7 @@ MonoBehaviour:
     m_ActionName: 'Camera/SwitchFeaturesCameraLeft[/Keyboard/a,/Keyboard/leftArrow]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &30614218
@@ -11236,6 +11224,7 @@ MonoBehaviour:
   pieceAux: {fileID: 1650270297}
   lineRenderer: {fileID: 0}
   shaderMat: {fileID: 2100000, guid: e25fe3b2a4aec1e49b27feaadc9e7347, type: 2}
+  lineObjects: []
   animSpeed: 3
   inMovement: 0
 --- !u!4 &284883755
@@ -24643,7 +24632,8 @@ MonoBehaviour:
   panelAnimTime: 0.5
   money: {fileID: 2023532461}
   gameLogo: {fileID: 0}
-  playButton: {fileID: 0}
+  newGameButton: {fileID: 0}
+  continueButton: {fileID: 0}
   settingsButton: {fileID: 1916134963}
   creditsButton: {fileID: 0}
   quitButton: {fileID: 0}
@@ -60033,6 +60023,14 @@ MonoBehaviour:
   canPlayCards: 0
   combatSpace: {fileID: 1699522179}
   SelectedCard: {fileID: 0}
+  data:
+    unlockedCards: 
+    playerDeckCards: 
+    boardPos: {x: 0, y: 0, z: 0}
+    piecePos: {x: 0, y: 0, z: 0}
+    area: 0
+    money: 0
+    hp: 0
 --- !u!136 &1866734919
 CapsuleCollider:
   m_ObjectHideFlags: 0

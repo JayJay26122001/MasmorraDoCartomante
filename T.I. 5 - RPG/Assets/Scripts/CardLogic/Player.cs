@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : Creature
 {
     public Card SelectedCard;
+    public PlayerData data;
     //public MeshFilter moneyBag;
     //public Mesh[] bagMeshes = new Mesh[4];
     public override void TurnAction()

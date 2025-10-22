@@ -167,14 +167,26 @@ MonoBehaviour:
   panelAnimTime: 0.5
   money: {fileID: 0}
   gameLogo: {fileID: 0}
-  playButton: {fileID: 0}
+  newGameButton: {fileID: 0}
+  continueButton: {fileID: 0}
   settingsButton: {fileID: 0}
   creditsButton: {fileID: 0}
   quitButton: {fileID: 0}
   tutorialButton: {fileID: 0}
   featuresButton: {fileID: 0}
+  play3DButton: {fileID: 0}
+  settings3DButton: {fileID: 0}
+  quit3DButton: {fileID: 0}
+  rightArrow: {fileID: 0}
+  leftArrow: {fileID: 0}
+  gameNameUp: {fileID: 0}
+  gameNameDown: {fileID: 0}
+  spinTime: 0
+  masks: []
+  playPanel: {fileID: 0}
   settingsPanel: {fileID: 0}
   creditsPanel: {fileID: 0}
+  changeLogPanel: {fileID: 0}
   quitPanel: {fileID: 0}
   pausePanel: {fileID: 0}
   tutorialPanel: {fileID: 0}
@@ -185,7 +197,41 @@ MonoBehaviour:
   _masterVolumeSlider: {fileID: 0}
   _musicSlider: {fileID: 0}
   _sfxSlider: {fileID: 0}
+  vsyncToggle: {fileID: 0}
+  vsyncToggleImage: {fileID: 0}
+  vsyncConfirm: {fileID: 0}
+  vsyncDeny: {fileID: 0}
   combatHUD: {fileID: 0}
+  enemyName: {fileID: 0}
+  shopObjectHUD: {fileID: 0}
+  shopObjectDescription: {fileID: 0}
+  ingamePopup: {fileID: 0}
+  ingamePopupDescription: {fileID: 0}
+  commandPopup: {fileID: 0}
+  resDropdown: {fileID: 0}
+  screenModeDropdown: {fileID: 0}
+  mainCamera: {fileID: 0}
+  canvas: {fileID: 0}
+  data:
+    selectedRes: 0
+    screenMode: 0
+    master: 0
+    music: 0
+    sfx: 0
+    vsyncEnabled: 0
+  enemyDesc: {fileID: 0}
+  enemyDescName: {fileID: 0}
+  enemyHp: {fileID: 0}
+  enemyShield: {fileID: 0}
+  enemyEnergy: {fileID: 0}
+  enemyDamageTaken: {fileID: 0}
+  enemyBaseDamage: {fileID: 0}
+  enemyShieldGain: {fileID: 0}
+  enemyCardsInHand: {fileID: 0}
+  enemyCardsInDiscard: {fileID: 0}
+  enemyCardsInBuying: {fileID: 0}
+  enemyDescPos: {fileID: 0}
+  enemyDescOutPos: {fileID: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,7 +837,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1671095941}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1060106946
 MonoBehaviour:
@@ -806,6 +852,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiController: {fileID: 0}
+  GameCards: []
+  UnlockedCards: []
 --- !u!1 &1065846506
 GameObject:
   m_ObjectHideFlags: 0
@@ -1500,8 +1548,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2119084263}
-  - {fileID: 1060106945}
   - {fileID: 274687317}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1718,7 +1764,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1671095941}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1738,15 +1784,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1769,15 +1815,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
---- !u!4 &2119084263 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
-  m_PrefabInstance: {fileID: 2119084262}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 2119084262}
+  - {fileID: 1060106945}
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}

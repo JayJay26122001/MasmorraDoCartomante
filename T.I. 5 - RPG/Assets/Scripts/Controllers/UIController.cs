@@ -11,6 +11,8 @@ using UnityEngine.InputSystem;
 using Unity.VisualScripting.Antlr3.Runtime;
 using NUnit.Framework.Interfaces;
 using UnityEditor;
+using UnityEditor.SearchService;
+using Unity.Jobs;
 
 public class UIController : MonoBehaviour
 {
@@ -22,7 +24,8 @@ public class UIController : MonoBehaviour
     [Header("Game Logo")]
     public GameObject gameLogo;
     [Header("Buttons")]
-    public GameObject playButton;
+    public GameObject newGameButton;
+    public GameObject continueButton;
     public GameObject settingsButton;
     public GameObject creditsButton;
     public GameObject quitButton;
@@ -144,7 +147,7 @@ public class UIController : MonoBehaviour
             data = new ConfigData(0, 0, -7.5f, -7.5f, -7.5f, false);
             Debug.Log("Game Configs");
         }
-        EventSystem.current.SetSelectedGameObject(playButton);
+        EventSystem.current.SetSelectedGameObject(continueButton);
         SetDefaultVol();
         AudioController.instance.StartMusic();
         mainCamera = Camera.main;
@@ -155,11 +158,27 @@ public class UIController : MonoBehaviour
             UpdateToggleImages(isOn);
             vsyncToggle.onValueChanged.AddListener(ChangeToggle);
         }
+        if (File.Exists(Application.dataPath + "/boardSave.json") && File.Exists(Application.dataPath + "/playerSave.json"))
+        {
+            ContinueButton(true);
+        }
+        else
+        {
+            ContinueButton(false);
+        }
     }
 
     private void Update()
     {
         DetectClick();
+    }
+
+    public void ContinueButton(bool isActive)
+    {
+        if(continueButton != null)
+        {
+            continueButton.GetComponent<Button>().interactable = isActive;
+        }
     }
 
     public void ConfigUpdate()
@@ -224,6 +243,13 @@ public class UIController : MonoBehaviour
             gamePaused = false;
         }*/
         //SceneManager.LoadScene(scene);
+    }
+
+    public void NewGame()
+    {
+        File.Delete(Application.dataPath + "/boardSave.json");
+        File.Delete(Application.dataPath + "/playerSave.json");
+        SceneFadeController.instance.FadeOutToScene("Game");
     }
 
     public void OpenFeedbackLink()
@@ -371,7 +397,7 @@ public class UIController : MonoBehaviour
 
     public void SetMenuButtonsInteractable(bool interactable)
     {
-        if (playButton != null) playButton.GetComponent<Button>().interactable = interactable;
+        if (continueButton != null) continueButton.GetComponent<Button>().interactable = interactable;
         if (settingsButton != null) settingsButton.GetComponent<Button>().interactable = interactable;
         if (creditsButton != null) creditsButton.GetComponent<Button>().interactable = interactable;
         if (quitButton != null) quitButton.GetComponent<Button>().interactable = interactable;
@@ -380,9 +406,9 @@ public class UIController : MonoBehaviour
 
     public void UiSetup()
     {
-        if (playButton != null)
+        if (continueButton != null)
         {
-            playButton.SetActive(true);
+            continueButton.SetActive(true);
         }
         if (settingsButton != null)
         {
@@ -634,13 +660,14 @@ public class UIController : MonoBehaviour
 
     public void PauseGameInput(InputAction.CallbackContext context)
     {
-        if (context.phase != InputActionPhase.Started) return;
+        /*if (context.phase != InputActionPhase.Started) return;
         string currentScene = SceneManager.GetActiveScene().name;
         if (settingsPanel.activeSelf)
         {
             SaveConfigs();
             ClosePanel(settingsPanel);
         }
+        
         if (currentScene == "Menu")
         {
             return;
@@ -662,8 +689,8 @@ public class UIController : MonoBehaviour
                 gamePaused = true;
                 GameplayManager.instance.IPauseInput();
             }
-        }
-        /*if (context.phase == InputActionPhase.Started && SceneManager.GetActiveScene().name == "Game")
+        }*/
+        if (context.phase == InputActionPhase.Started && SceneManager.GetActiveScene().name == "Game")
         {
             if (settingsPanel.activeSelf)
             {
@@ -674,7 +701,6 @@ public class UIController : MonoBehaviour
             {
                 if (gamePaused)
                 {
-                    // GameManager.instance.player.movePaused = false;
                     Time.timeScale = 1.0f;
                     ClosePanel(pausePanel);
                     gamePaused = false;
@@ -682,8 +708,6 @@ public class UIController : MonoBehaviour
                 }
                 else
                 {
-                    //GameManager.instance.player.movePaused = true;
-                    //combatHUD.SetActive(false);
                     Time.timeScale = 0f;
                     DeactivateChildrens(combatHUD);
                     OpenPanel(pausePanel);
@@ -699,7 +723,7 @@ public class UIController : MonoBehaviour
                 SaveConfigs();
                 ClosePanel(settingsPanel);
             }
-        }*/
+        }
     }
 
     public void DeactivateChildrens(GameObject parent)

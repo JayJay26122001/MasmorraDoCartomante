@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -83,6 +84,11 @@ public class GameplayManager : MonoBehaviour
         foreach (ParticleSystem p in hitVFXPool)
         {
             p.gameObject.SetActive(false);
+        }
+        if(File.Exists(Application.dataPath + "/boardSave.json"))
+        {
+            SaveManager.LoadBoard(bg);
+            SaveManager.LoadPlayer(player);
         }
         DefineStarterPacks();
     }

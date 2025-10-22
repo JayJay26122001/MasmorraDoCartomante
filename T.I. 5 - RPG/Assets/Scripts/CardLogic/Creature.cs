@@ -69,7 +69,7 @@ public class Creature : MonoBehaviour
     public int Health
     {
         get { return hp; }
-        protected set
+        set
         {
             if (value < 0) value = 0;
             if (value > maxHP) value = maxHP;
