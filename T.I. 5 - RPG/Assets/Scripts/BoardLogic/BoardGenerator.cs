@@ -27,10 +27,12 @@ public class BoardGenerator : MonoBehaviour
     Vector3 startPos;
     private void Start()
     {
+        boardBase.GetComponent<MeshRenderer>().material.SetFloat("_DisappearTime", 1);
+        playerPiece.GetComponent<MeshRenderer>().material.SetFloat("_DisappearTime", 1);
         startPos = transform.localPosition;
         inMovement = false;
         inAnimation = false;
-        GenerateBoard();
+        //GenerateBoard();
         /*for(int i = 0; i < board.Count; i++)
         {
             foreach(BoardRoom r in board[i])
@@ -71,6 +73,7 @@ public class BoardGenerator : MonoBehaviour
 
     public void GenerateBoard()
     {
+        startPos = transform.localPosition;
         board.Clear();
         branchLevel = 1;
         //ChangeProbabilities(startRoom.roomName);
@@ -384,6 +387,7 @@ public class BoardGenerator : MonoBehaviour
         zOffset = 0;
         xOffset = 0;
         GameObject room = Instantiate(roomTest, transform.position, roomTest.transform.rotation, this.transform);
+        room.GetComponent<MeshRenderer>().material.SetFloat("_DisappearTime", 1);
         room.GetComponent<MeshRenderer>().material.color = board[0][0].type.testColor;
         room.GetComponent<RoomObject>().outline.GetComponent<MeshRenderer>().material.SetColor("_Color", board[0][0].type.testColor);
         board[0][0].roomObject = room;
@@ -397,6 +401,8 @@ public class BoardGenerator : MonoBehaviour
             {
                 xOffset = 0;
                 room = Instantiate(roomTest, new Vector3(0, 0, zOffset * transform.localScale.z) + transform.position, roomTest.transform.rotation, this.transform);
+                room.GetComponent<MeshRenderer>().material.SetFloat("_DisappearTime", 1);
+                room.GetComponent<RoomObject>().icon.gameObject.GetComponent<MeshRenderer>().material.SetFloat("_DisappearTime", 1);
                 room.GetComponent<MeshRenderer>().material.color = board[i][Mathf.FloorToInt(board[i].Count/2)].type.testColor;
                 room.GetComponent<RoomObject>().outline.GetComponent<MeshRenderer>().material.SetColor("_Color", board[i][Mathf.FloorToInt(board[i].Count / 2)].type.testColor);
                 board[i][Mathf.FloorToInt(board[i].Count / 2)].roomObject = room;
@@ -406,11 +412,15 @@ public class BoardGenerator : MonoBehaviour
                 {
                     xOffset += 20;
                     room = Instantiate(roomTest, new Vector3(xOffset * transform.localScale.x, 0, zOffset * transform.localScale.z) + transform.position, roomTest.transform.rotation, this.transform);
+                    room.GetComponent<MeshRenderer>().material.SetFloat("_DisappearTime", 1);
+                    room.GetComponent<RoomObject>().icon.gameObject.GetComponent<MeshRenderer>().material.SetFloat("_DisappearTime", 1);
                     room.GetComponent<MeshRenderer>().material.color = board[i][Mathf.FloorToInt(board[i].Count / 2) + (int)(xOffset * transform.localScale.x / (20 * transform.localScale.x))].type.testColor;
                     room.GetComponent<RoomObject>().outline.GetComponent<MeshRenderer>().material.SetColor("_Color", board[i][Mathf.FloorToInt(board[i].Count / 2) + (int)(xOffset * transform.localScale.x / (20 * transform.localScale.x))].type.testColor);
                     board[i][Mathf.FloorToInt(board[i].Count / 2) + (int)(xOffset * transform.localScale.x / (20 * transform.localScale.x))].roomObject = room;
                     room.GetComponent<RoomObject>().roomRef = board[i][Mathf.FloorToInt(board[i].Count / 2) + (int)(xOffset * transform.localScale.x / (20 * transform.localScale.x))];
                     room = Instantiate(roomTest, new Vector3(-xOffset * transform.localScale.x, 0, zOffset * transform.localScale.z) + transform.position, roomTest.transform.rotation, this.transform);
+                    room.GetComponent<MeshRenderer>().material.SetFloat("_DisappearTime", 1);
+                    room.GetComponent<RoomObject>().icon.gameObject.GetComponent<MeshRenderer>().material.SetFloat("_DisappearTime", 1);
                     room.GetComponent<MeshRenderer>().material.color = board[i][Mathf.FloorToInt(board[i].Count / 2) - (int)(xOffset * transform.localScale.x / (20 * transform.localScale.x))].type.testColor;
                     room.GetComponent<RoomObject>().outline.GetComponent<MeshRenderer>().material.SetColor("_Color", board[i][Mathf.FloorToInt(board[i].Count / 2) - (int)(xOffset * transform.localScale.x / (20 * transform.localScale.x))].type.testColor);
                     board[i][Mathf.FloorToInt(board[i].Count / 2) - (int)(xOffset * transform.localScale.x / (20 * transform.localScale.x))].roomObject = room;
@@ -425,11 +435,15 @@ public class BoardGenerator : MonoBehaviour
                 {
                     xOffset += 20;
                     room = Instantiate(roomTest, new Vector3(xOffset * transform.localScale.x, 0, zOffset * transform.localScale.z) + transform.position, roomTest.transform.rotation, this.transform);
+                    room.GetComponent<MeshRenderer>().material.SetFloat("_DisappearTime", 1);
+                    room.GetComponent<RoomObject>().icon.gameObject.GetComponent<MeshRenderer>().material.SetFloat("_DisappearTime", 1);
                     room.GetComponent<MeshRenderer>().material.color = board[i][Mathf.FloorToInt(board[i].Count / 2) + (int)((xOffset - 10) * transform.localScale.x / (20 * transform.localScale.x))].type.testColor;
                     room.GetComponent<RoomObject>().outline.GetComponent<MeshRenderer>().material.SetColor("_Color", board[i][Mathf.FloorToInt(board[i].Count / 2) + (int)((xOffset - 10) * transform.localScale.x / (20 * transform.localScale.x))].type.testColor);
                     board[i][Mathf.FloorToInt(board[i].Count / 2) + (int)((xOffset - 10) * transform.localScale.x / (20 * transform.localScale.x))].roomObject = room;
                     room.GetComponent<RoomObject>().roomRef = board[i][Mathf.FloorToInt(board[i].Count / 2) + (int)((xOffset - 10) * transform.localScale.x / (20 * transform.localScale.x))];
                     room = Instantiate(roomTest, new Vector3(-xOffset * transform.localScale.x, 0, zOffset * transform.localScale.z) + transform.position, roomTest.transform.rotation, this.transform);
+                    room.GetComponent<MeshRenderer>().material.SetFloat("_DisappearTime", 1);
+                    room.GetComponent<RoomObject>().icon.gameObject.GetComponent<MeshRenderer>().material.SetFloat("_DisappearTime", 1);
                     room.GetComponent<MeshRenderer>().material.color = board[i][Mathf.FloorToInt(board[i].Count / 2) - 1 - (int)((xOffset - 10) * transform.localScale.x / (20 * transform.localScale.x))].type.testColor;
                     room.GetComponent<RoomObject>().outline.GetComponent<MeshRenderer>().material.SetColor("_Color", board[i][Mathf.FloorToInt(board[i].Count / 2) - 1 - (int)((xOffset - 10) * transform.localScale.x / (20 * transform.localScale.x))].type.testColor);
                     board[i][Mathf.FloorToInt(board[i].Count / 2) - 1 - (int)((xOffset - 10) * transform.localScale.x / (20 * transform.localScale.x))].roomObject = room;
@@ -451,6 +465,7 @@ public class BoardGenerator : MonoBehaviour
                     lineRenderer.positionCount = 2;
                     lineRenderer.useWorldSpace = true;
                     lineRenderer.material = shaderMat;
+                    lineRenderer.material.SetFloat("_DisappearTime", 1);
                     lineRenderer.SetPositions(new Vector3[] { r1.roomObject.transform.position - Vector3.up * transform.localScale.x, r2.roomObject.transform.position - Vector3.up * transform.localScale.x });
                     lineRenderer.useWorldSpace = false;
                     lineRenderer.sortingOrder = -1;

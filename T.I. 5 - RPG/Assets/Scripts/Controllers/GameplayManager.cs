@@ -59,6 +59,11 @@ public class GameplayManager : MonoBehaviour
     public SimpleInt moneyPrize;
     public TextMeshPro hpText, shieldText, energyText, damageTakenText, enemyHpText, enemyShieldText, enemyEnergyText, enemyDamageTakenText;
     public UnityEngine.UI.Image hpCircle, enemyHpCircle;
+
+    public CardPack starterAttack, starterDefense, starterMind;
+    public CardPool starterAttackPool, starterDefensePool, starterMindPool;
+    int starterPacksOpened;
+
     private void Awake()
     {
         instance = this;
@@ -79,6 +84,7 @@ public class GameplayManager : MonoBehaviour
         {
             p.gameObject.SetActive(false);
         }
+        DefineStarterPacks();
     }
 
     public void UpdateCreatureUI(Creature c)
@@ -346,6 +352,33 @@ public class GameplayManager : MonoBehaviour
             packs[i].DefineCards();
         }
         canBuy = true;
+    }
+
+    public void DefineStarterPacks()
+    {
+        starterPacksOpened = 0;
+        starterAttackPool.pool = GameManager.instance.DefineStarterPool(Card.CardType.Attack);
+        starterAttack.data.possibleCards = starterAttackPool;
+        starterAttack.gameObject.GetComponent<BoxCollider>().enabled = true;
+        starterAttack.DefineCards();
+        starterDefensePool.pool = GameManager.instance.DefineStarterPool(Card.CardType.Defense);
+        starterDefense.data.possibleCards = starterDefensePool;
+        starterDefense.gameObject.GetComponent<BoxCollider>().enabled = true;
+        starterDefense.DefineCards();
+        starterMindPool.pool = GameManager.instance.DefineStarterPool(Card.CardType.Mind);
+        starterMind.data.possibleCards = starterMindPool;
+        starterMind.gameObject.GetComponent<BoxCollider>().enabled = true;
+        starterMind.DefineCards();
+        canBuy = true;
+    }
+
+    public void OpenedStarterPack()
+    {
+        starterPacksOpened++;
+        if(starterPacksOpened == 3)
+        {
+            PlayCutscene(14);
+        }
     }
 
     public void DiscardBell(DiscardBell bell)

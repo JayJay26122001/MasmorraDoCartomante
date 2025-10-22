@@ -35,4 +35,17 @@ public class GameManager : MonoBehaviour
             UnlockedCards.Add(cardPreset);
         }
     }
+
+    public List<Card> DefineStarterPool(Card.CardType type)
+    {
+        List<Card> cards = new List<Card>();
+        foreach(Card c in UnlockedCards)
+        {
+            if(c.Type == type)
+            {
+                cards.Add(c);
+            }
+        }
+        return cards;
+    }
 }

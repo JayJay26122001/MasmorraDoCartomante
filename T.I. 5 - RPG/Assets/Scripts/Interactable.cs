@@ -35,6 +35,11 @@ public class Interactable : MonoBehaviour
             GameManager.instance.uiController.HideCommandPopup(c);
         }
     }
+
+    private void OnDisable()
+    {
+        HideInteractions();
+    }
 }
 
 [Serializable]

@@ -7,7 +7,7 @@ public class ShopObject : MonoBehaviour
     [TextArea] public string objectDescription;
     bool firstTimeMoving;
     public GameObject outline;
-    public enum ObjectType { Shop, Discard, Bell, Stamp, Shredder, Fountain }
+    public enum ObjectType { Shop, Discard, Bell, Stamp, Shredder, Fountain, StarterAttack, StarterDefense, StarterMind }
     public ObjectType type;
 
     private void OnEnable()
@@ -78,6 +78,30 @@ public class ShopObject : MonoBehaviour
                 outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeY", 0.01f);
                 outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeZ", 0.2f);
                 outline.GetComponent<MeshRenderer>().material.SetFloat("_Offset", 0f);
+                break;
+            case ObjectType.StarterAttack:
+                outline.SetActive(false);
+                outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.red);
+                outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeX", 0.2f);
+                outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeY", 0.1f);
+                outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeZ", 0.1f);
+                outline.GetComponent<MeshRenderer>().material.SetFloat("_Offset", 0.25f);
+                break;
+            case ObjectType.StarterDefense:
+                outline.SetActive(false);
+                outline.GetComponent<MeshRenderer>().material.SetColor("_Color", new Color(0, 0.3f, 1, 1));
+                outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeX", 0.2f);
+                outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeY", 0.1f);
+                outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeZ", 0.1f);
+                outline.GetComponent<MeshRenderer>().material.SetFloat("_Offset", 0.25f);
+                break;
+            case ObjectType.StarterMind:
+                outline.SetActive(false);
+                outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.green);
+                outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeX", 0.2f);
+                outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeY", 0.1f);
+                outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeZ", 0.1f);
+                outline.GetComponent<MeshRenderer>().material.SetFloat("_Offset", 0.25f);
                 break;
         }
         firstTimeMoving = true;

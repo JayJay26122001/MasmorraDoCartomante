@@ -13,8 +13,24 @@ public class CardPack : MonoBehaviour
     int selectedQuantity;
     private void Start()
     {
+        bought = false;
         mat = GetComponent<MeshRenderer>().material;
-        mat.color = new Color32(150, 50, 0, 255);
+        if(this.gameObject.GetComponent<ShopObject>().type == ShopObject.ObjectType.Shop)
+        {
+            mat.color = new Color32(150, 50, 0, 255);
+        }
+        else if (this.gameObject.GetComponent<ShopObject>().type == ShopObject.ObjectType.StarterAttack)
+        {
+            mat.color = new Color(0.5f, 0, 0, 1);
+        }
+        else if (this.gameObject.GetComponent<ShopObject>().type == ShopObject.ObjectType.StarterDefense)
+        {
+            mat.color = new Color(0, 0.15f, 0.5f, 1);
+        }
+        else if (this.gameObject.GetComponent<ShopObject>().type == ShopObject.ObjectType.StarterMind)
+        {
+            mat.color = new Color(0, 0.5f, 0, 1);
+        }
         //DefineCards();
         /*foreach (Card c in cards)
         {
@@ -29,7 +45,10 @@ public class CardPack : MonoBehaviour
         mat.SetFloat("_DisappearTime", 0);
         cardsInstances.Clear();
         cards = data.possibleCards.SelectCards(data.cardQuantity);
-        priceText.text = "$" + data.price;
+        if(priceText != null)
+        {
+            priceText.text = "$" + data.price;
+        }
     }
 
     public void OnMouseDown()
@@ -40,10 +59,20 @@ public class CardPack : MonoBehaviour
             {
                 this.gameObject.GetComponent<BoxCollider>().enabled = false;
                 selectedQuantity = 0;
-                GameplayManager.instance.ExplodeCoins(this.transform.position);
+                if(data.price > 0)
+                {
+                    GameplayManager.instance.ExplodeCoins(this.transform.position);
+                }
                 GameplayManager.instance.canBuy = false;
-                GameplayManager.instance.PlayCutscene(4);
-                discardBell.pack = this;
+                if(GameplayManager.instance.atShop)
+                {
+                    GameplayManager.instance.PlayCutscene(4);
+                    discardBell.pack = this;
+                }
+                else
+                {
+                    CameraController.instance.Invoke("ActivateZoomedCamera", 0.5f);
+                }
                 AnimatePack(true);
                 bought = true;
                 foreach(Card c in cards)
@@ -74,8 +103,16 @@ public class CardPack : MonoBehaviour
         }
         if(selectedQuantity == data.selectableCardsQuantity)
         {
-            GameplayManager.instance.PlayCutscene(5);
-            discardBell.pack = null;
+            if (GameplayManager.instance.atShop)
+            {
+                GameplayManager.instance.PlayCutscene(5);
+                discardBell.pack = null;
+            }
+            else
+            {
+                CameraController.instance.Invoke("DeActivateZoomedCamera", 0.18f);
+                GameplayManager.instance.OpenedStarterPack();
+            }
             GameplayManager.instance.canBuy = true;
             foreach (Card c in cardsInstances)
             {
@@ -104,7 +141,10 @@ public class CardPack : MonoBehaviour
     public void AnimatePack(bool disappear)
     {
         disappearing = disappear;
-        priceText.text = "";
+        if(priceText != null)
+        {
+            priceText.text = "";
+        }
         animTimeStart = Time.time;
         inAnimation = true;
     }
@@ -127,7 +167,10 @@ public class CardPack : MonoBehaviour
                 inAnimation = false;
                 if(!disappearing)
                 {
-                    priceText.text = "$" + data.price;
+                    if(priceText != null)
+                    {
+                        priceText.text = "$" + data.price;
+                    }
                     bought = false;
                 }
             }

@@ -269,7 +269,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         {
             CardUIController.instance.SetHighlightedCard(cardData);
 
-            if (pack != null || GameplayManager.instance.duplicatingCards || GameplayManager.instance.removingCards || cardData.deck.Owner.playedCards.Contains(cardData))
+            if (pack != null || GameplayManager.instance.duplicatingCards || GameplayManager.instance.removingCards || (cardData.deck != null && cardData.deck.Owner.playedCards.Contains(cardData)))
             {
                 outline.SetActive(true);
             }

@@ -22,7 +22,8 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
-        ActivateAngledTopCamera();
+        //ActivateAngledTopCamera();
+        ChangeCamera(0);
         inputActive = false;
         blockHighlight = false;
     }

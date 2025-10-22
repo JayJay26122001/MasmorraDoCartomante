@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c52e46c963190946956c98c650251b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 5184972928086742264}
   outline: {fileID: 3268969104225013612}
   advance:
     image: {fileID: 21300000, guid: d1ba6b34064b9914b9bee8bbbf9af434, type: 3}
@@ -297,6 +297,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e469a00f86cc7a47b7d7ad16c2c2840, type: 3}
+--- !u!33 &5184972928086742264 stripped
+MeshFilter:
+  m_CorrespondingSourceObject: {fileID: -5754084199372789682, guid: 0e469a00f86cc7a47b7d7ad16c2c2840, type: 3}
+  m_PrefabInstance: {fileID: 8633923303785036982}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8096173595684739933 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0e469a00f86cc7a47b7d7ad16c2c2840, type: 3}
