@@ -16,5 +16,5 @@ MonoBehaviour:
   price: 0
   cardQuantity: 5
   selectableCardsQuantity: 3
-  packDescription: Starter Mind Pack, choose 3 Mind cards beetween 5 to build your
+  packDescription: Starter Mind Pack, choose 3 Mind cards between 5 to build your
     starting deck.

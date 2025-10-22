@@ -16,5 +16,5 @@ MonoBehaviour:
   price: 0
   cardQuantity: 5
   selectableCardsQuantity: 3
-  packDescription: Starter Defense Pack, choose 3 Defense cards beetween 5 to build
+  packDescription: Starter Defense Pack, choose 3 Defense cards between 5 to build
     your starting deck.
