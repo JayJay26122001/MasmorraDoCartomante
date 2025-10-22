@@ -468,6 +468,7 @@ public class Creature : MonoBehaviour
         {
             skipTurn = TurnAmount;
         }
+        GameplayManager.instance.SkipTurnVFX(this);
     }
     public void ResetSkipTurn()
     {

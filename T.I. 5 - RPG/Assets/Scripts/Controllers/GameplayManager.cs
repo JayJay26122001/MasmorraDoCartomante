@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -228,14 +229,11 @@ public class GameplayManager : MonoBehaviour
     {
         /*if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (InputActive)
-            {
-                PauseInput();
-            }
-            else
-            {
-                ResumeInput();
-            }
+            SkipTurnVFX(currentCombat.combatents[0]);
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            SkipTurnVFX(currentCombat.combatents[1]);
         }*/
     }
 
@@ -578,6 +576,7 @@ public class GameplayManager : MonoBehaviour
         return aux;
     }
 
+    //SONS
     public void StartMapMusic()
     {
         AudioController.instance.PlayMapMusic();
@@ -587,7 +586,32 @@ public class GameplayManager : MonoBehaviour
     {
         AudioController.instance.PlayShopMusic();
     }
-
+    float volumeTimeStart, vfxDuration = 0.5f;
+    IEnumerator BlendVolumeIn(Volume v)
+    {
+        v.weight = Mathf.Clamp((Time.time - volumeTimeStart) / (vfxDuration / 2), 0, 1);
+        if (v.weight < 1)
+        {
+            yield return new WaitForSeconds(0.001f);
+            StartCoroutine(BlendVolumeIn(v));
+        }
+        else
+        {
+            volumeTimeStart = Time.time;
+            StartCoroutine(BlendVolumeOut(v));
+        }
+    }
+    IEnumerator BlendVolumeOut(Volume v)
+    {
+        v.weight = Mathf.Clamp(1 - ((Time.time - volumeTimeStart) / (vfxDuration / 2)), 0, 1);
+        if (v.weight > 0)
+        {
+            yield return new WaitForSeconds(0.001f);
+            StartCoroutine(BlendVolumeOut(v));
+        }
+    }
+    
+    //VFX
     public void ExplodeCoins(Vector3 pos)
     {
         coinExplosion.gameObject.transform.position = pos;
@@ -630,7 +654,6 @@ public class GameplayManager : MonoBehaviour
         return null;
     }
 
-    float volumeTimeStart, vfxDuration = 0.5f;
     public void HealVFX()
     {
         volumeTimeStart = Time.time;
@@ -642,29 +665,6 @@ public class GameplayManager : MonoBehaviour
         StartCoroutine(BlendVolumeIn(hitVol));
     }
 
-    IEnumerator BlendVolumeIn(Volume v)
-    {
-        v.weight = Mathf.Clamp((Time.time - volumeTimeStart) / (vfxDuration / 2), 0, 1);
-        if (v.weight < 1)
-        {
-            yield return new WaitForSeconds(0.001f);
-            StartCoroutine(BlendVolumeIn(v));
-        }
-        else
-        {
-            volumeTimeStart = Time.time;
-            StartCoroutine(BlendVolumeOut(v));
-        }
-    }
-    IEnumerator BlendVolumeOut(Volume v)
-    {
-        v.weight = Mathf.Clamp(1 - ((Time.time - volumeTimeStart) / (vfxDuration / 2)), 0, 1);
-        if (v.weight > 0)
-        {
-            yield return new WaitForSeconds(0.001f);
-            StartCoroutine(BlendVolumeOut(v));
-        }
-    }
 
     public void EnemyShieldVFX()
     {
@@ -820,7 +820,32 @@ public class GameplayManager : MonoBehaviour
         else return;
         SpawnVFX(sign + Amount, Type);
     }
-
+    public void SkipTurnVFX(Creature target)
+    {
+        string s;
+        if (target is Player)
+        {
+            s = "You lost your turn";
+        }
+        else if (target is Enemy e)
+        {
+            s = $"{e.name} lost the turn";
+        }
+        else
+        {
+            return;
+        }
+        for (int i = 0; i < damageVFXPool.Count; i++)
+        {
+            if (!damageVFXUsed.Contains(damageVFXPool[i]))
+            {
+                damageVFXPool[i].SetText(s, DamageVFX.VFXType.Other, Color.magenta, true, Vector3.up, quaternion.identity, 5);
+                damageVFXUsed.Add(damageVFXPool[i]);
+                i = damageVFXPool.Count;
+            }
+        }
+    }
+    
     public void PrizeMoney()
     {
         player.ChangeMoney(moneyPrize.GetValue() + areaIndex);
