@@ -825,11 +825,11 @@ public class GameplayManager : MonoBehaviour
         string s;
         if (target is Player)
         {
-            s = "You lost your turn";
+            s = "You lost your next turn";
         }
         else if (target is Enemy e)
         {
-            s = $"{e.name} lost the turn";
+            s = $"{e.name} lost the next turn";
         }
         else
         {
