@@ -115,7 +115,14 @@ public class DamageVFX : MonoBehaviour
                     {
                         LeanTween.move(gameObject, downTarget, downTime).setEase(LeanTweenType.easeInQuad).setOnComplete(() =>
                         {
-                            GameplayManager.currentCombat.CombatUI();
+                            if(GameplayManager.currentCombat != null)
+                            {
+                                GameplayManager.currentCombat.CombatUI();
+                            }
+                            else
+                            {
+                                GameplayManager.instance.UpdateCreatureUI(GameplayManager.instance.player);
+                            }
                         });
                     });
                 });

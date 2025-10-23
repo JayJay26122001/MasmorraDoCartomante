@@ -372,7 +372,7 @@ public class GameplayManager : MonoBehaviour
     {
         atShop = true;
         potion.mat.SetFloat("_DisappearTime", 0);
-        potion.gameObject.GetComponent<BoxCollider>().enabled = true;
+        potion.gameObject.transform.parent.GetComponent<BoxCollider>().enabled = true;
         potionText.gameObject.SetActive(true);
         potionText.text = "$" + potionBasePrice;
         rerollPrice = rerollBasePrice;

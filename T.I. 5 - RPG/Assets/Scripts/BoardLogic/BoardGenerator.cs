@@ -29,7 +29,7 @@ public class BoardGenerator : MonoBehaviour
     {
         boardBase.GetComponent<MeshRenderer>().material.SetFloat("_DisappearTime", 1);
         playerPiece.GetComponent<MeshRenderer>().material.SetFloat("_DisappearTime", 1);
-        startPos = transform.localPosition;
+        startPos = new Vector3(0, 0.2f, -7.5f);
         inMovement = false;
         //inAnimation = false;
         //GenerateBoard();

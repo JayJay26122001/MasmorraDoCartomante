@@ -19817,7 +19817,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 114895562}
           m_TargetAssemblyTypeName: DisappearingObject, Assembly-CSharp
           m_MethodName: AnimateObject
           m_Mode: 6
@@ -50255,7 +50255,7 @@ MonoBehaviour:
   potionBasePrice: 3
   rerollText: {fileID: 1427449433}
   potionText: {fileID: 1671040976}
-  potion: {fileID: 0}
+  potion: {fileID: 114895562}
   stamp: {fileID: 1492665483}
   coinExplosion: {fileID: 1181986938}
   attacksPool:
@@ -60433,7 +60433,7 @@ MonoBehaviour:
   shld: 0
   energy: 0
   maxBaseEnergy: 3
-  money: 5
+  money: 50
   CardBuyMax: 5
   baseDamage: 6
   baseShieldGain: 5
