@@ -847,7 +847,7 @@ public class UIController : MonoBehaviour
         AdjustCommandsPositions();
     }
 
-    public void HideCommandPopup(ControlUI cUI)
+    public void HideCommandPopup(string command)
     {
         if (shownCommandsCount > 0)
         {
@@ -856,7 +856,7 @@ public class UIController : MonoBehaviour
             {
                 if (!found)
                 {
-                    if (String.Compare(commands[i].GetComponentInChildren<TextMeshProUGUI>().text, cUI.command) == 0)
+                    if (String.Compare(commands[i].GetComponentInChildren<TextMeshProUGUI>().text, command) == 0)
                     {
                         found = true;
                     }
@@ -870,7 +870,7 @@ public class UIController : MonoBehaviour
                     img.GetComponent<RectTransform>().sizeDelta = new Vector2((aux.bounds.size.x * 50) / aux.bounds.size.y, 50);
                 }
             }
-            if (found || String.Compare(commands[shownCommandsCount - 1].GetComponentInChildren<TextMeshProUGUI>().text, cUI.command) == 0)
+            if (found || (commands[shownCommandsCount - 1] != null && String.Compare(commands[shownCommandsCount - 1].GetComponentInChildren<TextMeshProUGUI>().text, command) == 0))
             {
                 shownCommandsCount--;
                 AdjustCommandsPositions();

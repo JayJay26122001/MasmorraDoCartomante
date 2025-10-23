@@ -14,7 +14,7 @@ public class CardPack : MonoBehaviour
     private void Start()
     {
         bought = false;
-        mat = GetComponent<MeshRenderer>().material;
+        mat = this.transform.GetChild(0).GetComponent<MeshRenderer>().material;
         if(this.gameObject.GetComponent<ShopObject>().type == ShopObject.ObjectType.Shop)
         {
             mat.color = new Color32(150, 50, 0, 255);
@@ -41,7 +41,7 @@ public class CardPack : MonoBehaviour
     public void DefineCards()
     {
         bought = false;
-        mat = GetComponent<MeshRenderer>().material;
+        mat = this.transform.GetChild(0).GetComponent<MeshRenderer>().material;
         mat.SetFloat("_DisappearTime", 0);
         cardsInstances.Clear();
         cards = data.possibleCards.SelectCards(data.cardQuantity);

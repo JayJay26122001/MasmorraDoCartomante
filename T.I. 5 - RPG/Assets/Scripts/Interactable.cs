@@ -32,7 +32,7 @@ public class Interactable : MonoBehaviour
         shown = false;
         foreach (ControlUI c in interactions)
         {
-            GameManager.instance.uiController.HideCommandPopup(c);
+            GameManager.instance.uiController.HideCommandPopup(c.command);
         }
     }
 

@@ -6,7 +6,7 @@ public class ShopObject : MonoBehaviour
     Vector3 startPos;
     [TextArea] public string objectDescription;
     bool firstTimeMoving;
-    public GameObject outline;
+    public GameObject outline, mesh;
     public enum ObjectType { Shop, Discard, Bell, Stamp, Shredder, Fountain, StarterAttack, StarterDefense, StarterMind }
     public ObjectType type;
 
@@ -110,20 +110,20 @@ public class ShopObject : MonoBehaviour
     {
         if(firstTimeMoving)
         {
-            startPos = transform.localPosition;
+            startPos = mesh.transform.localPosition;
             firstTimeMoving = false;
         }
-        LeanTween.moveLocal(gameObject, startPos + Vector3.up * 0.5f, 0.25f);
+        LeanTween.moveLocal(mesh, startPos + Vector3.up * 0.5f, 0.25f);
     }
 
     public void MoveDown()
     {
-        LeanTween.moveLocal(gameObject, startPos, 0.25f);
+        LeanTween.moveLocal(mesh, startPos, 0.25f);
     }
 
     public void ResetPosition()
     {
-        transform.localPosition = startPos;
+        mesh.transform.localPosition = startPos;
     }
 
     string ObjectDescription()

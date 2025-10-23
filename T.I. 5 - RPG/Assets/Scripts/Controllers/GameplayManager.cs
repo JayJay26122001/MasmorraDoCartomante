@@ -89,19 +89,30 @@ public class GameplayManager : MonoBehaviour
         }
         if(File.Exists(Application.dataPath + "/boardSave.json"))
         {
-            Debug.LogWarning("cu");
             SaveManager.LoadBoard(bg);
             SaveManager.LoadPlayer(player);
-            SaveStart();
+            SaveStart(true);
         }
         else
         {
-            DefineStarterPacks();
+            if (player.decks[0].CardPresets.Count > 0)
+            {
+                SaveStart(false);
+            }
+            else
+            {
+                DefineStarterPacks();
+            }
         }
     }
 
-    public void SaveStart()
+    public void SaveStart(bool loaded)
     {
+        if(!loaded)
+        {
+            bg.GenerateBoard();
+            ActionController.instance.InvokeTimer(bg.AnimateBoard, false, 0.05f);
+        }
         starterAttack.gameObject.SetActive(false);
         starterDefense.gameObject.SetActive(false);
         starterMind.gameObject.SetActive(false);
@@ -111,7 +122,6 @@ public class GameplayManager : MonoBehaviour
         AppearOnlyPlayerHealth();
         //bg.AnimateBoard(false);
         CameraController.instance.ActivateAngledTopCamera();
-        
     }
 
     public void UpdateCreatureUI(Creature c)

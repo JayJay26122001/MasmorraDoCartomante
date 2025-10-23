@@ -42,11 +42,11 @@ public class CameraController : MonoBehaviour
             }
             if (Index == 0)
             {
-                GameManager.instance.uiController.HideCommandPopup(downControl);
+                GameManager.instance.uiController.HideCommandPopup(downControl.command);
             }
             if (Index == cameras.Count - 1)
             {
-                GameManager.instance.uiController.HideCommandPopup(upControl);
+                GameManager.instance.uiController.HideCommandPopup(upControl.command);
             }
         }
         activeCamIndex = Index;
@@ -81,7 +81,7 @@ public class CameraController : MonoBehaviour
             if(activeCamIndex == 3)
             {
                 GameManager.instance.uiController.ShowEnemyDescription();
-                GameManager.instance.uiController.HideCommandPopup(upControl);
+                GameManager.instance.uiController.HideCommandPopup(upControl.command);
                 //GameManager.instance.uiController.ActivateEnemyDesc();
             }
         }
@@ -99,7 +99,7 @@ public class CameraController : MonoBehaviour
             GameManager.instance.uiController.HideEnemyDesc();
             if (activeCamIndex == 0)
             {
-                GameManager.instance.uiController.HideCommandPopup(downControl);
+                GameManager.instance.uiController.HideCommandPopup(downControl.command);
             }
         }
     }
@@ -169,8 +169,8 @@ public class CameraController : MonoBehaviour
     public void DisableCameraInputs()
     {
         inputActive = false;
-        GameManager.instance.uiController.HideCommandPopup(upControl);
-        GameManager.instance.uiController.HideCommandPopup(downControl);
+        GameManager.instance.uiController.HideCommandPopup(upControl.command);
+        GameManager.instance.uiController.HideCommandPopup(downControl.command);
     }
     public void EnableCameraInputs()
     {
