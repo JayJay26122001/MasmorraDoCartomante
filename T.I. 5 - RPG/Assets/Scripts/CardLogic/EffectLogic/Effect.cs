@@ -635,9 +635,11 @@ public class SkipBuyCard : Effect
         {
             case Target.Opponent:
                 card.deck.Owner.enemy.SetToSkipBuyCard(AmountOfTurns.GetValue());
+                GameplayManager.instance.BlockDrawnVFX(card.deck.Owner.enemy);
                 break;
             case Target.User:
                 card.deck.Owner.SetToSkipBuyCard(AmountOfTurns.GetValue());
+                GameplayManager.instance.BlockDrawnVFX(card.deck.Owner);
                 break;
         }
         EffectEnded();

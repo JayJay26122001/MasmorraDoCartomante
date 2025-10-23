@@ -845,6 +845,31 @@ public class GameplayManager : MonoBehaviour
             }
         }
     }
+    public void BlockDrawnVFX(Creature target)
+    {
+        string s;
+        if (target is Player)
+        {
+            s = "You cant draw next turn";
+        }
+        else if (target is Enemy e)
+        {
+            s = $"{e.name} cant draw next turn";
+        }
+        else
+        {
+            return;
+        }
+        for (int i = 0; i < damageVFXPool.Count; i++)
+        {
+            if (!damageVFXUsed.Contains(damageVFXPool[i]))
+            {
+                damageVFXPool[i].SetText(s, DamageVFX.VFXType.Other, Color.magenta, true, Vector3.up, quaternion.identity, 5);
+                damageVFXUsed.Add(damageVFXPool[i]);
+                i = damageVFXPool.Count;
+            }
+        }
+    }
     
     public void PrizeMoney()
     {
