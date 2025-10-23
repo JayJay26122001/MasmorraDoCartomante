@@ -104,9 +104,9 @@ public class SaveManager : MonoBehaviour
 
         //Player Stats
         player.Money = data.money;
-        //ActionController.instance.InvokeTimer(GameManager.instance.uiController.UpdateMoney, player.Money, 2f);
         GameManager.instance.uiController.UpdateMoney(player.Money);
         player.Health = data.hp;
+        GameplayManager.instance.UpdateCreatureUI(player);
     }
 
     public static BoardData GetBoardData()
