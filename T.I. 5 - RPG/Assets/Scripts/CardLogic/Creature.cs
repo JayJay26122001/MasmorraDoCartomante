@@ -156,7 +156,7 @@ public class Creature : MonoBehaviour
             AddDeck(deck);
         }
     }
-    protected void AddDeck(Deck preset)
+    public void AddDeck(Deck preset)
     {
         Deck deck = Instantiate(preset);
         decks.Add(deck);

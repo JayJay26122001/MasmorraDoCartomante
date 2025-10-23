@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using NUnit.Framework;
+using System.Linq.Expressions;
 
 public class SaveManager : MonoBehaviour
 {
@@ -11,15 +12,16 @@ public class SaveManager : MonoBehaviour
         PlayerData data = new PlayerData();
 
         //Unlocked Cards Infos
-        data.unlockedCards = new List<int>();
+        data.unlockedCards = new List<string>();
         foreach (Card card in GameManager.instance.UnlockedCards)
         {
-            int cardIndex = GameManager.instance.GameCards.IndexOf(card);
-            data.unlockedCards.Add(cardIndex);
+            string cardName = card.Name;    
+            data.unlockedCards.Add(cardName);
+            //int cardIndex = GameManager.instance.GameCards.IndexOf(card);
         }
 
         //Player Deck Infos
-        data.playerDeckCards = new List<int>();
+        data.playerDeckCards = new List<string>();
         foreach (Deck deck in GameplayManager.instance.player.decks)
         {
             foreach (Card card in deck.cards)
@@ -28,15 +30,29 @@ public class SaveManager : MonoBehaviour
                 {
 
                 }*/
-                int cardIndex = GameManager.instance.GameCards.IndexOf(card);
-                data.playerDeckCards.Add(cardIndex);
+                string cardName = card.Name;
+                data.playerDeckCards.Add(cardName);
+                //int cardIndex = GameManager.instance.GameCards.IndexOf(card);
             }
         }
 
         //Map and Board Infos
-        data.piecePos = GameplayManager.instance.bg.playerPiece.transform.position;
-        data.boardPos = GameplayManager.instance.bg.transform.position;
-        data.area = GameplayManager.instance.areaIndex;
+        data.piecePos = GameplayManager.instance.bg.playerPiece.transform.localPosition;
+        data.boardPos = GameplayManager.instance.bg.transform.localPosition;
+        for(int i = 0; i < GameplayManager.instance.bg.board.Count; i++)
+        {
+            for(int j = 0; j < GameplayManager.instance.bg.board[i].Count; j++)
+            {
+                if (GameplayManager.instance.currentRoom == GameplayManager.instance.bg.board[i][j])
+                {
+                    data.currentRoomLevel = i;
+                    data.currentRoomIndex = j;
+                    break;
+                    //j = GameplayManager.instance.bg.board[i].Count;
+                    //i = GameplayManager.instance.bg.board.Count;
+                }
+            }
+        }
 
         //Player Stats Infos
         data.money = GameplayManager.instance.player.Money;
@@ -49,28 +65,46 @@ public class SaveManager : MonoBehaviour
     {
         //Unlocked Cards
         GameManager.instance.UnlockedCards.Clear();
-        foreach (int index in data.unlockedCards)
+        /*foreach (int index in data.unlockedCards)
         {
             GameManager.instance.UnlockedCards.Add(GameManager.instance.GameCards[index]);
+        }*/
+        foreach (Card card in GameManager.instance.GameCards)
+        {
+            if(data.unlockedCards.Contains(card.Name))
+            {
+                GameManager.instance.UnlockedCards.Add(card);
+            }
         }
 
         //Player Deck
         player.decks.Clear();
-        Deck newDeck = new Deck();
-        newDeck.cards = new List<Card>();
-        foreach (int index in data.playerDeckCards)
+        Deck newDeck = ScriptableObject.CreateInstance<Deck>();
+        newDeck.CardPresets = new List<Card>();
+        /*foreach (int index in data.playerDeckCards)
         {
             newDeck.cards.Add(GameManager.instance.GameCards[index]);
+        }*/
+        foreach (Card card in GameManager.instance.UnlockedCards)
+        {
+            foreach(string s in data.playerDeckCards)
+            {
+                if (string.Compare(s, card.Name) == 0)
+                {
+                    newDeck.CardPresets.Add(card);
+                }
+            }
         }
-        player.decks.Add(newDeck);
+        player.AddDeck(newDeck);
 
         //Map and Board
-        GameplayManager.instance.bg.playerPiece.transform.position = data.piecePos;
-        GameplayManager.instance.bg.transform.position = data.boardPos;
-        GameplayManager.instance.areaIndex = data.area;
+        GameplayManager.instance.bg.playerPiece.transform.localPosition = data.piecePos;
+        GameplayManager.instance.bg.transform.localPosition = data.boardPos;
+        GameplayManager.instance.currentRoom = GameplayManager.instance.bg.board[data.currentRoomLevel][data.currentRoomIndex];
 
         //Player Stats
         player.Money = data.money;
+        ActionController.instance.InvokeTimer(GameManager.instance.uiController.UpdateMoney, player.Money, 0.05f);
         player.Health = data.hp;
     }
 
@@ -82,8 +116,9 @@ public class SaveManager : MonoBehaviour
         data.nextRoomIndex = new List<int>();
         data.nextRoomCount = new List<int>();
         data.roomTypeIndex = new List<int>();
+        data.area = GameplayManager.instance.areaIndex;
         //data.roomPos = new List<Vector3>();
-        for(int i = 0; i < GameplayManager.instance.bg.board.Count; i++)
+        for (int i = 0; i < GameplayManager.instance.bg.board.Count; i++)
         {
             foreach (BoardRoom board in GameplayManager.instance.bg.board[i])
             {
@@ -114,7 +149,9 @@ public class SaveManager : MonoBehaviour
     {
         //GameplayManager.instance.bg.board.Clear();
         bg.board.Clear();
-        for(int i = 0; i < bg.boards[GameplayManager.instance.areaIndex].levelsCount; i++)
+        GameplayManager.instance.areaIndex = data.area;
+        GameplayManager.instance.SwitchArea();
+        for (int i = 0; i < bg.boards[GameplayManager.instance.areaIndex].levelsCount; i++)
         {
             bg.board.Add(new List<BoardRoom>());
         }
@@ -147,7 +184,7 @@ public class SaveManager : MonoBehaviour
                 }
             }
         }
-        bg.InstantiateBoard();
+        bg.InstantiateBoard(true);
     }
 
     public static void SaveBoard()

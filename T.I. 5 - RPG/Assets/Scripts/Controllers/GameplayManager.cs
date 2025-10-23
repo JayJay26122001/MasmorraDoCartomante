@@ -21,6 +21,7 @@ public class GameplayManager : MonoBehaviour
     public List<TimelineAsset> cutscenes = new List<TimelineAsset>();
     public BoardGenerator bg;
     public GameObject InputBlocker;
+    public GameObject moneyBag;
     int PauseInstances = 0;
     public bool InputActive { get; private set; } = true;
     bool ManualPause = false;
@@ -88,10 +89,29 @@ public class GameplayManager : MonoBehaviour
         }
         if(File.Exists(Application.dataPath + "/boardSave.json"))
         {
+            Debug.LogWarning("cu");
             SaveManager.LoadBoard(bg);
             SaveManager.LoadPlayer(player);
+            SaveStart();
         }
-        DefineStarterPacks();
+        else
+        {
+            DefineStarterPacks();
+        }
+    }
+
+    public void SaveStart()
+    {
+        starterAttack.gameObject.SetActive(false);
+        starterDefense.gameObject.SetActive(false);
+        starterMind.gameObject.SetActive(false);
+        bg.transform.parent.gameObject.SetActive(true);
+        moneyBag.SetActive(true);
+        moneyBag.transform.position = new Vector3(moneyBag.transform.position.x, moneyBag.transform.position.y - 25, moneyBag.transform.position.z);
+        AppearOnlyPlayerHealth();
+        //bg.AnimateBoard(false);
+        CameraController.instance.ActivateAngledTopCamera();
+        
     }
 
     public void UpdateCreatureUI(Creature c)
@@ -316,7 +336,11 @@ public class GameplayManager : MonoBehaviour
     {
         bg.MovementChange(true);
         LeanTween.move(bg.gameObject, bg.gameObject.transform.position - (Vector3.forward * 20 * bg.gameObject.transform.localScale.z), 0.75f);
-        LeanTween.move(bg.playerPiece, bg.playerPiece.transform.position - (Vector3.forward * 20 * bg.gameObject.transform.localScale.z), 0.75f).setOnComplete(() => { bg.MovementChange(false); });
+        LeanTween.move(bg.playerPiece, bg.playerPiece.transform.position - (Vector3.forward * 20 * bg.gameObject.transform.localScale.z), 0.75f).setOnComplete(() => 
+        { 
+            bg.MovementChange(false);
+            SaveManager.SavePlayer();
+        });
     }
     public void MovePiece(Action act, Vector3 pos)
     {

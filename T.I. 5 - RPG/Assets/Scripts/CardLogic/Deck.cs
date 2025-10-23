@@ -9,10 +9,11 @@ using UnityEngine;
 public class Deck : ScriptableObject
 {
     public Creature Owner;
-    [SerializeField] List<Card> CardPresets = new List<Card>();
+    [SerializeField] public List<Card> CardPresets = new List<Card>();
     public List<Card> cards = new List<Card>();
     [NonSerialized] public List<Card> allCards = new List<Card>();
     public SerializableStack<Card> BuyingPile = new SerializableStack<Card>(), DiscardPile = new SerializableStack<Card>();
+
     public void Setup()
     {
         foreach (Card c in CardPresets)

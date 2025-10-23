@@ -31,7 +31,7 @@ public class BoardGenerator : MonoBehaviour
         playerPiece.GetComponent<MeshRenderer>().material.SetFloat("_DisappearTime", 1);
         startPos = transform.localPosition;
         inMovement = false;
-        inAnimation = false;
+        //inAnimation = false;
         //GenerateBoard();
         /*for(int i = 0; i < board.Count; i++)
         {
@@ -185,8 +185,8 @@ public class BoardGenerator : MonoBehaviour
         }
         board[boards[area].levelsCount - 1].Add(newRoom);
         SaveManager.SaveBoard();
-        SaveManager.SavePlayer();
-        InstantiateBoard();
+        InstantiateBoard(false);
+        ActionController.instance.InvokeTimer(SaveManager.SavePlayer, 0.05f);
     }
 
     public bool VerifyCanMerge(BoardRoom room, int i, int j)
@@ -381,7 +381,7 @@ public class BoardGenerator : MonoBehaviour
         }
     }
 
-    public void InstantiateBoard()
+    public void InstantiateBoard(bool saved)
     {
         boardBase.GetComponent<MeshRenderer>().material.color = new Color32(50, 100, 150, 255);
         playerPiece.GetComponent<MeshRenderer>().material.color = new Color32(0, 100, 0, 255);
@@ -474,6 +474,10 @@ public class BoardGenerator : MonoBehaviour
                     lineObjects.Add(lineRenderer.gameObject);
                 }
             }
+        }
+        if (saved)
+        {
+            AnimateBoard(false);
         }
     }
 

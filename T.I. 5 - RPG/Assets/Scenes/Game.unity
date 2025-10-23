@@ -49783,6 +49783,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: edc01a4e0ac3ea444803b7d3905ed51b, type: 2}
   bg: {fileID: 284883754}
   InputBlocker: {fileID: 1259980598}
+  moneyBag: {fileID: 1282407752}
   enemies:
   - {fileID: 509029435}
   - {fileID: 1848926784}
@@ -60024,8 +60025,8 @@ MonoBehaviour:
   combatSpace: {fileID: 1699522179}
   SelectedCard: {fileID: 0}
   data:
-    unlockedCards: 
-    playerDeckCards: 
+    unlockedCards: []
+    playerDeckCards: []
     boardPos: {x: 0, y: 0, z: 0}
     piecePos: {x: 0, y: 0, z: 0}
     area: 0

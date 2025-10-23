@@ -5,11 +5,12 @@ using System;
 [Serializable]
 public class PlayerData
 {
-    public List<int> unlockedCards;
-    public List<int> playerDeckCards;
+    public List<string> unlockedCards;
+    public List<string> playerDeckCards;
     public Vector3 boardPos;
     public Vector3 piecePos;
-    public int area;
+    public int currentRoomLevel;
+    public int currentRoomIndex;
     public int money;
     public int hp;
 }
