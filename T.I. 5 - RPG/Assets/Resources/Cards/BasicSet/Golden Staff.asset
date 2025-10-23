@@ -23,7 +23,7 @@ MonoBehaviour:
   cost: 2
   Type: 0
   Pack: 0
-  Rarity: 1
+  Rarity: 2
   Description: Deals v[0]{Damage} Damage, adding on based on the number of the User's
     Coins (v[1]{Damage}).
   extraDescription: 
