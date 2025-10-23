@@ -121,11 +121,11 @@ public class SaveManager : MonoBehaviour
         BoardRoom newRoom;
         for (int i = 0; i < data.roomLevel.Count; i++)
         {
-            if(i == 0)
+            if (data.roomLevel[i] == 0)
             {
                 newRoom = new BoardRoom(bg.boards[GameplayManager.instance.areaIndex].startRoom, null, data.nextRoomCount[i], 0, false);
             }
-            else if(i == bg.boards[GameplayManager.instance.areaIndex].levelsCount - 1)
+            else if(data.roomLevel[i] == bg.boards[GameplayManager.instance.areaIndex].levelsCount - 1)
             {
                 newRoom = new BoardRoom(bg.boards[GameplayManager.instance.areaIndex].bossRoom);
             }
