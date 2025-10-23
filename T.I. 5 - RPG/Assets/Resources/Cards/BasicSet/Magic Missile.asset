@@ -27,7 +27,7 @@ MonoBehaviour:
   Type: 0
   Pack: 0
   Rarity: 1
-  Description: Deals v[0]{Damage} Damage. Having 20% Chance to Retrigger for each
+  Description: Deals v[0]{Damage} Damage. Having 33% Chance to Retrigger for each
     Card the User plays after it during this Turn.
   extraDescription: 
   CardImage: {fileID: 0}
@@ -81,7 +81,7 @@ MonoBehaviour:
     - rid: 6721762660502470660
       type: {class: RandomChance, ns: , asm: Assembly-CSharp}
       data:
-        percentageChance: 20
+        percentageChance: 33
     - rid: 6721762660502470729
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
@@ -129,7 +129,7 @@ MonoBehaviour:
     - rid: 6721762660502470731
       type: {class: RandomChance, ns: , asm: Assembly-CSharp}
       data:
-        percentageChance: 20
+        percentageChance: 33
     - rid: 6721762660502470732
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
@@ -177,7 +177,7 @@ MonoBehaviour:
     - rid: 6721762660502470734
       type: {class: RandomChance, ns: , asm: Assembly-CSharp}
       data:
-        percentageChance: 20
+        percentageChance: 33
     - rid: 6721762660502470735
       type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
       data:

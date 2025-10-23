@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public UIController uiController;
-    public List<Card> GameCards, UnlockedCards;
+    public List<Card> GameCards, StarterUnlockedCards,UnlockedCards;
 
     private void Awake()
     {
@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(this.gameObject);
+        }
+        if(UnlockedCards.Count == 0)
+        {
+            UnlockedCards = StarterUnlockedCards.ToList();
         }
         DontDestroyOnLoad(this.gameObject);
     }
@@ -34,6 +38,11 @@ public class GameManager : MonoBehaviour
         {
             UnlockedCards.Add(cardPreset);
         }
+    }
+    public void ResetUnlockedCards()
+    {
+        UnlockedCards.Clear();
+        UnlockedCards = StarterUnlockedCards.ToList();
     }
 
     public List<Card> DefineStarterPool(Card.CardType type)
