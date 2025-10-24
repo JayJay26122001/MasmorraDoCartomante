@@ -166,7 +166,8 @@ public class Player : Creature
 
     public override void ResetHP()
     {
-        base.ResetHP();
+        hp = maxHP;
+        GameplayManager.instance.UpdateCreatureUI(this);
         GameplayManager.instance.HealVFX();
     }
 

@@ -116,7 +116,7 @@ public class CardPack : MonoBehaviour
             GameplayManager.instance.canBuy = true;
             foreach (Card c in cardsInstances)
             {
-                var moveTween = LeanTween.move(c.cardDisplay.gameObject, c.cardDisplay.gameObject.transform.position + Vector3.up * 25, 0.05f);
+                var moveTween = LeanTween.move(c.cardDisplay.gameObject, c.cardDisplay.gameObject.transform.position + Vector3.up * 25, 0.15f);
                 moveTween.setOnComplete(() =>
                 {
                     Destroy(c.cardDisplay.gameObject);
@@ -126,7 +126,7 @@ public class CardPack : MonoBehaviour
         }
         else
         {
-            var moveTween = LeanTween.move(selected.cardDisplay.gameObject, selected.cardDisplay.gameObject.transform.position + Vector3.up * 25, 0.05f);
+            var moveTween = LeanTween.move(selected.cardDisplay.gameObject, selected.cardDisplay.gameObject.transform.position + Vector3.up * 25, 0.15f);
             moveTween.setOnComplete(() =>
             {
                 cardsInstances.Remove(selected);
