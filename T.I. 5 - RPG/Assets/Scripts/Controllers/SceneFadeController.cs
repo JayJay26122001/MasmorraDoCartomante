@@ -48,7 +48,7 @@ public class SceneFadeController : MonoBehaviour
                     GameManager.instance.uiController.gamePaused = false;
                 }
                 SceneManager.LoadScene(sceneName);
-                LeanTween.delayedCall(0.05f, FadeIn);
+                LeanTween.delayedCall(0.5f, FadeIn);
             });
     }
 
