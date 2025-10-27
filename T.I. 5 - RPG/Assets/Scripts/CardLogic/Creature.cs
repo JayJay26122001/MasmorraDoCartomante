@@ -308,14 +308,7 @@ public class Creature : MonoBehaviour
         card.deck.BuyingPile.Remove(card);
         playedCards.Remove(card);
         exausted.Add(card);
-        ActionController.instance.InvokeTimer(ExaustAction, card, 1f);
-
-        void ExaustAction(Card card)
-        {
-            card.cardDisplay.gameObject.SetActive(false);
-
-        }
-
+        ActionController.instance.InvokeTimer(card.cardDisplay.gameObject.SetActive, false, 1f);
     }
     public void RevertExaust(Card card)
     {
