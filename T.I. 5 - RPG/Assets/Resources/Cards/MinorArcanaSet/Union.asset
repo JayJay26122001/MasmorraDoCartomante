@@ -28,7 +28,7 @@ MonoBehaviour:
   Description: Gain v[0]{Shield} Shield. Retriggers if an Attack Card is played after
     it.
   extraDescription: 
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: f7508d19152bbed47a92981fb3b7ddb6, type: 3}
   references:
     version: 2
     RefIds:

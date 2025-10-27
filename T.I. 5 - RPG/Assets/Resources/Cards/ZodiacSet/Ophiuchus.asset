@@ -19,7 +19,6 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Ophiuchus
-  hidden: 0
   limited: 1
   instantaneous: 1
   cost: 1
@@ -27,6 +26,8 @@ MonoBehaviour:
   Pack: 1
   Rarity: 4
   Description: 'Doubles the User''s Attack and Shield effects, and 3 Extra Energy. '
+  extraDescription: 
+  CardImage: {fileID: 21300000, guid: b77a9ec0521d1b243804a413b3bd4be1, type: 3}
   references:
     version: 2
     RefIds:
@@ -36,10 +37,12 @@ MonoBehaviour:
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
+        BuffTarget: 0
         StatToBuff: 0
         Modifier:
           type: 0
           value:
+            type: 0
             target: 0
             ObservedCards:
               target: 0
@@ -60,7 +63,6 @@ MonoBehaviour:
               max: 0
             ObservedStat: 0
             initialized: 1
-            type: 0
             value: 2
             min: 0
             max: 0
@@ -76,6 +78,7 @@ MonoBehaviour:
         Conditions: []
         ConfirmationConditions: []
         Amount:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -96,7 +99,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 3
           min: 0
           max: 0
@@ -108,10 +110,12 @@ MonoBehaviour:
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
+        BuffTarget: 0
         StatToBuff: 1
         Modifier:
           type: 0
           value:
+            type: 0
             target: 0
             ObservedCards:
               target: 0
@@ -132,7 +136,6 @@ MonoBehaviour:
               max: 0
             ObservedStat: 0
             initialized: 1
-            type: 0
             value: 2
             min: 0
             max: 0
