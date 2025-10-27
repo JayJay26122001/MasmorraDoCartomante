@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleCards: {fileID: 11400000, guid: 5bb9598603942d64bbae9eed25c29bf7, type: 2}
   price: 8
-  cardQuantity: 4
+  cardQuantity: 3
   selectableCardsQuantity: 1
-  packDescription: Surge Pack, wanting more power? Choose 1 card between 4!
+  packDescription: Surge Pack, wanting more power? Choose 1 Card between 3!

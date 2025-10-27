@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CardPackZodiac
   m_EditorClassIdentifier: 
   possibleCards: {fileID: 11400000, guid: 3eca56b6f8d8bf0419330a9fed1cf95c, type: 2}
-  price: 10
+  price: 8
   cardQuantity: 3
   selectableCardsQuantity: 1
   packDescription: Celestial Pack, seek through the stars and choose 1 between 3

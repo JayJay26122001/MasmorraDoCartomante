@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CardPackExpensive
   m_EditorClassIdentifier: 
   possibleCards: {fileID: 11400000, guid: 32939556a2424a341a3c4f5fb867ba7b, type: 2}
-  price: 12
+  price: 15
   cardQuantity: 3
   selectableCardsQuantity: 2
   packDescription: Expensive Pack, you can choose 2 cards between 3 Rare cards or

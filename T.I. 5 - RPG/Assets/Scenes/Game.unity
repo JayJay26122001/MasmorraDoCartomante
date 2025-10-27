@@ -50198,10 +50198,10 @@ MonoBehaviour:
   - {fileID: 1452082919}
   packPools:
   - {fileID: 11400000, guid: 0bedbf24d8f763346b6fb9c003b536bc, type: 2}
-  - {fileID: 11400000, guid: 0bedbf24d8f763346b6fb9c003b536bc, type: 2}
-  - {fileID: 11400000, guid: 0bedbf24d8f763346b6fb9c003b536bc, type: 2}
-  - {fileID: 11400000, guid: 0bedbf24d8f763346b6fb9c003b536bc, type: 2}
-  - {fileID: 11400000, guid: 0bedbf24d8f763346b6fb9c003b536bc, type: 2}
+  - {fileID: 11400000, guid: 0af1871daf325ae40be8270b6c504c67, type: 2}
+  - {fileID: 11400000, guid: 869676858f65002419b4ce0f0cebcb67, type: 2}
+  - {fileID: 11400000, guid: cddfaee2850c6c0408a22e44bbc66326, type: 2}
+  - {fileID: 11400000, guid: 4c9914e6d52754747b91bd62b168b288, type: 2}
   canBuy: 0
   removingCards: 0
   duplicatingCards: 0

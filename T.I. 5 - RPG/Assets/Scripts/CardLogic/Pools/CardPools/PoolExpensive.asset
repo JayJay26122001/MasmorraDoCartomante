@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 995504db228d6014d9164719d5738eda, type: 3}
-  m_Name: TestPoolExpensive
+  m_Name: PoolExpensive
   m_EditorClassIdentifier: 
   pool:
   - {fileID: 11400000, guid: e03c0bac8c55c1448974705ea21b87f9, type: 2}
