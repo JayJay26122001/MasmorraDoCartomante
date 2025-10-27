@@ -25,6 +25,16 @@ public class Enemy : Creature, IPointerClickHandler
         base.CombatStartAction();
         //BuyCards(1);
         SetModel();
+        float time = 0;
+        foreach (AnimationClip a in anim.runtimeAnimatorController.animationClips)
+        {
+            if (a.name == "Intro")
+            {
+                time = a.length;
+            }
+        }
+        CameraController.instance.ChangeCamera(1);
+        ActionController.instance.InvokeTimer(CameraController.instance.ChangeCamera, 0, time);
     }
 
     public void ChangeInteraction(bool zoom)
