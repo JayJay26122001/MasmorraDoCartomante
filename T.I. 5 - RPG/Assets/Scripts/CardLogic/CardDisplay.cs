@@ -362,7 +362,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void AnimateEnemyCard(bool disappear)
+    public void CardDisapearanceAnimation(bool disappear)
     {
         disappearing = disappear;
         animTimeStart = Time.time;

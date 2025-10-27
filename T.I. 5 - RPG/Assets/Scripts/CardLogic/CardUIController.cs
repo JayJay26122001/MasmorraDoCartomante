@@ -401,7 +401,7 @@ public class CardUIController : MonoBehaviour
             if (i == totalCardsPlayed - 1)
             {
                 cardObject.transform.position = spawnPos;
-                cardObject.GetComponent<CardDisplay>().AnimateEnemyCard(false);
+                cardObject.GetComponent<CardDisplay>().CardDisapearanceAnimation(false);
                 LeanTween.rotate(cardObject, rot, instance.instantTimeAnim).setEaseInOutSine();
                 LeanTween.delayedCall(cardObject, instance.mediumTimeAnim, () =>
                 {
@@ -452,7 +452,7 @@ public class CardUIController : MonoBehaviour
             //instance.ChangeDiscardPileTextValue();
             if (card.deck.Owner != GameplayManager.instance.player)
             {
-                cardObject.GetComponent<CardDisplay>().AnimateEnemyCard(true);
+                cardObject.GetComponent<CardDisplay>().CardDisapearanceAnimation(true);
                 LeanTween.move(cardObject, pos, instance.smallTimeAnim).setDelay(instance.delayTimeAnim);
                 LeanTween.rotate(cardObject, rot, instance.smallTimeAnim).setDelay(instance.delayTimeAnim);
             }

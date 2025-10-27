@@ -49,11 +49,11 @@ public class Creature : MonoBehaviour
     protected int skipTurn = 0, skipCardBuy = 0;
     public int SkipTurn
     {
-        get{ return skipTurn; }
+        get { return skipTurn; }
     }
     public int SkipCardBuy
     {
-        get{ return skipCardBuy; }
+        get { return skipCardBuy; }
     }
 
     public int Money
@@ -189,11 +189,11 @@ public class Creature : MonoBehaviour
         {
             if (decks[0].BuyingPile.Count == 0)
             {
-                if (decks[0].DiscardPile.Count == 0) 
+                if (decks[0].DiscardPile.Count == 0)
                 {
                     CardUIController.OrganizeHandCards(this);
                     CardUIController.OrganizeStack(decks[0].BuyingPile, combatSpace.buyingPileSpace);
-                    return; 
+                    return;
                 }
                 decks[0].ShuffleDeck();
             }
@@ -236,10 +236,10 @@ public class Creature : MonoBehaviour
             AudioController.instance.RandomizeSfx(AudioController.instance.sfxSource, AudioController.instance.playCardSfx);
             PlayedCard.Invoke(c);
             c.CardPlayed();
-        
+
         }, CardUIController.instance.mediumTimeAnim * 2 + CardUIController.instance.bigTimeAnim * 2);
         //CardUIController.OrganizeEnemyPlayedCards(this);
-        
+
         //Debug.Log("played card");
     }
     public void TriggerPlayedCards()
@@ -302,12 +302,20 @@ public class Creature : MonoBehaviour
     }
     public void ExaustCard(Card card)
     {
-        card.cardDisplay.gameObject.SetActive(false);
+        card.cardDisplay.CardDisapearanceAnimation(true);
         hand.Remove(card);
         card.deck.DiscardPile.Remove(card);
         card.deck.BuyingPile.Remove(card);
         playedCards.Remove(card);
         exausted.Add(card);
+        ActionController.instance.InvokeTimer(ExaustAction, card, 1f);
+
+        void ExaustAction(Card card)
+        {
+            card.cardDisplay.gameObject.SetActive(false);
+
+        }
+
     }
     public void RevertExaust(Card card)
     {
