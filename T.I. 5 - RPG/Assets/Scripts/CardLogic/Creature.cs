@@ -324,6 +324,7 @@ public class Creature : MonoBehaviour
         if (!card.cardDisplay.gameObject.activeSelf)
         {
             card.cardDisplay.gameObject.SetActive(true);
+            card.cardDisplay.CardDisapearanceAnimation(false);
             card.deck.DiscardPile.Add(card);
             exausted.Remove(card);
         }
