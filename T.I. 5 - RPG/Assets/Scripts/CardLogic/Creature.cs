@@ -256,10 +256,6 @@ public class Creature : MonoBehaviour
         {
             return;
         }
-        card.deck.DiscardPile.Add(card);
-        hand.Remove(card);
-        playedCards.Remove(card);
-        card.deck.BuyingPile.Remove(card);
         foreach (Effect e in card.Effects)
         {
             if (/*e.effectStarted &&*/ !e.EffectAcomplished)
@@ -271,6 +267,13 @@ public class Creature : MonoBehaviour
         if (card.limited)
         {
             ExaustCard(card);
+        }
+        else
+        {
+            card.deck.DiscardPile.Add(card);
+            hand.Remove(card);
+            playedCards.Remove(card);
+            card.deck.BuyingPile.Remove(card);
         }
         CardUIController.OrganizePlayedCards(this);
         //if(card.deck.Owner != Player)
@@ -303,12 +306,18 @@ public class Creature : MonoBehaviour
     public void ExaustCard(Card card)
     {
         card.cardDisplay.CardDisapearanceAnimation(true);
-        hand.Remove(card);
-        card.deck.DiscardPile.Remove(card);
-        card.deck.BuyingPile.Remove(card);
-        playedCards.Remove(card);
-        exausted.Add(card);
-        ActionController.instance.InvokeTimer(card.cardDisplay.gameObject.SetActive, false, 1f);
+
+        ActionController.instance.InvokeTimer(ExaustAction, 0.5f);
+        void ExaustAction()
+        {
+            hand.Remove(card);
+            card.deck.DiscardPile.Remove(card);
+            card.deck.BuyingPile.Remove(card);
+            playedCards.Remove(card);
+            exausted.Add(card);
+            card.cardDisplay.gameObject.SetActive(false);
+            CardUIController.OrganizePlayedCards(this);
+        }
     }
     public void RevertExaust(Card card)
     {
