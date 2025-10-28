@@ -17,4 +17,4 @@ MonoBehaviour:
   cardQuantity: 3
   selectableCardsQuantity: 1
   packDescription: Basic Pack, simple but effective. Choose 1 card between 3 Base
-    Cards!
+    cards!

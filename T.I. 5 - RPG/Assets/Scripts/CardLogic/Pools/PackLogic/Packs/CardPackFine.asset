@@ -16,4 +16,4 @@ MonoBehaviour:
   price: 5
   cardQuantity: 5
   selectableCardsQuantity: 1
-  packDescription: Fine Pack, you can choose 1 card between 5 low rarity Cards!
+  packDescription: Fine Pack, you can choose 1 card between 5 low rarity cards!
