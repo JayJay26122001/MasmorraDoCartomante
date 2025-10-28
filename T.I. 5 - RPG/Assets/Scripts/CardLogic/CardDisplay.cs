@@ -387,7 +387,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
             rarity.material.SetFloat("_DissolveAmount", t);
             background.material.SetFloat("_DissolveAmount", t);
             type.material.SetFloat("_DissolveAmount", t);
-            cardBase.material.SetFloat("_DisappearTime", t);
+            cardBase.material.SetFloat("_DissolveAmount", t);
             if ((t >= 1 && disappearing) || (t <= 0 && !disappearing))
             {
                 inAnimation = false;

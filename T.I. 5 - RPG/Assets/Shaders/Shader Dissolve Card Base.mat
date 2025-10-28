@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Dissolve
+  m_Name: Shader Dissolve Card Base
   m_Shader: {fileID: -6465566751694194690, guid: 234eceaeda378f04b86813685bb46b32, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -63,7 +63,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 0}
+    - _Color: {r: 0, g: 0, b: 0, a: 0}
     - _DissolveColor: {r: 0, g: 1.8320234, b: 31.999996, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
