@@ -17,7 +17,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
     [SerializeField] ParticleSystem[] ActivationVFX;
     [System.NonSerialized] public ParticleSystem SelectedActivationVFX;
     public MeshRenderer cardBase;
-    public Material dissolveShader, cardBaseShader, cardBaseMat;
+    //public Material dissolveShader, cardBaseShader, cardBaseMat;
     public TextMeshPro cardCost, cardName, cardDescription;
     public Card cardData;
     public CardsUI cardsUI;
@@ -47,10 +47,10 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
             originalScale = transform.localScale;
             hasSetOriginalTransform = true;
         }
-        if (cardData.deck != null /*&& cardData.deck.Owner != GameplayManager.instance.player*/)
+        /*if (cardData.deck != null)
         {
             SetupShader();
-        }
+        }*/
         if (outline != null)
         {
             outline.SetActive(false);
@@ -73,7 +73,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    void SetupShader()
+    /*void SetupShader()
     {
         dissolveShader.SetTexture("_MainTex", cardBack.material.mainTexture);
         cardBack.material = dissolveShader;
@@ -87,13 +87,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         type.material = dissolveShader;
         cardBaseShader.SetTexture("_MainTex", cardBase.material.mainTexture);
         cardBase.material = cardBaseShader;
-        /*dissolveShader.SetTexture("_MainTex", cardCost.material.mainTexture);
-        cardCost.material = dissolveShader;
-        dissolveShader.SetTexture("_MainTex", cardName.material.mainTexture);
-        cardName.material = dissolveShader;
-        dissolveShader.SetTexture("_MainTex", cardDescription.material.mainTexture);
-        cardDescription.material = dissolveShader;*/
-    }
+    }*/
 
     public void SetCard(Card card)
     {
