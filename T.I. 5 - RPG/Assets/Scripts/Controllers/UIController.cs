@@ -226,12 +226,18 @@ public class UIController : MonoBehaviour
 
     public void UpscaleButton(GameObject button)
     {
-        LeanTween.scale(button, Vector3.one * 1.2f, 0.15f).setEase(LeanTweenType.easeOutBack).setIgnoreTimeScale(true);
+        if(button.GetComponent<Button>().interactable)
+        {
+            LeanTween.scale(button, Vector3.one * 1.2f, 0.15f).setEase(LeanTweenType.easeOutBack).setIgnoreTimeScale(true);
+        }
     }
 
     public void DownscaleButton(GameObject button)
     {
-        LeanTween.scale(button, Vector3.one, 0.15f).setEase(LeanTweenType.easeOutBack).setIgnoreTimeScale(true);
+        if (button.GetComponent<Button>().interactable)
+        {
+            LeanTween.scale(button, Vector3.one, 0.15f).setEase(LeanTweenType.easeOutBack).setIgnoreTimeScale(true);
+        }
     }
 
     public void ChangeScene(string scene)
