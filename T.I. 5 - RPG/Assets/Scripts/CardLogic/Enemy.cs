@@ -162,7 +162,7 @@ public class Enemy : Creature, IPointerClickHandler
             Damaged.Invoke(dmg);
             if (Health <= 0)
             {
-                if (!GameplayManager.instance.figtingBoss)
+                if (!GameplayManager.instance.fightingBoss)
                 {
                     ActionController.instance.AddToQueueAsNext(new EnemyDefeat(this));
                 }

@@ -364,7 +364,16 @@ public class EnemyDefeat : SceneAction
                 time = a.length;
             }
         }
-        AnimEnded.AddListener(() => GameplayManager.instance.PlayCutscene(0));
+        int rand = UnityEngine.Random.Range(0, 100);
+        if(rand >= GameplayManager.instance.dropChance)
+        {
+            AnimEnded.AddListener(() => GameplayManager.instance.PlayCutscene(0));
+        }
+        else
+        {
+            AnimEnded.AddListener(() => GameplayManager.instance.DefineDropPack());
+            AnimEnded.AddListener(() => GameplayManager.instance.PlayCutscene(15));
+        }
     }
     public override void PerformAction()
     {
@@ -390,7 +399,9 @@ public class BossDefeat : SceneAction
                 time = a.length;
             }
         }
-        AnimEnded.AddListener(() => GameplayManager.instance.PlayCutscene(6));
+        AnimEnded.AddListener(() => GameplayManager.instance.DefineDropPack());
+        AnimEnded.AddListener(() => GameplayManager.instance.PlayCutscene(15));
+        //AnimEnded.AddListener(() => GameplayManager.instance.PlayCutscene(6));
     }
     public override void PerformAction()
     {

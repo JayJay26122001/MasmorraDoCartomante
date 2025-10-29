@@ -64,7 +64,7 @@ public class CardPack : MonoBehaviour
                     GameplayManager.instance.ExplodeCoins(this.transform.position);
                 }
                 GameplayManager.instance.canBuy = false;
-                if(GameplayManager.instance.atShop)
+                if(GameplayManager.instance.atShop || GameplayManager.instance.dropped)
                 {
                     GameplayManager.instance.PlayCutscene(4);
                     discardBell.pack = this;
@@ -110,8 +110,15 @@ public class CardPack : MonoBehaviour
             }
             else
             {
-                CameraController.instance.Invoke("DeActivateZoomedCamera", 0.18f);
-                GameplayManager.instance.OpenedStarterPack();
+                if(GameplayManager.instance.dropped)
+                {
+                    GameplayManager.instance.OpenedDropPack();
+                }
+                else
+                {
+                    CameraController.instance.Invoke("DeActivateZoomedCamera", 0.18f);
+                    GameplayManager.instance.OpenedStarterPack();
+                }
             }
             GameplayManager.instance.canBuy = true;
             foreach (Card c in cardsInstances)

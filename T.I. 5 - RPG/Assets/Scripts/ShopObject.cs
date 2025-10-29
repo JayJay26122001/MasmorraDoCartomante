@@ -7,7 +7,7 @@ public class ShopObject : MonoBehaviour
     [TextArea] public string objectDescription;
     bool firstTimeMoving;
     public GameObject outline, mesh;
-    public enum ObjectType { Shop, Discard, Bell, Stamp, Shredder, Fountain, StarterAttack, StarterDefense, StarterMind }
+    public enum ObjectType { Shop, Discard, Bell, Stamp, Shredder, Fountain, StarterAttack, StarterDefense, StarterMind, Drop }
     public ObjectType type;
 
     private void OnEnable()
@@ -17,6 +17,10 @@ public class ShopObject : MonoBehaviour
             case ObjectType.Shop:
             case ObjectType.Discard:
             case ObjectType.Bell:
+            case ObjectType.StarterAttack:
+            case ObjectType.StarterDefense:
+            case ObjectType.StarterMind:
+            case ObjectType.Drop:
                 outline.SetActive(false);
                 break;
             case ObjectType.Stamp:
@@ -98,6 +102,14 @@ public class ShopObject : MonoBehaviour
             case ObjectType.StarterMind:
                 outline.SetActive(false);
                 outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.green);
+                outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeX", 0.2f);
+                outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeY", 0.1f);
+                outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeZ", 0.1f);
+                outline.GetComponent<MeshRenderer>().material.SetFloat("_Offset", 0.25f);
+                break;
+            case ObjectType.Drop:
+                outline.SetActive(false);
+                outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.white);
                 outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeX", 0.2f);
                 outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeY", 0.1f);
                 outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeZ", 0.1f);

@@ -39,7 +39,7 @@ public class GameplayManager : MonoBehaviour
 
     public List<CardPack> packs = new List<CardPack>();
     public List<PackPool> packPools = new List<PackPool>();
-    public bool canBuy, removingCards = false, duplicatingCards = false, figtingBoss, atShop = false;
+    public bool canBuy, removingCards = false, duplicatingCards = false, fightingBoss, atShop = false;
     public int rerollPrice, rerollBasePrice, potionBasePrice;
     public TextMeshPro rerollText, potionText;
     public DisappearingObject potion;
@@ -66,7 +66,11 @@ public class GameplayManager : MonoBehaviour
     public CardPack starterAttack, starterDefense, starterMind;
     public CardPool starterAttackPool, starterDefensePool, starterMindPool;
     int starterPacksOpened;
-
+    public CardPack dropPack;
+    public CardPackSO enemyDropPackSO, bossDropPackSO;
+    public CardPool enemyDropPool, bossDropPool;
+    public int dropChance;
+    [HideInInspector] public bool dropped = false;
     private void Awake()
     {
         instance = this;
@@ -275,7 +279,7 @@ public class GameplayManager : MonoBehaviour
 
     public void SelectEnemy()
     {
-        if (!figtingBoss)
+        if (!fightingBoss)
         {
             int aux = enemyPools.GetValue(battlePerArea, areaIndex).value.SelectIndex();
             if (battlePerArea < enemyPools.XLength - 1)
@@ -410,12 +414,53 @@ public class GameplayManager : MonoBehaviour
         canBuy = true;
     }
 
+    public void DefineDropPack()
+    {
+        List<Card> aux = new List<Card>();
+        foreach (Card c in player.enemy.decks[0].CardPresets)
+        {
+            if (!aux.Contains(c))
+            {
+                aux.Add(c);
+            }
+        }
+        if (!fightingBoss)
+        {
+            enemyDropPool.pool = aux;
+            enemyDropPackSO.possibleCards = enemyDropPool;
+            dropPack.data = enemyDropPackSO;
+        }
+        else
+        {
+            bossDropPool.pool = aux;
+            bossDropPackSO.possibleCards = bossDropPool;
+            dropPack.data = bossDropPackSO;
+        }
+        dropPack.DefineCards();
+        dropPack.gameObject.GetComponent<BoxCollider>().enabled = true;
+        dropped = true;
+        canBuy = true;
+    }
+
     public void OpenedStarterPack()
     {
         starterPacksOpened++;
         if(starterPacksOpened == 3)
         {
             PlayCutscene(14);
+        }
+    }
+
+    public void OpenedDropPack()
+    {
+        dropped = false;
+        if(!fightingBoss)
+        {
+            PlayCutscene(16);
+        }
+        else
+        {
+            PlayCutscene(17);
         }
     }
 

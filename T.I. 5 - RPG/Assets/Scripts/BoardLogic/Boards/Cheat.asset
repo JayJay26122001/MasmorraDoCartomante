@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8033803678fd02147abe7d7f3da4a749, type: 3}
+  m_Name: Cheat
+  m_EditorClassIdentifier: 
+  levelsCount: 2
+  maxBranches: 1
+  startRoom: {fileID: 11400000, guid: 360091fc7cea3ed4d8292376c8805d53, type: 2}
+  bossRoom: {fileID: 11400000, guid: 6a701e2991ee8754b8cddb158e431ad2, type: 2}
+  roomList: []

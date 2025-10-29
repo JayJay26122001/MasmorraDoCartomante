@@ -92,7 +92,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
     public void SetCard(Card card)
     {
         cardData = card;
-        if (!GameplayManager.instance.removingCards && !GameplayManager.instance.duplicatingCards)
+        if (!GameplayManager.instance.removingCards && !GameplayManager.instance.duplicatingCards && pack == null)
         {
             card.cardDisplay = this;
         }

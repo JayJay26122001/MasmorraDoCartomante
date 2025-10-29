@@ -20,7 +20,7 @@ public class Combat : MonoBehaviour
 
     public void SetEnemy(int index)
     {
-        if (GameplayManager.instance.figtingBoss)
+        if (GameplayManager.instance.fightingBoss)
         {
             combatents[1] = GameplayManager.instance.bosses[index];
         }
@@ -185,7 +185,7 @@ public class Combat : MonoBehaviour
         GameplayManager.instance.HideAllEnemies();
         GameplayManager.instance.HideAllBosses();
         StartCoroutine(combatents[1].GetComponent<Enemy>().DisableModel());
-        if (GameplayManager.instance.figtingBoss)
+        if (GameplayManager.instance.fightingBoss)
         {
             if(GameplayManager.instance.areaIndex != GameplayManager.instance.areas.Count - 1)
             {

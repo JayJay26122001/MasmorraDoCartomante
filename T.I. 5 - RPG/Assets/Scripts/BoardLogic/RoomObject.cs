@@ -37,12 +37,12 @@ public class RoomObject : MonoBehaviour
             switch(roomRef.type.roomName)
             {
                 case "Boss":
-                    GameplayManager.instance.figtingBoss = true;
+                    GameplayManager.instance.fightingBoss = true;
                     act = new Action(() => { SwitchToBattle(); });
                     break;
                 case "Battle":
                 case "Mimic":
-                    GameplayManager.instance.figtingBoss = false;
+                    GameplayManager.instance.fightingBoss = false;
                     act = new Action(() => { SwitchToBattle(); });
                     break;
                 case "Shop":
