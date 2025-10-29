@@ -274,13 +274,22 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         }
         if ((cardData.deck != null && (cardData.deck.Owner.hand.Contains(this.cardData) || cardData.deck.Owner.playedCards.Contains(this.cardData))) || GameplayManager.instance.duplicatingCards || GameplayManager.instance.removingCards || pack != null) 
         {
-            GameManager.instance.uiController.ShowPopups(this);
+            if(!GameManager.instance.uiController.gamePaused)
+            {
+                GameManager.instance.uiController.ShowPopups(this);
+            }
         }
-        if(!string.IsNullOrEmpty(cardData.extraDescription)) 
+        /*if(!string.IsNullOrEmpty(cardData.extraDescription)) 
         {
             UpdateCardExtraDescription();
         }
-        if(GameplayManager.instance.duplicatingCards && !GameplayManager.instance.stamp.stamping)
+
+        if (!string.IsNullOrEmpty(cardData.Description) && GameManager.instance.uiController.cardDescOn)
+        {
+            UpdateCardSimpleDescription();
+        }*/
+
+        if (GameplayManager.instance.duplicatingCards && !GameplayManager.instance.stamp.stamping)
         {
             GameplayManager.instance.stamp.SetPrice(this.cardData);
         }
@@ -453,6 +462,19 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         UpdateCardCost();
     }
 
+    /*public void UpdateCardSimpleDescription()
+    {
+        string desc = cardData.Description;
+        List<Token> tokens = FindValuesInString(desc);
+        foreach (Token token in tokens)
+        {
+            string value = GetEffectValue(token.index, token.var);
+            string pattern = $"v[{token.index}]{{{token.var}}}";
+            desc = desc.Replace(pattern, value);
+        }
+        GameManager.instance.uiController.ingamePopupDescription.text = desc;
+    }
+
     public void UpdateCardExtraDescription()
     {
         string desc = cardData.extraDescription;
@@ -464,6 +486,18 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
             desc = desc.Replace(pattern, value);
         }
         GameManager.instance.uiController.ingamePopupDescription.text = desc;
+    }*/
+
+    public string ReplacePopupTokens(string desc, CardDisplay card)
+    {
+        List<Token> tokens = card.FindValuesInString(desc);
+        foreach (Token token in tokens)
+        {
+            string value = card.GetEffectValue(token.index, token.var);
+            string pattern = $"v[{token.index}]{{{token.var}}}";
+            desc = desc.Replace(pattern, value);
+        }
+        return desc;
     }
 
     public List<Token> FindValuesInString(string input)
@@ -639,6 +673,11 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
             popupQuantity++;
         }
         if (!string.IsNullOrEmpty(cardData.extraDescription))
+        {
+            popupQuantity++;
+        }
+        //Add simple desc in popups
+        if (!string.IsNullOrEmpty(cardData.Description) && GameManager.instance.uiController.cardDescOn)
         {
             popupQuantity++;
         }

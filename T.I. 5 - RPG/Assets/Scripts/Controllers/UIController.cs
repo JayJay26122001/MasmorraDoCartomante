@@ -61,8 +61,10 @@ public class UIController : MonoBehaviour
     public Slider _sfxSlider;
     public Toggle vsyncToggle;
     public Image vsyncToggleImage;
-    public Sprite vsyncConfirm;
-    public Sprite vsyncDeny;
+    public Toggle cardDescToggle;
+    public Image cardDescToggleImage;
+    public Sprite toggleConfirm;
+    public Sprite toggleDeny;
     [Header("Game Combat HUD")]
     public GameObject combatHUD;
     public TextMeshPro enemyName;
@@ -90,6 +92,7 @@ public class UIController : MonoBehaviour
     GameObject activeMask;
     int currentMaskIndex = 0;
     bool isMaskRotating = false;
+    [HideInInspector] public bool cardDescOn = false;
 
     [Header("Enemy Description")]
     public GameObject enemyDesc;
@@ -106,15 +109,6 @@ public class UIController : MonoBehaviour
     public Transform enemyDescPos;
     public Transform enemyDescOutPos;
     bool isEnemyDescOn = false;
-
-    /*bool gameStarted, gamePaused;
-    public GameObject pausePanel, confirmReturnRoomPanel, confirmReturnMenuPanel, collectablesPanel;
-    public GameObject collectablesButton, returnRoomButton, returnMenuButton, confirmReturnRoomButton, confirmReturnMenuButton;
-    public Slider _masterVolumeSlider, _musicSlider, _sfxSlider, _brightnessSlider;
-    public TMP_Dropdown resDropdown, screenModeDropdown;
-    Resolution[] allRes;
-    List<Resolution> selectedResList = new List<Resolution>();
-    */
 
     private void Awake()
     {
@@ -144,7 +138,7 @@ public class UIController : MonoBehaviour
         }
         else
         {
-            data = new ConfigData(0, 0, -7.5f, -7.5f, -7.5f, false);
+            data = new ConfigData(0, 0, -7.5f, -7.5f, -7.5f, false, false);
             Debug.Log("Game Configs");
         }
         EventSystem.current.SetSelectedGameObject(continueButton);
@@ -155,8 +149,15 @@ public class UIController : MonoBehaviour
         if(vsyncToggle != null)
         {
             vsyncToggle.isOn = isOn;
-            UpdateToggleImages(isOn);
-            vsyncToggle.onValueChanged.AddListener(ChangeToggle);
+            UpdateVsyncToggleImages(isOn);
+            vsyncToggle.onValueChanged.AddListener(ChangeVsyncToggle);
+        }
+        cardDescOn = data.cardDescEnabled;
+        if (cardDescToggle != null)
+        {
+            cardDescToggle.isOn = cardDescOn;
+            UpdateCardDescToggleImages(cardDescOn);
+            cardDescToggle.onValueChanged.AddListener(ChangeCardDescToggle);
         }
         if (File.Exists(Application.dataPath + "/boardSave.json") && File.Exists(Application.dataPath + "/playerSave.json"))
         {
@@ -210,7 +211,13 @@ public class UIController : MonoBehaviour
         {
             vsyncToggle.isOn = data.vsyncEnabled;
             QualitySettings.vSyncCount = data.vsyncEnabled ? 1 : 0;
-            UpdateToggleImages(data.vsyncEnabled);
+            UpdateVsyncToggleImages(data.vsyncEnabled);
+        }
+        if(cardDescToggle != null)
+        {
+            cardDescToggle.isOn = data.cardDescEnabled;
+            cardDescOn = data.cardDescEnabled;
+            UpdateCardDescToggleImages(data.cardDescEnabled);
         }
     }
     public void SaveConfigs()
@@ -243,12 +250,6 @@ public class UIController : MonoBehaviour
     public void ChangeScene(string scene)
     {
         SceneFadeController.instance.FadeOutToScene(scene);
-        /*if(gamePaused)
-        {
-            Time.timeScale = 1.0f;
-            gamePaused = false;
-        }*/
-        //SceneManager.LoadScene(scene);
     }
 
     public void NewGame()
@@ -276,13 +277,6 @@ public class UIController : MonoBehaviour
 
     public void OpenPanel(GameObject panel)
     {
-        /*if(SceneManager.GetActiveScene().name == "Menu")
-        {
-            if (panel == playPanel || panel == settingsPanel || panel == quitPanel)
-            {
-                HideMenuObjects();
-            }
-        }*/
         if (panel != pausePanel)
         {
             if (panel == playPanel || panel == settingsPanel || panel == quitPanel)
@@ -361,13 +355,6 @@ public class UIController : MonoBehaviour
 
     public void HideMenuObjects()
     {
-        /*if (gameLogo != null) gameLogo.SetActive(false);
-        if (playButton != null) playButton.SetActive(false);
-        if (settingsButton != null) settingsButton.SetActive(false);
-        if (creditsButton != null) creditsButton.SetActive(false);
-        if (quitButton != null) quitButton.SetActive(false);
-        if (tutorialButton != null) tutorialButton.SetActive(false);
-        if (featuresButton != null) featuresButton.SetActive(false);*/
         CheckActiveMask();
         if (masks[0] != null) masks[0].SetActive(false);
         if (masks[1] != null) masks[1].SetActive(false);
@@ -387,13 +374,6 @@ public class UIController : MonoBehaviour
 
     public void ShowMenuObjects()
     {
-        /*if (gameLogo != null) gameLogo.SetActive(true);
-        if (playButton != null) playButton.SetActive(true);
-        if (settingsButton != null) settingsButton.SetActive(true);
-        if (creditsButton != null) creditsButton.SetActive(true);
-        if (quitButton != null) quitButton.SetActive(true);
-        if (tutorialButton != null) tutorialButton.SetActive(true);
-        if (featuresButton != null) featuresButton.SetActive(true);*/
         if (activeMask != null) activeMask.SetActive(true); //ativar a m�scara correta
         if (rightArrow != null) rightArrow.SetActive(true);
         if (leftArrow != null) leftArrow.SetActive(true);
@@ -485,79 +465,6 @@ public class UIController : MonoBehaviour
             shopObjectHUD.gameObject.SetActive(false);
         }
     }
-    /*public void OpenPanel(GameObject panel)
-    {
-        panel.SetActive(true);
-        if (panel == settingsPanel)
-        {
-            SetButtonsInteractable(false);
-            EventSystem.current.SetSelectedGameObject(_masterVolumeSlider.gameObject);
-        }
-        if (panel == creditsPanel)
-        {
-            SetButtonsInteractable(false);
-            EventSystem.current.SetSelectedGameObject(leaveCreditsPanelButton);
-        }
-        if (panel == quitPanel)
-        {
-            SetButtonsInteractable(false);
-            EventSystem.current.SetSelectedGameObject(confirmQuitButton);
-        }
-        if (panel == pausePanel)
-        {
-            EventSystem.current.SetSelectedGameObject(settingsButton);
-        }
-        if(panel == collectablesPanel)
-        {
-            EventSystem.current.SetSelectedGameObject(xxx);
-        }
-        if (panel == confirmReturnRoomPanel)
-        {
-            EventSystem.current.SetSelectedGameObject(confirmReturnRoomButton);
-        }
-        if (panel == confirmReturnMenuPanel)
-        {
-            EventSystem.current.SetSelectedGameObject(confirmReturnMenuButton);
-        }
-    }
-
-    public void ClosePanel(GameObject panel)
-    {
-        panel.SetActive(false);
-        if (panel == settingsPanel)
-        {
-            SaveConfigs();
-            SetButtonsInteractable(true);
-            EventSystem.current.SetSelectedGameObject(settingsButton);
-        }
-        if (panel == creditsPanel)
-        {
-            SetButtonsInteractable(true);
-            EventSystem.current.SetSelectedGameObject(creditsButton);
-        }
-        if (panel == quitPanel)
-        {
-            SetButtonsInteractable(true);
-            EventSystem.current.SetSelectedGameObject(quitButton);
-        }
-        if (panel == pausePanel)
-        {
-            GameManager.instance.player.movePaused = false;
-            gamePaused = false;
-        }
-        if(panel == collectablesPanel)
-        {
-            EventSystem.current.SetSelectedGameObject(xxx);
-        }
-        if (panel == confirmReturnRoomPanel)
-        {
-            EventSystem.current.SetSelectedGameObject(returnRoomButton);
-        }
-        if (panel == confirmReturnMenuPanel)
-        {
-            EventSystem.current.SetSelectedGameObject(returnMenuButton);
-        }
-    }*/
 
     public void ChangeMasterVolume()
     {
@@ -666,36 +573,6 @@ public class UIController : MonoBehaviour
 
     public void PauseGameInput(InputAction.CallbackContext context)
     {
-        /*if (context.phase != InputActionPhase.Started) return;
-        string currentScene = SceneManager.GetActiveScene().name;
-        if (settingsPanel.activeSelf)
-        {
-            SaveConfigs();
-            ClosePanel(settingsPanel);
-        }
-        
-        if (currentScene == "Menu")
-        {
-            return;
-        }
-        if (currentScene == "Game")
-        {
-            if (gamePaused)
-            {
-                Time.timeScale = 1.0f;
-                ClosePanel(pausePanel);
-                gamePaused = false;
-                GameplayManager.instance.IResumeInput();
-            }
-            else
-            {
-                Time.timeScale = 0f;
-                DeactivateChildrens(combatHUD);
-                OpenPanel(pausePanel);
-                gamePaused = true;
-                GameplayManager.instance.IPauseInput();
-            }
-        }*/
         if (context.phase == InputActionPhase.Started && SceneManager.GetActiveScene().name == "Game")
         {
             if (settingsPanel.activeSelf)
@@ -718,6 +595,7 @@ public class UIController : MonoBehaviour
                     DeactivateChildrens(combatHUD);
                     OpenPanel(pausePanel);
                     gamePaused = true;
+                    HidePopups();
                     GameplayManager.instance.IPauseInput();
                 }
             }
@@ -893,8 +771,6 @@ public class UIController : MonoBehaviour
             if(i < shownCommandsCount)
             { 
                 aux = commands[i - 1].GetComponent<RectTransform>();
-                //Debug.LogWarning("numero " + i + ": " + commands[i].GetComponent<RectTransform>().sizeDelta);
-                //commands[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(aux.anchoredPosition.x - aux.sizeDelta.x - gap, basePos.y);
                 commands[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(basePos.x, aux.anchoredPosition.y + aux.sizeDelta.y + gap);
                 commands[i].SetActive(GameplayManager.instance.InputActive);
             }
@@ -947,8 +823,6 @@ public class UIController : MonoBehaviour
                 else
                 {
                     float offsetX = - (i * (width + gap));
-                    //GameObject newPopup = Instantiate(ingamePopup, ingamePopup.GetComponent<RectTransform>().position + new Vector2(offsetX, 0), Quaternion.identity);
-                    //newPopup.transform.SetParent(canvas);
                     GameObject newPopup = Instantiate(ingamePopup, canvas);
                     RectTransform popupRect = newPopup.GetComponent<RectTransform>();
                     popupRect.anchoredPosition = new Vector2(baseX + offsetX, baseY);
@@ -980,9 +854,14 @@ public class UIController : MonoBehaviour
     {
         List<string> popupTexts = new List<string>();
 
+        if(!string.IsNullOrEmpty(card.cardData.Description) && cardDescOn)
+        {
+            popupTexts.Add(card.ReplacePopupTokens(card.cardData.Description, card));
+        }
+
         if (!string.IsNullOrEmpty(card.cardData.extraDescription))
         {
-            popupTexts.Add(card.cardData.extraDescription);
+            popupTexts.Add(card.ReplacePopupTokens(card.cardData.extraDescription, card));
         }
 
         if (card.cardData.instantaneous)
@@ -998,22 +877,40 @@ public class UIController : MonoBehaviour
         return popupTexts;
     }
 
-    public void ChangeToggle(bool isOn)
+    public void ChangeVsyncToggle(bool isOn)
     {
         QualitySettings.vSyncCount = isOn ? 1 : 0;
         data.vsyncEnabled = isOn;
-        UpdateToggleImages(isOn);
+        UpdateVsyncToggleImages(isOn);
+    }
+    public void ChangeCardDescToggle(bool isOn)
+    {
+        cardDescOn = isOn;
+        data.cardDescEnabled = isOn;
+        UpdateCardDescToggleImages(isOn);
     }
 
-    public void UpdateToggleImages(bool isOn)
+    public void UpdateVsyncToggleImages(bool isOn)
     {
         if(isOn)
         {
-            vsyncToggleImage.sprite = vsyncConfirm;
+            vsyncToggleImage.sprite = toggleConfirm;
         }
         else
         {
-            vsyncToggleImage.sprite = vsyncDeny;
+            vsyncToggleImage.sprite = toggleDeny;
+        }
+    }
+
+    public void UpdateCardDescToggleImages(bool isOn)
+    {
+        if (isOn)
+        {
+            cardDescToggleImage.sprite = toggleConfirm;
+        }
+        else
+        {
+            cardDescToggleImage.sprite = toggleDeny;
         }
     }
 
