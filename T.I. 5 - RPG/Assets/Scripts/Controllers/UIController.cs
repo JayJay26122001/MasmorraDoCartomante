@@ -168,7 +168,10 @@ public class UIController : MonoBehaviour
         {
             ContinueButton(false);
         }
-        relativeInfocardPos = enemyDesc.transform.position - CameraController.instance.cameras[3].transform.position;
+        if(enemyDesc != null)
+        {
+            relativeInfocardPos = enemyDesc.transform.position - CameraController.instance.cameras[3].transform.position;
+        }
     }
 
     private void Update()
