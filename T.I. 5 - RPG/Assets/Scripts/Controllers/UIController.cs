@@ -92,6 +92,7 @@ public class UIController : MonoBehaviour
     GameObject activeMask;
     int currentMaskIndex = 0;
     bool isMaskRotating = false;
+    Vector3 relativeInfocardPos;
     [HideInInspector] public bool cardDescOn = false;
 
     [Header("Enemy Description")]
@@ -167,6 +168,7 @@ public class UIController : MonoBehaviour
         {
             ContinueButton(false);
         }
+        relativeInfocardPos = enemyDesc.transform.position - CameraController.instance.cameras[3].transform.position;
     }
 
     private void Update()
@@ -941,13 +943,19 @@ public class UIController : MonoBehaviour
     {
         isEnemyDescOn = true;
         enemyDesc.SetActive(true);
+        Vector3 camPos = Camera.main.transform.position;
+        Vector3 worldPos = relativeInfocardPos + camPos;
+        Vector3 cardPos = new Vector3(enemyDescOutPos.transform.position.x, worldPos.y, worldPos.z);
+        enemyDesc.transform.position = cardPos;
+        enemyDescPos.position = cardPos + transform.right * -37.5f;
         LeanTween.move(enemyDesc, enemyDescPos, 0.2f);
     }
 
     public void HideEnemyDesc()
     {
         isEnemyDescOn = false;
-        LeanTween.move(enemyDesc, enemyDescOutPos, 0.2f).setOnComplete(() =>
+        Vector3 outPos = enemyDesc.transform.position + transform.right * 37.5f;
+        LeanTween.move(enemyDesc, outPos, 0.2f).setOnComplete(() =>
         {
             enemyDesc.SetActive(false);
         });
