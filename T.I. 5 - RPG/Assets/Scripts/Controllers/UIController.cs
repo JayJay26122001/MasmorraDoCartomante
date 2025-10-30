@@ -135,12 +135,10 @@ public class UIController : MonoBehaviour
         {
             SaveManager.LoadConfig();
             ConfigUpdate();
-            Debug.Log("Your Configs!");
         }
         else
         {
             data = new ConfigData(0, 0, -7.5f, -7.5f, -7.5f, false, false);
-            Debug.Log("Game Configs");
         }
         EventSystem.current.SetSelectedGameObject(continueButton);
         SetDefaultVol();
