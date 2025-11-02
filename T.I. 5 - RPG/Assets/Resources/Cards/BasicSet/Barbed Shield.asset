@@ -19,7 +19,6 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Barbed Shield
-  hidden: 0
   limited: 0
   instantaneous: 0
   cost: 1
@@ -28,6 +27,8 @@ MonoBehaviour:
   Rarity: 1
   Description: "Gain v[0]{Shield} Shield. Until the next turn, if the Shield is hit
     but isn\u2019t broke, Deal v[1]{Damage} Damage."
+  extraDescription: 
+  CardImage: {fileID: 21300000, guid: b29514a69910e3c4ba713623a1b82caf, type: 3}
   references:
     version: 2
     RefIds:
@@ -40,6 +41,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseDamage: 1
         DamageMultiplier:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -60,7 +62,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 0.6
           min: 0
           max: 0
@@ -88,6 +89,7 @@ MonoBehaviour:
         Repeatable: 0
         TurnOwner: 1
         TurnsFromNow:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -108,7 +110,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 0
           min: 0
           max: 0
@@ -123,6 +124,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseShield: 1
         ShieldMultiplier:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -143,7 +145,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 0.8
           min: 0
           max: 0

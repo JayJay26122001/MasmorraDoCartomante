@@ -20348,7 +20348,7 @@ MonoBehaviour:
   hand: []
   playedCards: []
   exausted: []
-  maxHP: 40
+  maxHP: 35
   hp: 0
   shld: 0
   energy: 0
@@ -57366,7 +57366,7 @@ MonoBehaviour:
   hand: []
   playedCards: []
   exausted: []
-  maxHP: 70
+  maxHP: 60
   hp: 0
   shld: 0
   energy: 0
@@ -68884,7 +68884,7 @@ PrefabInstance:
     - target: {fileID: 8600334532679669422, guid: 9bfcaa0b2dd516849ae3e04865d7955b, type: 3}
       propertyPath: 'StarterUnlockedCards.Array.data[4]'
       value: 
-      objectReference: {fileID: 11400000, guid: fef2e4abbf70cb34cb049f97182832fe, type: 2}
+      objectReference: {fileID: 11400000, guid: 64fd16d97b8342c42927177fdd16e6ae, type: 2}
     - target: {fileID: 8600334532679669422, guid: 9bfcaa0b2dd516849ae3e04865d7955b, type: 3}
       propertyPath: 'StarterUnlockedCards.Array.data[5]'
       value: 

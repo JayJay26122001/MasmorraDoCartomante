@@ -30,7 +30,7 @@ MonoBehaviour:
   Description: Deals v[0]{Damage} Damage. Having 33% Chance to Retrigger for each
     Card the User plays after it during this Turn.
   extraDescription: 
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: 16f38d38eec3217428b5866c01f97295, type: 3}
   references:
     version: 2
     RefIds:

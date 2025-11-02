@@ -26,6 +26,7 @@ MonoBehaviour:
   Description: Change the Cost of the User's Cards on the Table between 0-3 for the
     rest of the Duel.
   extraDescription: 
+  CardImage: {fileID: 21300000, guid: 98d52c785ce6ace48a4c6d121b5138c9, type: 3}
   references:
     version: 2
     RefIds:
