@@ -57366,7 +57366,7 @@ MonoBehaviour:
   hand: []
   playedCards: []
   exausted: []
-  maxHP: 60
+  maxHP: 70
   hp: 0
   shld: 0
   energy: 0
