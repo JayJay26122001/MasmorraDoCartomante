@@ -4,6 +4,8 @@ using System;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEngine.Events;
+
 
 
 #if UNITY_EDITOR
@@ -33,6 +35,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
     public GameObject outline;
     Interactable interactable;
     public ControlUI playCard, zoomIn, zoomOut, removeCard, cloneCard, addCard;
+    [NonSerialized]public UnityEvent DisaperanceAnimationEnded = new UnityEvent();
     public struct Token
     {
         public int index;
@@ -394,6 +397,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
             if ((t >= 1 && disappearing) || (t <= 0 && !disappearing))
             {
                 inAnimation = false;
+                DisaperanceAnimationEnded.Invoke();
             }
             if (t >= 0.8 && disappearing)
             {

@@ -252,13 +252,13 @@ public class Creature : MonoBehaviour
     }
     public void DiscardCard(Card card)
     {
-        if (card.deck.DiscardPile.Contains(card))
+        if (card.deck.DiscardPile.Contains(card) || exausted.Contains(card))
         {
             return;
         }
         foreach (Effect e in card.Effects)
         {
-            if (/*e.effectStarted &&*/ !e.EffectAcomplished)
+            if (/*e.effectStarted &&*/ !e.EffectAcomplished && e.effectStarted)
             {
                 e.EffectEnded();
             }
@@ -305,24 +305,29 @@ public class Creature : MonoBehaviour
     }
     public void ExaustCard(Card card)
     {
+        if(exausted.Contains(card)) return;
+        exausted.Add(card);
+        card.cardDisplay.DisaperanceAnimationEnded.RemoveAllListeners();
         card.cardDisplay.CardDisapearanceAnimation(true);
+        card.cardDisplay.DisaperanceAnimationEnded.AddListener(ExaustAction);
 
-        ActionController.instance.InvokeTimer(ExaustAction, 0.5f);
+        //ActionController.instance.InvokeTimer(ExaustAction, 0.5f);
         void ExaustAction()
         {
             hand.Remove(card);
             card.deck.DiscardPile.Remove(card);
             card.deck.BuyingPile.Remove(card);
             playedCards.Remove(card);
-            exausted.Add(card);
+            //exausted.Add(card);
             card.cardDisplay.gameObject.SetActive(false);
             CardUIController.OrganizePlayedCards(this);
         }
     }
     public void RevertExaust(Card card)
     {
-        if (!card.cardDisplay.gameObject.activeSelf)
+        if (/*!card.cardDisplay.gameObject.activeSelf &&*/ exausted.Contains(card))
         {
+            card.cardDisplay.DisaperanceAnimationEnded.RemoveAllListeners();
             card.cardDisplay.gameObject.SetActive(true);
             card.cardDisplay.CardDisapearanceAnimation(false);
             card.deck.DiscardPile.Add(card);
@@ -461,8 +466,8 @@ public class Creature : MonoBehaviour
         List<Card> auxExaust = exausted.ToList();
         foreach (Card c in auxExaust)
         {
+            //DiscardCard(c);
             RevertExaust(c);
-            DiscardCard(c);
         }
         ShuffleAllDecks();
     }
