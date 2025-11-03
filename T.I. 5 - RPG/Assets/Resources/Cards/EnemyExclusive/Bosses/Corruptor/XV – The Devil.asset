@@ -26,6 +26,7 @@ MonoBehaviour:
   Description: Deals v[0]{Damage} Random Damage.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: f94f1a9e016337b4eb1608a7cd5c43d5, type: 3}
+  id: 36
   references:
     version: 2
     RefIds:

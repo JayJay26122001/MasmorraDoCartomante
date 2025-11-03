@@ -28,6 +28,7 @@ MonoBehaviour:
     until the End of the Duel.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 7575da6ed7beb5e4c8e0c6192cac5674, type: 3}
+  id: 17
   references:
     version: 2
     RefIds:

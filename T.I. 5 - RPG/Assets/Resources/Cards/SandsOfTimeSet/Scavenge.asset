@@ -26,6 +26,7 @@ MonoBehaviour:
   Description: Instances 3 copies of Pile of Bones in Hand.
   extraDescription: 'Pile of Bones: Gain 3 Shield with 0 Energy Cost.'
   CardImage: {fileID: 0}
+  id: 94
   references:
     version: 2
     RefIds:

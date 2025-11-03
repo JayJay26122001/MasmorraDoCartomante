@@ -28,6 +28,7 @@ MonoBehaviour:
     Turn.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 7f37a0a6735b28d459569db2c22eb212, type: 3}
+  id: 76
   references:
     version: 2
     RefIds:

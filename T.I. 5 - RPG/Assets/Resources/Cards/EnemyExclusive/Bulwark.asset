@@ -28,6 +28,7 @@ MonoBehaviour:
     Shield.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 4667f36e4fa72b149ba55eb30dc3c13f, type: 3}
+  id: 55
   references:
     version: 2
     RefIds:

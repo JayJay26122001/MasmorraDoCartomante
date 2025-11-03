@@ -26,6 +26,7 @@ MonoBehaviour:
   Description: Deals v[0]{Damage} Damage, ignores Shield.
   extraDescription: 
   CardImage: {fileID: 0}
+  id: 3
   references:
     version: 2
     RefIds:

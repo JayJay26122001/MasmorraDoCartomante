@@ -28,6 +28,7 @@ MonoBehaviour:
     the Opponent\u2019s Turn."
   extraDescription: 
   CardImage: {fileID: 0}
+  id: 5
   references:
     version: 2
     RefIds:

@@ -29,6 +29,7 @@ MonoBehaviour:
     After it, deplets the User\u2019s Energy."
   extraDescription: 
   CardImage: {fileID: 0}
+  id: 56
   references:
     version: 2
     RefIds:

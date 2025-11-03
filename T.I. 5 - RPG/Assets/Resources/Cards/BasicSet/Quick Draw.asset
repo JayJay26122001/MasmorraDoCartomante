@@ -28,6 +28,7 @@ MonoBehaviour:
     Damage.
   extraDescription: 
   CardImage: {fileID: 0}
+  id: 23
   references:
     version: 2
     RefIds:

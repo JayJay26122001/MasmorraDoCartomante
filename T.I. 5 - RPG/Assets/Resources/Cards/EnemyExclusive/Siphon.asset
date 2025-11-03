@@ -30,6 +30,7 @@ MonoBehaviour:
     this Turn. If Takes Health, Heal 6 Health.
   extraDescription: 
   CardImage: {fileID: 0}
+  id: 68
   references:
     version: 2
     RefIds:

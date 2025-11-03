@@ -28,6 +28,7 @@ MonoBehaviour:
     Barrage in Hand.
   extraDescription: 'Cannon Barrage: Deals 9 Damage, ignores Shield. LIMITED'
   CardImage: {fileID: 0}
+  id: 7
   references:
     version: 2
     RefIds:

@@ -26,6 +26,7 @@ MonoBehaviour:
   Description: Discard 4 Cards from the Top of the User's Buying Pile.
   extraDescription: 
   CardImage: {fileID: 0}
+  id: 93
   references:
     version: 2
     RefIds:

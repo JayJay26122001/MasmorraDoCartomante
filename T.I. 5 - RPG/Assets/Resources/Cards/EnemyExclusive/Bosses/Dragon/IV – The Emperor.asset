@@ -28,6 +28,7 @@ MonoBehaviour:
     next turn."
   extraDescription: 
   CardImage: {fileID: 21300000, guid: ed2010ce6a4410647aad940f9757f6e2, type: 3}
+  id: 40
   references:
     version: 2
     RefIds:

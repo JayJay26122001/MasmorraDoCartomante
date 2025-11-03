@@ -28,6 +28,7 @@ MonoBehaviour:
   Description: Deals v[0]{Damage} Damage. If Blocked, return the Damage to the User.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 02731295f60411a419324451266d9d91, type: 3}
+  id: 52
   references:
     version: 2
     RefIds:

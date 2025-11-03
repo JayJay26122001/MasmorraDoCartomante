@@ -30,6 +30,7 @@ MonoBehaviour:
     Cards.
   extraDescription: 
   CardImage: {fileID: 0}
+  id: 87
   references:
     version: 2
     RefIds:

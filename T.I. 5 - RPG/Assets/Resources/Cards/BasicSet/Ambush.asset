@@ -28,6 +28,7 @@ MonoBehaviour:
     Opponent have Shield.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 4d4eb7beabda6fa44abe5a9b2f0abe6d, type: 3}
+  id: 0
   references:
     version: 2
     RefIds:

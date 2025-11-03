@@ -28,6 +28,7 @@ MonoBehaviour:
     the Discard Pile after (v[0]{Damage}).
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 6caba3dc3ebf4ac43adc94790788bea3, type: 3}
+  id: 35
   references:
     version: 2
     RefIds:

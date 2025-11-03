@@ -29,6 +29,7 @@ MonoBehaviour:
     the User's Current Turn.
   extraDescription: 
   CardImage: {fileID: 0}
+  id: 100
   references:
     version: 2
     RefIds:

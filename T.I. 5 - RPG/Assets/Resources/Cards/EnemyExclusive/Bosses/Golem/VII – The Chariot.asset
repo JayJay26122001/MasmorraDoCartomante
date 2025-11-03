@@ -26,6 +26,7 @@ MonoBehaviour:
   Description: 'Gain v[0]{Shield} Shield. '
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 2e433cbcb88297745aaa86bd09f7ae5d, type: 3}
+  id: 46
   references:
     version: 2
     RefIds:

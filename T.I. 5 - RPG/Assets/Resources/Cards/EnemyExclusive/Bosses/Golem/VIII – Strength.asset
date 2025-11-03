@@ -28,6 +28,7 @@ MonoBehaviour:
     the User's Next Turn."
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 6e8a2d4211252f7498b0a4573d8a8d52, type: 3}
+  id: 47
   references:
     version: 2
     RefIds:

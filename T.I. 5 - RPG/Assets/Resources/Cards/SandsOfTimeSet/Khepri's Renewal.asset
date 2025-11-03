@@ -26,6 +26,7 @@ MonoBehaviour:
   Description: Converts All Limited Cards in the User's Buying Pile into Normal Cards.
   extraDescription: 
   CardImage: {fileID: 0}
+  id: 88
   references:
     version: 2
     RefIds:

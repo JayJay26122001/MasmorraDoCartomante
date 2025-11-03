@@ -44,6 +44,7 @@ MonoBehaviour:
     6-
     Heal 5 Health from the Opponent'
   CardImage: {fileID: 21300000, guid: ba9bb17d81b2a2d43afb69f4c57ecc34, type: 3}
+  id: 43
   references:
     version: 2
     RefIds:

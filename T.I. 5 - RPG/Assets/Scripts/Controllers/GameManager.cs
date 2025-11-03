@@ -20,48 +20,42 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        if(UnlockedCards.Count == 0)
+        if (UnlockedCards.Count == 0)
         {
             UnlockedCards = StarterUnlockedCards.ToList();
         }
         DontDestroyOnLoad(this.gameObject);
     }
-
+    #if UNITY_EDITOR
     [ContextMenu("Update Cards")]
     void UpdateCards()
     {
         foreach (Card c in GameCards)
         {
             c.ChangeID(-1);
-#if UNITY_EDITOR
-            UnityEditor.EditorUtility.SetDirty(c); // Marks the card as modified so Unity saves it
-#endif
+
+            EditorUtility.SetDirty(c); // Marks the card as modified so Unity saves it
         }
         Card[] aux = Resources.LoadAll<Card>("");
         GameCards = aux.ToList();
         UpdateIDs();
     }
-    
     void UpdateIDs()
     {
         for (int i = 0; i < GameCards.Count; i++)
         {
             GameCards[i].ChangeID(i);
-#if UNITY_EDITOR
             EditorUtility.SetDirty(GameCards[i]); // Marks the card as modified so Unity saves it
-#endif
+
         }
-        #if UNITY_EDITOR
-        AssetDatabase.SaveAssets();
-        AssetDatabase.Refresh();
-        #endif
 
     }
-
     void OnValidate()
     {
         UpdateIDs();
     }
+    #endif
+
     public void UnlockCard(Card cardPreset)
     {
         if (!UnlockedCards.Contains(cardPreset) && GameCards.Contains(cardPreset))

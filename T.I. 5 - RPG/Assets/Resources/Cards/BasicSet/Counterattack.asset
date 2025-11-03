@@ -29,6 +29,7 @@ MonoBehaviour:
     Damage and gains v[1]{Shield} Shield.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 03f58515aca78f44ea373cec04ecf022, type: 3}
+  id: 6
   references:
     version: 2
     RefIds:

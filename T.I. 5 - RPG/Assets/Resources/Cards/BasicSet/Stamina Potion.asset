@@ -26,6 +26,7 @@ MonoBehaviour:
   Description: Gain 2 Extra Energy Next Turn.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 381fbd7e7b255ad4b8dd5c82daf1e0e4, type: 3}
+  id: 30
   references:
     version: 2
     RefIds:

@@ -28,6 +28,7 @@ MonoBehaviour:
     the Opponent's Discard Pile is Destroyed.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 34e235524216be542a874dc0941160b4, type: 3}
+  id: 53
   references:
     version: 2
     RefIds:

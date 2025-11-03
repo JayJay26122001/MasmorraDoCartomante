@@ -27,6 +27,7 @@ MonoBehaviour:
   Description: Makes the User and Opponent unable to Buy Cards during the Next Turn.
   extraDescription: 
   CardImage: {fileID: 0}
+  id: 58
   references:
     version: 2
     RefIds:

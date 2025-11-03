@@ -26,6 +26,7 @@ MonoBehaviour:
   Description: Gain v[0]{Shield} Shield in the User's Next Turn.
   extraDescription: 
   CardImage: {fileID: 0}
+  id: 70
   references:
     version: 2
     RefIds:

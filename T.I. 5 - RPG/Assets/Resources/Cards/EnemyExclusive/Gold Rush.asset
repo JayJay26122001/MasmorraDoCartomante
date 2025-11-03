@@ -31,6 +31,7 @@ MonoBehaviour:
     if the User's Health is Higher than the Opponent's.
   extraDescription: 
   CardImage: {fileID: 0}
+  id: 57
   references:
     version: 2
     RefIds:

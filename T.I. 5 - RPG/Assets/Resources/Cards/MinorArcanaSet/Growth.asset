@@ -27,6 +27,7 @@ MonoBehaviour:
   Description: User Cards gain +2 Damage and Shield this Turn.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 13c00c302885c774194e811792a4787b, type: 3}
+  id: 73
   references:
     version: 2
     RefIds:

@@ -28,6 +28,7 @@ MonoBehaviour:
     boost the User's Damage by x1.3 in the User's Turn after that.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: bece3672533acdd4a99aac7e98f1ad48, type: 3}
+  id: 51
   references:
     version: 2
     RefIds:

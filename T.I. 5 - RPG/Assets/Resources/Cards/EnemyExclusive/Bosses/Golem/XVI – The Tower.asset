@@ -28,6 +28,7 @@ MonoBehaviour:
     the start of the User's Next Turn.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 468288f62ebf88246883079410febe7b, type: 3}
+  id: 48
   references:
     version: 2
     RefIds:

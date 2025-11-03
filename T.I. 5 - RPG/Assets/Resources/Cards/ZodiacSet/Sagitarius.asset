@@ -28,6 +28,7 @@ MonoBehaviour:
     half Shield gains.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 2dfc13a73bd5b234da96aae915107972, type: 3}
+  id: 107
   references:
     version: 2
     RefIds:

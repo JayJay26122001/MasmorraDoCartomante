@@ -27,6 +27,7 @@ MonoBehaviour:
   Description: Discard All Mind Cards placed on the Table.
   extraDescription: 
   CardImage: {fileID: 0}
+  id: 27
   references:
     version: 2
     RefIds:

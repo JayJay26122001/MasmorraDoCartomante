@@ -27,6 +27,7 @@ MonoBehaviour:
   Description: Gain v[0]{Shield} Shield and gives 10% Damage Reduction.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 47914a0f43deb544081ce1b70ce9fefd, type: 3}
+  id: 29
   references:
     version: 2
     RefIds:

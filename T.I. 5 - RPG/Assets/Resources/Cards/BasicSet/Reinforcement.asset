@@ -29,6 +29,7 @@ MonoBehaviour:
     with after (v[0]{Shield}). '
   extraDescription: 
   CardImage: {fileID: 0}
+  id: 25
   references:
     version: 2
     RefIds:

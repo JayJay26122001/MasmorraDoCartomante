@@ -29,6 +29,7 @@ MonoBehaviour:
   extraDescription: 'Poor Man''s Downfall: Give 3 Coins to the Opponent, if the User
     doesn''t have enough Coins, take 6 Damage.'
   CardImage: {fileID: 21300000, guid: 83e8e2496243810448c211b58e7ea098, type: 3}
+  id: 38
   references:
     version: 2
     RefIds:

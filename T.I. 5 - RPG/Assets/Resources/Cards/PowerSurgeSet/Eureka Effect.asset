@@ -29,6 +29,7 @@ MonoBehaviour:
     the attack, Heal 3 Health for each Energy the User have remaining.
   extraDescription: 
   CardImage: {fileID: 0}
+  id: 82
   references:
     version: 2
     RefIds:

@@ -29,6 +29,7 @@ MonoBehaviour:
     but isn\u2019t broke, Deal v[1]{Damage} Damage."
   extraDescription: 
   CardImage: {fileID: 21300000, guid: b29514a69910e3c4ba713623a1b82caf, type: 3}
+  id: 1
   references:
     version: 2
     RefIds:

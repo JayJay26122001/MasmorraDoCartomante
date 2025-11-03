@@ -28,6 +28,7 @@ MonoBehaviour:
     less than 10 health remaining.
   extraDescription: 
   CardImage: {fileID: 0}
+  id: 10
   references:
     version: 2
     RefIds:

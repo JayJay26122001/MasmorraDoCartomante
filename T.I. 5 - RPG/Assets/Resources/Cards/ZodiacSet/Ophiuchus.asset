@@ -28,6 +28,7 @@ MonoBehaviour:
   Description: 'Doubles the User''s Attack and Shield effects, and 3 Extra Energy. '
   extraDescription: 
   CardImage: {fileID: 21300000, guid: b77a9ec0521d1b243804a413b3bd4be1, type: 3}
+  id: 105
   references:
     version: 2
     RefIds:

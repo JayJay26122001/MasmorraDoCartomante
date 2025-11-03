@@ -33,6 +33,7 @@ MonoBehaviour:
     remove -3 Energy from who took Damage on the Next Turn.
   extraDescription: 
   CardImage: {fileID: 0}
+  id: 81
   references:
     version: 2
     RefIds:

@@ -27,6 +27,7 @@ MonoBehaviour:
   Description: Gain v[0]{Shield} Shield, but makes the User Skip its Next Turn.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 9a99473ae7cbd2d4bb253526a0861378, type: 3}
+  id: 8
   references:
     version: 2
     RefIds:

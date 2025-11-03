@@ -28,6 +28,7 @@ MonoBehaviour:
     take v[0]{Damage} Damage.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 465ebf629dea7754d9a89f356710c1e5, type: 3}
+  id: 42
   references:
     version: 2
     RefIds:

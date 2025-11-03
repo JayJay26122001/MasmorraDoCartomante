@@ -26,11 +26,12 @@ public class Card : ScriptableObject
     [NonSerialized] public bool Temporary = false;
     [TextArea] public string Description, extraDescription;
     public Sprite CardImage;
-    public int ID { get; private set; } = -1;
+    [SerializeField] private int id = -1;
+    public int ID { get { return id; } }
     public void ChangeID(int value)
     {
         if (value < -1) return;
-        ID = value;
+        id = value;
     }
     public void Setup() // chamado quando uma carta é adicionada ao deck
     {
