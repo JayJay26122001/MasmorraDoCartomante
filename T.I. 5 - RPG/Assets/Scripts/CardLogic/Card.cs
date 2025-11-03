@@ -26,8 +26,12 @@ public class Card : ScriptableObject
     [NonSerialized] public bool Temporary = false;
     [TextArea] public string Description, extraDescription;
     public Sprite CardImage;
-    //public List<Condition.condition> conditions = new List<Condition.condition>();
-    //List<Condition> conds = new List<Condition>();
+    public int ID { get; private set; } = -1;
+    public void ChangeID(int value)
+    {
+        if (value < -1) return;
+        ID = value;
+    }
     public void Setup() // chamado quando uma carta é adicionada ao deck
     {
         /*foreach (Condition.condition c in conditions)

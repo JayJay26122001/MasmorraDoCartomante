@@ -29,12 +29,36 @@ public class GameManager : MonoBehaviour
     [ContextMenu("Update Cards")]
     void UpdateCards()
     {
+        foreach (Card c in GameCards)
+        {
+            c.ChangeID(-1);
+#if UNITY_EDITOR
+            UnityEditor.EditorUtility.SetDirty(c); // Marks the card as modified so Unity saves it
+#endif
+        }
         Card[] aux = Resources.LoadAll<Card>("");
         GameCards = aux.ToList();
+        UpdateIDs();
+    }
+    
+    void UpdateIDs()
+    {
+        for (int i = 0; i < GameCards.Count; i++)
+        {
+            GameCards[i].ChangeID(i);
+#if UNITY_EDITOR
+            UnityEditor.EditorUtility.SetDirty(GameCards[i]); // Marks the card as modified so Unity saves it
+#endif
+        }
+    }
+
+    void OnValidate()
+    {
+        UpdateIDs();
     }
     public void UnlockCard(Card cardPreset)
     {
-        if (!UnlockedCards.Contains(cardPreset))
+        if (!UnlockedCards.Contains(cardPreset) && GameCards.Contains(cardPreset))
         {
             UnlockedCards.Add(cardPreset);
         }

@@ -18,6 +18,8 @@ public class CardEditor : Editor
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
+        Card card = (Card)target;
+        EditorGUILayout.LabelField("Card ID: " + card.ID.ToString(), EditorStyles.boldLabel);
         // Draw the rest of the fields except 'Effects'
         DrawPropertiesExcluding(serializedObject, "Effects");
 
