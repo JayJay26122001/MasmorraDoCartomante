@@ -51513,7 +51513,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 666577884}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: ChangeMasterVolume
         m_Mode: 1
@@ -52482,7 +52482,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 666577884}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: ChangeRes
         m_Mode: 1
@@ -57730,7 +57730,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 666577884}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: ChangeSFXVolume
         m_Mode: 1
@@ -58185,7 +58185,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 666577884}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: ChangeMusicVolume
         m_Mode: 1
