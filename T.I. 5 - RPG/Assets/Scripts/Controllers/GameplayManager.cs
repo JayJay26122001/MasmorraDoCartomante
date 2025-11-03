@@ -108,6 +108,8 @@ public class GameplayManager : MonoBehaviour
                 DefineStarterPacks();
             }
         }
+        SaveManager.LoadUnlockedCards();
+
     }
 
     public void SaveStart(bool loaded)
@@ -354,6 +356,7 @@ public class GameplayManager : MonoBehaviour
         { 
             bg.MovementChange(false);
             SaveManager.SavePlayer();
+            SaveManager.SaveUnlockedCards();
         });
     }
     public void MovePiece(Action act, Vector3 pos)

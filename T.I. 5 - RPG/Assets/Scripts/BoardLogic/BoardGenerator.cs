@@ -187,6 +187,7 @@ public class BoardGenerator : MonoBehaviour
         SaveManager.SaveBoard();
         InstantiateBoard(false);
         ActionController.instance.InvokeTimer(SaveManager.SavePlayer, 0.05f);
+        ActionController.instance.InvokeTimer(SaveManager.SaveUnlockedCards, 0.05f);
     }
 
     public bool VerifyCanMerge(BoardRoom room, int i, int j)

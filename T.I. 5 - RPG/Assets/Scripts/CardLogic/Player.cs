@@ -136,6 +136,7 @@ public class Player : Creature
     public override void Die()
     {
         GameManager.instance.uiController.ChangeScene("GameOver");
+        SaveManager.DeleteGameSaves();
     }
     public bool ChangeMoney(int quantity)
     {

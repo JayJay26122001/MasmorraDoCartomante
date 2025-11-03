@@ -194,6 +194,7 @@ public class Combat : MonoBehaviour
             else
             {
                 GameManager.instance.uiController.ChangeScene("Victory"); //TEMPORÁRIO
+                SaveManager.DeleteGameSaves();
             }
         }
         GameplayManager.instance.CombatActive = false;

@@ -5,7 +5,6 @@ using System;
 [Serializable]
 public class PlayerData
 {
-    public List<string> unlockedCards;
     public List<string> playerDeckCards;
     public Vector3 boardPos;
     public Vector3 piecePos;

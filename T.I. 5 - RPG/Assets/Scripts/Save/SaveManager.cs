@@ -11,15 +11,6 @@ public class SaveManager : MonoBehaviour
     {
         PlayerData data = new PlayerData();
 
-        //Unlocked Cards Infos
-        data.unlockedCards = new List<string>();
-        foreach (Card card in GameManager.instance.UnlockedCards)
-        {
-            string cardName = card.Name;    
-            data.unlockedCards.Add(cardName);
-            //int cardIndex = GameManager.instance.GameCards.IndexOf(card);
-        }
-
         //Player Deck Infos
         data.playerDeckCards = new List<string>();
         foreach (Deck deck in GameplayManager.instance.player.decks)
@@ -63,20 +54,6 @@ public class SaveManager : MonoBehaviour
 
     public static void DataToPlayer(Player player, PlayerData data)
     {
-        //Unlocked Cards
-        GameManager.instance.UnlockedCards.Clear();
-        /*foreach (int index in data.unlockedCards)
-        {
-            GameManager.instance.UnlockedCards.Add(GameManager.instance.GameCards[index]);
-        }*/
-        foreach (Card card in GameManager.instance.GameCards)
-        {
-            if(data.unlockedCards.Contains(card.Name))
-            {
-                GameManager.instance.UnlockedCards.Add(card);
-            }
-        }
-
         //Player Deck
         player.decks.Clear();
         Deck newDeck = ScriptableObject.CreateInstance<Deck>();
@@ -107,6 +84,32 @@ public class SaveManager : MonoBehaviour
         GameManager.instance.uiController.UpdateMoney(player.Money);
         player.Health = data.hp;
         GameplayManager.instance.UpdateCreatureUI(player);
+    }
+
+    public static UnlockedCardsData GetUnlockedCardsData()
+    {
+        UnlockedCardsData data = new UnlockedCardsData();
+
+        data.unlockedCards = new List<string>();
+        foreach (Card card in GameManager.instance.UnlockedCards)
+        {
+            string cardName = card.Name;
+            data.unlockedCards.Add(cardName);
+            //int cardIndex = GameManager.instance.GameCards.IndexOf(card);
+        }
+        return data;
+    }
+
+    public static void DataToUnlockedCards(UnlockedCardsData data)
+    {
+        GameManager.instance.UnlockedCards.Clear();
+        foreach (Card card in GameManager.instance.GameCards)
+        {
+            if (data.unlockedCards.Contains(card.Name))
+            {
+                GameManager.instance.UnlockedCards.Add(card);
+            }
+        }
     }
 
     public static BoardData GetBoardData()
@@ -202,6 +205,13 @@ public class SaveManager : MonoBehaviour
         File.WriteAllText(Application.dataPath + "/playerSave.json", pSave);
     }
 
+    public static void SaveUnlockedCards()
+    {
+        UnlockedCardsData ucData = GetUnlockedCardsData();
+        string ucSave = JsonUtility.ToJson(ucData);
+        File.WriteAllText(Application.dataPath + "/unlockedCardsSave.json", ucSave);
+    }
+
     public static void SaveConfig()
     {
         string s = JsonUtility.ToJson(GameManager.instance.uiController.data);
@@ -210,20 +220,49 @@ public class SaveManager : MonoBehaviour
 
     public static void LoadBoard(BoardGenerator board)
     {
-        string bSave = File.ReadAllText(Application.dataPath + "/boardSave.json");
+        string path = Application.dataPath + "/boardSave.json";
+        if (!File.Exists(path)) return;
+        string bSave = File.ReadAllText(path);
         BoardData data = JsonUtility.FromJson<BoardData>(bSave);
         DataToBoard(board, data);
     }
     public static void LoadPlayer(Player player)
     {
-        string pSave = File.ReadAllText(Application.dataPath + "/playerSave.json");
+        string path = Application.dataPath + "/playerSave.json";
+        if (!File.Exists(path)) return;
+        string pSave = File.ReadAllText(path);
         PlayerData data = JsonUtility.FromJson<PlayerData>(pSave);
         DataToPlayer(player, data);
     }
 
+    public static void LoadUnlockedCards()
+    {
+        string path = Application.dataPath + "/unlockedCardsSave.json";
+        if (!File.Exists(path)) return;
+        string ucSave = File.ReadAllText(path);
+        UnlockedCardsData data = JsonUtility.FromJson<UnlockedCardsData>(ucSave);
+        DataToUnlockedCards(data);
+    }
+
     public static void LoadConfig()
     {
-        string s = File.ReadAllText(Application.dataPath + "/configSave.json");
+        string path = Application.dataPath + "/configSave.json";
+        if (!File.Exists(path)) return;
+        string s = File.ReadAllText(path);
         GameManager.instance.uiController.data = JsonUtility.FromJson<ConfigData>(s);
+    }
+
+    public static void DeleteGameSaves()
+    {
+        string boardPath = Application.dataPath + "/boardSave.json";
+        string playerPath = Application.dataPath + "/playerSave.json";
+        if(File.Exists(boardPath))
+        {
+            File.Delete(Application.dataPath + "/boardSave.json");
+        }
+        if(File.Exists(playerPath))
+        {
+            File.Delete(Application.dataPath + "/playerSave.json");
+        }
     }
 }
