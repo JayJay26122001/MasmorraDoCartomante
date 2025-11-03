@@ -18,7 +18,6 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Concentration
-  hidden: 0
   limited: 0
   instantaneous: 0
   cost: 1
@@ -27,6 +26,8 @@ MonoBehaviour:
   Rarity: 1
   Description: "Deals v[0]{Damage} Damage if the User doesn\u2019t take Damage on
     the Opponent\u2019s Turn."
+  extraDescription: 
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:
@@ -39,6 +40,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseDamage: 1
         DamageMultiplier:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -59,7 +61,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 1.8
           min: 0
           max: 0
@@ -80,6 +81,7 @@ MonoBehaviour:
         Repeatable: 0
         TurnOwner: 1
         TurnsFromNow:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -100,7 +102,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 0
           min: 0
           max: 0

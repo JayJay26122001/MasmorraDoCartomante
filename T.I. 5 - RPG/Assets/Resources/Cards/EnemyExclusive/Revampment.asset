@@ -20,12 +20,13 @@ MonoBehaviour:
   Name: Revampment
   limited: 0
   instantaneous: 0
-  extraDesc: 0
   cost: 2
   Type: 1
   Pack: 2
   Rarity: 2
   Description: Gain v[0]{Shield} Shield and Heal 8 Health.
+  extraDescription: 
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:

@@ -29,6 +29,7 @@ MonoBehaviour:
   Description: Deals v[0]{Damage} Damage and makes the Opponent take 25% More Damage
     this Turn. If Takes Health, Heal 6 Health.
   extraDescription: 
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:

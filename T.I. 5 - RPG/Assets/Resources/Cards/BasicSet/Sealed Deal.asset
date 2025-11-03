@@ -20,12 +20,13 @@ MonoBehaviour:
   Name: Sealed Deal
   limited: 0
   instantaneous: 1
-  extraDesc: 0
   cost: 2
   Type: 2
   Pack: 0
   Rarity: 3
   Description: Discard All Mind Cards placed on the Table.
+  extraDescription: 
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:

@@ -19,12 +19,13 @@ MonoBehaviour:
   Name: Magic Hand
   limited: 1
   instantaneous: 0
-  extraDesc: 0
   cost: 1
   Type: 2
   Pack: 5
   Rarity: 3
   Description: Turns the Next Card the Opponent plays into a Limited Card.
+  extraDescription: 
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:

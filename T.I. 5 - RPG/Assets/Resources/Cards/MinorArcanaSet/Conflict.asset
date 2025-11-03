@@ -18,7 +18,6 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Conflict
-  hidden: 0
   limited: 0
   instantaneous: 0
   cost: 1
@@ -26,6 +25,8 @@ MonoBehaviour:
   Pack: 3
   Rarity: 0
   Description: Deals v[0]{Damage} Damage, but also v[1]{Damage} on the User.
+  extraDescription: 
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:
@@ -37,6 +38,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseDamage: 1
         DamageMultiplier:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -57,7 +59,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 0.5
           min: 0
           max: 0
@@ -72,6 +73,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseDamage: 1
         DamageMultiplier:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -92,7 +94,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 1.2
           min: 0
           max: 0

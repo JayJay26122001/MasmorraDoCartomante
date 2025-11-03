@@ -26,6 +26,7 @@ MonoBehaviour:
   Description: Transform the First Card the User played on the Table into an Instantaneous
     Card.
   extraDescription: 
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:

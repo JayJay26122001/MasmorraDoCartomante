@@ -21,7 +21,6 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Gold Rush
-  hidden: 0
   limited: 0
   instantaneous: 0
   cost: 2
@@ -30,6 +29,8 @@ MonoBehaviour:
   Rarity: 3
   Description: Deals v[0]{Damage} Damage, and Steals 3 Coins if Takes Health. Retriggers
     if the User's Health is Higher than the Opponent's.
+  extraDescription: 
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:
@@ -43,6 +44,7 @@ MonoBehaviour:
         target: 0
         Origin: 1
         amount:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -63,7 +65,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 3
           min: 0
           max: 0
@@ -84,6 +85,7 @@ MonoBehaviour:
         - rid: 6721762184433238100
         MultipliedByBaseDamage: 1
         DamageMultiplier:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -104,7 +106,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 1.2
           min: 0
           max: 0
@@ -115,6 +116,7 @@ MonoBehaviour:
       type: {class: ComparativeConfirmation, ns: , asm: Assembly-CSharp}
       data:
         ObservedValue:
+          type: 3
           target: 0
           ObservedCards:
             target: 0
@@ -135,13 +137,13 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 3
           value: 0
           min: 0
           max: 0
           modifiers: []
         Equation: 0
         Amount:
+          type: 3
           target: 1
           ObservedCards:
             target: 0
@@ -162,7 +164,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 3
           value: 0
           min: 0
           max: 0
@@ -178,6 +179,7 @@ MonoBehaviour:
         target: 0
         Origin: 1
         amount:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -198,7 +200,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 3
           min: 0
           max: 0
@@ -214,6 +215,7 @@ MonoBehaviour:
       type: {class: ComparativeConfirmation, ns: , asm: Assembly-CSharp}
       data:
         ObservedValue:
+          type: 3
           target: 0
           ObservedCards:
             target: 0
@@ -234,13 +236,13 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 3
           value: 0
           min: 0
           max: 0
           modifiers: []
         Equation: 0
         Amount:
+          type: 3
           target: 1
           ObservedCards:
             target: 0
@@ -261,7 +263,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 3
           value: 0
           min: 0
           max: 0
@@ -280,6 +281,7 @@ MonoBehaviour:
         Repeatable: 0
         TurnOwner: 0
         TurnsFromNow:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -300,7 +302,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 0
           min: 0
           max: 0
@@ -315,6 +316,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseDamage: 1
         DamageMultiplier:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -335,7 +337,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 1.2
           min: 0
           max: 0

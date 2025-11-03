@@ -28,6 +28,7 @@ MonoBehaviour:
   Description: Gain v[0]{Shield} Shield, if the Opponent plays an Attack Card, after
     the attack, Heal 3 Health for each Energy the User have remaining.
   extraDescription: 
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:

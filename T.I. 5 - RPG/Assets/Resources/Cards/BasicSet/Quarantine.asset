@@ -26,6 +26,8 @@ MonoBehaviour:
   Rarity: 2
   Description: 33% Damage Reduction. All Damage Sources played after this Card Deals
     0 Damage.
+  extraDescription: 
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:

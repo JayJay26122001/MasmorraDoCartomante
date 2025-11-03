@@ -19,7 +19,6 @@ MonoBehaviour:
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Introspection
-  hidden: 0
   limited: 0
   instantaneous: 0
   cost: 1
@@ -28,6 +27,8 @@ MonoBehaviour:
   Rarity: 1
   Description: Gain v[1]{Shield} Shield. If Blocks Damage, Gain +1 Energy the Next
     Turn.
+  extraDescription: 
+  CardImage: {fileID: 0}
   references:
     version: 2
     RefIds:
@@ -40,6 +41,7 @@ MonoBehaviour:
         - rid: 6721762162139988042
         ConfirmationConditions: []
         Amount:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -60,7 +62,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 1
           min: 0
           max: 0
@@ -81,6 +82,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         MultipliedByBaseShield: 1
         ShieldMultiplier:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -101,7 +103,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 1.4
           min: 0
           max: 0
@@ -121,6 +122,7 @@ MonoBehaviour:
         Repeatable: 0
         TurnOwner: 0
         TurnsFromNow:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -141,7 +143,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 0
           min: 0
           max: 0
@@ -154,6 +155,7 @@ MonoBehaviour:
         Repeatable: 0
         TurnOwner: 0
         TurnsFromNow:
+          type: 0
           target: 0
           ObservedCards:
             target: 0
@@ -174,7 +176,6 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          type: 0
           value: 0
           min: 0
           max: 0
