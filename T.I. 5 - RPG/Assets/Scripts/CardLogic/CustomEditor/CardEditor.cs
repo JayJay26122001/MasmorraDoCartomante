@@ -9,12 +9,12 @@ public class CardEditor : Editor
 {
     public Color EffectColor = Color.green, ConditionColor = Color.red, ConfirmationColor = Color.blue;
     SerializedProperty effects;
-    SerializedProperty id;
+    //SerializedProperty id;
 
     void OnEnable()
     {
         effects = serializedObject.FindProperty("Effects");
-        id = serializedObject.FindProperty("id");
+        //id = serializedObject.FindProperty("id");
     }
 
     public override void OnInspectorGUI()
@@ -22,10 +22,10 @@ public class CardEditor : Editor
         serializedObject.Update();
         Card card = (Card)target;
         EditorGUILayout.LabelField("Card ID: " + card.ID.ToString(), EditorStyles.boldLabel);
-        EditorGUI.BeginDisabledGroup(true); // make it read-only
+        /*EditorGUI.BeginDisabledGroup(true); // make it read-only
         //EditorGUILayout.IntField("Card ID", card.id);
         EditorGUILayout.PropertyField(id);
-        EditorGUI.EndDisabledGroup();
+        EditorGUI.EndDisabledGroup();*/
         // Draw the rest of the fields except 'Effects'
         DrawPropertiesExcluding(serializedObject, "Effects","id");
 
