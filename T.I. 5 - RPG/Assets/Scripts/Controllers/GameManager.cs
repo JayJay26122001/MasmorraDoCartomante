@@ -2,6 +2,7 @@ using Unity.VisualScripting;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
@@ -47,9 +48,14 @@ public class GameManager : MonoBehaviour
         {
             GameCards[i].ChangeID(i);
 #if UNITY_EDITOR
-            UnityEditor.EditorUtility.SetDirty(GameCards[i]); // Marks the card as modified so Unity saves it
+            EditorUtility.SetDirty(GameCards[i]); // Marks the card as modified so Unity saves it
 #endif
         }
+        #if UNITY_EDITOR
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+        #endif
+
     }
 
     void OnValidate()
