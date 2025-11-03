@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Effects:
   - rid: 1178401998732263511
-  - rid: 6721762456344723525
-  - rid: 6721762456344723527
+  - rid: 211552717280116805
+  - rid: 211552717280116808
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Parry
@@ -25,13 +25,93 @@ MonoBehaviour:
   Type: 1
   Pack: 2
   Rarity: 2
-  Description: Gain v[0]{Shield} Shield. If Shield Breaks, Retrigger the Effect.
+  Description: Gain v[0]{Shield} Shield. If the User's Shield Breaks, Heal 4 Health.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: fb05d115f7c035a4eb7f97d10fda6536, type: 3}
   id: 65
   references:
     version: 2
     RefIds:
+    - rid: 211552717280116805
+      type: {class: Heal, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 211552717280116806
+        ConfirmationConditions: []
+        AmountHealled:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 4
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0
+    - rid: 211552717280116806
+      type: {class: ShieldBroke, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        target: 0
+    - rid: 211552717280116808
+      type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 211552717280116809
+        ConfirmationConditions: []
+        SetAsDiscardTime: 0
+    - rid: 211552717280116809
+      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        TurnOwner: 0
+        TurnsFromNow:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+        TurnPhase: 0
+        PhaseTime: 0
     - rid: 1178401998732263511
       type: {class: GainShield, ns: , asm: Assembly-CSharp}
       data:
@@ -66,84 +146,3 @@ MonoBehaviour:
           max: 0
           modifiers: []
         target: 0
-    - rid: 6721762456344723525
-      type: {class: GainShield, ns: , asm: Assembly-CSharp}
-      data:
-        DiscardIfAcomplished: 0
-        Conditions:
-        - rid: 6721762456344723526
-        ConfirmationConditions: []
-        MultipliedByBaseShield: 1
-        ShieldMultiplier:
-          type: 0
-          target: 0
-          ObservedCards:
-            target: 0
-            pile: 0
-            type: 0
-            rarity: 0
-            pack: 0
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-            initialized: 1
-          MaxReturnedNumber:
-            type: 2
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          initialized: 1
-          value: 0.8
-          min: 0
-          max: 0
-          modifiers: []
-        target: 0
-    - rid: 6721762456344723526
-      type: {class: ShieldBroke, ns: , asm: Assembly-CSharp}
-      data:
-        Repeatable: 0
-        target: 0
-    - rid: 6721762456344723527
-      type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
-      data:
-        DiscardIfAcomplished: 0
-        Conditions:
-        - rid: 6721762456344723528
-        ConfirmationConditions: []
-        SetAsDiscardTime: 0
-    - rid: 6721762456344723528
-      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
-      data:
-        Repeatable: 0
-        TurnOwner: 0
-        TurnsFromNow:
-          type: 0
-          target: 0
-          ObservedCards:
-            target: 0
-            pile: 0
-            type: 0
-            rarity: 0
-            pack: 0
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-            initialized: 1
-          MaxReturnedNumber:
-            type: 2
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          initialized: 1
-          value: 0
-          min: 0
-          max: 0
-          modifiers: []
-        TurnPhase: 0
-        PhaseTime: 0
