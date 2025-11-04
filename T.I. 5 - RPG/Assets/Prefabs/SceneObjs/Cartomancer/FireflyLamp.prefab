@@ -1109,12 +1109,12 @@ ParticleSystem:
         - serializedVersion: 3
           time: 0
           value: 0
-          inSlope: 5.014971
-          outSlope: 5.014971
+          inSlope: 6.7057323
+          outSlope: 6.7057323
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
-          outWeight: 0.12
+          outWeight: 0.07
         - serializedVersion: 3
           time: 0.49751237
           value: 1
@@ -1127,11 +1127,11 @@ ParticleSystem:
         - serializedVersion: 3
           time: 1
           value: 0
-          inSlope: -5.7504807
-          outSlope: -5.7504807
+          inSlope: -6.513536
+          outSlope: -6.513536
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.089109175
+          inWeight: 0.084158726
           outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -4131,7 +4131,7 @@ ParticleSystem:
     dieWithParticles: 0
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
-    inheritParticleColor: 1
+    inheritParticleColor: 0
     generateLightingData: 0
     splitSubEmitterRibbons: 0
     attachRibbonsToTransform: 0
@@ -4912,8 +4912,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
-  - {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
+  - {fileID: 2100000, guid: 43951e0e828200348bbc31cda0de8846, type: 2}
+  - {fileID: 2100000, guid: 43951e0e828200348bbc31cda0de8846, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
