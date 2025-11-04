@@ -22222,8 +22222,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectDescription: 'Card Shredder
 
-    "Getting rid of a card has never been so
-    easy. And it''s free!"'
+    "Removing one of your cards from your deck
+    has never been so easy. And it''s free!"'
   outline: {fileID: 429465115}
   mesh: {fileID: 1011367424}
   type: 4
@@ -53566,7 +53566,7 @@ MonoBehaviour:
   objectDescription: 'Card Duplication
 
     "This stamp can completely copy a card
-    (for a price, of course)."'
+    from your deck (for a price, of course)."'
   outline: {fileID: 1940234004}
   mesh: {fileID: 300197689}
   type: 3
@@ -61831,7 +61831,7 @@ Transform:
   m_GameObject: {fileID: 1851282011}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -21, z: 0}
+  m_LocalPosition: {x: 0, y: -21.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -65751,7 +65751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectDescription: 'Healing Fountain
 
-    "Finally, a place to rest and recover."'
+    "Finally, a place to rest and fully recover."'
   outline: {fileID: 2117221344}
   mesh: {fileID: 909874249}
   type: 5

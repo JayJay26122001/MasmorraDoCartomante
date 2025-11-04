@@ -91,6 +91,7 @@ public class GameplayManager : MonoBehaviour
         {
             p.gameObject.SetActive(false);
         }
+        SaveManager.LoadUnlockedCards();
         if(File.Exists(Application.dataPath + "/boardSave.json"))
         {
             SaveManager.LoadBoard(bg);
@@ -108,7 +109,6 @@ public class GameplayManager : MonoBehaviour
                 DefineStarterPacks();
             }
         }
-        SaveManager.LoadUnlockedCards();
 
     }
 

@@ -174,7 +174,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
                                 }
                                 CameraController.instance.ChangeCamera(0);
                                 GameplayManager.instance.duplicatingCards = false;
-                                GameplayManager.instance.player.decks[0].AddCard(cardData);
+                                GameplayManager.instance.player.decks[0].AddCard(GameManager.instance.GameCards[cardData.ID]);
                                 GameplayManager.instance.duplicatingCards = true;
                                 GameplayManager.instance.stamp.StartStampCards(cardData, this.gameObject);
                             }
@@ -197,7 +197,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
                 {
                     CameraController.instance.HighlightCard(Vector3.zero, CameraController.instance.zoomedCard);
                 }
-                GameplayManager.instance.player.decks[0].AddCard(cardData);
+                GameplayManager.instance.player.decks[0].AddCard(GameManager.instance.GameCards[cardData.ID]);
                 pack.DestroyBoughtCards(cardData);
                 pack = null;
             }
