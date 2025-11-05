@@ -159,6 +159,8 @@ public class Player : Creature
         {
             if(ChangeMoney(-3))
             {
+                go.transform.GetChild(0).gameObject.GetComponent<DisappearingObject>().AnimateObject(true);
+                go.GetComponent<BoxCollider>().enabled = false;
                 GameplayManager.instance.ExplodeCoins(go.transform.position);
                 Heal(20);
             }

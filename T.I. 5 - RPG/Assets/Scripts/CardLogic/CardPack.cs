@@ -106,7 +106,6 @@ public class CardPack : MonoBehaviour
             if (GameplayManager.instance.atShop)
             {
                 GameplayManager.instance.PlayCutscene(5);
-                discardBell.pack = null;
             }
             else
             {
@@ -130,6 +129,7 @@ public class CardPack : MonoBehaviour
                 });
             }
             cardsInstances.Clear();
+            discardBell.pack = null;
         }
         else
         {

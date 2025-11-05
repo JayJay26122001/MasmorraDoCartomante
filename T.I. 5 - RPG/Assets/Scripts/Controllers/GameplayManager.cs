@@ -604,6 +604,7 @@ public class GameplayManager : MonoBehaviour
                 {
                     potion.AnimateObject(false);
                 }
+                potion.transform.parent.gameObject.GetComponent<BoxCollider>().enabled = true;
                 ExplodeCoins(go.transform.position);
                 bool disappear = false;
                 canBuy = false;
@@ -616,6 +617,7 @@ public class GameplayManager : MonoBehaviour
                         pack.AnimatePack(true);
                         disappear = true;
                     }
+                    pack.GetComponent<BoxCollider>().enabled = true;
                 }
                 StartCoroutine(RerollAnimations(disappear));
             }
