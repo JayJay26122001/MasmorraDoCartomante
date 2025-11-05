@@ -310,6 +310,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
 
     public void HighlightCard()
     {
+        highlighted = true;
         if (gameObject.transform.localScale == originalScale)
         {
             if (cardData != null && cardData.deck != null && cardData.deck.Owner != null)
@@ -318,7 +319,6 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
                 if (c.hand.Contains(cardData) && c.GetComponent<Player>() != null /*&& GameplayManager.currentCombat.TurnIndex == 0*/)
                 {
                     LeanTween.scale(gameObject, originalScale * 1.25f, 0.1f).setEaseOutQuad();
-                    highlighted = true;
                     AudioController.instance.RandomizeSfx(AudioController.instance.sfxSource, AudioController.instance.receiveCardSfx);
                     CardUIController.OrganizeHandCardsWhenHighlighted(c);
                 }
@@ -328,6 +328,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
 
     public void UnhighlightCard()
     {
+        highlighted = false;
         if (cardData != null && cardData.deck != null && cardData.deck.Owner != null)
         {
             Creature c = cardData.deck.Owner;
@@ -339,7 +340,6 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
                     LeanTween.moveLocal(gameObject, originalPosition, 0.03f).setEaseInOutSine();
                 }*/
                 CardUIController.OrganizeHandCardsWhenHighlighted(c);
-                highlighted = false;
             }
         }
     }
