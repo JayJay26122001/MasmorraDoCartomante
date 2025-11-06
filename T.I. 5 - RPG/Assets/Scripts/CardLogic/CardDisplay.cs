@@ -137,15 +137,17 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         main.startColor = effectcolor;
     }
 
-    public void ChangeCostColor()
+    /*public void ChangeCostColor()
     {
+        Color ogColor = cardCost.color;
         cardCost.color = Color.red;
-        Invoke("ReturnCostColor", 1);
-    }
-    public void ReturnCostColor()
+        ActionController.instance.InvokeTimer(() => cardCost.color = ogColor, 1);
+        //Invoke("ReturnCostColor", 1);
+    }*/
+    /*public void ReturnCostColor()
     {
         cardCost.color = Color.white;
-    }
+    }*/
 
     public void OnPointerClick(PointerEventData eventData)
     {

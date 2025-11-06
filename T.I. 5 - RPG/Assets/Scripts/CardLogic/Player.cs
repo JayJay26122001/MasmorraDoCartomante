@@ -46,8 +46,7 @@ public class Player : Creature
         }
         if(Energy < c.cost)
         {
-            c.cardDisplay.ChangeCostColor();
-            ChangeEnergyColor();
+            GameplayManager.instance.InsuficientEnergyVFX(c);
             return;
         }
         Energy -= c.cost;
@@ -73,16 +72,18 @@ public class Player : Creature
         ActionController.instance.InvokeTimer(AudioController.instance.RandomizeSfx, AudioController.instance.sfxSource, AudioController.instance.playCardSfx, 0.2f);*/
     }
 
-    public void ChangeEnergyColor()
+    /*public void ChangeEnergyColor()
     {
-        GameplayManager.instance.energyText.color = Color.red;
-        Invoke("ReturnEnergyColor", 1);
-    }
+        UnityEngine.Color ogColor = GameplayManager.instance.energyText.color;
+        GameplayManager.instance.energyText.color = UnityEngine.Color.red;
+        ActionController.instance.InvokeTimer(() => GameplayManager.instance.energyText.color = ogColor, 1);
+        //Invoke("ReturnEnergyColor", 1);
+    }*/
 
-    public void ReturnEnergyColor()
+    /*public void ReturnEnergyColor()
     {
         GameplayManager.instance.energyText.color = new Color(0, 0.65f, 0, 1);
-    }
+    }*/
     public override void BuyCards(int quantity)
     {
         if (quantity <= 0) return;

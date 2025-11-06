@@ -966,6 +966,24 @@ public class GameplayManager : MonoBehaviour
             }
         }
     }
+    bool InsuficientenergyVFXActive = false;
+    public void InsuficientEnergyVFX(Card target)
+    {
+        if(InsuficientenergyVFXActive) return;
+        InsuficientenergyVFXActive = true;
+        Color ogColorCard = target.cardDisplay.cardCost.color;
+        target.cardDisplay.cardCost.color = Color.red;
+        Color ogColorUI = energyText.color;
+        energyText.color = Color.red;
+        UnityAction revert = () =>
+        {
+            target.cardDisplay.cardCost.color = ogColorCard;
+            energyText.color = ogColorUI;
+            InsuficientenergyVFXActive = false;
+        };
+        ActionController.instance.InvokeTimer(revert, 1);
+
+    }
     
     public void PrizeMoney()
     {
