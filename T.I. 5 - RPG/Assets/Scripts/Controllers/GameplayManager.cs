@@ -116,7 +116,7 @@ public class GameplayManager : MonoBehaviour
     {
         if(!loaded)
         {
-            bg.GenerateBoard();
+            bg.GenerateBoard2();
             ActionController.instance.InvokeTimer(bg.AnimateBoard, false, 0.05f);
         }
         starterAttack.gameObject.SetActive(false);

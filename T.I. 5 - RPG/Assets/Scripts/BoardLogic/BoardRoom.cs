@@ -1,6 +1,7 @@
-using UnityEngine;
-using System.Collections.Generic;
+using NUnit.Framework;
 using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class BoardRoom
 {
@@ -22,6 +23,12 @@ public class BoardRoom
         this.branchLevel = branchLevel;
         this.wantsToMerge = wantsToMerge;
     }
+    public BoardRoom (int nextCount, int branchLevel, bool wantsToMerge) //Other rooms
+    {
+        this.nextRoomsCount = nextCount;
+        this.branchLevel = branchLevel;
+        this.wantsToMerge = wantsToMerge;
+    }
 
     public bool CheckNextRooms(BoardRoomSO room)
     {
@@ -35,6 +42,45 @@ public class BoardRoom
             }
         }
         return contains;
+    }
+
+    public bool CheckRoomRecursive(BoardRoomSO room, int levelsLeft)
+    {
+        if(type == room)
+        {
+            return true;
+        }
+        else
+        {
+            if(levelsLeft == 0)
+            {
+                return false;
+            }
+            else
+            {
+                bool contains = false;
+                foreach (BoardRoom r in nextRooms)
+                {
+                    if (r.CheckRoomRecursive(room, levelsLeft - 1))
+                    {
+                        contains = true;
+                    }
+                }
+                return contains;
+            }
+        }
+    }
+
+    public void GetNextRooms(int levelsLeft, List<BoardRoom> rooms)
+    {
+        rooms.Add(this);
+        if(levelsLeft > 0)
+        {
+            foreach (BoardRoom r in nextRooms)
+            {
+                r.GetNextRooms(levelsLeft - 1, rooms);
+            }
+        }
     }
 }
 

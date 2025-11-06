@@ -132,7 +132,18 @@ public class SaveManager : MonoBehaviour
                 {
                     data.nextRoomIndex.Add(GameplayManager.instance.bg.board[i+1].IndexOf(room));
                 }
-                data.roomTypeIndex.Add(GameplayManager.instance.bg.boards[GameplayManager.instance.areaIndex].roomList.IndexOf(board.type));
+                if(board.type == GameplayManager.instance.bg.boards[GameplayManager.instance.areaIndex].battleRoom)
+                {
+                    data.roomTypeIndex.Add(-2);
+                }
+                else if(board.type == GameplayManager.instance.bg.boards[GameplayManager.instance.areaIndex].shopRoom)
+                {
+                    data.roomTypeIndex.Add(-3);
+                }
+                else
+                {
+                    data.roomTypeIndex.Add(GameplayManager.instance.bg.boards[GameplayManager.instance.areaIndex].roomList.IndexOf(board.type));
+                }
                 //data.roomPos.Add(board.roomObject.gameObject.transform.localPosition);
             }
         }
@@ -172,7 +183,18 @@ public class SaveManager : MonoBehaviour
             }
             else
             {
-                newRoom = new BoardRoom(bg.boards[GameplayManager.instance.areaIndex].roomList[data.roomTypeIndex[i]], null, data.nextRoomCount[i], 0, false);
+                if (data.roomTypeIndex[i] == -2)
+                {
+                    newRoom = new BoardRoom(bg.boards[GameplayManager.instance.areaIndex].battleRoom, null, data.nextRoomCount[i], 0, false);
+                }
+                else if (data.roomTypeIndex[i] == -3)
+                {
+                    newRoom = new BoardRoom(bg.boards[GameplayManager.instance.areaIndex].shopRoom, null, data.nextRoomCount[i], 0, false);
+                }
+                else
+                {
+                    newRoom = new BoardRoom(bg.boards[GameplayManager.instance.areaIndex].roomList[data.roomTypeIndex[i]], null, data.nextRoomCount[i], 0, false);
+                }
             }
             bg.board[data.roomLevel[i]].Add(newRoom);
         }

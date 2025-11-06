@@ -11042,6 +11042,7 @@ MonoBehaviour:
   lineObjects: []
   animSpeed: 3
   inMovement: 0
+  doubleBattleChance: 75
 --- !u!4 &284883755
 Transform:
   m_ObjectHideFlags: 0
@@ -11144,7 +11145,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 284883754}
           m_TargetAssemblyTypeName: BoardGenerator, Assembly-CSharp
-          m_MethodName: GenerateBoard
+          m_MethodName: GenerateBoard2
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -22870,7 +22871,7 @@ PlayableDirector:
   m_GameObject: {fileID: 626271299}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 00691750876ec9e4198e7aea6f308495, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: edc01a4e0ac3ea444803b7d3905ed51b, type: 2}
   m_InitialState: 0
   m_WrapMode: 0
   m_DirectorUpdateMode: 1

@@ -5,6 +5,6 @@ using System.Collections.Generic;
 public class BoardSO : ScriptableObject
 {
     public int levelsCount, maxBranches;
-    public BoardRoomSO startRoom, bossRoom;
+    public BoardRoomSO startRoom, bossRoom, battleRoom, shopRoom;
     public List<BoardRoomSO> roomList = new List<BoardRoomSO>();
 }

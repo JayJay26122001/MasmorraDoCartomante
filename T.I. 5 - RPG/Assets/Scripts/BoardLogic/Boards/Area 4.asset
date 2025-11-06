@@ -16,9 +16,9 @@ MonoBehaviour:
   maxBranches: 4
   startRoom: {fileID: 11400000, guid: 59cb6c29557025f4092691a37a6f2887, type: 2}
   bossRoom: {fileID: 11400000, guid: 96c1a7042c353be41a2522f85dcaf848, type: 2}
+  battleRoom: {fileID: 11400000, guid: eee74f0b07dcd644eb0427adb2f09993, type: 2}
+  shopRoom: {fileID: 11400000, guid: 5d7ce42eab4dd0d449ea17a2e0142b92, type: 2}
   roomList:
-  - {fileID: 11400000, guid: eee74f0b07dcd644eb0427adb2f09993, type: 2}
   - {fileID: 11400000, guid: 758f5b458a9cc9f4382ffc6556436fbb, type: 2}
-  - {fileID: 11400000, guid: 5d7ce42eab4dd0d449ea17a2e0142b92, type: 2}
   - {fileID: 11400000, guid: 195d4b5af42d4fd43b7301c18c7b8d46, type: 2}
   - {fileID: 11400000, guid: b38fc1b6f5db9a946b28973ed28c0f52, type: 2}
