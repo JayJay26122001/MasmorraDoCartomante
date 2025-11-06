@@ -332,6 +332,9 @@ public class Creature : MonoBehaviour
             card.cardDisplay.CardDisapearanceAnimation(false);
             card.deck.DiscardPile.Add(card);
             exausted.Remove(card);
+            hand.Remove(card);
+            card.deck.BuyingPile.Remove(card);
+            playedCards.Remove(card);
         }
     }
     public virtual void EndCombat()

@@ -964,10 +964,11 @@ public class UIController : MonoBehaviour
 
     public void ShowEnemyDescription()
     {
+        GameplayManager.instance.PauseInput(0.1f);
         EnemyDescription();
         if(isEnemyDescOn)
         {
-            ActionController.instance.InvokeTimer<int>(CameraController.instance.ChangeCamera, 0, 0.05f);
+            ActionController.instance.InvokeTimer(CameraController.instance.switchToLastCamera, 0.05f);
             if(GameplayManager.instance.player.enemy.gameObject.GetComponent<Enemy>() != null)
             {
                 GameplayManager.instance.player.enemy.gameObject.GetComponent<Enemy>().ChangeInteraction(true);

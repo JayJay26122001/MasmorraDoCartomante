@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
 {
     //CinemachineBrain controller;
     public List<CinemachineCamera> cameras = new List<CinemachineCamera>();
-    [SerializeField]int activeCamIndex;
+    [SerializeField]int activeCamIndex, lastCamIndex;
     public static CameraController instance;
     public CinemachineCamera highlightCardCamera, angledTopCamera, enemyDamagedCamera, shopCamera, zoomedCamera;
     bool inputActive;
@@ -49,7 +49,34 @@ public class CameraController : MonoBehaviour
                 GameManager.instance.uiController.HideCommandPopup(upControl.command);
             }
         }
+        lastCamIndex = activeCamIndex;
         activeCamIndex = Index;
+        ChangeActiveCamera();
+    }
+    public void switchToLastCamera()
+    {
+        if (inputActive)
+        {
+            if (activeCamIndex == 0 && lastCamIndex != 0)
+            {
+                GameManager.instance.uiController.ShowCommandPopup(downControl);
+            }
+            if (activeCamIndex == cameras.Count - 1 && lastCamIndex != cameras.Count - 1)
+            {
+                GameManager.instance.uiController.ShowCommandPopup(upControl);
+            }
+            if (lastCamIndex == 0)
+            {
+                GameManager.instance.uiController.HideCommandPopup(downControl.command);
+            }
+            if (lastCamIndex == cameras.Count - 1)
+            {
+                GameManager.instance.uiController.HideCommandPopup(upControl.command);
+            }
+        }
+        int temp = activeCamIndex;
+        activeCamIndex = lastCamIndex;
+        lastCamIndex = temp;
         ChangeActiveCamera();
     }
 
@@ -76,6 +103,7 @@ public class CameraController : MonoBehaviour
             {
                 GameManager.instance.uiController.ShowCommandPopup(downControl);
             }
+            lastCamIndex = activeCamIndex;
             activeCamIndex++;
             ChangeActiveCamera();
             if(activeCamIndex == 3)
@@ -94,6 +122,7 @@ public class CameraController : MonoBehaviour
             {
                 GameManager.instance.uiController.ShowCommandPopup(upControl);
             }
+            lastCamIndex = activeCamIndex;
             activeCamIndex--;
             ChangeActiveCamera();
             GameManager.instance.uiController.HideEnemyDesc();
