@@ -93,6 +93,12 @@ public class UIController : MonoBehaviour
     int currentMaskIndex = 0;
     bool isMaskRotating = false;
     Vector3 relativeInfocardPos;
+    public GameObject pageLeftArrow;
+    public GameObject pageRightArrow;
+    public TextMeshPro pageIndex;
+    [HideInInspector] public int currentPage = 0, cardsPerPage = 14, totalPages = 1;
+    [HideInInspector] public bool isPageChanging = false;
+    [HideInInspector] public List<CardDisplay> currentCards;
     [HideInInspector] public bool cardDescOn = false;
 
     [Header("Enemy Description")]
@@ -673,35 +679,60 @@ public class UIController : MonoBehaviour
     }
     public void DetectClick()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame && !isMaskRotating)
+        if(SceneManager.GetActiveScene().name == "Menu")
         {
-            Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            if (Mouse.current.leftButton.wasPressedThisFrame && !isMaskRotating)
             {
-                GameObject clicked = hit.collider.gameObject;
+                Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+                if (Physics.Raycast(ray, out RaycastHit hit))
+                {
+                    GameObject clicked = hit.collider.gameObject;
 
-                if (clicked == play3DButton)
-                {
-                    OpenPanel(playPanel);
-                    PlayButtonSFX();
+                    if (clicked == play3DButton)
+                    {
+                        OpenPanel(playPanel);
+                        PlayButtonSFX();
+                    }
+                    else if (clicked == settings3DButton)
+                    {
+                        OpenPanel(settingsPanel);
+                        PlayButtonSFX();
+                    }
+                    else if (clicked == quit3DButton)
+                    {
+                        OpenPanel(quitPanel);
+                        PlayButtonSFX();
+                    }
+                    else if (clicked == rightArrow)
+                    {
+                        RotateRight();
+                    }
+                    else if (clicked == leftArrow)
+                    {
+                        RotateLeft();
+                    }
                 }
-                else if (clicked == settings3DButton)
+            }
+        }
+        else if(SceneManager.GetActiveScene().name == "Game")
+        {
+            if (Mouse.current.leftButton.wasPressedThisFrame && !isPageChanging)
+            {
+                Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+                if (Physics.Raycast(ray, out RaycastHit hit))
                 {
-                    OpenPanel(settingsPanel);
-                    PlayButtonSFX();
-                }
-                else if (clicked == quit3DButton)
-                {
-                    OpenPanel(quitPanel);
-                    PlayButtonSFX();
-                }
-                else if (clicked == rightArrow)
-                {
-                    RotateRight();
-                }
-                else if (clicked == leftArrow)
-                {
-                    RotateLeft();
+                    GameObject clicked = hit.collider.gameObject;
+
+                    if (clicked == pageLeftArrow)
+                    {
+                        OnClickPreviousPage();
+                        PlayButtonSFX();
+                    }
+                    else if (clicked == pageRightArrow)
+                    {
+                        OnClickNextPage();
+                        PlayButtonSFX();
+                    }
                 }
             }
         }
@@ -993,4 +1024,102 @@ public class UIController : MonoBehaviour
             ActionController.instance.InvokeTimer(ActivateEnemyDesc, 0.15f);
         }
     }
+
+    public void PageSystemCheck(int totalCards)
+    {
+        if(totalCards <= 16)
+        {
+            HidePageObjects();
+        }
+        else
+        {
+            ActivatePageObjects();
+        }
+    }
+
+    public void ActivatePageObjects()
+    {
+        pageLeftArrow.SetActive(true);
+        pageRightArrow.SetActive(true);
+        pageIndex.gameObject.SetActive(true);
+    }
+
+    public void HidePageObjects()
+    {
+        pageLeftArrow.SetActive(false);
+        pageRightArrow.SetActive(false);
+        pageIndex.gameObject.SetActive(false);
+    }
+
+    public void AttPageIndex(int value)
+    {
+        pageIndex.text = value.ToString();
+    }
+
+    public void SetupPage(List<CardDisplay> cards)
+    {
+        currentCards = cards;
+        currentPage = 0;
+        totalPages = Mathf.CeilToInt((float)cards.Count / cardsPerPage);
+        PageSystemCheck(cards.Count);
+        AttPageIndex(currentPage + 1);
+        ShowPage(currentPage);
+    }
+
+    public void ShowPage(int page)
+    {
+        if (currentCards == null || currentCards.Count == 0) return;
+
+        int totalCards = currentCards.Count;
+        totalPages = Mathf.CeilToInt((float)totalCards / cardsPerPage);
+        currentPage = Mathf.Clamp(page, 0, totalPages - 1);
+        foreach (CardDisplay card in currentCards)
+        {
+            card.gameObject.SetActive(false);
+        }
+        int startIndex = currentPage * cardsPerPage;
+        int endIndex = Mathf.Min(startIndex + cardsPerPage, totalCards);
+
+        List<CardDisplay> visibleCards = new List<CardDisplay>();
+        for (int i = startIndex; i < endIndex; i++)
+        {
+            currentCards[i].gameObject.SetActive(true);
+            visibleCards.Add(currentCards[i]);
+        }
+
+        CardUIController.OrganizeAllDeckCards(visibleCards);
+        AttPageIndex(currentPage + 1);
+        if (currentCards.Count <= 16)
+        {
+            HidePageObjects();
+        }
+        else
+        {
+            UpdatePageButtons(currentPage, totalPages);
+        }
+    }
+
+    public void UpdatePageButtons(int currentPage, int totalPages)
+    {
+        pageLeftArrow.SetActive(currentPage > 0);
+        pageRightArrow.SetActive(currentPage < totalPages - 1);
+        pageIndex.gameObject.SetActive(true);
+    }
+
+    public void OnClickNextPage()
+    {
+        if (currentPage < totalPages - 1)
+        {
+            ShowPage(currentPage + 1);
+        }
+    }
+
+    public void OnClickPreviousPage()
+    {
+        if (currentPage > 0)
+        {
+            ShowPage(currentPage - 1);
+        }
+    }
+
 }

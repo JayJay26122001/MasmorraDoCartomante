@@ -54,6 +54,7 @@ public class Stamp : MonoBehaviour
 
     public void StartStampCards(Card c, GameObject go)
     {
+        GameManager.instance.uiController.HidePageObjects();
         stamping = true;
         stampedCard = c;
         startPos = this.transform.position;

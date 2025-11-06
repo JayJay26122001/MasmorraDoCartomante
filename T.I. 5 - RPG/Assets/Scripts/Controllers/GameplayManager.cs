@@ -489,6 +489,7 @@ public class GameplayManager : MonoBehaviour
                 CameraController.instance.ChangeCamera(0);
                 DestroyDuplicatingCards();
             }
+            GameManager.instance.uiController.HidePageObjects();
         }
     }
     public void DiscardBoughtCards(DiscardBell bell)
@@ -512,7 +513,8 @@ public class GameplayManager : MonoBehaviour
                     CardDisplay cd = CardUIController.instance.InstantiateCard(c);
                     cds.Add(cd);
                     cd.UpdateCard();
-                    CardUIController.OrganizeAllDeckCards(cds);
+                    //CardUIController.OrganizeAllDeckCards(cds);
+                    GameManager.instance.uiController.SetupPage(cds);
                 }
             }
             else
@@ -532,7 +534,8 @@ public class GameplayManager : MonoBehaviour
             CardDisplay cd = CardUIController.instance.InstantiateCard(c);
             cds.Add(cd);
             cd.UpdateCard();
-            CardUIController.OrganizeAllDeckCards(cds);
+            //CardUIController.OrganizeAllDeckCards(cds);
+            GameManager.instance.uiController.SetupPage(cds);
         }
     }
 
@@ -546,7 +549,8 @@ public class GameplayManager : MonoBehaviour
             CardDisplay cd = CardUIController.instance.InstantiateCard(c);
             cds.Add(cd);
             cd.UpdateCard();
-            CardUIController.OrganizeAllDeckCards(cds);
+            //CardUIController.OrganizeAllDeckCards(cds);
+            GameManager.instance.uiController.SetupPage(cds);
         }
     }
 
@@ -570,11 +574,13 @@ public class GameplayManager : MonoBehaviour
             });
         }
         removingCards = false;
+        GameManager.instance.uiController.HidePageObjects();
     }
 
     public void DestroyDuplicatingCards()
     {
         PlayCutscene(13);
+        //GameManager.instance.uiController.HidePageObjects();
         foreach (Transform t in player.combatSpace.playedCardSpace.transform)
         {
             var moveTween = LeanTween.move(t.gameObject, t.position + Vector3.up * 25, 0.05f);
