@@ -17,8 +17,6 @@ MonoBehaviour:
   - rid: 4294249745929470025
   - rid: 4294249745929470027
   - rid: 4294249745929470029
-  - rid: 4294249745929470032
-  - rid: 4294249745929470034
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Electric Volley
@@ -27,10 +25,9 @@ MonoBehaviour:
   cost: 2
   Type: 0
   Pack: 6
-  Rarity: 2
-  Description: Deals v[1]{Damage} Damage if the Opponent have Shield. Upon Hit, go
-    back and forth between Targets until someone can't Block. When taking Damage,
-    remove -3 Energy from who took Damage on the Next Turn.
+  Rarity: 1
+  Description: 'Deals v[1]{Damage} Damage if the Opponent have Shield. Upon Hit,
+    go back and forth between Targets until someone can''t Block. '
   extraDescription: 
   CardImage: {fileID: 0}
   id: 81
@@ -279,149 +276,3 @@ MonoBehaviour:
         BlockedBy: 1
         FailIfDamaged: 1
         DamageCameFromCard: 0
-    - rid: 4294249745929470032
-      type: {class: GainEnergy, ns: , asm: Assembly-CSharp}
-      data:
-        DiscardIfAcomplished: 1
-        Conditions:
-        - rid: 4294249745929470033
-        - rid: 4294249745929470036
-        ConfirmationConditions: []
-        Amount:
-          type: 0
-          target: 0
-          ObservedCards:
-            target: 0
-            pile: 0
-            type: 0
-            rarity: 0
-            pack: 0
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-            initialized: 1
-          MaxReturnedNumber:
-            type: 2
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          initialized: 1
-          value: -3
-          min: 0
-          max: 0
-          modifiers: []
-        target: 0
-    - rid: 4294249745929470033
-      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
-      data:
-        Repeatable: 0
-        TurnOwner: 0
-        TurnsFromNow:
-          type: 0
-          target: 0
-          ObservedCards:
-            target: 0
-            pile: 0
-            type: 0
-            rarity: 0
-            pack: 0
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-            initialized: 1
-          MaxReturnedNumber:
-            type: 2
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          initialized: 1
-          value: 0
-          min: 0
-          max: 0
-          modifiers: []
-        TurnPhase: 0
-        PhaseTime: 0
-    - rid: 4294249745929470034
-      type: {class: GainEnergy, ns: , asm: Assembly-CSharp}
-      data:
-        DiscardIfAcomplished: 1
-        Conditions:
-        - rid: 4294249745929470035
-        - rid: 4294249745929470037
-        ConfirmationConditions: []
-        Amount:
-          type: 0
-          target: 0
-          ObservedCards:
-            target: 0
-            pile: 0
-            type: 0
-            rarity: 0
-            pack: 0
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-            initialized: 1
-          MaxReturnedNumber:
-            type: 2
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          initialized: 1
-          value: -3
-          min: 0
-          max: 0
-          modifiers: []
-        target: 1
-    - rid: 4294249745929470035
-      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
-      data:
-        Repeatable: 0
-        TurnOwner: 0
-        TurnsFromNow:
-          type: 0
-          target: 0
-          ObservedCards:
-            target: 0
-            pile: 0
-            type: 0
-            rarity: 0
-            pack: 0
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-            initialized: 1
-          MaxReturnedNumber:
-            type: 2
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          initialized: 1
-          value: 0
-          min: 0
-          max: 0
-          modifiers: []
-        TurnPhase: 0
-        PhaseTime: 0
-    - rid: 4294249745929470036
-      type: {class: ShieldBroke, ns: , asm: Assembly-CSharp}
-      data:
-        Repeatable: 0
-        target: 0
-    - rid: 4294249745929470037
-      type: {class: ShieldBroke, ns: , asm: Assembly-CSharp}
-      data:
-        Repeatable: 0
-        target: 1

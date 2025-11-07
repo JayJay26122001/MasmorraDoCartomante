@@ -100,7 +100,7 @@ MonoBehaviour:
           min: 0
           max: 0
           modifiers: []
-        Equation: 3
+        Equation: 0
         Amount:
           type: 0
           target: 0

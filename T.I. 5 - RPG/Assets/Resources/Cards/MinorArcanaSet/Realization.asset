@@ -24,7 +24,7 @@ MonoBehaviour:
   cost: 2
   Type: 0
   Pack: 3
-  Rarity: 1
+  Rarity: 2
   Description: Deals v[0]{Damage} Damage. Retriggers if the Opponent loses Health.
   extraDescription: 
   CardImage: {fileID: 0}

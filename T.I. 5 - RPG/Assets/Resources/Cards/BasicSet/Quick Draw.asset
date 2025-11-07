@@ -23,7 +23,7 @@ MonoBehaviour:
   cost: 1
   Type: 2
   Pack: 0
-  Rarity: 1
+  Rarity: 0
   Description: If the Opponent's Next Card is a Defense Card, Deals v[0]{Damage}
     Damage.
   extraDescription: 

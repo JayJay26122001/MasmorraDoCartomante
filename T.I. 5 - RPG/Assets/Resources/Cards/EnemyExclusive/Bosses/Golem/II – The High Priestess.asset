@@ -33,6 +33,62 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 211552808095449169
+      type: {class: ComparativeConfirmation, ns: , asm: Assembly-CSharp}
+      data:
+        ObservedValue:
+          type: 3
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 1
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+        Equation: 0
+        Amount:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
     - rid: 1178401998732263508
       type: {class: GainShield, ns: , asm: Assembly-CSharp}
       data:
@@ -73,7 +129,8 @@ MonoBehaviour:
         DiscardIfAcomplished: 1
         Conditions:
         - rid: 7391437929559097481
-        ConfirmationConditions: []
+        ConfirmationConditions:
+        - rid: 211552808095449169
         AmountHealled:
           type: 0
           target: 0
