@@ -100,7 +100,7 @@ public abstract class Effect
                 }
             }
         }
-        card.deck.Owner.DiscardCard(card);
+        ActionController.instance.InvokeTimer(card.deck.Owner.DiscardCard, card, 0.5f);
     }
     public void CheckConditions() // Checa se as condições para este efeito foram resolvidas e aplica efeito se sim
     {
