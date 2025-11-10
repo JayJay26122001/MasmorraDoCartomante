@@ -145,7 +145,7 @@ MonoBehaviour:
       type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
       data:
         Repeatable: 0
-        TurnOwner: 1
+        TurnOwner: 0
         TurnsFromNow:
           type: 0
           target: 0
@@ -172,8 +172,8 @@ MonoBehaviour:
           min: 0
           max: 0
           modifiers: []
-        TurnPhase: 1
-        PhaseTime: 1
+        TurnPhase: 0
+        PhaseTime: 0
     - rid: 1178401998732263515
       type: {class: GainShield, ns: , asm: Assembly-CSharp}
       data:

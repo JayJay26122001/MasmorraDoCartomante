@@ -42566,7 +42566,7 @@ MonoBehaviour:
   energy: 0
   maxBaseEnergy: 3
   money: 10
-  CardBuyMax: 5
+  CardBuyMax: 3
   baseDamage: 6
   baseShieldGain: 10
   baseDamageTaken: 100
@@ -42748,7 +42748,7 @@ MonoBehaviour:
   energy: 0
   maxBaseEnergy: 3
   money: 10
-  CardBuyMax: 5
+  CardBuyMax: 3
   baseDamage: 11
   baseShieldGain: 5
   baseDamageTaken: 100
@@ -46648,7 +46648,7 @@ MonoBehaviour:
   energy: 0
   maxBaseEnergy: 3
   money: 10
-  CardBuyMax: 5
+  CardBuyMax: 3
   baseDamage: 8
   baseShieldGain: 7
   baseDamageTaken: 100
