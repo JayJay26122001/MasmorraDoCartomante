@@ -39,7 +39,7 @@ public class GameplayManager : MonoBehaviour
 
     public List<CardPack> packs = new List<CardPack>();
     public List<PackPool> packPools = new List<PackPool>();
-    public bool canBuy, removingCards = false, duplicatingCards = false, fightingBoss, atShop = false;
+    public bool canBuy, removingCards = false, duplicatingCards = false, fightingBoss, atShop = false, viewingDeck = false;
     public int rerollPrice, rerollBasePrice, potionBasePrice;
     public TextMeshPro rerollText, potionText;
     public DisappearingObject potion;
@@ -489,12 +489,50 @@ public class GameplayManager : MonoBehaviour
                 CameraController.instance.ChangeCamera(0);
                 DestroyDuplicatingCards();
             }
+            else if(viewingDeck)
+            {
+                HidePlayerDeck();
+            }
             GameManager.instance.uiController.HidePageObjects();
         }
     }
     public void DiscardBoughtCards(DiscardBell bell)
     {
         bell.pack.DestroyBoughtCards(null);
+    }
+
+    public void ShowPlayerDeck()
+    {
+        viewingDeck = true;
+        PlayCutscene(18);
+        ActionController.instance.InvokeTimer(DisplayAllCards, 0.45f);
+    }
+
+    public void HidePlayerDeck()
+    {
+        viewingDeck = false; 
+        PlayCutscene(19);
+        foreach (Transform t in player.combatSpace.playedCardSpace.transform)
+        {
+            var moveTween = LeanTween.move(t.gameObject, t.position + Vector3.up * 25, 0.05f);
+            moveTween.setOnComplete(() =>
+            {
+                Destroy(t.gameObject);
+            });
+        }
+    }
+
+    public void DisplayAllCards()
+    {
+        List<CardDisplay> cds = new List<CardDisplay>();
+        foreach (Card c in player.decks[0].cards)
+        {
+            CardDisplay cd = CardUIController.instance.InstantiateCard(c);
+            cds.Add(cd);
+            cd.UpdateCard();
+            //CardUIController.OrganizeAllDeckCards(cds);
+            GameManager.instance.uiController.SetupPage(cds);
+        }
     }
 
     public void RemovingCards(GameObject go)
@@ -507,15 +545,7 @@ public class GameplayManager : MonoBehaviour
                 canBuy = false;
                 removingCards = true;
                 PlayCutscene(4);
-                List<CardDisplay> cds = new List<CardDisplay>();
-                foreach (Card c in player.decks[0].cards)
-                {
-                    CardDisplay cd = CardUIController.instance.InstantiateCard(c);
-                    cds.Add(cd);
-                    cd.UpdateCard();
-                    //CardUIController.OrganizeAllDeckCards(cds);
-                    GameManager.instance.uiController.SetupPage(cds);
-                }
+                DisplayAllCards();
             }
             else
             {
@@ -528,30 +558,14 @@ public class GameplayManager : MonoBehaviour
     {
         removingCards = true;
         PlayCutscene(4);
-        List<CardDisplay> cds = new List<CardDisplay>();
-        foreach (Card c in player.decks[0].cards)
-        {
-            CardDisplay cd = CardUIController.instance.InstantiateCard(c);
-            cds.Add(cd);
-            cd.UpdateCard();
-            //CardUIController.OrganizeAllDeckCards(cds);
-            GameManager.instance.uiController.SetupPage(cds);
-        }
+        DisplayAllCards();
     }
 
     public void DuplicatingCards()
     {
         duplicatingCards = true;
         PlayCutscene(4);
-        List<CardDisplay> cds = new List<CardDisplay>();
-        foreach (Card c in player.decks[0].cards)
-        {
-            CardDisplay cd = CardUIController.instance.InstantiateCard(c);
-            cds.Add(cd);
-            cd.UpdateCard();
-            //CardUIController.OrganizeAllDeckCards(cds);
-            GameManager.instance.uiController.SetupPage(cds);
-        }
+        DisplayAllCards();
     }
 
     public void DestroyRemovingCards()

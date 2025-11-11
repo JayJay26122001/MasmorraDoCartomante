@@ -96,7 +96,7 @@ public class UIController : MonoBehaviour
     public GameObject pageLeftArrow;
     public GameObject pageRightArrow;
     public TextMeshPro pageIndex;
-    [HideInInspector] public int currentPage = 0, cardsPerPage = 14, totalPages = 1;
+    [HideInInspector] public int currentPage = 0, cardsPerPage = 14, totalPages = 1, previousPage = 0;
     [HideInInspector] public bool isPageChanging = false;
     [HideInInspector] public List<CardDisplay> currentCards;
     [HideInInspector] public bool cardDescOn = false;
@@ -1063,19 +1063,28 @@ public class UIController : MonoBehaviour
         totalPages = Mathf.CeilToInt((float)cards.Count / cardsPerPage);
         PageSystemCheck(cards.Count);
         AttPageIndex(currentPage + 1);
-        ShowPage(currentPage);
+        previousPage = -1;
+        ShowPage(currentPage, true);
     }
 
-    public void ShowPage(int page)
+    public void ShowPage(int page, bool first)
     {
         if (currentCards == null || currentCards.Count == 0) return;
-
+        isPageChanging = true;
         int totalCards = currentCards.Count;
         totalPages = Mathf.CeilToInt((float)totalCards / cardsPerPage);
         currentPage = Mathf.Clamp(page, 0, totalPages - 1);
         foreach (CardDisplay card in currentCards)
         {
-            card.gameObject.SetActive(false);
+            if(!first)
+            {
+                card.CardDisapearanceAnimation(true);
+                ActionController.instance.InvokeTimer(card.gameObject.SetActive, false, 1);
+            }
+            else
+            {
+                card.gameObject.SetActive(false);
+            }
         }
         int startIndex = currentPage * cardsPerPage;
         int endIndex = Mathf.Min(startIndex + cardsPerPage, totalCards);
@@ -1083,26 +1092,68 @@ public class UIController : MonoBehaviour
         List<CardDisplay> visibleCards = new List<CardDisplay>();
         for (int i = startIndex; i < endIndex; i++)
         {
-            currentCards[i].gameObject.SetActive(true);
+            if(!first)
+            {
+                ActionController.instance.InvokeTimer(currentCards[i].gameObject.SetActive, true, 1);
+                ActionController.instance.InvokeTimer(currentCards[i].CardDisapearanceAnimation, false, 1);
+            }
+            else
+            {
+                currentCards[i].gameObject.SetActive(true);
+            }
             visibleCards.Add(currentCards[i]);
         }
-
         CardUIController.OrganizeAllDeckCards(visibleCards);
+        ActionController.instance.InvokeTimer(() => isPageChanging = false, 1);
         AttPageIndex(currentPage + 1);
-        if (currentCards.Count <= 16)
+        if (currentCards.Count <= 14)
         {
             HidePageObjects();
         }
         else
         {
-            UpdatePageButtons(currentPage, totalPages);
+            UpdatePageButtons(currentPage, totalPages, previousPage);
         }
     }
 
-    public void UpdatePageButtons(int currentPage, int totalPages)
+    public void UpdatePageButtons(int currentPage, int totalPages, int previousPage)
     {
-        pageLeftArrow.SetActive(currentPage > 0);
-        pageRightArrow.SetActive(currentPage < totalPages - 1);
+        pageLeftArrow.GetComponent<BoxCollider>().enabled = false;
+        pageRightArrow.GetComponent<BoxCollider>().enabled = false;
+        ActionController.instance.InvokeTimer(pageLeftArrow.SetActive, currentPage > 0, 1);
+        if(currentPage == 0)
+        {
+            pageLeftArrow.transform.GetChild(0).gameObject.GetComponent<DisappearingObject>().AnimateObject(true);
+        }
+        else
+        {
+            if(previousPage == 0)
+            {
+                ActionController.instance.InvokeTimer(pageLeftArrow.transform.GetChild(0).gameObject.GetComponent<DisappearingObject>().AnimateObject, false, 1);
+            }
+            ActionController.instance.InvokeTimer(() => pageLeftArrow.GetComponent<BoxCollider>().enabled = true, 1.5f);
+        }
+        ActionController.instance.InvokeTimer(pageRightArrow.SetActive, currentPage < totalPages - 1, 1);
+        if(currentPage == totalPages - 1)
+        {
+            pageRightArrow.transform.GetChild(0).gameObject.GetComponent<DisappearingObject>().AnimateObject(true);
+        }
+        else
+        {
+            if(previousPage == -1)
+            {
+                pageRightArrow.transform.GetChild(0).gameObject.GetComponent<DisappearingObject>().AnimateObject(false);
+                ActionController.instance.InvokeTimer(() => pageRightArrow.GetComponent<BoxCollider>().enabled = true, 0.5f);
+            }
+            else
+            {
+                if(previousPage == totalPages - 1)
+                {
+                    ActionController.instance.InvokeTimer(pageRightArrow.transform.GetChild(0).gameObject.GetComponent<DisappearingObject>().AnimateObject, false, 1);
+                }
+                ActionController.instance.InvokeTimer(() => pageRightArrow.GetComponent<BoxCollider>().enabled = true, 1.5f);
+            }
+        }
         pageIndex.gameObject.SetActive(true);
     }
 
@@ -1110,7 +1161,8 @@ public class UIController : MonoBehaviour
     {
         if (currentPage < totalPages - 1)
         {
-            ShowPage(currentPage + 1);
+            previousPage = currentPage;
+            ShowPage(currentPage + 1, false);
         }
     }
 
@@ -1118,7 +1170,8 @@ public class UIController : MonoBehaviour
     {
         if (currentPage > 0)
         {
-            ShowPage(currentPage - 1);
+            previousPage = currentPage;
+            ShowPage(currentPage - 1, false);
         }
     }
 

@@ -31,6 +31,7 @@ public class DisappearingObject : MonoBehaviour
     }
     public void AnimateObject(bool disappear)
     {
+        mat = GetComponent<MeshRenderer>().material;
         disappearing = disappear;
         if(extraObj != null && disappear)
         {
@@ -39,7 +40,6 @@ public class DisappearingObject : MonoBehaviour
         animTimeStart = Time.time;
         inAnimation = true;
     }
-
     private void Update()
     {
         if (inAnimation)

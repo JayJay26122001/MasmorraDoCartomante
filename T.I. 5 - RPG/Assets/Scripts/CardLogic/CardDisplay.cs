@@ -206,7 +206,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            if (pack != null || GameplayManager.instance.duplicatingCards || GameplayManager.instance.removingCards || cardData.deck.Owner.playedCards.Contains(cardData))
+            if (pack != null || GameplayManager.instance.viewingDeck || GameplayManager.instance.duplicatingCards || GameplayManager.instance.removingCards || cardData.deck.Owner.playedCards.Contains(cardData))
             {
                 CameraController.instance.HighlightCard(gameObject.GetComponentsInChildren<Transform>()[1].position, this);
             }
@@ -224,7 +224,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
             {
                 interactable.interactions.Add(playCard);
             }
-            else if(pack != null || GameplayManager.instance.duplicatingCards || GameplayManager.instance.removingCards || (cardData.deck != null && cardData.deck.Owner.playedCards.Contains(cardData)))
+            else if(pack != null || GameplayManager.instance.viewingDeck || GameplayManager.instance.duplicatingCards || GameplayManager.instance.removingCards || (cardData.deck != null && cardData.deck.Owner.playedCards.Contains(cardData)))
             {
                 if(CameraController.instance.zoomedCard != this)
                 {
@@ -253,7 +253,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
 
     private void OnMouseEnter()
     {
-        if (pack != null || GameplayManager.instance.duplicatingCards || GameplayManager.instance.removingCards)
+        if (pack != null || GameplayManager.instance.viewingDeck || GameplayManager.instance.duplicatingCards || GameplayManager.instance.removingCards)
         {
             ChangeInteractions();
         }
@@ -268,7 +268,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         {
             CardUIController.instance.SetHighlightedCard(cardData);
 
-            if (pack != null || GameplayManager.instance.duplicatingCards || GameplayManager.instance.removingCards || (cardData.deck != null && cardData.deck.Owner.playedCards.Contains(cardData)))
+            if (pack != null || GameplayManager.instance.viewingDeck || GameplayManager.instance.duplicatingCards || GameplayManager.instance.removingCards || (cardData.deck != null && cardData.deck.Owner.playedCards.Contains(cardData)))
             {
                 outline.SetActive(true);
             }
@@ -277,7 +277,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         {
             CardUIController.instance.SetHighlightedCard(null);
         }
-        if ((cardData.deck != null && (cardData.deck.Owner.hand.Contains(this.cardData) || cardData.deck.Owner.playedCards.Contains(this.cardData))) || GameplayManager.instance.duplicatingCards || GameplayManager.instance.removingCards || pack != null) 
+        if ((cardData.deck != null && (cardData.deck.Owner.hand.Contains(this.cardData) || cardData.deck.Owner.playedCards.Contains(this.cardData))) || GameplayManager.instance.viewingDeck || GameplayManager.instance.duplicatingCards || GameplayManager.instance.removingCards || pack != null) 
         {
             if(!GameManager.instance.uiController.gamePaused)
             {
@@ -373,6 +373,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
     public void CardDisapearanceAnimation(bool disappear)
     {
         disappearing = disappear;
+        this.gameObject.GetComponent<BoxCollider>().enabled = !disappear;
         animTimeStart = Time.time;
         inAnimation = true;
     }
@@ -407,7 +408,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
                 cardName.gameObject.SetActive(false);
                 cardDescription.gameObject.SetActive(false);
             }
-            if (t <= 0.2 && !disappearing)
+            if (t <= 0.5 && !disappearing)
             {
                 cardCost.gameObject.SetActive(true);
                 cardName.gameObject.SetActive(true);
