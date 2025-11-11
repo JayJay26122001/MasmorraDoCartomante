@@ -23,7 +23,8 @@ MonoBehaviour:
   Type: 2
   Pack: 5
   Rarity: 3
-  Description: Turns the Next Card the Opponent plays into a Limited Card.
+  Description: Turns the Next Card the Opponent receives in the Buying Pile into
+    a Limited Card.
   extraDescription: 
   CardImage: {fileID: 0}
   id: 90
@@ -38,7 +39,7 @@ MonoBehaviour:
         ConfirmationConditions: []
         AffectedCards:
           target: 1
-          pile: 1
+          pile: 4
           type: -1
           rarity: -1
           pack: -1

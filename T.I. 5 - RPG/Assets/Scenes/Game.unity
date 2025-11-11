@@ -43030,7 +43030,7 @@ MonoBehaviour:
   hand: []
   playedCards: []
   exausted: []
-  maxHP: 50
+  maxHP: 40
   hp: 0
   shld: 0
   energy: 0
@@ -43038,7 +43038,7 @@ MonoBehaviour:
   money: 10
   CardBuyMax: 3
   baseDamage: 6
-  baseShieldGain: 10
+  baseShieldGain: 8
   baseDamageTaken: 100
   DamageModifiers: []
   ShieldModifiers: []
@@ -43212,14 +43212,14 @@ MonoBehaviour:
   hand: []
   playedCards: []
   exausted: []
-  maxHP: 50
+  maxHP: 45
   hp: 0
   shld: 0
   energy: 0
   maxBaseEnergy: 3
   money: 10
   CardBuyMax: 3
-  baseDamage: 11
+  baseDamage: 8
   baseShieldGain: 5
   baseDamageTaken: 100
   DamageModifiers: []
@@ -47127,7 +47127,7 @@ MonoBehaviour:
   money: 10
   CardBuyMax: 3
   baseDamage: 8
-  baseShieldGain: 7
+  baseShieldGain: 8
   baseDamageTaken: 100
   DamageModifiers: []
   ShieldModifiers: []
