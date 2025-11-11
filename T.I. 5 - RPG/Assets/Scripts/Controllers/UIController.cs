@@ -96,6 +96,8 @@ public class UIController : MonoBehaviour
     public GameObject pageLeftArrow;
     public GameObject pageRightArrow;
     public TextMeshPro pageIndex;
+    public GameObject LockObj;
+    public Transform playerLockAnchor, enemyLockAnchor;
     [HideInInspector] public int currentPage = 0, cardsPerPage = 14, totalPages = 1, previousPage = 0;
     [HideInInspector] public bool isPageChanging = false;
     [HideInInspector] public List<CardDisplay> currentCards;
@@ -1172,6 +1174,83 @@ public class UIController : MonoBehaviour
         {
             previousPage = currentPage;
             ShowPage(currentPage - 1, false);
+        }
+    }
+
+    public void LockerAnimation(Creature target, bool isActivating)
+    {
+        Transform anchor = (target is Player) ? playerLockAnchor : enemyLockAnchor;
+        if (isActivating)
+        {
+            GameObject locker;
+            float alphaValue = 0f;
+            Vector3 spawnPos = anchor.position;
+            if (target is Player)
+            {
+                int cardsInPile = target.decks[0].BuyingPile.Count;
+                float cardHeight = 0.03f;
+                float yOffset = Mathf.Abs(((cardsInPile - 1) * cardHeight) + 0.5f);
+                spawnPos = anchor.position + new Vector3(0f, yOffset, 0f);
+                alphaValue = 1f;
+                locker = Instantiate(LockObj, spawnPos, Quaternion.Euler(10f, 45f, 0f), anchor);
+                locker.transform.localScale = locker.transform.localScale * 0.4f;
+            }
+            else
+            {
+                alphaValue = 0.2f;
+                locker = Instantiate(LockObj, spawnPos, Quaternion.identity, anchor);
+            }
+            //GameObject locker = Instantiate(LockObj, anchor.position, Quaternion.identity, anchor);
+            Quaternion lockerRot = locker.transform.localRotation;
+            SpriteRenderer sr = locker.GetComponent<SpriteRenderer>();
+            Color c = sr.color;
+            c.a = 0f;
+            sr.color = c;
+            LeanTween.value(locker, 0f, alphaValue, 1f).setOnUpdate((float val) =>
+            {
+                Color newColor = sr.color;
+                newColor.a = val;
+                sr.color = newColor;
+            });
+            LeanTween.value(locker.transform.gameObject, -10f, 10f, 0.1f).setEaseInOutSine().setLoopPingPong(5).setOnUpdate((float angle) =>
+            {
+                if (target is Player)
+                {
+                    locker.transform.localRotation = Quaternion.Euler(10f, 45f, angle);
+                }
+                else
+                {
+                    locker.transform.localRotation = Quaternion.Euler(0f, 0f, angle);
+                }
+            }).setOnComplete(() => { locker.transform.localRotation = lockerRot; });
+        }
+        else
+        {
+            if(anchor.childCount == 0)
+            {
+                return;
+            }
+            Transform lockerChild = anchor.GetChild(0);
+            SpriteRenderer sr = lockerChild.GetComponent<SpriteRenderer>();
+            GameObject locker = lockerChild.gameObject;
+            if (target is Player)
+            {
+                LeanTween.value(locker, 1f, 0f, 1f).setOnUpdate((float val) =>
+                {
+                    Color c = sr.color;
+                    c.a = val;
+                    sr.color = c;
+                }).setOnComplete(() => { Destroy(locker); });
+            }
+            else
+            {
+                LeanTween.value(locker, 0.2f, 0f, 1f).setOnUpdate((float val) =>
+                {
+                    Color c = sr.color;
+                    c.a = val;
+                    sr.color = c;
+                }).setOnComplete(() => { Destroy(locker); });
+            }
         }
     }
 
