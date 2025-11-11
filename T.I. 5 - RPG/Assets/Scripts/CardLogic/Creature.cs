@@ -175,6 +175,10 @@ public class Creature : MonoBehaviour
         if (skipCardBuy > 0)
         {
             skipCardBuy--;
+            if (skipCardBuy == 0)
+            {
+                GameManager.instance.uiController.LockerAnimation(this, false);
+            }
             return;
         }
         BuyCards(CardBuyMax - hand.Count);
@@ -508,10 +512,12 @@ public class Creature : MonoBehaviour
         if (skipCardBuy < TurnAmount)
         {
             skipCardBuy = TurnAmount;
+            GameManager.instance.uiController.LockerAnimation(this, true);
         }
     }
     public void ResetSkipBuyCard()
     {
         skipCardBuy = 0;
+        GameManager.instance.uiController.LockerAnimation(this, false);
     }
 }

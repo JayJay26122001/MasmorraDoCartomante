@@ -955,7 +955,7 @@ public class GameplayManager : MonoBehaviour
             }
         }
     }
-    public void BlockDrawnVFX(Creature target)
+    /*public void BlockDrawnVFX(Creature target)
     {
         string s;
         if (target is Player)
@@ -979,7 +979,7 @@ public class GameplayManager : MonoBehaviour
                 i = damageVFXPool.Count;
             }
         }
-    }
+    }*/
     bool InsuficientenergyVFXActive = false;
     public void InsuficientEnergyVFX(Card target)
     {
