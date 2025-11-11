@@ -990,14 +990,20 @@ public class GameplayManager : MonoBehaviour
         Color ogColorUI = energyText.color;
         energyText.color = Color.red;
         Transform cardCostTransform = target.cardDisplay.cardCost.transform;
-        Quaternion originalRot = cardCostTransform.localRotation;
+        Quaternion originalCardCostRot = cardCostTransform.localRotation;
         int cycles = Mathf.RoundToInt(1f / (0.1f * 2));
         LeanTween.cancel(cardCostTransform.gameObject);
         LeanTween.value(cardCostTransform.gameObject, -15f, 15f, 0.1f).setEaseInOutSine().setLoopPingPong(cycles).setOnUpdate((float angle) =>
         {
             cardCostTransform.localRotation = Quaternion.Euler(0f, 0f, angle);
-        }).setOnComplete(() => { cardCostTransform.localRotation = originalRot; });
-
+        }).setOnComplete(() => { cardCostTransform.localRotation = originalCardCostRot; });
+        Transform energyTextTransform = energyText.transform;
+        Quaternion originalEnergyTextRot = energyTextTransform.localRotation;
+        LeanTween.cancel(energyTextTransform.gameObject);
+        LeanTween.value(energyTextTransform.gameObject, -25f, 15f, 0.1f).setEaseInOutSine().setLoopPingPong(cycles).setOnUpdate((float angle) =>
+        {
+            energyTextTransform.localRotation = Quaternion.Euler(45f, 0f, angle);
+        }).setOnComplete(() => { energyTextTransform.localRotation = originalEnergyTextRot; });
         UnityAction revert = () =>
         {
             target.cardDisplay.cardCost.color = ogColorCard;
