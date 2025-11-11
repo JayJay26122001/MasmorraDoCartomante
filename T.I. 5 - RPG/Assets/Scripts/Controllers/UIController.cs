@@ -92,7 +92,7 @@ public class UIController : MonoBehaviour
     GameObject activeMask;
     int currentMaskIndex = 0;
     bool isMaskRotating = false;
-    Vector3 relativeInfocardPos;
+    //Vector3 relativeInfocardPos;
     public GameObject pageLeftArrow;
     public GameObject pageRightArrow;
     public TextMeshPro pageIndex;
@@ -174,10 +174,10 @@ public class UIController : MonoBehaviour
         {
             ContinueButton(false);
         }
-        if(enemyDesc != null)
+        /*if(enemyDesc != null)
         {
             relativeInfocardPos = enemyDesc.transform.position - CameraController.instance.cameras[3].transform.position;
-        }
+        }*/
     }
 
     private void Update()
@@ -977,11 +977,11 @@ public class UIController : MonoBehaviour
     {
         isEnemyDescOn = true;
         enemyDesc.SetActive(true);
-        Vector3 camPos = Camera.main.transform.position;
-        Vector3 worldPos = relativeInfocardPos + camPos;
-        Vector3 cardPos = new Vector3(enemyDescOutPos.transform.position.x, worldPos.y, worldPos.z);
-        enemyDesc.transform.position = cardPos;
-        enemyDescPos.position = cardPos + transform.right * -37.5f;
+        //Vector3 camPos = Camera.main.transform.position;
+        //Vector3 worldPos = relativeInfocardPos + camPos;
+        //Vector3 cardPos = new Vector3(enemyDescOutPos.transform.position.x, worldPos.y, worldPos.z);
+        //enemyDesc.transform.position = cardPos;
+        //enemyDescPos.position = cardPos + transform.right * -37.5f;
         LeanTween.move(enemyDesc, enemyDescPos, 0.2f);
     }
 
