@@ -11915,6 +11915,7 @@ Transform:
   m_Children:
   - {fileID: 1551659757}
   - {fileID: 1472330958}
+  - {fileID: 1588790272}
   m_Father: {fileID: 1264320103}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &325167977 stripped
@@ -12743,6 +12744,143 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1825696982}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &380782359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 380782361}
+  - component: {fileID: 380782360}
+  - component: {fileID: 380782363}
+  - component: {fileID: 380782362}
+  m_Layer: 0
+  m_Name: Mime Kobold
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &380782360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380782359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef8394d76fca764fbbc7af354477e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  DeckPresets:
+  - {fileID: 11400000, guid: 8b745a042663de24bbcab1c3e0eda02c, type: 2}
+  decks: []
+  hand: []
+  playedCards: []
+  exausted: []
+  maxHP: 30
+  hp: 0
+  shld: 0
+  energy: 0
+  maxBaseEnergy: 3
+  money: 10
+  CardBuyMax: 2
+  baseDamage: 6
+  baseShieldGain: 5
+  baseDamageTaken: 100
+  DamageModifiers: []
+  ShieldModifiers: []
+  DamageReductionModifiers: []
+  Damaged:
+    m_PersistentCalls:
+      m_Calls: []
+  Wounded:
+    m_PersistentCalls:
+      m_Calls: []
+  DamageBlocked:
+    m_PersistentCalls:
+      m_Calls: []
+  ShieldBreak:
+    m_PersistentCalls:
+      m_Calls: []
+  GainedShield:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayedCard:
+    m_PersistentCalls:
+      m_Calls: []
+  canPlayCards: 0
+  combatSpace: {fileID: 0}
+  anim: {fileID: 1284181323}
+  model: {fileID: 1284181321}
+  size: 0
+  FinishedPlaying:
+    m_PersistentCalls:
+      m_Calls: []
+  zoomIn:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Enemy Description
+  zoomOut:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Your Cards
+--- !u!4 &380782361
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380782359}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: -12, z: 20}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1284181322}
+  m_Father: {fileID: 1151479976}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &380782362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380782359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d038c331c1efb1144a2a4e332c0ccc15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactions:
+  - image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Enemy Description
+--- !u!136 &380782363
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380782359}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4.81
+  m_Height: 23.759653
+  m_Direction: 1
+  m_Center: {x: -0, y: 11.379827, z: 0}
 --- !u!1001 &382165543
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47724,6 +47862,7 @@ Transform:
   - {fileID: 1120228319}
   - {fileID: 928584687}
   - {fileID: 916723815}
+  - {fileID: 380782361}
   m_Father: {fileID: 665812756}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1152664475
@@ -51801,6 +51940,98 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!1001 &1284181320
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 380782361}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 461d577e6eaa48246903f378dce2cd50, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 461d577e6eaa48246903f378dce2cd50, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 461d577e6eaa48246903f378dce2cd50, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 461d577e6eaa48246903f378dce2cd50, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 461d577e6eaa48246903f378dce2cd50, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 461d577e6eaa48246903f378dce2cd50, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 461d577e6eaa48246903f378dce2cd50, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 461d577e6eaa48246903f378dce2cd50, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 461d577e6eaa48246903f378dce2cd50, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 461d577e6eaa48246903f378dce2cd50, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 461d577e6eaa48246903f378dce2cd50, type: 3}
+      propertyPath: m_Name
+      value: KoboldMime
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 461d577e6eaa48246903f378dce2cd50, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1284181323}
+  m_SourcePrefab: {fileID: 100100000, guid: 461d577e6eaa48246903f378dce2cd50, type: 3}
+--- !u!1 &1284181321 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 461d577e6eaa48246903f378dce2cd50, type: 3}
+  m_PrefabInstance: {fileID: 1284181320}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1284181322 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 461d577e6eaa48246903f378dce2cd50, type: 3}
+  m_PrefabInstance: {fileID: 1284181320}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1284181323
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284181321}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1288769829
 GameObject:
   m_ObjectHideFlags: 0
@@ -56924,6 +57155,8 @@ MonoBehaviour:
   - {fileID: 1120228320}
   - {fileID: 928584688}
   - {fileID: 916723816}
+  - {fileID: 1588790275}
+  - {fileID: 380782360}
   bosses:
   - {fileID: 1648378711}
   - {fileID: 1551659760}
@@ -56946,11 +57179,11 @@ MonoBehaviour:
     - value: {fileID: 11400000, guid: f90712a855f488a41b4becc0330d2b94, type: 2}
     - value: {fileID: 11400000, guid: f90712a855f488a41b4becc0330d2b94, type: 2}
     - value: {fileID: 11400000, guid: f90712a855f488a41b4becc0330d2b94, type: 2}
-    - value: {fileID: 0}
-    - value: {fileID: 0}
-    - value: {fileID: 0}
-    - value: {fileID: 0}
-    - value: {fileID: 0}
+    - value: {fileID: 11400000, guid: 84362ce7b9c3a2849a3ccd4c9f26fb76, type: 2}
+    - value: {fileID: 11400000, guid: 84362ce7b9c3a2849a3ccd4c9f26fb76, type: 2}
+    - value: {fileID: 11400000, guid: 84362ce7b9c3a2849a3ccd4c9f26fb76, type: 2}
+    - value: {fileID: 11400000, guid: 84362ce7b9c3a2849a3ccd4c9f26fb76, type: 2}
+    - value: {fileID: 11400000, guid: 84362ce7b9c3a2849a3ccd4c9f26fb76, type: 2}
     - value: {fileID: 11400000, guid: c1b4465ed08b2d44e97c7c0099d32862, type: 2}
     - value: {fileID: 11400000, guid: c1b4465ed08b2d44e97c7c0099d32862, type: 2}
     - value: {fileID: 11400000, guid: c1b4465ed08b2d44e97c7c0099d32862, type: 2}
@@ -62016,6 +62249,143 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a2a523cbf62864d8e6b9158eae4911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1588790271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1588790272}
+  - component: {fileID: 1588790275}
+  - component: {fileID: 1588790274}
+  - component: {fileID: 1588790273}
+  m_Layer: 0
+  m_Name: Miner Kobold
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1588790272
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588790271}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: -12, z: 20}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1723405714}
+  m_Father: {fileID: 322468179}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1588790273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588790271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d038c331c1efb1144a2a4e332c0ccc15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactions:
+  - image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Enemy Description
+--- !u!136 &1588790274
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588790271}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4.81
+  m_Height: 23.759653
+  m_Direction: 1
+  m_Center: {x: -0, y: 11.379827, z: 0}
+--- !u!114 &1588790275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588790271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef8394d76fca764fbbc7af354477e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  DeckPresets:
+  - {fileID: 11400000, guid: 8b745a042663de24bbcab1c3e0eda02c, type: 2}
+  decks: []
+  hand: []
+  playedCards: []
+  exausted: []
+  maxHP: 30
+  hp: 0
+  shld: 0
+  energy: 0
+  maxBaseEnergy: 3
+  money: 10
+  CardBuyMax: 2
+  baseDamage: 6
+  baseShieldGain: 5
+  baseDamageTaken: 100
+  DamageModifiers: []
+  ShieldModifiers: []
+  DamageReductionModifiers: []
+  Damaged:
+    m_PersistentCalls:
+      m_Calls: []
+  Wounded:
+    m_PersistentCalls:
+      m_Calls: []
+  DamageBlocked:
+    m_PersistentCalls:
+      m_Calls: []
+  ShieldBreak:
+    m_PersistentCalls:
+      m_Calls: []
+  GainedShield:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayedCard:
+    m_PersistentCalls:
+      m_Calls: []
+  canPlayCards: 0
+  combatSpace: {fileID: 0}
+  anim: {fileID: 1723405716}
+  model: {fileID: 1723405715}
+  size: 0
+  FinishedPlaying:
+    m_PersistentCalls:
+      m_Calls: []
+  zoomIn:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Enemy Description
+  zoomOut:
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Your Cards
 --- !u!1001 &1592096499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65454,6 +65824,98 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717004943}
   m_CullTransparentMesh: 1
+--- !u!1001 &1723405713
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1588790272}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: ebc77914f2c1add45930d66dd9b5ca18, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ebc77914f2c1add45930d66dd9b5ca18, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ebc77914f2c1add45930d66dd9b5ca18, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ebc77914f2c1add45930d66dd9b5ca18, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ebc77914f2c1add45930d66dd9b5ca18, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ebc77914f2c1add45930d66dd9b5ca18, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ebc77914f2c1add45930d66dd9b5ca18, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ebc77914f2c1add45930d66dd9b5ca18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ebc77914f2c1add45930d66dd9b5ca18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ebc77914f2c1add45930d66dd9b5ca18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ebc77914f2c1add45930d66dd9b5ca18, type: 3}
+      propertyPath: m_Name
+      value: KoboldMiner
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ebc77914f2c1add45930d66dd9b5ca18, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1723405716}
+  m_SourcePrefab: {fileID: 100100000, guid: ebc77914f2c1add45930d66dd9b5ca18, type: 3}
+--- !u!4 &1723405714 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ebc77914f2c1add45930d66dd9b5ca18, type: 3}
+  m_PrefabInstance: {fileID: 1723405713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1723405715 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ebc77914f2c1add45930d66dd9b5ca18, type: 3}
+  m_PrefabInstance: {fileID: 1723405713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1723405716
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723405715}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1727401235
 PrefabInstance:
   m_ObjectHideFlags: 0

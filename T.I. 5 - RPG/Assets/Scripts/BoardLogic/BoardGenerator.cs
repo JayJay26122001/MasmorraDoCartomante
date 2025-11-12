@@ -89,151 +89,154 @@ public class BoardGenerator : MonoBehaviour
         board[0].Add(newRoom);
         GameplayManager.instance.currentRoom = newRoom;
 
-        for (int i = 1; i < boards[area].levelsCount - 1; i++)
+        if (boards[area].levelsCount > 2)
         {
-            board.Insert(i, new List<BoardRoom>());
-            for (int j = 0; j < board[i - 1].Count; j++)
+            for (int i = 1; i < boards[area].levelsCount - 1; i++)
             {
-                if (!VerifyCanMerge(board[i - 1][j], i, j))
+                board.Insert(i, new List<BoardRoom>());
+                for (int j = 0; j < board[i - 1].Count; j++)
                 {
-                    while (board[i - 1][j].nextRooms.Count < board[i - 1][j].nextRoomsCount)
+                    if (!VerifyCanMerge(board[i - 1][j], i, j))
                     {
-                        if (board[i - 1][j].nextRoomsCount > 1)
+                        while (board[i - 1][j].nextRooms.Count < board[i - 1][j].nextRoomsCount)
                         {
-                            branchLevel = board[i - 1][j].branchLevel + 1;
+                            if (board[i - 1][j].nextRoomsCount > 1)
+                            {
+                                branchLevel = board[i - 1][j].branchLevel + 1;
+                            }
+                            else
+                            {
+                                branchLevel = board[i - 1][j].branchLevel;
+                            }
+                            ChangeLevelProbabilities();
+                            newRoom = new BoardRoom(nextRoomsCount, branchLevel, willMerge);
+                            board[i - 1][j].nextRooms.Add(newRoom);
+                            board[i].Add(newRoom);
                         }
-                        else
-                        {
-                            branchLevel = board[i - 1][j].branchLevel;
-                        }
+                    }
+                    else
+                    {
+                        branchLevel = board[i - 1][j].branchLevel - 1;
                         ChangeLevelProbabilities();
                         newRoom = new BoardRoom(nextRoomsCount, branchLevel, willMerge);
                         board[i - 1][j].nextRooms.Add(newRoom);
+                        board[i - 1][j + 1].nextRooms.Add(newRoom);
                         board[i].Add(newRoom);
+                        j++;
                     }
                 }
-                else
-                {
-                    branchLevel = board[i - 1][j].branchLevel - 1;
-                    ChangeLevelProbabilities();
-                    newRoom = new BoardRoom(nextRoomsCount, branchLevel, willMerge);
-                    board[i - 1][j].nextRooms.Add(newRoom);
-                    board[i - 1][j + 1].nextRooms.Add(newRoom);
-                    board[i].Add(newRoom);
-                    j++;
-                }
             }
-        }
 
-        BoardRoomSO shopSO = boards[area].shopRoom;
-        List<BoardRoom> auxRooms = new List<BoardRoom>();
-        List<BoardRoom> auxRooms2 = new List<BoardRoom>();
-        List<BoardRoom> auxRooms3 = new List<BoardRoom>();
-        int lv = 0, limit = 0, rand = 0, aux;
-        for (int i = 1; i < boards[area].levelsCount - 2; i++)
-        {
-            for (int j = 0; j < board[i].Count; j++)
+            BoardRoomSO shopSO = boards[area].shopRoom;
+            List<BoardRoom> auxRooms = new List<BoardRoom>();
+            List<BoardRoom> auxRooms2 = new List<BoardRoom>();
+            List<BoardRoom> auxRooms3 = new List<BoardRoom>();
+            int lv = 0, limit = 0, rand = 0, aux;
+            for (int i = 1; i < boards[area].levelsCount - 2; i++)
             {
-                if (board[i][j].nextRoomsCount > 1)
+                for (int j = 0; j < board[i].Count; j++)
                 {
-                    if (!CheckForwardLevels(board[i][j], shopSO, i, 3))
+                    if (board[i][j].nextRoomsCount > 1)
                     {
-                        lv = i + 1;
-                        limit = Mathf.Clamp(i + 3, 0, boards[GameplayManager.instance.areaIndex].levelsCount - 2);
-                        auxRooms.Clear();
-                        board[i][j].nextRooms[0].GetNextRooms(limit - lv, auxRooms);
-                        board[i][j].nextRooms[1].GetNextRooms(limit - lv, auxRooms);
-                        bool success = false;
-                        while(!success)
+                        if (!CheckForwardLevels(board[i][j], shopSO, i, 3))
                         {
-                            rand = Random.Range(0, auxRooms.Count);
-                            aux = GetLevelOfRoom(auxRooms[rand], i);
-                            if (!CheckForwardLevels(auxRooms[rand], shopSO, aux, 1))
+                            lv = i + 1;
+                            limit = Mathf.Clamp(i + 3, 0, boards[GameplayManager.instance.areaIndex].levelsCount - 2);
+                            auxRooms.Clear();
+                            board[i][j].nextRooms[0].GetNextRooms(limit - lv, auxRooms);
+                            board[i][j].nextRooms[1].GetNextRooms(limit - lv, auxRooms);
+                            bool success = false;
+                            while(!success)
                             {
-                                auxRooms2.Clear();
-                                CheckBehind(auxRooms[rand], shopSO, aux - 1, auxRooms2);
-                                if(auxRooms2.Count == 0)
+                                rand = Random.Range(0, auxRooms.Count);
+                                aux = GetLevelOfRoom(auxRooms[rand], i);
+                                if (!CheckForwardLevels(auxRooms[rand], shopSO, aux, 1))
                                 {
-                                    auxRooms[rand].type = shopSO;
-                                    success = true;
+                                    auxRooms2.Clear();
+                                    CheckBehind(auxRooms[rand], shopSO, aux - 1, auxRooms2);
+                                    if(auxRooms2.Count == 0)
+                                    {
+                                        auxRooms[rand].type = shopSO;
+                                        success = true;
+                                    }
                                 }
                             }
                         }
                     }
                 }
             }
-        }
 
-        BoardRoomSO battleSO = boards[area].battleRoom;
-        board[1][0].type = battleSO;
+            BoardRoomSO battleSO = boards[area].battleRoom;
+            board[1][0].type = battleSO;
 
-        for (int i = 2; i < boards[area].levelsCount - 1; i++)
-        {
-            for (int j = 0; j < board[i].Count; j++)
+            for (int i = 2; i < boards[area].levelsCount - 1; i++)
             {
-                if (board[i][j].type != shopSO)
+                for (int j = 0; j < board[i].Count; j++)
                 {
-                    auxRooms.Clear();
-                    CheckBehind(board[i][j], battleSO, i - 1, auxRooms);
-                    if(auxRooms.Count == 0)
+                    if (board[i][j].type != shopSO)
                     {
-                        board[i][j].type = battleSO;
-                    }
-                    else
-                    {
-                        auxRooms2.Clear();
-                        CheckBehind(auxRooms[0], battleSO, i - 2, auxRooms2);
-                        if(auxRooms2.Count == 0)
+                        auxRooms.Clear();
+                        CheckBehind(board[i][j], battleSO, i - 1, auxRooms);
+                        if(auxRooms.Count == 0)
                         {
-                            if(auxRooms.Count > 1)
+                            board[i][j].type = battleSO;
+                        }
+                        else
+                        {
+                            auxRooms2.Clear();
+                            CheckBehind(auxRooms[0], battleSO, i - 2, auxRooms2);
+                            if(auxRooms2.Count == 0)
                             {
-                                auxRooms3.Clear();
-                                CheckBehind(auxRooms[1], battleSO, i - 2, auxRooms3);
-                                if(auxRooms3.Count == 0)
+                                if(auxRooms.Count > 1)
+                                {
+                                    auxRooms3.Clear();
+                                    CheckBehind(auxRooms[1], battleSO, i - 2, auxRooms3);
+                                    if(auxRooms3.Count == 0)
+                                    {
+                                        rand = Random.Range(0, 100);
+                                        if(rand < doubleBattleChance)
+                                        {
+                                            board[i][j].type = battleSO;
+                                        }
+                                    }
+                                }
+                                else
                                 {
                                     rand = Random.Range(0, 100);
-                                    if(rand < doubleBattleChance)
+                                    if (rand < doubleBattleChance)
                                     {
                                         board[i][j].type = battleSO;
                                     }
                                 }
                             }
-                            else
-                            {
-                                rand = Random.Range(0, 100);
-                                if (rand < doubleBattleChance)
-                                {
-                                    board[i][j].type = battleSO;
-                                }
-                            }
                         }
                     }
                 }
             }
-        }
 
-        int sum;
-        for (int i = 0; i < boards[area].levelsCount - 1; i++)
-        {
-            for (int j = 0; j < board[i].Count; j++)
+            int sum;
+            for (int i = 0; i < boards[area].levelsCount - 1; i++)
             {
-                if (board[i][j].type == null)
+                for (int j = 0; j < board[i].Count; j++)
                 {
-                    sum = 0;
-                    foreach (ControlledProbability s in typeProbabilities)
+                    if (board[i][j].type == null)
                     {
-                        sum += s.probability;
-                    }
-                    rand = Random.Range(0, sum);
-                    aux = 0;
-                    for(int k = 0; k < typeProbabilities.Count; k++)
-                    {
-                        aux += typeProbabilities[k].probability;
-                        if(rand < aux)
+                        sum = 0;
+                        foreach (ControlledProbability s in typeProbabilities)
                         {
-                            board[i][j].type = boards[area].roomList[k];
-                            ChangeTypeProbabilities(board[i][j].type);
-                            k = typeProbabilities.Count;
+                            sum += s.probability;
+                        }
+                        rand = Random.Range(0, sum);
+                        aux = 0;
+                        for(int k = 0; k < typeProbabilities.Count; k++)
+                        {
+                            aux += typeProbabilities[k].probability;
+                            if(rand < aux)
+                            {
+                                board[i][j].type = boards[area].roomList[k];
+                                ChangeTypeProbabilities(board[i][j].type);
+                                k = typeProbabilities.Count;
+                            }
                         }
                     }
                 }
