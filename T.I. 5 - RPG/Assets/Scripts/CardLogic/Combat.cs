@@ -141,12 +141,12 @@ public class Combat : MonoBehaviour
         BellColider.enabled = active;
         if (active)
         {
-            BellColider.gameObject.GetComponent<MeshRenderer>().material.color = new Color(0, 0.65f, 0, 1);
+            BellColider.gameObject.GetComponent<MeshRenderer>().materials[1].color = new Color(0, 0.65f, 0, 1);
             GameplayManager.instance.ResumeInput();
         }
         else
         {
-            BellColider.gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
+            BellColider.gameObject.GetComponent<MeshRenderer>().materials[1].color = Color.red;
             GameplayManager.instance.PauseInput();
         }
         BellColider.gameObject.GetComponent<Bell>().ChangeInteractions(active);

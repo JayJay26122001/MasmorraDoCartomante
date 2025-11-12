@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DisappearingObject : MonoBehaviour
 {
-    public Material mat;
+    public Material mat, auxMat;
     public GameObject extraObj;
     public bool startShown;
     float animTimeStart;
@@ -12,9 +12,17 @@ public class DisappearingObject : MonoBehaviour
     private void Start()
     {
         mat = GetComponent<MeshRenderer>().material;
+        if(GetComponent<MeshRenderer>().materials.Length > 1)
+        {
+            auxMat = GetComponent<MeshRenderer>().materials[1];
+        }
         if(!startShown)
         {
             mat.SetFloat("_DisappearTime", 1);
+            if(auxMat != null)
+            {
+                auxMat.SetFloat("_DisappearTime", 1);
+            }
             if (extraObj != null)
             {
                 extraObj.SetActive(false);
@@ -23,6 +31,10 @@ public class DisappearingObject : MonoBehaviour
         else
         {
             mat.SetFloat("_DisappearTime", 0);
+            if (auxMat != null)
+            {
+                auxMat.SetFloat("_DisappearTime", 0);
+            }
             if (extraObj != null)
             {
                 extraObj.SetActive(true);
@@ -53,6 +65,10 @@ public class DisappearingObject : MonoBehaviour
                 t = Mathf.Clamp(1 - ((Time.time - animTimeStart) * 3), 0, 1);
             }
             mat.SetFloat("_DisappearTime", t);
+            if(auxMat != null)
+            {
+                auxMat.SetFloat("_DisappearTime", t);
+            }
             if ((t >= 1 && disappearing) || (t <= 0 && !disappearing))
             {
                 inAnimation = false;
