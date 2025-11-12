@@ -668,7 +668,7 @@ public class BoardGenerator : MonoBehaviour
     public void InstantiateBoard(bool saved)
     {
         boardBase.GetComponent<MeshRenderer>().material.color = new Color32(50, 100, 150, 255);
-        playerPiece.GetComponent<MeshRenderer>().material.color = new Color32(0, 100, 0, 255);
+        //playerPiece.GetComponent<MeshRenderer>().material.color = new Color32(0, 100, 0, 255);
         int roomCount;
         zOffset = 0;
         xOffset = 0;
