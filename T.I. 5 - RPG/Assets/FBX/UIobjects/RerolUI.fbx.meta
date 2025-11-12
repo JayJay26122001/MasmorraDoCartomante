@@ -3,7 +3,12 @@ guid: 0f3d76c238dc6da45b367b654ae18f28
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 3DSymbolsMat
+    second: {fileID: 2100000, guid: cd107eadf4c0d664f917defb854ff814, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -19343,6 +19343,14 @@ PrefabInstance:
       value: TurnArrowUI
       objectReference: {fileID: 0}
     - target: {fileID: 1908797451395097722, guid: 69d40547889daab4b903c94c66c8eca4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908797451395097722, guid: 69d40547889daab4b903c94c66c8eca4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.976
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908797451395097722, guid: 69d40547889daab4b903c94c66c8eca4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
@@ -24471,7 +24479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &665812756
 Transform:
   m_ObjectHideFlags: 0
@@ -25187,7 +25195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &707346587
 Transform:
   m_ObjectHideFlags: 0
@@ -77851,7 +77859,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8026438658962209458, guid: 40cc8702dd66d044f9d3a254f2cdacbd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -19
+      value: -19.1
       objectReference: {fileID: 0}
     - target: {fileID: 8026438658962209458, guid: 40cc8702dd66d044f9d3a254f2cdacbd, type: 3}
       propertyPath: m_LocalPosition.z

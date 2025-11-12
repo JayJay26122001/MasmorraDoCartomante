@@ -3,7 +3,17 @@ guid: 69d40547889daab4b903c94c66c8eca4
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ArrowColorChangeMat
+    second: {fileID: 2100000, guid: 040f061efd137d14e963b231b15d2873, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CombatUIMat
+    second: {fileID: 2100000, guid: 0d3756bbf3563f54a88fafaf3cd60780, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

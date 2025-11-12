@@ -3,7 +3,12 @@ guid: 6a33794f2e96a284089c0d4d29297a63
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CombatUIMat
+    second: {fileID: 2100000, guid: 0d3756bbf3563f54a88fafaf3cd60780, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
