@@ -10980,11 +10980,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boards:
+  - {fileID: 11400000, guid: 1596020848a1fea4fa8353d44a0d5e2f, type: 2}
   - {fileID: 11400000, guid: 0a65d3e7aff2bdb449c29087574dbbde, type: 2}
   - {fileID: 11400000, guid: b6d65c70d41c47b4ebd1c1acbcb99142, type: 2}
   - {fileID: 11400000, guid: 0deed17538513684d91fcf6af5f8a48f, type: 2}
-  - {fileID: 11400000, guid: db107766f7ee3eb4e9093df116c238c0, type: 2}
-  - {fileID: 11400000, guid: 1596020848a1fea4fa8353d44a0d5e2f, type: 2}
+  - {fileID: 11400000, guid: b453487795e6609449aabc23ac420ac3, type: 2}
   typeProbabilities:
   - type: Battle
     probability: 100
@@ -12777,20 +12777,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   DeckPresets:
-  - {fileID: 11400000, guid: 8b745a042663de24bbcab1c3e0eda02c, type: 2}
+  - {fileID: 11400000, guid: 63c845c74df0ff04093b0b8a22d9e97a, type: 2}
   decks: []
   hand: []
   playedCards: []
   exausted: []
-  maxHP: 30
+  maxHP: 50
   hp: 0
   shld: 0
   energy: 0
-  maxBaseEnergy: 3
+  maxBaseEnergy: 5
   money: 10
-  CardBuyMax: 2
-  baseDamage: 6
-  baseShieldGain: 5
+  CardBuyMax: 3
+  baseDamage: 7
+  baseShieldGain: 6
   baseDamageTaken: 100
   DamageModifiers: []
   ShieldModifiers: []
@@ -36121,7 +36121,7 @@ MonoBehaviour:
   hand: []
   playedCards: []
   exausted: []
-  maxHP: 170
+  maxHP: 150
   hp: 0
   shld: 0
   energy: 0
@@ -52019,9 +52019,9 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1284181321}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
+  m_Avatar: {fileID: 9000000, guid: 461d577e6eaa48246903f378dce2cd50, type: 3}
+  m_Controller: {fileID: 9100000, guid: c19e20fd5fe4e6f4b9584ccf4f12644e, type: 2}
+  m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -54266,7 +54266,7 @@ MonoBehaviour:
   hand: []
   playedCards: []
   exausted: []
-  maxHP: 130
+  maxHP: 120
   hp: 0
   shld: 0
   energy: 0
@@ -57279,6 +57279,8 @@ MonoBehaviour:
   - {fileID: 707346586}
   - {fileID: 1264320102}
   - {fileID: 125215944}
+  - {fileID: 931299368}
+  - {fileID: 665812755}
   moneyPrize:
     type: 1
     value: 0
@@ -62336,20 +62338,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   DeckPresets:
-  - {fileID: 11400000, guid: 8b745a042663de24bbcab1c3e0eda02c, type: 2}
+  - {fileID: 11400000, guid: d481be8f603a6a24782f9eb14548ba63, type: 2}
   decks: []
   hand: []
   playedCards: []
   exausted: []
-  maxHP: 30
+  maxHP: 45
   hp: 0
   shld: 0
   energy: 0
-  maxBaseEnergy: 3
+  maxBaseEnergy: 4
   money: 10
   CardBuyMax: 2
-  baseDamage: 6
-  baseShieldGain: 5
+  baseDamage: 7
+  baseShieldGain: 6
   baseDamageTaken: 100
   DamageModifiers: []
   ShieldModifiers: []
@@ -65903,9 +65905,9 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1723405715}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
+  m_Avatar: {fileID: 9000000, guid: ebc77914f2c1add45930d66dd9b5ca18, type: 3}
+  m_Controller: {fileID: 9100000, guid: c19e20fd5fe4e6f4b9584ccf4f12644e, type: 2}
+  m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
