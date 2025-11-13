@@ -95,7 +95,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
     public void SetCard(Card card)
     {
         cardData = card;
-        if (!GameplayManager.instance.removingCards && !GameplayManager.instance.duplicatingCards && pack == null)
+        if (!GameplayManager.instance.removingCards && !GameplayManager.instance.duplicatingCards && pack == null && !GameplayManager.instance.viewingDeck)
         {
             card.cardDisplay = this;
         }
