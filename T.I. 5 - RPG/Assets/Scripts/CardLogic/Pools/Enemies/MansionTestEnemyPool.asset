@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df63f8d404d0a464ba76aae892ae72a4, type: 3}
   m_Name: MansionTestEnemyPool
   m_EditorClassIdentifier: 
-  pool: 
+  pool: 0b000000
   baseProbabilities:
-  - type: 
+  - type: Mannequin
     probability: 50
     multiplier: 1
     minMult: 0.25

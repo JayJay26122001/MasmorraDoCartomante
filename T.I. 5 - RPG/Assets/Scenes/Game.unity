@@ -43470,6 +43470,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1031158094}
+  - component: {fileID: 1031158097}
+  - component: {fileID: 1031158096}
+  - component: {fileID: 1031158095}
   m_Layer: 0
   m_Name: Mannequin
   m_TagString: Untagged
@@ -43493,6 +43496,107 @@ Transform:
   - {fileID: 299876269}
   m_Father: {fileID: 835108580}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1031158095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031158093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d038c331c1efb1144a2a4e332c0ccc15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactions:
+  - image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Enemy Description
+--- !u!136 &1031158096
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031158093}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4.89
+  m_Height: 52.18
+  m_Direction: 1
+  m_Center: {x: 0, y: 22.89, z: 0}
+--- !u!114 &1031158097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031158093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef8394d76fca764fbbc7af354477e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  DeckPresets: []
+  decks: []
+  hand: []
+  playedCards: []
+  exausted: []
+  maxHP: 0
+  hp: 0
+  shld: 0
+  energy: 0
+  maxBaseEnergy: 3
+  money: 0
+  CardBuyMax: 5
+  baseDamage: 6
+  baseShieldGain: 5
+  baseDamageTaken: 100
+  DamageModifiers: []
+  ShieldModifiers: []
+  DamageReductionModifiers: []
+  Damaged:
+    m_PersistentCalls:
+      m_Calls: []
+  Wounded:
+    m_PersistentCalls:
+      m_Calls: []
+  DamageBlocked:
+    m_PersistentCalls:
+      m_Calls: []
+  ShieldBreak:
+    m_PersistentCalls:
+      m_Calls: []
+  GainedShield:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayedCard:
+    m_PersistentCalls:
+      m_Calls: []
+  canPlayCards: 0
+  combatSpace: {fileID: 0}
+  anim: {fileID: 1421809404}
+  model: {fileID: 1421809403}
+  size: 1
+  FinishedPlaying:
+    m_PersistentCalls:
+      m_Calls: []
+  zoomIn:
+    image: {fileID: 0}
+    command: 
+  zoomOut:
+    image: {fileID: 0}
+    command: 
 --- !u!1001 &1033830381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53953,6 +54057,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a06a0b1e034f9241a93c53e5105b7ed, type: 3}
+--- !u!1 &1421809403 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7a06a0b1e034f9241a93c53e5105b7ed, type: 3}
+  m_PrefabInstance: {fileID: 1421809402}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1421809404 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 7a06a0b1e034f9241a93c53e5105b7ed, type: 3}
+  m_PrefabInstance: {fileID: 1421809402}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1426142462
 GameObject:
   m_ObjectHideFlags: 0
@@ -54292,6 +54406,7 @@ MonoBehaviour:
   - {fileID: 916723816}
   - {fileID: 1588790275}
   - {fileID: 380782360}
+  - {fileID: 1031158097}
   bosses:
   - {fileID: 1648378711}
   - {fileID: 1551659760}
