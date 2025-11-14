@@ -21,7 +21,7 @@ public class GameplayManager : MonoBehaviour
     public List<TimelineAsset> cutscenes = new List<TimelineAsset>();
     public BoardGenerator bg;
     public GameObject InputBlocker;
-    public GameObject moneyBag;
+    public GameObject moneyBag, playerDeckViewer;
     int PauseInstances = 0;
     public bool InputActive { get; private set; } = true;
     bool ManualPause = false;
@@ -46,8 +46,10 @@ public class GameplayManager : MonoBehaviour
     public Stamp stamp;
 
     public ParticleSystem coinExplosion;
+    public GameObject attackVFX;
     public List<CardAttack> attacksPool = new List<CardAttack>();
     public List<CardAttack> attacksUsed = new List<CardAttack>();
+    public GameObject coinVFX;
     public List<CardAttack> coinsPool = new List<CardAttack>();
     public List<CardAttack> coinsUsed = new List<CardAttack>();
     public Volume hitVol, healVol;
@@ -125,6 +127,7 @@ public class GameplayManager : MonoBehaviour
         bg.transform.parent.gameObject.SetActive(true);
         moneyBag.SetActive(true);
         moneyBag.transform.position = new Vector3(moneyBag.transform.position.x, moneyBag.transform.position.y - 25, moneyBag.transform.position.z);
+        playerDeckViewer.SetActive(true);
         AppearOnlyPlayerHealth();
         //bg.AnimateBoard(false);
         CameraController.instance.ActivateAngledTopCamera();
@@ -731,6 +734,11 @@ public class GameplayManager : MonoBehaviour
 
     public UnityEvent ActivateCardAttack(Vector3 pos, Creature target)
     {
+        if(attacksPool.Count == attacksUsed.Count)
+        {
+            CardAttack a = Instantiate(attackVFX, attackVFX.transform.parent).GetComponent<CardAttack>();
+            attacksPool.Add(a);
+        }
         for (int i = 0; i < attacksPool.Count; i++)
         {
             if (!attacksUsed.Contains(attacksPool[i]))
@@ -747,14 +755,20 @@ public class GameplayManager : MonoBehaviour
         return null;
     }
 
-    public UnityEvent ActivateCoin(Vector3 pos)
+    public UnityEvent ActivateCoin(Vector3 pos, Transform target)
     {
+        if (coinsPool.Count == coinsUsed.Count)
+        {
+            CardAttack c = Instantiate(coinVFX, coinVFX.transform.parent).GetComponent<CardAttack>();
+            coinsPool.Add(c);
+        }
         for (int i = 0; i < coinsPool.Count; i++)
         {
             if (!coinsUsed.Contains(coinsPool[i]))
             {
                 UnityEvent temp = coinsPool[i].HitTarget;
                 coinsPool[i].transform.position = pos;
+                coinsPool[i].SetTarget(target);
                 coinsPool[i].BezierCurve();
                 coinsUsed.Add(coinsPool[i]);
                 i = coinsPool.Count;
