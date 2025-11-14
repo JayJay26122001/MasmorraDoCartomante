@@ -3,11 +3,13 @@ using UnityEngine;
 public class DisappearingObject : MonoBehaviour
 {
     public Material mat, auxMat;
-    public GameObject extraObj;
+    public GameObject extraObj, outline;
     public bool startShown;
     float animTimeStart;
     bool inAnimation, disappearing;
     float t;
+    public enum UIType { Health, Shield, Energy };
+    public UIType uiType;
 
     private void Start()
     {
@@ -38,6 +40,25 @@ public class DisappearingObject : MonoBehaviour
             if (extraObj != null)
             {
                 extraObj.SetActive(true);
+            }
+        }
+        if(outline != null)
+        {
+            outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeX", 0.1f);
+            outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeY", 0.1f);
+            outline.GetComponent<MeshRenderer>().material.SetFloat("_SizeZ", 0.1f);
+            outline.GetComponent<MeshRenderer>().material.SetFloat("_Offset", 1f);
+            switch (uiType)
+            {
+                case UIType.Health:
+                    outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.red);
+                    break;
+                case UIType.Shield:
+                    outline.GetComponent<MeshRenderer>().material.SetColor("_Color", new Color(0, 0.3f, 1, 1));
+                    break;
+                case UIType.Energy:
+                    outline.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.green);
+                    break;
             }
         }
     }

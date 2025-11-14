@@ -903,18 +903,12 @@ public class GameplayManager : MonoBehaviour
         //currentCombat.CombatUI();
         //ActionController.instance.InvokeTimer(currentCombat.CombatUI, 0.75f);
     }
+
+    IEnumerator playerHealthOutline, playerShieldOutline, playerEnergyOutline;
+    IEnumerator enemyHealthOutline, enemyShieldOutline, enemyEnergyOutline;
+
     public void HealthModifiedVFX(Creature target, int Amount)
     {
-        DamageVFX.VFXType Type;
-        if(target is Player)
-        {
-            Type = DamageVFX.VFXType.PlayerHP;
-        }
-        else if (target is Enemy)
-        {
-            Type = DamageVFX.VFXType.EnemyHP;
-        }
-        else return;
         string sign;
         if (Amount < 0)
         {
@@ -923,22 +917,34 @@ public class GameplayManager : MonoBehaviour
         else if (Amount > 0)
         {
             sign = "+";
+        }
+        else return;
+        DamageVFX.VFXType Type;
+        if(target is Player)
+        {
+            Type = DamageVFX.VFXType.PlayerHP;
+            uiObjects[0].outline.SetActive(true);
+            if(playerHealthOutline != null)
+            {
+                ActionController.instance.CancelTimer(playerHealthOutline);
+            }
+            playerHealthOutline = ActionController.instance.InvokeTimer(DisableOutline, 0, 1);
+        }
+        else if (target is Enemy)
+        {
+            Type = DamageVFX.VFXType.EnemyHP;
+            uiObjects[1].outline.SetActive(true);
+            if (enemyHealthOutline != null)
+            {
+                ActionController.instance.CancelTimer(enemyHealthOutline);
+            }
+            enemyHealthOutline = ActionController.instance.InvokeTimer(DisableOutline, 1, 1);
         }
         else return;
         SpawnVFX(sign + Amount, Type);
     }
     public void ShieldModifiedVFX(Creature target, int Amount)
     {
-        DamageVFX.VFXType Type;
-        if (target is Player)
-        {
-            Type = DamageVFX.VFXType.PlayerShield;
-        }
-        else if (target is Enemy)
-        {
-            Type = DamageVFX.VFXType.EnemyShield;
-        }
-        else return;
         string sign;
         if (Amount < 0)
         {
@@ -947,22 +953,34 @@ public class GameplayManager : MonoBehaviour
         else if (Amount > 0)
         {
             sign = "+";
+        }
+        else return;
+        DamageVFX.VFXType Type;
+        if (target is Player)
+        {
+            Type = DamageVFX.VFXType.PlayerShield;
+            uiObjects[2].outline.SetActive(true);
+            if (playerShieldOutline != null)
+            {
+                ActionController.instance.CancelTimer(playerShieldOutline);
+            }
+            playerShieldOutline = ActionController.instance.InvokeTimer(DisableOutline, 2, 1);
+        }
+        else if (target is Enemy)
+        {
+            Type = DamageVFX.VFXType.EnemyShield;
+            uiObjects[3].outline.SetActive(true);
+            if (enemyShieldOutline != null)
+            {
+                ActionController.instance.CancelTimer(enemyShieldOutline);
+            }
+            enemyShieldOutline = ActionController.instance.InvokeTimer(DisableOutline, 3, 1);
         }
         else return;
         SpawnVFX(sign + Amount, Type);
     }
     public void EnergyModifiedVFX(Creature target, int Amount)
     {
-        DamageVFX.VFXType Type;
-        if (target is Player)
-        {
-            Type = DamageVFX.VFXType.PlayerEnergy;
-        }
-        else if (target is Enemy)
-        {
-            Type = DamageVFX.VFXType.EnemyEnergy;
-        }
-        else return;
         string sign;
         if (Amount < 0)
         {
@@ -973,8 +991,57 @@ public class GameplayManager : MonoBehaviour
             sign = "+";
         }
         else return;
+        DamageVFX.VFXType Type;
+        if (target is Player)
+        {
+            Type = DamageVFX.VFXType.PlayerEnergy;
+            uiObjects[4].outline.SetActive(true);
+            if (playerEnergyOutline != null)
+            {
+                ActionController.instance.CancelTimer(playerEnergyOutline);
+            }
+            playerEnergyOutline = ActionController.instance.InvokeTimer(DisableOutline, 4, 1);
+        }
+        else if (target is Enemy)
+        {
+            Type = DamageVFX.VFXType.EnemyEnergy;
+            uiObjects[5].outline.SetActive(true);
+            if (enemyEnergyOutline != null)
+            {
+                ActionController.instance.CancelTimer(enemyEnergyOutline);
+            }
+            enemyEnergyOutline = ActionController.instance.InvokeTimer(DisableOutline, 5, 1);
+        }
+        else return;
         SpawnVFX(sign + Amount, Type);
     }
+
+    public void DisableOutline(int index)
+    {
+        uiObjects[index].outline.SetActive(false);
+        switch(index)
+        {
+            case 0:
+                playerHealthOutline = null;
+                break;
+            case 1:
+                enemyHealthOutline = null;
+                break;
+            case 2:
+                playerShieldOutline = null;
+                break;
+            case 3:
+                enemyShieldOutline = null;
+                break;
+            case 4:
+                playerEnergyOutline = null;
+                break;
+            case 5:
+                enemyEnergyOutline = null;
+                break;
+        }
+    }
+
     public void SkipTurnVFX(Creature target)
     {
         string s;
