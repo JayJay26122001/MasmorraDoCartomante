@@ -7006,9 +7006,7 @@ MonoBehaviour:
   mat: {fileID: 2100000, guid: 35c479cd93087c54287e5d263f2fead1, type: 2}
   auxMat: {fileID: 0}
   extraObj: {fileID: 1671040974}
-  outline: {fileID: 0}
   startShown: 0
-  uiType: 0
 --- !u!23 &114895563
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9300,9 +9298,7 @@ MonoBehaviour:
   mat: {fileID: 0}
   auxMat: {fileID: 0}
   extraObj: {fileID: 995080191}
-  outline: {fileID: 0}
   startShown: 0
-  uiType: 0
 --- !u!1 &234201291
 GameObject:
   m_ObjectHideFlags: 0
@@ -17485,9 +17481,7 @@ MonoBehaviour:
   mat: {fileID: 0}
   auxMat: {fileID: 0}
   extraObj: {fileID: 0}
-  outline: {fileID: 0}
   startShown: 0
-  uiType: 0
 --- !u!114 &435492744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17653,11 +17647,6 @@ PrefabInstance:
 --- !u!4 &442318257 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: abcd637d529064448a8c0e8a8027625e, type: 3}
-  m_PrefabInstance: {fileID: 442318256}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &442318258 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: abcd637d529064448a8c0e8a8027625e, type: 3}
   m_PrefabInstance: {fileID: 442318256}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &442655482
@@ -18149,9 +18138,7 @@ MonoBehaviour:
   mat: {fileID: 0}
   auxMat: {fileID: 0}
   extraObj: {fileID: 1236923043}
-  outline: {fileID: 2050858662}
   startShown: 0
-  uiType: 0
 --- !u!1 &454741948
 GameObject:
   m_ObjectHideFlags: 0
@@ -18452,11 +18439,6 @@ PrefabInstance:
 --- !u!4 &460133061 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: abcd637d529064448a8c0e8a8027625e, type: 3}
-  m_PrefabInstance: {fileID: 460133060}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &460133062 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: abcd637d529064448a8c0e8a8027625e, type: 3}
   m_PrefabInstance: {fileID: 460133060}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &461322262
@@ -34356,11 +34338,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3bdf54b5281f7cb48853ec7c83cc2cca, type: 3}
   m_PrefabInstance: {fileID: 784298898}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &784298900 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3bdf54b5281f7cb48853ec7c83cc2cca, type: 3}
-  m_PrefabInstance: {fileID: 784298898}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &786645939
 GameObject:
   m_ObjectHideFlags: 0
@@ -45415,9 +45392,7 @@ MonoBehaviour:
   mat: {fileID: 0}
   auxMat: {fileID: 0}
   extraObj: {fileID: 0}
-  outline: {fileID: 0}
   startShown: 0
-  uiType: 0
 --- !u!1 &1151479975
 GameObject:
   m_ObjectHideFlags: 0
@@ -58734,9 +58709,7 @@ MonoBehaviour:
   mat: {fileID: 0}
   auxMat: {fileID: 0}
   extraObj: {fileID: 208030085}
-  outline: {fileID: 460133062}
   startShown: 0
-  uiType: 1
 --- !u!1 &1578370281
 GameObject:
   m_ObjectHideFlags: 0
@@ -61839,11 +61812,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: db19c44611073a140b32e970f1908268, type: 3}
   m_PrefabInstance: {fileID: 1675867616}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1675867618 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: db19c44611073a140b32e970f1908268, type: 3}
-  m_PrefabInstance: {fileID: 1675867616}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1678428453
 GameObject:
   m_ObjectHideFlags: 0
@@ -62089,11 +62057,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3bdf54b5281f7cb48853ec7c83cc2cca, type: 3}
   m_PrefabInstance: {fileID: 1689399317}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1689399319 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3bdf54b5281f7cb48853ec7c83cc2cca, type: 3}
-  m_PrefabInstance: {fileID: 1689399317}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1692080840
 GameObject:
   m_ObjectHideFlags: 0
@@ -62290,9 +62253,7 @@ MonoBehaviour:
   mat: {fileID: 0}
   auxMat: {fileID: 0}
   extraObj: {fileID: 0}
-  outline: {fileID: 0}
   startShown: 0
-  uiType: 0
 --- !u!4 &1695324858 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8026438658962209458, guid: 40cc8702dd66d044f9d3a254f2cdacbd, type: 3}
@@ -62586,9 +62547,7 @@ MonoBehaviour:
   mat: {fileID: 0}
   auxMat: {fileID: 0}
   extraObj: {fileID: 83345281}
-  outline: {fileID: 0}
   startShown: 0
-  uiType: 0
 --- !u!1 &1707706539 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6406496897430019111, guid: 722a7e77cecf9e14bad9ae2e93d95038, type: 3}
@@ -63080,9 +63039,7 @@ MonoBehaviour:
   mat: {fileID: 0}
   auxMat: {fileID: 0}
   extraObj: {fileID: 669491410}
-  outline: {fileID: 1689399319}
   startShown: 0
-  uiType: 2
 --- !u!1001 &1735361416
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63178,9 +63135,7 @@ MonoBehaviour:
   mat: {fileID: 0}
   auxMat: {fileID: 0}
   extraObj: {fileID: 638348213}
-  outline: {fileID: 1675867618}
   startShown: 0
-  uiType: 0
 --- !u!1 &1753373427
 GameObject:
   m_ObjectHideFlags: 0
@@ -64321,9 +64276,7 @@ MonoBehaviour:
   mat: {fileID: 0}
   auxMat: {fileID: 0}
   extraObj: {fileID: 1881288780}
-  outline: {fileID: 0}
   startShown: 0
-  uiType: 0
 --- !u!1 &1792095357
 GameObject:
   m_ObjectHideFlags: 0
@@ -69067,9 +69020,7 @@ MonoBehaviour:
   mat: {fileID: 0}
   auxMat: {fileID: 0}
   extraObj: {fileID: 1638813675}
-  outline: {fileID: 442318258}
   startShown: 0
-  uiType: 1
 --- !u!4 &2043155103 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: edc1b0e902e653344a83337943decdd6, type: 3}
@@ -69495,11 +69446,6 @@ MonoBehaviour:
   interactions:
   - image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
     command: View Enemy Description
---- !u!1 &2050858662 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: db19c44611073a140b32e970f1908268, type: 3}
-  m_PrefabInstance: {fileID: 1355863609}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2050858663 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: db19c44611073a140b32e970f1908268, type: 3}
@@ -70142,9 +70088,7 @@ MonoBehaviour:
   mat: {fileID: 0}
   auxMat: {fileID: 0}
   extraObj: {fileID: 1494254294}
-  outline: {fileID: 784298900}
   startShown: 0
-  uiType: 2
 --- !u!1001 &2077033033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70860,9 +70804,7 @@ MonoBehaviour:
   mat: {fileID: 0}
   auxMat: {fileID: 0}
   extraObj: {fileID: 1618065892}
-  outline: {fileID: 0}
   startShown: 0
-  uiType: 0
 --- !u!1001 &119323442416945962
 PrefabInstance:
   m_ObjectHideFlags: 0
