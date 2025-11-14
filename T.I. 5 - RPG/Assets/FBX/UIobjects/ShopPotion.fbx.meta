@@ -7,6 +7,16 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: PotionContentMat
+    second: {fileID: 2100000, guid: b697b6e647c88cd4aaec92ea58363f57, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PotionGlassMat
+    second: {fileID: 2100000, guid: 77570be517acd5b4c81a7b9a44d61113, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: PotionMat
     second: {fileID: 2100000, guid: b0073dea327aff74aa59d28a9923c25f, type: 2}
   materials:
