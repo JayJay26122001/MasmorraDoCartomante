@@ -1575,6 +1575,11 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &73108129 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: db19c44611073a140b32e970f1908268, type: 3}
+  m_PrefabInstance: {fileID: 1355863609}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &75921740
 GameObject:
   m_ObjectHideFlags: 0
@@ -7003,8 +7008,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f6cbf73bdbfa14193943f642420e20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mat: {fileID: 2100000, guid: 35c479cd93087c54287e5d263f2fead1, type: 2}
-  auxMat: {fileID: 0}
+  mat: {fileID: 2100000, guid: cd95264db7dcf624b9b56ec7e856e6e8, type: 2}
+  auxMat: {fileID: 2100000, guid: 610db4391fe9703478545abe0d653dfd, type: 2}
   extraObj: {fileID: 1671040974}
   outline: {fileID: 0}
   startShown: 0
@@ -7032,6 +7037,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+  - {fileID: 2100000, guid: 610db4391fe9703478545abe0d653dfd, type: 2}
   - {fileID: 2100000, guid: cd95264db7dcf624b9b56ec7e856e6e8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -17205,6 +17211,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &421795361 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: db19c44611073a140b32e970f1908268, type: 3}
+  m_PrefabInstance: {fileID: 1675867616}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &422913514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18146,7 +18157,7 @@ MonoBehaviour:
   mat: {fileID: 0}
   auxMat: {fileID: 0}
   extraObj: {fileID: 1236923043}
-  outline: {fileID: 0}
+  outline: {fileID: 73108129}
   startShown: 0
   uiType: 0
 --- !u!1 &454741948
@@ -41286,6 +41297,11 @@ MonoBehaviour:
   interactions:
   - image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
     command: View Enemy Description
+--- !u!1 &929213036 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: abcd637d529064448a8c0e8a8027625e, type: 3}
+  m_PrefabInstance: {fileID: 460133060}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &929844986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54160,6 +54176,11 @@ Transform:
   - {fileID: 2049845127}
   m_Father: {fileID: 125215945}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1420840064 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3bdf54b5281f7cb48853ec7c83cc2cca, type: 3}
+  m_PrefabInstance: {fileID: 1689399317}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1421809402
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58900,9 +58921,9 @@ MonoBehaviour:
   mat: {fileID: 0}
   auxMat: {fileID: 0}
   extraObj: {fileID: 208030085}
-  outline: {fileID: 0}
+  outline: {fileID: 929213036}
   startShown: 0
-  uiType: 0
+  uiType: 1
 --- !u!1 &1578370281
 GameObject:
   m_ObjectHideFlags: 0
@@ -60020,6 +60041,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 707346587}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1633693324 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3bdf54b5281f7cb48853ec7c83cc2cca, type: 3}
+  m_PrefabInstance: {fileID: 784298898}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1635369523
 GameObject:
   m_ObjectHideFlags: 0
@@ -63236,9 +63262,9 @@ MonoBehaviour:
   mat: {fileID: 0}
   auxMat: {fileID: 0}
   extraObj: {fileID: 669491410}
-  outline: {fileID: 0}
+  outline: {fileID: 1420840064}
   startShown: 0
-  uiType: 0
+  uiType: 2
 --- !u!1001 &1735361416
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63334,7 +63360,7 @@ MonoBehaviour:
   mat: {fileID: 0}
   auxMat: {fileID: 0}
   extraObj: {fileID: 638348213}
-  outline: {fileID: 0}
+  outline: {fileID: 421795361}
   startShown: 0
   uiType: 0
 --- !u!1 &1753373427
@@ -67439,6 +67465,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932448056}
   m_CullTransparentMesh: 1
+--- !u!1 &1950042739 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: abcd637d529064448a8c0e8a8027625e, type: 3}
+  m_PrefabInstance: {fileID: 442318256}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1957511177
 GameObject:
   m_ObjectHideFlags: 0
@@ -69224,9 +69255,9 @@ MonoBehaviour:
   mat: {fileID: 0}
   auxMat: {fileID: 0}
   extraObj: {fileID: 1638813675}
-  outline: {fileID: 0}
+  outline: {fileID: 1950042739}
   startShown: 0
-  uiType: 0
+  uiType: 1
 --- !u!4 &2043155103 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: edc1b0e902e653344a83337943decdd6, type: 3}
@@ -70294,9 +70325,9 @@ MonoBehaviour:
   mat: {fileID: 0}
   auxMat: {fileID: 0}
   extraObj: {fileID: 1494254294}
-  outline: {fileID: 0}
+  outline: {fileID: 1633693324}
   startShown: 0
-  uiType: 0
+  uiType: 2
 --- !u!1001 &2077033033
 PrefabInstance:
   m_ObjectHideFlags: 0

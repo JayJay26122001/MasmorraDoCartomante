@@ -65,6 +65,10 @@ public class DisappearingObject : MonoBehaviour
     public void AnimateObject(bool disappear)
     {
         mat = GetComponent<MeshRenderer>().material;
+        if (GetComponent<MeshRenderer>().materials.Length > 1)
+        {
+            auxMat = GetComponent<MeshRenderer>().materials[1];
+        }
         disappearing = disappear;
         if(extraObj != null && disappear)
         {
