@@ -9,7 +9,7 @@ public class DamageVFX : MonoBehaviour
     bool goingUp;
     bool moving = false;
     //Vector3 startPos;
-    public enum VFXType { Damage, PlayerHP, EnemyHP, PlayerShield, EnemyShield, PlayerEnergy, EnemyEnergy, /*Money,*/ Other };
+    public enum VFXType { Damage, DamageMult, PlayerHP, EnemyHP, PlayerShield, EnemyShield, PlayerEnergy, EnemyEnergy, /*Money,*/ Other };
     public List<Vector3> positions = new List<Vector3>();
     public List<Vector3> vfxPos = new List<Vector3>();
     public List<Vector3> objPos = new List<Vector3>();
@@ -18,8 +18,8 @@ public class DamageVFX : MonoBehaviour
     {
         //startPos = transform.position;
         text = GetComponent<TextMeshPro>();
-        text.color = new Color(text.color.r, text.color.g, text.color.b, 0);
-        text.text = "";
+        //text.color = new Color(text.color.r, text.color.g, text.color.b, 0);
+        //text.text = "";
         //SetText("CU", VFXType.Other, Color.yellow, true, -Vector3.up * 5, Quaternion.identity, 40);
     }
 
@@ -41,6 +41,7 @@ public class DamageVFX : MonoBehaviour
     //For any VFXType except Other
     public void SetText(string tex, VFXType vfxType)
     {
+        text = GetComponent<TextMeshPro>();
         //transform.position = positions[(int)vfxType];
         transform.position = vfxPos[(int)vfxType];
         transform.rotation = rotations[(int)vfxType];
@@ -48,8 +49,16 @@ public class DamageVFX : MonoBehaviour
         {
             case VFXType.Damage:
                 goingUp = true;
-                text.color = Color.red * 0.8f;
+                text.color = new Color(0.75f, 0.5f, 0, 1);
+                //text.color = Color.red * 0.3f;
+                text.alignment = TextAlignmentOptions.Right;
                 text.fontSize = 36;
+                break;
+            case VFXType.DamageMult:
+                goingUp = true;
+                text.color = new Color(0.61f, 0.22f, 0.27f, 1);
+                text.alignment = TextAlignmentOptions.Left;
+                text.fontSize = 20;
                 break;
             case VFXType.PlayerHP:
                 Transform t = GameplayManager.instance.hpText.transform.parent.parent;
@@ -58,30 +67,36 @@ public class DamageVFX : MonoBehaviour
                 objPos[1] = t.position;
                 goingUp = false;
                 text.color = Color.red * 0.8f;
+                text.alignment = TextAlignmentOptions.Center;
                 text.fontSize = 20;
                 break;
             case VFXType.EnemyHP:
                 goingUp = false;
                 text.color = Color.red * 0.8f;
+                text.alignment = TextAlignmentOptions.Center;
                 text.fontSize = 20;
                 break;
             case VFXType.PlayerShield:
                 goingUp = false;
                 text.color = Color.blue * 0.8f + Color.green * 0.2f;
+                text.alignment = TextAlignmentOptions.Center;
                 text.fontSize = 20;
                 break;
             case VFXType.EnemyShield:
                 goingUp = false;
                 text.color = Color.blue * 0.8f + Color.green * 0.2f;
+                text.alignment = TextAlignmentOptions.Center;
                 text.fontSize = 20;
                 break;
             case VFXType.PlayerEnergy:
                 goingUp = false;
+                text.alignment = TextAlignmentOptions.Center;
                 text.color = Color.green * 0.65f;
                 text.fontSize = 20;
                 break;
             case VFXType.EnemyEnergy:
                 goingUp = false;
+                text.alignment = TextAlignmentOptions.Center;
                 text.color = Color.green * 0.65f;
                 text.fontSize = 20;
                 break;
@@ -133,12 +148,14 @@ public class DamageVFX : MonoBehaviour
     //Only for VFXType.Other
     public void SetText(string tex, VFXType vfxType, Color c, bool up, Vector3 pos, Quaternion rot, float size)
     {
+        text = GetComponent<TextMeshPro>();
         transform.position = pos;
         transform.rotation = rot;
         goingUp = up;
         t = 0;
         text.color = c;
         text.color = new Color(text.color.r, text.color.g, text.color.b, 0);
+        text.alignment = TextAlignmentOptions.Center;
         text.text = tex;
         moving = true;
         Appear();

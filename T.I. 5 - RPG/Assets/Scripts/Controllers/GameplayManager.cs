@@ -54,8 +54,10 @@ public class GameplayManager : MonoBehaviour
     public List<CardAttack> coinsUsed = new List<CardAttack>();
     public Volume hitVol, healVol;
     public GameObject shield, fracturedShield;
+    public GameObject textVFX;
     public List<DamageVFX> damageVFXPool = new List<DamageVFX>();
     public List<DamageVFX> damageVFXUsed = new List<DamageVFX>();
+    public GameObject hitVFX;
     public List<ParticleSystem> hitVFXPool = new List<ParticleSystem>();
     public List<ParticleSystem> hitVFXUsed = new List<ParticleSystem>();
 
@@ -826,6 +828,11 @@ public class GameplayManager : MonoBehaviour
     }
     public void EnemyHitVFX()
     {
+        if(hitVFXPool.Count == hitVFXUsed.Count)
+        {
+            ParticleSystem h = Instantiate(hitVFX, hitVFX.transform.parent).GetComponent<ParticleSystem>();
+            hitVFXPool.Add(h);
+        }
         for (int i = 0; i < hitVFXPool.Count; i++)
         {
             if (!hitVFXUsed.Contains(hitVFXPool[i]))
@@ -846,8 +853,13 @@ public class GameplayManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         GameplayManager.instance.hitVFXUsed.Remove(p);
     }
-    public void DamageNumber(int damage)
+    public void DamageNumber(int damage, string multText)
     {
+        if(damageVFXPool.Count == damageVFXUsed.Count)
+        {
+            DamageVFX t = Instantiate(textVFX, textVFX.transform.parent).GetComponent<DamageVFX>();
+            damageVFXPool.Add(t);
+        }
         for (int i = 0; i < damageVFXPool.Count; i++)
         {
             if (!damageVFXUsed.Contains(damageVFXPool[i]))
@@ -857,9 +869,28 @@ public class GameplayManager : MonoBehaviour
                 i = damageVFXPool.Count;
             }
         }
+        if (damageVFXPool.Count == damageVFXUsed.Count)
+        {
+            DamageVFX t = Instantiate(textVFX, textVFX.transform.parent).GetComponent<DamageVFX>();
+            damageVFXPool.Add(t);
+        }
+        for (int i = 0; i < damageVFXPool.Count; i++)
+        {
+            if (!damageVFXUsed.Contains(damageVFXPool[i]))
+            {
+                damageVFXPool[i].SetText(multText, DamageVFX.VFXType.DamageMult);
+                damageVFXUsed.Add(damageVFXPool[i]);
+                i = damageVFXPool.Count;
+            }
+        }
     }
     public void SpawnVFX(string text,DamageVFX.VFXType type)
     {
+        if (damageVFXPool.Count == damageVFXUsed.Count)
+        {
+            DamageVFX t = Instantiate(textVFX, textVFX.transform.parent).GetComponent<DamageVFX>();
+            damageVFXPool.Add(t);
+        }
         for (int i = 0; i < damageVFXPool.Count; i++)
         {
             if (!damageVFXUsed.Contains(damageVFXPool[i]))
@@ -958,6 +989,11 @@ public class GameplayManager : MonoBehaviour
         else
         {
             return;
+        }
+        if (damageVFXPool.Count == damageVFXUsed.Count)
+        {
+            DamageVFX t = Instantiate(textVFX, textVFX.transform.parent).GetComponent<DamageVFX>();
+            damageVFXPool.Add(t);
         }
         for (int i = 0; i < damageVFXPool.Count; i++)
         {

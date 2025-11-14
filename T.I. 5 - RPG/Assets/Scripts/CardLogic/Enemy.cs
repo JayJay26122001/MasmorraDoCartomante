@@ -159,7 +159,8 @@ public class Enemy : Creature, IPointerClickHandler
             }
             Health -= trueDamage;
 
-            GameplayManager.instance.DamageNumber(damage);
+            float mult = BaseDamageTaken / 100f;
+            GameplayManager.instance.DamageNumber(dmg.GetDamage(), $"x{mult.ToString("0.##")}");
             if (damagedShield)
             {
                 ActionController.instance.InvokeTimer(GameplayManager.instance.HealthModifiedVFX, this, -trueDamage, 0.5f);
