@@ -11,6 +11,7 @@ public class CardPack : MonoBehaviour
     public Material mat;
     [HideInInspector]public bool bought;
     int selectedQuantity;
+    public TextMeshPro cardsLeft;
     private void Start()
     {
         bought = false;
@@ -68,11 +69,14 @@ public class CardPack : MonoBehaviour
                 {
                     GameplayManager.instance.PlayCutscene(4);
                     discardBell.pack = this;
+                    cardsLeft.text = "You can pick " + data.selectableCardsQuantity + " cards.";
                 }
                 else
                 {
                     CameraController.instance.Invoke("ActivateZoomedCamera", 0.5f);
+                    cardsLeft.text = "You must pick " + data.selectableCardsQuantity + " cards.";
                 }
+                cardsLeft.gameObject.SetActive(true);
                 AnimatePack(true);
                 bought = true;
                 foreach(Card c in cards)
@@ -122,17 +126,50 @@ public class CardPack : MonoBehaviour
             GameplayManager.instance.canBuy = true;
             foreach (Card c in cardsInstances)
             {
-                var moveTween = LeanTween.move(c.cardDisplay.gameObject, c.cardDisplay.gameObject.transform.position + Vector3.up * 25, 0.15f);
-                moveTween.setOnComplete(() =>
+                if(c != selected)
                 {
-                    Destroy(c.cardDisplay.gameObject);
-                });
+                    c.cardDisplay.CardDisapearanceAnimation(true);
+                    ActionController.instance.InvokeTimer(Destroy, c.cardDisplay.gameObject, 0.6f);
+                }
+                else
+                {
+                    var moveTween = LeanTween.move(c.cardDisplay.gameObject, c.cardDisplay.gameObject.transform.position + Vector3.up * 25, 0.15f);
+                    moveTween.setOnComplete(() =>
+                    {
+                        Destroy(c.cardDisplay.gameObject);
+                    });
+                }
             }
             cardsInstances.Clear();
             discardBell.pack = null;
+            cardsLeft.text = "";
+            cardsLeft.gameObject.SetActive(false);
         }
         else
         {
+            int left = data.selectableCardsQuantity - selectedQuantity;
+            if(GameplayManager.instance.atShop || GameplayManager.instance.dropped)
+            {
+                if(left != 1)
+                {
+                    cardsLeft.text = "You can pick " + left + " cards.";
+                }
+                else
+                {
+                    cardsLeft.text = "You can pick " + left + " card.";
+                }
+            }
+            else
+            {
+                if (left != 1)
+                {
+                    cardsLeft.text = "You must pick " + left + " cards.";
+                }
+                else
+                {
+                    cardsLeft.text = "You must pick " + left + " card.";
+                }
+            }
             var moveTween = LeanTween.move(selected.cardDisplay.gameObject, selected.cardDisplay.gameObject.transform.position + Vector3.up * 25, 0.15f);
             moveTween.setOnComplete(() =>
             {

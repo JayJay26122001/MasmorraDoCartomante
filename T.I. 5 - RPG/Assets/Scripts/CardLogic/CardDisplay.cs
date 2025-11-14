@@ -189,8 +189,12 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
                     {
                         CameraController.instance.HighlightCard(Vector3.zero, CameraController.instance.zoomedCard);
                     }
-                    cardData.deck.RemoveCard(this);
-                    GameplayManager.instance.DestroyRemovingCards();
+                    //cardData.deck.RemoveCard(this);
+                    //this.gameObject.transform.SetParent(null);
+                    CardDisapearanceAnimation(true);
+                    ActionController.instance.InvokeTimer(cardData.deck.RemoveCard, this, 0.6f);
+                    ActionController.instance.InvokeTimer(GameplayManager.instance.DestroyRemovingCards, 0.65f);
+                    //GameplayManager.instance.DestroyRemovingCards();
                 }
             }
             else
