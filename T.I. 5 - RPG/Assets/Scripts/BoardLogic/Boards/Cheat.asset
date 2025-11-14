@@ -19,3 +19,8 @@ MonoBehaviour:
   battleRoom: {fileID: 11400000, guid: 502a13dcbc6c90a4ebe32af84743f161, type: 2}
   shopRoom: {fileID: 11400000, guid: e9fb53d20fe3755498b5c6ed648a0b74, type: 2}
   roomList: []
+  moneyPrize:
+    type: 0
+    value: 999
+    min: 0
+    max: 0

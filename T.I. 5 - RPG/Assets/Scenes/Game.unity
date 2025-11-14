@@ -10982,11 +10982,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boards:
-  - {fileID: 11400000, guid: 1596020848a1fea4fa8353d44a0d5e2f, type: 2}
   - {fileID: 11400000, guid: 0a65d3e7aff2bdb449c29087574dbbde, type: 2}
   - {fileID: 11400000, guid: b6d65c70d41c47b4ebd1c1acbcb99142, type: 2}
   - {fileID: 11400000, guid: 0deed17538513684d91fcf6af5f8a48f, type: 2}
-  - {fileID: 11400000, guid: b453487795e6609449aabc23ac420ac3, type: 2}
+  - {fileID: 11400000, guid: db107766f7ee3eb4e9093df116c238c0, type: 2}
+  - {fileID: 11400000, guid: 1596020848a1fea4fa8353d44a0d5e2f, type: 2}
   typeProbabilities:
   - type: Battle
     probability: 100
@@ -11046,7 +11046,6 @@ MonoBehaviour:
   lineObjects: []
   animSpeed: 3
   inMovement: 0
-  doubleBattleChance: 75
 --- !u!4 &284883755
 Transform:
   m_ObjectHideFlags: 0
@@ -57298,11 +57297,6 @@ MonoBehaviour:
   - {fileID: 125215944}
   - {fileID: 931299368}
   - {fileID: 665812755}
-  moneyPrize:
-    type: 1
-    value: 0
-    min: 3
-    max: 5
   hpText: {fileID: 865821724}
   shieldText: {fileID: 1176796264}
   energyText: {fileID: 1323262171}

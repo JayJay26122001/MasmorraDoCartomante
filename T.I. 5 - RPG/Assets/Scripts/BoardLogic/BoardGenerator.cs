@@ -27,7 +27,7 @@ public class BoardGenerator : MonoBehaviour
     public float animSpeed;
     public bool inMovement;
     Vector3 startPos;
-    public int doubleBattleChance;
+    //public int doubleBattleChance;
     private void Start()
     {
         boardBase.GetComponent<MeshRenderer>().material.SetFloat("_DisappearTime", 1);
@@ -131,6 +131,10 @@ public class BoardGenerator : MonoBehaviour
             List<BoardRoom> auxRooms = new List<BoardRoom>();
             List<BoardRoom> auxRooms2 = new List<BoardRoom>();
             List<BoardRoom> auxRooms3 = new List<BoardRoom>();
+            List<BoardRoom> auxRooms4 = new List<BoardRoom>();
+            List<BoardRoom> auxRooms5 = new List<BoardRoom>();
+            List<BoardRoom> auxRooms6 = new List<BoardRoom>();
+            List<BoardRoom> auxRooms7 = new List<BoardRoom>();
             int lv = 0, limit = 0, rand = 0, aux;
             for (int i = 1; i < boards[area].levelsCount - 2; i++)
             {
@@ -194,18 +198,172 @@ public class BoardGenerator : MonoBehaviour
                                     if(auxRooms3.Count == 0)
                                     {
                                         rand = Random.Range(0, 100);
-                                        if(rand < doubleBattleChance)
+                                        if(rand < boards[area].doubleBattleChance)
                                         {
                                             board[i][j].type = battleSO;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (boards[area].tripleBattle)
+                                        {
+                                            auxRooms6.Clear();
+                                            CheckBehind(auxRooms3[0], battleSO, i - 3, auxRooms6);
+                                            if(auxRooms6.Count == 0)
+                                            {
+                                                if(auxRooms3.Count > 1)
+                                                {
+                                                    auxRooms7.Clear();
+                                                    CheckBehind(auxRooms3[1], battleSO, i - 3, auxRooms7);
+                                                    if(auxRooms7.Count == 0)
+                                                    {
+                                                        rand = Random.Range(0, 100);
+                                                        if (rand < boards[area].tripleBattleChance)
+                                                        {
+                                                            board[i][j].type = battleSO;
+                                                        }
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    rand = Random.Range(0, 100);
+                                                    if (rand < boards[area].tripleBattleChance)
+                                                    {
+                                                        board[i][j].type = battleSO;
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
                                 else
                                 {
                                     rand = Random.Range(0, 100);
-                                    if (rand < doubleBattleChance)
+                                    if (rand < boards[area].doubleBattleChance)
                                     {
                                         board[i][j].type = battleSO;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (boards[area].tripleBattle)
+                                {
+                                    auxRooms4.Clear();
+                                    CheckBehind(auxRooms2[0], battleSO, i - 3, auxRooms4);
+                                    if(auxRooms4.Count == 0)
+                                    {
+                                        if(auxRooms2.Count > 1)
+                                        {
+                                            auxRooms5.Clear();
+                                            CheckBehind(auxRooms2[1], battleSO, i - 3, auxRooms5);
+                                            if(auxRooms5.Count == 0)
+                                            {
+                                                if (auxRooms.Count > 1)
+                                                {
+                                                    auxRooms3.Clear();
+                                                    CheckBehind(auxRooms[1], battleSO, i - 2, auxRooms3);
+                                                    if (auxRooms3.Count == 0)
+                                                    {
+                                                        rand = Random.Range(0, 100);
+                                                        if (rand < boards[area].tripleBattleChance)
+                                                        {
+                                                            board[i][j].type = battleSO;
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        auxRooms6.Clear();
+                                                        CheckBehind(auxRooms3[0], battleSO, i - 3, auxRooms6);
+                                                        if (auxRooms6.Count == 0)
+                                                        {
+                                                            if (auxRooms3.Count > 1)
+                                                            {
+                                                                auxRooms7.Clear();
+                                                                CheckBehind(auxRooms3[1], battleSO, i - 3, auxRooms7);
+                                                                if (auxRooms7.Count == 0)
+                                                                {
+                                                                    rand = Random.Range(0, 100);
+                                                                    if (rand < boards[area].tripleBattleChance)
+                                                                    {
+                                                                        board[i][j].type = battleSO;
+                                                                    }
+                                                                }
+                                                            }
+                                                            else
+                                                            {
+                                                                rand = Random.Range(0, 100);
+                                                                if (rand < boards[area].tripleBattleChance)
+                                                                {
+                                                                    board[i][j].type = battleSO;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    rand = Random.Range(0, 100);
+                                                    if (rand < boards[area].tripleBattleChance)
+                                                    {
+                                                        board[i][j].type = battleSO;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (auxRooms.Count > 1)
+                                            {
+                                                auxRooms3.Clear();
+                                                CheckBehind(auxRooms[1], battleSO, i - 2, auxRooms3);
+                                                if (auxRooms3.Count == 0)
+                                                {
+                                                    rand = Random.Range(0, 100);
+                                                    if (rand < boards[area].tripleBattleChance)
+                                                    {
+                                                        board[i][j].type = battleSO;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    auxRooms6.Clear();
+                                                    CheckBehind(auxRooms3[0], battleSO, i - 3, auxRooms6);
+                                                    if (auxRooms6.Count == 0)
+                                                    {
+                                                        if (auxRooms3.Count > 1)
+                                                        {
+                                                            auxRooms7.Clear();
+                                                            CheckBehind(auxRooms3[1], battleSO, i - 3, auxRooms7);
+                                                            if (auxRooms7.Count == 0)
+                                                            {
+                                                                rand = Random.Range(0, 100);
+                                                                if (rand < boards[area].tripleBattleChance)
+                                                                {
+                                                                    board[i][j].type = battleSO;
+                                                                }
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            rand = Random.Range(0, 100);
+                                                            if (rand < boards[area].tripleBattleChance)
+                                                            {
+                                                                board[i][j].type = battleSO;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                rand = Random.Range(0, 100);
+                                                if (rand < boards[area].tripleBattleChance)
+                                                {
+                                                    board[i][j].type = battleSO;
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }

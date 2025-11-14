@@ -59,7 +59,7 @@ public class GameplayManager : MonoBehaviour
 
     public List<DisappearingObject> uiObjects = new List<DisappearingObject>();
     public List<GameObject> areas = new List<GameObject>();
-    public SimpleInt moneyPrize;
+    //public SimpleInt moneyPrize;
     public TextMeshPro hpText, shieldText, energyText, damageTakenText, enemyHpText, enemyShieldText, enemyEnergyText, enemyDamageTakenText;
     public UnityEngine.UI.Image hpCircle, enemyHpCircle;
 
@@ -1016,7 +1016,7 @@ public class GameplayManager : MonoBehaviour
     
     public void PrizeMoney()
     {
-        player.ChangeMoney(moneyPrize.GetValue() + areaIndex);
+        player.ChangeMoney(bg.boards[areaIndex].moneyPrize.GetValue());
     }
 
     public void DisappearUI(bool includePlayerHP)

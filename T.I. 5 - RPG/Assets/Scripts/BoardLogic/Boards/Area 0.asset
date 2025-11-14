@@ -22,3 +22,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a2c7eab4e586d594aa66f67f58dc9ed7, type: 2}
   - {fileID: 11400000, guid: 4cb6691f8ba00904cb0b3d7f34e3686f, type: 2}
   - {fileID: 11400000, guid: 20512925a16f1d04b94fc672b8e3acb8, type: 2}
+  moneyPrize:
+    type: 1
+    value: 0
+    min: 3
+    max: 5
+  doubleBattleChance: 70
+  tripleBattle: 1
+  tripleBattleChance: 10
