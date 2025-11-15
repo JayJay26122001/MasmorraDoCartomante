@@ -90,8 +90,8 @@ MonoBehaviour:
               max: 0
             initialized: 1
           MaxReturnedNumber:
-            type: 2
-            value: 0
+            type: 0
+            value: 25
             min: 0
             max: 0
           ObservedStat: 3

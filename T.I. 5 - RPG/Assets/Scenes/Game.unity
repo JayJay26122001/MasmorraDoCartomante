@@ -11710,7 +11710,7 @@ GameObject:
   - component: {fileID: 380782363}
   - component: {fileID: 380782362}
   m_Layer: 0
-  m_Name: Mime Kobold
+  m_Name: Kobold Mime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34443,7 +34443,7 @@ MonoBehaviour:
   shld: 0
   energy: 0
   maxBaseEnergy: 3
-  money: 3
+  money: 15
   CardBuyMax: 1
   baseDamage: 6
   baseShieldGain: 5
@@ -43731,14 +43731,14 @@ MonoBehaviour:
   hand: []
   playedCards: []
   exausted: []
-  maxHP: 0
+  maxHP: 35
   hp: 0
   shld: 0
   energy: 0
   maxBaseEnergy: 3
-  money: 0
-  CardBuyMax: 5
-  baseDamage: 6
+  money: 10
+  CardBuyMax: 2
+  baseDamage: 7
   baseShieldGain: 5
   baseDamageTaken: 100
   DamageModifiers: []
@@ -59342,7 +59342,7 @@ GameObject:
   - component: {fileID: 1588790274}
   - component: {fileID: 1588790273}
   m_Layer: 0
-  m_Name: Miner Kobold
+  m_Name: Kobold Miner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

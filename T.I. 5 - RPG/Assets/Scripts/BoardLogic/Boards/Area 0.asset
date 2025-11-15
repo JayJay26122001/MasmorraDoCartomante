@@ -28,5 +28,5 @@ MonoBehaviour:
     min: 3
     max: 5
   doubleBattleChance: 70
-  tripleBattle: 1
-  tripleBattleChance: 10
+  tripleBattle: 0
+  tripleBattleChance: 0
