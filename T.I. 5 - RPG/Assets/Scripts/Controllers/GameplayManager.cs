@@ -75,6 +75,8 @@ public class GameplayManager : MonoBehaviour
     public CardPool enemyDropPool, bossDropPool;
     public int dropChance;
     [HideInInspector] public bool dropped = false;
+    public GameObject areaPreview;
+    public List<Texture2D> previewImages = new List<Texture2D>();
     private void Awake()
     {
         instance = this;
@@ -113,7 +115,7 @@ public class GameplayManager : MonoBehaviour
                 DefineStarterPacks();
             }
         }
-
+        ChangeAreaPreview();
     }
 
     public void SaveStart(bool loaded)
@@ -1186,10 +1188,19 @@ public class GameplayManager : MonoBehaviour
                 areas[i].SetActive(true);
             }
         }
+        ChangeAreaPreview();
     }
 
     public void SceneFadeOut()
     {
         SceneFadeController.instance.FadeOutToArea();
+    }
+
+    public void ChangeAreaPreview()
+    {
+        if(areaIndex != 4)
+        {
+            areaPreview.GetComponent<MeshRenderer>().material.SetTexture("_Albedo", previewImages[areaIndex]);
+        }
     }
 }
