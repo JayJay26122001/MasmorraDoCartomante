@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Area 0
   m_EditorClassIdentifier: 
   levelsCount: 8
-  maxBranches: 2
+  maxBranches: 3
   startRoom: {fileID: 11400000, guid: 360091fc7cea3ed4d8292376c8805d53, type: 2}
   bossRoom: {fileID: 11400000, guid: 6a701e2991ee8754b8cddb158e431ad2, type: 2}
   battleRoom: {fileID: 11400000, guid: 502a13dcbc6c90a4ebe32af84743f161, type: 2}
@@ -28,5 +28,5 @@ MonoBehaviour:
     min: 3
     max: 5
   doubleBattleChance: 70
-  tripleBattle: 1
-  tripleBattleChance: 10
+  tripleBattle: 0
+  tripleBattleChance: 0

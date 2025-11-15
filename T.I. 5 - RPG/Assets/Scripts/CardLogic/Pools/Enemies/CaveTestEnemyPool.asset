@@ -20,7 +20,7 @@ MonoBehaviour:
     minMult: 0.25
     maxMult: 2
     canBeZero: 0
-  - type: Miner Kobold
+  - type: Kobold Miner
     probability: 50
     multiplier: 1
     minMult: 0.25

@@ -25,8 +25,8 @@ MonoBehaviour:
   moneyPrize:
     type: 1
     value: 0
-    min: 3
-    max: 5
+    min: 7
+    max: 13
   doubleBattleChance: 90
   tripleBattle: 1
   tripleBattleChance: 50
