@@ -55074,7 +55074,6 @@ MonoBehaviour:
   - {fileID: 1264320102}
   - {fileID: 125215944}
   - {fileID: 931299368}
-  - {fileID: 665812755}
   hpText: {fileID: 865821724}
   shieldText: {fileID: 1176796264}
   energyText: {fileID: 1323262171}

@@ -422,7 +422,7 @@ public class GainCoinsAction : SceneAction
                 if(target.enemy.Money > 0)
                 {
                     target.enemy.GainMoney(-1);
-                    GameplayManager.instance.ActivateCoin(from, gainCoin, target);
+                    GameplayManager.instance.ActivateCoin(from, target.coinPoint, gainCoin, target);
                     yield return new WaitForSeconds(0.1f);
                 }
                 else
@@ -433,7 +433,7 @@ public class GainCoinsAction : SceneAction
             }
             else
             {
-                GameplayManager.instance.ActivateCoin(from, gainCoin, target);
+                GameplayManager.instance.ActivateCoin(from, target.coinPoint, gainCoin, target);
                 yield return new WaitForSeconds(0.1f);
             }
             
