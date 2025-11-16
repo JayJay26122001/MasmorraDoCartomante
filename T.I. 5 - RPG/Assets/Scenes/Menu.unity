@@ -2657,6 +2657,18 @@ MonoBehaviour:
     sfx: 0
     vsyncEnabled: 0
     cardDescEnabled: 0
+  pageLeftArrow: {fileID: 0}
+  pageRightArrow: {fileID: 0}
+  pageIndex: {fileID: 0}
+  LockObj: {fileID: 0}
+  playerLockAnchor: {fileID: 0}
+  enemyLockAnchor: {fileID: 0}
+  currentPage: 0
+  cardsPerPage: 14
+  totalPages: 1
+  previousPage: 0
+  isPageChanging: 0
+  currentCards: []
   cardDescOn: 0
   enemyDesc: {fileID: 0}
   enemyDescName: {fileID: 0}
@@ -5670,7 +5682,7 @@ GameObject:
   - component: {fileID: 588175735}
   - component: {fileID: 588175736}
   m_Layer: 0
-  m_Name: B_Settings
+  m_Name: B_Options
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12223,7 +12235,7 @@ GameObject:
   - component: {fileID: 1324609678}
   - component: {fileID: 1324609677}
   m_Layer: 0
-  m_Name: T_Settings
+  m_Name: T_Options
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12268,7 +12280,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Settings
+  m_text: Options
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 598cc5749dd447e42a3d8902ad19bfd3, type: 2}
   m_sharedMaterial: {fileID: 148436873847928104, guid: 598cc5749dd447e42a3d8902ad19bfd3, type: 2}
