@@ -234,6 +234,13 @@ public class Enemy : Creature, IPointerClickHandler
     }
     public override void SetupCoinPointPos()
     {
-        coinPointPos = coinPoint.position + Vector3.up * this.gameObject.GetComponent<CapsuleCollider>().height / 2;
+        if(!useCoinPoint)
+        {
+            coinPointPos = coinPoint.position + Vector3.up * this.gameObject.GetComponent<CapsuleCollider>().height / 2;
+        }
+        else
+        {
+            coinPointPos = coinPoint.position;
+        }
     }
 }

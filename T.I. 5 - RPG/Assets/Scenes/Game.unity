@@ -11910,6 +11910,7 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
+  useCoinPoint: 0
   anim: {fileID: 1284181323}
   model: {fileID: 1284181321}
   size: 0
@@ -19576,6 +19577,7 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
+  useCoinPoint: 0
   anim: {fileID: 2001305426}
   model: {fileID: 2001305425}
   size: 0
@@ -34652,6 +34654,7 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
+  useCoinPoint: 0
   anim: {fileID: 1124749327}
   model: {fileID: 1124749326}
   size: 1
@@ -41248,6 +41251,7 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
+  useCoinPoint: 0
   anim: {fileID: 1390083257}
   model: {fileID: 1390083256}
   size: 0
@@ -41430,6 +41434,7 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
+  useCoinPoint: 0
   anim: {fileID: 1641493834}
   model: {fileID: 1641493833}
   size: 0
@@ -43948,6 +43953,7 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
+  useCoinPoint: 0
   anim: {fileID: 1421809404}
   model: {fileID: 1421809403}
   size: 1
@@ -45365,6 +45371,7 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
+  useCoinPoint: 0
   anim: {fileID: 209104458}
   model: {fileID: 209104456}
   size: 0
@@ -50105,6 +50112,7 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
+  useCoinPoint: 0
   anim: {fileID: 1289391191}
   model: {fileID: 1289391190}
   size: 0
@@ -52356,6 +52364,7 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
+  useCoinPoint: 0
   anim: {fileID: 1961797305}
   model: {fileID: 1961797304}
   size: 1
@@ -57042,6 +57051,7 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
+  useCoinPoint: 0
   anim: {fileID: 461322265}
   model: {fileID: 461322264}
   size: 0
@@ -58693,6 +58703,7 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
+  useCoinPoint: 1
   anim: {fileID: 1462765976}
   model: {fileID: 1462765975}
   size: 2
@@ -59844,6 +59855,7 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
+  useCoinPoint: 0
   anim: {fileID: 1723405716}
   model: {fileID: 1723405715}
   size: 0
@@ -61720,6 +61732,7 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
+  useCoinPoint: 0
   anim: {fileID: 955819056}
   model: {fileID: 401544285}
   size: 2
@@ -64372,6 +64385,7 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
+  useCoinPoint: 0
   anim: {fileID: 1273535}
   model: {fileID: 1273534}
   size: 0
@@ -66084,6 +66098,7 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
+  useCoinPoint: 0
   anim: {fileID: 2046547044}
   model: {fileID: 1900122466}
   size: 0
@@ -66363,7 +66378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   DeckPresets:
-  - {fileID: 11400000, guid: 99c6181db0852a94b959a2d19d8c4ad4, type: 2}
+  - {fileID: 11400000, guid: c55f2ef48c366a0488c16ced3de59d3f, type: 2}
   decks: []
   hand: []
   playedCards: []
@@ -66413,6 +66428,7 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 1699522179}
+  useCoinPoint: 0
   SelectedCard: {fileID: 0}
   data:
     playerDeckCards: []
@@ -70262,6 +70278,7 @@ MonoBehaviour:
       m_Calls: []
   canPlayCards: 0
   combatSpace: {fileID: 0}
+  useCoinPoint: 0
   anim: {fileID: 361981472}
   model: {fileID: 361981471}
   size: 0

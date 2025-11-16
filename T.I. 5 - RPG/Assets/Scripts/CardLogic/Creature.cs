@@ -48,6 +48,7 @@ public class Creature : MonoBehaviour
     public CardCombatSpaces combatSpace;
     [NonSerialized] public Transform coinPoint;
     [NonSerialized] public Vector3 coinPointPos;
+    public bool useCoinPoint = false;
 
     protected int skipTurn = 0, skipCardBuy = 0;
     public int SkipTurn
