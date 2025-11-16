@@ -13,6 +13,7 @@ public class Player : Creature
     {
         base.Awake();
         coinPoint = GameplayManager.instance.moneyBag.transform;
+        coinPointPos = coinPoint.position;
     }
     public override void TurnAction()
     {

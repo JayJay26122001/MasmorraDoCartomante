@@ -782,12 +782,12 @@ public class GameplayManager : MonoBehaviour
         }
         return null;
     }
-    public void ActivateCoin(Vector3 pos, Transform target, UnityAction finishInstruction)
+    public void ActivateCoin(Vector3 pos, UnityAction finishInstruction, Creature c)
     {
         if (coinsPool.Count == coinsUsed.Count)
         {
-            CardAttack c = Instantiate(coinVFX, coinVFX.transform.parent).GetComponent<CardAttack>();
-            coinsPool.Add(c);
+            CardAttack ca = Instantiate(coinVFX, coinVFX.transform.parent).GetComponent<CardAttack>();
+            coinsPool.Add(ca);
         }
         for (int i = 0; i < coinsPool.Count; i++)
         {
@@ -795,8 +795,9 @@ public class GameplayManager : MonoBehaviour
             {
                 coinsPool[i].HitTarget.AddListener(finishInstruction);
                 coinsPool[i].transform.position = pos;
-                coinsPool[i].SetTarget(target);
-                coinsPool[i].BezierCurve();
+                //coinsPool[i].SetTarget(target);
+                c.SetupCoinPointPos();
+                coinsPool[i].BezierCurve(c);
                 coinsUsed.Add(coinsPool[i]);
                 i = coinsPool.Count;
             }

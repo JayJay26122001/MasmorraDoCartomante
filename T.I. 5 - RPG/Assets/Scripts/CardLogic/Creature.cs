@@ -47,6 +47,7 @@ public class Creature : MonoBehaviour
     public bool canPlayCards;
     public CardCombatSpaces combatSpace;
     [NonSerialized] public Transform coinPoint;
+    [NonSerialized] public Vector3 coinPointPos;
 
     protected int skipTurn = 0, skipCardBuy = 0;
     public int SkipTurn
@@ -524,5 +525,10 @@ public class Creature : MonoBehaviour
     {
         skipCardBuy = 0;
         GameManager.instance.uiController.LockerAnimation(this, false);
+    }
+
+    public virtual void SetupCoinPointPos()
+    {
+        coinPointPos = coinPoint.position;
     }
 }
