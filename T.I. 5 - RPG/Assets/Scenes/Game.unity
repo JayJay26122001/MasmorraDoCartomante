@@ -7879,6 +7879,7 @@ RectTransform:
   - {fileID: 60692914}
   - {fileID: 1448328672}
   - {fileID: 2069101315}
+  - {fileID: 1383608566}
   m_Father: {fileID: 449732722}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -23089,6 +23090,8 @@ MonoBehaviour:
   enemyCardsInBuying: {fileID: 973661341}
   enemyDescPos: {fileID: 143222372}
   enemyDescOutPos: {fileID: 150851293}
+  tutorialPopup: {fileID: 7222212336901893923, guid: 2f317e9362be1764f906a9e047e3f1be, type: 3}
+  tutorialPopupFather: {fileID: 1383608566}
 --- !u!1 &669491410
 GameObject:
   m_ObjectHideFlags: 0
@@ -52980,6 +52983,41 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5728391600881178091, guid: 5d46227df9a09d543917fc7bd2b86e89, type: 3}
   m_PrefabInstance: {fileID: 851689914}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1383608565
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1383608566}
+  m_Layer: 5
+  m_Name: TutorialPopup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1383608566
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383608565}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 150813617}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1390083254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55509,7 +55547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.39215687}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.74509805}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

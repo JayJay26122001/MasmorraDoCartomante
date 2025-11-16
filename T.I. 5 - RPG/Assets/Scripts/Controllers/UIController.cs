@@ -119,6 +119,11 @@ public class UIController : MonoBehaviour
     public Transform enemyDescOutPos;
     bool isEnemyDescOn = false;
 
+    [Header("Tutorial Popup")]
+    public GameObject tutorialPopup;
+    public Transform tutorialPopupFather;
+    TutorialPopup currentTutorialPopup;
+
     private void Awake()
     {
         UiSetup();
@@ -1254,4 +1259,18 @@ public class UIController : MonoBehaviour
         }
     }
 
+    public void ShowTutorialPopup(string title, string body, Vector2 anchoredPos)
+    {
+        GameObject newTutorialPopup = Instantiate(tutorialPopup, tutorialPopupFather);
+        currentTutorialPopup = newTutorialPopup.GetComponent<TutorialPopup>();
+        currentTutorialPopup.SetupPopup(title, body, anchoredPos);
+    }
+
+    public void DestroyTutorialPopup()
+    {
+        if (currentTutorialPopup != null)
+        {
+            currentTutorialPopup.DestroyPopup();
+        }
+    }
 }
