@@ -54,10 +54,10 @@ MonoBehaviour:
   musics:
   - {fileID: 8300000, guid: 417893e9619913240904e61356e17d14, type: 3}
   - {fileID: 8300000, guid: c576bf8f12a175e4cb3f4b70b1d8b52d, type: 3}
-  - {fileID: 8300000, guid: 4008f7c47c4234f4e8a82adb5b00242f, type: 3}
-  - {fileID: 8300000, guid: f3ad124669a3a7f4590d7d35daa8e258, type: 3}
-  - {fileID: 8300000, guid: 57713d8b234b80e4288bdb930320eead, type: 3}
-  - {fileID: 8300000, guid: 4ef8a1c4abfa6f6408f1b51191c22cef, type: 3}
+  - {fileID: 8300000, guid: 56a4c01f001dabd4283c643545d09767, type: 3}
+  - {fileID: 8300000, guid: f870a521e905f34498cc0f375f161189, type: 3}
+  - {fileID: 8300000, guid: f7b5c6162ce297149b82501f7f376e9c, type: 3}
+  - {fileID: 8300000, guid: 1b7dfc53d183136428ac8c40154f5a44, type: 3}
   bellSfx:
   - {fileID: 8300000, guid: 4973385c763a6884b888a169e26c9b2e, type: 3}
   receiveCardSfx:
