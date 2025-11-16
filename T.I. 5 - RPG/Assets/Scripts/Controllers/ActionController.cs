@@ -351,6 +351,95 @@ public class DamageAction : SceneAction
 
     }
 }
+public class GainCoinsAction : SceneAction
+{
+    int amount;
+    Creature target;
+    bool stolen;
+    Card card;
+    public GainCoinsAction(int Amount, Creature Target, bool Stolen)
+    {
+        amount = Amount;
+        target = Target;
+        stolen = Stolen;
+
+    }
+    public GainCoinsAction(int Amount, Creature Target, Card from)
+    {
+        amount = Amount;
+        target = Target;
+        card = from;
+
+    }
+    public override void StartAction()
+    {
+
+        ActionController.DebugAction(this);
+        PerformAction();
+    }
+    public override void PerformAction()
+    {
+        GameplayManager.instance.IPauseInput();
+        AnimStarted.Invoke();
+        UnityAction FinishAction = () =>
+        {
+            AnimEnded.Invoke();
+            if (IsInQueue)
+            {
+                ActionController.instance.AdvanceQueue();
+            }
+            GameplayManager.instance.IResumeInput();
+        };
+        ActionController.instance.StartCoroutine(GainCoinsRoutine(FinishAction));
+    }
+    IEnumerator GainCoinsRoutine(UnityAction EndAction)
+    {
+        UnityAction gainCoin = () => target.GainMoney(1);
+        Vector3 from;
+        if(stolen)
+        {
+            from = target.enemy.coinPoint.position;
+        }
+        else
+        {
+            if(card != null)
+            {
+                from = card.cardDisplay.transform.position;
+            }
+            else
+            {
+                from = target.coinPoint.position + new Vector3 (0,4,0);
+            }
+        }
+        for (int i = 0; i < amount; i++)
+        {
+            if (i == amount - 1)
+            {
+                gainCoin += EndAction;
+            }
+            if(stolen)
+            {
+                if(target.enemy.Money > 0)
+                {
+                    target.enemy.GainMoney(-1);
+                    GameplayManager.instance.ActivateCoin(from, target.coinPoint, gainCoin);
+                    yield return new WaitForSeconds(0.1f);
+                }
+                else
+                {
+                    i = amount; // termina o loop se não houver mais moedas para roubar
+                    EndAction.Invoke();
+                }
+            }
+            else
+            {
+                GameplayManager.instance.ActivateCoin(from, target.coinPoint, gainCoin);
+                yield return new WaitForSeconds(0.1f);
+            }
+            
+        }
+    }
+}
 public class EnemyDefeat : SceneAction
 {
     Enemy c;

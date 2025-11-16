@@ -9,6 +9,11 @@ public class Player : Creature
     public PlayerData data;
     //public MeshFilter moneyBag;
     //public Mesh[] bagMeshes = new Mesh[4];
+    protected override void Awake()
+    {
+        base.Awake();
+        coinPoint = GameplayManager.instance.moneyBag.transform;
+    }
     public override void TurnAction()
     {
         if (!GameplayManager.instance.CombatActive) return;
@@ -132,6 +137,11 @@ public class Player : Creature
     public void DiselectCard()
     {
         SelectedCard = null;
+    }
+    public override void GainMoney(int amount)
+    {
+        base.GainMoney(amount);
+        GameManager.instance.uiController.UpdateMoney(money);
     }
 
     public override void Die()

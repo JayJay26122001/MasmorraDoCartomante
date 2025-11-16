@@ -782,6 +782,26 @@ public class GameplayManager : MonoBehaviour
         }
         return null;
     }
+    public void ActivateCoin(Vector3 pos, Transform target, UnityAction finishInstruction)
+    {
+        if (coinsPool.Count == coinsUsed.Count)
+        {
+            CardAttack c = Instantiate(coinVFX, coinVFX.transform.parent).GetComponent<CardAttack>();
+            coinsPool.Add(c);
+        }
+        for (int i = 0; i < coinsPool.Count; i++)
+        {
+            if (!coinsUsed.Contains(coinsPool[i]))
+            {
+                coinsPool[i].HitTarget.AddListener(finishInstruction);
+                coinsPool[i].transform.position = pos;
+                coinsPool[i].SetTarget(target);
+                coinsPool[i].BezierCurve();
+                coinsUsed.Add(coinsPool[i]);
+                i = coinsPool.Count;
+            }
+        }
+    }
 
     public void HealVFX()
     {

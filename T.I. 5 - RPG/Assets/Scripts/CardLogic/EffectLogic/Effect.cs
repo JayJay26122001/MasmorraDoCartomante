@@ -448,7 +448,7 @@ public class DestroyCard : Effect
         EffectEnded();
     }
 }
-public class GainCoins : Effect
+public class GainCoins : Effect, IActionEffect
 {
     enum Target { User, Opponent }
     enum Operation { Gain, StealFromOpponent }
@@ -459,6 +459,8 @@ public class GainCoins : Effect
     {
         base.Apply();
         Creature t = null;
+        int a = amount.GetValue();
+        GainCoinsAction action = null;
         switch (target)
         {
             case Target.User:
@@ -471,16 +473,19 @@ public class GainCoins : Effect
         switch (Origin)
         {
             case Operation.Gain:
-                t.Money += amount.GetValue();
+                //t.Money += amount.GetValue();
+                action = new GainCoinsAction(a, t,card);
                 break;
             case Operation.StealFromOpponent:
-                int a = amount.GetValue();
+                action = action = new GainCoinsAction(a, t, true);
+                /*int a = amount.GetValue();
                 a = Math.Clamp(a, 0, t.enemy.Money);
                 t.enemy.Money -= a;
-                t.Money += a;
+                t.Money += a;*/
                 break;
         }
-        EffectEnded();
+        action.AnimEnded.AddListener(EffectEnded);
+        action.StartAction();
     }
 }
 public class CreateCard : Effect

@@ -49597,6 +49597,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1282407753}
   - component: {fileID: 1282407754}
+  - component: {fileID: 1282407755}
   m_Layer: 0
   m_Name: Money
   m_TagString: Untagged
@@ -49642,6 +49643,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &1282407755
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282407752}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.0321783, z: 1}
+  m_Center: {x: 0, y: 0.4372244, z: 0}
 --- !u!4 &1282487222 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: edc1b0e902e653344a83337943decdd6, type: 3}
@@ -65987,7 +66009,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   DeckPresets:
-  - {fileID: 11400000, guid: c55f2ef48c366a0488c16ced3de59d3f, type: 2}
+  - {fileID: 11400000, guid: 99c6181db0852a94b959a2d19d8c4ad4, type: 2}
   decks: []
   hand: []
   playedCards: []
@@ -67438,7 +67460,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1.0321783, z: 1}
   m_Center: {x: 0, y: 0.4372244, z: 0}
