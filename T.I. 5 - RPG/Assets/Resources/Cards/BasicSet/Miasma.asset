@@ -20,7 +20,7 @@ MonoBehaviour:
   Name: Miasma
   limited: 0
   instantaneous: 0
-  cost: 2
+  cost: 1
   Type: 0
   Pack: 0
   Rarity: 1

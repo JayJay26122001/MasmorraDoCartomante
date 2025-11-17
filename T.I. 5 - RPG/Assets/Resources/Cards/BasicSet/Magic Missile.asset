@@ -82,7 +82,7 @@ MonoBehaviour:
     - rid: 6721762660502470660
       type: {class: RandomChance, ns: , asm: Assembly-CSharp}
       data:
-        percentageChance: 33
+        percentageChance: 50
     - rid: 6721762660502470729
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
@@ -130,7 +130,7 @@ MonoBehaviour:
     - rid: 6721762660502470731
       type: {class: RandomChance, ns: , asm: Assembly-CSharp}
       data:
-        percentageChance: 33
+        percentageChance: 50
     - rid: 6721762660502470732
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
@@ -178,7 +178,7 @@ MonoBehaviour:
     - rid: 6721762660502470734
       type: {class: RandomChance, ns: , asm: Assembly-CSharp}
       data:
-        percentageChance: 33
+        percentageChance: 50
     - rid: 6721762660502470735
       type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
       data:

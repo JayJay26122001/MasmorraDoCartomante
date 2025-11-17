@@ -20,7 +20,7 @@ MonoBehaviour:
   Name: Sekhmet's Rage
   limited: 0
   instantaneous: 0
-  cost: 2
+  cost: 1
   Type: 0
   Pack: 5
   Rarity: 3
