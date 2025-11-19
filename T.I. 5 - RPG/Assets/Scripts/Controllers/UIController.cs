@@ -155,7 +155,7 @@ public class UIController : MonoBehaviour
         }
         EventSystem.current.SetSelectedGameObject(continueButton);
         SetDefaultVol();
-        AudioController.instance.StartMusic();
+        //AudioController.instance.StartMusic();
         mainCamera = Camera.main;
         bool isOn = QualitySettings.vSyncCount == 1;
         if(vsyncToggle != null)
@@ -179,6 +179,7 @@ public class UIController : MonoBehaviour
         {
             ContinueButton(false);
         }
+        AudioController.instance.StartMusic();
         /*if(enemyDesc != null)
         {
             relativeInfocardPos = enemyDesc.transform.position - CameraController.instance.cameras[3].transform.position;

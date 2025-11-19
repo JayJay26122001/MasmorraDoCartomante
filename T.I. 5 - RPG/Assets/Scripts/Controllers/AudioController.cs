@@ -8,7 +8,7 @@ public class AudioController : MonoBehaviour
     public static AudioController instance;
     public AudioMixer mixer;
     public AudioSource musicSource, sfxSource, auxSource;
-    public AudioClip[] musics;
+    public AudioClip[] menuMusics, combatMusics, idleMusics, shopMusics, bossMusics;
     public AudioClip[] bellSfx, receiveCardSfx, buttonClickSfx, shuffleDeckSfx, playCardSfx;
     //public AudioClip[] menuPlaylist;
     //private bool playingIntro;
@@ -52,7 +52,7 @@ public class AudioController : MonoBehaviour
         {
             PlayMenuMusic();
         }
-        else if(SceneManager.GetActiveScene().name == "Game")
+        /*else if(SceneManager.GetActiveScene().name == "Game")
         {
             PlayMapMusic();
         }
@@ -63,6 +63,14 @@ public class AudioController : MonoBehaviour
         else
         {
             //Música de Cena de Derrota
+        }*/
+    }
+
+    public void StartGameplayMusic()
+    {
+        if (SceneManager.GetActiveScene().name == "Game")
+        {
+            PlayMapMusic();
         }
     }
 
@@ -76,11 +84,11 @@ public class AudioController : MonoBehaviour
         double startTime = AudioSettings.dspTime;
         auxSource.Stop();
         musicSource.Stop();
-        auxSource.clip = musics[0];
+        auxSource.clip = menuMusics[0];
         auxSource.PlayScheduled(startTime);
-        musicSource.clip = musics[1];
+        musicSource.clip = menuMusics[1];
         musicSource.loop = true;
-        musicSource.PlayScheduled(startTime + musics[0].length);
+        musicSource.PlayScheduled(startTime + menuMusics[0].length);
     }
 
     /*public void PlayLoopMusic()
@@ -91,44 +99,59 @@ public class AudioController : MonoBehaviour
         //playingIntro = false;
     }*/
 
-    public void PlayMapMusic()
+    public void PlayAfterBossMusic()
     {
+        int level = GameplayManager.instance.areaIndex;
         auxSource.Stop();
         musicSource.Stop();
-        musicSource.clip = musics[2];
+        musicSource.clip = idleMusics[level-1];
         musicSource.loop = true;
         musicSource.Play();
-        Debug.Log("Playing : " + musics[2].name);
+        Debug.Log("Playing : " + idleMusics[level].name);
+    }
+
+    public void PlayMapMusic()
+    {
+        int level = GameplayManager.instance.areaIndex;
+        auxSource.Stop();
+        musicSource.Stop();
+        musicSource.clip = idleMusics[level];
+        musicSource.loop = true;
+        musicSource.Play();
+        Debug.Log("Playing : " + idleMusics[level].name);
     }
 
     public void PlayCombatMusic()
     {
+        int level = GameplayManager.instance.areaIndex;
         auxSource.Stop();
         musicSource.Stop();
-        musicSource.clip = musics[3];
+        musicSource.clip = combatMusics[level];
         musicSource.loop = true;
         musicSource.Play();
-        Debug.Log("Playing : " + musics[3].name);
+        Debug.Log("Playing : " + combatMusics[level].name);
     }
 
     public void PlayShopMusic()
     {
+        int level = GameplayManager.instance.areaIndex;
         auxSource.Stop();
         musicSource.Stop();
-        musicSource.clip = musics[4];
+        musicSource.clip = shopMusics[level];
         musicSource.loop = true;
         musicSource.Play();
-        Debug.Log("Playing : " + musics[4].name);
+        Debug.Log("Playing : " + shopMusics[level].name);
     }
 
     public void PlayBossMusic()
     {
+        int level = GameplayManager.instance.areaIndex;
         auxSource.Stop();
         musicSource.Stop();
-        musicSource.clip = musics[5];
+        musicSource.clip = bossMusics[level];
         musicSource.loop = true;
         musicSource.Play();
-        Debug.Log("Playing : " + musics[5].name);
+        Debug.Log("Playing : " + bossMusics[level].name);
     }
 
     public void RandomizeSfx(AudioSource s, AudioClip[] sfxArray)

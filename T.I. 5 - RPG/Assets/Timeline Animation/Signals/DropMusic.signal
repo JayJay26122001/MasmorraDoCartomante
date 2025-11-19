@@ -9,14 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d1a39dfc1f14914194bdd1ce1b68008, type: 3}
-  m_Name: TestDeck
+  m_Script: {fileID: 11500000, guid: d6fa2d92fc1b3f34da284357edf89c3b, type: 3}
+  m_Name: DropMusic
   m_EditorClassIdentifier: 
-  Owner: {fileID: 0}
-  CardPresets:
-  - {fileID: 11400000, guid: a8e262aa9b09ec041b28b02bba1edc2d, type: 2}
-  cards: []
-  BuyingPile:
-    Stack: []
-  DiscardPile:
-    Stack: []

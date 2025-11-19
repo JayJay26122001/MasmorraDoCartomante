@@ -51,13 +51,33 @@ MonoBehaviour:
   musicSource: {fileID: 419529575397712776}
   sfxSource: {fileID: 1062513366243227478}
   auxSource: {fileID: 6117266557936208263}
-  musics:
+  menuMusics:
   - {fileID: 8300000, guid: 417893e9619913240904e61356e17d14, type: 3}
   - {fileID: 8300000, guid: c576bf8f12a175e4cb3f4b70b1d8b52d, type: 3}
-  - {fileID: 8300000, guid: 56a4c01f001dabd4283c643545d09767, type: 3}
+  combatMusics:
   - {fileID: 8300000, guid: f870a521e905f34498cc0f375f161189, type: 3}
+  - {fileID: 8300000, guid: 3b000ad1e79182d418ba8821aa431f00, type: 3}
+  - {fileID: 8300000, guid: 4197a708591dc9b4b8457a59b51cd36c, type: 3}
+  - {fileID: 8300000, guid: 96d9fe75e8b1473409b6f06581aba866, type: 3}
+  - {fileID: 8300000, guid: f3ad124669a3a7f4590d7d35daa8e258, type: 3}
+  idleMusics:
+  - {fileID: 8300000, guid: 56a4c01f001dabd4283c643545d09767, type: 3}
+  - {fileID: 8300000, guid: 60eca6aaf565e3b40b1bc418317aa4dc, type: 3}
+  - {fileID: 8300000, guid: 6c57fb46fb43ad6449fd7632de686e87, type: 3}
+  - {fileID: 8300000, guid: 4ac3c3b8f9d46cc48a338019b736cad5, type: 3}
+  - {fileID: 8300000, guid: 4008f7c47c4234f4e8a82adb5b00242f, type: 3}
+  shopMusics:
   - {fileID: 8300000, guid: f7b5c6162ce297149b82501f7f376e9c, type: 3}
+  - {fileID: 8300000, guid: 393e3b01c4e25bd42a3b1f43c1ac3800, type: 3}
+  - {fileID: 8300000, guid: 66e20ba71d7b92742ae602f2a0979b6e, type: 3}
+  - {fileID: 8300000, guid: 71e0aa43cf866da4ebe9d3559c297d17, type: 3}
+  - {fileID: 8300000, guid: 57713d8b234b80e4288bdb930320eead, type: 3}
+  bossMusics:
   - {fileID: 8300000, guid: 1b7dfc53d183136428ac8c40154f5a44, type: 3}
+  - {fileID: 8300000, guid: 5af7cadc7742716449f13808810db66d, type: 3}
+  - {fileID: 8300000, guid: 43bbd3bbfc562af44a6963f13a6ff8e9, type: 3}
+  - {fileID: 8300000, guid: f290e866003e5a94cb5322c3ad7d9811, type: 3}
+  - {fileID: 8300000, guid: 4ef8a1c4abfa6f6408f1b51191c22cef, type: 3}
   bellSfx:
   - {fileID: 8300000, guid: 4973385c763a6884b888a169e26c9b2e, type: 3}
   receiveCardSfx:

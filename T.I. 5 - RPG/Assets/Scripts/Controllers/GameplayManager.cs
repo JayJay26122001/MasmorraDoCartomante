@@ -116,6 +116,7 @@ public class GameplayManager : MonoBehaviour
             }
         }
         ChangeAreaPreview();
+        AudioController.instance.StartGameplayMusic();
     }
 
     public void SaveStart(bool loaded)
@@ -695,6 +696,19 @@ public class GameplayManager : MonoBehaviour
     }
 
     //SONS
+
+    public void DropMusic()
+    {
+        if(fightingBoss)
+        {
+            AudioController.instance.PlayAfterBossMusic();
+        }
+        else
+        {
+            AudioController.instance.PlayMapMusic();
+        }
+    }
+
     public void StartMapMusic()
     {
         AudioController.instance.PlayMapMusic();
@@ -1198,6 +1212,7 @@ public class GameplayManager : MonoBehaviour
 
     public void SwitchArea()
     {
+        //ChangeArea();
         for(int i = 0; i < areas.Count; i++)
         {
             if(i != areaIndex)
