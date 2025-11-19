@@ -8975,11 +8975,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   zoomIn:
-    image: {fileID: 0}
-    command: 
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Enemy Description
   zoomOut:
-    image: {fileID: 0}
-    command: 
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: Return
 --- !u!1 &188431218
 GameObject:
   m_ObjectHideFlags: 0
@@ -12038,7 +12038,7 @@ MonoBehaviour:
     command: View Enemy Description
   zoomOut:
     image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Your Cards
+    command: Return
 --- !u!4 &380782361
 Transform:
   m_ObjectHideFlags: 0
@@ -19705,7 +19705,7 @@ MonoBehaviour:
     command: View Enemy Description
   zoomOut:
     image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Your Cards
+    command: Return
 --- !u!136 &509029436
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -20394,11 +20394,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   zoomIn:
-    image: {fileID: 0}
-    command: 
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Enemy Description
   zoomOut:
-    image: {fileID: 0}
-    command: 
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: Return
 --- !u!1 &537150716 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8569186755029718992, guid: 722a7e77cecf9e14bad9ae2e93d95038, type: 3}
@@ -34890,7 +34890,7 @@ MonoBehaviour:
     command: View Enemy Description
   zoomOut:
     image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Your Cards
+    command: Return
   BonusCardsPerTurn:
     type: 0
     target: 0
@@ -41487,7 +41487,7 @@ MonoBehaviour:
     command: View Enemy Description
   zoomOut:
     image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Your Cards
+    command: Return
 --- !u!136 &916723817
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -41670,7 +41670,7 @@ MonoBehaviour:
     command: View Enemy Description
   zoomOut:
     image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Your Cards
+    command: Return
 --- !u!136 &928584689
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -44185,11 +44185,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   zoomIn:
-    image: {fileID: 0}
-    command: 
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Enemy Description
   zoomOut:
-    image: {fileID: 0}
-    command: 
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: Return
 --- !u!1001 &1033830381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45607,7 +45607,7 @@ MonoBehaviour:
     command: View Enemy Description
   zoomOut:
     image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Your Cards
+    command: Return
 --- !u!136 &1120228321
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -50353,7 +50353,7 @@ MonoBehaviour:
     command: View Enemy Description
   zoomOut:
     image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Your Cards
+    command: Return
 --- !u!136 &1288769832
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -52605,7 +52605,7 @@ MonoBehaviour:
     command: View Enemy Description
   zoomOut:
     image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Your Cards
+    command: Return
   BonusCardsPerTurn:
     type: 0
     target: 0
@@ -55315,7 +55315,6 @@ MonoBehaviour:
   - {fileID: 1264320102}
   - {fileID: 125215944}
   - {fileID: 931299368}
-  - {fileID: 665812755}
   hpText: {fileID: 865821724}
   shieldText: {fileID: 1176796264}
   energyText: {fileID: 1323262171}
@@ -57311,7 +57310,7 @@ MonoBehaviour:
     command: View Enemy Description
   zoomOut:
     image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Your Cards
+    command: Return
 --- !u!136 &1472330960
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -58963,7 +58962,7 @@ MonoBehaviour:
     command: View Enemy Description
   zoomOut:
     image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Your Cards
+    command: Return
   BonusCardsPerTurn:
     type: 0
     target: 0
@@ -60115,7 +60114,7 @@ MonoBehaviour:
     command: View Enemy Description
   zoomOut:
     image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Your Cards
+    command: Return
 --- !u!1001 &1592096499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61992,7 +61991,7 @@ MonoBehaviour:
     command: View Enemy Description
   zoomOut:
     image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Your Cards
+    command: Return
   BonusCardsPerTurn:
     type: 0
     target: 0
@@ -64645,7 +64644,7 @@ MonoBehaviour:
     command: View Enemy Description
   zoomOut:
     image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Your Cards
+    command: Return
 --- !u!136 &1771010380
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -65810,11 +65809,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   zoomIn:
-    image: {fileID: 0}
-    command: 
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Enemy Description
   zoomOut:
-    image: {fileID: 0}
-    command: 
+    image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: Return
 --- !u!4 &1824637601 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: edc1b0e902e653344a83337943decdd6, type: 3}
@@ -66464,7 +66463,7 @@ MonoBehaviour:
     command: View Enemy Description
   zoomOut:
     image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Your Cards
+    command: Return
 --- !u!4 &1848926785
 Transform:
   m_ObjectHideFlags: 0
@@ -70654,7 +70653,7 @@ MonoBehaviour:
     command: View Enemy Description
   zoomOut:
     image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
-    command: View Your Cards
+    command: Return
 --- !u!136 &2049845129
 CapsuleCollider:
   m_ObjectHideFlags: 0
