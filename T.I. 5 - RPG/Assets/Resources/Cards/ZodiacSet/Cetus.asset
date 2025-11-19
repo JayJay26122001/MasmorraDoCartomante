@@ -27,7 +27,7 @@ MonoBehaviour:
   Description: Gain v[0]{Shield} Shield. Gain +3 for each Zodiac Card in the Deck(v[1]{Shield}).
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 3e120a403edbccc4d90239e8d4774a91, type: 3}
-  id: 101
+  id: 102
   references:
     version: 2
     RefIds:

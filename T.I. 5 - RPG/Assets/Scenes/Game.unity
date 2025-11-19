@@ -1307,6 +1307,11 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!1 &31677887 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a22d43fd28a16ef4fbecd1292c00ce07, type: 3}
+  m_PrefabInstance: {fileID: 2047862323}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &34991106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20265,8 +20270,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 534324626}
+  - component: {fileID: 534324629}
+  - component: {fileID: 534324628}
+  - component: {fileID: 534324627}
   m_Layer: 0
-  m_Name: Circus Man
+  m_Name: Big Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20281,13 +20289,116 @@ Transform:
   m_GameObject: {fileID: 534324625}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -16.46, z: 42}
+  m_LocalPosition: {x: 0, y: -16.46, z: 44.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2047862324}
   m_Father: {fileID: 1151479976}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &534324627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534324625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d038c331c1efb1144a2a4e332c0ccc15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactions:
+  - image: {fileID: 21300000, guid: e7be8b8dd5ca21848873f0a90946fb01, type: 3}
+    command: View Enemy Description
+--- !u!136 &534324628
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534324625}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 17.238192
+  m_Height: 52.18
+  m_Direction: 1
+  m_Center: {x: 0, y: 22.89, z: -4.3199596}
+--- !u!114 &534324629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534324625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef8394d76fca764fbbc7af354477e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  DeckPresets:
+  - {fileID: 11400000, guid: 8557eea94e137174c8301053a14fb169, type: 2}
+  decks: []
+  hand: []
+  playedCards: []
+  exausted: []
+  maxHP: 60
+  hp: 0
+  shld: 0
+  energy: 0
+  maxBaseEnergy: 3
+  money: 10
+  CardBuyMax: 3
+  baseDamage: 7
+  baseShieldGain: 7
+  baseDamageTaken: 100
+  DamageModifiers: []
+  ShieldModifiers: []
+  DamageReductionModifiers: []
+  Damaged:
+    m_PersistentCalls:
+      m_Calls: []
+  Wounded:
+    m_PersistentCalls:
+      m_Calls: []
+  DamageBlocked:
+    m_PersistentCalls:
+      m_Calls: []
+  ShieldBreak:
+    m_PersistentCalls:
+      m_Calls: []
+  GainedShield:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayedCard:
+    m_PersistentCalls:
+      m_Calls: []
+  canPlayCards: 0
+  combatSpace: {fileID: 0}
+  useCoinPoint: 0
+  anim: {fileID: 1890506322}
+  model: {fileID: 31677887}
+  size: 1
+  FinishedPlaying:
+    m_PersistentCalls:
+      m_Calls: []
+  zoomIn:
+    image: {fileID: 0}
+    command: 
+  zoomOut:
+    image: {fileID: 0}
+    command: 
 --- !u!1 &537150716 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8569186755029718992, guid: 722a7e77cecf9e14bad9ae2e93d95038, type: 3}
@@ -55104,6 +55215,7 @@ MonoBehaviour:
   - {fileID: 1031158097}
   - {fileID: 181076499}
   - {fileID: 1823031174}
+  - {fileID: 534324629}
   bosses:
   - {fileID: 1648378711}
   - {fileID: 1551659760}
@@ -55201,6 +55313,7 @@ MonoBehaviour:
   - {fileID: 1264320102}
   - {fileID: 125215944}
   - {fileID: 931299368}
+  - {fileID: 665812755}
   hpText: {fileID: 865821724}
   shieldText: {fileID: 1176796264}
   energyText: {fileID: 1323262171}
@@ -70389,15 +70502,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a22d43fd28a16ef4fbecd1292c00ce07, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a22d43fd28a16ef4fbecd1292c00ce07, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a22d43fd28a16ef4fbecd1292c00ce07, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a22d43fd28a16ef4fbecd1292c00ce07, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y

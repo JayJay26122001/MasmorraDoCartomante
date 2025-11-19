@@ -10,36 +10,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: Ophiuchus
+  m_Name: Earth's Burden
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 7391437906615730264
-  - rid: 6961742099578617856
-  - rid: 6961742099578617857
+  - rid: 6721762184433238016
+  - rid: 211553077037367297
+  - rid: 211553077037367298
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: Ophiuchus
-  limited: 1
+  Name: Earth's Burden
+  limited: 0
   instantaneous: 1
-  cost: 1
+  cost: 3
   Type: 2
-  Pack: 1
-  Rarity: 4
-  Description: 'Doubles the User''s Attack and Shield effects, and gain 3 Extra Energy. '
-  extraDescription: 
-  CardImage: {fileID: 21300000, guid: b77a9ec0521d1b243804a413b3bd4be1, type: 3}
-  id: 106
+  Pack: 2
+  Rarity: 3
+  Description: 'User Defense Cards gain +5 for the rest of the Duel. But when played,
+    the User will also take 50% more Damage until the Duel Ends. '
+  extraDescription: The effect cancels if this Card is Discarded or Destroyed.
+  CardImage: {fileID: 0}
+  id: 58
   references:
     version: 2
     RefIds:
-    - rid: 6961742099578617856
+    - rid: 211553077037367297
       type: {class: BuffStat, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
         BuffTarget: 0
-        StatToBuff: 0
+        StatToBuff: 2
         Modifier:
           type: 0
           value:
@@ -64,21 +65,28 @@ MonoBehaviour:
               max: 0
             ObservedStat: 0
             initialized: 1
-            value: 2
+            value: 1.5
             min: 0
             max: 0
             modifiers: []
         TurnOwner: 0
-        TurnsFromNow: 0
-        TurnPhaseToStop: 1
-        StopAtPhase: 1
-    - rid: 6961742099578617857
-      type: {class: GainEnergy, ns: , asm: Assembly-CSharp}
+        TurnsFromNow: 99
+        TurnPhaseToStop: 0
+        StopAtPhase: 0
+    - rid: 211553077037367298
+      type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
-        Conditions: []
+        Conditions:
+        - rid: 211553077037367299
         ConfirmationConditions: []
-        Amount:
+        SetAsDiscardTime: 0
+    - rid: 211553077037367299
+      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        TurnOwner: 0
+        TurnsFromNow:
           type: 0
           target: 0
           ObservedCards:
@@ -100,12 +108,13 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          value: 3
+          value: 99
           min: 0
           max: 0
           modifiers: []
-        target: 0
-    - rid: 7391437906615730264
+        TurnPhase: 0
+        PhaseTime: 0
+    - rid: 6721762184433238016
       type: {class: BuffStat, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
@@ -114,19 +123,19 @@ MonoBehaviour:
         BuffTarget: 0
         StatToBuff: 1
         Modifier:
-          type: 0
+          type: 1
           value:
             type: 0
             target: 0
             ObservedCards:
               target: 0
-              pile: 0
-              type: 0
-              rarity: 0
-              pack: 0
+              pile: 4
+              type: 2
+              rarity: -1
+              pack: -1
               MaxReturnedNumber:
-                type: 2
-                value: 0
+                type: 0
+                value: 8
                 min: 0
                 max: 0
               initialized: 1
@@ -137,11 +146,11 @@ MonoBehaviour:
               max: 0
             ObservedStat: 0
             initialized: 1
-            value: 2
-            min: 0
-            max: 0
+            value: 5
+            min: 2
+            max: 8
             modifiers: []
         TurnOwner: 0
-        TurnsFromNow: 0
+        TurnsFromNow: 99
         TurnPhaseToStop: 1
         StopAtPhase: 1

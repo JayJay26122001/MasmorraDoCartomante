@@ -27,7 +27,7 @@ MonoBehaviour:
     and adds it to its Hand.
   extraDescription: 
   CardImage: {fileID: 0}
-  id: 102
+  id: 103
   references:
     version: 2
     RefIds:

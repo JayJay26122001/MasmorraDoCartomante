@@ -27,7 +27,7 @@ MonoBehaviour:
     rest of the Duel.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 98d52c785ce6ace48a4c6d121b5138c9, type: 3}
-  id: 84
+  id: 85
   references:
     version: 2
     RefIds:

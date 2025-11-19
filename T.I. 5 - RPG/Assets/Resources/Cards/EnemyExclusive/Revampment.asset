@@ -27,7 +27,7 @@ MonoBehaviour:
   Description: Gain v[0]{Shield} Shield and Heal 8 Health.
   extraDescription: 
   CardImage: {fileID: 0}
-  id: 66
+  id: 68
   references:
     version: 2
     RefIds:

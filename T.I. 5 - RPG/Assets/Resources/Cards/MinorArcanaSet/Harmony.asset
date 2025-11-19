@@ -28,7 +28,7 @@ MonoBehaviour:
   Description: Heals 3 Health both sides Every Turn until the End of the Duel.
   extraDescription: 
   CardImage: {fileID: 0}
-  id: 74
+  id: 75
   references:
     version: 2
     RefIds:

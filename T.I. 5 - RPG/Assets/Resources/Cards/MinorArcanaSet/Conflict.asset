@@ -27,7 +27,7 @@ MonoBehaviour:
   Description: Deals v[0]{Damage} Damage, but also v[1]{Damage} on the User.
   extraDescription: 
   CardImage: {fileID: 0}
-  id: 71
+  id: 72
   references:
     version: 2
     RefIds:

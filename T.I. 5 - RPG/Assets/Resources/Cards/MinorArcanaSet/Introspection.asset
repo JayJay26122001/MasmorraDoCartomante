@@ -29,7 +29,7 @@ MonoBehaviour:
     Turn.
   extraDescription: 
   CardImage: {fileID: 0}
-  id: 75
+  id: 76
   references:
     version: 2
     RefIds:

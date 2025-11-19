@@ -27,7 +27,7 @@ MonoBehaviour:
     Max). '
   extraDescription: 
   CardImage: {fileID: 0}
-  id: 106
+  id: 107
   references:
     version: 2
     RefIds:

@@ -30,7 +30,7 @@ MonoBehaviour:
     go back and forth between Targets until someone can''t Block. '
   extraDescription: 
   CardImage: {fileID: 0}
-  id: 81
+  id: 82
   references:
     version: 2
     RefIds:

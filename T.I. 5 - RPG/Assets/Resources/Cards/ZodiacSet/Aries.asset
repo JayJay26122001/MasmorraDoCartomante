@@ -28,7 +28,7 @@ MonoBehaviour:
     Buying Pile.
   extraDescription: 
   CardImage: {fileID: 0}
-  id: 97
+  id: 98
   references:
     version: 2
     RefIds:

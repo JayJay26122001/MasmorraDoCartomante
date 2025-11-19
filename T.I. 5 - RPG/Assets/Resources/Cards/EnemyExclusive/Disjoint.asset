@@ -30,7 +30,7 @@ MonoBehaviour:
     Retrigger the Effect of the Card, but Deals 4 Damage to the User foreach Retrigger.
   extraDescription: 
   CardImage: {fileID: 0}
-  id: 69
+  id: 57
   references:
     version: 2
     RefIds:

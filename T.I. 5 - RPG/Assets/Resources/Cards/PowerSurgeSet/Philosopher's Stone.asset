@@ -27,7 +27,7 @@ MonoBehaviour:
   Description: Deals v[0]{Damage} Damage to the User, but in return, Gain +3 Energy.
   extraDescription: 
   CardImage: {fileID: 0}
-  id: 86
+  id: 87
   references:
     version: 2
     RefIds:

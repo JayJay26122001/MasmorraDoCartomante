@@ -27,7 +27,7 @@ MonoBehaviour:
   extraDescription: 'Magic Missle: Deals 3 Damage. Having 33% Chance to Retrigger
     for each Card the User plays after it during this Turn.'
   CardImage: {fileID: 0}
-  id: 67
+  id: 69
   references:
     version: 2
     RefIds:

@@ -28,7 +28,7 @@ MonoBehaviour:
     Hand.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: b211e202ec963ab46b026b9bbbdfad7e, type: 3}
-  id: 63
+  id: 65
   references:
     version: 2
     RefIds:

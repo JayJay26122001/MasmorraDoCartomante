@@ -27,7 +27,7 @@ MonoBehaviour:
     a Limited Card.
   extraDescription: 
   CardImage: {fileID: 0}
-  id: 90
+  id: 91
   references:
     version: 2
     RefIds:
