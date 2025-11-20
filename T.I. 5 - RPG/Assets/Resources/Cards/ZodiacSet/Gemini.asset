@@ -51,6 +51,7 @@ MonoBehaviour:
             min: 0
             max: 0
           initialized: 1
+          CountThisCard: 0
         AmountOfInstances:
           type: 0
           target: 0

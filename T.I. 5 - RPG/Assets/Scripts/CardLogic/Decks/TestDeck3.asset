@@ -15,10 +15,10 @@ MonoBehaviour:
   Owner: {fileID: 0}
   CardPresets:
   - {fileID: 11400000, guid: de3909b0db7eca64b8117766349df481, type: 2}
-  - {fileID: 11400000, guid: de3909b0db7eca64b8117766349df481, type: 2}
-  - {fileID: 11400000, guid: de3909b0db7eca64b8117766349df481, type: 2}
-  - {fileID: 11400000, guid: de3909b0db7eca64b8117766349df481, type: 2}
-  - {fileID: 11400000, guid: de3909b0db7eca64b8117766349df481, type: 2}
+  - {fileID: 11400000, guid: b4f1c9213ec94944fbb3140dc70fd316, type: 2}
+  - {fileID: 11400000, guid: b4f1c9213ec94944fbb3140dc70fd316, type: 2}
+  - {fileID: 11400000, guid: b4f1c9213ec94944fbb3140dc70fd316, type: 2}
+  - {fileID: 11400000, guid: b4f1c9213ec94944fbb3140dc70fd316, type: 2}
   cards: []
   BuyingPile:
     Stack: []

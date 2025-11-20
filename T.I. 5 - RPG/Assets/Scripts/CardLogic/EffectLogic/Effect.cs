@@ -347,6 +347,7 @@ public class BuffStat : Effect, IProlongedEffect
     public override void Apply()
     {
         base.Apply();
+        Modifier.value.SetCard(card);
         switch (TurnOwner)
         {
             case Target.Opponent:
@@ -656,7 +657,7 @@ public class DuplicateCard : Effect
     public enum Pile { Hand, BuyingPile, DiscardPile }
     [SerializeField] Target target;
     [SerializeField] Pile AddToPile;
-    public CardVar CardsToCopy;
+    public ECardVar CardsToCopy;
     public ModularInt AmountOfInstances;
     public bool SetCostToZero = false, SetInstantaneous = false, SetLimited = false;
     public override void Apply()

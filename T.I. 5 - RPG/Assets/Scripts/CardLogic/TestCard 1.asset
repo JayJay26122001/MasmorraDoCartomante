@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: TestCard 1
   m_EditorClassIdentifier: 
   Effects:
-  - rid: 1518434721690288194
-  - rid: 1518434721690288195
+  - rid: 1518434806389538882
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Test
@@ -24,78 +23,50 @@ MonoBehaviour:
   Type: 2
   Pack: 0
   Rarity: 3
-  Description: money money money money
+  Description: test
   extraDescription: 
   CardImage: {fileID: 0}
   id: -1
   references:
     version: 2
     RefIds:
-    - rid: 1518434721690288194
-      type: {class: GainCoins, ns: , asm: Assembly-CSharp}
+    - rid: 1518434806389538882
+      type: {class: BuffStat, ns: , asm: Assembly-CSharp}
       data:
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
-        target: 0
-        Origin: 0
-        amount:
-          type: 0
-          target: 0
-          ObservedCards:
+        BuffTarget: 0
+        StatToBuff: 0
+        Modifier:
+          type: 1
+          value:
+            type: 2
             target: 0
-            pile: 0
-            type: 0
-            rarity: 0
-            pack: 0
+            ObservedCards:
+              target: 1
+              pile: 0
+              type: -1
+              rarity: -1
+              pack: -1
+              MaxReturnedNumber:
+                type: 2
+                value: 0
+                min: 0
+                max: 0
+              initialized: 1
             MaxReturnedNumber:
               type: 2
               value: 0
               min: 0
               max: 0
+            ObservedStat: 0
             initialized: 1
-          MaxReturnedNumber:
-            type: 2
             value: 0
             min: 0
             max: 0
-          ObservedStat: 0
-          initialized: 1
-          value: 5
-          min: 0
-          max: 0
-          modifiers: []
-    - rid: 1518434721690288195
-      type: {class: GainCoins, ns: , asm: Assembly-CSharp}
-      data:
-        DiscardIfAcomplished: 0
-        Conditions: []
-        ConfirmationConditions: []
-        target: 0
-        Origin: 1
-        amount:
-          type: 0
-          target: 0
-          ObservedCards:
-            target: 0
-            pile: 0
-            type: 0
-            rarity: 0
-            pack: 0
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-            initialized: 1
-          MaxReturnedNumber:
-            type: 2
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          initialized: 1
-          value: 3
-          min: 0
-          max: 0
-          modifiers: []
+            modifiers: []
+        TurnOwner: 0
+        TurnsFromNow: 99
+        TurnPhaseToStop: 0
+        StopAtPhase: 0

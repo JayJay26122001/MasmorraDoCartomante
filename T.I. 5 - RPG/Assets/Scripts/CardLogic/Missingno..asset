@@ -29,7 +29,7 @@ MonoBehaviour:
   Description: 'Let chaos reign over. '
   extraDescription: Descobri sa porra acidentalmente e vale a pena deixar salvo
   CardImage: {fileID: 0}
-  id: 58
+  id: -1
   references:
     version: 2
     RefIds:

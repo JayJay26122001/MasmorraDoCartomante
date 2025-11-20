@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 
 [Serializable]
-public class CardVar : ISerializationCallbackReceiver
+public class CardVar : ISerializationCallbackReceiver // usado para obter cartas com certos atributos em lugares que não sejam efeitos de cartas
 {
     public enum Target { User, Opponent }
     public enum Pile { Deck, Hand, PlayedPile, DiscardPile, BuyingPile, ExistentDeck, Destroyed }
@@ -132,7 +132,7 @@ public class CardVar : ISerializationCallbackReceiver
     }
 }
 [Serializable]
-public class ECardVar : CardVar
+public class ECardVar : CardVar // Deve ser usado apenas em efeitos que envolvam contagem de cartas
 {
     public enum CountCard { DontCountThisCard, CountThisCard, CountOnlyThisCard }
     public CountCard CountThisCard;
