@@ -1297,7 +1297,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1664020406}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.39864987
+  m_Size: 0.14083625
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5977,7 +5977,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -25, y: 678.81006}
+  m_SizeDelta: {x: -25, y: 2745.2}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &608797158
 MonoBehaviour:
@@ -5999,39 +5999,32 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Primeira Build\n\u2022 Adi\xE7\xE3o de multiplos efeitos e condi\xE7\xF5es
-    para cartas\n\u2022 Implementa\xE7\xE3o de VFXs de combate\n\u2022 Implementa\xE7\xE3o
-    da UI 3D de combate\n\u2022 Implementa\xE7\xE3o do cen\xE1rio e assets da loja\n\u2022
-    Implementa\xE7\xE3o de assets do mapa\n\u2022 Adi\xE7\xE3o de multiplos inimigos\n\u2022
-    Implementa\xE7\xE3o de popups explicativos no combate\n\u2022 Implementa\xE7\xE3o
-    de descri\xE7\xF5es adaptativas de cartas no combate\n\u2022 Implementa\xE7\xE3o
-    do menu 3D finalizado\n\nSegunda Build\n\u2022 Adi\xE7\xE3o de vfx e de feedback
-    visuais\n\u2022 Inimigos e bosses conseguem jogar mais de uma carta\n\u2022 Bosses
-    possuem um deck secund\xE1rio\n\u2022 \xDAltimos efeitos de carta implementados\n\u2022
-    Adi\xE7\xE3o de novas salas na gera\xE7\xE3o de mapas\n\u2022 Adi\xE7\xE3o de
-    texturas no nivel grego / corruptor / caverna\n\u2022 Adi\xE7\xE3o do nivel corruptor
-    e cartomancer\n\u2022 Corre\xE7\xE3o de anima\xE7\xF5es e mesh no mercador e
-    lasquita\n\u2022 Adi\xE7\xE3o de textura para diversos personagens\n\u2022 Adi\xE7\xE3o
-    de novos packs na loja\n\u2022 Implementa\xE7\xE3o das ultimas cartas\n\u2022
-    Adi\xE7\xE3o de imagens nas cartas\n\u2022 Implementa\xE7\xE3o de um Infocard
-    com informa\xE7\xF5es sobre os inimigos\n\u2022 Adi\xE7\xE3o de um bot\xE3o no
-    Menu para receber feedbacks\n\u2022 Texturiza\xE7\xE3o do nivel grego / corruptor
-    / caverna\n\u2022 Texturiza\xE7\xE3o de props do n\xEDvel grego / corruptor /
-    caverna\n\nBuild Pr\xE9-Banca\n\u2022 Corre\xE7\xE3o de diversos bugs\n\u2022
-    Balanceamento do jogo de forma geral\n\u2022 Adi\xE7\xE3o de sistema de pagina\xE7\xE3o
-    de cartas\n\u2022 Implementa\xE7\xE3o de Save Game\n\u2022 Settings nova adicionada
-    para ver a descri\xE7\xE3o da carta em um popup\n\u2022 Adi\xE7\xE3o de novos
-    tipos de pack na loja\n\u2022 Novos inimigos e bosses implementados\n\u2022 Novas
-    Texturas adicionadas\n\u2022 Novos efeitos visuais e feedbacks visuais criados
-    \n\u2022 Adi\xE7\xE3o de novos modelos \n\u2022 Adi\xE7\xE3o de novos shaders\n\u2022
-    Iniciar runs escolhendo cartas implementado\n\u2022 Drop aleat\xF3rio de cartas
-    no final do combate implementado\n\u2022 Rework no funcionamento da gera\xE7\xE3o
-    de mapa\n\u2022 Ajustes na anima\xE7\xE3o da ui de combate\n\u2022 Adi\xE7\xE3o
-    de anima\xE7\xF5es de desaparecimento nas cartas limitadas do jogador.\n\u2022
-    Ajustes de enquadramento de c\xE2mera para melhor visualiza\xE7\xE3o dos inimigos\n\u2022
-    Adi\xE7\xE3o de um sistema de ID para as cartas\n\u2022 M\xFAsica nova implementada
-    no primeiro n\xEDvel\n\u2022 Finaliza\xE7\xE3o e adi\xE7\xE3o das m\xFAsicas
-    de todos os demais n\xEDveis no projeto (ainda n\xE3o implementado ingame)"
+  m_text: "First Build\n\n\u2022 Added multiple effects and conditions for cards\n\u2022
+    Implemented combat VFX\n\u2022 Implemented 3D combat UI\n\u2022 Implemented shop
+    environment and assets\n\u2022 Implemented map assets\n\u2022 Added multiple
+    enemies\n\u2022 Implemented explanatory popups in combat\n\u2022 Implemented
+    adaptive card descriptions during combat\n\u2022 Implemented final 3D menu\n\nSecond
+    Build\n\n\u2022 Added VFX and visual feedback\n\u2022 Enemies and bosses can
+    play more than one card\n\u2022 Bosses now have a secondary deck\n\u2022 Final
+    card effects implemented\n\u2022 Added new rooms to map generation\n\u2022 Added
+    textures for the Greek / Corruptor / Cave levels\n\u2022 Added Corruptor and
+    Cartomancer levels\n\u2022 Fixed animations and meshes for the merchant and Lasquita\n\u2022
+    Added textures for various characters\n\u2022 Added new packs to the shop\n\u2022
+    Implemented the last cards\n\u2022 Added images to cards\n\u2022 Implemented
+    an InfoCard with information for all enemies\n\u2022 Added a button in the Menu
+    to receive feedbacks\n\u2022 Textured the Greek / Corruptor / Cave levels\n\u2022
+    Textured props for the Greek / Corruptor / Cave levels\n\nThird Build\n\n\u2022
+    Fixed several bugs\n\u2022 General game balancing\n\u2022 Added page system to
+    the cards\n\u2022 Implemented Save Game\n\u2022 New settings added to view card
+    descriptions in a popup\n\u2022 Added new pack types to the shop\n\u2022 New
+    enemies and bosses implemented\n\u2022 Added new textures\n\u2022 Added new visual
+    effects and visual feedback\n\u2022 Added new models\n\u2022 Added new shaders\n\u2022
+    Implemented choosing cards when starting a run\n\u2022 Implemented random card
+    drops at the end of combat\n\u2022 Reworked map generation system\n\u2022 Adjusted
+    combat UI animations\n\u2022 Added disappearance animations for the player\u2019s
+    limited cards\n\u2022 Adjusted camera framing for better enemy visualization\n\u2022
+    Added ID system for cards\n\u2022 New music implemented for the first level\n\u2022
+    Added music for all other levels to the project (not yet implemented in-game)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
   m_sharedMaterial: {fileID: 1623889163624291708, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
@@ -19886,7 +19879,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1551777567}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.6013501}
+  m_AnchorMin: {x: 0, y: 0.85916376}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 30, y: 20}
