@@ -20214,7 +20214,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.5
+  m_Radius: 5
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -50590,7 +50590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1282407753
 Transform:
   m_ObjectHideFlags: 0
@@ -50648,8 +50648,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.0321783, z: 1}
-  m_Center: {x: 0, y: 0.4372244, z: 0}
+  m_Size: {x: 4, y: 2, z: 3}
+  m_Center: {x: 0, y: 1.01, z: 0}
 --- !u!4 &1282487222 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: edc1b0e902e653344a83337943decdd6, type: 3}
