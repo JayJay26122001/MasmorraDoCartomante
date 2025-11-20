@@ -21,7 +21,7 @@ MonoBehaviour:
   limited: 0
   instantaneous: 0
   cost: 2
-  Type: 0
+  Type: 2
   Pack: 2
   Rarity: 0
   Description: Deals v[0]{Damage} Damage for each Attack Card the Opponent plays
