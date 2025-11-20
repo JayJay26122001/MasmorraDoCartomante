@@ -19,7 +19,6 @@ public class Enemy : Creature, IPointerClickHandler
         DamageBlocked.AddListener((DealDamage d) => GameplayManager.instance.EnemyShieldVFX());
         ShieldBreak.AddListener(GameplayManager.instance.EnemyFracturedShieldVFX);
         interactable = this.gameObject.GetComponent<Interactable>();
-        coinPointPos = coinPoint.position + Vector3.up * this.gameObject.GetComponent<CapsuleCollider>().height / 2;
     }
     public override void CombatStartAction()
     {
@@ -231,16 +230,5 @@ public class Enemy : Creature, IPointerClickHandler
     {
         base.EndCombat();
         ResetHP();
-    }
-    public override void SetupCoinPointPos()
-    {
-        if(!useCoinPoint)
-        {
-            coinPointPos = coinPoint.position + Vector3.up * this.gameObject.GetComponent<CapsuleCollider>().height / 2;
-        }
-        else
-        {
-            coinPointPos = coinPoint.position;
-        }
     }
 }

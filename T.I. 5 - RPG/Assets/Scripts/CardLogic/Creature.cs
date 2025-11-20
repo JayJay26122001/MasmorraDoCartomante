@@ -15,7 +15,6 @@ public class Creature : MonoBehaviour
     {
         SetupStartingDecks();
         Health = maxHP;
-        coinPoint = transform;
         //decks[0].AddCard(decks[1].cards[1]);
     }
     public Creature enemy;
@@ -46,9 +45,9 @@ public class Creature : MonoBehaviour
     [Header("Other")]
     public bool canPlayCards;
     public CardCombatSpaces combatSpace;
-    [NonSerialized] public Transform coinPoint;
-    [NonSerialized] public Vector3 coinPointPos;
-    public bool useCoinPoint = false;
+    public Transform coinPoint;
+    //[NonSerialized] public Vector3 coinPointPos;
+    //public bool useCoinPoint = false;
 
     protected int skipTurn = 0, skipCardBuy = 0;
     public int SkipTurn
@@ -526,10 +525,5 @@ public class Creature : MonoBehaviour
     {
         skipCardBuy = 0;
         GameManager.instance.uiController.LockerAnimation(this, false);
-    }
-
-    public virtual void SetupCoinPointPos()
-    {
-        coinPointPos = coinPoint.position;
     }
 }

@@ -12,8 +12,6 @@ public class Player : Creature
     protected override void Awake()
     {
         base.Awake();
-        coinPoint = GameplayManager.instance.moneyBag.transform;
-        coinPointPos = coinPoint.position;
     }
     public override void TurnAction()
     {

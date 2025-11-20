@@ -18,3 +18,4 @@ MonoBehaviour:
   selectableCardsQuantity: 1
   packDescription: Withered Pack, let the sands of time carry you away. Choose 1
     card between 3!
+  texture: {fileID: 2800000, guid: 947e967bfd42adb4daac9a3447477445, type: 3}

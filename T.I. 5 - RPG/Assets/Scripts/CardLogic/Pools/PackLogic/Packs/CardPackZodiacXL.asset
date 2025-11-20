@@ -18,3 +18,4 @@ MonoBehaviour:
   selectableCardsQuantity: 2
   packDescription: Celestial Pack XL, seems like the stars alligned for you. Choose
     2 between 5 Zodiac cards!
+  texture: {fileID: 2800000, guid: 947e967bfd42adb4daac9a3447477445, type: 3}

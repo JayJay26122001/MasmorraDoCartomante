@@ -14,7 +14,7 @@ public class CardAttack : MonoBehaviour
     {
         target = t;
     }
-    public void BezierCurve()
+    /*public void BezierCurve()
     {
         startPos = transform.position;
         targetPos = new Vector3(target.position.x, startPos.y, target.position.z - target.gameObject.GetComponent<CapsuleCollider>().radius / 2);
@@ -22,13 +22,20 @@ public class CardAttack : MonoBehaviour
         t = 0;
         gameObject.SetActive(true);
         CurveMovement();
-    }
-    public void BezierCurve(Creature c)
+    }*/
+    public void BezierCurve()
     {
         startPos = transform.position;
-        targetPos = c.coinPointPos;
-        transform.rotation = Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
-        aux = new Vector3(startPos.x + (targetPos.x - startPos.x) / 2, startPos.y + Mathf.Abs((targetPos.z - startPos.z) / 2) + Mathf.Abs((targetPos.x - startPos.x) / 2), startPos.z + (targetPos.z - startPos.z) / 2);
+        if(isCoin)
+        {
+            targetPos = target.position;
+            transform.rotation = Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
+        }
+        else
+        {
+            targetPos = new Vector3(target.position.x, startPos.y, target.position.z - target.gameObject.GetComponent<CapsuleCollider>().radius / 2);
+        }
+        aux = new Vector3(startPos.x + (targetPos.x - startPos.x) / 2, Mathf.Clamp(startPos.y + Mathf.Abs((targetPos.z - startPos.z) / 2) + Mathf.Abs((targetPos.x - startPos.x) / 2), 0, 25), startPos.z + (targetPos.z - startPos.z) / 2);
         t = 0;
         gameObject.SetActive(true);
         CurveMovement();

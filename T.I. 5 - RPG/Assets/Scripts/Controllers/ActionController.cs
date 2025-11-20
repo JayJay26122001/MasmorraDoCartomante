@@ -398,7 +398,7 @@ public class GainCoinsAction : SceneAction
         Vector3 from;
         if(stolen)
         {
-            from = target.enemy.coinPointPos;
+            from = target.enemy.coinPoint.position;
         }
         else
         {
@@ -408,7 +408,7 @@ public class GainCoinsAction : SceneAction
             }
             else
             {
-                from = target.coinPointPos + new Vector3 (0,4,0);
+                from = target.coinPoint.position + new Vector3 (0,4,0);
             }
         }
         for (int i = 0; i < amount; i++)
@@ -422,7 +422,7 @@ public class GainCoinsAction : SceneAction
                 if(target.enemy.Money > 0)
                 {
                     target.enemy.GainMoney(-1);
-                    GameplayManager.instance.ActivateCoin(from, target.coinPoint, gainCoin, target);
+                    GameplayManager.instance.ActivateCoin(from, target.coinPoint, gainCoin);
                     yield return new WaitForSeconds(0.1f);
                 }
                 else
@@ -433,7 +433,7 @@ public class GainCoinsAction : SceneAction
             }
             else
             {
-                GameplayManager.instance.ActivateCoin(from, target.coinPoint, gainCoin, target);
+                GameplayManager.instance.ActivateCoin(from, target.coinPoint, gainCoin);
                 yield return new WaitForSeconds(0.1f);
             }
             

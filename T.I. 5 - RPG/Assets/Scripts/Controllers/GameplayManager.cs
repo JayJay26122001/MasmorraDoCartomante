@@ -774,7 +774,7 @@ public class GameplayManager : MonoBehaviour
         return null;
     }
 
-    public UnityEvent ActivateCoin(Vector3 pos, Transform target)
+    /*public UnityEvent ActivateCoin(Vector3 pos, Transform target)
     {
         if (coinsPool.Count == coinsUsed.Count)
         {
@@ -795,8 +795,8 @@ public class GameplayManager : MonoBehaviour
             }
         }
         return null;
-    }
-    public void ActivateCoin(Vector3 pos, Transform target, UnityAction finishInstruction, Creature c)
+    }*/
+    public void ActivateCoin(Vector3 pos, Transform target, UnityAction finishInstruction)
     {
         if (coinsPool.Count == coinsUsed.Count)
         {
@@ -810,8 +810,7 @@ public class GameplayManager : MonoBehaviour
                 coinsPool[i].HitTarget.AddListener(finishInstruction);
                 coinsPool[i].transform.position = pos;
                 coinsPool[i].SetTarget(target);
-                c.SetupCoinPointPos();
-                coinsPool[i].BezierCurve(c);
+                coinsPool[i].BezierCurve();
                 coinsUsed.Add(coinsPool[i]);
                 i = coinsPool.Count;
             }
