@@ -16,7 +16,7 @@ public class CardPack : MonoBehaviour
     {
         bought = false;
         mat = this.transform.GetChild(0).GetComponent<MeshRenderer>().material;
-        mat.SetTexture("_AlbedoTex", data.texture);
+        //mat.SetTexture("_AlbedoTex", data.texture);
         if(this.gameObject.GetComponent<ShopObject>().type == ShopObject.ObjectType.Shop)
         {
             mat.color = new Color32(150, 50, 0, 255);
@@ -44,6 +44,7 @@ public class CardPack : MonoBehaviour
     {
         bought = false;
         mat = this.transform.GetChild(0).GetComponent<MeshRenderer>().material;
+        mat.SetTexture("_AlbedoTex", data.texture);
         mat.SetFloat("_DisappearTime", 0);
         cardsInstances.Clear();
         cards = data.possibleCards.SelectCards(data.cardQuantity);

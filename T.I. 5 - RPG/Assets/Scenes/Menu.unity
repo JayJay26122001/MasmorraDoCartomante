@@ -151,10 +151,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 955108451}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 514.485, y: -1175}
-  m_SizeDelta: {x: 1000, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1000, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3083863
 MonoBehaviour:
@@ -2009,9 +2009,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 955108451}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 514.485, y: -4450}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 800, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &201703814
@@ -2034,7 +2034,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: efd17621f34eb694499c5b96351dbb1c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7c250e7d5c3c95145a6fe41b3b77fa5d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2084,8 +2084,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1957179249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.9312977}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 30, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2210,7 +2210,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 207280792}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.06870229
+  m_Size: 0.077586204
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5496,10 +5496,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 955108451}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 514.485, y: -4225}
-  m_SizeDelta: {x: 1000, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1000, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &576859324
 MonoBehaviour:
@@ -8617,10 +8617,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 955108451}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 514.485, y: -1400}
-  m_SizeDelta: {x: 800, y: 400}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 800, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &894002213
 MonoBehaviour:
@@ -8642,7 +8642,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d9596d43006d23349a405c865c1e4fd7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0f693bf93c14f424cb321ee5f30fe4ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8899,7 +8899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &950833042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9004,7 +9004,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 6550}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &955108452
 MonoBehaviour:
@@ -9787,10 +9787,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 955108451}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 514.485, y: -800}
-  m_SizeDelta: {x: 1000, y: 700}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1000, y: 1050}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1030337067
 MonoBehaviour:
@@ -9812,26 +9812,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'The map is divided in levels, each having at least one room option. You
-    are located at the room at the bottom (1), and to proceed you have to left click
-    on a room of the next layer (2) that is connected to the room you are.
-
-
-    There
-    are the different types of rooms:
-
-    Gray: Start room.
-
-    Red: Normal battle.
-
-    Yellow:
-    Shop.
-
-    Purple: Boss battle.
-
-
-    You win the game when you reach and beat
-    the boss fight.'
+  m_text: "The map is divided into levels, each containing at least one room option.
+    You start in the bottom room (1), and to proceed you must left-click on a room
+    in the next layer (2) that is connected to your current room. This will make
+    the pawn move to the selected room.\n\nThere are different types of rooms:\n\u2022
+    Gray: Start Room\n\u2022 Red: Normal Battle\n\u2022 Yellow: Shop Room, where
+    you can buy items to help you\n\u2022 Green: Healing Room, where you can heal
+    yourself\n\u2022 Dark Orange: Discard Card Room, where you can freely discard
+    one card\n\u2022 Blue: Duplicate Card Room, where you can duplicate one of your
+    cards for a price, based on the card rarity\n\u2022 Purple: Boss Battle\n\nYou
+    can advance through the levels after defeating the boss in the area you are located,
+    and you win the game once you reach and defeat the final boss in the final area."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
   m_sharedMaterial: {fileID: 1623889163624291708, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
@@ -9865,7 +9856,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -9942,10 +9933,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 955108451}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 514.485, y: -250}
-  m_SizeDelta: {x: 800, y: 400}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 800, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1046363166
 MonoBehaviour:
@@ -9967,7 +9958,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d8117ebec3ec63043b8a443e4663870b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5f89e634e3602a34aae585e5b4971630, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10171,10 +10162,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 955108451}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 514.485, y: -25}
-  m_SizeDelta: {x: 1000, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1000, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1086861194
 MonoBehaviour:
@@ -11769,9 +11760,9 @@ RectTransform:
   m_Father: {fileID: 118792801}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1214634414
 MonoBehaviour:
@@ -21018,10 +21009,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 955108451}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 514.485, y: -2900}
-  m_SizeDelta: {x: 1000, y: 2600}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1000, y: 1600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1872598311
 MonoBehaviour:
@@ -21043,37 +21034,26 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Once you enter a battle or boss room, a battle will initiate. \nIn a battle,
-    each round you buy cards from the buying pile (3) until you have at least 5 cards
-    in your hand (1) (if you already have at least 5, you don't buy any cards), set
-    your energy to 3 (unless a card affects your energy), and you can play cards
-    from your hand by left clicking them, but only if you have enough energy for
-    them. \n\nEach card has: \nAn energy cost, indicated by the number in the top
-    left of the card; \nA type, based on the color of the flowers and symbols on
-    the top right (red = attack, blue = defense, and green = trick); \nA rarity,
-    based on the background (stone = common, bronze = uncommon, silver = rare, gold
-    = epic, diamond = legendary);\nA name and an effect, described in the texts.\n\nYour
-    played cards will be placed on the table (2), and you can zoom on them if you
-    right click them (click again if you want to remove the zoom). When you played
-    all the cards you wanted to play, you can click the bell (9) to end your turn,
-    which will activate all cards that have effect at the end of the turn, and then
-    putting them in the discard pile (4), which is shuffled back to the buying pile
-    when the buying pile is emptied.\n\nThen, it will be your enemy's turn (you can
-    see whose turn is active at the top of the screen (8)). In their turn, they will
-    play a card on the table (5), and you can zoom on it with right click. After
-    you've seen what their card does, you can click again on the bell to go back
-    to your turn, which activates the enemies card if the effect is at the end of
-    their turn.\n\nYou can see your health, defense and energy at the left of the
-    screen (6), and the enemies health, defense and energy at the right of the screen
-    (7). You win the battle if your opponent's health drops to 0, and lose if your
-    health drops to 0. Your health doesn't heal naturally at the end of battles,
-    only when buying a heal at the shop or with specific card effects.\n\nTo cause
-    damage, play cards that have damage dealing effects, like all red cards, but
-    be mindful of the enemies defense when doing it, because the damage only affects
-    health after the enemy's defense has been depleted (or when a card has a piercing
-    effect). \nDefense is usually given by blue cards, and is returned to 0 at the
-    start of your turn.\nGreen cards are more varied, ranging from causing damage
-    or gaining defense to buying cards or increasing energy."
+  m_text: "One you enter a battle or boss room, a battle will begin. In a battle,
+    at the start of each round you draw cards from the buying pile (1) until you
+    have at least 5 cards in your hand. If you already have 5 or more, you do not
+    draw any cards. After you play a card, its effect activates and then it is sent
+    to the discard pile (2). When your buying pile reaches 0 cards, all cards from
+    the discard pile are shuffled back into the buying pile.\n\nYou should click
+    the arrow (3) to end your turn once you have played your cards. After that, the
+    cards effects will activate and will be the enemy turn. When the encemy finishes
+    their turn, you need to click the arrow again to continue. If you want, you can
+    right-click to zoom in on cards (5) and read their effects before ending the
+    enemy turn. You can do this with both your cards and the enemy\u2019s cards.\n\nYou
+    can see the enemy\u2019s name, health, shield, energy, and damage-received multiplier
+    in the table (4). Energy and shield reset every turn, with energy returning to
+    3 at the start of every round and shield returning to 0. You can also see your
+    own health, shield, energy, and damage-received multiplier on the opposite side
+    of the screen. The damage-received multiplier (6) does not change the damage
+    value of the cards themselves. Instead, it affects how much damage the target
+    actually takes after a damage card is played against him.\n\nAfter winning a
+    combat, you receive money that is added to your money bag, and you can spend
+    it in the shop or in the card duplication room."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
   m_sharedMaterial: {fileID: 1623889163624291708, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
@@ -21107,7 +21087,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -21292,10 +21272,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 955108451}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 514.485, y: -5600}
-  m_SizeDelta: {x: 1000, y: 1900}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1000, y: 1500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1921435694
 MonoBehaviour:
@@ -21317,26 +21297,23 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "When entering a shop room, you will be able to buy things to help on your
-    journey.\n\nFirst, you can see how much money you have in the bag at the bottom
-    (1). You start the game with some money and can get more by winning battles.\n\nEach
-    object you can buy has a price, which is shown in front of it, and you can only
-    buy them if you have enough money. As for your purchase options, you can buy:\n\nCard
-    packs (2): each shop has two packs (the image only shows one because the other
-    was already bought), and when bought, the cards that were inside it will be shown
-    at the table (3), and you can pick one to add to your deck with left click, or
-    zoom on them with right click. If you don't want any of the cards, just click
-    the left bell (4) to discard them (you don't get your money back). \n\nReroll
-    (5): if you want different packs than the ones you were offered, or you want
-    more packs after you already bought them, you can buy the reroll to make 2 new
-    packs to appear. The reroll price increases for this shop each time you buy it,
-    but resets when entering another shop.\n\nCard remover (6): if you think a card
-    from your deck isn't helping much, you can buy the remover, which will show all
-    your cards at the table, and you can left click the one you want to remove from
-    your deck. If you regret buying the remover, just click the left bell (4) to
-    get a refund.\n\nHeal (7): if you took too much damage in the battles, you can
-    buy the heal to fully recover your health.\n\nWhen done shopping, you can click
-    the right bell (8) to leave the room."
+  m_text: "When entering a shop room, you will be able to buy things to help you
+    on your journey. First, you can see how much money you have in your bag on the
+    table (1), as well as your current health (2). Each item you can purchase has
+    a price displayed in front of it, and you can only buy items if you have enough
+    money. Your purchase options include:\n\n\u2022 Healing Potion (3): If you have
+    taken too much damage in previous battles, you can buy a healing potion to recover
+    20 health points.\n\n\u2022 Card Remover (4): If you think a card in your deck
+    is not helping much, you can buy the remover. It will show all your cards on
+    the table, and you can left-click the one you want to remove from your deck.\n\n\u2022
+    Pack Reroll (5): If you want different packs than the ones currently offered,
+    or if you want more options after buying the existing ones, you can buy a reroll,
+    which will refresh the shop with 2 new random packs. The reroll price increases
+    each time you buy one, but resets when entering a new shop.\n\n\u2022 Packs (6):
+    Each shop has two packs. When you buy one, the cards inside it will be revealed
+    on the table, and you can left-click to select one or more cards to add to your
+    deck.\n\nWhen you are done shopping, click the bell (7) to leave the shop and
+    return to the map."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
   m_sharedMaterial: {fileID: 1623889163624291708, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
@@ -21370,7 +21347,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
