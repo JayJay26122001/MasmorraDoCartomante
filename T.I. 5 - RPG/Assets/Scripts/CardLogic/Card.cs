@@ -33,12 +33,14 @@ public class Card : ScriptableObject
         if (value < -1) return;
         id = value;
     }
+#if UNITY_EDITOR
     [ContextMenu("Reset ID")]
     public void ResetID()
     {
         id = -1;
         EditorUtility.SetDirty(this);
     }
+#endif
     public void Setup() // chamado quando uma carta é adicionada ao deck
     {
         /*foreach (Condition.condition c in conditions)
