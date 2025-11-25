@@ -237,6 +237,7 @@ MonoBehaviour:
       type: {class: RandomChance, ns: , asm: Assembly-CSharp}
       data:
         percentageChance: 16
+        PlayVFXOnFail: 0
     - rid: 7085201310277959687
       type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
       data:
@@ -273,6 +274,7 @@ MonoBehaviour:
       type: {class: RandomChance, ns: , asm: Assembly-CSharp}
       data:
         percentageChance: 33
+        PlayVFXOnFail: 0
     - rid: 7085201310277959689
       type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
       data:
@@ -309,6 +311,7 @@ MonoBehaviour:
       type: {class: RandomChance, ns: , asm: Assembly-CSharp}
       data:
         percentageChance: 50
+        PlayVFXOnFail: 0
     - rid: 7085201310277959691
       type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
       data:
@@ -345,6 +348,7 @@ MonoBehaviour:
       type: {class: RandomChance, ns: , asm: Assembly-CSharp}
       data:
         percentageChance: 66
+        PlayVFXOnFail: 0
     - rid: 7085201310277959693
       type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
       data:
@@ -381,6 +385,7 @@ MonoBehaviour:
       type: {class: RandomChance, ns: , asm: Assembly-CSharp}
       data:
         percentageChance: 83
+        PlayVFXOnFail: 0
     - rid: 7085201310277959695
       type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
       data:
@@ -417,6 +422,7 @@ MonoBehaviour:
       type: {class: RandomChance, ns: , asm: Assembly-CSharp}
       data:
         percentageChance: 99
+        PlayVFXOnFail: 0
     - rid: 7085201310277959697
       type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
       data:

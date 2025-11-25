@@ -144,8 +144,14 @@ public class NumberOfTriggeredEffects : ConfirmationCondition
 public class RandomChance : ConfirmationCondition
 {
     [Range(1, 99)] public float percentageChance;
+    public bool PlayVFXOnFail = false;
     public override bool Confirm()
     {
-        return   UnityEngine.Random.Range(1, 101) <= percentageChance;
+        bool sucess = UnityEngine.Random.Range(1, 101) <= percentageChance;
+        if(!sucess && PlayVFXOnFail)
+        {
+            effect.card.cardDisplay.FailledVFX.Play();
+        }
+        return   sucess;
     }
 }

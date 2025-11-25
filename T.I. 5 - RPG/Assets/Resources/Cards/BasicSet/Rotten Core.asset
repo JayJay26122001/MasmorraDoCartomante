@@ -68,3 +68,4 @@ MonoBehaviour:
       type: {class: RandomChance, ns: , asm: Assembly-CSharp}
       data:
         percentageChance: 25
+        PlayVFXOnFail: 1

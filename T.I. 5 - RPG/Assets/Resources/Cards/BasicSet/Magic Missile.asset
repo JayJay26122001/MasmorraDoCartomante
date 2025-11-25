@@ -83,6 +83,7 @@ MonoBehaviour:
       type: {class: RandomChance, ns: , asm: Assembly-CSharp}
       data:
         percentageChance: 50
+        PlayVFXOnFail: 0
     - rid: 6721762660502470729
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
@@ -131,6 +132,7 @@ MonoBehaviour:
       type: {class: RandomChance, ns: , asm: Assembly-CSharp}
       data:
         percentageChance: 50
+        PlayVFXOnFail: 0
     - rid: 6721762660502470732
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
@@ -179,6 +181,7 @@ MonoBehaviour:
       type: {class: RandomChance, ns: , asm: Assembly-CSharp}
       data:
         percentageChance: 50
+        PlayVFXOnFail: 0
     - rid: 6721762660502470735
       type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
       data:

@@ -149,14 +149,17 @@ MonoBehaviour:
       type: {class: RandomChance, ns: , asm: Assembly-CSharp}
       data:
         percentageChance: 33.3
+        PlayVFXOnFail: 0
     - rid: 6721762478525775971
       type: {class: RandomChance, ns: , asm: Assembly-CSharp}
       data:
         percentageChance: 50
+        PlayVFXOnFail: 0
     - rid: 6721762478525775974
       type: {class: RandomChance, ns: , asm: Assembly-CSharp}
       data:
         percentageChance: 99
+        PlayVFXOnFail: 0
     - rid: 6721762478525775977
       type: {class: NumberOfTriggeredEffects, ns: , asm: Assembly-CSharp}
       data:

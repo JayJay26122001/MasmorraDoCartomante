@@ -18,6 +18,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
     [SerializeField] ParticleSystem ActivatedEffectVFX;
     [SerializeField] ParticleSystem[] ActivationVFX;
     [System.NonSerialized] public ParticleSystem SelectedActivationVFX;
+    public ParticleSystem FailledVFX;
     public MeshRenderer cardBase;
     //public Material dissolveShader, cardBaseShader, cardBaseMat;
     public TextMeshPro cardCost, cardName, cardDescription;
