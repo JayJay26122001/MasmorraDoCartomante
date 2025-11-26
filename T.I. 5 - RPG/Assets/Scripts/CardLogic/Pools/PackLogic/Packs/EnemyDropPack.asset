@@ -17,4 +17,4 @@ MonoBehaviour:
   cardQuantity: 3
   selectableCardsQuantity: 1
   packDescription: Enemy Drop Pack, choose 1 card between 3 out of your enemy's deck.
-  texture: {fileID: 2800000, guid: 947e967bfd42adb4daac9a3447477445, type: 3}
+  texture: {fileID: 2800000, guid: 2fa2dcd10c90f55488639c9d18fd9dd9, type: 3}

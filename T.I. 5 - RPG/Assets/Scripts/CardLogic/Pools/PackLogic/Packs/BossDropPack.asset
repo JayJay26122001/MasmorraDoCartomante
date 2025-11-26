@@ -18,4 +18,4 @@ MonoBehaviour:
   selectableCardsQuantity: 1
   packDescription: Boss Drop Pack, choose 1 card between 2 out of the boss' main
     deck.
-  texture: {fileID: 2800000, guid: 947e967bfd42adb4daac9a3447477445, type: 3}
+  texture: {fileID: 2800000, guid: 5946f022de602fb41a90f4151d1ed1e7, type: 3}

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleCards: {fileID: 11400000, guid: 32939556a2424a341a3c4f5fb867ba7b, type: 2}
   price: 15
-  cardQuantity: 3
+  cardQuantity: 5
   selectableCardsQuantity: 2
-  packDescription: Expensive Pack, you can choose 2 cards between 3 Rare cards or
+  packDescription: Expensive Pack, you can choose 2 cards between 5 Rare cards or
     above!
-  texture: {fileID: 2800000, guid: 947e967bfd42adb4daac9a3447477445, type: 3}
+  texture: {fileID: 2800000, guid: 4fcf9b528aa5ebf42a94a58f6c2278d5, type: 3}

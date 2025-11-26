@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d1a39dfc1f14914194bdd1ce1b68008, type: 3}
+  m_Name: CartomancerDeck
+  m_EditorClassIdentifier: 
+  Owner: {fileID: 0}
+  CardPresets:
+  - {fileID: 11400000, guid: d989b4796a701024fb369e378874b5f1, type: 2}
+  - {fileID: 11400000, guid: 8da43459965ba804f8351fcedc5b7690, type: 2}
+  - {fileID: 11400000, guid: 507f85fc01d737c4ea0dd6897259ab69, type: 2}
+  - {fileID: 11400000, guid: 957ce67d8b5352b4b85c7ada60543788, type: 2}
+  - {fileID: 11400000, guid: 698b4e6e0d9548b43a6ea145ce246499, type: 2}
+  - {fileID: 11400000, guid: 159453e489f303549b0af18119e737ad, type: 2}
+  - {fileID: 11400000, guid: dea0c7e26d5705f40afe0c9e2f58eaf3, type: 2}
+  - {fileID: 11400000, guid: 0fc6ecbb59c06ce46a8fa2350ae10dd7, type: 2}
+  - {fileID: 11400000, guid: cade3ec654f09ec43a19515a58b66ea4, type: 2}
+  - {fileID: 11400000, guid: 79de2de948f26cc45be5b185d79819a6, type: 2}
+  - {fileID: 11400000, guid: 68887b2772eaf554c9516398d7378387, type: 2}
+  - {fileID: 11400000, guid: 6dab9832802a1a7498ff81f161a22df7, type: 2}
+  - {fileID: 11400000, guid: 2f085d38fd8b9a942a451bdf4fa0beca, type: 2}
+  - {fileID: 11400000, guid: b8cbd024948035840b19e9f702c44b6c, type: 2}
+  - {fileID: 11400000, guid: 4d6ea6c6b466e3f4c9aa54b2cd0cd78d, type: 2}
+  - {fileID: 11400000, guid: 6b78860bf4ab4b54297ef665707fc184, type: 2}
+  - {fileID: 11400000, guid: 5f9ebffd98acc504f880de1c4dd72584, type: 2}
+  - {fileID: 11400000, guid: 3b87e8bedf87e0048a85c6cc2d4c14bb, type: 2}
+  - {fileID: 11400000, guid: 4690fc0a2099f8a48a0e90eefab0355c, type: 2}
+  - {fileID: 11400000, guid: 95f5193fe3c47ab4b9cc8d9f74100b1f, type: 2}
+  - {fileID: 11400000, guid: 380d08bc41dc92f488fcf358066b010a, type: 2}
+  - {fileID: 11400000, guid: 0a6ed6794df646943827f95324bf131a, type: 2}
+  cards: []
+  BuyingPile:
+    Stack: []
+  DiscardPile:
+    Stack: []

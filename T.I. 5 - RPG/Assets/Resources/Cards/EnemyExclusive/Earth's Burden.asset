@@ -25,8 +25,8 @@ MonoBehaviour:
   Type: 2
   Pack: 2
   Rarity: 3
-  Description: 'User''s Defense Cards gain +5 Shield until the end of the Duel, but
-    the User will also take 50% more Damage until the end of the Duel. '
+  Description: 'User''s Shield Sources gain +5 Shield until the end of the Duel,
+    but the User will also take 50% more Damage until the end of the Duel. '
   extraDescription: This Card's Effect is cancelled if it is Discarded or Destroyed.
   CardImage: {fileID: 0}
   id: 58

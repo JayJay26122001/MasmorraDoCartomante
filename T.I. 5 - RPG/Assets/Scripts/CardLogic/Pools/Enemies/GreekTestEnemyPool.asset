@@ -15,7 +15,7 @@ MonoBehaviour:
   pool: 040000000500000010000000
   baseProbabilities:
   - type: Quartita
-    probability: 50
+    probability: 30
     multiplier: 1
     minMult: 0.25
     maxMult: 2
@@ -27,7 +27,7 @@ MonoBehaviour:
     maxMult: 2
     canBeZero: 0
   - type: Sculptor
-    probability: 50
+    probability: 40
     multiplier: 1
     minMult: 0.25
     maxMult: 2

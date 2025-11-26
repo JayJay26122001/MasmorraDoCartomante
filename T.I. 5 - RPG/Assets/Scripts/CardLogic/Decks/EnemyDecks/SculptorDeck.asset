@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d1a39dfc1f14914194bdd1ce1b68008, type: 3}
+  m_Name: SculptorDeck
+  m_EditorClassIdentifier: 
+  Owner: {fileID: 0}
+  CardPresets:
+  - {fileID: 11400000, guid: cb9c34e2e136cfa40a830539408620f7, type: 2}
+  - {fileID: 11400000, guid: 111fbc3b57096f948b785008582f08c6, type: 2}
+  - {fileID: 11400000, guid: 535bbb4c65fb3d24fb8dae31ce74c4b6, type: 2}
+  - {fileID: 11400000, guid: 535bbb4c65fb3d24fb8dae31ce74c4b6, type: 2}
+  - {fileID: 11400000, guid: e02e0690cdb79404986ac48fea040d4c, type: 2}
+  - {fileID: 11400000, guid: 85b63571c36b0514cb762abb343837d1, type: 2}
+  - {fileID: 11400000, guid: 85b63571c36b0514cb762abb343837d1, type: 2}
+  - {fileID: 11400000, guid: 260db52267a3e184984479fe7c570ff0, type: 2}
+  - {fileID: 11400000, guid: 5a2140962741f27478d46189ca1a4f85, type: 2}
+  - {fileID: 11400000, guid: 5a2140962741f27478d46189ca1a4f85, type: 2}
+  - {fileID: 11400000, guid: e02e0690cdb79404986ac48fea040d4c, type: 2}
+  - {fileID: 11400000, guid: c7f60a2f1a0828c4e8347c324b5c5e68, type: 2}
+  cards: []
+  BuyingPile:
+    Stack: []
+  DiscardPile:
+    Stack: []

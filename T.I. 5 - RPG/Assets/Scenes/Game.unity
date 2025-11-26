@@ -10072,18 +10072,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   DeckPresets:
-  - {fileID: 11400000, guid: e17ec550c4dbdae4fbd9175b0c419194, type: 2}
+  - {fileID: 11400000, guid: 6a12031d4466f5a4aaba9c8473aa0ff7, type: 2}
   decks: []
   hand: []
   playedCards: []
   exausted: []
-  maxHP: 120
+  maxHP: 200
   hp: 0
   shld: 0
   energy: 0
   maxBaseEnergy: 3
-  money: 15
-  CardBuyMax: 1
+  money: 25
+  CardBuyMax: 2
   baseDamage: 6
   baseShieldGain: 5
   baseDamageTaken: 100
@@ -24510,20 +24510,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   DeckPresets:
-  - {fileID: 11400000, guid: bd21f178dbcf1d1418e6644fce2b07c0, type: 2}
+  - {fileID: 11400000, guid: 35efb5296b5f33b49a9b9b495c3671db, type: 2}
   decks: []
   hand: []
   playedCards: []
   exausted: []
-  maxHP: 35
+  maxHP: 40
   hp: 0
   shld: 0
   energy: 0
   maxBaseEnergy: 3
   money: 10
-  CardBuyMax: 2
+  CardBuyMax: 3
   baseDamage: 6
-  baseShieldGain: 3
+  baseShieldGain: 5
   baseDamageTaken: 100
   DamageModifiers: []
   ShieldModifiers: []
@@ -63151,7 +63151,7 @@ MonoBehaviour:
   hand: []
   playedCards: []
   exausted: []
-  maxHP: 70
+  maxHP: 60
   hp: 0
   shld: 0
   energy: 0
@@ -66936,16 +66936,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   DeckPresets:
-  - {fileID: 11400000, guid: 3600bdc6ba4a6a9438e9bcd15f3411c5, type: 2}
+  - {fileID: 11400000, guid: 65bf02f0f529b6247ac9a92fa2ea9eea, type: 2}
   decks: []
   hand: []
   playedCards: []
   exausted: []
-  maxHP: 40
+  maxHP: 60
   hp: 0
   shld: 0
   energy: 0
-  maxBaseEnergy: 4
+  maxBaseEnergy: 5
   money: 15
   CardBuyMax: 3
   baseDamage: 6

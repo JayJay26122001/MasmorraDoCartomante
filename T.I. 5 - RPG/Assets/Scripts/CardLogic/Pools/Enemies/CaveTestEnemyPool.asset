@@ -21,13 +21,13 @@ MonoBehaviour:
     maxMult: 2
     canBeZero: 0
   - type: Kobold Miner
-    probability: 50
+    probability: 30
     multiplier: 1
     minMult: 0.25
     maxMult: 2
     canBeZero: 0
   - type: Giant Bat
-    probability: 50
+    probability: 40
     multiplier: 1
     minMult: 0.25
     maxMult: 2

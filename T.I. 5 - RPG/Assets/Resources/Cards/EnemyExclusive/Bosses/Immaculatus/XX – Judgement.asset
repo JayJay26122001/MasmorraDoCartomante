@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
-  m_Name: "XX\u2013 Judgement"
+  m_Name: "XX \u2013 Judgement"
   m_EditorClassIdentifier: 
   Effects:
   - rid: 6961742135542415432
   - rid: 6721762140899246150
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
-  Name: "XX\u2013 Judgement"
+  Name: "XX \u2013 Judgement"
   limited: 0
   instantaneous: 0
   cost: 1
