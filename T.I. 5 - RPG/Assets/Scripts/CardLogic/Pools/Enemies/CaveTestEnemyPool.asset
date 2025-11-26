@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df63f8d404d0a464ba76aae892ae72a4, type: 3}
   m_Name: CaveTestEnemyPool
   m_EditorClassIdentifier: 
-  pool: 0300000009000000
+  pool: 03000000090000000f000000
   baseProbabilities:
   - type: Vulquita
     probability: 50
@@ -21,6 +21,12 @@ MonoBehaviour:
     maxMult: 2
     canBeZero: 0
   - type: Kobold Miner
+    probability: 50
+    multiplier: 1
+    minMult: 0.25
+    maxMult: 2
+    canBeZero: 0
+  - type: Giant Bat
     probability: 50
     multiplier: 1
     minMult: 0.25
