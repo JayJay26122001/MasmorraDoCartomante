@@ -27,8 +27,8 @@ MonoBehaviour:
   Type: 0
   Pack: 2
   Rarity: 3
-  Description: Deals v[0]{Damage} Damage, and Steals 3 Coins if Takes Health. Retriggers
-    if the User's Health is Higher than the Opponent's.
+  Description: Deals v[0]{Damage} Damage, and steals 3 Coins if not completely blocked.
+    Retriggers if the User's Current Health is higher than the Opponent's.
   extraDescription: 
   CardImage: {fileID: 0}
   id: 59

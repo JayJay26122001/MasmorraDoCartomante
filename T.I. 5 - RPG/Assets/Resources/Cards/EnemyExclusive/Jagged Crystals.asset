@@ -25,7 +25,7 @@ MonoBehaviour:
   Pack: 2
   Rarity: 0
   Description: Deals v[0]{Damage} Damage for each Attack Card the Opponent plays
-    Next Turn.
+    next Turn.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 1bf164a26b15ee343a7d31572b038861, type: 3}
   id: 62

@@ -24,8 +24,8 @@ MonoBehaviour:
   Type: 0
   Pack: 0
   Rarity: 1
-  Description: Deals v[0]{Damage} Damage. Deals v[1]{Damage} Damage instead if the
-    Opponent have Shield.
+  Description: Deals v[0]{Damage} Damage. If the Opponent has Shield, deals v[1]{Damage}
+    Damage instead.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 4d4eb7beabda6fa44abe5a9b2f0abe6d, type: 3}
   id: 0

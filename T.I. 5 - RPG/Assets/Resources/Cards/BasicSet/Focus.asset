@@ -23,7 +23,7 @@ MonoBehaviour:
   Type: 2
   Pack: 0
   Rarity: 1
-  Description: Gain 1 Extra Energy for this Turn.
+  Description: Gains +1 Energy for this Turn.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 611a3fe7a19fc61408c5d19e6830695e, type: 3}
   id: 9

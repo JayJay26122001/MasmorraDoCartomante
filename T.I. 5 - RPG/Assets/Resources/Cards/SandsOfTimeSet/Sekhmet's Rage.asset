@@ -24,8 +24,8 @@ MonoBehaviour:
   Type: 0
   Pack: 5
   Rarity: 3
-  Description: If the User takes Damage, Deals 3 Damage based on the User's Discard
-    Pile(v[0]{Damage}).
+  Description: Until the User's next Turn, if it takes Damage, deals 3 Damage for
+    each Card in the User's Discard Pile(v[0]{Damage}).
   extraDescription: 
   CardImage: {fileID: 0}
   id: 96

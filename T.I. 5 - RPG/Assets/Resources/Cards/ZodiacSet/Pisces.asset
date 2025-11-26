@@ -23,8 +23,7 @@ MonoBehaviour:
   Type: 2
   Pack: 1
   Rarity: 3
-  Description: 'Gives Energy based on the number of Cards in the Discard Pile (6
-    Max). '
+  Description: 'Gives +1 Energy for each Card in the User''s Discard Pile (6 Max). '
   extraDescription: 
   CardImage: {fileID: 0}
   id: 107

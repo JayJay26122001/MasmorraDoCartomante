@@ -23,8 +23,8 @@ MonoBehaviour:
   Type: 2
   Pack: 5
   Rarity: 3
-  Description: Turns the Next Card the Opponent receives in the Buying Pile into
-    a Limited Card.
+  Description: Transforms the Card on top of the Opponent's Buying Pile into a Limited
+    Card.
   extraDescription: 
   CardImage: {fileID: 0}
   id: 91

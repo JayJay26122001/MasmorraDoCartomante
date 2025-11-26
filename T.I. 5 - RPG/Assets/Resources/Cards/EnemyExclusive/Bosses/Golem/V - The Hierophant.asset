@@ -27,8 +27,8 @@ MonoBehaviour:
   Type: 1
   Pack: 4
   Rarity: 4
-  Description: Gain v[0]{Shield} Shield. Retrigger for Every Card the Opponent Plays
-    until the User's Next Turn.
+  Description: Gains v[0]{Shield} Shield. Retriggers for each Card the Opponent plays
+    until the User's next Turn.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 2ba929637ef4477419e2dc268e6ed172, type: 3}
   id: 45

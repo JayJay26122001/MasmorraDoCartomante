@@ -24,7 +24,8 @@ MonoBehaviour:
   Type: 0
   Pack: 3
   Rarity: 0
-  Description: Deals v[0]{Damage} Damage, but also v[1]{Damage} on the User.
+  Description: Deals v[0]{Damage} Damage, but also deals v[1]{Damage} Damage to the
+    User.
   extraDescription: 
   CardImage: {fileID: 0}
   id: 72

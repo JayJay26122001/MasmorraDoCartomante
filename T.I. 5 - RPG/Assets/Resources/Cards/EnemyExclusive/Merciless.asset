@@ -24,7 +24,7 @@ MonoBehaviour:
   Type: 0
   Pack: 2
   Rarity: 3
-  Description: Deals v[0]{Damage} Damage and Discard All Defense Cards in the Opponent's
+  Description: Deals v[0]{Damage} Damage and discards all Defense Cards in the Opponent's
     Hand.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: b211e202ec963ab46b026b9bbbdfad7e, type: 3}

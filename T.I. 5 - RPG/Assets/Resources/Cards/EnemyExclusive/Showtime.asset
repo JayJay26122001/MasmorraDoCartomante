@@ -23,8 +23,8 @@ MonoBehaviour:
   Type: 2
   Pack: 2
   Rarity: 1
-  Description: Instance 3 Copies of Magic Missle in the User's Buying Pile.
-  extraDescription: 'Magic Missle: Deals 3 Damage. Having 33% Chance to Retrigger
+  Description: Creates 3 Copies of Magic Missle in the User's Buying Pile.
+  extraDescription: 'Magic Missle: Deals 3 Damage. Has a 33% chance to Retrigger
     for each Card the User plays after it during this Turn.'
   CardImage: {fileID: 0}
   id: 69

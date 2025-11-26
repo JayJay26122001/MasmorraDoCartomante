@@ -26,8 +26,8 @@ MonoBehaviour:
   Type: 0
   Pack: 6
   Rarity: 1
-  Description: 'Deals v[1]{Damage} Damage if the Opponent have Shield. Upon Hit,
-    go back and forth between Targets until someone can''t Block. '
+  Description: 'Deals v[1]{Damage} Damage if the Opponent has Shield. Upon hit, go
+    back and forth between Players, Retriggering the Damage until someone loses Health. '
   extraDescription: 
   CardImage: {fileID: 0}
   id: 82

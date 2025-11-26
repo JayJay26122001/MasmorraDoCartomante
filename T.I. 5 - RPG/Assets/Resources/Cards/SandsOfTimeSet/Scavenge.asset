@@ -23,8 +23,8 @@ MonoBehaviour:
   Type: 2
   Pack: 5
   Rarity: 1
-  Description: Instances 3 copies of Pile of Bones in Hand.
-  extraDescription: 'Pile of Bones: Gain 3 Shield with 0 Energy Cost.'
+  Description: Creates 3 copies of Pile of Bones in the User's Hand.
+  extraDescription: 'Pile of Bones: Gains 3 Shield with 0 Energy Cost.'
   CardImage: {fileID: 0}
   id: 95
   references:

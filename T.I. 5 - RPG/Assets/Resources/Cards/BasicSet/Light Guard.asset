@@ -23,7 +23,7 @@ MonoBehaviour:
   Type: 1
   Pack: 0
   Rarity: 0
-  Description: Gain v[0]{Shield} Shield.
+  Description: Gains v[0]{Shield} Shield.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 0cd96fae1d834d141aca70a4bf68d7b7, type: 3}
   id: 15

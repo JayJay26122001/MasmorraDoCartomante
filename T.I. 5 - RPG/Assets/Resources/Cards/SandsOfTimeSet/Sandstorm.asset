@@ -23,7 +23,7 @@ MonoBehaviour:
   Type: 2
   Pack: 5
   Rarity: 1
-  Description: Discard 4 Cards from the Top of the User's Buying Pile.
+  Description: Discards 4 Cards from the top of the User's Buying Pile.
   extraDescription: 
   CardImage: {fileID: 0}
   id: 94

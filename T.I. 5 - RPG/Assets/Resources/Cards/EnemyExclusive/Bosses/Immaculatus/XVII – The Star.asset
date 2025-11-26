@@ -25,7 +25,8 @@ MonoBehaviour:
   Type: 0
   Pack: 4
   Rarity: 4
-  Description: Deals v[0]{Damage} Damage. If Blocked, return the Damage to the User.
+  Description: Deals v[0]{Damage} Damage. If the Damage is completely blocked, it
+    is also dealt to the User.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 02731295f60411a419324451266d9d91, type: 3}
   id: 52

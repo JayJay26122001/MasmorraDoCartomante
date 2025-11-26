@@ -24,8 +24,8 @@ MonoBehaviour:
   Type: 2
   Pack: 0
   Rarity: 1
-  Description: If the User's Shield Breaks this Turn. Create an instance of Cannon
-    Barrage in Hand.
+  Description: If the User's Shield breaks this Turn, creates an instance of Cannon
+    Barrage in the User's Hand.
   extraDescription: 'Cannon Barrage: Deals 9 Damage, ignores Shield. LIMITED'
   CardImage: {fileID: 0}
   id: 7

@@ -24,8 +24,8 @@ MonoBehaviour:
   Type: 0
   Pack: 4
   Rarity: 4
-  Description: Deals v[0]{Damage} Damage. After played, 50% chance the Opponent will
-    be unable to Buy Cards during the Next Turn.
+  Description: Deals v[0]{Damage} Damage. 50% chance the Opponent will be unable
+    to buy Cards during its next Turn.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: a230f2f17deaa6e4bb41021616c189ba, type: 3}
   id: 37

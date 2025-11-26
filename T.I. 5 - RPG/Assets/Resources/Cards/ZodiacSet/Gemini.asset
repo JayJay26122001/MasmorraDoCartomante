@@ -23,8 +23,8 @@ MonoBehaviour:
   Type: 2
   Pack: 1
   Rarity: 4
-  Description: Instances a Duplicate of the Card on Top of the User's Discard Pile
-    and adds it to its Hand.
+  Description: Creates a copy of the Card on top of the User's Discard Pile and adds
+    it to its Hand.
   extraDescription: 
   CardImage: {fileID: 0}
   id: 103

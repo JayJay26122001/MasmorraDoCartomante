@@ -25,8 +25,9 @@ MonoBehaviour:
   Type: 1
   Pack: 6
   Rarity: 4
-  Description: Gain v[0]{Shield} Shield, if the Opponent plays an Attack Card, after
-    the attack, Heal 3 Health for each Energy the User have remaining.
+  Description: Gains v[0]{Shield} Shield. On the Opponent's next Turn, If it plays
+    an Attack Card, after its Attack, heals 3 of the User's Health for each Energy
+    the User has remaining.
   extraDescription: 
   CardImage: {fileID: 0}
   id: 83

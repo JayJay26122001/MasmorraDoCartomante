@@ -24,8 +24,8 @@ MonoBehaviour:
   Type: 0
   Pack: 0
   Rarity: 2
-  Description: Deals v[0]{Damage} Damage, adding on based on the number of the User's
-    Coins (v[1]{Damage}).
+  Description: Deals v[0]{Damage} Damage. Then deals Damage equal to the number of
+    the User's Coins (v[1]{Damage}).
   extraDescription: 
   CardImage: {fileID: 0}
   id: 11

@@ -23,8 +23,8 @@ MonoBehaviour:
   Type: 2
   Pack: 0
   Rarity: 2
-  Description: Until the User's Next Turn, All of the User's Damage Sources gain
-    +4.
+  Description: Until the User's next Turn, all of the User's Damage Sources gain
+    +4 Damage.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: d4edc2c2ad119484082c1e495d53a1ad, type: 3}
   id: 2

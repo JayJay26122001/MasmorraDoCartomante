@@ -24,8 +24,8 @@ MonoBehaviour:
   Type: 1
   Pack: 1
   Rarity: 3
-  Description: "Gain v[1]{Shield} Shield. During the User\u2019s Next Turn, User's
-    Cards gain +5 Damage."
+  Description: "Gains v[1]{Shield} Shield. During the User\u2019s next Turn, its
+    Damage Sources gain +5 Damage."
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 5560b6575ce8d6a4db22df0aa1e546dc, type: 3}
   id: 110

@@ -24,7 +24,8 @@ MonoBehaviour:
   Type: 2
   Pack: 6
   Rarity: 2
-  Description: Deals v[0]{Damage} Damage to the User, but in return, Gain +3 Energy.
+  Description: Deals v[0]{Damage} Damage to the User, then gains +3 Energy for this
+    Turn.
   extraDescription: 
   CardImage: {fileID: 0}
   id: 87

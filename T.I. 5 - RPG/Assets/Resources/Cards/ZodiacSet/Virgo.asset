@@ -23,8 +23,8 @@ MonoBehaviour:
   Type: 2
   Pack: 1
   Rarity: 3
-  Description: Transform the First Card the User played on the Table into an Instantaneous
-    Card.
+  Description: Transforms the first Card the User played this Turn into an Instantaneous
+    Card until the end of the Duel.
   extraDescription: 
   CardImage: {fileID: 0}
   id: 111

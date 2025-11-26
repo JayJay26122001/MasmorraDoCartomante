@@ -24,8 +24,8 @@ MonoBehaviour:
   Type: 0
   Pack: 0
   Rarity: 3
-  Description: Deals v[1]{Damage} Damage. Turns into v[0]{Damage} if the User has
-    less than 10 health remaining.
+  Description: Deals v[1]{Damage} Damage. If the User's remaining Health is below
+    10, deals v[0]{Damage} Damage.
   extraDescription: 
   CardImage: {fileID: 0}
   id: 10

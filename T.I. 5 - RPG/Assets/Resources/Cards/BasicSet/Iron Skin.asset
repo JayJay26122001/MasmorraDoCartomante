@@ -23,7 +23,7 @@ MonoBehaviour:
   Type: 1
   Pack: 0
   Rarity: 3
-  Description: Doubles the User's Shield gain until the End of its Turn.
+  Description: Doubles the User's Shield gain until the end of its Turn.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 8082e88188094e94db7bb29a1f8d237b, type: 3}
   id: 14

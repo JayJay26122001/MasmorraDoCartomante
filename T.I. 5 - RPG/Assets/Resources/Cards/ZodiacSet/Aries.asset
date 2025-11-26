@@ -24,7 +24,7 @@ MonoBehaviour:
   Type: 0
   Pack: 1
   Rarity: 4
-  Description: Deals v[0]{Damage} Damage and Destroys the Card on Top of the Opponent's
+  Description: Deals v[0]{Damage} Damage and destroys the Card on top of the Opponent's
     Buying Pile.
   extraDescription: 
   CardImage: {fileID: 0}

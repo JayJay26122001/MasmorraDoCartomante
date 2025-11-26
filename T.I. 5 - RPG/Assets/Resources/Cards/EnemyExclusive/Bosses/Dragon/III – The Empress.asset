@@ -24,8 +24,8 @@ MonoBehaviour:
   Type: 1
   Pack: 4
   Rarity: 4
-  Description: "Gain v[0]{Shield} Shield. Makes the Opponent receive +1 Energy on
-    it\u2019s next turn."
+  Description: Gains v[0]{Shield} Shield. Gives the Opponent +1 Energy on its next
+    turn.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: c8a10765cbb40a74fb87c7f68788c0fe, type: 3}
   id: 39

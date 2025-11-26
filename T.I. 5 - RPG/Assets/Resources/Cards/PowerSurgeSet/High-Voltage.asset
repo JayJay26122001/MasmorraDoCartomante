@@ -24,8 +24,8 @@ MonoBehaviour:
   Type: 0
   Pack: 6
   Rarity: 3
-  Description: Deals v[0]{Damage} Piercing Damage, adding 10 Non-Piercing Damage
-    for every Energy remaining(v[1]{Damage}).
+  Description: Deals v[0]{Damage} Piercing Damage. Then, deals 10 Non-Piercing Damage
+    times the Energy remaining(v[1]{Damage}).
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 2a60db2369f778b44a3fc6c544df6f70, type: 3}
   id: 84

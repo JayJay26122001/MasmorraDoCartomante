@@ -25,7 +25,7 @@ MonoBehaviour:
   Type: 2
   Pack: 0
   Rarity: 1
-  Description: If the Opponent First played Card is an Attack card, Deals v[0]{Damage}
+  Description: If the Opponent's next played Card is an Attack Card, deals v[0]{Damage}
     Damage and gains v[1]{Shield} Shield.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 03f58515aca78f44ea373cec04ecf022, type: 3}

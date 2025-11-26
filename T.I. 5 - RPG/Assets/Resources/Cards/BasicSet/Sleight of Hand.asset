@@ -24,7 +24,8 @@ MonoBehaviour:
   Type: 2
   Pack: 0
   Rarity: 2
-  Description: Until the User's Next Turn, if the Opponent gets Shield, Steal 5 Coins.
+  Description: Until the User's next Turn, if the Opponent gains Shield, steals 5
+    Coins from the Opponent.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 50da7938b555ed74588134d1517b8a55, type: 3}
   id: 28

@@ -26,8 +26,8 @@ MonoBehaviour:
   Pack: 5
   Rarity: 3
   Description: Deals v[0]{Damage} Damage. Reduces the Effect of the Opponent's Shield
-    Gain by Half this Turn, but makes the User's Defense Cards in Hand into Limited
-    Cards.
+    Gain by half for its next Turn, but transforms the User's Defense Cards in its
+    Hand into Limited Cards.
   extraDescription: 
   CardImage: {fileID: 0}
   id: 88

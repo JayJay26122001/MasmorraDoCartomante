@@ -23,8 +23,8 @@ MonoBehaviour:
   Type: 2
   Pack: 1
   Rarity: 3
-  Description: 'On the User''s Next Turn, gain +1 Energy for Every Zodiac Card in
-    Hand. '
+  Description: 'On the User''s next Turn, gains +1 Energy for each Zodiac Card in
+    its Hand. '
   extraDescription: 
   CardImage: {fileID: 21300000, guid: eb75e13508d711e44b561766b480f009, type: 3}
   id: 99

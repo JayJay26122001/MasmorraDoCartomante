@@ -24,8 +24,8 @@ MonoBehaviour:
   Type: 2
   Pack: 0
   Rarity: 1
-  Description: Give 3 Coins to the Opponent, if the User doesn't have enough Coins,
-    take v[0]{Damage} Damage.
+  Description: Gives 3 Coins to the Opponent. If the User doesn't have enough Coins,
+    takes v[0]{Damage} Damage.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 465ebf629dea7754d9a89f356710c1e5, type: 3}
   id: 42

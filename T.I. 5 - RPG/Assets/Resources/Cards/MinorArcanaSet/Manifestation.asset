@@ -24,8 +24,8 @@ MonoBehaviour:
   Type: 1
   Pack: 3
   Rarity: 0
-  Description: If the User's Shield Breaks, Gain v[0]{Shield} Shield on the Next
-    Turn.
+  Description: Until the User's next Turn, If its Shield breaks, gains v[0]{Shield}
+    Shield on the Next Turn.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 7f37a0a6735b28d459569db2c22eb212, type: 3}
   id: 77

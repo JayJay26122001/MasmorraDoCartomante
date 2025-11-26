@@ -23,8 +23,8 @@ MonoBehaviour:
   Type: 2
   Pack: 4
   Rarity: 4
-  Description: By the end of the Opponent's Next Turn, if its Energy is Depleted,
-    boost the User's Damage by x1.3 in the User's Turn after that.
+  Description: By the end of the Opponent's next Turn, if its Energy is Depleted,
+    boost the User's Damage by x1.3 on the User's next Turn.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: bece3672533acdd4a99aac7e98f1ad48, type: 3}
   id: 51

@@ -23,7 +23,7 @@ MonoBehaviour:
   Type: 2
   Pack: 4
   Rarity: 4
-  Description: Heal 2 -12 random Health.
+  Description: Heals 2-12 Random Health.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 3d68242397cfdf3458c1dcdba30371e3, type: 3}
   id: 34

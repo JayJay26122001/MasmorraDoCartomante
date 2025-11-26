@@ -24,7 +24,7 @@ MonoBehaviour:
   Type: 1
   Pack: 2
   Rarity: 3
-  Description: 40% Damage Reduction and Discard All Attack Cards in the Opponent's
+  Description: Gains 40% Damage Reduction and discards all Attack Cards in the Opponent's
     Hand.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: fcba226e6ad537a40bd64d3a882aa92d, type: 3}

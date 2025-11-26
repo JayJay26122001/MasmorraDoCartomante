@@ -23,7 +23,7 @@ MonoBehaviour:
   Type: 2
   Pack: 5
   Rarity: 2
-  Description: 'Reduces the Opponent''s Shield by -3 for each Card on its Discard
+  Description: 'Reduces the Opponent''s Shield by 3 for each Card on its Discard
     Pile (v[0]{Shield}). '
   extraDescription: 
   CardImage: {fileID: 0}

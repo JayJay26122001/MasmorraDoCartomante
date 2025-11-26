@@ -24,7 +24,7 @@ MonoBehaviour:
   Type: 2
   Pack: 0
   Rarity: 3
-  Description: Discard All Mind Cards placed on the Table.
+  Description: Discard all Mind Cards on the Table.
   extraDescription: 
   CardImage: {fileID: 0}
   id: 27

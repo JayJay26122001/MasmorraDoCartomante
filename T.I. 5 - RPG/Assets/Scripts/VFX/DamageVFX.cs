@@ -64,7 +64,7 @@ public class DamageVFX : MonoBehaviour
                 Transform t = GameplayManager.instance.hpText.transform.parent.parent;
                 transform.position = t.position + t.forward + Vector3.up * 11;
                 transform.rotation = t.rotation;
-                objPos[1] = t.position;
+                objPos[2] = t.position;
                 goingUp = false;
                 text.color = Color.red * 0.8f;
                 text.alignment = TextAlignmentOptions.Center;

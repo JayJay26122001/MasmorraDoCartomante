@@ -23,7 +23,7 @@ MonoBehaviour:
   Type: 1
   Pack: 3
   Rarity: 2
-  Description: Gain v[0]{Shield} Shield in the User's Next Turn.
+  Description: Gains v[0]{Shield} Shield in the User's next Turn.
   extraDescription: 
   CardImage: {fileID: 0}
   id: 71

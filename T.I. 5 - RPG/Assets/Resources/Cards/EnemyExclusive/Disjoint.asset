@@ -26,8 +26,8 @@ MonoBehaviour:
   Type: 0
   Pack: 2
   Rarity: 3
-  Description: Deals v[0]{Damage} Damage. if the Opponent have Shield, until is Broken,
-    Retrigger the Effect of the Card, but Deals 4 Damage to the User foreach Retrigger.
+  Description: Deals v[0]{Damage} Damage. If the Opponent has Shield, Retriggers
+    until it is Broken, but deals 4 Damage to the User foreach Retrigger.
   extraDescription: 
   CardImage: {fileID: 0}
   id: 57

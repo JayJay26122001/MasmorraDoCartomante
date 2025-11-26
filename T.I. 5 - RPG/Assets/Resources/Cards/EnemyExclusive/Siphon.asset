@@ -27,7 +27,7 @@ MonoBehaviour:
   Pack: 2
   Rarity: 2
   Description: Deals v[0]{Damage} Damage and makes the Opponent take 25% More Damage
-    this Turn. If Takes Health, Heal 6 Health.
+    this Turn. If the Damage is not completely blocked, heals 6 Health.
   extraDescription: 
   CardImage: {fileID: 0}
   id: 70

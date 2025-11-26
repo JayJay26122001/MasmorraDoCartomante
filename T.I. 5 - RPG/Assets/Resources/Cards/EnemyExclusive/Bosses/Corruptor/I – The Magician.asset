@@ -24,7 +24,7 @@ MonoBehaviour:
   Type: 0
   Pack: 4
   Rarity: 4
-  Description: Deals v[0]{Damage} Damage and makes the Opponent Discard the Hand.
+  Description: Deals v[0]{Damage} Damage and makes the Opponent Discard its Hand.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 9c887158b4aafc04eb2220826e9f82aa, type: 3}
   id: 33

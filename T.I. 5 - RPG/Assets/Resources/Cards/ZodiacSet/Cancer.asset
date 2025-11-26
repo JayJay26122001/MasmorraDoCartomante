@@ -25,7 +25,7 @@ MonoBehaviour:
   Type: 1
   Pack: 1
   Rarity: 2
-  Description: Gain v[0]{Shield} Shield. If the User's Shield breaks, deals v[1]{Damage}
+  Description: Gains v[0]{Shield} Shield. If the User's Shield breaks, deals v[1]{Damage}
     Damage.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 62a77f426792d5b4084965d4e7d9dc42, type: 3}

@@ -169,6 +169,7 @@ public class Player : Creature
         {
             if(ChangeMoney(-3))
             {
+                GameplayManager.instance.canBuy = false;
                 go.transform.GetChild(0).gameObject.GetComponent<DisappearingObject>().AnimateObject(true);
                 go.GetComponent<BoxCollider>().enabled = false;
                 GameplayManager.instance.ExplodeCoins(go.transform.position);

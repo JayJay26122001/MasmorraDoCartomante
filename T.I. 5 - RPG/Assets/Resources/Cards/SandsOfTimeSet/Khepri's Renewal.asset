@@ -23,7 +23,8 @@ MonoBehaviour:
   Type: 2
   Pack: 5
   Rarity: 4
-  Description: Converts All Limited Cards in the User's Buying Pile into Normal Cards.
+  Description: Transforms all Limited Cards in the User's Buying Pile into Non-Limited
+    Cards.
   extraDescription: 
   CardImage: {fileID: 0}
   id: 89

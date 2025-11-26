@@ -24,8 +24,8 @@ MonoBehaviour:
   Type: 1
   Pack: 0
   Rarity: 2
-  Description: 33% Damage Reduction. All Damage Sources played after this Card Deals
-    0 Damage.
+  Description: Gains 33% Damage Reduction. All Damage Sources played this Turn after
+    this Card deal 0 Damage.
   extraDescription: 
   CardImage: {fileID: 0}
   id: 22

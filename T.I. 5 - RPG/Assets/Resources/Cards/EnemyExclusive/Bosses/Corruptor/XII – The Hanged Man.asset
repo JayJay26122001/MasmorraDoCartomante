@@ -24,8 +24,8 @@ MonoBehaviour:
   Type: 0
   Pack: 4
   Rarity: 4
-  Description: Deals x3 the number of Cards in the Discard Pile for Damage, Reshuffle
-    the Discard Pile after (v[0]{Damage}).
+  Description: Deals Damage equal to 3 times the number of Cards in the User's Discard
+    Pile (v[0]{Damage}). Then Reshuffles the User's Discard Pile.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 6caba3dc3ebf4ac43adc94790788bea3, type: 3}
   id: 35

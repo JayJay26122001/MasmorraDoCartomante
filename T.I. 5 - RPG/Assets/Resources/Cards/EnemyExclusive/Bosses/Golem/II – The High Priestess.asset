@@ -25,8 +25,8 @@ MonoBehaviour:
   Type: 1
   Pack: 4
   Rarity: 4
-  Description: 'Gain v[0]{Shield} Shield. Until the User''s Next Turn, if an incoming
-    damage is fully blocked, heal 10 health. '
+  Description: 'Gains v[0]{Shield} Shield. Until the User''s next Turn, if an incoming
+    Damage is fully blocked, heals 10 Health. '
   extraDescription: 
   CardImage: {fileID: 21300000, guid: fd770e5770968e64ea826c3a443214d7, type: 3}
   id: 44

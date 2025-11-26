@@ -24,7 +24,7 @@ MonoBehaviour:
   Type: 1
   Pack: 2
   Rarity: 2
-  Description: Gain v[0]{Shield} Shield and Heal 8 Health.
+  Description: Gains v[0]{Shield} Shield and heals 8 Health.
   extraDescription: 
   CardImage: {fileID: 0}
   id: 68

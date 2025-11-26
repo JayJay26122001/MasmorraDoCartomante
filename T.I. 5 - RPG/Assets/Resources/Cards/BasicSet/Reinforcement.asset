@@ -25,8 +25,8 @@ MonoBehaviour:
   Type: 1
   Pack: 0
   Rarity: 3
-  Description: 'Gain v[1]{Shield} Shield. Increases +4 for each Defense Card played
-    with after (v[0]{Shield}). '
+  Description: 'Gains v[1]{Shield} Shield. Also gains 4 Shield for each Defense Card
+    played after it (v[0]{Shield}). '
   extraDescription: 
   CardImage: {fileID: 0}
   id: 25

@@ -25,8 +25,8 @@ MonoBehaviour:
   Type: 1
   Pack: 0
   Rarity: 1
-  Description: "Gain v[0]{Shield} Shield. Until the next turn, if the Shield is hit
-    but isn\u2019t broke, Deal v[1]{Damage} Damage."
+  Description: "Gains v[0]{Shield} Shield. Until the User's next Turn, if the Shield
+    is hit but isn\u2019t broken, deals v[1]{Damage} Damage."
   extraDescription: 
   CardImage: {fileID: 21300000, guid: b29514a69910e3c4ba713623a1b82caf, type: 3}
   id: 1

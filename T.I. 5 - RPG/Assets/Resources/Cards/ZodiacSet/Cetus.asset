@@ -24,7 +24,8 @@ MonoBehaviour:
   Type: 1
   Pack: 1
   Rarity: 4
-  Description: Gain v[0]{Shield} Shield. Gain +3 for each Zodiac Card in the Deck(v[1]{Shield}).
+  Description: Gains v[0]{Shield} Shield. Gains +3 Shield for each Zodiac Card in
+    the User's Deck(v[1]{Shield}).
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 3e120a403edbccc4d90239e8d4774a91, type: 3}
   id: 102

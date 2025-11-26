@@ -782,7 +782,7 @@ public class UIController : MonoBehaviour
             {
                 if (!found)
                 {
-                    if (String.Compare(commands[i].GetComponentInChildren<TextMeshProUGUI>().text, command) == 0)
+                    if (commands[i] != null && String.Compare(commands[i].GetComponentInChildren<TextMeshProUGUI>().text, command) == 0)
                     {
                         found = true;
                     }

@@ -25,8 +25,8 @@ MonoBehaviour:
   Type: 1
   Pack: 2
   Rarity: 3
-  Description: "On the End of the User's Turn, gain 20% Damage Reduction for 3 Turns.
-    After it, deplets the User\u2019s Energy."
+  Description: "On the end of the User's Turn, gains 20% Damage Reduction for 3 Turns.
+    Then, depletes the User\u2019s Energy on the fourth Turn."
   extraDescription: 
   CardImage: {fileID: 0}
   id: 56

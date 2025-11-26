@@ -23,8 +23,7 @@ MonoBehaviour:
   Type: 0
   Pack: 3
   Rarity: 2
-  Description: Deals 1 Piercing Damage based on the number of Cards in the Discard
-    Pile(v[0]{Damage}).
+  Description: Deals 1 Piercing Damage for each Card in the User's Discard Pile(v[0]{Damage}).
   extraDescription: 
   CardImage: {fileID: 0}
   id: 73

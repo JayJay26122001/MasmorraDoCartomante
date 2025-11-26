@@ -24,7 +24,8 @@ MonoBehaviour:
   Type: 2
   Pack: 1
   Rarity: 3
-  Description: Transform Half of the User's Shield into Damage.
+  Description: Deals Damage equal to half of the User's Shield. Then, reduces the
+    User's Shield by half.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 86a0558b6c5b9114981a5800fb2765ed, type: 3}
   id: 105

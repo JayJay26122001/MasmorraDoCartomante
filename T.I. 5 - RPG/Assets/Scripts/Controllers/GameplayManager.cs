@@ -966,6 +966,10 @@ public class GameplayManager : MonoBehaviour
                 ActionController.instance.CancelTimer(playerHealthOutline);
             }
             playerHealthOutline = ActionController.instance.InvokeTimer(DisableOutline, 0, 1);
+            if(atShop)
+            {
+                ActionController.instance.InvokeTimer(() => canBuy = true, 1);
+            }
         }
         else if (target is Enemy)
         {

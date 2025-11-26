@@ -24,7 +24,8 @@ MonoBehaviour:
   Type: 2
   Pack: 2
   Rarity: 3
-  Description: Makes the User and Opponent unable to Buy Cards during the Next Turn.
+  Description: Makes the User and Opponent unable to Buy Cards during their Next
+    Turn.
   extraDescription: 
   CardImage: {fileID: 0}
   id: 60

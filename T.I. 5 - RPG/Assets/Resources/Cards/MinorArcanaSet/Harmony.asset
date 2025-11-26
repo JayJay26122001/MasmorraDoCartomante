@@ -25,7 +25,8 @@ MonoBehaviour:
   Type: 2
   Pack: 3
   Rarity: 1
-  Description: Heals 3 Health both sides Every Turn until the End of the Duel.
+  Description: Until the end of the Duel, on the end of each Player's Turn, heals
+    3 Health to who the Turn belongs to.
   extraDescription: 
   CardImage: {fileID: 0}
   id: 75
