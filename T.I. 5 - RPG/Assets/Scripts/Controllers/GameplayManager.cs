@@ -113,6 +113,7 @@ public class GameplayManager : MonoBehaviour
             else
             {
                 DefineStarterPacks();
+                AudioController.instance.StopMusic();
             }
         }
         ChangeAreaPreview();

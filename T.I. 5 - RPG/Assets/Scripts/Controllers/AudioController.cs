@@ -135,6 +135,11 @@ public class AudioController : MonoBehaviour
         ambienceSfxSource.Stop();
     }
 
+    public void StopMusic()
+    {
+        musicSource.Stop();
+    }
+
     public void ChangeMasterVol(float vol)
     {
         if (vol > -20)
