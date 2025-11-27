@@ -33,6 +33,7 @@ MonoBehaviour:
     - rid: 4002061059687186509
       type: {class: BuyCards, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []

@@ -40,6 +40,7 @@ MonoBehaviour:
     - rid: 6721762478525775964
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions:
@@ -77,6 +78,7 @@ MonoBehaviour:
     - rid: 6721762478525775965
       type: {class: GainShield, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions:
@@ -113,6 +115,7 @@ MonoBehaviour:
     - rid: 6721762478525775967
       type: {class: Heal, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions:

@@ -35,6 +35,7 @@ MonoBehaviour:
     - rid: 6721762478525775942
       type: {class: SetCardBoolProperty, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
@@ -56,6 +57,7 @@ MonoBehaviour:
     - rid: 7391437407230361702
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []

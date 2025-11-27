@@ -37,6 +37,7 @@ MonoBehaviour:
     - rid: 6721762281490219074
       type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions:
         - rid: 6721762281490219075
@@ -78,6 +79,7 @@ MonoBehaviour:
     - rid: 7391437929559097541
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
@@ -113,6 +115,7 @@ MonoBehaviour:
     - rid: 7391437929559097543
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions:
         - rid: 7391437929559097577
@@ -156,6 +159,7 @@ MonoBehaviour:
     - rid: 7391437929559097578
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []

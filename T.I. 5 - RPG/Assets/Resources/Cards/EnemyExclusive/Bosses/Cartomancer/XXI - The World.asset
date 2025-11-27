@@ -36,6 +36,7 @@ MonoBehaviour:
     - rid: 7085201424405495878
       type: {class: DuplicateCard, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
@@ -86,6 +87,7 @@ MonoBehaviour:
     - rid: 7085201424405495879
       type: {class: DiscardCard, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []

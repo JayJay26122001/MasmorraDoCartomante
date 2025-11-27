@@ -36,6 +36,7 @@ MonoBehaviour:
     - rid: 6721762637576405074
       type: {class: CreateCard, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions:
@@ -181,6 +182,7 @@ MonoBehaviour:
     - rid: 6721762637576405076
       type: {class: GainCoins, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions:

@@ -34,6 +34,7 @@ MonoBehaviour:
     - rid: 1148618374694568008
       type: {class: SetCardIntProperty, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []

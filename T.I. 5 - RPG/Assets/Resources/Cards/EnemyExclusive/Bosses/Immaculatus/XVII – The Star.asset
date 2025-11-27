@@ -69,6 +69,7 @@ MonoBehaviour:
     - rid: 6961742135542415432
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
@@ -104,6 +105,7 @@ MonoBehaviour:
     - rid: 6961742135542415433
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 1
         DiscardIfAcomplished: 0
         Conditions:
         - rid: 6961742135542415434
@@ -147,6 +149,7 @@ MonoBehaviour:
     - rid: 6961742135542415435
       type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions:
         - rid: 211552701170581570

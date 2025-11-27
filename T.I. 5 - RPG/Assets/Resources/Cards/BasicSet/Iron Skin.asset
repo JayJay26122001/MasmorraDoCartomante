@@ -33,6 +33,7 @@ MonoBehaviour:
     - rid: 7391437906615730264
       type: {class: BuffStat, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []

@@ -34,6 +34,7 @@ MonoBehaviour:
     - rid: 1148618374694568010
       type: {class: SetCardBoolProperty, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []

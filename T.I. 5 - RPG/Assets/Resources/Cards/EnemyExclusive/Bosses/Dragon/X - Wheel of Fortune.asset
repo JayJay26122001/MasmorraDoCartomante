@@ -51,6 +51,7 @@ MonoBehaviour:
     - rid: 7085201310277959680
       type: {class: DestroyCard, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions:
@@ -72,6 +73,7 @@ MonoBehaviour:
     - rid: 7085201310277959681
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions:
@@ -109,6 +111,7 @@ MonoBehaviour:
     - rid: 7085201310277959682
       type: {class: SkipTurn, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions:
@@ -144,6 +147,7 @@ MonoBehaviour:
     - rid: 7085201310277959683
       type: {class: DiscardCard, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions:
@@ -165,6 +169,7 @@ MonoBehaviour:
     - rid: 7085201310277959684
       type: {class: GainCoins, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions:
@@ -201,6 +206,7 @@ MonoBehaviour:
     - rid: 7085201310277959685
       type: {class: Heal, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions:

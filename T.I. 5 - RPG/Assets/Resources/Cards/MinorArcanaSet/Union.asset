@@ -36,6 +36,7 @@ MonoBehaviour:
     - rid: 1178401998732263510
       type: {class: GainShield, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
@@ -70,6 +71,7 @@ MonoBehaviour:
     - rid: 6721762184433238088
       type: {class: GainShield, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions:
         - rid: 6721762184433238089
@@ -112,6 +114,7 @@ MonoBehaviour:
     - rid: 6721762184433238090
       type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions:
         - rid: 6721762184433238091

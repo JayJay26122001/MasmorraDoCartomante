@@ -36,6 +36,7 @@ MonoBehaviour:
     - rid: 6721762162139987968
       type: {class: Heal, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions:
         - rid: 6721762162139987970
@@ -70,6 +71,7 @@ MonoBehaviour:
     - rid: 6721762162139987969
       type: {class: Heal, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions:
         - rid: 6721762162139987971
@@ -170,6 +172,7 @@ MonoBehaviour:
     - rid: 6721762162139987972
       type: {class: DiscardCard, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions:
         - rid: 6721762162139987973

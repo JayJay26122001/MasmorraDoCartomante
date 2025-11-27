@@ -35,6 +35,7 @@ MonoBehaviour:
     - rid: 6721762140899246080
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
@@ -70,6 +71,7 @@ MonoBehaviour:
     - rid: 7085201287857569792
       type: {class: SkipBuyCard, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions:
         - rid: 7085201287857569793

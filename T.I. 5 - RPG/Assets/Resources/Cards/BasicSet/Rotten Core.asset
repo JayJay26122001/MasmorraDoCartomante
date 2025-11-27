@@ -33,6 +33,7 @@ MonoBehaviour:
     - rid: 6721762298113032265
       type: {class: Heal, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions:

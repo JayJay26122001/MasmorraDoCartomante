@@ -38,6 +38,7 @@ MonoBehaviour:
     - rid: 1178401998732263512
       type: {class: GainShield, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
@@ -72,6 +73,7 @@ MonoBehaviour:
     - rid: 6721762501874679889
       type: {class: GainShield, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions:
         - rid: 6721762501874679890
@@ -114,6 +116,7 @@ MonoBehaviour:
     - rid: 6721762501874679891
       type: {class: GainShield, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions:
         - rid: 6721762501874679892
@@ -156,6 +159,7 @@ MonoBehaviour:
     - rid: 6721762501874679893
       type: {class: GainShield, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions:
         - rid: 6721762501874679894
@@ -198,6 +202,7 @@ MonoBehaviour:
     - rid: 6721762501874679895
       type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions:
         - rid: 6721762501874679896

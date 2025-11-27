@@ -92,6 +92,7 @@ MonoBehaviour:
     - rid: 1178401817022169089
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 1
         DiscardIfAcomplished: 0
         Conditions:
         - rid: 1178401817022169090
@@ -136,6 +137,7 @@ MonoBehaviour:
     - rid: 1178401817022169091
       type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions:
         - rid: 1178401817022169092
@@ -177,6 +179,7 @@ MonoBehaviour:
     - rid: 1178401998732263515
       type: {class: GainShield, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []

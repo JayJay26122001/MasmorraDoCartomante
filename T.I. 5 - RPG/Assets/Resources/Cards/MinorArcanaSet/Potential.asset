@@ -66,6 +66,7 @@ MonoBehaviour:
     - rid: 6961742136573427780
       type: {class: ShuffleDeck, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions:
         - rid: 6721762184433238087

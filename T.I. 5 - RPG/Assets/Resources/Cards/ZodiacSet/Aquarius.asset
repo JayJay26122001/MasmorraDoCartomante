@@ -34,6 +34,7 @@ MonoBehaviour:
     - rid: 6961742099578617926
       type: {class: GainShield, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
@@ -68,6 +69,7 @@ MonoBehaviour:
     - rid: 6961742099578617928
       type: {class: GainShield, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions:
         - rid: 6961742099578617933

@@ -34,6 +34,7 @@ MonoBehaviour:
     - rid: 6721762478525775872
       type: {class: DiscardCard, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
@@ -53,6 +54,7 @@ MonoBehaviour:
     - rid: 6721762478525775873
       type: {class: DiscardCard, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []

@@ -12,6 +12,7 @@ public abstract class Effect
 {
     [System.NonSerialized] public Card card;
     [System.NonSerialized] public bool EffectAcomplished = false, effectStarted = false;
+    public bool NextInQueue = false;
     [SerializeField] public bool DiscardIfAcomplished = false;
     [SerializeReference] public List<Condition> Conditions = new List<Condition>();
     [SerializeReference] public List<ConfirmationCondition> ConfirmationConditions = new List<ConfirmationCondition>();
@@ -119,14 +120,28 @@ public abstract class Effect
             }
         }
         //state = EffectState.InProgress;
-        ActionController.instance.AddToQueueBeforeAdvance(new ApplyEffectAction(this));
+        if (NextInQueue)
+        {
+            ActionController.instance.AddToQueueAsNext(new ApplyEffectAction(this));
+        }
+        else
+        {
+            ActionController.instance.AddToQueueBeforeAdvance(new ApplyEffectAction(this));
+        }
     }
     public void ApplyIfNoCondition()
     {
         if (Conditions.Count <= 0 && !effectStarted && !EffectAcomplished)
         {
             //state = EffectState.InProgress;
-            ActionController.instance.AddToQueueBeforeAdvance(new ApplyEffectAction(this));
+            if (NextInQueue)
+            {
+                ActionController.instance.AddToQueueAsNext(new ApplyEffectAction(this));
+            }
+            else
+            {
+                ActionController.instance.AddToQueueBeforeAdvance(new ApplyEffectAction(this));
+            }
         }
     }
 }

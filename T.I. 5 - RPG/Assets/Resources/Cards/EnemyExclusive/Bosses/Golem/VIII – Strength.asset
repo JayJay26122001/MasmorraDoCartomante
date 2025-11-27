@@ -68,6 +68,7 @@ MonoBehaviour:
     - rid: 8409414130953617409
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
@@ -103,6 +104,7 @@ MonoBehaviour:
     - rid: 8409414130953617410
       type: {class: GainEnergy, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions:
         - rid: 7391437914212401152

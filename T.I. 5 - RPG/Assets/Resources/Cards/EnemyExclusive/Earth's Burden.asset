@@ -36,6 +36,7 @@ MonoBehaviour:
     - rid: 211553077037367297
       type: {class: BuffStat, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
@@ -76,6 +77,7 @@ MonoBehaviour:
     - rid: 211553077037367298
       type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions:
         - rid: 211553077037367299
@@ -117,6 +119,7 @@ MonoBehaviour:
     - rid: 6721762184433238016
       type: {class: BuffStat, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []

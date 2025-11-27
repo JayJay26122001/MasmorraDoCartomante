@@ -33,6 +33,7 @@ MonoBehaviour:
     - rid: 6721762298113032192
       type: {class: CreateCard, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []

@@ -36,6 +36,7 @@ MonoBehaviour:
     - rid: 1148618374694568008
       type: {class: SetCardIntProperty, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
@@ -82,6 +83,7 @@ MonoBehaviour:
     - rid: 6721762456344723522
       type: {class: ResetProperties, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions:
         - rid: 6721762456344723523
@@ -136,6 +138,7 @@ MonoBehaviour:
     - rid: 6721762456344723524
       type: {class: GainShield, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []

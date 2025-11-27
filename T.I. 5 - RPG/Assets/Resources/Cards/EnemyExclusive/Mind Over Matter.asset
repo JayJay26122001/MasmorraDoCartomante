@@ -34,6 +34,7 @@ MonoBehaviour:
     - rid: 6721762322506580036
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []

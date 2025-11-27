@@ -35,6 +35,7 @@ MonoBehaviour:
     - rid: 6721762298113032267
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions:
@@ -127,6 +128,7 @@ MonoBehaviour:
     - rid: 6721762637576405078
       type: {class: GainCoins, ns: , asm: Assembly-CSharp}
       data:
+        NextInQueue: 0
         DiscardIfAcomplished: 0
         Conditions: []
         ConfirmationConditions: []
