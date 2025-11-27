@@ -22,7 +22,7 @@ MonoBehaviour:
   cost: 0
   Type: 2
   Pack: 0
-  Rarity: 2
+  Rarity: 0
   Description: Buys 2 Cards.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: dd83b7a08b2527e46b2abda916e4ad16, type: 3}

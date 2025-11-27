@@ -18,7 +18,7 @@ MonoBehaviour:
   deck: {fileID: 0}
   Name: Stamina Potion
   limited: 0
-  instantaneous: 1
+  instantaneous: 0
   cost: 1
   Type: 2
   Pack: 0

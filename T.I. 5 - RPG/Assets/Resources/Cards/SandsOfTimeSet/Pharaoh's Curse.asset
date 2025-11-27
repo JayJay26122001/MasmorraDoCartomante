@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Effects:
   - rid: 6721762140899246148
+  - rid: 211553258229727307
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Pharaoh's Curse
@@ -23,13 +24,47 @@ MonoBehaviour:
   Type: 2
   Pack: 5
   Rarity: 2
-  Description: Discard all of the User's Defense Cards from its Buying Pile.
+  Description: Discard all of the User's Defense Cards from its Buying Pile and Buys
+    3 Cards.
   extraDescription: 
   CardImage: {fileID: 0}
   id: 92
   references:
     version: 2
     RefIds:
+    - rid: 211553258229727307
+      type: {class: BuyCards, ns: , asm: Assembly-CSharp}
+      data:
+        NextInQueue: 0
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        BuyCardNumber:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 3
+          min: 0
+          max: 0
+          modifiers: []
     - rid: 6721762140899246148
       type: {class: DiscardCard, ns: , asm: Assembly-CSharp}
       data:
