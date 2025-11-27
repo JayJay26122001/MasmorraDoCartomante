@@ -68371,7 +68371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   DeckPresets:
-  - {fileID: 11400000, guid: 09d6c5b2d83f8a14dabe4d634765683a, type: 2}
+  - {fileID: 11400000, guid: c55f2ef48c366a0488c16ced3de59d3f, type: 2}
   decks: []
   hand: []
   playedCards: []
@@ -70614,15 +70614,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8925149681261779525, guid: 4a0b3dda025c1d549bffbad4345d8a11, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3965608
+      value: 1.3965619
       objectReference: {fileID: 0}
     - target: {fileID: 8925149681261779525, guid: 4a0b3dda025c1d549bffbad4345d8a11, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.34876218
+      value: -0.1410681
       objectReference: {fileID: 0}
     - target: {fileID: 8925149681261779525, guid: 4a0b3dda025c1d549bffbad4345d8a11, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.0703454
+      value: 2.4983947
       objectReference: {fileID: 0}
     - target: {fileID: 9031338032071094502, guid: 4a0b3dda025c1d549bffbad4345d8a11, type: 3}
       propertyPath: m_LocalPosition.x
