@@ -7,8 +7,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Flesh
+    second: {fileID: 2100000, guid: 8b87f2f02ac3b2b4c94236e3abdbca68, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: NormVar3
     second: {fileID: 2100000, guid: 79430cfdb9cbb3348b2a450f2e982e66, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Teeth
+    second: {fileID: 2100000, guid: 1985eb7f1768ce2498694b19ae398461, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood.004
+    second: {fileID: 2100000, guid: ad99a25d4f0278a4384aa98ecf7fc220, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
