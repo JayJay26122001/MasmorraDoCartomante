@@ -116,7 +116,8 @@ public class GameplayManager : MonoBehaviour
             }
         }
         ChangeAreaPreview();
-        AudioController.instance.StartGameplayMusic();
+        Debug.Log("De cria");
+        AudioController.instance.PlayAmbienceSFX();
     }
 
     public void SaveStart(bool loaded)
@@ -136,6 +137,7 @@ public class GameplayManager : MonoBehaviour
         AppearOnlyPlayerHealth();
         //bg.AnimateBoard(false);
         CameraController.instance.ActivateAngledTopCamera();
+        AudioController.instance.StartGameplayMusic();
     }
 
     public void UpdateCreatureUI(Creature c)
@@ -707,6 +709,11 @@ public class GameplayManager : MonoBehaviour
         {
             AudioController.instance.PlayMapMusic();
         }
+    }
+
+    public void PlayAmbienceSfx()
+    {
+        AudioController.instance.PlayAmbienceSFX();
     }
 
     public void StartMapMusic()

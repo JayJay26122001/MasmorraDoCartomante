@@ -7,9 +7,9 @@ public class AudioController : MonoBehaviour
 {
     public static AudioController instance;
     public AudioMixer mixer;
-    public AudioSource musicSource, sfxSource, auxSource;
+    public AudioSource musicSource, sfxSource, auxSource, ambienceSfxSource;
     public AudioClip[] menuMusics, combatMusics, idleMusics, shopMusics, bossMusics;
-    public AudioClip[] bellSfx, receiveCardSfx, buttonClickSfx, shuffleDeckSfx, playCardSfx;
+    public AudioClip[] bellSfx, receiveCardSfx, buttonClickSfx, shuffleDeckSfx, playCardSfx, ambienceSfx;
     //public AudioClip[] menuPlaylist;
     //private bool playingIntro;
 
@@ -30,40 +30,10 @@ public class AudioController : MonoBehaviour
 
     public void StartMusic()
     {
-        /*switch (scene)
-        {
-            case "Game":
-            case "Level1Theater":
-                if (musicSource.clip != musics[1])
-                {
-                    musicSource.clip = musics[1];
-                    musicSource.Play();
-                }
-                break;
-            default:
-                if (musicSource.clip != musics[0])
-                {
-                    musicSource.clip = musics[0];
-                    musicSource.Play();
-                }
-                break;
-        }*/
         if(SceneManager.GetActiveScene().name == "Menu")
         {
             PlayMenuMusic();
         }
-        /*else if(SceneManager.GetActiveScene().name == "Game")
-        {
-            PlayMapMusic();
-        }
-        else if(SceneManager.GetActiveScene().name == "Victory")
-        {
-            //Música de Cena de Vitória
-        }
-        else
-        {
-            //Música de Cena de Derrota
-        }*/
     }
 
     public void StartGameplayMusic()
@@ -76,11 +46,6 @@ public class AudioController : MonoBehaviour
 
     public void PlayMenuMusic()
     {
-        /*playingIntro = true;
-        musicSource.clip = musics[0];
-        musicSource.loop = false;
-        musicSource.Play();
-        Invoke(nameof(PlayLoopMusic), musics[0].length - 0.75f);*/
         double startTime = AudioSettings.dspTime;
         auxSource.Stop();
         musicSource.Stop();
@@ -90,14 +55,6 @@ public class AudioController : MonoBehaviour
         musicSource.loop = true;
         musicSource.PlayScheduled(startTime + menuMusics[0].length);
     }
-
-    /*public void PlayLoopMusic()
-    {
-        musicSource.clip = musics[1];
-        musicSource.loop = true;
-        musicSource.Play();
-        //playingIntro = false;
-    }*/
 
     public void PlayAfterBossMusic()
     {
@@ -160,6 +117,22 @@ public class AudioController : MonoBehaviour
         AudioClip chosenClip = sfxArray[randomIndex];
         //Debug.Log(chosenClip.name);
         s.PlayOneShot(chosenClip);
+    }
+
+    public void PlayAmbienceSFX()
+    {
+        int level = GameplayManager.instance.areaIndex;
+        auxSource.Stop();
+        ambienceSfxSource.Stop();
+        ambienceSfxSource.clip = ambienceSfx[level];
+        ambienceSfxSource.loop = true;
+        ambienceSfxSource.Play();
+        Debug.Log("Playing : " + ambienceSfx[level].name);
+    }
+
+    public void StopAmbienceMusic()
+    {
+        ambienceSfxSource.Stop();
     }
 
     public void ChangeMasterVol(float vol)

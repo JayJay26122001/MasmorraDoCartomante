@@ -22485,7 +22485,7 @@ PlayableDirector:
   m_GameObject: {fileID: 626271299}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 259a36b6cfb6dfd4382c8d9c09851bbc, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 2a7e4992c54b9f740b7b088fe4db51e5, type: 2}
   m_InitialState: 0
   m_WrapMode: 0
   m_DirectorUpdateMode: 1
@@ -23162,6 +23162,8 @@ PlayableDirector:
   - key: {fileID: -5114653753838755537, guid: 2a7e4992c54b9f740b7b088fe4db51e5, type: 2}
     value: {fileID: 1825696976}
   - key: {fileID: 4226813947918684123, guid: 2a7e4992c54b9f740b7b088fe4db51e5, type: 2}
+    value: {fileID: 1432303491}
+  - key: {fileID: -6355301407863480741, guid: 2a7e4992c54b9f740b7b088fe4db51e5, type: 2}
     value: {fileID: 1432303491}
   m_ExposedReferences:
     m_References:
@@ -56559,6 +56561,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ad0465d81d1f8444a817c682aa5d4e48, type: 2}
     - {fileID: 11400000, guid: 144953c7a426f9843ac1814cdf498886, type: 2}
     - {fileID: 11400000, guid: 58ea8e00d0ad1e4468f8c9389ad17eb4, type: 2}
+    - {fileID: 11400000, guid: 9e368c95c709cdd44987eec16407833e, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -56747,6 +56750,20 @@ MonoBehaviour:
         - m_Target: {fileID: 1432303490}
           m_TargetAssemblyTypeName: GameplayManager, Assembly-CSharp
           m_MethodName: DropMusic
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1432303490}
+          m_TargetAssemblyTypeName: GameplayManager, Assembly-CSharp
+          m_MethodName: PlayAmbienceSfx
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -68354,7 +68371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   DeckPresets:
-  - {fileID: 11400000, guid: c55f2ef48c366a0488c16ced3de59d3f, type: 2}
+  - {fileID: 11400000, guid: 09d6c5b2d83f8a14dabe4d634765683a, type: 2}
   decks: []
   hand: []
   playedCards: []
@@ -70597,15 +70614,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8925149681261779525, guid: 4a0b3dda025c1d549bffbad4345d8a11, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3965619
+      value: 1.3965608
       objectReference: {fileID: 0}
     - target: {fileID: 8925149681261779525, guid: 4a0b3dda025c1d549bffbad4345d8a11, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1410681
+      value: 0.34876218
       objectReference: {fileID: 0}
     - target: {fileID: 8925149681261779525, guid: 4a0b3dda025c1d549bffbad4345d8a11, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.4983947
+      value: 3.0703454
       objectReference: {fileID: 0}
     - target: {fileID: 9031338032071094502, guid: 4a0b3dda025c1d549bffbad4345d8a11, type: 3}
       propertyPath: m_LocalPosition.x

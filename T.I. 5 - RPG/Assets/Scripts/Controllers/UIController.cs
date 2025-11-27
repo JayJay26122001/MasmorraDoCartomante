@@ -151,7 +151,7 @@ public class UIController : MonoBehaviour
         }
         else
         {
-            data = new ConfigData(0, 0, -7.5f, -7.5f, -7.5f, false, false);
+            data = new ConfigData(0, 0, 10f, -5f, -5f, false, false);
         }
         EventSystem.current.SetSelectedGameObject(continueButton);
         SetDefaultVol();
@@ -267,6 +267,10 @@ public class UIController : MonoBehaviour
     public void ChangeScene(string scene)
     {
         SceneFadeController.instance.FadeOutToScene(scene);
+        if(scene == "Menu")
+        {
+            AudioController.instance.StopAmbienceMusic();
+        }
     }
 
     public void NewGame()
