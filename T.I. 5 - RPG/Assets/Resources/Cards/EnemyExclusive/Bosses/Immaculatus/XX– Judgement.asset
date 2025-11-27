@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077ac29ec7e05e9418621f0b3af7c728, type: 3}
+  m_Name: "XX\u2013 Judgement"
+  m_EditorClassIdentifier: 
+  Effects:
+  - rid: 6961742135542415432
+  - rid: 6721762140899246150
+  cardDisplay: {fileID: 0}
+  deck: {fileID: 0}
+  Name: "XX\u2013 Judgement"
+  limited: 0
+  instantaneous: 0
+  cost: 1
+  Type: 0
+  Pack: 4
+  Rarity: 4
+  Description: Deals v[0]{Damage} Damage. If Blocked, the Defense Card on Top of
+    the Opponent's Discard Pile is Destroyed.
+  extraDescription: 
+  CardImage: {fileID: 21300000, guid: 34e235524216be542a874dc0941160b4, type: 3}
+  references:
+    version: 2
+    RefIds:
+    - rid: 6721762140899246150
+      type: {class: DestroyCard, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 6721762140899246151
+        ConfirmationConditions: []
+        Cards:
+          target: 1
+          pile: 3
+          type: 2
+          rarity: -1
+          pack: -1
+          MaxReturnedNumber:
+            type: 0
+            value: 1
+            min: 0
+            max: 0
+          initialized: 1
+          CountThisCard: 0
+    - rid: 6721762140899246151
+      type: {class: DamageBlocked, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        BlockedBy: 1
+        FailIfDamaged: 1
+        DamageCameFromCard: 1
+    - rid: 6961742135542415432
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        MultipliedByBaseDamage: 1
+        DamageMultiplier:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0.4
+          min: 0
+          max: 0
+          modifiers: []
+        IgnoreDefense: 0
+        target: 0

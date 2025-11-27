@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d1a39dfc1f14914194bdd1ce1b68008, type: 3}
+  m_Name: BatNailedDeck
+  m_EditorClassIdentifier: 
+  Owner: {fileID: 0}
+  CardPresets:
+  - {fileID: 11400000, guid: f2a126ac55214694492e69e021ac89c6, type: 2}
+  - {fileID: 11400000, guid: 694481bd872dc3d488fe2df2fa057587, type: 2}
+  - {fileID: 11400000, guid: 32e259abb85f05f4ab722e846f9088ec, type: 2}
+  - {fileID: 11400000, guid: a1e468b7b27f9494f84ddfc7df91c9a2, type: 2}
+  cards: []
+  BuyingPile:
+    Stack: []
+  DiscardPile:
+    Stack: []
