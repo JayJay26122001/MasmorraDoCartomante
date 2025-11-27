@@ -24,15 +24,15 @@ MonoBehaviour:
   Type: 0
   Pack: 4
   Rarity: 4
-  Description: "Deals v[0]{Damage} Damage, but depletes the User\u2019s Energy on
-    its next Turn."
+  Description: "On the User's next Turn, deals v[0]{Damage} Damage, but depletes
+    the User\u2019s Energy on the Turn after it."
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 6e8a2d4211252f7498b0a4573d8a8d52, type: 3}
   id: 47
   references:
     version: 2
     RefIds:
-    - rid: 7391437914212401152
+    - rid: 211553259794726912
       type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
       data:
         Repeatable: 0
@@ -65,12 +65,46 @@ MonoBehaviour:
           modifiers: []
         TurnPhase: 0
         PhaseTime: 0
+    - rid: 7391437914212401152
+      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        TurnOwner: 0
+        TurnsFromNow:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 1
+          min: 0
+          max: 0
+          modifiers: []
+        TurnPhase: 0
+        PhaseTime: 0
     - rid: 8409414130953617409
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
         NextInQueue: 0
         DiscardIfAcomplished: 0
-        Conditions: []
+        Conditions:
+        - rid: 211553259794726912
         ConfirmationConditions: []
         MultipliedByBaseDamage: 1
         DamageMultiplier:

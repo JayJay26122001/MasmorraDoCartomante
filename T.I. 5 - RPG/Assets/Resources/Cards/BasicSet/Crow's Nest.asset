@@ -25,8 +25,8 @@ MonoBehaviour:
   Type: 2
   Pack: 0
   Rarity: 1
-  Description: Buys 2 Cards on the Start of the next Turn, if the User Blocks Damage
-    this Turn, creates an instance of Cannon Barrage in the User's Hand.
+  Description: Buys 2 Cards on the start of the next Turn, if it completely blocks
+    any Damage this Turn, creates an instance of Cannon Barrage in the User's Hand.
   extraDescription: 'Cannon Barrage: Deals 9 Damage, ignores Shield. LIMITED'
   CardImage: {fileID: 0}
   id: 7

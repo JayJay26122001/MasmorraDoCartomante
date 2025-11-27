@@ -24,7 +24,7 @@ MonoBehaviour:
   Type: 2
   Pack: 5
   Rarity: 2
-  Description: Discard all of the User's Defense Cards from its Buying Pile and Buys
+  Description: Discard all of the User's Defense Cards from its Buying Pile and buys
     3 Cards.
   extraDescription: 
   CardImage: {fileID: 0}

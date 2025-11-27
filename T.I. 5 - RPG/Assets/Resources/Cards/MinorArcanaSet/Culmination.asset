@@ -25,7 +25,7 @@ MonoBehaviour:
   Pack: 3
   Rarity: 2
   Description: 'Deals 1 Piercing Damage for each Card in the User''s Discard Pile
-    and Buys Cards for every 5 Cards on the Discard Pile(v[0]{Damage}). '
+    and buys Cards for every 5 Cards on the Discard Pile(v[0]{Damage}). '
   extraDescription: 
   CardImage: {fileID: 0}
   id: 73
