@@ -26,7 +26,7 @@ MonoBehaviour:
   Description: On the start of the User's next Turn, creates 3 copies of Pile of
     Bones in the User's Hand.
   extraDescription: 'Pile of Bones: Gains 3 Shield with 0 Energy Cost.'
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: b137e627e3a6f244199cf951834aaf26, type: 3}
   id: 95
   references:
     version: 2

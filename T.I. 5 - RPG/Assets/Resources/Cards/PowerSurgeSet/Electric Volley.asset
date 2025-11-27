@@ -29,7 +29,7 @@ MonoBehaviour:
   Description: 'Deals v[1]{Damage} Damage if the Opponent has Shield. Upon hit, go
     back and forth between Players, Retriggering the Damage until someone loses Health. '
   extraDescription: 
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: 171fff75e156ab64b8ef2eacb2ede8ea, type: 3}
   id: 82
   references:
     version: 2

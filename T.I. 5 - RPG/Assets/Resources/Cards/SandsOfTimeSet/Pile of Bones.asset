@@ -25,7 +25,7 @@ MonoBehaviour:
   Rarity: 0
   Description: Gains v[0]{Shield} Shield.
   extraDescription: 
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: da9b02a33d0456c469dde61bad846d44, type: 3}
   id: 93
   references:
     version: 2

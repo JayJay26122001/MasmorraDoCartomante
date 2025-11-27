@@ -25,7 +25,7 @@ MonoBehaviour:
   Rarity: 1
   Description: Discards 4 Cards from the top of the User's Buying Pile.
   extraDescription: 
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: d0b4f4ab9b7c6d4429205f527e6714ff, type: 3}
   id: 94
   references:
     version: 2

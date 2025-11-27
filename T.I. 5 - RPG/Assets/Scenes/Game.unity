@@ -1450,6 +1450,11 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &44731450 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 051a2ea80b5f7eb4f8cdec185d6a8d89, type: 3}
+  m_PrefabInstance: {fileID: 1204637952}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &60692913
 GameObject:
   m_ObjectHideFlags: 0
@@ -48826,6 +48831,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 051a2ea80b5f7eb4f8cdec185d6a8d89, type: 3}
   m_PrefabInstance: {fileID: 1204637952}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1204637954 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 051a2ea80b5f7eb4f8cdec185d6a8d89, type: 3}
+  m_PrefabInstance: {fileID: 1204637952}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1205540060
 GameObject:
   m_ObjectHideFlags: 0
@@ -51444,7 +51454,7 @@ MonoBehaviour:
   hand: []
   playedCards: []
   exausted: []
-  maxHP: 50
+  maxHP: 45
   hp: 0
   shld: 0
   energy: 0
@@ -66952,7 +66962,7 @@ MonoBehaviour:
   hand: []
   playedCards: []
   exausted: []
-  maxHP: 60
+  maxHP: 50
   hp: 0
   shld: 0
   energy: 0
@@ -66986,8 +66996,8 @@ MonoBehaviour:
   canPlayCards: 0
   combatSpace: {fileID: 0}
   coinPoint: {fileID: 1136678048}
-  anim: {fileID: 0}
-  model: {fileID: 0}
+  anim: {fileID: 1204637954}
+  model: {fileID: 44731450}
   size: 0
   FinishedPlaying:
     m_PersistentCalls:
