@@ -3,7 +3,12 @@ guid: 5090bd90a2f789c47b63a27dd092548b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HealingFountainMat
+    second: {fileID: 2100000, guid: 0e71f1b0ba8772444ae8b593f6ae075a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -3,7 +3,12 @@ guid: 8fb6f00da1c659b48b3b64b5ee6afa0c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ShredderAndStampMat
+    second: {fileID: 2100000, guid: 06e4d52a769c2d04fb0de1be1360e2cf, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
