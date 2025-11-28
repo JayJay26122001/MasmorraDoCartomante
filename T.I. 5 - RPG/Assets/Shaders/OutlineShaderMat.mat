@@ -32,8 +32,8 @@ Material:
     - _Offset: 0.1
     - _Size: 0.25
     - _SizeX: 0.1
-    - _SizeY: 0
-    - _SizeZ: 0.05
+    - _SizeY: 0.1
+    - _SizeZ: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
