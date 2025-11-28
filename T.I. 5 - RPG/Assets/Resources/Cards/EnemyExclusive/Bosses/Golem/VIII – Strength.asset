@@ -25,7 +25,7 @@ MonoBehaviour:
   Pack: 4
   Rarity: 4
   Description: "On the User's next Turn, deals v[0]{Damage} Damage, but depletes
-    the User\u2019s Energy on the Turn after it."
+    the User\u2019s Energy after it."
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 6e8a2d4211252f7498b0a4573d8a8d52, type: 3}
   id: 47
@@ -92,7 +92,7 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          value: 1
+          value: 0
           min: 0
           max: 0
           modifiers: []
