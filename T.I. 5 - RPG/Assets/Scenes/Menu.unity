@@ -21034,14 +21034,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "One you enter a battle or boss room, a battle will begin. In a battle,
+  m_text: "Once you enter a battle or boss room, a battle will begin. In a battle,
     at the start of each round you draw cards from the buying pile (1) until you
     have at least 5 cards in your hand. If you already have 5 or more, you do not
     draw any cards. After you play a card, its effect activates and then it is sent
     to the discard pile (2). When your buying pile reaches 0 cards, all cards from
     the discard pile are shuffled back into the buying pile.\n\nYou should click
     the arrow (3) to end your turn once you have played your cards. After that, the
-    cards effects will activate and will be the enemy turn. When the encemy finishes
+    cards effects will activate and will be the enemy turn. When the enemy finishes
     their turn, you need to click the arrow again to continue. If you want, you can
     right-click to zoom in on cards (5) and read their effects before ending the
     enemy turn. You can do this with both your cards and the enemy\u2019s cards.\n\nYou
@@ -22900,14 +22900,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1062513366243227478, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
-      propertyPath: m_Volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1237099041875012618, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
-      propertyPath: m_Volume
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 2390084456453939271, guid: b5722c1d701da704fa4ecbf69a01af14, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

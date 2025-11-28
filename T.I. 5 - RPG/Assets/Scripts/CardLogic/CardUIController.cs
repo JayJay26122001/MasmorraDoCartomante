@@ -440,7 +440,7 @@ public class CardUIController : MonoBehaviour
             {
                 cardObject.GetComponent<CardDisplay>().CardDisapearanceAnimation(true);
                 LeanTween.move(cardObject, pos, instance.smallTimeAnim).setDelay(instance.delayTimeAnim + 0.25f);
-                LeanTween.rotate(cardObject, rot, instance.smallTimeAnim).setDelay(instance.delayTimeAnim);
+                LeanTween.rotate(cardObject, rot, instance.smallTimeAnim).setDelay(instance.delayTimeAnim + 0.25f);
             }
             else
             {
