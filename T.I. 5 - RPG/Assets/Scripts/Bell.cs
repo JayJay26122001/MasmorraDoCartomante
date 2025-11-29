@@ -10,6 +10,7 @@ public class Bell : MonoBehaviour
     public GameObject outline;
     Interactable interactable;
     public ControlUI passTurn;
+    public ParticleSystem TutorialArrow;
     void Awake()
     {
         interactable = GetComponent<Interactable>();

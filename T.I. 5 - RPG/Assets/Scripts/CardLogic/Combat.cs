@@ -137,19 +137,22 @@ public class Combat : MonoBehaviour
     }
     public void SetBellActive(bool active)
     {
-        BellColider.gameObject.GetComponent<Bell>().outline.SetActive(active);
+        Bell bell = BellColider.gameObject.GetComponent<Bell>();
+        bell.outline.SetActive(active);
         BellColider.enabled = active;
         if (active)
         {
             BellColider.gameObject.GetComponent<MeshRenderer>().materials[1].color = new Color(0, 0.65f, 0, 1);
+            bell.TutorialArrow.Play();
             GameplayManager.instance.ResumeInput();
         }
         else
         {
             BellColider.gameObject.GetComponent<MeshRenderer>().materials[1].color = Color.red;
+            bell.TutorialArrow.Stop();
             GameplayManager.instance.PauseInput();
         }
-        BellColider.gameObject.GetComponent<Bell>().ChangeInteractions(active);
+        bell.ChangeInteractions(active);
         
     }
     public void ChangeTurn()
