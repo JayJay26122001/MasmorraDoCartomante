@@ -27,7 +27,7 @@ MonoBehaviour:
   Description: Deals v[0]{Damage} Damage and destroys the Card on top of the Opponent's
     Buying Pile.
   extraDescription: 
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: f9c5d74d283e70f498ec34e592119c3b, type: 3}
   id: 98
   references:
     version: 2

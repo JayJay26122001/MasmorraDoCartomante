@@ -25,7 +25,7 @@ MonoBehaviour:
   Rarity: 2
   Description: Deals v[0]{Damage} Damage, ignores Shield.
   extraDescription: 
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: e37bd3f5db202bf469bd15d94a0724b3, type: 3}
   id: 3
   references:
     version: 2

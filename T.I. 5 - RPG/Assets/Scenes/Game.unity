@@ -24484,8 +24484,8 @@ MonoBehaviour:
   canPlayCards: 0
   combatSpace: {fileID: 0}
   coinPoint: {fileID: 1797970789}
-  anim: {fileID: 0}
-  model: {fileID: 0}
+  anim: {fileID: 1478035815}
+  model: {fileID: 1478035814}
   size: 0
   FinishedPlaying:
     m_PersistentCalls:
@@ -58623,6 +58623,16 @@ PrefabInstance:
 --- !u!4 &1478035813 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5d81d728c1644544ba46e89c694a3684, type: 3}
+  m_PrefabInstance: {fileID: 1478035812}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1478035814 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5d81d728c1644544ba46e89c694a3684, type: 3}
+  m_PrefabInstance: {fileID: 1478035812}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1478035815 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 5d81d728c1644544ba46e89c694a3684, type: 3}
   m_PrefabInstance: {fileID: 1478035812}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1482523075 stripped

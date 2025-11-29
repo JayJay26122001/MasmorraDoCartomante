@@ -28,7 +28,7 @@ MonoBehaviour:
   Description: Gains v[2]{Shield} Shield. Limits to 1 the Cost of Defense Cards on
     the User's current Turn.
   extraDescription: 
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: 93f932175e5598242962c1f5333186ed, type: 3}
   id: 101
   references:
     version: 2

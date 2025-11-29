@@ -28,7 +28,7 @@ MonoBehaviour:
   Description: Gains v[1]{Shield} Shield. If it completely blocks any Damage, gains
     +1 Energy next Turn.
   extraDescription: 
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: 91400ab376d0da1429f8aef82e1f2ec4, type: 3}
   id: 76
   references:
     version: 2

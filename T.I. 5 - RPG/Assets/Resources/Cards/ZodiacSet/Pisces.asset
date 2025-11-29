@@ -25,7 +25,7 @@ MonoBehaviour:
   Rarity: 3
   Description: 'Gives +1 Energy for each Card in the User''s Discard Pile (6 Max). '
   extraDescription: 
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: 97bb0e9002a085040afd360452c00d68, type: 3}
   id: 107
   references:
     version: 2

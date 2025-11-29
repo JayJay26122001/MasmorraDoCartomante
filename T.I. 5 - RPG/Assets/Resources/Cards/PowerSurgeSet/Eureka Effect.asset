@@ -29,7 +29,7 @@ MonoBehaviour:
     an Attack Card, after its Attack, heals 3 of the User's Health for each Energy
     the User has remaining.
   extraDescription: 
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: 668170cbbb7fef645bf18ec45fc3630d, type: 3}
   id: 83
   references:
     version: 2

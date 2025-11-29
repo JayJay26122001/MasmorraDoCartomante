@@ -30,7 +30,7 @@ MonoBehaviour:
   Description: Deals v[0]{Damage} Damage, and steals 3 Coins if not completely blocked.
     Retriggers if the User's Current Health is higher than the Opponent's.
   extraDescription: 
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: a413478c6166c4a459643a3dc5b7797d, type: 3}
   id: 59
   references:
     version: 2

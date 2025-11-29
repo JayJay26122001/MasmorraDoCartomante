@@ -27,7 +27,7 @@ MonoBehaviour:
   Description: "Deals v[0]{Damage} Damage if the User doesn\u2019t take Damage on
     the Opponent\u2019s Turn."
   extraDescription: 
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: fe0683ab9aa87504faaccbc74ccd2ac4, type: 3}
   id: 5
   references:
     version: 2

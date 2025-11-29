@@ -20,7 +20,7 @@ MonoBehaviour:
   Name: Pharaoh's Curse
   limited: 1
   instantaneous: 1
-  cost: 2
+  cost: 1
   Type: 2
   Pack: 5
   Rarity: 2
