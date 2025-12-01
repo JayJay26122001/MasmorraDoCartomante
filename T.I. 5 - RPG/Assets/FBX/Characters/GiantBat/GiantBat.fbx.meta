@@ -3,7 +3,12 @@ guid: 5d81d728c1644544ba46e89c694a3684
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Morcego-1
+    second: {fileID: 2100000, guid: 74e5e20fb943b67489a51b9b8ecb90e2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
