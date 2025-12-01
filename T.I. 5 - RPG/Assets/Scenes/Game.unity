@@ -67077,7 +67077,7 @@ MonoBehaviour:
   energy: 0
   maxBaseEnergy: 5
   money: 15
-  CardBuyMax: 3
+  CardBuyMax: 2
   baseDamage: 6
   baseShieldGain: 5
   baseDamageTaken: 100
