@@ -58619,12 +58619,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: GiantBat
       objectReference: {fileID: 0}
+    - target: {fileID: 2301889602984471453, guid: 5d81d728c1644544ba46e89c694a3684, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2301889602984471453, guid: 5d81d728c1644544ba46e89c694a3684, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2301889602984471453, guid: 5d81d728c1644544ba46e89c694a3684, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408950489656274329, guid: 5d81d728c1644544ba46e89c694a3684, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408950489656274329, guid: 5d81d728c1644544ba46e89c694a3684, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408950489656274329, guid: 5d81d728c1644544ba46e89c694a3684, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 5d81d728c1644544ba46e89c694a3684, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: ff14714fb0d0cea4c9d42113e0a413ec, type: 2}
+    - target: {fileID: 7196100395706918349, guid: 5d81d728c1644544ba46e89c694a3684, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7196100395706918349, guid: 5d81d728c1644544ba46e89c694a3684, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7196100395706918349, guid: 5d81d728c1644544ba46e89c694a3684, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4952018891804275601, guid: 5d81d728c1644544ba46e89c694a3684, type: 3}
+    - {fileID: -217864971164785101, guid: 5d81d728c1644544ba46e89c694a3684, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d81d728c1644544ba46e89c694a3684, type: 3}
