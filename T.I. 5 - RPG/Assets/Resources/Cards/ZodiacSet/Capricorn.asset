@@ -21,11 +21,11 @@ MonoBehaviour:
   Name: Capricorn
   limited: 0
   instantaneous: 1
-  cost: 2
+  cost: 0
   Type: 1
   Pack: 1
   Rarity: 3
-  Description: Gains v[2]{Shield} Shield. Limits to 1 the Cost of Defense Cards on
+  Description: Gains v[2]{Shield} Shield. Sets to 1 the Cost of Defense Cards on
     the User's current Turn.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 93f932175e5598242962c1f5333186ed, type: 3}

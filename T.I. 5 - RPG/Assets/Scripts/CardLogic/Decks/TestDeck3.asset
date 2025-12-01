@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Owner: {fileID: 0}
   CardPresets:
-  - {fileID: 11400000, guid: 2e0247bea243e5e4fbc1e45acb2fbfe2, type: 2}
-  - {fileID: 11400000, guid: f5df698fa3947074ebb31b07fdb255cd, type: 2}
-  - {fileID: 11400000, guid: a8e262aa9b09ec041b28b02bba1edc2d, type: 2}
-  - {fileID: 11400000, guid: c1f47245640c3104b8533113e96b066d, type: 2}
-  - {fileID: 11400000, guid: c1f47245640c3104b8533113e96b066d, type: 2}
+  - {fileID: 11400000, guid: 03f8826008d8f8442aa113cae50558ca, type: 2}
+  - {fileID: 11400000, guid: 03f8826008d8f8442aa113cae50558ca, type: 2}
+  - {fileID: 11400000, guid: 03f8826008d8f8442aa113cae50558ca, type: 2}
+  - {fileID: 11400000, guid: 03f8826008d8f8442aa113cae50558ca, type: 2}
+  - {fileID: 11400000, guid: 3aa5ae1942f10434eb3888cb3242056e, type: 2}
   cards: []
   BuyingPile:
     Stack: []

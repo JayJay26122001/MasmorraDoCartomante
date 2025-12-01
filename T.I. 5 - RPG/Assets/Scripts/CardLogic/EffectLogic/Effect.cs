@@ -621,6 +621,7 @@ public class ResetProperties : Effect
                 c.RevertCost();
             }
         }
+        EffectEnded();
 
     }
 }
