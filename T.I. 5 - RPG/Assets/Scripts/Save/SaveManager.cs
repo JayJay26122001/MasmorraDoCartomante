@@ -240,6 +240,14 @@ public class SaveManager : MonoBehaviour
         File.WriteAllText(Application.dataPath + "/configSave.json", s);
     }
 
+    public static void SaveTutorial(bool completed)
+    {
+        TutorialData data = new TutorialData();
+        data.tutorialCompleted = completed;
+        string json = JsonUtility.ToJson(data);
+        File.WriteAllText(Application.dataPath + "/tutorialSave.json", json);
+    }
+
     public static void LoadBoard(BoardGenerator board)
     {
         string path = Application.dataPath + "/boardSave.json";
@@ -272,6 +280,15 @@ public class SaveManager : MonoBehaviour
         if (!File.Exists(path)) return;
         string s = File.ReadAllText(path);
         GameManager.instance.uiController.data = JsonUtility.FromJson<ConfigData>(s);
+    }
+
+    public static bool LoadTutorial()
+    {
+        string path = Application.dataPath + "/tutorialSave.json";
+        if (!File.Exists(path)) { return false; }
+        string json = File.ReadAllText(path);
+        TutorialData data = JsonUtility.FromJson<TutorialData>(json);
+        return data.tutorialCompleted;
     }
 
     public static void DeleteGameSaves()

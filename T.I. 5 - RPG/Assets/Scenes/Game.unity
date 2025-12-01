@@ -56545,6 +56545,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: cb4ddac99fc91cb4285e705ddded3226, type: 3}
   - {fileID: 2800000, guid: 7b1e222a7b1060d4cb590ba63ed5696c, type: 3}
   - {fileID: 2800000, guid: a3f6f961bebab7b4db1e8f3ebaa1cb47, type: 3}
+  changeTurnBell: {fileID: 435492733}
 --- !u!114 &1432303491
 MonoBehaviour:
   m_ObjectHideFlags: 0

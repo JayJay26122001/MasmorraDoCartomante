@@ -170,6 +170,13 @@ public class Combat : MonoBehaviour
 
     public void EndCombat()
     {
+        if (!SaveManager.LoadTutorial()) //salvar apenas uma vez o tutorial terminado
+        {
+            SaveManager.SaveTutorial(true);
+            GameplayManager.instance.DisableTutorialVFX();
+            Debug.LogWarning("Salvando Tutorial Completado");
+        }
+
         BellColider.gameObject.GetComponent<Bell>().outline.SetActive(false);
         ActionController.instance.InvokeTimer(CardUIController.instance.DeactivateCardTextValues, 0.5f);
         foreach (Turn t in Round)

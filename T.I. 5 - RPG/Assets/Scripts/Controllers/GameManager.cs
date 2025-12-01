@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         LeanTween.init(1200);
     }
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
     [ContextMenu("Update Cards")]
     void UpdateCards()
     {

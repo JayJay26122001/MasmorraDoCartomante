@@ -77,6 +77,7 @@ public class GameplayManager : MonoBehaviour
     [HideInInspector] public bool dropped = false;
     public GameObject areaPreview;
     public List<Texture2D> previewImages = new List<Texture2D>();
+    public Bell changeTurnBell;
     private void Awake()
     {
         instance = this;
@@ -139,6 +140,14 @@ public class GameplayManager : MonoBehaviour
         //bg.AnimateBoard(false);
         CameraController.instance.ActivateAngledTopCamera();
         AudioController.instance.StartGameplayMusic();
+    }
+
+    public void DisableTutorialVFX()
+    {
+        if(changeTurnBell != null)
+        {
+            changeTurnBell.TutorialArrow.gameObject.SetActive(false);
+        }
     }
 
     public void UpdateCreatureUI(Creature c)

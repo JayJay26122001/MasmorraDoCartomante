@@ -26,6 +26,13 @@ public class Bell : MonoBehaviour
     {
         anim = GetComponent<Animation>();
         sfxSource = this.GetComponent<AudioSource>();
+        if (SaveManager.LoadTutorial())
+        {
+            if (TutorialArrow != null)
+            {
+                TutorialArrow.gameObject.SetActive(false);
+            }
+        }
     }
 
     public void ChangeInteractions(bool active)
