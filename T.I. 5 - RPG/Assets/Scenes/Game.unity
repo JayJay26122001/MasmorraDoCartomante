@@ -24653,7 +24653,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &707346587
 Transform:
   m_ObjectHideFlags: 0
@@ -50932,7 +50932,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1264320103
 Transform:
   m_ObjectHideFlags: 0
@@ -75450,7 +75450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 504479868118378514, guid: 459d79b77d3def449a74e32f600683bc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.466
+      value: 29.534
       objectReference: {fileID: 0}
     - target: {fileID: 504479868118378514, guid: 459d79b77d3def449a74e32f600683bc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -75490,7 +75490,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2255163282206678305, guid: 459d79b77d3def449a74e32f600683bc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -75728,13 +75728,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallGoldPile
       objectReference: {fileID: 0}
+    - target: {fileID: 1426100339360598964, guid: 2bdb3d639d214f14f92db77d26a1ac98, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6439677374021503631, guid: 2bdb3d639d214f14f92db77d26a1ac98, type: 3}
       propertyPath: m_LocalPosition.x
       value: 27.16
       objectReference: {fileID: 0}
     - target: {fileID: 6439677374021503631, guid: 2bdb3d639d214f14f92db77d26a1ac98, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.235
+      value: 29.765
       objectReference: {fileID: 0}
     - target: {fileID: 6439677374021503631, guid: 2bdb3d639d214f14f92db77d26a1ac98, type: 3}
       propertyPath: m_LocalPosition.z
@@ -78607,13 +78611,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: HammerAndNails
       objectReference: {fileID: 0}
+    - target: {fileID: 97536554709040539, guid: 776165f6457b232479218f1d7a6439a3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2589928793786717092, guid: 776165f6457b232479218f1d7a6439a3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.004
       objectReference: {fileID: 0}
     - target: {fileID: 2589928793786717092, guid: 776165f6457b232479218f1d7a6439a3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.178
+      value: 30.178
       objectReference: {fileID: 0}
     - target: {fileID: 2589928793786717092, guid: 776165f6457b232479218f1d7a6439a3, type: 3}
       propertyPath: m_LocalPosition.z
