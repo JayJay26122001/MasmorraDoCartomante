@@ -240,7 +240,7 @@ public class UIController : MonoBehaviour
     public void SaveConfigs()
     {
         SaveManager.SaveConfig();
-        Debug.Log("Configs Saved!");
+        //Debug.Log("Configs Saved!");
     }
 
     public void PlayButtonSFX()
@@ -288,7 +288,7 @@ public class UIController : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-        Debug.Log("Quitting!");
+        //Debug.Log("Quitting!");
     }
 
     public void UpdateMoney(int m)

@@ -64,7 +64,7 @@ public class AudioController : MonoBehaviour
         musicSource.clip = idleMusics[level-1];
         musicSource.loop = true;
         musicSource.Play();
-        Debug.Log("Playing : " + idleMusics[level].name);
+        //Debug.Log("Playing : " + idleMusics[level].name);
     }
 
     public void PlayMapMusic()
@@ -75,7 +75,7 @@ public class AudioController : MonoBehaviour
         musicSource.clip = idleMusics[level];
         musicSource.loop = true;
         musicSource.Play();
-        Debug.Log("Playing : " + idleMusics[level].name);
+        //Debug.Log("Playing : " + idleMusics[level].name);
     }
 
     public void PlayCombatMusic()
@@ -86,7 +86,7 @@ public class AudioController : MonoBehaviour
         musicSource.clip = combatMusics[level];
         musicSource.loop = true;
         musicSource.Play();
-        Debug.Log("Playing : " + combatMusics[level].name);
+        //Debug.Log("Playing : " + combatMusics[level].name);
     }
 
     public void PlayShopMusic()
@@ -97,7 +97,7 @@ public class AudioController : MonoBehaviour
         musicSource.clip = shopMusics[level];
         musicSource.loop = true;
         musicSource.Play();
-        Debug.Log("Playing : " + shopMusics[level].name);
+        //Debug.Log("Playing : " + shopMusics[level].name);
     }
 
     public void PlayBossMusic()
@@ -108,7 +108,7 @@ public class AudioController : MonoBehaviour
         musicSource.clip = bossMusics[level];
         musicSource.loop = true;
         musicSource.Play();
-        Debug.Log("Playing : " + bossMusics[level].name);
+        //Debug.Log("Playing : " + bossMusics[level].name);
     }
 
     public void RandomizeSfx(AudioSource s, AudioClip[] sfxArray)
@@ -127,7 +127,7 @@ public class AudioController : MonoBehaviour
         ambienceSfxSource.clip = ambienceSfx[level];
         ambienceSfxSource.loop = true;
         ambienceSfxSource.Play();
-        Debug.Log("Playing : " + ambienceSfx[level].name);
+        //Debug.Log("Playing : " + ambienceSfx[level].name);
     }
 
     public void StopAmbienceMusic()

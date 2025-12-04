@@ -129,7 +129,7 @@ public class NumberOfTriggeredEffects : ConfirmationCondition
         {
             if (e != effect || CountThisEffect)
             {
-                Debug.Log(e.state);
+                //Debug.Log(e.state);
                 if ((EffectStates & (EffectState)(1 << (int)e.state)) != 0)
                 {
 
@@ -137,7 +137,7 @@ public class NumberOfTriggeredEffects : ConfirmationCondition
                 }
             }
         }
-        Debug.Log(num);
+        //Debug.Log(num);
         return num;
     }
 }

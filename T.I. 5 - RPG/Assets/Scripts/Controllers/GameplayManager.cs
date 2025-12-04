@@ -118,7 +118,7 @@ public class GameplayManager : MonoBehaviour
             }
         }
         ChangeAreaPreview();
-        Debug.Log("De cria");
+        //Debug.Log("De cria");
         AudioController.instance.PlayAmbienceSFX();
     }
 
@@ -570,7 +570,7 @@ public class GameplayManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("You don't have enough money.");
+                //Debug.Log("You don't have enough money.");
             }
         }
     }

@@ -107,10 +107,10 @@ public class CardPool : ScriptableObject
             }
         }
 
-        for(int i = 0; i < probabilities.Count; i++)
+        /*for(int i = 0; i < probabilities.Count; i++)
         {
             Debug.Log("Probabilidade de carta " + (Card.CardRarity)i + ": " +  probabilities[i]);
-        }
+        }*/
     }
 
     public int SelectRarity()

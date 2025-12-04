@@ -174,7 +174,7 @@ public class Combat : MonoBehaviour
         {
             SaveManager.SaveTutorial(true);
             GameplayManager.instance.DisableTutorialVFX();
-            Debug.LogWarning("Salvando Tutorial Completado");
+            //Debug.LogWarning("Salvando Tutorial Completado");
         }
 
         BellColider.gameObject.GetComponent<Bell>().outline.SetActive(false);

@@ -83,6 +83,7 @@ public class Deck : ScriptableObject
         Destroy(c.gameObject);
         cards.Remove(c.cardData);
         allCards.Remove(c.cardData);
+        Destroy(c.cardData.cardDisplay.gameObject);
         /*for (int i = 0; i < cards.Count; i++)
         {
             if (cards[i] == c.cardData)

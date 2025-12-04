@@ -92,7 +92,7 @@ public class CardPack : MonoBehaviour
             }
             else
             {
-                Debug.Log("You don't have enough money.");
+                //Debug.Log("You don't have enough money.");
             }
         }
     }
