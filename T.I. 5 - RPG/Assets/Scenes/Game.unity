@@ -10076,7 +10076,7 @@ MonoBehaviour:
     min: 0
     max: 0
     modifiers: []
-  BonusDeckPrefab: {fileID: 0}
+  BonusDeckPrefab: {fileID: 11400000, guid: f70d63b070141664f8b3be3df39d94e6, type: 2}
   BonusDeck: {fileID: 0}
 --- !u!1 &244028020
 GameObject:
