@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -150,7 +149,7 @@ public class ActionController : MonoBehaviour
     {
         CardUIController.AttCardDescription(GameplayManager.currentCombat.combatents[0]);
         CardUIController.AttCardDescription(GameplayManager.currentCombat.combatents[1]);
-        Debug.Log("-------------NextEffect-------------");
+        //Debug.Log("-------------NextEffect-------------");
         if (ActionQueue.Count <= 0) return;
         ActionQueue[0].isPlaying = false;
         ActionQueue.Remove(ActionQueue[0]);
@@ -224,7 +223,7 @@ public abstract class SceneAction
                 ActionController.instance.AdvanceQueue();
             }
         };
-        ActionController.DebugAction(this);
+        //ActionController.DebugAction(this);
         PerformAction();
         TimerRoutine = ActionController.instance.InvokeTimer(finishAction, time);
         //ActionController.instance.InvokeTimer(() => Debug.Log(Time.time), time);
@@ -314,7 +313,7 @@ public class DamageAction : SceneAction
     public override void StartAction()
     {
 
-        ActionController.DebugAction(this);
+        //ActionController.DebugAction(this);
         PerformAction();
     }
     public override void PerformAction()
@@ -374,7 +373,7 @@ public class GainCoinsAction : SceneAction
     public override void StartAction()
     {
 
-        ActionController.DebugAction(this);
+        //ActionController.DebugAction(this);
         PerformAction();
     }
     public override void PerformAction()
@@ -531,7 +530,7 @@ public class EndTurnAction : SceneAction, ICombatTurnActions
 {
     public override void StartAction()
     {
-        ActionController.DebugAction(this);
+        //ActionController.DebugAction(this);
         PerformAction();
     }
     public override void PerformAction()
@@ -590,7 +589,7 @@ public class ApplyEffectAction : SceneAction
                 return;
             }
         }
-        ActionController.DebugAction(this);
+        //ActionController.DebugAction(this);
         PerformAction();
     }
     public override void PerformAction()
