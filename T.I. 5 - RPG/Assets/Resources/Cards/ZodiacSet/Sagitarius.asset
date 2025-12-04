@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Effects:
   - rid: 6961742135542415360
-  - rid: 6961742135542415436
+  - rid: 1532164058492436480
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Sagitarius
@@ -24,14 +24,48 @@ MonoBehaviour:
   Type: 0
   Pack: 1
   Rarity: 2
-  Description: Deals v[0]{Damage} Damage. In the Opponent's next Turn, reduces by
-    half its Shield gains.
+  Description: Deals v[0]{Damage} Damage and gains v[0]{Shield} Shield.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 2dfc13a73bd5b234da96aae915107972, type: 3}
   id: 108
   references:
     version: 2
     RefIds:
+    - rid: 1532164058492436480
+      type: {class: GainShield, ns: , asm: Assembly-CSharp}
+      data:
+        NextInQueue: 0
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions: []
+        MultipliedByBaseShield: 1
+        ShieldMultiplier:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 3
+          min: 0
+          max: 0
+          modifiers: []
+        target: 0
     - rid: 6961742135542415360
       type: {class: DealDamage, ns: , asm: Assembly-CSharp}
       data:
@@ -62,84 +96,9 @@ MonoBehaviour:
             max: 0
           ObservedStat: 0
           initialized: 1
-          value: 1.5
+          value: 2.5
           min: 0
           max: 0
           modifiers: []
         IgnoreDefense: 0
         target: 0
-    - rid: 6961742135542415436
-      type: {class: BuffStat, ns: , asm: Assembly-CSharp}
-      data:
-        NextInQueue: 0
-        DiscardIfAcomplished: 0
-        Conditions:
-        - rid: 6961742135542415437
-        ConfirmationConditions: []
-        BuffTarget: 1
-        StatToBuff: 1
-        Modifier:
-          type: 0
-          value:
-            type: 0
-            target: 0
-            ObservedCards:
-              target: 0
-              pile: 0
-              type: 0
-              rarity: 0
-              pack: 0
-              MaxReturnedNumber:
-                type: 2
-                value: 0
-                min: 0
-                max: 0
-              initialized: 1
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-            ObservedStat: 0
-            initialized: 1
-            value: 0.5
-            min: 0
-            max: 0
-            modifiers: []
-        TurnOwner: 1
-        TurnsFromNow: 0
-        TurnPhaseToStop: 1
-        StopAtPhase: 1
-    - rid: 6961742135542415437
-      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
-      data:
-        Repeatable: 0
-        TurnOwner: 1
-        TurnsFromNow:
-          type: 0
-          target: 0
-          ObservedCards:
-            target: 0
-            pile: 0
-            type: 0
-            rarity: 0
-            pack: 0
-            MaxReturnedNumber:
-              type: 2
-              value: 0
-              min: 0
-              max: 0
-            initialized: 1
-          MaxReturnedNumber:
-            type: 2
-            value: 0
-            min: 0
-            max: 0
-          ObservedStat: 0
-          initialized: 1
-          value: 0
-          min: 0
-          max: 0
-          modifiers: []
-        TurnPhase: 0
-        PhaseTime: 0

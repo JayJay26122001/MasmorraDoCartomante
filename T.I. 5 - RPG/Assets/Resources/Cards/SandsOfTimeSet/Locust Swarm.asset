@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Effects:
   - rid: 6961742136573427785
+  - rid: 1532164058492436481
+  - rid: 1532164058492436483
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Locust Swarm
@@ -23,14 +25,155 @@ MonoBehaviour:
   Type: 2
   Pack: 5
   Rarity: 2
-  Description: 'Reduces the Opponent''s Shield by 3 for each Card on its Discard
-    Pile (v[0]{Shield}). '
+  Description: Reduces the Opponent's Shield by 3 for each Card on its Discard Pile
+    (v[0]{Shield}). If the Opponent has no Cards in the Buying Pile, it takes 25%
+    More Damage this Turn.
   extraDescription: 
   CardImage: {fileID: 0}
   id: 90
   references:
     version: 2
     RefIds:
+    - rid: 1532164058492436481
+      type: {class: BuffStat, ns: , asm: Assembly-CSharp}
+      data:
+        NextInQueue: 0
+        DiscardIfAcomplished: 0
+        Conditions: []
+        ConfirmationConditions:
+        - rid: 1532164058492436482
+        BuffTarget: 1
+        StatToBuff: 2
+        Modifier:
+          type: 0
+          value:
+            type: 0
+            target: 0
+            ObservedCards:
+              target: 0
+              pile: 0
+              type: 0
+              rarity: 0
+              pack: 0
+              MaxReturnedNumber:
+                type: 2
+                value: 0
+                min: 0
+                max: 0
+              initialized: 1
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            ObservedStat: 0
+            initialized: 1
+            value: 1.25
+            min: 0
+            max: 0
+            modifiers: []
+        TurnOwner: 0
+        TurnsFromNow: 0
+        TurnPhaseToStop: 0
+        StopAtPhase: 0
+    - rid: 1532164058492436482
+      type: {class: ComparativeConfirmation, ns: , asm: Assembly-CSharp}
+      data:
+        ObservedValue:
+          type: 2
+          target: 0
+          ObservedCards:
+            target: 1
+            pile: 4
+            type: -1
+            rarity: -1
+            pack: -1
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 1
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+        Equation: 4
+        Amount:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+    - rid: 1532164058492436483
+      type: {class: DiscardThisCard, ns: , asm: Assembly-CSharp}
+      data:
+        NextInQueue: 0
+        DiscardIfAcomplished: 0
+        Conditions:
+        - rid: 1532164058492436484
+        ConfirmationConditions: []
+        SetAsDiscardTime: 0
+    - rid: 1532164058492436484
+      type: {class: WaitUntilTurn, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        TurnOwner: 1
+        TurnsFromNow:
+          type: 0
+          target: 0
+          ObservedCards:
+            target: 0
+            pile: 0
+            type: 0
+            rarity: 0
+            pack: 0
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            initialized: 1
+          MaxReturnedNumber:
+            type: 2
+            value: 0
+            min: 0
+            max: 0
+          ObservedStat: 0
+          initialized: 1
+          value: 0
+          min: 0
+          max: 0
+          modifiers: []
+        TurnPhase: 0
+        PhaseTime: 0
     - rid: 6961742136573427785
       type: {class: GainShield, ns: , asm: Assembly-CSharp}
       data:
