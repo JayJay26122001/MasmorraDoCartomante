@@ -60,7 +60,7 @@ public class Stamp : MonoBehaviour
         startPos = this.transform.position;
         LeanTween.move(this.gameObject, go.transform.position + Vector3.up * 5 + Vector3.forward * (c.cardDisplay.cardBase.gameObject.transform.localScale.y / 2), 0.5f).setOnComplete(() =>
         {
-            LeanTween.move(this.gameObject, go.transform.position + Vector3.up * (this.GetComponent<BoxCollider>().size.y * 0.75f) + Vector3.forward * (c.cardDisplay.cardBase.gameObject.transform.localScale.y / 2), 0.2f).setOnComplete(() =>
+            LeanTween.move(this.gameObject, go.transform.position + Vector3.up * 0.75f + Vector3.forward * (c.cardDisplay.cardBase.gameObject.transform.localScale.y / 2), 0.2f).setOnComplete(() =>
             {
                 Invoke("StampCardsPt2", 1);
             });
@@ -71,7 +71,7 @@ public class Stamp : MonoBehaviour
     {
         LeanTween.move(this.gameObject, emptyCard.transform.position + Vector3.up * 5, 0.5f).setOnComplete(() =>
         {
-            LeanTween.move(this.gameObject, emptyCard.transform.position + Vector3.up * (this.GetComponent<BoxCollider>().size.y * 0.75f), 0.2f).setOnComplete(() =>
+            LeanTween.move(this.gameObject, emptyCard.transform.position + Vector3.up * 0.75f, 0.2f).setOnComplete(() =>
             {
                 copy = CardUIController.instance.InstantiateCard(stampedCard);
                 copy.UpdateCard();
