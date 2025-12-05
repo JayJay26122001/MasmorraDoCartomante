@@ -67265,7 +67265,7 @@ MonoBehaviour:
   hp: 0
   shld: 0
   energy: 0
-  maxBaseEnergy: 5
+  maxBaseEnergy: 3
   money: 15
   CardBuyMax: 2
   baseDamage: 6
