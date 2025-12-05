@@ -29,7 +29,7 @@ MonoBehaviour:
   Description: Deals v[0]{Damage} Damage and makes the Opponent take 25% More Damage
     this Turn. If the Damage is not completely blocked, heals 6 Health.
   extraDescription: 
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: 90666f8e5b6f9e24e847f5470bc822ce, type: 3}
   id: 70
   references:
     version: 2

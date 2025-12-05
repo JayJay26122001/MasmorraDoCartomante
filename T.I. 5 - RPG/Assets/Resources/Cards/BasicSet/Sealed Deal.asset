@@ -26,7 +26,7 @@ MonoBehaviour:
   Rarity: 3
   Description: Discard all Mind Cards on the Table.
   extraDescription: 
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: 19ced3c454f221449993ba24fc3ac3d8, type: 3}
   id: 27
   references:
     version: 2

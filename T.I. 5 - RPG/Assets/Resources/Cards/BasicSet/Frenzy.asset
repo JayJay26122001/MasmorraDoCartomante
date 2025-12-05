@@ -27,7 +27,7 @@ MonoBehaviour:
   Description: Deals v[1]{Damage} Damage. If the User's remaining Health is below
     10, deals v[0]{Damage} Damage.
   extraDescription: 
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: f5c3c23aff4dade4e8610d003b2ce127, type: 3}
   id: 10
   references:
     version: 2

@@ -25,7 +25,7 @@ MonoBehaviour:
   Rarity: 2
   Description: Gains v[0]{Shield} Shield in the User's next Turn.
   extraDescription: 
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: ad71e7558f949b448bef13cb92dd5436, type: 3}
   id: 71
   references:
     version: 2

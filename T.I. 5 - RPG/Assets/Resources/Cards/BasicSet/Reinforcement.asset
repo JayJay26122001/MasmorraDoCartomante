@@ -28,7 +28,7 @@ MonoBehaviour:
   Description: 'Gains v[1]{Shield} Shield. Also gains 4 Shield for each Defense Card
     played after it (v[0]{Shield}). '
   extraDescription: 
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: a6568b4e45fd0b844a3b0b90ef39f9be, type: 3}
   id: 25
   references:
     version: 2

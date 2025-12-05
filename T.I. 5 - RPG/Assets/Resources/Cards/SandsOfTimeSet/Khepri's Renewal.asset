@@ -26,7 +26,7 @@ MonoBehaviour:
   Description: Transforms all Limited Cards in the User's Buying Pile into Non-Limited
     Cards.
   extraDescription: 
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: ce07502685aa30649afa6e08b7241965, type: 3}
   id: 89
   references:
     version: 2

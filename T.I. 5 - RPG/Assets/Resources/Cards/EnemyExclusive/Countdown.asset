@@ -28,7 +28,7 @@ MonoBehaviour:
   Description: "On the end of the User's Turn, gains 20% Damage Reduction for 3 Turns.
     Then, depletes the User\u2019s Energy on the fourth Turn."
   extraDescription: 
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: 44210f26bdba3da4d8183d4824430df7, type: 3}
   id: 56
   references:
     version: 2

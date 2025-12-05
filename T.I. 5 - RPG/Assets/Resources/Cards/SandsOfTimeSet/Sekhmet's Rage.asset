@@ -27,7 +27,7 @@ MonoBehaviour:
   Description: Until the User's next Turn, if it takes Damage, deals 3 Damage for
     each Card in the User's Discard Pile(v[0]{Damage}).
   extraDescription: 
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: 2f68085fbaad42645b2eb26f77fc2a22, type: 3}
   id: 96
   references:
     version: 2

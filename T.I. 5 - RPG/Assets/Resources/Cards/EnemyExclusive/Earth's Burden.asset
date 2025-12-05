@@ -28,7 +28,7 @@ MonoBehaviour:
   Description: 'User''s Shield Sources gain +5 Shield until the end of the Duel,
     but the User will also take 50% more Damage until the end of the Duel. '
   extraDescription: This Card's Effect is cancelled if it is Discarded or Destroyed.
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: 4c52d74fa2433dd40a2db3b09ce6e683, type: 3}
   id: 58
   references:
     version: 2

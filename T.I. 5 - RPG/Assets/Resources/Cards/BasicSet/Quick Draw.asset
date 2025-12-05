@@ -27,7 +27,7 @@ MonoBehaviour:
   Description: If the Opponent's next played Card is a Defense Card, deals v[0]{Damage}
     Damage.
   extraDescription: 
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: 9396febc274ac994ebb6a54852309b37, type: 3}
   id: 23
   references:
     version: 2

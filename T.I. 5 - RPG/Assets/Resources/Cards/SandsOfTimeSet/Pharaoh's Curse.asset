@@ -27,7 +27,7 @@ MonoBehaviour:
   Description: Discard all of the User's Defense Cards from its Buying Pile and buys
     3 Cards.
   extraDescription: 
-  CardImage: {fileID: 0}
+  CardImage: {fileID: 21300000, guid: 3d392ba15938636469b48baf88e662f9, type: 3}
   id: 92
   references:
     version: 2
