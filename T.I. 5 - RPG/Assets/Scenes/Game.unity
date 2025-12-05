@@ -23983,6 +23983,7 @@ MonoBehaviour:
   quitPanel: {fileID: 0}
   pausePanel: {fileID: 1084934152}
   tutorialPanel: {fileID: 0}
+  confirmNewGamePanel: {fileID: 0}
   leaveSettingsPanelButton: {fileID: 1885008994}
   leaveCreditsPanelButton: {fileID: 0}
   leaveQuitPanelButton: {fileID: 0}
@@ -35463,7 +35464,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 4c9d2abac8fe8584e977def1a039eef4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 35c479cd93087c54287e5d263f2fead1, type: 2}
+      objectReference: {fileID: 2100000, guid: 9f87becf896cc2142b5154477562f7f6, type: 2}
     - target: {fileID: 919132149155446097, guid: 4c9d2abac8fe8584e977def1a039eef4, type: 3}
       propertyPath: m_Name
       value: LeftArrow
@@ -46026,7 +46027,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 4c9d2abac8fe8584e977def1a039eef4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 35c479cd93087c54287e5d263f2fead1, type: 2}
+      objectReference: {fileID: 2100000, guid: 9f87becf896cc2142b5154477562f7f6, type: 2}
     - target: {fileID: 919132149155446097, guid: 4c9d2abac8fe8584e977def1a039eef4, type: 3}
       propertyPath: m_Name
       value: RightArrow

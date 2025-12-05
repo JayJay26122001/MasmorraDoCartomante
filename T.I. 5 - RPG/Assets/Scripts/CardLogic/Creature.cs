@@ -285,6 +285,8 @@ public class Creature : MonoBehaviour
         CardUIController.OrganizePlayedCards(this);
         //if(card.deck.Owner != Player)
         CardUIController.OrganizeStackFlat(card.deck.DiscardPile, combatSpace.discardPileSpace);
+        CardUIController.instance.ChangeBuyingPileTextValue();
+        CardUIController.instance.ChangeDiscardPileTextValue();
         //CardUIController.instance.ChangePileTextValues(card.deck.DiscardPile, CardUIController.instance.discardPilePos);
     }
     void discardCardWithNoOrganizer(Card card)
