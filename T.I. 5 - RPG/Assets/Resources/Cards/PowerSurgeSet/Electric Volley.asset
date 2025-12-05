@@ -17,17 +17,20 @@ MonoBehaviour:
   - rid: 4294249745929470025
   - rid: 4294249745929470027
   - rid: 4294249745929470029
+  - rid: 5956583464553414750
+  - rid: 5956583464553414752
   cardDisplay: {fileID: 0}
   deck: {fileID: 0}
   Name: Electric Volley
   limited: 0
   instantaneous: 0
-  cost: 2
+  cost: 1
   Type: 0
   Pack: 6
   Rarity: 1
-  Description: 'Deals v[1]{Damage} Damage if the Opponent has Shield. Upon hit, go
-    back and forth between Players, Retriggering the Damage until someone loses Health. '
+  Description: Deals v[1]{Damage} Damage if the Opponent has Shield. Upon hit, go
+    back and forth between Players, Retriggering the Damage until someone loses Health.
+    Whoever takes damages, deals 25% less Damage on their next Turn.
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 171fff75e156ab64b8ef2eacb2ede8ea, type: 3}
   id: 82
@@ -280,3 +283,101 @@ MonoBehaviour:
         BlockedBy: 1
         FailIfDamaged: 1
         DamageCameFromCard: 0
+    - rid: 5956583464553414750
+      type: {class: BuffStat, ns: , asm: Assembly-CSharp}
+      data:
+        NextInQueue: 0
+        DiscardIfAcomplished: 1
+        Conditions:
+        - rid: 5956583464553414751
+        ConfirmationConditions: []
+        BuffTarget: 0
+        StatToBuff: 0
+        Modifier:
+          type: 0
+          value:
+            type: 0
+            target: 0
+            ObservedCards:
+              target: 0
+              pile: 0
+              type: 0
+              rarity: 0
+              pack: 0
+              MaxReturnedNumber:
+                type: 2
+                value: 0
+                min: 0
+                max: 0
+              initialized: 1
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            ObservedStat: 0
+            initialized: 1
+            value: 0.75
+            min: 0
+            max: 0
+            modifiers: []
+        TurnOwner: 0
+        TurnsFromNow: 1
+        TurnPhaseToStop: 0
+        StopAtPhase: 0
+    - rid: 5956583464553414751
+      type: {class: DamageTaken, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        DamagedTarget: 0
+        CountShieldedDamage: 0
+        DamageCameFromCard: 1
+    - rid: 5956583464553414752
+      type: {class: BuffStat, ns: , asm: Assembly-CSharp}
+      data:
+        NextInQueue: 0
+        DiscardIfAcomplished: 1
+        Conditions:
+        - rid: 5956583464553414753
+        ConfirmationConditions: []
+        BuffTarget: 1
+        StatToBuff: 0
+        Modifier:
+          type: 0
+          value:
+            type: 0
+            target: 0
+            ObservedCards:
+              target: 0
+              pile: 0
+              type: 0
+              rarity: 0
+              pack: 0
+              MaxReturnedNumber:
+                type: 2
+                value: 0
+                min: 0
+                max: 0
+              initialized: 1
+            MaxReturnedNumber:
+              type: 2
+              value: 0
+              min: 0
+              max: 0
+            ObservedStat: 0
+            initialized: 1
+            value: 0.75
+            min: 0
+            max: 0
+            modifiers: []
+        TurnOwner: 1
+        TurnsFromNow: 1
+        TurnPhaseToStop: 0
+        StopAtPhase: 0
+    - rid: 5956583464553414753
+      type: {class: DamageTaken, ns: , asm: Assembly-CSharp}
+      data:
+        Repeatable: 0
+        DamagedTarget: 1
+        CountShieldedDamage: 0
+        DamageCameFromCard: 1
