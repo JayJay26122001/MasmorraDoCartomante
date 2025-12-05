@@ -50,6 +50,7 @@ public class UIController : MonoBehaviour
     public GameObject quitPanel;
     public GameObject pausePanel;
     public GameObject tutorialPanel;
+    public GameObject confirmNewGamePanel;
     [Header("Panel Buttons")]
     public GameObject leaveSettingsPanelButton;
     public GameObject leaveCreditsPanelButton;
@@ -315,6 +316,17 @@ public class UIController : MonoBehaviour
                 if (panel == tutorialPanel) { InternPanel(playPanel, tutorialPanel); }
                 else if (panel == creditsPanel) { InternPanel(settingsPanel, creditsPanel); }
                 else if(panel == changeLogPanel) { InternPanel(settingsPanel, changeLogPanel); }
+                else if(panel == confirmNewGamePanel) 
+                { 
+                    if(File.Exists(Application.dataPath + "/boardSave.json"))
+                    {
+                        InternPanel(playPanel, confirmNewGamePanel);
+                    }
+                    else
+                    {
+                        NewGame();
+                    }
+                }
             }
         }
         else
@@ -340,11 +352,12 @@ public class UIController : MonoBehaviour
         }
         else
         {
-            if (panel == tutorialPanel || panel == creditsPanel || panel == changeLogPanel)
+            if (panel == tutorialPanel || panel == creditsPanel || panel == changeLogPanel || panel == confirmNewGamePanel)
             {
                 if (panel == tutorialPanel) { InternPanel(tutorialPanel, playPanel); }
                 else if (panel == creditsPanel) { InternPanel(creditsPanel, settingsPanel); }
                 else if (panel == changeLogPanel) { InternPanel(changeLogPanel, settingsPanel); }
+                else if (panel == confirmNewGamePanel) { InternPanel(confirmNewGamePanel, playPanel); }
             }
             else
             {
@@ -354,7 +367,7 @@ public class UIController : MonoBehaviour
                     panel.SetActive(false);
                     if (SceneManager.GetActiveScene().name == "Menu")
                     {
-                        if (panel != creditsPanel && panel != tutorialPanel)
+                        if (panel != creditsPanel && panel != tutorialPanel && panel != changeLogPanel && panel != confirmNewGamePanel)
                         {
                             ShowMenuObjects();
                         }
@@ -484,6 +497,10 @@ public class UIController : MonoBehaviour
         if (shopObjectHUD != null)
         {
             shopObjectHUD.gameObject.SetActive(false);
+        }
+        if(confirmNewGamePanel != null)
+        {
+            confirmNewGamePanel.gameObject.SetActive(false);
         }
     }
 
