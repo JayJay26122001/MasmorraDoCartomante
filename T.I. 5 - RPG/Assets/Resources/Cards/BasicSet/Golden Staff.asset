@@ -23,9 +23,9 @@ MonoBehaviour:
   cost: 2
   Type: 0
   Pack: 0
-  Rarity: 2
+  Rarity: 3
   Description: Deals v[0]{Damage} Damage. Then deals Damage equal to the number of
-    the User's Coins (v[1]{Damage}).
+    the User's Coins up to 25(v[1]{Damage}).
   extraDescription: 
   CardImage: {fileID: 21300000, guid: 710d7df949361de40a450c509f7d4fd7, type: 3}
   id: 11
