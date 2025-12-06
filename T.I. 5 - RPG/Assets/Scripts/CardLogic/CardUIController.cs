@@ -439,8 +439,8 @@ public class CardUIController : MonoBehaviour
             if (card.deck.Owner != GameplayManager.instance.player)
             {
                 cardObject.GetComponent<CardDisplay>().CardDisapearanceAnimation(true);
-                LeanTween.move(cardObject, pos, instance.smallTimeAnim).setDelay(instance.delayTimeAnim + 0.25f);
-                LeanTween.rotate(cardObject, rot, instance.smallTimeAnim).setDelay(instance.delayTimeAnim + 0.25f);
+                LeanTween.move(cardObject, pos, instance.smallTimeAnim).setDelay(instance.delayTimeAnim + 0.5f);
+                LeanTween.rotate(cardObject, rot, instance.smallTimeAnim).setDelay(instance.delayTimeAnim + 0.5f);
             }
             else
             {
