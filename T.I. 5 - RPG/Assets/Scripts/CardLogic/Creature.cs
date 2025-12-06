@@ -282,6 +282,10 @@ public class Creature : MonoBehaviour
             playedCards.Remove(card);
             card.deck.BuyingPile.Remove(card);
         }
+        if(this is not Player)
+        {
+            card.cardDisplay.CardDisapearanceAnimation(true);
+        }
         CardUIController.OrganizePlayedCards(this);
         //if(card.deck.Owner != Player)
         CardUIController.OrganizeStackFlat(card.deck.DiscardPile, combatSpace.discardPileSpace);

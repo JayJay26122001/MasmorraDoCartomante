@@ -377,10 +377,6 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
 
     public void CardDisapearanceAnimation(bool disappear)
     {
-        if(inAnimation)
-        {
-            return;
-        }
         disappearing = disappear;
         this.gameObject.GetComponent<BoxCollider>().enabled = !disappear;
         animTimeStart = Time.time;
