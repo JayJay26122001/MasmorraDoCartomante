@@ -271,7 +271,7 @@ public class Creature : MonoBehaviour
             }
             e.resetEffect();
         }
-        if (card.limited)
+        if (card.limited && playedCards.Contains(card))
         {
             ExaustCard(card);
         }

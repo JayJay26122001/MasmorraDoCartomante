@@ -143,7 +143,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: PopOut
+      name: Intro
       takeName: JesterArmature|PopOut
       internalID: -3760619364290707682
       firstFrame: 0
