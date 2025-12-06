@@ -211,7 +211,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            if (pack != null || GameplayManager.instance.viewingDeck || GameplayManager.instance.duplicatingCards || GameplayManager.instance.removingCards || cardData.deck.Owner.playedCards.Contains(cardData))
+            if ((pack != null || GameplayManager.instance.viewingDeck || GameplayManager.instance.duplicatingCards || GameplayManager.instance.removingCards || cardData.deck.Owner.playedCards.Contains(cardData)) && !inAnimation)
             {
                 CameraController.instance.HighlightCard(gameObject.GetComponentsInChildren<Transform>()[1].position, this);
             }
@@ -377,6 +377,10 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
 
     public void CardDisapearanceAnimation(bool disappear)
     {
+        if (CameraController.instance.highlightCardCamera.Priority == 2 && CameraController.instance.zoomedCard == this)
+        {
+            CameraController.instance.HighlightCard(Vector3.zero, CameraController.instance.zoomedCard);
+        }
         disappearing = disappear;
         this.gameObject.GetComponent<BoxCollider>().enabled = !disappear;
         animTimeStart = Time.time;
