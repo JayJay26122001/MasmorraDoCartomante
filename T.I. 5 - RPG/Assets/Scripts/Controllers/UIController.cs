@@ -11,6 +11,7 @@ using UnityEngine.InputSystem;
 using Unity.VisualScripting.Antlr3.Runtime;
 using NUnit.Framework.Interfaces;
 using UnityEditor;
+using UnityEngine.Video;
 //using UnityEditor.SearchService;
 using Unity.Jobs;
 
@@ -19,6 +20,7 @@ public class UIController : MonoBehaviour
     string url = "https://docs.google.com/forms/d/e/1FAIpQLSe1sb1dvxVZLIG0wdQMp0D78u4RJpcvYDlaWjs45Ud-K78l1w/viewform";
     [HideInInspector] public bool gamePaused;
     [HideInInspector] public float panelAnimTime = 0.5f;
+    public VideoPlayer videoPlayer;
     [Header("Player Money Text")]
     public TextMeshPro money;
     [Header("Game Logo")]
@@ -185,6 +187,15 @@ public class UIController : MonoBehaviour
         {
             relativeInfocardPos = enemyDesc.transform.position - CameraController.instance.cameras[3].transform.position;
         }*/
+        if(videoPlayer != null)
+        {
+            videoPlayer.loopPointReached += OnVideoFinished;
+        }
+    }
+
+    public void OnVideoFinished(VideoPlayer vp)
+    {
+        ChangeScene("Menu");
     }
 
     private void Update()
@@ -271,6 +282,10 @@ public class UIController : MonoBehaviour
         if(scene == "Menu")
         {
             AudioController.instance.StopAmbienceMusic();
+        }
+        else if(scene == "Video")
+        {
+            AudioController.instance.StopMusic();
         }
     }
 

@@ -34,6 +34,10 @@ public class AudioController : MonoBehaviour
         {
             PlayMenuMusic();
         }
+        else if(SceneManager.GetActiveScene().name == "Video")
+        {
+            StopMenuMusic();
+        }
     }
 
     public void StartGameplayMusic()
@@ -137,6 +141,12 @@ public class AudioController : MonoBehaviour
 
     public void StopMusic()
     {
+        musicSource.Stop();
+    }
+
+    public void StopMenuMusic()
+    {
+        auxSource.Stop();
         musicSource.Stop();
     }
 
