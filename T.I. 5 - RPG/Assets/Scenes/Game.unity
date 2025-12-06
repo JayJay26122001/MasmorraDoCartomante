@@ -23956,6 +23956,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gamePaused: 0
   panelAnimTime: 0.5
+  videoPlayer: {fileID: 0}
   money: {fileID: 2023532461}
   gameLogo: {fileID: 0}
   newGameButton: {fileID: 0}
