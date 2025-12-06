@@ -1297,7 +1297,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1664020406}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.14083625
+  m_Size: 0.11245502
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2733,6 +2733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gamePaused: 0
   panelAnimTime: 0.5
+  videoPlayer: {fileID: 0}
   money: {fileID: 0}
   gameLogo: {fileID: 819847372}
   newGameButton: {fileID: 1317225426}
@@ -6458,7 +6459,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -25, y: 2745.2}
+  m_SizeDelta: {x: -25, y: 3551.6}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &608797158
 MonoBehaviour:
@@ -6505,7 +6506,13 @@ MonoBehaviour:
     combat UI animations\n\u2022 Added disappearance animations for the player\u2019s
     limited cards\n\u2022 Adjusted camera framing for better enemy visualization\n\u2022
     Added ID system for cards\n\u2022 New music implemented for the first level\n\u2022
-    Added music for all other levels to the project (not yet implemented in-game)"
+    Added music for all other levels to the project (not yet implemented in-game)\n\nFinal
+    Build\n\n\u2022 Card Balancing\r\n\u2022 Enemy Balancing\n\u2022 Fixed multiple
+    bugs\n\u2022 Implemented tutorial arrow\n\u2022 Added visual feedback when a
+    per chance effect fails\n\u2022 Implemented Carnival area\n\u2022 Implemented
+    new Enemies\n\u2022 Implemented new Models and Textures\n\u2022 Added Ambience
+    SFX\n\u2022 Musics Remake\n\u2022 Character animations fix\n\u2022 Cutscene Added\n\u2022
+    New Textures and Normal Map Fixes"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
   m_sharedMaterial: {fileID: 1623889163624291708, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
@@ -14198,7 +14205,10 @@ MonoBehaviour:
     Minassa Abelha\n\nGame Programming\n-Lucas Matuck de Miranda\n-Matheus Jacoby
     Costa Oliveira Hahn\n-Rafael Teixeira Dilascio \n\nGame Tester\n-Arthur Minassa
     Abelha\n\nFont\n-Kreon Regular and Kreon Bold from Julia Petretta\n\nA special
-    thanks to all the teachers and PUC Minas, who helped us during this game development."
+    thanks to all the teachers and PUC Minas, who helped us during this game development,
+    especially Professor Luis Felipe Matsya de Aruanda Ramos Garrocho during the
+    first semester of development, and Professor Daniel Pinheiro Lima during the
+    second semester, as advisors of the Interdisciplinary Project."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
   m_sharedMaterial: {fileID: 1623889163624291708, guid: 83aea9feaeb7986419337d396f51d85f, type: 2}
@@ -20834,7 +20844,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1551777567}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.85916376}
+  m_AnchorMin: {x: 0, y: 0.887545}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 30, y: 20}
