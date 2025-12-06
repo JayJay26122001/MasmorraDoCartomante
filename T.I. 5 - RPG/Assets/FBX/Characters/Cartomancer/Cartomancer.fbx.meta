@@ -7,8 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: CabinMat
+    second: {fileID: 2100000, guid: da2973a9fd6e9a846b02fcb5df4ab97d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: CartomancerMat
     second: {fileID: 2100000, guid: 4d6fccb2e445e614ea5120de2582cefc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GlassMat
+    second: {fileID: 2100000, guid: ded9731a8e9a853438630bb217a3f8be, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -36,11 +46,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: CartomancerRig|CartomancerPhase1TakeDamage
-      takeName: CartomancerRig|CartomancerPhase1TakeDamage
+      name: TakeDamage
+      takeName: TakeDamage
       internalID: -3777875433551557699
       firstFrame: 0
-      lastFrame: 35
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -65,8 +75,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: CartomancerRig|ENTREGA_CartomancerPhase1Attack
-      takeName: CartomancerRig|ENTREGA_CartomancerPhase1Attack
+      name: PlayCard
+      takeName: PlayCard
       internalID: -987375644808548065
       firstFrame: 0
       lastFrame: 40
@@ -94,40 +104,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: CartomancerRig|ENTREGA_CartomancerPhase1Idle
-      takeName: CartomancerRig|ENTREGA_CartomancerPhase1Idle
+      name: Intro
+      takeName: Intro
       internalID: -3166197355220067571
       firstFrame: 0
-      lastFrame: 750
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: CartomancerRig|ENTREGA_CartomancerPhase1TakeDamageAlt
-      takeName: CartomancerRig|ENTREGA_CartomancerPhase1TakeDamageAlt
-      internalID: 1573665063245932803
-      firstFrame: 0
-      lastFrame: 35
+      lastFrame: 99
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -152,11 +133,40 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: CartomancerRig|ENTREGA_CartomancerPhase1Taunt
-      takeName: CartomancerRig|ENTREGA_CartomancerPhase1Taunt
+      name: Idle
+      takeName: Idle
+      internalID: 1573665063245932803
+      firstFrame: 0
+      lastFrame: 751
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Defeat
+      takeName: Defeat
       internalID: 5395524589721265140
       firstFrame: 0
-      lastFrame: 60
+      lastFrame: 75
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -183,7 +193,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 20
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -238,7 +248,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.19999999
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
@@ -247,7 +257,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
