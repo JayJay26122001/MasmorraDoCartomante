@@ -41,6 +41,8 @@ public class UIController : MonoBehaviour
     public GameObject leftArrow;
     public GameObject gameNameUp;
     public GameObject gameNameDown;
+    public GameObject gameNameUp2d;
+    public GameObject gameNameDown2d;
     public float spinTime;
     [Header("3D Objects")]
     public List<GameObject> masks;
@@ -410,8 +412,12 @@ public class UIController : MonoBehaviour
         if (masks[2] != null) masks[2].SetActive(false);
         if (rightArrow != null) rightArrow.SetActive(false);
         if (leftArrow != null) leftArrow.SetActive(false);
-        if (gameNameUp != null) gameNameUp.SetActive(false);
-        if (gameNameDown != null) gameNameDown.SetActive(false);
+
+        //if (gameNameUp != null) gameNameUp.SetActive(false);
+        //if (gameNameDown != null) gameNameDown.SetActive(false);
+
+        if (gameNameUp2d != null) gameNameUp2d.SetActive(false);
+        if (gameNameDown2d != null) gameNameDown2d.SetActive(false);
     }
 
     public void CheckActiveMask() //verificar qual m�scara est� ativa antes de esconder os objetos do menu
@@ -426,8 +432,12 @@ public class UIController : MonoBehaviour
         if (activeMask != null) activeMask.SetActive(true); //ativar a m�scara correta
         if (rightArrow != null) rightArrow.SetActive(true);
         if (leftArrow != null) leftArrow.SetActive(true);
-        if (gameNameUp != null) gameNameUp.SetActive(true);
-        if (gameNameDown != null) gameNameDown.SetActive(true);
+
+        //if (gameNameUp != null) gameNameUp.SetActive(true);
+        //if (gameNameDown != null) gameNameDown.SetActive(true);
+
+        if (gameNameUp2d != null) gameNameUp2d.SetActive(true);
+        if (gameNameDown2d != null) gameNameDown2d.SetActive(true);
     }
 
     public void SetMenuButtonsInteractable(bool interactable)

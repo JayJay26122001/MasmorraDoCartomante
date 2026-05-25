@@ -2410,6 +2410,8 @@ MonoBehaviour:
   leftArrow: {fileID: 1165748043}
   gameNameUp: {fileID: 622152955}
   gameNameDown: {fileID: 286465227}
+  gameNameUp2d: {fileID: 1158175566}
+  gameNameDown2d: {fileID: 2028810165}
   spinTime: 1
   masks:
   - {fileID: 2144366209}
